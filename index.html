@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Stadtkarte — Missionen in deiner Stadt</title>
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --nacht:#14161A; --panel:#1D2026; --linie:#2C3038;
+    --papier:#F5F2E9; --grau:#9AA0AB;
+    --aufgabe:#FFC61A; --event:#2FD6C3; --angebot:#FF6A3D;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--nacht);color:var(--papier);overflow:hidden}
+  #map{position:absolute;inset:0}
+
+  /* Kopfzeile */
+  header{position:absolute;top:0;left:0;right:0;z-index:20;
+    display:flex;align-items:center;gap:10px;padding:10px 14px calc(10px);
+    padding-top:calc(10px + env(safe-area-inset-top));
+    background:linear-gradient(to bottom, rgba(20,22,26,.92), rgba(20,22,26,0));pointer-events:none}
+  header .titel{pointer-events:auto}
+  h1{font-family:'Anton',sans-serif;font-size:20px;letter-spacing:.5px;text-transform:uppercase;line-height:1}
+  h1 span{color:var(--aufgabe)}
+  .sub{font-size:11px;color:var(--grau);margin-top:2px}
+
+  /* HUD unten: Filter + Zähler */
+  .hud{position:absolute;left:0;right:0;bottom:0;z-index:20;
+    padding:10px 12px calc(12px + env(safe-area-inset-bottom));
+    background:linear-gradient(to top, rgba(20,22,26,.94) 60%, rgba(20,22,26,0));}
+  .filter{display:flex;gap:8px;max-width:560px;margin:0 auto}
+  .chip{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;
+    border:1px solid var(--linie);background:var(--panel);color:var(--papier);
+    border-radius:12px;padding:11px 6px;font:600 13px 'Inter';cursor:pointer;
+    transition:transform .12s ease, opacity .12s ease}
+  .chip:active{transform:scale(.97)}
+  .chip .punkt{width:10px;height:10px;border-radius:3px;flex:none}
+  .chip .zahl{font-family:'Anton';font-size:15px;letter-spacing:.5px}
+  .chip[data-typ="event"] .punkt{background:var(--event)}
+  .chip[data-typ="angebot"] .punkt{background:var(--angebot)}
+  .chip[data-typ="aufgabe"] .punkt{background:var(--aufgabe)}
+  .chip.aus{opacity:.35}
+  .chip:focus-visible{outline:2px solid var(--papier);outline-offset:2px}
+
+  .zfilter{display:flex;gap:8px;max-width:560px;margin:0 auto 8px}
+  .zchip{flex:1;border:1px solid var(--linie);background:transparent;color:var(--grau);
+    border-radius:10px;padding:8px 4px;font:600 12px 'Inter';cursor:pointer}
+  .zchip.an{color:var(--papier);border-color:var(--papier)}
+  .zchip:focus-visible{outline:2px solid var(--papier);outline-offset:2px}
+
+  .melden{display:block;max-width:560px;margin:8px auto 0;width:100%;
+    font-family:'Anton';font-size:15px;letter-spacing:1px;text-transform:uppercase;
+    background:var(--aufgabe);color:#141414;border:0;border-radius:12px;
+    padding:13px;cursor:pointer}
+  .melden:focus-visible{outline:2px solid var(--papier);outline-offset:2px}
+  .hinweis{max-width:560px;margin:6px auto 0;font-size:11px;color:var(--grau);text-align:center}
+
+  /* Map-Blips */
+  .blip{width:30px;height:30px;border-radius:9px;border:2px solid #14161A;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Anton';font-size:14px;color:#141414;cursor:pointer;
+    box-shadow:0 2px 8px rgba(0,0,0,.45)}
+  .blip.event{background:var(--event)}
+  .blip.angebot{background:var(--angebot)}
+  .blip.aufgabe{background:var(--aufgabe)}
+  .blip.neu{background:var(--papier);border-style:dashed;color:#141414}
+
+  /* Popup */
+  .maplibregl-popup-content{background:var(--panel);color:var(--papier);
+    border:1px solid var(--linie);border-radius:14px;padding:14px;min-width:220px;max-width:260px;
+    font-family:'Inter'}
+  .maplibregl-popup-tip{border-top-color:var(--panel)!important;border-bottom-color:var(--panel)!important}
+  .maplibregl-popup-close-button{color:var(--grau);font-size:18px;right:6px;top:4px}
+  .p-typ{font-family:'Anton';font-size:11px;letter-spacing:1.5px;text-transform:uppercase}
+  .p-typ.event{color:var(--event)} .p-typ.angebot{color:var(--angebot)} .p-typ.aufgabe{color:var(--aufgabe)}
+  .p-titel{font-weight:800;font-size:15px;margin:4px 0 6px;line-height:1.25}
+  .p-text{font-size:13px;color:#C9CDD6;line-height:1.45}
+  .p-meta{font-size:11px;color:var(--grau);margin-top:8px}
+  .p-btn{display:inline-block;margin-top:10px;font:600 12px 'Inter';color:#141414;
+    background:var(--papier);border-radius:8px;padding:8px 12px;text-decoration:none}
+
+  @media (prefers-reduced-motion: reduce){ *{transition:none!important} }
+</style>
+</head>
+<body>
+
+<div id="map" role="application" aria-label="Stadtkarte mit Missionen"></div>
+
+<header>
+  <div class="titel">
+    <h1 id="app-titel">Stadt<span>karte</span></h1>
+    <div class="sub" id="app-sub">Frankenberger Viertel · Aachen — Events · Angebote · Aufgaben</div>
+  </div>
+</header>
+
+<div class="hud">
+  <div class="zfilter" role="group" aria-label="Zeitraum filtern">
+    <button class="zchip" data-z="today">Heute</button>
+    <button class="zchip an" data-z="soon">Demnächst</button>
+    <button class="zchip" data-z="all">Alle</button>
+  </div>
+  <div class="filter" role="group" aria-label="Pins filtern">
+    <button class="chip" data-typ="event"><span class="punkt"></span>Events <span class="zahl" data-zahl>0</span></button>
+    <button class="chip" data-typ="angebot"><span class="punkt"></span>Angebote <span class="zahl" data-zahl>0</span></button>
+    <button class="chip" data-typ="aufgabe"><span class="punkt"></span>Aufgaben <span class="zahl" data-zahl>0</span></button>
+  </div>
+  <button class="melden" id="melden">＋ Pin melden</button>
+  <div class="hinweis" id="hinweis">Tippe auf die Karte, um einen Ort für deinen Pin zu wählen.</div>
+</div>
+
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script>
+/* ================= KONFIG — nur diesen Block anpassen ================= */
+const KONFIG = {
+  name: "Eventlas",                     // Markenname (DE+EU registergeprüft 07.08.2026)
+  ort: "Aachen",
+  zentrum: [6.0920, 50.7760],           // Zentral-Aachen (Markt/Zentrum/Charlemagne)
+  zoom: 13.0,                           // Breiter Zoom für ganz Aachen
+  whatsapp: "4915237752368",            // Pin-Meldungen laufen an diese Nummer
+};
+
+/* Pins: typ = "event" | "angebot" | "aufgabe"
+   wdh unterstützt mehrere Tage: "di,do". Koordinaten teils grob (±50–300 m bei *-Markierung).
+   Recherchestand: 07.08.2026 nachmittags. Gesuche von Kleinanzeigen/nebenan NUR via Nutzer-Meldung. */
+const FALLBACK_PINS = [
+  // WOCHENMÄRKTE (wiederkehrend, belegt)
+  {typ:"event", titel:"Wochenmarkt am Markt", text:"Der große Aachener Wochenmarkt vor dem Rathaus — dienstags und donnerstags vormittags.", lng:6.0838, lat:50.7762, wdh:"di,do", meta:"vormittags", link:""},
+  {typ:"event", titel:"Wochenmarkt Neumarkt", text:"Samstags 7–13 Uhr: Obst, Gemüse, Brot, Feinkost, Kaffee — Treffpunkt im Frankenberger Viertel.", lng:6.0993, lat:50.7716, wdh:"sa", meta:"Sa 7–13 Uhr", link:"https://www.aachen.de/services/wochenmaerkte/"},
+  {typ:"event", titel:"Trödelmarkt Eissporthalle", text:"Wöchentlicher Trödel an der Hubert-Wienen-Straße 8. Achtung: am 15.8. und 22.8. entfällt der Termin (Reit-WM).", lng:6.0898, lat:50.7908, wdh:"sa", meta:"samstags", link:""},
+
+  // GROSS-EVENTS AUGUST (datiert, verifiziert)
+  {typ:"event", titel:"Öcher Sommerbend", text:"Kirmes auf dem Bendplatz, täglich ab 14 Uhr — Fahrgeschäfte, Familientage, Mo 10.8. reizarme Kirmes 14–17 Uhr, Abschlussfeuerwerk am 17.8.", lng:6.0700, lat:50.7822, start:"2026-08-07", ende:"2026-08-17", meta:"Bendplatz", link:"https://www.bend-aachen.de"},
+  {typ:"event", titel:"Reit-WM: FEI World Championships", text:"13 Tage Weltmeisterschaft in 6 Disziplinen — 650 Athleten, 800 Pferde, das größte Sportereignis des Jahres in NRW. Allianz Park Soers.", lng:6.0925, lat:50.7972, start:"2026-08-11", ende:"2026-08-23", meta:"Soers", link:"https://www.aachen2026.com"},
+  {typ:"event", titel:"Reit-WM: Tag der offenen Tür", text:"Kostenloses Showprogramm im Hauptstadion, 12–15 Uhr — WM-Luft schnuppern ohne Ticket.", lng:6.0942, lat:50.7963, start:"2026-08-17", meta:"12–15 Uhr · frei", link:"https://www.aachen2026.com"},
+  {typ:"event", titel:"AR-Kunstroute zur WM", text:"Kostenlose Augmented-Reality-Route durch die Stadt: Elisengarten, Büchel, Suermondt-Ludwig-Museum, NAK-Park bis zur Soers.", lng:6.0865, lat:50.7743, start:"2026-08-11", ende:"2026-08-23", meta:"kostenlos", link:"https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/"},
+  {typ:"event", titel:"Alemannia – SC Verl", text:"Saisonauftakt am Tivoli, Anstoß 19:30 Uhr. Vorher Fanmarsch: Treffen ab 13 Uhr auf dem Markt, Abmarsch 15:30 Uhr.", lng:6.0955, lat:50.7930, start:"2026-08-09", meta:"19:30 · Tivoli", link:"https://www.alemannia-aachen.de"},
+  {typ:"event", titel:"Alemannia – SV Meppen", text:"3. Spieltag am Tivoli. Genauer Anstoß wird noch terminiert — Details auf der Vereinsseite.", lng:6.0968, lat:50.7925, start:"2026-08-28", ende:"2026-08-30", meta:"Tivoli", link:"https://www.alemannia-aachen.de"},
+  {typ:"event", titel:"Antik- & Kunstmarkt am Elisenbrunnen", text:"Antiquitäten und Kunst auf dem Friedrich-Wilhelm-Platz. Monatliche Reihe — nächster Termin: 13.9.", lng:6.0873, lat:50.7745, start:"2026-08-09", meta:"Elisenbrunnen", link:""},
+  {typ:"event", titel:"Melan Trödelmarkt (Porta)*", text:"Sonntagströdel am Gut Wolf 2 (Aachen-Nord).", lng:6.1270, lat:50.7965, start:"2026-08-09", meta:"Am Gut Wolf", link:""},
+  {typ:"event", titel:"Melan Trödelmarkt (Kaufland)*", text:"Sonntagströdel an der Breslauer Straße 35 (Aachen-Ost).", lng:6.1310, lat:50.7735, start:"2026-08-30", meta:"Breslauer Str.", link:""},
+  {typ:"event", titel:"Alleenfest + Flohmarkt", text:"Straßenfest der Frankenb(u)erger auf der Oppenhoffallee. Sa ab 18 Uhr Livemusik, So ab 11 Uhr Fest + Flohmarkt bis 18 Uhr.", lng:6.1010, lat:50.7694, start:"2026-08-29", ende:"2026-08-30", meta:"Oppenhoffallee", link:"https://wir-frankenberger.de"},
+  {typ:"event", titel:"Musikbunker Konzerte", text:"Hochbunker Goffartstraße: Konzerte, Partys, Subkultur — Programm auf der Website.", lng:6.0999, lat:50.7672, meta:"laufend", link:""},
+  {typ:"event", titel:"Centre Charlemagne", text:"Stadtgeschichte und Karlsgeschichte am Katschhof — zwischen Dom und Rathaus.", lng:6.0836, lat:50.7757, meta:"Di–So 10–18 Uhr", link:""},
+
+  // ANGEBOTE (kostenlos / Ernte)
+  {typ:"angebot", titel:"Ernte: Feigenbaum Bendstraße", text:"Öffentlicher Fundort via mundraub.org — Leiter nötig, Handstraußregel (Eigenbedarf). Saison Aug–Sept. Mehr Fundorte auf der mundraub-Karte.", lng:6.09243, lat:50.76427, meta:"Ernte · mundraub", link:"https://mundraub.org/node/93405"},
+  {typ:"angebot", titel:"Thermalwasser am Elisenbrunnen", text:"Aachens heiße Schwefelquelle kostenlos probieren — direkt am klassizistischen Brunnen.", lng:6.0871, lat:50.7747, meta:"kostenlos", link:""},
+  {typ:"angebot", titel:"[Beispiel] Sofa zu verschenken", text:"So sieht ein privater Angebots-Pin aus — mit Link zu deiner Kleinanzeige. Melde deinen eigenen über den Knopf unten.", lng:6.0900, lat:50.7735, meta:"Beispiel — dein Pin?", link:""},
+
+  // GESUCHE / AUFGABEN (Beispiele — echte kommen per WhatsApp-Meldung)
+  {typ:"aufgabe", titel:"[Beispiel] Gesuch: Kurier Innenstadt → Brand", text:"Paket bis Schuhkartongröße mitnehmen, Trinkgeld nach Absprache. Melde echte Gesuche über den Knopf unten.", lng:6.0920, lat:50.7760, meta:"Beispiel", link:""},
+  {typ:"aufgabe", titel:"[Beispiel] Gesuch: Einkaufshilfe", text:"1× pro Woche Wochenmarkt-Einkauf für Nachbarin, ca. 45 Min. So sieht ein Nachbarschafts-Gesuch aus.", lng:6.1030, lat:50.7698, meta:"Beispiel · wöchentlich", link:""},
+];
+let PINS = FALLBACK_PINS;
+/* ================= Ende KONFIG ================= */
+
+const TYPKUERZEL = {event:"E", angebot:"A", aufgabe:"K"};
+const TYPNAME = {event:"Event", angebot:"Angebot", aufgabe:"Aufgabe"};
+
+document.getElementById("app-titel").innerHTML = KONFIG.name.replace(/las$/i, '<span>las</span>');
+document.getElementById("app-sub").textContent = KONFIG.ort + " — Events · Angebote · Aufgaben";
+document.title = KONFIG.name + " — " + KONFIG.ort;
+
+const map = new maplibregl.Map({
+  container:"map",
+  style:"https://tiles.openfreemap.org/styles/liberty",
+  center:KONFIG.zentrum, zoom:KONFIG.zoom,
+  attributionControl:{compact:true}
+});
+map.addControl(new maplibregl.NavigationControl({showCompass:false}), "top-right");
+map.addControl(new maplibregl.GeolocateControl({trackUserLocation:false}), "top-right");
+
+const aktiv = {event:true, angebot:true, aufgabe:true};
+let zeit = "soon"; // "today" | "soon" (30 Tage, Standard) | "all"
+const marker = [];
+
+const HEUTE = new Date(); HEUTE.setHours(0,0,0,0);
+const TAGE = ["so","mo","di","mi","do","fr","sa"];
+const TAGN = {mo:"Mo",di:"Di",mi:"Mi",do:"Do",fr:"Fr",sa:"Sa",so:"So"};
+
+function zeitOk(p){
+  const endeStr = p.ende || p.start;
+  if(endeStr && new Date(endeStr+"T23:59:59") < HEUTE) return false; // abgelaufen: nie zeigen
+  if(zeit === "all") return true;
+  if(p.wdh) return zeit === "soon" ? true : p.wdh.split(",").includes(TAGE[HEUTE.getDay()]);
+  if(!p.start) return true; // Orte/Aufgaben ohne Datum: immer
+  const s = new Date(p.start+"T00:00:00"), e = new Date(endeStr+"T23:59:59");
+  if(zeit === "today") return s <= new Date() && new Date() <= e;
+  const limit = new Date(HEUTE); limit.setDate(limit.getDate()+30);
+  return s <= limit;
+}
+
+function fmtDatum(p){
+  if(p.wdh) return "jeden " + p.wdh.split(",").map(t=>TAGN[t]).join("/");
+  if(!p.start) return "";
+  const f = d => { const x = new Date(d+"T00:00:00"); return TAGN[TAGE[x.getDay()]] + " " + x.getDate() + "." + (x.getMonth()+1) + "."; };
+  return p.ende && p.ende !== p.start ? f(p.start) + " – " + f(p.ende) : f(p.start);
+}
+
+function popupHTML(p){
+  const link = p.link ? '<a class="p-btn" href="'+p.link+'" target="_blank" rel="noopener">Zur Anzeige</a>' : "";
+  const metaZeile = [fmtDatum(p), p.meta].filter(Boolean).join(" · ");
+  return '<div class="p-typ '+p.typ+'">'+TYPNAME[p.typ]+'</div>'+
+         '<div class="p-titel">'+p.titel+'</div>'+
+         '<div class="p-text">'+p.text+'</div>'+
+         (metaZeile ? '<div class="p-meta">'+metaZeile+'</div>' : "")+link;
+}
+
+function baueMarker(){
+  marker.forEach(x => x.m.remove());
+  marker.length = 0;
+  PINS.forEach(p=>{
+    const el = document.createElement("button");
+    el.className = "blip "+p.typ;
+    el.textContent = TYPKUERZEL[p.typ];
+    el.setAttribute("aria-label", TYPNAME[p.typ]+": "+p.titel);
+    const m = new maplibregl.Marker({element:el})
+      .setLngLat([p.lng,p.lat])
+      .setPopup(new maplibregl.Popup({offset:20}).setHTML(popupHTML(p)))
+      .addTo(map);
+    marker.push({p, m, el});
+  });
+}
+
+function ansichtAktualisieren(){
+  document.querySelectorAll(".chip").forEach(chip=>{
+    const t = chip.dataset.typ;
+    chip.querySelector("[data-zahl]").textContent = PINS.filter(p=>p.typ===t && zeitOk(p)).length;
+    chip.classList.toggle("aus", !aktiv[t]);
+    chip.setAttribute("aria-pressed", aktiv[t]);
+  });
+  document.querySelectorAll(".zchip").forEach(c=>{
+    c.classList.toggle("an", c.dataset.z === zeit);
+    c.setAttribute("aria-pressed", c.dataset.z === zeit);
+  });
+  marker.forEach(x=>{ x.el.style.display = (aktiv[x.p.typ] && zeitOk(x.p)) ? "flex" : "none"; });
+}
+document.querySelectorAll(".chip").forEach(chip=>{
+  chip.addEventListener("click", ()=>{ aktiv[chip.dataset.typ] = !aktiv[chip.dataset.typ]; ansichtAktualisieren(); });
+});
+document.querySelectorAll(".zchip").forEach(c=>{
+  c.addEventListener("click", ()=>{ zeit = c.dataset.z; ansichtAktualisieren(); });
+});
+baueMarker();
+ansichtAktualisieren();
+
+/* Live-Daten: pins.json wird bei jedem Öffnen frisch geladen.
+   Updates = nur pins.json austauschen — diese index.html bleibt für immer unverändert.
+   Fällt der Abruf aus, bleiben die eingebauten FALLBACK_PINS aktiv. */
+fetch("pins.json?v=" + Date.now(), {cache:"no-store"})
+  .then(r => r.ok ? r.json() : null)
+  .then(d => {
+    if(d && Array.isArray(d.pins) && d.pins.length){
+      PINS = d.pins;
+      baueMarker();
+      ansichtAktualisieren();
+    }
+  })
+  .catch(()=>{});
+
+/* Pin melden: Nutzer tippt Ort an → WhatsApp-Nachricht mit Koordinaten wird vorbereitet */
+let meldeModus = false, neuMarker = null;
+const meldenBtn = document.getElementById("melden");
+const hinweis = document.getElementById("hinweis");
+
+meldenBtn.addEventListener("click", ()=>{
+  meldeModus = !meldeModus;
+  meldenBtn.textContent = meldeModus ? "Ort antippen …" : "＋ Pin melden";
+  hinweis.textContent = meldeModus
+    ? "Tippe jetzt den Ort auf der Karte an."
+    : "Tippe auf die Karte, um einen Ort für deinen Pin zu wählen.";
+  if(!meldeModus && neuMarker){ neuMarker.remove(); neuMarker = null; }
+});
+
+map.on("click", (e)=>{
+  if(!meldeModus) return;
+  const {lng, lat} = e.lngLat;
+  if(neuMarker) neuMarker.remove();
+  const el = document.createElement("div");
+  el.className = "blip neu"; el.textContent = "＋";
+  neuMarker = new maplibregl.Marker({element:el}).setLngLat([lng,lat]).addTo(map);
+
+  const text = encodeURIComponent(
+    "Neuer Pin für Eventlas ("+KONFIG.ort+"):\n"+
+    "Typ (Event/Angebot/Aufgabe): \n"+
+    "Titel: \n"+
+    "Beschreibung: \n"+
+    "Link (optional): \n"+
+    "Position: "+lat.toFixed(5)+", "+lng.toFixed(5)+"\n"+
+    "(Du kannst auch einfach ein Foto vom Plakat mitschicken.)"
+  );
+  hinweis.innerHTML = 'Ort gewählt. <a style="color:var(--aufgabe);font-weight:600" href="https://wa.me/'+KONFIG.whatsapp+'?text='+text+'">Per WhatsApp senden →</a>';
+});
+</script>
+</body>
+</html>

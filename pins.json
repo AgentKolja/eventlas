@@ -1,0 +1,203 @@
+{
+ "stand": "2026-08-07",
+ "pins": [
+  {
+   "typ": "event",
+   "titel": "Wochenmarkt am Markt",
+   "text": "Der große Aachener Wochenmarkt vor dem Rathaus — dienstags und donnerstags vormittags.",
+   "lng": 6.0838,
+   "lat": 50.7762,
+   "wdh": "di,do",
+   "meta": "vormittags",
+   "link": ""
+  },
+  {
+   "typ": "event",
+   "titel": "Wochenmarkt Neumarkt",
+   "text": "Samstags 7–13 Uhr: Obst, Gemüse, Brot, Feinkost, Kaffee — Treffpunkt im Frankenberger Viertel.",
+   "lng": 6.0993,
+   "lat": 50.7716,
+   "wdh": "sa",
+   "meta": "Sa 7–13 Uhr",
+   "link": "https://www.aachen.de/services/wochenmaerkte/"
+  },
+  {
+   "typ": "event",
+   "titel": "Trödelmarkt Eissporthalle",
+   "text": "Wöchentlicher Trödel an der Hubert-Wienen-Straße 8. Achtung: am 15.8. und 22.8. entfällt der Termin (Reit-WM).",
+   "lng": 6.0898,
+   "lat": 50.7908,
+   "wdh": "sa",
+   "meta": "samstags",
+   "link": ""
+  },
+  {
+   "typ": "event",
+   "titel": "Öcher Sommerbend",
+   "text": "Kirmes auf dem Bendplatz, täglich ab 14 Uhr — Fahrgeschäfte, Familientage, Mo 10.8. reizarme Kirmes 14–17 Uhr, Abschlussfeuerwerk am 17.8.",
+   "lng": 6.07,
+   "lat": 50.7822,
+   "start": "2026-08-07",
+   "ende": "2026-08-17",
+   "meta": "Bendplatz",
+   "link": "https://www.bend-aachen.de"
+  },
+  {
+   "typ": "event",
+   "titel": "Reit-WM: FEI World Championships",
+   "text": "13 Tage Weltmeisterschaft in 6 Disziplinen — 650 Athleten, 800 Pferde, das größte Sportereignis des Jahres in NRW. Allianz Park Soers.",
+   "lng": 6.0925,
+   "lat": 50.7972,
+   "start": "2026-08-11",
+   "ende": "2026-08-23",
+   "meta": "Soers",
+   "link": "https://www.aachen2026.com"
+  },
+  {
+   "typ": "event",
+   "titel": "Reit-WM: Tag der offenen Tür",
+   "text": "Kostenloses Showprogramm im Hauptstadion, 12–15 Uhr — WM-Luft schnuppern ohne Ticket.",
+   "lng": 6.0942,
+   "lat": 50.7963,
+   "start": "2026-08-17",
+   "meta": "12–15 Uhr · frei",
+   "link": "https://www.aachen2026.com"
+  },
+  {
+   "typ": "event",
+   "titel": "AR-Kunstroute zur WM",
+   "text": "Kostenlose Augmented-Reality-Route durch die Stadt: Elisengarten, Büchel, Suermondt-Ludwig-Museum, NAK-Park bis zur Soers.",
+   "lng": 6.0865,
+   "lat": 50.7743,
+   "start": "2026-08-11",
+   "ende": "2026-08-23",
+   "meta": "kostenlos",
+   "link": "https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/"
+  },
+  {
+   "typ": "event",
+   "titel": "Alemannia – SC Verl",
+   "text": "Saisonauftakt am Tivoli, Anstoß 19:30 Uhr. Vorher Fanmarsch: Treffen ab 13 Uhr auf dem Markt, Abmarsch 15:30 Uhr.",
+   "lng": 6.0955,
+   "lat": 50.793,
+   "start": "2026-08-09",
+   "meta": "19:30 · Tivoli",
+   "link": "https://www.alemannia-aachen.de"
+  },
+  {
+   "typ": "event",
+   "titel": "Alemannia – SV Meppen",
+   "text": "3. Spieltag am Tivoli. Genauer Anstoß wird noch terminiert — Details auf der Vereinsseite.",
+   "lng": 6.0968,
+   "lat": 50.7925,
+   "start": "2026-08-28",
+   "ende": "2026-08-30",
+   "meta": "Tivoli",
+   "link": "https://www.alemannia-aachen.de"
+  },
+  {
+   "typ": "event",
+   "titel": "Antik- & Kunstmarkt am Elisenbrunnen",
+   "text": "Antiquitäten und Kunst auf dem Friedrich-Wilhelm-Platz. Monatliche Reihe — nächster Termin: 13.9.",
+   "lng": 6.0873,
+   "lat": 50.7745,
+   "start": "2026-08-09",
+   "meta": "Elisenbrunnen",
+   "link": ""
+  },
+  {
+   "typ": "event",
+   "titel": "Melan Trödelmarkt (Porta)*",
+   "text": "Sonntagströdel am Gut Wolf 2 (Aachen-Nord).",
+   "lng": 6.127,
+   "lat": 50.7965,
+   "start": "2026-08-09",
+   "meta": "Am Gut Wolf",
+   "link": ""
+  },
+  {
+   "typ": "event",
+   "titel": "Melan Trödelmarkt (Kaufland)*",
+   "text": "Sonntagströdel an der Breslauer Straße 35 (Aachen-Ost).",
+   "lng": 6.131,
+   "lat": 50.7735,
+   "start": "2026-08-30",
+   "meta": "Breslauer Str.",
+   "link": ""
+  },
+  {
+   "typ": "event",
+   "titel": "Alleenfest + Flohmarkt",
+   "text": "Straßenfest der Frankenb(u)erger auf der Oppenhoffallee. Sa ab 18 Uhr Livemusik, So ab 11 Uhr Fest + Flohmarkt bis 18 Uhr.",
+   "lng": 6.101,
+   "lat": 50.7694,
+   "start": "2026-08-29",
+   "ende": "2026-08-30",
+   "meta": "Oppenhoffallee",
+   "link": "https://wir-frankenberger.de"
+  },
+  {
+   "typ": "event",
+   "titel": "Musikbunker Konzerte",
+   "text": "Hochbunker Goffartstraße: Konzerte, Partys, Subkultur — Programm auf der Website.",
+   "lng": 6.0999,
+   "lat": 50.7672,
+   "meta": "laufend",
+   "link": ""
+  },
+  {
+   "typ": "event",
+   "titel": "Centre Charlemagne",
+   "text": "Stadtgeschichte und Karlsgeschichte am Katschhof — zwischen Dom und Rathaus.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "meta": "Di–So 10–18 Uhr",
+   "link": ""
+  },
+  {
+   "typ": "angebot",
+   "titel": "Ernte: Feigenbaum Bendstraße",
+   "text": "Öffentlicher Fundort via mundraub.org — Leiter nötig, Handstraußregel (Eigenbedarf). Saison Aug–Sept. Mehr Fundorte auf der mundraub-Karte.",
+   "lng": 6.09243,
+   "lat": 50.76427,
+   "meta": "Ernte · mundraub",
+   "link": "https://mundraub.org/node/93405"
+  },
+  {
+   "typ": "angebot",
+   "titel": "Thermalwasser am Elisenbrunnen",
+   "text": "Aachens heiße Schwefelquelle kostenlos probieren — direkt am klassizistischen Brunnen.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "meta": "kostenlos",
+   "link": ""
+  },
+  {
+   "typ": "angebot",
+   "titel": "[Beispiel] Sofa zu verschenken",
+   "text": "So sieht ein privater Angebots-Pin aus — mit Link zu deiner Kleinanzeige. Melde deinen eigenen über den Knopf unten.",
+   "lng": 6.09,
+   "lat": 50.7735,
+   "meta": "Beispiel — dein Pin?",
+   "link": ""
+  },
+  {
+   "typ": "aufgabe",
+   "titel": "[Beispiel] Gesuch: Kurier Innenstadt → Brand",
+   "text": "Paket bis Schuhkartongröße mitnehmen, Trinkgeld nach Absprache. Melde echte Gesuche über den Knopf unten.",
+   "lng": 6.092,
+   "lat": 50.776,
+   "meta": "Beispiel",
+   "link": ""
+  },
+  {
+   "typ": "aufgabe",
+   "titel": "[Beispiel] Gesuch: Einkaufshilfe",
+   "text": "1× pro Woche Wochenmarkt-Einkauf für Nachbarin, ca. 45 Min. So sieht ein Nachbarschafts-Gesuch aus.",
+   "lng": 6.103,
+   "lat": 50.7698,
+   "meta": "Beispiel · wöchentlich",
+   "link": ""
+  }
+ ]
+}
