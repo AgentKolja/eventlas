@@ -3,201 +3,212 @@
  "pins": [
   {
    "typ": "event",
-   "titel": "Wochenmarkt am Markt",
-   "text": "Der große Aachener Wochenmarkt vor dem Rathaus — dienstags und donnerstags vormittags.",
-   "lng": 6.0838,
-   "lat": 50.7762,
-   "wdh": "di,do",
-   "meta": "vormittags",
-   "link": ""
-  },
-  {
-   "typ": "event",
-   "titel": "Wochenmarkt Neumarkt",
-   "text": "Samstags 7–13 Uhr: Obst, Gemüse, Brot, Feinkost, Kaffee — Treffpunkt im Frankenberger Viertel.",
-   "lng": 6.0993,
-   "lat": 50.7716,
-   "wdh": "sa",
-   "meta": "Sa 7–13 Uhr",
-   "link": "https://www.aachen.de/services/wochenmaerkte/"
-  },
-  {
-   "typ": "event",
-   "titel": "Trödelmarkt Eissporthalle",
-   "text": "Wöchentlicher Trödel an der Hubert-Wienen-Straße 8. Achtung: am 15.8. und 22.8. entfällt der Termin (Reit-WM).",
-   "lng": 6.0898,
-   "lat": 50.7908,
-   "wdh": "sa",
-   "meta": "samstags",
-   "link": ""
-  },
-  {
-   "typ": "event",
-   "titel": "Öcher Sommerbend",
-   "text": "Kirmes auf dem Bendplatz, täglich ab 14 Uhr — Fahrgeschäfte, Familientage, Mo 10.8. reizarme Kirmes 14–17 Uhr, Abschlussfeuerwerk am 17.8.",
-   "lng": 6.07,
-   "lat": 50.7822,
+   "titel": "Öcher Sommerbend 2026",
+   "text": "Die beliebte Aachener Sommerkirmes findet vom 7. bis 17. August auf dem Bendplatz statt. Zahlreiche Fahrgeschäfte, Kulinarik und am letzten Tag ein Abschlussfeuerwerk um ca. 22 Uhr.",
+   "lng": 6.0607,
+   "lat": 50.781,
+   "meta": "Kirmes · Eintritt frei (Fahrgeschäfte kostenpflichtig) · tägl. ab 14 Uhr",
+   "link": "https://www.bend-aachen.de/",
    "start": "2026-08-07",
-   "ende": "2026-08-17",
-   "meta": "Bendplatz",
-   "link": "https://www.bend-aachen.de"
+   "ende": "2026-08-17"
   },
   {
    "typ": "event",
-   "titel": "Reit-WM: FEI World Championships",
-   "text": "13 Tage Weltmeisterschaft in 6 Disziplinen — 650 Athleten, 800 Pferde, das größte Sportereignis des Jahres in NRW. Allianz Park Soers.",
-   "lng": 6.0925,
-   "lat": 50.7972,
+   "titel": "FEI World Championships Aachen 2026 – Reit-WM",
+   "text": "Die Reitsport-Weltmeisterschaft in sechs Disziplinen findet vom 11. bis 23. August im Allianz Park der Aachener Soers statt. Erwartet werden 650 Athleten aus 35 Nationen und rund 500.000 Besucher.",
+   "lng": 6.0914,
+   "lat": 50.7953,
+   "meta": "Pferdesport · Tickets erforderlich · Allianz Park, Soers",
+   "link": "https://tickets.aachen2026.com/",
    "start": "2026-08-11",
-   "ende": "2026-08-23",
-   "meta": "Soers",
-   "link": "https://www.aachen2026.com"
+   "ende": "2026-08-23"
   },
   {
    "typ": "event",
-   "titel": "Reit-WM: Tag der offenen Tür",
-   "text": "Kostenloses Showprogramm im Hauptstadion, 12–15 Uhr — WM-Luft schnuppern ohne Ticket.",
-   "lng": 6.0942,
-   "lat": 50.7963,
-   "start": "2026-08-17",
-   "meta": "12–15 Uhr · frei",
-   "link": "https://www.aachen2026.com"
-  },
-  {
-   "typ": "event",
-   "titel": "AR-Kunstroute zur WM",
-   "text": "Kostenlose Augmented-Reality-Route durch die Stadt: Elisengarten, Büchel, Suermondt-Ludwig-Museum, NAK-Park bis zur Soers.",
-   "lng": 6.0865,
-   "lat": 50.7743,
+   "titel": "Aachen WM Special – Stadtprogramm zur Reit-WM",
+   "text": "Begleitend zur Reit-WM bespielt die Stadt Aachen die Innenstadt auf Markt und Katschhof mit Konzerten, Food-Märkten und einer Augmented-Reality-Kunstroute. Das Programm ist kostenlos zugänglich.",
+   "lng": 6.0831,
+   "lat": 50.7751,
+   "meta": "Stadtfest · kostenlos · Markt & Katschhof",
+   "link": "https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/",
    "start": "2026-08-11",
-   "ende": "2026-08-23",
-   "meta": "kostenlos",
-   "link": "https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/"
+   "ende": "2026-08-23"
   },
   {
    "typ": "event",
-   "titel": "Alemannia – SC Verl",
-   "text": "Saisonauftakt am Tivoli, Anstoß 19:30 Uhr. Vorher Fanmarsch: Treffen ab 13 Uhr auf dem Markt, Abmarsch 15:30 Uhr.",
-   "lng": 6.0955,
-   "lat": 50.793,
+   "titel": "Alemannia Aachen – Heimspiel vs. SC Verl (1. Spieltag)",
+   "text": "Saisonauftakt der Alemannia in der 3. Liga: Heimspiel gegen den SC Verl am 9. August (19:30 Uhr) am Tivoli. Es ist das erste Pflichtspiel der neuen Saison 2026/27.",
+   "lng": 6.0746,
+   "lat": 50.7596,
+   "meta": "Fußball 3. Liga · Tivoli · Anpfiff 19:30 Uhr",
+   "link": "https://www.alemannia-aachen.de/",
    "start": "2026-08-09",
-   "meta": "19:30 · Tivoli",
-   "link": "https://www.alemannia-aachen.de"
+   "ende": "2026-08-09"
   },
   {
    "typ": "event",
-   "titel": "Alemannia – SV Meppen",
-   "text": "3. Spieltag am Tivoli. Genauer Anstoß wird noch terminiert — Details auf der Vereinsseite.",
-   "lng": 6.0968,
-   "lat": 50.7925,
+   "titel": "Alemannia Aachen – Heimspiel vs. SV Meppen (3. Spieltag)",
+   "text": "Das dritte Saisonspiel ist ein Heimspiel am Tivoli gegen den Aufsteiger SV Meppen. Der genaue Anstoß-Termin liegt im Zeitraum 28.–30. August 2026.",
+   "lng": 6.0746,
+   "lat": 50.7596,
+   "meta": "Fußball 3. Liga · Tivoli · Zeitraum 28.–30. August",
+   "link": "https://www.alemannia-aachen.de/",
    "start": "2026-08-28",
-   "ende": "2026-08-30",
-   "meta": "Tivoli",
-   "link": "https://www.alemannia-aachen.de"
+   "ende": "2026-08-30"
+  },
+  {
+   "typ": "event",
+   "titel": "Konzert: Soen im Musikbunker Aachen",
+   "text": "Die schwedische Progressive-Metal-Band Soen tritt am 13. August um 20 Uhr im Musikbunker Aachen auf. VVK ca. 37 € zzgl. Gebühren.",
+   "lng": 6.0716,
+   "lat": 50.7811,
+   "meta": "Konzert · Progressive Metal · Musikbunker, Rehmannstr. 26",
+   "link": "https://mubu.ac/event/soen/",
+   "start": "2026-08-13",
+   "ende": "2026-08-13"
+  },
+  {
+   "typ": "event",
+   "titel": "Konzert: The Dreadnoughts im Musikbunker Aachen",
+   "text": "The Dreadnoughts spielen am 14. August um 20 Uhr im Musikbunker Aachen. Tickets ca. 28 € im Vorverkauf erhältlich.",
+   "lng": 6.0716,
+   "lat": 50.7811,
+   "meta": "Konzert · Punk/Folk · Musikbunker, Rehmannstr. 26",
+   "link": "https://musikbunkeraachen.bigcartel.com/",
+   "start": "2026-08-14",
+   "ende": "2026-08-14"
+  },
+  {
+   "typ": "event",
+   "titel": "CSD Aachen 2026 – Christopher Street Day",
+   "text": "Der Aachener Pride findet am 28. und 29. August auf Markt und Katschhof statt. Am Freitag startet das Programm ab 17 Uhr, am Samstag ab 13 Uhr mit Parade, Konzerten und Infoständen.",
+   "lng": 6.0831,
+   "lat": 50.7753,
+   "meta": "Pride · kostenlos · Markt & Katschhof",
+   "link": "https://www.csd-aachen.de/",
+   "start": "2026-08-28",
+   "ende": "2026-08-29"
+  },
+  {
+   "typ": "event",
+   "titel": "Alleenfest Frankenberger Viertel 2026",
+   "text": "Das jährliche Straßenfest auf der Oppenhoffallee startet am 30. August ab 18 Uhr mit Live-Musik. Am 31. August folgt ab 11 Uhr ein Flohmarkt und Bühnenprogramm mit Vereinen und Institutionen.",
+   "lng": 6.0879,
+   "lat": 50.7654,
+   "meta": "Straßenfest · kostenlos · Oppenhoffallee",
+   "link": "https://frankenbuerger.de/",
+   "start": "2026-08-30",
+   "ende": "2026-08-31"
+  },
+  {
+   "typ": "event",
+   "titel": "Trödelmarkt Aachen Eissporthalle (100,5 Arena)",
+   "text": "Wöchentlicher Trödelmarkt an der Eissporthalle 100,5 Arena, samstags an der Hubert-Wienen-Straße 8. Veranstalter: Höfges Event Group. Hinweis: Einzelne Termine können ausfallen – vorab prüfen.",
+   "lng": 6.0539,
+   "lat": 50.7865,
+   "meta": "Flohmarkt · Hubert-Wienen-Str. 8, 52070 Aachen",
+   "link": "https://meine-flohmarkt-termine.de/ort/aachen",
+   "wdh": "sa"
   },
   {
    "typ": "event",
    "titel": "Antik- & Kunstmarkt am Elisenbrunnen",
-   "text": "Antiquitäten und Kunst auf dem Friedrich-Wilhelm-Platz. Monatliche Reihe — nächster Termin: 13.9.",
-   "lng": 6.0873,
-   "lat": 50.7745,
+   "text": "Sonntags findet am Friedrich-Wilhelm-Platz (Elisenbrunnen) ein Antik- und Kunstmarkt statt. Nächster Termin: 9. August 2026, organisiert vom AVA-VeranstaltungsService.",
+   "lng": 6.0842,
+   "lat": 50.7739,
+   "meta": "Antikmarkt · Friedrich-Wilhelm-Platz · sonntags",
+   "link": "https://meine-flohmarkt-termine.de/ort/aachen",
    "start": "2026-08-09",
-   "meta": "Elisenbrunnen",
-   "link": ""
+   "wdh": "so"
   },
   {
    "typ": "event",
-   "titel": "Melan Trödelmarkt (Porta)*",
-   "text": "Sonntagströdel am Gut Wolf 2 (Aachen-Nord).",
-   "lng": 6.127,
-   "lat": 50.7965,
+   "titel": "Flohmarkt Melan Trödelmarkt Aachen Porta",
+   "text": "Sonntäglicher Flohmarkt am Standort Porta Möbel (Am Gut Wolf 2, 52070 Aachen), veranstaltet von Melan macht Märkte. Nächster belegter Termin: 9. August 2026.",
+   "lng": 6.0308,
+   "lat": 50.7937,
+   "meta": "Flohmarkt · Am Gut Wolf 2, 52070 Aachen · so",
+   "link": "https://meine-flohmarkt-termine.de/ort/aachen",
    "start": "2026-08-09",
-   "meta": "Am Gut Wolf",
-   "link": ""
+   "wdh": "so"
   },
   {
    "typ": "event",
-   "titel": "Melan Trödelmarkt (Kaufland)*",
-   "text": "Sonntagströdel an der Breslauer Straße 35 (Aachen-Ost).",
-   "lng": 6.131,
-   "lat": 50.7735,
-   "start": "2026-08-30",
-   "meta": "Breslauer Str.",
-   "link": ""
+   "titel": "Aachener Fahrradmarkt (Platanenplatz / Kármán-Auditorium)",
+   "text": "Einmal im Monat findet auf dem Platanenplatz oberhalb des Kármán-Auditoriums ein Gebrauchtfahrradmarkt statt. Nächster Termin: 8. August 2026, 9–16 Uhr.",
+   "lng": 6.0663,
+   "lat": 50.7769,
+   "meta": "Fahrradmarkt · Platanenplatz · 09:00–16:00 Uhr",
+   "link": "https://kingkalli.de/flohmarkt/",
+   "start": "2026-08-08",
+   "ende": "2026-08-08"
   },
   {
    "typ": "event",
-   "titel": "Alleenfest + Flohmarkt",
-   "text": "Straßenfest der Frankenb(u)erger auf der Oppenhoffallee. Sa ab 18 Uhr Livemusik, So ab 11 Uhr Fest + Flohmarkt bis 18 Uhr.",
-   "lng": 6.101,
-   "lat": 50.7694,
-   "start": "2026-08-29",
-   "ende": "2026-08-30",
-   "meta": "Oppenhoffallee",
-   "link": "https://wir-frankenberger.de"
+   "titel": "Wochenmarkt am Elisenbrunnen",
+   "text": "Dienstags und donnerstags von 7 bis 14 Uhr findet am Friedrich-Wilhelm-Platz (Elisenbrunnen) der große Aachener Wochenmarkt statt. Frische Regionalprodukte, Blumen und Kulinarik.",
+   "lng": 6.0842,
+   "lat": 50.7739,
+   "meta": "Wochenmarkt · Friedrich-Wilhelm-Platz 14 · di & do 07–14 Uhr",
+   "link": "https://www.aachen.de/services/wochenmaerkte/",
+   "wdh": "di,do"
   },
   {
    "typ": "event",
-   "titel": "Musikbunker Konzerte",
-   "text": "Hochbunker Goffartstraße: Konzerte, Partys, Subkultur — Programm auf der Website.",
-   "lng": 6.0999,
-   "lat": 50.7672,
-   "meta": "laufend",
-   "link": ""
-  },
-  {
-   "typ": "event",
-   "titel": "Centre Charlemagne",
-   "text": "Stadtgeschichte und Karlsgeschichte am Katschhof — zwischen Dom und Rathaus.",
+   "titel": "Bio-Wochenmarkt am Münsterplatz",
+   "text": "Jeden Samstag von 9 bis 14 Uhr bieten regionale Bio-Erzeuger am Münsterplatz direkt neben dem Aachener Dom frische ökologische Produkte an.",
    "lng": 6.0836,
-   "lat": 50.7757,
-   "meta": "Di–So 10–18 Uhr",
-   "link": ""
+   "lat": 50.7745,
+   "meta": "Biomarkt · Münsterplatz · sa 09–14 Uhr",
+   "link": "https://www.aachen.de/strukturierte-daten/orte/wochenmaerkte/wochenmarkt-muensterplatz-innenstadt/",
+   "wdh": "sa"
+  },
+  {
+   "typ": "event",
+   "titel": "Aachener Friedenspreis-Verleihung 2026",
+   "text": "Am 1. September wird der Aachener Friedenspreis in der Aula Carolina verliehen. Ausgezeichnet werden der Amirkabir-Newsletter aus dem Iran sowie Birgit und Horst Lohmeyer. Beginn: 19 Uhr.",
+   "lng": 6.085,
+   "lat": 50.7761,
+   "meta": "Kulturveranstaltung · Aula Carolina · 19:00 Uhr",
+   "link": "https://aachen-kalender.de/events/monat/",
+   "start": "2026-09-01",
+   "ende": "2026-09-01"
   },
   {
    "typ": "angebot",
-   "titel": "Ernte: Feigenbaum Bendstraße",
-   "text": "Öffentlicher Fundort via mundraub.org — Leiter nötig, Handstraußregel (Eigenbedarf). Saison Aug–Sept. Mehr Fundorte auf der mundraub-Karte.",
-   "lng": 6.09243,
-   "lat": 50.76427,
-   "meta": "Ernte · mundraub",
-   "link": "https://mundraub.org/node/93405"
+   "titel": "Mundraub: Brombeeren in Aachen",
+   "text": "Öffentlich zugänglicher Brombeerstrauch in Aachen, eingetragen auf mundraub.org. Kleine Mengen zum Eigenbedarf dürfen gepflückt werden – bitte behutsam ernten.",
+   "lng": 6.075,
+   "lat": 50.768,
+   "meta": "Mundraub · Brombeere · kostenlos · Saison: Juli–Sept.",
+   "link": "https://mundraub.org/node/74856"
   },
   {
    "typ": "angebot",
-   "titel": "Thermalwasser am Elisenbrunnen",
-   "text": "Aachens heiße Schwefelquelle kostenlos probieren — direkt am klassizistischen Brunnen.",
-   "lng": 6.0871,
-   "lat": 50.7747,
-   "meta": "kostenlos",
-   "link": ""
+   "titel": "Mundraub: Apfelbaum in Aachen",
+   "text": "Öffentlich zugänglicher Apfelbaum in Aachen, gemeldet auf mundraub.org. Reife je nach Sorte ab August – kleine Mengen für den Eigenbedarf erlaubt.",
+   "lng": 6.081,
+   "lat": 50.772,
+   "meta": "Mundraub · Apfel · kostenlos · Saison: Aug.–Okt.",
+   "link": "https://mundraub.org/node/76081"
   },
   {
    "typ": "angebot",
-   "titel": "[Beispiel] Sofa zu verschenken",
-   "text": "So sieht ein privater Angebots-Pin aus — mit Link zu deiner Kleinanzeige. Melde deinen eigenen über den Knopf unten.",
-   "lng": 6.09,
-   "lat": 50.7735,
-   "meta": "Beispiel — dein Pin?",
-   "link": ""
+   "titel": "Mundraub: Haselnussstrauch in Aachen",
+   "text": "Öffentlich zugänglicher Haselnussstrauch in Aachen, eingetragen auf mundraub.org. Ernte typischerweise ab August/September – bitte Standort vorab auf der Karte prüfen.",
+   "lng": 6.088,
+   "lat": 50.77,
+   "meta": "Mundraub · Haselnuss · kostenlos · Saison: Aug.–Sept.",
+   "link": "https://mundraub.org/node/79694"
   },
   {
-   "typ": "aufgabe",
-   "titel": "[Beispiel] Gesuch: Kurier Innenstadt → Brand",
-   "text": "Paket bis Schuhkartongröße mitnehmen, Trinkgeld nach Absprache. Melde echte Gesuche über den Knopf unten.",
+   "typ": "angebot",
+   "titel": "Mundraub: Esskastanie in Aachen",
+   "text": "Ein Maronenbaum an der Straße in Aachen, gemeldet auf mundraub.org. Reife der Früchte typischerweise ab Oktober – Ort auf der mundraub-Karte einsehen.",
    "lng": 6.092,
    "lat": 50.776,
-   "meta": "Beispiel",
-   "link": ""
-  },
-  {
-   "typ": "aufgabe",
-   "titel": "[Beispiel] Gesuch: Einkaufshilfe",
-   "text": "1× pro Woche Wochenmarkt-Einkauf für Nachbarin, ca. 45 Min. So sieht ein Nachbarschafts-Gesuch aus.",
-   "lng": 6.103,
-   "lat": 50.7698,
-   "meta": "Beispiel · wöchentlich",
-   "link": ""
+   "meta": "Mundraub · Esskastanie · kostenlos · Saison: Okt.–Nov.",
+   "link": "https://mundraub.org/node/81992"
   }
  ]
 }
