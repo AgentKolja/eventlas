@@ -1,0 +1,32 @@
+name: Eventlas täglich aktualisieren
+
+on:
+  schedule:
+    - cron: "30 5 * * *"   # 05:30 UTC = 07:30 Sommerzeit / 06:30 Winterzeit in Aachen
+  workflow_dispatch: {}     # erlaubt manuellen Klick-Start unter "Actions" zum Testen
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Pins recherchieren und schreiben
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/update-pins.mjs
+
+      - name: Änderungen committen (nur wenn pins.json sich geändert hat)
+        run: |
+          git config user.name "Eventlas Auto-Update"
+          git config user.email "actions@github.com"
+          git add pins.json
+          git diff --cached --quiet && echo "Keine Änderung, nichts zu committen." || git commit -m "Auto-Update pins.json ($(date -u +%Y-%m-%d))"
+          git push
