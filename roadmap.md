@@ -74,6 +74,27 @@ niemals fremde Texte/Fotos übernehmen — bei Namensgleichheit zusätzlich: kla
 Bezugnahme. Für internationale Events später bessere Quellen: Ticketmaster Discovery API,
 OpenAgenda, offizielle Tourismusportale.
 
+## Spielstätten-System (venues.json) — Schlüssel für Konzerte & andere Städte
+**Problem, das es löst:** Häuser mit wechselndem Programm (Musikbunker, Eurogress, FRANZ, Südoase …)
+tauchen bei allgemeiner Websuche kaum auf — deshalb fehlten Konzerte fast komplett.
+
+**Lösung:** `venues.json` listet pro Stadt die Spielstätten mit **geprüften Koordinaten**,
+Programm-URL, Art und Tags. Das Update-Skript
+1. schreibt diese Liste in den Rechercheauftrag ("prüfe gezielt das Programm dieser Häuser"),
+2. **snappt** gefundene Events auf die hinterlegten Koordinaten (Ende geratener Positionen),
+3. warnt im Log, wenn kaum Musik-Pins herauskommen (→ Programmseite tot/umgezogen).
+
+**Neue Stadt aufschalten** (ohne eine Zeile Code):
+1. In `venues.json` unter `staedte` einen Eintrag anlegen: `name`, `bbox`, optional `kulturApi`,
+   dazu die Spielstätten mit `name`, `lng`, `lat`, `programm`, `tags`, optional `aliase`.
+2. Update-Skript mit `STADT=<schluessel>` starten (GitHub-Action-Variable).
+3. In `index.html` → `STAEDTE` denselben Schlüssel ergänzen (Zentrum + Zoom + Pins-Datei).
+Aufruf dann über `?stadt=<schluessel>`.
+
+**Pflege:** Sechs Aachener Einträge tragen `"koordinaten_pruefen": true` — deren Adresse/Position
+ist noch nicht endgültig verifiziert (Südoase, Hotel Europa, AZ, Apollo, Domkeller, Klangbrücke).
+Beim nächsten Durchgang prüfen und das Flag entfernen.
+
 ## Content-Pipeline (aktualisiert 08.08.)
 **Automatisch (GitHub Action, täglich 05:30 UTC):** scripts/update-pins.mjs
 1. Feste Pins (`fest:true`) bleiben immer: Fotospots, Ernteorte, Beispiele, Wochenmärkte, Alleenfest.
