@@ -23,9 +23,15 @@ Zum Live-Bestand gehören inzwischen: `index.html`, `pins.json`, `manifest.json`
   DPMA Di 11.08., eigene Mail-Adresse → siehe todos.md.
 
 ## Wie die Karte jetzt funktioniert (V2-Architektur)
-- **Kategorien:** `event` (türkis, Kreis, Kalender-Icon) · `angebot` (orange, Quadrat, Geschenk) ·
-  `hilfe` (gelb, Raute, Herz) · `spot` (violett, Ring, Kamera). Form + Icon + Farbe → auch für
-  Farbenblinde unterscheidbar. Altes `aufgabe` wird automatisch als `hilfe` gelesen.
+- **Kategorien (4, feste Chip-Reihe):** `event` (türkis, Kreis, Kalender-Icon) · `angebot`
+  (orange, Quadrat, Geschenk) · `hilfe` (gelb, Raute, Herz) · `spot` (violett, Ring, Kamera).
+  Form + Icon + Farbe → auch für Farbenblinde unterscheidbar. Altes `aufgabe` = `hilfe`.
+- **Themen (genau 9, scrollbare Chip-Leiste):** musik · party · kultur · fest · flohmarkt ·
+  essen · sport · kinder · ernte. Mehr überfordert, weniger unterscheidet zu grob.
+  **Bewusst KEINE Tags** (Stand 08.08., nach Nutzertest): `kostenlos` (Eigenschaft → Meta-Zeile
+  + Volltextsuche), `natur`/`saisonal` (Doppelung zu ernte), `markt` (Doppelung zu essen),
+  `fotospot`/`hilfe`/`verschenken` (Doppelung zur Kategorie-Reihe). Unbekannte Tags werden beim
+  Laden verworfen — so bläht auch das Auto-Update die Leiste nicht wieder auf.
 - **Pin-Schema:** `tags[]`, `quelle` (Beleg-URL im Popup), `link` (CTA), `hot` (🔥-Puls),
   `hinzu` (für Neu-Badge), `saison {von,bis}` (jährlich wiederkehrend, MM-TT), `fest` (Auto-Update
   löscht nie), `wdh`, `start/ende`.
@@ -172,6 +178,13 @@ Anzeige — verlinken ist erlaubt. Wachstum manuell und sparsam (Einzel-Anschrei
   bei Klick auffächern (Spiderfy) oder bei niedrigem Zoom leicht versetzen.
 
 ## Erledigt-Log
+**08.08. spätnachts (KI-Agent, dritter Nutzertest):** **Kategorien halbiert** — von 15 auf 9
+Themen, alle Doppelungen aufgelöst (Natur/Ernte/Saisonal beschrieben dieselben Pins, ebenso
+Essen/Markt). **Highlights clustern jetzt mit:** Sie waren vom Clustering ausgenommen und
+überlagerten sich am Markt zu 17 verschmierten Glut-Ringen. Der Cluster trägt Flamme und Ring
+stellvertretend; liegen Pins praktisch aufeinander, öffnet ein Tipp die Liste statt zu zoomen.
+Neuer Chip **🔥 Highlights** zeigt alle beliebten Pins auf einmal (ohne Clustering, Karte zoomt
+passend heraus).
 **08.08. Nacht (KI-Agent):** **Orientierung statt Datenflut** — mit 144 Pins wurde die Karte
 unübersichtlich. Drei Ebenen dagegen: (1) **„🔥 Was ist los?"** als erster Tab der Listenansicht
 — Heute und Als Nächstes, je max. 8 Einträge nach Relevanz (Highlight-Flag, Zeitnähe,
