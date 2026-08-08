@@ -186,7 +186,27 @@ Anzeige — verlinken ist erlaubt. Wachstum manuell und sparsam (Einzel-Anschrei
 - **Marker-Spreizung bei Überlappung:** Am Katschhof liegen mehrere Pins fast übereinander —
   bei Klick auffächern (Spiderfy) oder bei niedrigem Zoom leicht versetzen.
 
+## Mobile-Konzept (Stand 09.08., nach Messung)
+Ausgangslage: HUD belegte 25 % des Bildschirms (auf 360×740 sogar 32 %), Touch-Ziele lagen bei
+30–36 px statt der empfohlenen 44 px, und jeder Klick auf ein Listen-Element zerstörte den
+Kontext (Liste zu → Pin auf der Karte suchen).
+
+- **Detail-Sheet statt Karten-Popup** (nur Mobil): Infos fahren von unten ein, Karte bleibt oben
+  sichtbar, alle Knöpfe in Daumenreichweite. Wischen nach unten schließt, seitlich blättert.
+  Am Desktop bleibt das Popup — dort ist Platz und die Maus zielt genau.
+- **Liste ↔ Detail ohne Kontextverlust:** „‹ Zurück zur Liste" führt in denselben Tab zurück.
+- **Filter einklappbar** (nur Mobil, Zustand gemerkt): kleine Displays starten eingeklappt →
+  575 px Karte statt 419 px. Ein „aktiv"-Marker zeigt eingeklappt, dass Filter greifen.
+- **Aktionshierarchie:** eine Primäraktion in voller Breite (Tickets bzw. Route), Rest kompakt.
+- **Gerätespezifisches:** `100dvh` gegen Safaris einfahrende Adressleiste, Eingabefelder ≥15 px
+  gegen iOS-Auto-Zoom, Querformat-Regeln ab Höhe ≤520 px, `overscroll-behavior` gegen das
+  Gummiband über der Karte.
+
 ## Erledigt-Log
+**09.08. (KI-Agent, Mobile-Optimierung):** Systematisch vermessen und umgebaut — Detail-Sheet
+statt Popup, Liste↔Detail ohne Kontextverlust, einklappbare Filter, Touch-Ziele auf Norm,
+Aktionshierarchie, Querformat- und iOS-Regeln. Details siehe „Mobile-Konzept" oben.
+
 **09.08. (KI-Agent, fünfter Nutzertest):** **Liste ist Haupteinstieg** — steht gleichwertig im
 HUD neben „Pin melden" und zeigt die Trefferzahl live; Tabs heißen jetzt verständlich
 „🔥 Aktuell / 📍 Auf der Karte / 🍏 Saison". **Cluster öffnen ab 6 Pins die Liste** statt zu
