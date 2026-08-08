@@ -3,7 +3,7 @@
    Nutzer die neue Version sofort sehen, nicht erst nach Cache-Ablauf. Der Cache ist nur
    das Sicherheitsnetz für "kein Netz" (U-Bahn, Funkloch auf dem Wochenmarkt).
    Karten-Kacheln werden NICHT gecacht — das wären tausende Dateien. */
-const CACHE = "eventlas-v2";
+const CACHE = "eventlas-v3";
 
 // App-Shell: das Minimum, mit dem die Karte startet
 const SHELL = [
@@ -12,6 +12,8 @@ const SHELL = [
   "./pins.json",
   "./icon-192.png",
   "./icon-512.png",
+  "./schriften/anton.woff2",
+  "./schriften/inter.woff2",
   "https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js",
   "https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css",
 ];
@@ -42,8 +44,9 @@ self.addEventListener("fetch", e => {
   // Karten-Kacheln und Tile-Metadaten: immer direkt aus dem Netz, nie cachen.
   if (/tiles\.openfreemap\.org|openmaptiles|\.pbf($|\?)/.test(url.href)) return;
 
-  // Schriften und Bibliotheken: cache-first (versionierte URLs, ändern sich nie)
-  if (/fonts\.(googleapis|gstatic)\.com|unpkg\.com/.test(url.hostname)) {
+  // Bibliotheken: cache-first (versionierte URLs, ändern sich nie).
+  // Schriften liegen lokal und laufen über den Origin-Zweig weiter unten.
+  if (/unpkg\.com/.test(url.hostname)) {
     e.respondWith(
       caches.match(req).then(treffer => treffer || fetch(req).then(res => {
         const kopie = res.clone();

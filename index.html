@@ -27,9 +27,17 @@
 <title>Eventlas — Aachen</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314161A'/%3E%3Ccircle cx='32' cy='27' r='13' fill='%23FFC61A'/%3E%3Cpath d='M32 58 22 38h20z' fill='%23FFC61A'/%3E%3Ccircle cx='32' cy='27' r='5' fill='%2314161A'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
+  /* Schriften liegen im Projekt statt bei Google. Die dynamische Einbindung von Google Fonts
+     überträgt bei jedem Aufruf die IP-Adresse in die USA — das LG München hat das 2022 als
+     Datenschutzverstoß gewertet (3 O 17493/20). Lokal gehostet entfällt der Drittkontakt
+     vollständig, und die Karte lädt schneller. Inter ist eine Variable Font: eine Datei
+     deckt alle Schnitte ab. */
+  @font-face{font-family:'Anton';font-style:normal;font-weight:400;font-display:swap;
+    src:url('schriften/anton.woff2') format('woff2')}
+  @font-face{font-family:'Inter';font-style:normal;font-weight:100 900;font-display:swap;
+    src:url('schriften/inter.woff2') format('woff2')}
+
   :root{
     --nacht:#14161A; --panel:#1D2026; --linie:#2C3038;
     --papier:#F5F2E9; --grau:#9AA0AB;
@@ -1926,8 +1934,24 @@ function zeigeInfo(){
     '<div class="zeile"><span>'+esc(standText())+'</span><button class="aktion" id="daten-neu">Neu laden</button></div>'+
     '<p class="klein">Termine werden täglich automatisch recherchiert und von Hand geprüft. '+
     'Fehler gefunden? Über 💡 melden — wird schnell korrigiert.</p>'+
+    '<h3>Deine Daten mitnehmen</h3>'+
+    '<div class="zeile"><span>Alle Orte als Datei für deine Karten-App</span><button class="aktion" id="daten-export">Exportieren</button></div>'+
     '<h3>Datenschutz</h3>'+
-    '<p class="klein">Keine Cookies, kein Tracking, keine Konten. Interessen, Rang und Heimat-Bereich liegen ausschließlich in deinem Browser (localStorage) und lassen sich hier jederzeit löschen. Karten-Kacheln: OpenFreeMap/OpenMapTiles © OpenStreetMap.</p>'+
+    '<p class="klein"><b>Kein Tracking, keine Cookies, keine Konten</b> — und deshalb auch kein '+
+    'Einwilligungsbanner. Interessen, Merkliste, Rang und Heimat-Bereich liegen ausschließlich in '+
+    'deinem Browser (localStorage) und lassen sich oben jederzeit löschen. Wir speichern nichts '+
+    'auf einem Server.</p>'+
+    '<p class="klein">Damit die Karte gezeichnet werden kann, lädt dein Browser Kartenkacheln von '+
+    '<b>OpenFreeMap</b> (Hyperknot Software Kft., Ungarn — Server in der EU, Auslieferung über '+
+    'Cloudflare). Dabei wird deine IP-Adresse übertragen; OpenFreeMap speichert nach eigenen '+
+    'Angaben standardmäßig keine IP-Adressen. Rechtsgrundlage: berechtigtes Interesse an der '+
+    'Darstellung der von dir aufgerufenen Karte (Art. 6 Abs. 1 lit. f DSGVO). '+
+    'Kartendaten © OpenStreetMap-Mitwirkende.</p>'+
+    '<p class="klein">Speicherst du Eventlas auf dem Startbildschirm, legt die App Dateien im '+
+    'Browser-Speicher deines Geräts ab, damit sie ohne Netz funktioniert. Das ist für diese '+
+    'Funktion technisch erforderlich; Löschen der Website-Daten entfernt sie wieder.</p>'+
+    '<p class="klein">Absichtlich <b>nicht</b> eingebunden: Google Maps, Google Fonts vom Google-'+
+    'Server, Analyse- oder Werbedienste.</p>'+
     '<h3>Kontakt & Impressum</h3>'+
     '<p class="klein">Pins melden: WhatsApp-Knopf unten oder E-Mail. [Impressum: Name + Anschrift vor Launch eintragen — Pflicht nach § 5 DDG.]</p>'
   );
@@ -1949,6 +1973,8 @@ function zeigeInfo(){
   if(neu) neu.addEventListener("click", () => location.reload());
   const ht = $("#ht-nochmal");
   if(ht) ht.addEventListener("click", () => zeigeEinfuehrung(true));
+  const exp = $("#daten-export");
+  if(exp) exp.addEventListener("click", zeigeExport);
   $("#interessen-bearbeiten").addEventListener("click", () => zeigeOnboarding(zeigeInfo));
   $("#heim-setzen").addEventListener("click", heimWaehlen);
   const hl = $("#heim-loeschen");
@@ -2159,6 +2185,88 @@ $("#beitrag-datei").addEventListener("change", async e => {
   );
   beitragPin = null;
 });
+
+/* ---------- Export: die Pins mitnehmen ----------
+   Bewusst clientseitig und ohne Anmeldung: Wer die Karte lieber in seiner eigenen App
+   nutzt (Organic Maps, OsmAnd, Google My Maps), soll das können. GeoJSON für OSM-Apps,
+   KML für Google My Maps — Google importiert kein GeoJSON. */
+function dateiSpeichern(name, inhalt, typ){
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([inhalt], {type:typ}));
+  a.download = name;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+}
+function exportPins(nurSichtbare){
+  return nurSichtbare ? PINS.filter(sichtbar) : PINS.filter(p => !p.beispiel);
+}
+function alsGeoJSON(liste){
+  return JSON.stringify({
+    type: "FeatureCollection",
+    name: "Eventlas " + STADT.name,
+    features: liste.map(p => ({
+      type: "Feature",
+      geometry: {type:"Point", coordinates:[p.lng, p.lat]},
+      properties: {
+        name: p.titel, beschreibung: p.text, kategorie: TYPNAME[p.typ],
+        themen: p.tags.join(", "), wann: fmtDatum(p) || "", info: p.meta || "",
+        link: p.link || "", quelle: p.quelle || "",
+      },
+    })),
+  }, null, 1);
+}
+function alsKML(liste){
+  const x = s => String(s ?? "").replace(/[<>&]/g, c => ({"<":"&lt;",">":"&gt;","&":"&amp;"}[c]));
+  const stile = Object.keys(TYPNAME).map(t =>
+    '<Style id="'+t+'"><IconStyle><Icon><href>https://maps.google.com/mapfiles/kml/paddle/'+
+    ({event:"blu", angebot:"orange", hilfe:"ylw", spot:"purple"}[t] || "wht")+'-circle.png</href></Icon></IconStyle></Style>').join("\n");
+  const orte = liste.map(p =>
+    "<Placemark>\n<name>"+x(p.titel)+"</name>\n"+
+    "<description>"+x([p.text, [fmtDatum(p), p.meta].filter(Boolean).join(" · "), p.link].filter(Boolean).join("\n\n"))+"</description>\n"+
+    "<styleUrl>#"+p.typ+"</styleUrl>\n"+
+    "<Point><coordinates>"+p.lng+","+p.lat+",0</coordinates></Point>\n</Placemark>").join("\n");
+  return '<?xml version="1.0" encoding="UTF-8"?>\n<kml xmlns="http://www.opengis.net/kml/2.2">\n<Document>\n'+
+    "<name>Eventlas "+x(STADT.name)+"</name>\n"+
+    "<description>"+x("Stand " + (datenStand || heute()) + " · eventlas.netlify.app")+"</description>\n"+
+    stile + "\n" + orte + "\n</Document>\n</kml>";
+}
+function heute(){ return new Date().toISOString().slice(0,10); }
+
+function zeigeExport(){
+  const alle = exportPins(false).length, gefiltert = exportPins(true).length;
+  modalOeffnen(
+    '<h2>⬇ Pins mitnehmen</h2>'+
+    '<p>Die Karte gehört dir — nimm die Orte mit in deine eigene App.</p>'+
+    '<div class="zeile"><span>Was exportieren?</span></div>'+
+    '<div class="radius-wahl" id="exp-wahl">'+
+      '<button data-w="alle" class="an">Alle ('+alle+')</button>'+
+      '<button data-w="gefiltert">Aktuelle Auswahl ('+gefiltert+')</button>'+
+    '</div>'+
+    '<div class="blatt-knoepfe">'+
+      '<button class="bbtn gelb" id="exp-geojson">GeoJSON</button>'+
+      '<button class="bbtn sek" id="exp-kml">KML</button>'+
+    '</div>'+
+    '<p class="klein"><b>GeoJSON</b> für Organic Maps, OsmAnd und die meisten Karten-Apps — '+
+    'Datei antippen und „mit Organic Maps öffnen" wählen.<br>'+
+    '<b>KML</b> für Google My Maps: am Rechner auf mymaps.google.com → Neue Karte → Importieren. '+
+    'Die Karte erscheint danach in der Google-Maps-App unter „Gespeichert".</p>'
+  );
+  let wahl = "alle";
+  blatt.querySelectorAll("#exp-wahl button").forEach(b => b.addEventListener("click", () => {
+    wahl = b.dataset.w;
+    blatt.querySelectorAll("#exp-wahl button").forEach(x => x.classList.remove("an"));
+    b.classList.add("an");
+  }));
+  const datum = datenStand || heute();
+  $("#exp-geojson").addEventListener("click", () => {
+    const l = exportPins(wahl === "gefiltert");
+    dateiSpeichern("eventlas-"+stadtKey+"-"+datum+".geojson", alsGeoJSON(l), "application/geo+json");
+  });
+  $("#exp-kml").addEventListener("click", () => {
+    const l = exportPins(wahl === "gefiltert");
+    dateiSpeichern("eventlas-"+stadtKey+"-"+datum+".kml", alsKML(l), "application/vnd.google-earth.kml+xml");
+  });
+}
 
 /* Kalender-Export: .ics clientseitig erzeugen (nur für datierte Pins) */
 function icsEsc(s){ return String(s).replace(/\\/g,"\\\\").replace(/;/g,"\\;").replace(/,/g,"\\,").replace(/\n/g,"\\n"); }

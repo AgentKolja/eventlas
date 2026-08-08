@@ -32,16 +32,19 @@ while ($listener.IsListening) {
     # Nur localhost, nur PNG/ICO, nur flache Dateinamen — dient dem Erzeugen von og.png/Icons.
     if ($req.HttpMethod -eq 'POST' -and $path -eq '/__save') {
       $name = $req.QueryString['name']
-      if ($name -notmatch '^[a-z0-9._-]+\.(png|ico)$') {
+      if ($name -notmatch '^[a-z0-9._/-]+\.(png|ico|woff2)$' -or $name -match '\.\.') {
         $res.StatusCode = 400
         $res.Close(); continue
       }
       $reader = New-Object System.IO.StreamReader($req.InputStream, [Text.Encoding]::UTF8)
       $b64 = $reader.ReadToEnd()
       $reader.Close()
-      $b64 = $b64 -replace '^data:image/[a-z]+;base64,', ''
+      $b64 = $b64 -replace '^data:[a-z/+-]+;base64,', ''
       try {
-        [System.IO.File]::WriteAllBytes((Join-Path $root $name), [Convert]::FromBase64String($b64))
+        $ziel = Join-Path $root $name
+        $ordner = Split-Path $ziel -Parent
+        if (-not (Test-Path $ordner)) { New-Item -ItemType Directory -Force $ordner | Out-Null }
+        [System.IO.File]::WriteAllBytes($ziel, [Convert]::FromBase64String($b64))
         $out = [Text.Encoding]::UTF8.GetBytes("OK $name")
         $res.StatusCode = 200
       } catch {
