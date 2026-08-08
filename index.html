@@ -181,6 +181,19 @@
     100%{transform:scale(1.45);opacity:0}}
   @keyframes blinzel{0%,100%{opacity:1}50%{opacity:.35}}
 
+  /* Cluster: fasst dicht beieinander liegende Pins zusammen, damit die Karte bei
+     weitem Zoom lesbar bleibt. Farbe zeigt die häufigste Kategorie der Gruppe. */
+  .cluster{width:40px;height:40px;border-radius:50%;border:2px solid #14161A;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;font-family:'Anton';font-size:15px;
+    color:#141414;box-shadow:0 2px 10px rgba(0,0,0,.45);position:absolute;
+    background:var(--event);transition:transform .12s ease}
+  .cluster:active{transform:scale(.94)}
+  .cluster.gross{width:48px;height:48px;font-size:17px}
+  .cluster.t-angebot{background:var(--angebot)} .cluster.t-hilfe{background:var(--hilfe)}
+  .cluster.t-spot{background:var(--spot)} .cluster.t-event{background:var(--event)}
+  .cluster.hat-hot{box-shadow:0 0 0 3px #FF8A1F,0 0 14px 3px rgba(255,138,31,.7),0 2px 10px rgba(0,0,0,.45)}
+  .cluster:focus-visible{outline:2px solid var(--papier);outline-offset:3px}
+
   /* Heimat-Marker */
   .heim-marker{width:16px;height:16px;border-radius:50%;background:var(--papier);
     border:3px solid var(--nacht);box-shadow:0 0 0 2px var(--papier)}
@@ -231,6 +244,17 @@
     color:var(--papier);border-radius:10px;padding:10px;font:400 13px 'Inter';resize:vertical}
   .wahl-tags{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
   .wahl-tags .tagchip{font-size:13px;padding:9px 14px}
+
+  /* Kurz-Einführung */
+  .howto{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--linie)}
+  .howto:last-of-type{border-bottom:0}
+  .howto .ht-icon{width:38px;height:38px;flex:none;border-radius:11px;background:var(--nacht);
+    border:1px solid var(--linie);display:flex;align-items:center;justify-content:center;font-size:17px}
+  .howto .ht-text{font-size:13px;line-height:1.45;color:#C9CDD6}
+  .howto .ht-text b{color:var(--papier);display:block;font-size:13.5px;margin-bottom:1px}
+  .schritte{display:flex;gap:5px;justify-content:center;margin-top:14px}
+  .schritte span{width:7px;height:7px;border-radius:50%;background:var(--linie)}
+  .schritte span.an{background:var(--hilfe);width:20px;border-radius:4px}
   .zeile{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0;
     border-bottom:1px solid var(--linie);font-size:13px}
   .zeile:last-child{border-bottom:0}
@@ -752,6 +776,7 @@ function faecherAuf(pins){
 function baueMarker(){
   marker.forEach(x => x.m.remove());
   marker.length = 0;
+  clusterAufloesen();
   faecherAuf(PINS);
   PINS.forEach(p => {
     const el = document.createElement("button");
@@ -858,10 +883,12 @@ function ansichtAktualisieren(){
   document.querySelectorAll("#tagleiste .tagchip").forEach(c => {
     if(c.classList.contains("fuerdich")){ c.classList.toggle("an", fuerDich); return; }
   });
+  const zuZeigen = [];
   marker.forEach(x => {
     const zeigen = sichtbar(x.p);
-    x.el.style.display = zeigen ? "flex" : "none";
+    x.el.style.display = "none";                                   // Cluster entscheidet gleich
     if(!zeigen && x.m.getPopup() && x.m.getPopup().isOpen()) x.m.togglePopup();  // Nr. 12
+    if(zeigen) zuZeigen.push(x);
     if(zeigen && fuerDich){
       const passt = passtZuMir(x.p);
       x.el.classList.toggle("passt", passt);
@@ -870,8 +897,73 @@ function ansichtAktualisieren(){
       x.el.classList.remove("passt","gedimmt");
     }
   });
+  // Offenes Popup gewinnt: sein Marker darf nie in einem Cluster verschwinden
+  const offen = zuZeigen.find(x => x.m.getPopup() && x.m.getPopup().isOpen());
+  clusternUndZeichnen(zuZeigen);
+  if(offen) offen.el.style.display = "flex";
 }
 map.on("moveend", ansichtAktualisieren);
+
+/* ---------- Clustering ----------
+   Bei 140+ Pins ist die Karte sonst ein Teppich aus Symbolen. Wir gruppieren nach
+   Bildschirm-Pixeln (nicht nach Geografie): Was näher als eine Rasterzelle beieinander
+   liegt, wird zu einem Kreis mit Anzahl. Beim Reinzoomen lösen sich die Cluster von
+   selbst auf. Tippen zoomt auf die Gruppe. */
+const clusterMarker = [];
+const CLUSTER_RASTER = 58;        // Kantenlänge einer Zelle in Bildschirmpixeln
+const CLUSTER_AB_ZOOM = 16;       // ab diesem Zoom immer alle Einzel-Pins zeigen
+
+function clusterAufloesen(){
+  clusterMarker.forEach(m => m.remove());
+  clusterMarker.length = 0;
+}
+
+function clusternUndZeichnen(sichtbare){
+  clusterAufloesen();
+  if(map.getZoom() >= CLUSTER_AB_ZOOM || sichtbare.length <= 6){
+    sichtbare.forEach(x => { x.el.style.display = "flex"; });
+    return;
+  }
+  const zellen = new Map();
+  sichtbare.forEach(x => {
+    const pkt = map.project([x.p._lng ?? x.p.lng, x.p._lat ?? x.p.lat]);
+    const key = Math.floor(pkt.x / CLUSTER_RASTER) + ":" + Math.floor(pkt.y / CLUSTER_RASTER);
+    if(!zellen.has(key)) zellen.set(key, []);
+    zellen.get(key).push(x);
+  });
+  zellen.forEach(gruppe => {
+    if(gruppe.length === 1){ gruppe[0].el.style.display = "flex"; return; }
+    // Highlights bleiben immer einzeln sichtbar — sie sind der Grund, warum man hinschaut
+    const hots = gruppe.filter(x => x.p.hot);
+    const rest = gruppe.filter(x => !x.p.hot);
+    hots.forEach(x => { x.el.style.display = "flex"; });
+    if(rest.length === 0) return;
+    if(rest.length === 1){ rest[0].el.style.display = "flex"; return; }
+
+    rest.forEach(x => { x.el.style.display = "none"; });
+    const haeufigsterTyp = Object.entries(rest.reduce((acc, x) => {
+      acc[x.p.typ] = (acc[x.p.typ] || 0) + 1; return acc;
+    }, {})).sort((a,b) => b[1]-a[1])[0][0];
+    const mitteLng = rest.reduce((s,x) => s + (x.p._lng ?? x.p.lng), 0) / rest.length;
+    const mitteLat = rest.reduce((s,x) => s + (x.p._lat ?? x.p.lat), 0) / rest.length;
+
+    const el = document.createElement("button");
+    el.className = "cluster t-" + haeufigsterTyp + (rest.length >= 10 ? " gross" : "");
+    el.textContent = rest.length;
+    el.setAttribute("aria-label", rest.length + " Pins hier — antippen zum Aufteilen");
+    el.title = rest.slice(0, 4).map(x => x.p.titel).join("\n") + (rest.length > 4 ? "\n…" : "");
+    el.addEventListener("click", e => {
+      e.stopPropagation();
+      const b = new maplibregl.LngLatBounds();
+      rest.forEach(x => b.extend([x.p._lng ?? x.p.lng, x.p._lat ?? x.p.lat]));
+      // Liegen alle exakt aufeinander, hilft fitBounds nicht — dann einfach hineinzoomen
+      const spanne = Math.max(b.getEast()-b.getWest(), b.getNorth()-b.getSouth());
+      if(spanne < 0.0004) map.easeTo({center:[mitteLng, mitteLat], zoom:Math.min(18, map.getZoom()+2.5)});
+      else map.fitBounds(b, {padding:{top:110, bottom:250, left:50, right:50}, maxZoom:17.5, duration:600});
+    });
+    clusterMarker.push(new maplibregl.Marker({element:el}).setLngLat([mitteLng, mitteLat]).addTo(map));
+  });
+}
 
 document.querySelectorAll(".chip").forEach(chip => {
   chip.addEventListener("click", () => { aktiv[chip.dataset.typ] = !aktiv[chip.dataset.typ]; ansichtAktualisieren(); });
@@ -917,7 +1009,7 @@ function zeitraumWaehlen(){
 }
 
 /* ---------- Listenansicht (User-Test: Zahl anfassbar machen, Liste ↔ Karte) ---------- */
-$("#btn-liste").addEventListener("click", () => zeigeListe("ausschnitt"));
+$("#btn-liste").addEventListener("click", () => zeigeListe("heute"));
 
 function entfernungText(p){
   if(!meinStandort) return "";
@@ -928,21 +1020,91 @@ function listenZeile(p, datumText){
   const sym = blipSymbol(p);
   const weg = entfernungText(p);
   return '<button class="liste-zeile" data-id="'+esc(p.id)+'">'+
-    '<span class="lz-sym '+esc(p.typ)+(p.hot ? " hot" : "")+'">'+(sym || ICON[p.typ])+'</span>'+
+    '<span class="lz-sym '+esc(p.typ)+(p.hot ? " hot" : "")+'">'+(p.hot ? "🔥" : (sym || ICON[p.typ]))+'</span>'+
     '<span class="lz-mitte"><span class="lz-titel">'+esc(p.titel)+'</span>'+
     '<span class="lz-meta">'+esc([TYPNAME[p.typ], p.meta, weg].filter(Boolean).join(" · "))+'</span></span>'+
     '<span class="lz-datum">'+esc(datumText ?? fmtDatum(p))+'</span></button>';
 }
 
+/* Wie interessant ist ein Pin gerade? Nähe schlägt Ferne, markierte Highlights schlagen alles.
+   Damit lässt sich aus 140 Pins eine kurze, ehrliche "Was ist los?"-Liste bilden. */
+function relevanz(p){
+  const w = fenster(p);
+  let punkte = 0;
+  if(p.hot) punkte += 100;
+  if(p.wdh && wdhAnTag(p.wdh, HEUTE0)) punkte += 55;
+  if(w){
+    const tage = Math.ceil((w.s - HEUTE0) / 864e5);
+    const laeuft = w.s <= new Date(HEUTE0.getTime() + 864e5 - 1) && w.e >= HEUTE0;
+    if(laeuft) punkte += 60;
+    else if(tage === 1) punkte += 40;
+    else if(tage <= 3) punkte += 28;
+    else if(tage <= 7) punkte += 18;
+    else if(tage <= 14) punkte += 8;
+  }
+  if(danke[p.id]) punkte += 12;
+  if(istNeu(p)) punkte += 6;
+  if(passtZuMir(p)) punkte += 14;
+  if(p.beispiel) punkte -= 40;
+  return punkte;
+}
+function laeuftHeute(p){
+  if(p.wdh) return wdhAnTag(p.wdh, HEUTE0);
+  const w = fenster(p);
+  if(!w) return false;
+  const heuteEnde = new Date(HEUTE0); heuteEnde.setHours(23,59,59);
+  return w.s <= heuteEnde && w.e >= HEUTE0;
+}
+
 function zeigeListe(tab){
   const saisonPins = PINS.filter(p => p.saison);
   const tabs = '<div class="liste-tabs">'+
-    '<button data-tab="ausschnitt" class="'+(tab==="ausschnitt"?"an":"")+'">📍 Im Ausschnitt</button>'+
+    '<button data-tab="heute" class="'+(tab==="heute"?"an":"")+'">🔥 Los</button>'+
+    '<button data-tab="ausschnitt" class="'+(tab==="ausschnitt"?"an":"")+'">📍 Ausschnitt</button>'+
     (saisonPins.length ? '<button data-tab="saison" class="'+(tab==="saison"?"an":"")+'">🍏 Saison</button>' : '')+
   '</div>';
 
   let kopf, rumpf;
-  if(tab === "saison"){
+  if(tab === "heute"){
+    // Kategorie- und Themenfilter gelten weiter, der Zeitfilter bewusst nicht: hier zählt,
+    // was jetzt und in den nächsten Tagen ansteht. Saisonale Dauerangebote (Ernte) würden
+    // die Liste sonst zuschütten — die haben ihren eigenen Tab und stehen unten als Fußnote.
+    const merkeZeit = zeit, merkeFenster = suchFenster;
+    zeit = "all"; suchFenster = null;
+    const alle = PINS.filter(p => sichtbar(p) && !p.beispiel);
+    zeit = merkeZeit; suchFenster = merkeFenster;
+    const termine = alle.filter(p => !p.saison);
+
+    const heute = termine.filter(laeuftHeute).sort((a,b) => relevanz(b) - relevanz(a)).slice(0, 8);
+    const heuteIds = new Set(heute.map(p => p.id));
+    const kommend = termine.filter(p => !heuteIds.has(p.id))
+      .map(p => ({p, w:fenster(p)}))
+      .filter(x => x.w && x.w.s > HEUTE0)
+      .sort((a,b) => (relevanz(b.p) - relevanz(a.p)) || (a.w.s - b.w.s))
+      .slice(0, 8);
+
+    const heuteName = ["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"][HEUTE0.getDay()];
+    kopf = '<h2>🔥 Was ist los?</h2>'+
+      '<p class="klein">Das Wichtigste zuerst, 🔥 = Highlight. Themen- und Kategoriefilter '+
+      'von der Karte gelten auch hier.</p>';
+    const block = (titel, liste, datumFn) => liste.length
+      ? '<div class="saison-kopf">'+titel+'</div>' + liste.map(x => {
+          const p = x.p || x;
+          return listenZeile(p, datumFn ? datumFn(p) : undefined);
+        }).join("")
+      : "";
+    // Fußnote statt Zeilenflut: Dauerangebote nur zählen und verlinken
+    const spots = alle.filter(p => p.typ === "spot").length;
+    const saisonAktiv = alle.filter(p => p.saison && saisonStatus(p).laeuft).length;
+    const fuss = (spots || saisonAktiv)
+      ? '<p class="klein" style="margin-top:14px">Dauerhaft auf der Karte: '+
+        [saisonAktiv ? '<span class="vorschlag" data-tab="saison">'+saisonAktiv+' Ernteorte mit laufender Saison</span>' : '',
+         spots ? spots + ' Fotospots' : ''].filter(Boolean).join(" · ") + '</p>'
+      : "";
+    rumpf = (block("Heute (" + heuteName + ")", heute, p => p.hot ? "🔥 jetzt" : "heute") +
+      block("Als Nächstes", kommend) ||
+      '<p>Zu diesen Filtern ist gerade nichts los — tippe oben auf ✕ Zurücksetzen.</p>') + fuss;
+  } else if(tab === "saison"){
     // Laufende zuerst und davon das, was bald endet ("letzte Chance"); danach nach Startnähe
     const mitStatus = saisonPins.map(p => ({p, st:saisonStatus(p)}));
     const jetzt  = mitStatus.filter(x => x.st.laeuft).sort((a,b) => a.st.tageBisEnde - b.st.tageBisEnde);
@@ -972,13 +1134,16 @@ function zeigeListe(tab){
   modalOeffnen(kopf + tabs + rumpf);
   blatt.querySelectorAll(".liste-tabs button").forEach(b =>
     b.addEventListener("click", () => zeigeListe(b.dataset.tab)));
+  blatt.querySelectorAll(".vorschlag[data-tab]").forEach(v =>
+    v.addEventListener("click", () => zeigeListe(v.dataset.tab)));
   blatt.querySelectorAll(".liste-zeile").forEach(z => z.addEventListener("click", () => {
     const p = PINS.find(x => x.id === z.dataset.id);
     if(!p) return;
     modalSchliessen();
-    map.flyTo({center:[p.lng, p.lat], zoom:Math.max(map.getZoom(), 15)});
+    // Mindestens bis zur Cluster-Grenze zoomen, sonst steckt der Pin noch in einer Gruppe
+    map.flyTo({center:[p._lng ?? p.lng, p._lat ?? p.lat], zoom:Math.max(map.getZoom(), CLUSTER_AB_ZOOM)});
     const mk = marker.find(x => x.p.id === p.id);
-    if(mk) setTimeout(() => { if(!mk.m.getPopup().isOpen()) mk.m.togglePopup(); }, 550);
+    if(mk) setTimeout(() => { mk.el.style.display = "flex"; if(!mk.m.getPopup().isOpen()) mk.m.togglePopup(); }, 600);
   }));
 }
 
@@ -1076,9 +1241,9 @@ $("#such-info").addEventListener("click", e => {
     baueTagleiste(); ansichtAktualisieren();
     const p = PINS.find(x => x.id === v.dataset.id);
     if(p){
-      map.flyTo({center:[p._lng ?? p.lng, p._lat ?? p.lat], zoom:Math.max(map.getZoom(), 15)});
+      map.flyTo({center:[p._lng ?? p.lng, p._lat ?? p.lat], zoom:Math.max(map.getZoom(), CLUSTER_AB_ZOOM)});
       const mk = marker.find(x => x.p.id === p.id);
-      if(mk) setTimeout(() => { if(!mk.m.getPopup().isOpen()) mk.m.togglePopup(); }, 750);
+      if(mk) setTimeout(() => { mk.el.style.display = "flex"; if(!mk.m.getPopup().isOpen()) mk.m.togglePopup(); }, 750);
     }
   }
   else if(v.dataset.akt === "bsp"){
@@ -1103,7 +1268,39 @@ function modalSchliessen(){ schleier.classList.remove("offen"); if(nachModal){ c
 schleier.addEventListener("click", e => { if(e.target === schleier) modalSchliessen(); });
 document.addEventListener("keydown", e => { if(e.key === "Escape") modalSchliessen(); });
 
-/* ---------- Onboarding (V2: Interessen, nur lokal) ---------- */
+/* ---------- Einführung: was kann die Karte? (Schritt 1 von 2) ---------- */
+function zeigeEinfuehrung(nurAnsehen){
+  const punkt = (icon, titel, text) =>
+    '<div class="howto"><span class="ht-icon">'+icon+'</span>'+
+    '<span class="ht-text"><b>'+titel+'</b>'+text+'</span></div>';
+  modalOeffnen(
+    '<h2>Willkommen bei Eventlas</h2>'+
+    '<p>Die Karte zeigt, was gerade in '+esc(STADT.name)+' läuft. In 20 Sekunden erklärt:</p>'+
+    punkt("🔥", "Was ist los?", "Der ☰-Knopf oben zeigt die Liste: heute, als Nächstes, Saison. Damit findest du dich am schnellsten zurecht.") +
+    punkt("🎵", "Nach Thema filtern", "Unten die Chips antippen — Musik, Flohmarkt, Ernte … Die Zahl daneben sagt, wie viel es davon gibt.") +
+    punkt("🗓", "Zeitraum wählen", "Heute · Demnächst · Alle — oder 📅 für eigene Daten. Abgelaufenes verschwindet von selbst.") +
+    punkt("📷", "Plakat gesehen?", "Foto-Knopf oben: Kamera auf, abdrücken, fertig. Den Ort erkennt die App selbst.") +
+    punkt("＋", "Eigenen Pin melden", "Verschenken, Hilfe gesucht, Hofflohmarkt: gelber Knopf unten. Kostenlos und ohne Anmeldung.") +
+    '<div class="blatt-knoepfe">'+
+      (nurAnsehen
+        ? '<button class="bbtn gelb" id="ht-fertig">Alles klar</button>'
+        : '<button class="bbtn gelb" id="ht-weiter">Weiter</button>'+
+          '<button class="bbtn sek" id="ht-skip">Direkt zur Karte</button>')+
+    '</div>'+
+    (nurAnsehen ? '' : '<div class="schritte"><span class="an"></span><span></span></div>')
+  );
+  if(nurAnsehen){
+    $("#ht-fertig").addEventListener("click", modalSchliessen);
+  } else {
+    $("#ht-weiter").addEventListener("click", () => zeigeOnboarding());
+    $("#ht-skip").addEventListener("click", () => {
+      lsSet("onboardingGesehen", true);
+      modalSchliessen();
+    });
+  }
+}
+
+/* ---------- Onboarding (V2: Interessen, nur lokal) — Schritt 2 von 2 ---------- */
 function zeigeOnboarding(nachher){
   const chips = ONBOARDING_TAGS.map(t =>
     '<button class="tagchip ob-tag" data-tag="'+t+'">'+ (TAG_LABEL[t]||t) +'</button>').join("");
@@ -1115,7 +1312,8 @@ function zeigeOnboarding(nachher){
     '<div class="blatt-knoepfe">'+
       '<button class="bbtn gelb" id="ob-fertig">Los geht’s</button>'+
       '<button class="bbtn sek" id="ob-skip">Überspringen</button>'+
-    '</div>'
+    '</div>'+
+    (nachher ? '' : '<div class="schritte"><span></span><span class="an"></span></div>')
   );
   const gewaehlt = new Set(profil ? profil.tags : []);
   blatt.querySelectorAll(".ob-tag").forEach(b => {
@@ -1186,6 +1384,7 @@ function zeigeInfo(){
     (heim ? '<div class="zeile"><span class="klein">Beim Öffnen zeigt dir Eventlas neue Pins in deinem Bereich.</span><button class="aktion" id="heim-loeschen">Löschen</button></div>' : '<p class="klein">Mit Heimat-Bereich siehst du beim Öffnen sofort, was es Neues in deiner Hood gibt.</p>')+
     '<div class="zeile"><span>Punkte sammelst du mit 👍 Danke, Teilen, Pin-Meldungen und Ideen.</span></div>'+
     '<div class="zeile"><span class="klein">Profil, Rang und Heimat-Bereich löschen</span><button class="aktion" id="profil-reset">Zurücksetzen</button></div>'+
+    '<div class="zeile"><span>Kurze Einführung: Wie funktioniert die Karte?</span><button class="aktion" id="ht-nochmal">Ansehen</button></div>'+
     '<h3>Aktualität</h3>'+
     '<div class="zeile"><span>'+esc(standText())+'</span><button class="aktion" id="daten-neu">Neu laden</button></div>'+
     '<p class="klein">Termine werden täglich automatisch recherchiert und von Hand geprüft. '+
@@ -1211,6 +1410,8 @@ function zeigeInfo(){
   });
   const neu = $("#daten-neu");
   if(neu) neu.addEventListener("click", () => location.reload());
+  const ht = $("#ht-nochmal");
+  if(ht) ht.addEventListener("click", () => zeigeEinfuehrung(true));
   $("#interessen-bearbeiten").addEventListener("click", () => zeigeOnboarding(zeigeInfo));
   $("#heim-setzen").addEventListener("click", heimWaehlen);
   const hl = $("#heim-loeschen");
@@ -1620,9 +1821,9 @@ function neuBanner(){
   toast.addEventListener("click", () => {
     toast.style.display = "none";
     const p = neue[0];
-    map.flyTo({center:[p.lng, p.lat], zoom:15});
+    map.flyTo({center:[p._lng ?? p.lng, p._lat ?? p.lat], zoom:CLUSTER_AB_ZOOM});
     const mk = marker.find(x => x.p.id === p.id);
-    if(mk && !mk.m.getPopup().isOpen()) mk.m.togglePopup();
+    if(mk) setTimeout(() => { mk.el.style.display = "flex"; if(!mk.m.getPopup().isOpen()) mk.m.togglePopup(); }, 600);
   }, {once:true});
   setTimeout(() => { toast.style.display = "none"; }, 12000);
 }
@@ -1640,9 +1841,9 @@ function deepLink(){
   if(!m) return;
   const p = PINS.find(x => x.id === decodeURIComponent(m[1]));
   if(!p) return;
-  map.flyTo({center:[p.lng, p.lat], zoom:15.5});
+  map.flyTo({center:[p._lng ?? p.lng, p._lat ?? p.lat], zoom:CLUSTER_AB_ZOOM + 0.5});
   const mk = marker.find(x => x.p.id === p.id);
-  if(mk) setTimeout(() => { if(!mk.m.getPopup().isOpen()) mk.m.togglePopup(); }, 600);
+  if(mk) setTimeout(() => { mk.el.style.display = "flex"; if(!mk.m.getPopup().isOpen()) mk.m.togglePopup(); }, 700);
 }
 
 /* ---------- Start ---------- */
@@ -1669,7 +1870,7 @@ fetch(STADT.pinsDatei + "?v=" + Date.now(), {cache:"no-store"})
     deepLink();                     // erst nach dem Daten-Load, sonst zerstört der Marker-Neuaufbau das Popup
     neuBanner();
     lsSet("besuch", new Date().toISOString().slice(0,10));
-    if(!profil && !lsGet("onboardingGesehen", false) && !location.hash.includes("pin=")) setTimeout(() => zeigeOnboarding(), 900);
+    if(!profil && !lsGet("onboardingGesehen", false) && !location.hash.includes("pin=")) setTimeout(() => zeigeEinfuehrung(), 900);
   });
 </script>
 </body>
