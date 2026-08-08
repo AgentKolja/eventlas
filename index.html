@@ -36,9 +36,14 @@
     --hilfe:#FFC61A; --event:#2FD6C3; --angebot:#FF6A3D; --spot:#C77DFF;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  html,body{height:100%}
-  body{font-family:'Inter',system-ui,sans-serif;background:var(--nacht);color:var(--papier);overflow:hidden}
+  /* 100dvh statt 100% — sonst schneidet die einfahrende Adressleiste von Safari/Chrome
+     auf dem Handy den unteren Rand ab und der Melden-Knopf liegt außerhalb. */
+  html,body{height:100%;height:100dvh}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--nacht);color:var(--papier);
+    overflow:hidden;overscroll-behavior:none;-webkit-text-size-adjust:100%}
   #map{position:absolute;inset:0}
+  /* iOS zoomt beim Fokus auf Felder unter 16px — das verstellt die ganze Ansicht */
+  input,select,textarea{font-size:16px}
   button{font-family:inherit}
 
   /* ---------- Kopfzeile ---------- */
@@ -288,7 +293,12 @@
   .p-text{font-size:13px;color:#C9CDD6;line-height:1.45}
   .p-meta{font-size:11px;color:var(--grau);margin-top:8px}
   .p-gold{font-size:11px;color:var(--hilfe);margin-top:6px}
-  .p-akt{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+  /* Primäraktion breit und farbig, Zweitaktionen klein darunter — so ist auf einen Blick
+     klar, was der nächste Schritt ist (Tickets bzw. Hinfahren). */
+  .p-haupt{display:block;margin-top:11px;text-align:center;text-decoration:none;
+    background:var(--hilfe);color:#141414;border-radius:10px;padding:12px 10px;
+    font:800 13.5px 'Inter';letter-spacing:.2px}
+  .p-akt{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px}
   .p-btn{display:inline-block;font:600 12px 'Inter';color:#141414;border:0;cursor:pointer;
     background:var(--papier);border-radius:8px;padding:7px 11px;text-decoration:none}
   .p-btn.sek{background:transparent;color:var(--papier);border:1px solid var(--linie)}
@@ -336,12 +346,17 @@
   .radius-wahl button{border:1px solid var(--linie);background:var(--nacht);color:var(--papier);
     border-radius:8px;padding:6px 10px;font:600 12px 'Inter';cursor:pointer}
   .radius-wahl button.an{background:var(--papier);color:#141414}
+  /* 16px ist Pflicht: Darunter zoomt iOS beim Antippen ins Feld hinein */
   .blatt input[type="date"],.blatt input[type="time"]{border:1px solid var(--linie);
-    background:var(--nacht);color:var(--papier);border-radius:8px;padding:8px 10px;
-    font:600 13px 'Inter';color-scheme:dark}
-  .zeit-feld{display:flex;gap:6px;align-items:center;flex:1;justify-content:flex-end}
-  .zeit-feld input[type="time"]{width:98px;flex:none}
-  .zeit-feld input[type="date"]{flex:none}
+    background:var(--nacht);color:var(--papier);border-radius:8px;padding:9px 10px;
+    font:600 16px 'Inter';color-scheme:dark}
+  .zeit-feld{display:flex;gap:6px;align-items:center;flex:1;justify-content:flex-end;min-width:0}
+  .zeit-feld input[type="time"]{width:88px;flex:none;padding-left:6px;padding-right:6px}
+  .zeit-feld input[type="date"]{flex:none;min-width:0;padding-left:6px;padding-right:6px}
+  @media (max-width:380px){
+    .zeit-feld input[type="time"]{width:78px;font-size:15px}
+    .zeit-feld input[type="date"]{font-size:15px}
+  }
 
   /* Listenansicht */
   .liste-zeile{display:flex;align-items:center;gap:10px;width:100%;text-align:left;
@@ -396,6 +411,16 @@
   .sheet-zurueck{display:flex;align-items:center;gap:6px;background:none;border:0;
     color:var(--hilfe);font:700 13px 'Inter';cursor:pointer;padding:6px 2px 8px}
 
+  /* Querformat: Es bleibt kaum Höhe übrig — Sheet und Modale flacher, Filter zu.
+     Ohne das verdeckt ein 66vh-Sheet fast die ganze Karte. */
+  @media (max-height:520px){
+    .sheet{max-height:82vh}
+    .blatt{max-height:88vh}
+    header{padding-top:6px;padding-bottom:4px}
+    .hud{padding-top:4px}
+    .hud-aktionen{margin-top:5px}
+    .melden,.liste-btn{padding-top:10px;padding-bottom:10px}
+  }
   @media (prefers-reduced-motion: reduce){ *{transition:none!important;animation:none!important} }
   @media (min-width:700px){
     .schleier{align-items:center} .blatt{border-radius:18px}
@@ -924,6 +949,12 @@ function popupHTML(p){
     quelle = '<div class="p-quelle">Quelle: <a href="'+esc(p.quelle)+'" target="_blank" rel="noopener">'+esc(host)+'</a></div>';
   }
   const gemerkt = merk[p.id];
+  /* Aktionen mit klarer Rangfolge statt sechs gleichrangiger Knöpfe: Was der Nutzer als
+     Nächstes tun will, steht breit oben — bei Veranstaltungen mit Link die Detailseite
+     (dort gibt es Tickets), sonst die Route. Alles Weitere kompakt darunter. */
+  const primaer = urlOk(p.link)
+    ? '<a class="p-haupt" href="'+esc(p.link)+'" target="_blank" rel="noopener">Mehr dazu &amp; Tickets ↗</a>'
+    : '<a class="p-haupt" href="'+esc(route)+'" target="_blank" rel="noopener">📍 Route dorthin</a>';
   // Blätter-Leiste wie in Immobilienportalen: Treffer der Reihe nach durchgehen,
   // ohne jedes Mal zur Karte zurückzumüssen.
   const liste = blaetterListe(p);
@@ -939,12 +970,12 @@ function popupHTML(p){
     '<div class="p-titel">'+esc(p.titel)+'</div>'+
     '<div class="p-text">'+esc(p.text)+'</div>'+
     (meta ? '<div class="p-meta">'+esc(meta)+'</div>' : "")+ gold +
+    primaer +
     '<div class="p-akt">'+
-      (urlOk(p.link) ? '<a class="p-btn" href="'+esc(p.link)+'" target="_blank" rel="noopener">Mehr dazu</a>' : "")+
-      '<a class="p-btn sek" href="'+esc(route)+'" target="_blank" rel="noopener">📍 Route</a>'+
+      (urlOk(p.link) ? '<a class="p-btn sek" href="'+esc(route)+'" target="_blank" rel="noopener">📍 Route</a>' : "")+
       '<button class="p-btn sek p-danke'+(gedankt?' aktivgruen':'')+'" data-id="'+esc(p.id)+'">👍 '+(gedankt?"Danke ✓":"Danke")+'</button>'+
-      '<button class="p-btn sek p-teilen" data-id="'+esc(p.id)+'">↗ Teilen</button>'+
       '<button class="p-btn sek p-merk'+(gemerkt?' aktivgruen':'')+'" data-id="'+esc(p.id)+'">★ '+(gemerkt?"Gemerkt ✓":"Merken")+'</button>'+
+      '<button class="p-btn sek p-teilen" data-id="'+esc(p.id)+'">↗ Teilen</button>'+
       (p.start ? '<button class="p-btn sek p-ics" data-id="'+esc(p.id)+'">📅 Kalender</button>' : "")+
     '</div>'+ quelle;
 }
