@@ -306,6 +306,25 @@
   .p-quelle{font-size:10px;color:var(--grau);margin-top:8px}
   .p-quelle a{color:var(--grau)}
 
+  /* Nutzerbeiträge: ein Bild und kurze Tipps von Leuten, die schon da waren.
+     Beides wird vor der Veröffentlichung geprüft — siehe Roadmap "Beitragen". */
+  .p-bild{width:100%;border-radius:10px;margin:9px 0 3px;display:block;
+    background:var(--nacht);object-fit:cover;max-height:170px}
+  .p-bild-credit{font-size:10px;color:var(--grau);margin-bottom:4px}
+  .p-tipps{margin-top:10px;border-top:1px solid var(--linie);padding-top:9px}
+  .p-tipps h4{font:800 11px 'Inter';letter-spacing:.6px;text-transform:uppercase;
+    color:var(--grau);margin-bottom:6px}
+  .p-tipp{font-size:12.5px;line-height:1.45;color:#C9CDD6;padding:6px 0;
+    border-bottom:1px solid rgba(44,48,56,.6)}
+  .p-tipp:last-of-type{border-bottom:0}
+  .p-tipp b{color:var(--papier);font-weight:700}
+  .p-tipp .wer{color:var(--grau);font-size:11px}
+  .p-beitragen{display:flex;gap:6px;margin-top:9px}
+  .p-beitragen button{flex:1;border:1px dashed var(--linie);background:transparent;
+    color:var(--grau);border-radius:9px;padding:9px 6px;font:600 11.5px 'Inter';cursor:pointer}
+  .p-beitragen button:active{transform:scale(.98)}
+  .p-beitragen button:hover{color:var(--papier);border-color:var(--papier)}
+
   /* ---------- Modale ---------- */
   .schleier{position:fixed;inset:0;z-index:40;background:rgba(10,11,13,.6);display:none;
     align-items:flex-end;justify-content:center}
@@ -511,6 +530,7 @@
 
 <input type="file" id="plakat-datei" accept="image/*" capture="environment" hidden>
 <input type="file" id="plakat-galerie" accept="image/*" hidden>
+<input type="file" id="beitrag-datei" accept="image/*" hidden>
 
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 <script>
@@ -937,6 +957,34 @@ function zeigePinNr(i){
     map.easeTo({center:[p._lng ?? p.lng, p._lat ?? p.lat], duration:400});
   mk.m.togglePopup();
 }
+/* ---------- Nutzerbeiträge: Bild und Tipps ----------
+   Beides wird eingereicht (WhatsApp/Mail), vom Betreiber geprüft und dann in pins.json
+   eingetragen — bewusst mit Vorabprüfung: Für fremde Fotos und Texte haftet der Betreiber
+   (Urheber- und Persönlichkeitsrechte), automatische Veröffentlichung wäre riskant.
+   Schema: bild {url, credit}, tipps [{text, von, datum}] */
+function bildBlock(p){
+  if(!p.bild || !urlOk(p.bild.url)) return "";
+  return '<img class="p-bild" src="'+esc(p.bild.url)+'" alt="'+esc(p.titel)+'" loading="lazy">'+
+    (p.bild.credit ? '<div class="p-bild-credit">Foto: '+esc(p.bild.credit)+'</div>' : "");
+}
+function tippBlock(p){
+  const tipps = Array.isArray(p.tipps) ? p.tipps.filter(t => t && t.text) : [];
+  const liste = tipps.map(t =>
+    '<div class="p-tipp">'+esc(t.text)+
+    (t.von ? ' <span class="wer">— '+esc(t.von)+(t.datum ? ", "+esc(fmtKurzDatum(t.datum)) : "")+'</span>' : '')+
+    '</div>').join("");
+  return '<div class="p-tipps">'+
+    (tipps.length ? '<h4>Tipps aus der Nachbarschaft</h4>' + liste : '')+
+    '<div class="p-beitragen">'+
+      '<button class="bei-foto" data-id="'+esc(p.id)+'">📷 Foto beisteuern</button>'+
+      '<button class="bei-tipp" data-id="'+esc(p.id)+'">💬 '+(tipps.length ? "Tipp ergänzen" : "Ersten Tipp schreiben")+'</button>'+
+    '</div></div>';
+}
+function fmtKurzDatum(iso){
+  const d = new Date(iso + "T00:00:00");
+  return isNaN(d) ? iso : d.getDate() + "." + (d.getMonth()+1) + ".";
+}
+
 function popupHTML(p){
   const meta = [fmtDatum(p), p.meta].filter(Boolean).join(" · ");
   const gold = p.typ === "spot" ? '<div class="p-gold">'+esc(goldeneStundeText(p))+'</div>'
@@ -970,14 +1018,14 @@ function popupHTML(p){
     '<div class="p-titel">'+esc(p.titel)+'</div>'+
     '<div class="p-text">'+esc(p.text)+'</div>'+
     (meta ? '<div class="p-meta">'+esc(meta)+'</div>' : "")+ gold +
-    primaer +
+    bildBlock(p) + primaer +
     '<div class="p-akt">'+
       (urlOk(p.link) ? '<a class="p-btn sek" href="'+esc(route)+'" target="_blank" rel="noopener">📍 Route</a>' : "")+
       '<button class="p-btn sek p-danke'+(gedankt?' aktivgruen':'')+'" data-id="'+esc(p.id)+'">👍 '+(gedankt?"Danke ✓":"Danke")+'</button>'+
       '<button class="p-btn sek p-merk'+(gemerkt?' aktivgruen':'')+'" data-id="'+esc(p.id)+'">★ '+(gemerkt?"Gemerkt ✓":"Merken")+'</button>'+
       '<button class="p-btn sek p-teilen" data-id="'+esc(p.id)+'">↗ Teilen</button>'+
       (p.start ? '<button class="p-btn sek p-ics" data-id="'+esc(p.id)+'">📅 Kalender</button>' : "")+
-    '</div>'+ quelle;
+    '</div>'+ tippBlock(p) + quelle;
 }
 
 /* Kopfzeile und HUD liegen als Overlay über der Karte — MapLibre weiß davon nichts und
@@ -2012,7 +2060,104 @@ document.addEventListener("click", async e => {
   if(icsBtn){
     const p = PINS.find(x => x.id === icsBtn.dataset.id);
     if(p) icsHerunterladen(p);
+    return;
   }
+  const fotoBtn = e.target.closest(".bei-foto");
+  if(fotoBtn){
+    const p = PINS.find(x => x.id === fotoBtn.dataset.id);
+    if(p) fotoBeisteuern(p);
+    return;
+  }
+  const tippBtn = e.target.closest(".bei-tipp");
+  if(tippBtn){
+    const p = PINS.find(x => x.id === tippBtn.dataset.id);
+    if(p) tippSchreiben(p);
+  }
+});
+
+/* Foto zu einem bestehenden Ort beisteuern — Kamera auf, Bild teilen, fertig.
+   Der Ort ist bekannt, es braucht also weder Karte noch Adresse. */
+let beitragPin = null;
+function fotoBeisteuern(p){
+  beitragPin = p;
+  nachModal = () => $("#beitrag-datei").click();
+  modalOeffnen(
+    '<h2>📷 Foto beisteuern</h2>'+
+    '<p>Ein Bild von <b>'+esc(p.titel)+'</b> — so sehen andere, was sie erwartet.</p>'+
+    '<p class="klein">Bitte nur eigene Aufnahmen und keine Fotos, auf denen Menschen '+
+    'erkennbar im Mittelpunkt stehen (Persönlichkeitsrecht). Plakate und Kunstwerke '+
+    'sind urheberrechtlich geschützt — die zeigen wir nicht. Wir prüfen jedes Bild vor '+
+    'der Veröffentlichung und nennen dich auf Wunsch als Fotograf:in.</p>'+
+    '<div class="blatt-knoepfe">'+
+      '<button class="bbtn gelb" id="bei-foto-los">Kamera oder Galerie öffnen</button>'+
+      '<button class="bbtn sek" id="bei-foto-ab">Abbrechen</button>'+
+    '</div>'
+  );
+  $("#bei-foto-los").addEventListener("click", modalSchliessen);
+  $("#bei-foto-ab").addEventListener("click", () => { nachModal = null; beitragPin = null; modalSchliessen(); });
+}
+
+/* Kurzer Tipp zu einem Ort — der häufigste Wunsch: "wo parken?", "was lohnt sich?" */
+function tippSchreiben(p){
+  beitragPin = p;
+  modalOeffnen(
+    '<h2>💬 Dein Tipp</h2>'+
+    '<p>Was sollte man über <b>'+esc(p.titel)+'</b> wissen? Ein, zwei Sätze reichen.</p>'+
+    '<textarea id="tipp-text" placeholder="z. B. Am besten früh da sein, ab 11 Uhr wird es voll. Parken an der …"></textarea>'+
+    '<div class="zeile"><span>Name (optional, wird angezeigt)</span></div>'+
+    '<input type="text" id="tipp-name" placeholder="Vorname oder Spitzname" '+
+      'style="width:100%;border:1px solid var(--linie);background:var(--nacht);color:var(--papier);'+
+      'border-radius:8px;padding:10px;font:400 16px Inter">'+
+    '<p class="klein">Wir prüfen Tipps kurz und stellen sie meist innerhalb von 24 h online. '+
+    'Keine Werbung, keine Beleidigungen, keine fremden Texte.</p>'+
+    '<div class="blatt-knoepfe">'+
+      '<button class="bbtn wa" id="tipp-wa">Per WhatsApp senden</button>'+
+      '<button class="bbtn sek" id="tipp-mail">Per E-Mail senden</button>'+
+    '</div>'
+  );
+  const senden = perMail => {
+    const text = $("#tipp-text").value.trim();
+    if(!text) return;
+    const name = $("#tipp-name").value.trim();
+    const nachricht = "💬 Tipp für Eventlas\n"+
+      "Ort: "+p.titel+"  ["+p.id+"]\n"+
+      "Tipp: "+text+"\n"+
+      (name ? "Von: "+name+"\n" : "Von: (anonym)\n");
+    karma.ideen++; lsSet("karma", karma);
+    if(perMail) location.href = "mailto:"+KONFIG.mail+"?subject="+encodeURIComponent("Tipp: "+p.titel)+"&body="+encodeURIComponent(nachricht);
+    else window.open("https://wa.me/"+KONFIG.whatsapp+"?text="+encodeURIComponent(nachricht), "_blank", "noopener");
+    beitragPin = null;
+    modalSchliessen();
+  };
+  $("#tipp-wa").addEventListener("click", () => senden(false));
+  $("#tipp-mail").addEventListener("click", () => senden(true));
+}
+
+/* Beigesteuertes Foto verschicken — mit Ortsbezug, damit es sich zuordnen lässt */
+$("#beitrag-datei").addEventListener("change", async e => {
+  const datei = e.target.files && e.target.files[0];
+  e.target.value = "";
+  if(!datei || !beitragPin) return;
+  const p = beitragPin;
+  const text = "📷 Foto für Eventlas\n"+
+    "Ort: "+p.titel+"  ["+p.id+"]\n"+
+    "Position: "+p.lat.toFixed(5)+", "+p.lng.toFixed(5)+"\n"+
+    "(Eigene Aufnahme, darf veröffentlicht werden.)\n"+
+    "Name für die Bildunterschrift: ";
+  karma.ideen++; lsSet("karma", karma);
+  if(navigator.canShare && navigator.canShare({files:[datei]})){
+    try{ await navigator.share({files:[datei], title:"Foto für Eventlas", text}); beitragPin = null; return; }
+    catch(err){ if(err && err.name === "AbortError"){ beitragPin = null; return; } }
+  }
+  modalOeffnen(
+    '<h2>Fast geschafft</h2>'+
+    '<p>Öffne WhatsApp oder Mail und hänge das Foto an — der Text ist vorbereitet.</p>'+
+    '<div class="blatt-knoepfe">'+
+      '<a class="bbtn wa" target="_blank" rel="noopener" href="https://wa.me/'+KONFIG.whatsapp+'?text='+encodeURIComponent(text)+'">WhatsApp öffnen</a>'+
+      '<a class="bbtn sek" href="mailto:'+KONFIG.mail+'?subject='+encodeURIComponent("Foto: "+p.titel)+'&body='+encodeURIComponent(text)+'">E-Mail öffnen</a>'+
+    '</div>'
+  );
+  beitragPin = null;
 });
 
 /* Kalender-Export: .ics clientseitig erzeugen (nur für datierte Pins) */

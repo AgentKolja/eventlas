@@ -95,6 +95,7 @@ function dedupeKey(p) {
 function entschaerfe(p) {
   const q = { ...p };
   delete q.fest; delete q.hot; delete q.id;
+  delete q.bild; delete q.tipps;      // Nutzerbeiträge nur aus geprüfter Hand, nie aus Recherche
   return q;
 }
 
@@ -424,9 +425,15 @@ function valide(p) {
     p.lng > BBOX.lngMin && p.lng < BBOX.lngMax && p.lat > BBOX.latMin && p.lat < BBOX.latMax &&
     (!p.quelle || /^https?:\/\//.test(p.quelle)) && (!p.link || /^https?:\/\//.test(p.link));
 }
+// Von Nutzern beigesteuerte Inhalte (Bild, Tipps) sind handgeprüft — die dürfen
+// bei einem Auto-Update niemals verlorengehen.
+const beitraegeVonId = new Map(alte.map(p => [p.id, { bild: p.bild, tipps: p.tipps }]));
+
 function normiere(p) {
+  const id = p.id || slug(p.titel) + (p.start ? "-" + p.start : "");
+  const alt = beitraegeVonId.get(id) || {};
   return {
-    id: p.id || slug(p.titel) + (p.start ? "-" + p.start : ""),
+    id,
     typ: p.typ || "event",
     titel: String(p.titel).slice(0, 90),
     text: String(p.text).slice(0, 300),
@@ -440,7 +447,9 @@ function normiere(p) {
     ...(p.link ? { link: p.link } : {}),
     ...(p.quelle ? { quelle: p.quelle } : {}),
     ...(p.hot === true ? { hot: true } : {}),
-    hinzu: hinzuVonId.get(p.id || slug(p.titel) + (p.start ? "-" + p.start : "")) || p.hinzu || heute,
+    ...(p.bild || alt.bild ? { bild: p.bild || alt.bild } : {}),
+    ...(p.tipps || alt.tipps ? { tipps: p.tipps || alt.tipps } : {}),
+    hinzu: hinzuVonId.get(id) || p.hinzu || heute,
     ...(p.fest === true ? { fest: true } : {}),
   };
 }
