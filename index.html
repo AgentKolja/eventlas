@@ -86,7 +86,7 @@
   .suche .leeren{width:44px;border-radius:12px;border:1px solid var(--linie);
     background:rgba(29,32,38,.96);color:var(--grau);cursor:pointer;font-size:16px}
   .such-info{position:absolute;left:12px;right:12px;z-index:19;display:none;max-width:560px;
-    margin:6px auto 0;top:calc(104px + env(safe-area-inset-top));
+    margin:6px auto 0;top:calc(58px + env(safe-area-inset-top));
     background:var(--panel);border:1px solid var(--linie);border-radius:10px;
     padding:8px 12px;font-size:12px;color:var(--grau)}
   .such-info.da{display:block}
@@ -1005,36 +1005,64 @@ function saisonStatus(p){
 $("#btn-suche").addEventListener("click", () => {
   const offen = $("#suchleiste").classList.toggle("offen");
   $("#btn-suche").classList.toggle("an", offen);
-  if(offen){ $("#sucheingabe").focus(); } else { sucheLeeren(); $("#such-info").classList.remove("da"); }
+  suchInfoPositionieren();
+  if(offen){ $("#sucheingabe").focus(); } else { sucheLeeren(); }
 });
+/* Suchfeld und Hinweisbox dürfen sich nicht überlagern: ist die Suche offen, rutscht die Box
+   unter das Eingabefeld, sonst sitzt sie direkt unter der Kopfzeile. */
+function suchInfoPositionieren(){
+  const offen = $("#suchleiste").classList.contains("offen");
+  $("#such-info").style.top = "calc(" + (offen ? 104 : 58) + "px + env(safe-area-inset-top))";
+}
 $("#sucheingabe").addEventListener("input", e => { parseSuche(e.target.value); ansichtAktualisieren(); });
 function sucheLeeren(){ $("#sucheingabe").value = ""; parseSuche(""); ansichtAktualisieren(); }
 $("#suchleeren").addEventListener("click", sucheLeeren);
 
-/* Rückmeldung zur Suche: Wie viele Treffer? Und wenn nichts passt: Warum, und was hilft?
-   (Häufigster Fall: Treffer existieren, liegen aber außerhalb von "Demnächst".) */
+/* Rückmeldung zu Suche UND Filtern: Wie viele Treffer? Und wenn nichts passt: Warum, und was
+   hilft? Der häufigste Fall im Alltag: "Musik" + "Heute" ist leer, obwohl übermorgen ein Konzert
+   ist — dann nennen wir das nächste Datum, statt den Nutzer vor einer leeren Karte sitzen zu lassen. */
+function naechsterTermin(){
+  const merkeZeit = zeit, merkeFenster = suchFenster;
+  zeit = "all"; suchFenster = null;
+  const kommend = PINS.filter(p => sichtbar(p) && fenster(p))
+    .map(p => ({p, w:fenster(p)}))
+    .filter(x => x.w.e >= HEUTE0)
+    .sort((a,b) => a.w.s - b.w.s);
+  const gesamt = PINS.filter(sichtbar).length;
+  zeit = merkeZeit; suchFenster = merkeFenster;
+  return {naechster: kommend[0] || null, gesamt};
+}
 function suchInfoAktualisieren(){
   const box = $("#such-info");
   if(!box) return;
   const suchtAktiv = suchTerme.length || suchFenster;
-  if(!suchtAktiv || !$("#suchleiste").classList.contains("offen")){ box.classList.remove("da"); return; }
+  const sucheOffen = $("#suchleiste").classList.contains("offen");
+  const filterAn = aktiveTags.size > 0 || merkModus || zeit === "range" ||
+    !aktiv.event || !aktiv.angebot || !aktiv.hilfe || !aktiv.spot;
+  // Anzeigen bei aktiver Suche — oder wenn ein Filter gesetzt ist und nichts übrig bleibt
   const treffer = PINS.filter(sichtbar).length;
+  if(!(suchtAktiv && sucheOffen) && !(filterAn && treffer === 0)){ box.classList.remove("da"); return; }
+
   if(treffer){
     const imBild = PINS.filter(p => sichtbar(p) && imAusschnitt(p)).length;
-    box.innerHTML = "<b>" + treffer + (treffer === 1 ? " Treffer" : " Treffer") + "</b>" +
+    box.innerHTML = "<b>" + treffer + " Treffer</b>" +
       (imBild < treffer ? " · " + imBild + " im Ausschnitt — <span class='vorschlag' data-akt='zoom'>alle zeigen</span>" : "");
   } else {
-    // Ohne Zeitfilter nochmal zählen: gäbe es Treffer in einem anderen Zeitraum?
-    const merkeZeit = zeit, merkeFenster = suchFenster;
-    zeit = "all"; suchFenster = null;
-    const beiAllen = PINS.filter(sichtbar).length;
-    zeit = merkeZeit; suchFenster = merkeFenster;
-    box.innerHTML = beiAllen
-      ? "Keine Treffer im gewählten Zeitraum — aber <b>" + beiAllen + "</b> insgesamt. " +
-        "<span class='vorschlag' data-akt='alle'>Zeitraum auf „Alle“</span>"
-      : "Nichts gefunden. Versuch es z. B. mit <span class='vorschlag' data-akt='bsp' data-q='konzert'>Konzert</span>, " +
+    const {naechster, gesamt} = naechsterTermin();
+    if(naechster){
+      const tage = Math.ceil((naechster.w.s - HEUTE0) / 864e5);
+      const wann = tage <= 0 ? "läuft gerade" : tage === 1 ? "schon morgen" : "in " + tage + " Tagen";
+      box.innerHTML = "Im gewählten Zeitraum nichts — der nächste Termin ist <b>" + wann + "</b>: " +
+        esc(naechster.p.titel.slice(0, 34)) + " (" + esc(fmtDatum(naechster.p)) + ") " +
+        "<span class='vorschlag' data-akt='naechster' data-id='" + esc(naechster.p.id) + "'>anzeigen</span>";
+    } else if(gesamt){
+      box.innerHTML = "Keine Treffer im gewählten Zeitraum — aber <b>" + gesamt + "</b> insgesamt. " +
+        "<span class='vorschlag' data-akt='alle'>Zeitraum auf „Alle“</span>";
+    } else {
+      box.innerHTML = "Nichts gefunden. Versuch es z. B. mit <span class='vorschlag' data-akt='bsp' data-q='konzert'>Konzert</span>, " +
         "<span class='vorschlag' data-akt='bsp' data-q='flohmarkt'>Flohmarkt</span> oder " +
         "<span class='vorschlag' data-akt='bsp' data-q='ernte'>Ernte</span>.";
+    }
   }
   box.classList.add("da");
 }
@@ -1043,6 +1071,16 @@ $("#such-info").addEventListener("click", e => {
   if(!v) return;
   if(v.dataset.akt === "alle"){ zeit = "all"; suchFenster = null; baueTagleiste(); ansichtAktualisieren(); }
   else if(v.dataset.akt === "zoom") alleTrefferZeigen();
+  else if(v.dataset.akt === "naechster"){
+    zeit = "all"; suchFenster = null;
+    baueTagleiste(); ansichtAktualisieren();
+    const p = PINS.find(x => x.id === v.dataset.id);
+    if(p){
+      map.flyTo({center:[p._lng ?? p.lng, p._lat ?? p.lat], zoom:Math.max(map.getZoom(), 15)});
+      const mk = marker.find(x => x.p.id === p.id);
+      if(mk) setTimeout(() => { if(!mk.m.getPopup().isOpen()) mk.m.togglePopup(); }, 750);
+    }
+  }
   else if(v.dataset.akt === "bsp"){
     $("#sucheingabe").value = v.dataset.q;
     parseSuche(v.dataset.q); ansichtAktualisieren();
