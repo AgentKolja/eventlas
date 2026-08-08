@@ -166,6 +166,13 @@ Anzeige — verlinken ist erlaubt. Wachstum manuell und sparsam (Einzel-Anschrei
   bei Klick auffächern (Spiderfy) oder bei niedrigem Zoom leicht versetzen.
 
 ## Erledigt-Log
+**08.08. spät (KI-Agent):** **Tag „kostenlos" abgeschafft** — das ist eine Eigenschaft, kein Thema,
+und verdrängte echte Themen aus der Filterleiste. Gratis-Hinweis steht jetzt in der Meta-Zeile,
+Suche nach „gratis/umsonst/verschenken" läuft über den Volltext. Neue Themen 🪩 Party und
+🎁 Verschenken. **Musik-Lücke der nächsten 14 Tage geschlossen:** von 8 auf 37 Termine, heute
+statt null jetzt vier. Größter Fund: die 13 Gratis-Open-Air-Abende der WM-Bühne auf dem Markt
+(11.–23.08., täglich 20:30, u. a. Álvaro Soler, MiA, Shantel, Harris & Ford). **Leere
+Filterergebnisse** zeigen jetzt den nächsten passenden Termin statt einer leeren Karte.
 **08.08. Abend (KI-Agent, zweiter User-Test):** **Konzert-Lücke geschlossen** — die App hatte
 fast keine Musik-Events, weil der Kulturkalender nur Museen kennt. Jetzt 47 Konzerte über 14
 Spielstätten in pins.json, plus drei neue automatische Quellen (rausgegangen.de-Konzertkategorie,

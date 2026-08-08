@@ -3,12 +3,13 @@
 Karte ist live: **https://eventlas.netlify.app** — alle Texte unten sind fertig zum Kopieren.
 
 ## 🔼 ZUERST: neu hochladen (2 Min)
-Seit deinem Upload dazugekommen: **47 Konzerte** (Musikbunker, FRANZ, Klangbrücke, Eurogress,
-Apollo, Hotel Europa, Domkeller, Raststätte …), PWA, Link-Vorschaubild, Saisonkalender,
-Kamera-Knopf, bessere Suche. Der Ordner **`Upload/`** ist schon gefüllt (7 Dateien) — einfach auf
-**app.netlify.com/drop** ziehen. Künftig: `upload-vorbereiten.cmd` doppelklicken, dann ziehen.
+Seit deinem Upload dazugekommen: **144 Pins statt 64**, davon **84 Musik/Party** — darunter die
+13 Gratis-Konzerte der WM-Bühne auf dem Markt (11.–23.08., u. a. Álvaro Soler, MiA, Shantel).
+Dazu PWA, Link-Vorschaubild, Saisonkalender, Kamera-Knopf, bessere Suche, kein „kostenlos"-Tag mehr.
+Der Ordner **`Upload/`** ist gefüllt (7 Dateien) — auf **app.netlify.com/drop** ziehen.
+Künftig: `upload-vorbereiten.cmd` doppelklicken, dann ziehen.
 > Danach am Handy prüfen: "Zum Startbildschirm hinzufügen" sollte angeboten werden, ein per
-> WhatsApp geteilter Link zeigt ein Vorschaubild, und unter 🎵 Musik stehen die Konzerte.
+> WhatsApp geteilter Link zeigt ein Vorschaubild, und 🎵 Musik + „Heute" zeigt heute vier Termine.
 
 ## Kurz gegenprüfen, wenn du magst (Datenqualität)
 - [ ] **Hotel Europa / Apollo:** Deren Programmseiten drucken kein Jahr; die Termine wurden über
