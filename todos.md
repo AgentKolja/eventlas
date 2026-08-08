@@ -3,12 +3,21 @@
 Karte ist live: **https://eventlas.netlify.app** — alle Texte unten sind fertig zum Kopieren.
 
 ## 🔼 ZUERST: neu hochladen (2 Min)
-Seit deinem Upload sind PWA, Link-Vorschaubild, Saisonkalender und einige Fixes dazugekommen.
-Der Ordner **`Upload/`** ist schon gefüllt (7 Dateien) — einfach auf **app.netlify.com/drop**
-ziehen, fertig. Künftig: `upload-vorbereiten.cmd` doppelklicken, dann ziehen.
-> Danach einmal die Seite auf dem Handy öffnen: Du solltest sie über das Browser-Menü
-> "Zum Startbildschirm hinzufügen" können, und ein per WhatsApp geteilter Link zeigt jetzt
-> ein Vorschaubild statt eines nackten Links.
+Seit deinem Upload dazugekommen: **47 Konzerte** (Musikbunker, FRANZ, Klangbrücke, Eurogress,
+Apollo, Hotel Europa, Domkeller, Raststätte …), PWA, Link-Vorschaubild, Saisonkalender,
+Kamera-Knopf, bessere Suche. Der Ordner **`Upload/`** ist schon gefüllt (7 Dateien) — einfach auf
+**app.netlify.com/drop** ziehen. Künftig: `upload-vorbereiten.cmd` doppelklicken, dann ziehen.
+> Danach am Handy prüfen: "Zum Startbildschirm hinzufügen" sollte angeboten werden, ein per
+> WhatsApp geteilter Link zeigt ein Vorschaubild, und unter 🎵 Musik stehen die Konzerte.
+
+## Kurz gegenprüfen, wenn du magst (Datenqualität)
+- [ ] **Hotel Europa / Apollo:** Deren Programmseiten drucken kein Jahr; die Termine wurden über
+      den Wochentag auf 2026 datiert. Bei Gelegenheit stichprobenartig prüfen.
+- [ ] **Südoase:** Website hat ein defektes TLS-Zertifikat → nicht automatisch auslesbar. Wenn du
+      dort Programm siehst, schick es mir, dann pflege ich es ein (oder sag dem Laden Bescheid —
+      das Zertifikat ist auch für ihre Gäste ein Problem).
+- [ ] **Vier Spielstätten** haben noch geschätzte Koordinaten (Grenzlandtheater, Saalbau Rothe
+      Erde, Barbarossa, Café Vers) — falls du die Adressen kennst, sag Bescheid.
 > Die Karte selbst ist fertig umgebaut und getestet — Details in roadmap.md.
 > Unten bei "Fragen an dich" bitte kurz entscheiden, dann kann der Agent weiterarbeiten.
 

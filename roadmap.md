@@ -91,9 +91,21 @@ Programm-URL, Art und Tags. Das Update-Skript
 3. In `index.html` → `STAEDTE` denselben Schlüssel ergänzen (Zentrum + Zoom + Pins-Datei).
 Aufruf dann über `?stadt=<schluessel>`.
 
-**Pflege:** Sechs Aachener Einträge tragen `"koordinaten_pruefen": true` — deren Adresse/Position
-ist noch nicht endgültig verifiziert (Südoase, Hotel Europa, AZ, Apollo, Domkeller, Klangbrücke).
-Beim nächsten Durchgang prüfen und das Flag entfernen.
+**Automatische Quellen (Stand 08.08., alle ohne Browser nutzbar):**
+| Quelle | Was | Hinweis |
+|---|---|---|
+| `rausgegangen.de/aachen/kategorie/konzerte-und-musik/` | ~57 Konzerte, 2 Seiten | robots.txt erlaubt ClaudeBot ausdrücklich, Crawl-Delay 10 s wird eingehalten; Venue + Datum stehen in der Kachel |
+| `api.bigcartel.com/musikbunkeraachen/products.json` | Musikbunker-Tickets | echtes JSON; Datum steckt im Produktnamen (`// TT.MM.JJJJ`) |
+| `aachen-kalender.de/wp-json/tribe/events/v1/events` | stadtweit | deckt sogar Kneipen ohne eigene Website ab (Schlüsselloch, Café Kittel) |
+| `mubu.ac`, `raststaette.org`, `ludwigforum.de` (je `/wp-json/tribe/…`) | hausgenau | sauberes JSON |
+| `api.kulturkalender-aachen.de/events` | 7 städtische Museen | nur ~7 Konzerte im Bestand — als Konzertquelle untauglich |
+
+**Nicht automatisierbar (manuell pflegen):** Theater Aachen (AJAX-Kalender), Südoase (TLS-Zertifikat
+defekt), Nachtschicht (nur Facebook). **Redirect-Fallen:** eurogress-aachen.de → aachen-event.com,
+theater-aachen.de → theateraachen.de (ohne Bindestrich), az-aachen.**de** (nicht .org).
+
+**Pflege:** Vier Einträge tragen noch `"koordinaten_pruefen": true` (Grenzlandtheater, Saalbau
+Rothe Erde, Barbarossa, Café Vers) — beim nächsten Durchgang verifizieren und das Flag entfernen.
 
 ## Content-Pipeline (aktualisiert 08.08.)
 **Automatisch (GitHub Action, täglich 05:30 UTC):** scripts/update-pins.mjs
@@ -154,6 +166,16 @@ Anzeige — verlinken ist erlaubt. Wachstum manuell und sparsam (Einzel-Anschrei
   bei Klick auffächern (Spiderfy) oder bei niedrigem Zoom leicht versetzen.
 
 ## Erledigt-Log
+**08.08. Abend (KI-Agent, zweiter User-Test):** **Konzert-Lücke geschlossen** — die App hatte
+fast keine Musik-Events, weil der Kulturkalender nur Museen kennt. Jetzt 47 Konzerte über 14
+Spielstätten in pins.json, plus drei neue automatische Quellen (rausgegangen.de-Konzertkategorie,
+Bigcartel-JSON des Musikbunkers, Tribe-Event-APIs inkl. aachen-kalender.de). **Spielstätten-
+Koordinaten korrigiert** — mehrere Schätzwerte lagen bis 2 km daneben. **Suche kontextgerecht:**
+11 Synonymgruppen, Umlaut- und Stammform-Normalisierung, Trefferzähler mit Hilfestellung bei
+0 Treffern. **Highlight-Pins** mit Glut-Ring statt nur Flammen-Badge. **Kamera-Knopf** oben:
+öffnet direkt die Kamera und bestimmt den Ort automatisch (EXIF-GPS → Standort → manuell).
+Dazu: Tag-Leiste priorisiert gesuchte Themen und zeigt Trefferzahlen, Aktualitäts-Anzeige im
+Info-Modal, Entfernungen in der Liste, kompakterer Header auf schmalen Handys.
 **08.08. nach Launch, Teil 2 (KI-Agent):** **Saisonkalender** als zweiter Tab in der Listenansicht
 — gruppiert in "Jetzt Saison" (sortiert nach letzter Chance: was zuerst endet, steht oben),
 "Bald dran" (≤45 Tage) und "Später im Jahr"; im Popup zeigt jeder Saison-Pin seinen Status
