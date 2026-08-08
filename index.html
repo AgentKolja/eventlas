@@ -138,7 +138,17 @@
   .chip.aus{opacity:.35}
   .chip .lbl{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
-  .melden{display:block;margin-top:8px;width:100%;
+  /* Liste und Melden gleichwertig nebeneinander: Die Liste ist der Haupteinstieg,
+     wenn man nicht auf der Karte suchen will — nicht nur ein Icon unter vielen oben. */
+  .hud-aktionen{display:flex;gap:8px;margin-top:8px}
+  .liste-btn{flex:0 0 auto;display:flex;align-items:center;gap:7px;
+    font-family:'Anton';font-size:14px;letter-spacing:.8px;text-transform:uppercase;
+    background:var(--panel);color:var(--papier);border:1px solid var(--linie);
+    border-radius:12px;padding:13px 15px;cursor:pointer;white-space:nowrap}
+  .liste-btn:active{transform:scale(.97)}
+  .liste-btn .lb-icon{font-size:15px;line-height:1}
+  .liste-btn:focus-visible{outline:2px solid var(--papier);outline-offset:2px}
+  .melden{display:block;flex:1;width:auto;
     font-family:'Anton';font-size:15px;letter-spacing:1px;text-transform:uppercase;
     background:var(--hilfe);color:#141414;border:0;border-radius:12px;
     padding:13px;cursor:pointer}
@@ -200,12 +210,19 @@
 
   /* Hover-Vorschau: Titel erscheint direkt am Pin, ohne dass man klicken muss.
      Auf Touchgeräten irrelevant (kein Hover) — dort führt der Tipp direkt zum Popup. */
-  .blip .tip{position:absolute;bottom:calc(100% + 7px);left:50%;transform:translateX(-50%);
-    background:var(--panel);color:var(--papier);border:1px solid var(--linie);border-radius:9px;
-    padding:6px 9px;font:600 11.5px 'Inter';white-space:nowrap;max-width:230px;overflow:hidden;
-    text-overflow:ellipsis;pointer-events:none;opacity:0;visibility:hidden;
-    transition:opacity .13s ease;box-shadow:0 4px 14px rgba(0,0,0,.5);z-index:20}
-  .blip .tip small{display:block;color:var(--grau);font-weight:400;font-size:10.5px}
+  .blip .tip{position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);
+    background:var(--panel);color:var(--papier);border:1px solid var(--linie);border-radius:11px;
+    padding:9px 11px;font:400 11.5px 'Inter';width:max-content;max-width:250px;
+    white-space:normal;text-align:left;
+    pointer-events:none;opacity:0;visibility:hidden;
+    transition:opacity .13s ease;box-shadow:0 6px 20px rgba(0,0,0,.55);z-index:20}
+  .blip .tip b{display:block;font-weight:800;font-size:12.5px;line-height:1.25;margin-bottom:2px}
+  .blip .tip small{display:block;color:var(--hilfe);font-weight:600;font-size:10.5px;margin-bottom:3px}
+  .blip .tip em{display:block;font-style:normal;color:#C9CDD6;line-height:1.4;font-size:11px}
+  .blip .tip i{display:block;font-style:normal;color:var(--event);font-weight:600;
+    font-size:10.5px;margin-top:4px}
+  /* Am oberen Kartenrand nach unten aufklappen, damit die Karte nicht hinter die Kopfzeile rutscht */
+  .blip.tip-unten .tip{bottom:auto;top:calc(100% + 8px)}
   @media (hover:hover){
     .blip:hover{z-index:19}
     .blip:hover .tip{opacity:1;visibility:visible}
@@ -381,7 +398,10 @@
       <button class="chip" data-typ="hilfe" aria-pressed="true"></button>
       <button class="chip" data-typ="spot" aria-pressed="true"></button>
     </div>
-    <button class="melden" id="melden">＋ Pin melden</button>
+    <div class="hud-aktionen">
+      <button class="liste-btn" id="liste-unten"><span class="lb-icon">☰</span><span id="liste-zahl">Liste</span></button>
+      <button class="melden" id="melden">＋ Pin melden</button>
+    </div>
     <div class="hinweis" id="hinweis"></div>
   </div>
 </div>
@@ -877,6 +897,23 @@ function popupInsBild(m){
   }, 60);   // Popup braucht einen Frame, bis es gemessen werden kann
 }
 
+/* Inhalt der Hover-Karte: so viel, dass man ohne Klick entscheiden kann, ob es sich lohnt —
+   Kategorie, Titel, Wann/Wo, ein Satz Beschreibung und Hinweise wie „gratis" oder Entfernung. */
+function hoverInhalt(p){
+  const wannWo = [fmtDatum(p), p.meta].filter(Boolean).join(" · ");
+  const satz = String(p.text || "").split(/(?<=[.!?])\s/)[0];   // erster Satz reicht
+  const marken = [];
+  if(p.hot) marken.push("🔥 Highlight");
+  if(/kostenlos|gratis|eintritt frei|\bfrei\b/i.test((p.meta||"") + " " + (p.text||""))) marken.push("gratis");
+  if(p.saison){ const st = saisonStatus(p); if(st.laeuft) marken.push("jetzt Saison"); }
+  const weg = entfernungText(p);
+  if(weg) marken.push(weg + " entfernt");
+  return '<b>' + esc(p.titel) + '</b>' +
+    (wannWo ? '<small>' + esc(wannWo) + '</small>' : '') +
+    (satz ? '<em>' + esc(satz.length > 95 ? satz.slice(0, 92) + "…" : satz) + '</em>' : '') +
+    (marken.length ? '<i>' + esc(marken.join(" · ")) + '</i>' : '');
+}
+
 /* ---------- Marker ---------- */
 /* Pins auf (fast) identischer Koordinate kreisförmig auffächern, damit jeder antippbar
    bleibt — z. B. Katschhof und Elisenbrunnen, wo mehrere Pins übereinanderliegen.
@@ -907,12 +944,14 @@ function baueMarker(){
     const el = document.createElement("button");
     el.className = "blip t-"+p.typ + (p.hot ? " hot" : "") + (istNeu(p) ? " frisch" : "");
     const sym = blipSymbol(p);
-    const vorschau = [fmtDatum(p), p.meta].filter(Boolean).join(" · ");
     el.innerHTML = '<span class="form"></span>' +
       (sym ? '<span class="emo">'+sym+'</span>' : ICON[p.typ]) +
-      '<span class="tip">' + (p.hot ? "🔥 " : "") + esc(p.titel) +
-      (vorschau ? '<small>'+esc(vorschau)+'</small>' : '') + '</span>';
+      '<span class="tip">' + hoverInhalt(p) + '</span>';
     el.addEventListener("click", () => lernen(p));
+    // Tooltip nach unten klappen, wenn oben kein Platz ist
+    el.addEventListener("mouseenter", () => {
+      el.classList.toggle("tip-unten", el.getBoundingClientRect().top < 190);
+    });
     const m = new maplibregl.Marker({element:el})
       .setLngLat([p._lng ?? p.lng, p._lat ?? p.lat])
       .setPopup(new maplibregl.Popup({offset:22, maxWidth:"270px"}).setHTML(popupHTML(p)))
@@ -1041,6 +1080,11 @@ function ansichtAktualisieren(){
   if(rst) rst.classList.toggle("da", filterAktiv());
   const hc = $("#chip-highlights");
   if(hc) hc.classList.toggle("an", nurHighlights);
+  const lz = $("#liste-zahl");
+  if(lz){
+    const n = PINS.filter(p => sichtbar(p) && imAusschnitt(p)).length;
+    lz.textContent = n ? "Liste " + n : "Liste";
+  }
   suchInfoAktualisieren();
   document.querySelectorAll("#tagleiste .tagchip").forEach(c => {
     if(c.classList.contains("fuerdich")){ c.classList.toggle("an", fuerDich); return; }
@@ -1124,23 +1168,49 @@ function clusternUndZeichnen(sichtbare){
       e.stopPropagation();
       const b = new maplibregl.LngLatBounds();
       gruppe.forEach(x => b.extend([x.p._lng ?? x.p.lng, x.p._lat ?? x.p.lat]));
-      // Liegen alle praktisch aufeinander, hilft fitBounds nicht — dann Liste statt Zoom zeigen
+      // Zoomen hilft nur, wenn die Pins auch wirklich auseinanderliegen. Sind es viele
+      // (typisch: eine Bühne mit ganzer Konzertreihe), ist die Liste der schnellere Weg.
       const spanne = Math.max(b.getEast()-b.getWest(), b.getNorth()-b.getSouth());
-      if(spanne < 0.0006 || map.getZoom() >= CLUSTER_AB_ZOOM - 1) zeigeClusterListe(gruppe.map(x => x.p));
+      if(spanne < 0.0006 || gruppe.length >= 6 || map.getZoom() >= CLUSTER_AB_ZOOM - 1)
+        zeigeClusterListe(gruppe.map(x => x.p));
       else map.fitBounds(b, {padding:{top:110, bottom:250, left:50, right:50}, maxZoom:17.5, duration:600});
     });
     clusterMarker.push(new maplibregl.Marker({element:el}).setLngLat([mitteLng, mitteLat]).addTo(map));
   });
 }
 
-/* Liegen Pins praktisch übereinander (gleiche Bühne, gleicher Platz), bringt Zoomen nichts —
-   dann zeigen wir sie als Liste, sortiert nach Relevanz. */
+/* Cluster-Liste: Was steckt in dieser Gruppe? Nach Spielstätte gebündelt, denn genau das
+   ist der Normalfall — eine Bühne mit ganzer Konzertreihe (Markt, Musikbunker, FRANZ).
+   Innerhalb einer Spielstätte chronologisch, damit man den Spielplan liest, nicht ein Ranking. */
+/* Der erste Teil der Meta-Zeile ist meist die Spielstätte ("Markt · 20:30 · frei").
+   Manche Pins führen dort aber eine Zeitangabe ("vormittags", "samstags") — die ist kein Ort. */
+const KEIN_ORT = /^(vormittags|nachmittags|abends|nachts|morgens|samstags|sonntags|montags|dienstags|mittwochs|donnerstags|freitags|täglich|taeglich|laufend|wöchentlich|woechentlich|kostenlos|frei|beispiel|ernte|selbstpflücke|selbstpfluecke|selber\b.*)/i;
+function ortsName(p){
+  const m = (p.meta || "").split("·")[0].trim();
+  if(!m || /^\d/.test(m) || KEIN_ORT.test(m)) return "";
+  return m;
+}
 function zeigeClusterListe(pins){
-  const sortiert = [...pins].sort((a,b) => relevanz(b) - relevanz(a));
+  const gruppen = new Map();
+  pins.forEach(p => {
+    const ort = ortsName(p) || "Weitere in der Nähe";
+    if(!gruppen.has(ort)) gruppen.set(ort, []);
+    gruppen.get(ort).push(p);
+  });
+  // Größte Gruppe zuerst; innerhalb der Gruppe nach Datum
+  const sortiert = [...gruppen.entries()].sort((a,b) => b[1].length - a[1].length);
+  const key = p => { const w = fenster(p); return w ? w.s.getTime() : 0; };
+  const rumpf = sortiert.map(([ort, liste]) => {
+    liste.sort((a,b) => key(a) - key(b) || relevanz(b) - relevanz(a));
+    const kopf = sortiert.length > 1 || liste.length > 3
+      ? '<div class="saison-kopf">'+esc(ort)+' · '+liste.length+'</div>' : "";
+    return kopf + liste.map(p => listenZeile(p)).join("");
+  }).join("");
+
   modalOeffnen(
-    '<h2>' + sortiert.length + ' Pins an dieser Stelle</h2>'+
-    '<p class="klein">Antippen öffnet den Pin auf der Karte.</p>'+
-    sortiert.map(p => listenZeile(p)).join("")
+    '<h2>' + pins.length + ' Pins an dieser Stelle</h2>'+
+    '<p class="klein">'+(sortiert.length > 1 ? 'Nach Ort gebündelt. ' : '')+
+    'Antippen öffnet den Pin auf der Karte.</p>'+ rumpf
   );
   blatt.querySelectorAll(".liste-zeile").forEach(z => z.addEventListener("click", () => {
     const p = PINS.find(x => x.id === z.dataset.id);
@@ -1215,6 +1285,7 @@ function zeitraumWaehlen(){
 
 /* ---------- Listenansicht (User-Test: Zahl anfassbar machen, Liste ↔ Karte) ---------- */
 $("#btn-liste").addEventListener("click", () => zeigeListe("heute"));
+$("#liste-unten").addEventListener("click", () => zeigeListe("heute"));
 
 function entfernungText(p){
   if(!meinStandort) return "";
@@ -1264,8 +1335,8 @@ function laeuftHeute(p){
 function zeigeListe(tab){
   const saisonPins = PINS.filter(p => p.saison);
   const tabs = '<div class="liste-tabs">'+
-    '<button data-tab="heute" class="'+(tab==="heute"?"an":"")+'">🔥 Los</button>'+
-    '<button data-tab="ausschnitt" class="'+(tab==="ausschnitt"?"an":"")+'">📍 Ausschnitt</button>'+
+    '<button data-tab="heute" class="'+(tab==="heute"?"an":"")+'">🔥 Aktuell</button>'+
+    '<button data-tab="ausschnitt" class="'+(tab==="ausschnitt"?"an":"")+'">📍 Auf der Karte</button>'+
     (saisonPins.length ? '<button data-tab="saison" class="'+(tab==="saison"?"an":"")+'">🍏 Saison</button>' : '')+
   '</div>';
 
