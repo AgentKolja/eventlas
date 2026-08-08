@@ -219,6 +219,14 @@ existiert nicht; Deep-Links pro Pin (Route) sind bereits eingebaut und bleiben d
 also genau die Konstellation aus dem LG-München-Urteil. Beide Schriften liegen jetzt lokal
 (`schriften/`, 66 KB). Verifiziert: keine Anfrage mehr an Google.
 
+**Zur Nachfrage „geht es nicht doch über die eigene Website?"** — Ja, technisch schon: Die Maps
+JavaScript API liefert nur die Kacheln, unser UI (Filter, Sheet, Suche, Clustering) bliebe
+komplett erhalten. Die drei Nachteile oben bleiben davon aber unberührt, weil sie nicht am UI
+hängen, sondern am Datenfluss zu Google. Wer nur ein anderes Kartenbild will, hat seit 09.08.
+den **Stil-Umschalter** (Info → Kartenbild): Standard · Farbig · Ruhig · Dunkel — alle von
+OpenFreeMap, EU-gehostet, ohne Cookies. Falls später doch Google-Kacheln gewünscht sind, wäre
+der saubere Weg ein Umschalter mit vorgeschalteter Einwilligung nur für diesen Stil.
+
 ## Beitragen: Fotos und Tipps (Stand 09.08.)
 Jeder Pin kann ein Foto (`bild {url, credit}`) und Tipps (`tipps [{text, von, datum}]`) tragen.
 Im Detail gibt es „📷 Foto beisteuern" und „💬 Tipp schreiben" — beides geht mit Ortsbezug
@@ -251,6 +259,10 @@ Kontext (Liste zu → Pin auf der Karte suchen).
   Gummiband über der Karte.
 
 ## Erledigt-Log
+**09.08. (KI-Agent):** Google-Maps-Frage recherchiert und entschieden (bleibt MapLibre — Begründung
+oben), dabei die Google-Fonts-Einbindung als echtes Risiko entdeckt und behoben. **Pin-Export**
+(GeoJSON/KML), **Fotos und Tipps** von Nutzern, **Kartenstil-Umschalter**, ausführliche
+Datenschutzangaben.
 **09.08. (KI-Agent, Mobile-Optimierung):** Systematisch vermessen und umgebaut — Detail-Sheet
 statt Popup, Liste↔Detail ohne Kontextverlust, einklappbare Filter, Touch-Ziele auf Norm,
 Aktionshierarchie, Querformat- und iOS-Regeln. Details siehe „Mobile-Konzept" oben.
