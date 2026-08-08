@@ -11,6 +11,17 @@ Künftig: `upload-vorbereiten.cmd` doppelklicken, dann ziehen.
 > Danach am Handy prüfen: "Zum Startbildschirm hinzufügen" sollte angeboten werden, ein per
 > WhatsApp geteilter Link zeigt ein Vorschaubild, und 🎵 Musik + „Heute" zeigt heute vier Termine.
 
+## Neu: Fotos und Tipps von Nutzern
+Im Detail eines Pins gibt es jetzt „📷 Foto beisteuern" und „💬 Tipp schreiben". Beides landet
+per WhatsApp/Mail bei dir. **So pflegst du es ein** (in `pins.json` beim jeweiligen Pin):
+```json
+"bild": { "url": "https://…/foto.jpg", "credit": "Foto: Vorname" },
+"tipps": [ { "text": "Am besten früh da sein.", "von": "Lisa", "datum": "2026-08-12" } ]
+```
+Bilder brauchen eine Web-Adresse — am einfachsten mit ins Netlify-Upload legen (dann
+`"url": "bilder/lousberg.jpg"`). **Vor dem Einpflegen kurz prüfen:** eigene Aufnahme? Keine
+Personen im Mittelpunkt? Kein Plakat-/Kunstwerk-Foto (Urheberrecht)? Im Zweifel weglassen.
+
 ## Kurz gegenprüfen, wenn du magst (Datenqualität)
 - [ ] **Hotel Europa / Apollo:** Deren Programmseiten drucken kein Jahr; die Termine wurden über
       den Wochentag auf 2026 datiert. Bei Gelegenheit stichprobenartig prüfen.

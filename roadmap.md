@@ -186,6 +186,21 @@ Anzeige — verlinken ist erlaubt. Wachstum manuell und sparsam (Einzel-Anschrei
 - **Marker-Spreizung bei Überlappung:** Am Katschhof liegen mehrere Pins fast übereinander —
   bei Klick auffächern (Spiderfy) oder bei niedrigem Zoom leicht versetzen.
 
+## Beitragen: Fotos und Tipps (Stand 09.08.)
+Jeder Pin kann ein Foto (`bild {url, credit}`) und Tipps (`tipps [{text, von, datum}]`) tragen.
+Im Detail gibt es „📷 Foto beisteuern" und „💬 Tipp schreiben" — beides geht mit Ortsbezug
+per WhatsApp/Mail raus und wird von Hand eingepflegt.
+
+**Warum keine offene Kommentarspalte:** Für nutzergenerierte Bilder und Texte haftet der
+Betreiber (Urheberrecht bei fremden Fotos, Persönlichkeitsrechte bei abgebildeten Personen,
+Störerhaftung nach §§ 7–10 DDG). Ohne Moderationsteam ist Prüfen vor Veröffentlichen der
+einzig tragfähige Weg. Das Auto-Update kann Beiträge weder überschreiben noch erfinden.
+
+**Ausbaustufe mit Backend (V3):** Erst mit Konto und Moderations-Queue lohnt sich direktes
+Hochladen. Realistisch: Netlify Function + Supabase (kostenlose Stufe), Uploads landen in
+einer Warteschlange, Freigabe per Handy. Vorher lohnt es nicht — unter ~5 Beiträgen pro Woche
+ist die manuelle Pflege schneller als das Bauen und Betreiben.
+
 ## Mobile-Konzept (Stand 09.08., nach Messung)
 Ausgangslage: HUD belegte 25 % des Bildschirms (auf 360×740 sogar 32 %), Touch-Ziele lagen bei
 30–36 px statt der empfohlenen 44 px, und jeder Klick auf ein Listen-Element zerstörte den
