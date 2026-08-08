@@ -1,4 +1,4 @@
-{
+﻿{
  "stand": "2026-08-08",
  "hinweis": "Schema: typ event|angebot|hilfe|spot · tags[] · quelle (Beleg-URL) · link (CTA) · hot (beliebt) · hinzu (Aufnahmedatum) · saison {von,bis als MM-TT, jaehrlich wiederkehrend} · fest:true = wird vom Auto-Update nie geloescht. Recherchestand 08.08.2026, alle Quellen einzeln verifiziert.",
  "pins": [
@@ -63,7 +63,7 @@
    "text": "Kostenloses Showprogramm im Hauptstadion, 12–15 Uhr — WM-Luft schnuppern ohne Ticket.",
    "lng": 6.0942, "lat": 50.7963,
    "start": "2026-08-17", "meta": "12–15 Uhr · frei",
-   "tags": ["sport", "kostenlos"],
+   "tags": ["sport"],
    "link": "https://www.aachen2026.com", "quelle": "https://www.aachen2026.com",
    "hinzu": "2026-08-07"
   },
@@ -74,7 +74,7 @@
    "text": "Kostenloses Rahmenprogramm zur Reit-WM in der Innenstadt: Konzerte auf zwei Bühnen, Theater, Tanz, Kunstaktionen. Täglich ab 11 Uhr Food-Markt auf Katschhof und Münsterplatz.",
    "lng": 6.0836, "lat": 50.7757,
    "start": "2026-08-11", "ende": "2026-08-23", "meta": "Innenstadt · Eintritt frei",
-   "tags": ["kultur", "musik", "essen", "kostenlos"],
+   "tags": ["kultur", "musik", "essen"],
    "quelle": "https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/",
    "hot": true, "hinzu": "2026-08-08"
   },
@@ -85,7 +85,7 @@
    "text": "Kostenlose Augmented-Reality-Route durch die Stadt: Elisengarten, Büchel, Suermondt-Ludwig-Museum, NAK-Park bis zur Soers.",
    "lng": 6.0865, "lat": 50.7743,
    "start": "2026-08-11", "ende": "2026-08-23", "meta": "kostenlos",
-   "tags": ["kultur", "kostenlos"],
+   "tags": ["kultur"],
    "quelle": "https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/",
    "hinzu": "2026-08-07"
   },
@@ -150,7 +150,7 @@
    "text": "Pride-Festival mit Demo, Bühnenprogramm, Infoständen und Party auf Katschhof und Markt. Fr ab 17 Uhr Auftakt, Sa ab 13 Uhr Demo und Straßenfest.",
    "lng": 6.0838, "lat": 50.776,
    "start": "2026-08-28", "ende": "2026-08-29", "meta": "Katschhof & Markt · frei",
-   "tags": ["fest", "kultur", "party", "kostenlos"],
+   "tags": ["fest", "kultur", "party"],
    "link": "https://www.csd-aachen.de/", "quelle": "https://www.csd-aachen.de/",
    "hinzu": "2026-08-08"
   },
@@ -181,8 +181,8 @@
    "titel": "Verleihung Aachener Friedenspreis",
    "text": "Öffentliche Preisverleihung in der Aula Carolina, Laudatio: Martin Schulz. Beginn 19 Uhr, Eintritt frei.",
    "lng": 6.0822, "lat": 50.7776,
-   "start": "2026-09-01", "meta": "Aula Carolina · 19 Uhr",
-   "tags": ["kultur", "kostenlos"],
+   "start": "2026-09-01", "meta": "Aula Carolina · 19 Uhr · frei",
+   "tags": ["kultur"],
    "quelle": "https://www.aachener-friedenspreis.de/",
    "hinzu": "2026-08-08"
   },
@@ -237,7 +237,7 @@
    "text": "Kostenlose Führungen und offene Türen in historischen Gebäuden in ganz Aachen — Motto: NetzWERKE. Denkmale & Infrastruktur.",
    "lng": 6.0838, "lat": 50.7745,
    "start": "2026-09-13", "meta": "stadtweit · frei",
-   "tags": ["kultur", "kostenlos"],
+   "tags": ["kultur"],
    "quelle": "https://www.aachen.de/in-aachen-leben/planen-bauen/denkmalpflege-und-archaeologie/news/tag-des-offenen-denkmals/",
    "hinzu": "2026-08-08"
   },
@@ -303,7 +303,7 @@
    "text": "Offene Ateliers, Galerien und Kunstorte in der Innenstadt. Vernissage Fr 20 Uhr, Sa/So jeweils 11–18 Uhr, Eintritt frei.",
    "lng": 6.0865, "lat": 50.777,
    "start": "2026-09-25", "ende": "2026-09-27", "meta": "stadtweit · frei",
-   "tags": ["kultur", "kostenlos"],
+   "tags": ["kultur"],
    "quelle": "https://www.aachenerkunstroute.de/aachener-kunstroute-2026-die-vorbereitungen-laufen.html",
    "hinzu": "2026-08-08"
   },
@@ -336,8 +336,8 @@
    "titel": "Thermalwasser am Elisenbrunnen",
    "text": "Aachens heiße Schwefelquelle kostenlos probieren — direkt am klassizistischen Brunnen.",
    "lng": 6.0871, "lat": 50.7747,
-   "meta": "kostenlos",
-   "tags": ["kostenlos"],
+   "meta": "kostenlos · frei zugänglich",
+   "tags": ["natur"],
    "hinzu": "2026-08-07", "fest": true
   },
   {
@@ -347,7 +347,7 @@
    "text": "So sieht ein privater Angebots-Pin aus — mit Link zu deiner Kleinanzeige. Melde deinen eigenen über den Knopf unten.",
    "lng": 6.09, "lat": 50.7735,
    "meta": "Beispiel — dein Pin?",
-   "tags": ["kostenlos"],
+   "tags": ["verschenken"],
    "hinzu": "2026-08-07", "fest": true
   },
   {
@@ -358,7 +358,7 @@
    "lng": 6.092429, "lat": 50.764275,
    "saison": {"von": "08-15", "bis": "10-15"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte", "kostenlos", "natur"],
+   "tags": ["ernte", "natur"],
    "link": "https://mundraub.org/node/93405", "quelle": "https://mundraub.org/node/93405",
    "hinzu": "2026-08-07", "fest": true
   },
@@ -370,7 +370,7 @@
    "lng": 6.165218, "lat": 50.762196,
    "saison": {"von": "07-15", "bis": "10-31"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte", "kostenlos", "natur"],
+   "tags": ["ernte", "natur"],
    "link": "https://mundraub.org/node/23031", "quelle": "https://mundraub.org/node/23031",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -382,7 +382,7 @@
    "lng": 6.042084, "lat": 50.826806,
    "saison": {"von": "08-15", "bis": "10-31"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte", "kostenlos", "natur"],
+   "tags": ["ernte", "natur"],
    "link": "https://mundraub.org/node/76079", "quelle": "https://mundraub.org/node/76079",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -394,7 +394,7 @@
    "lng": 6.12977, "lat": 50.792603,
    "saison": {"von": "08-01", "bis": "10-15"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte", "kostenlos", "natur"],
+   "tags": ["ernte", "natur"],
    "link": "https://mundraub.org/node/9144", "quelle": "https://mundraub.org/node/9144",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -406,7 +406,7 @@
    "lng": 6.081383, "lat": 50.783955,
    "saison": {"von": "07-15", "bis": "08-31"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte", "kostenlos", "natur"],
+   "tags": ["ernte", "natur"],
    "link": "https://mundraub.org/node/2444", "quelle": "https://mundraub.org/node/2444",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -418,7 +418,7 @@
    "lng": 6.137795, "lat": 50.771152,
    "saison": {"von": "07-15", "bis": "09-30"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte", "kostenlos", "natur"],
+   "tags": ["ernte", "natur"],
    "link": "https://mundraub.org/node/3003", "quelle": "https://mundraub.org/node/3003",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -430,7 +430,7 @@
    "lng": 6.072671, "lat": 50.755489,
    "saison": {"von": "07-15", "bis": "09-30"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte", "kostenlos", "natur"],
+   "tags": ["ernte", "natur"],
    "link": "https://mundraub.org/node/2437", "quelle": "https://mundraub.org/node/2437",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -442,7 +442,7 @@
    "lng": 6.173201, "lat": 50.700481,
    "saison": {"von": "07-15", "bis": "09-30"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte", "kostenlos", "natur"],
+   "tags": ["ernte", "natur"],
    "link": "https://mundraub.org/node/20508", "quelle": "https://mundraub.org/node/20508",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -454,7 +454,7 @@
    "lng": 6.118735, "lat": 50.751992,
    "saison": {"von": "06-15", "bis": "08-31"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte", "kostenlos", "natur"],
+   "tags": ["ernte", "natur"],
    "link": "https://mundraub.org/node/145140", "quelle": "https://mundraub.org/node/145140",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -466,7 +466,7 @@
    "lng": 6.190871, "lat": 50.755179,
    "saison": {"von": "06-20", "bis": "08-15"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte", "kostenlos", "natur"],
+   "tags": ["ernte", "natur"],
    "link": "https://mundraub.org/node/14531", "quelle": "https://mundraub.org/node/14531",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -478,7 +478,7 @@
    "lng": 6.029177, "lat": 50.707135,
    "saison": {"von": "09-01", "bis": "10-31"},
    "meta": "Ernte · mundraub · Belgien",
-   "tags": ["ernte", "kostenlos", "natur"],
+   "tags": ["ernte", "natur"],
    "link": "https://mundraub.org/node/92032", "quelle": "https://mundraub.org/node/92032",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -490,7 +490,7 @@
    "lng": 6.063251, "lat": 50.751934,
    "saison": {"von": "09-20", "bis": "10-31"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte", "kostenlos", "natur"],
+   "tags": ["ernte", "natur"],
    "link": "https://mundraub.org/node/2435", "quelle": "https://mundraub.org/node/2435",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -502,7 +502,7 @@
    "lng": 6.029048, "lat": 50.780056,
    "saison": {"von": "07-15", "bis": "10-31"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte", "kostenlos", "natur"],
+   "tags": ["ernte", "natur"],
    "link": "https://mundraub.org/node/1787", "quelle": "https://mundraub.org/node/1787",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -514,7 +514,7 @@
    "lng": 6.115619, "lat": 50.773987,
    "saison": {"von": "07-01", "bis": "07-31"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte", "kostenlos", "natur"],
+   "tags": ["ernte", "natur"],
    "link": "https://mundraub.org/node/1447", "quelle": "https://mundraub.org/node/1447",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -526,7 +526,7 @@
    "lng": 6.047469, "lat": 50.738095,
    "saison": {"von": "06-15", "bis": "07-31"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte", "kostenlos", "natur"],
+   "tags": ["ernte", "natur"],
    "link": "https://mundraub.org/node/102542", "quelle": "https://mundraub.org/node/102542",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -538,7 +538,7 @@
    "lng": 6.103098, "lat": 50.756604,
    "saison": {"von": "03-01", "bis": "05-15"},
    "meta": "Ernte · mundraub · Frühjahr",
-   "tags": ["ernte", "kostenlos", "natur"],
+   "tags": ["ernte", "natur"],
    "link": "https://mundraub.org/node/7108", "quelle": "https://mundraub.org/node/7108",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -1007,7 +1007,7 @@
    "text": "Geburtstagskonzert mit anschließender Party. Eintritt frei, Beginn 20 Uhr.",
    "lng": 6.0864597, "lat": 50.7685241,
    "start": "2026-10-02", "meta": "FRANZ · 20 Uhr · frei",
-   "tags": ["musik", "party", "kostenlos"],
+   "tags": ["musik", "party"],
    "link": "https://aachen-franz.de/programm/", "quelle": "https://aachen-franz.de/programm/",
    "hinzu": "2026-08-08"
   },
@@ -1106,7 +1106,7 @@
    "text": "Aachens Hausberg: vom Tranchot-Obelisken das beste freie Panorama über die Dächer und die Domsilhouette. Aufstieg über die Lousbergstiege (312 Stufen). Am besten: goldene/blaue Stunde abends, Blick nach Süden.",
    "lng": 6.0792, "lat": 50.7869,
    "meta": "frei zugänglich",
-   "tags": ["fotospot", "kostenlos", "natur"],
+   "tags": ["fotospot", "natur"],
    "quelle": "https://de.wikipedia.org/wiki/Lousberg",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -1117,7 +1117,7 @@
    "text": "Der 35 m hohe frühere Wasserturm (1958) ist ein markantes Architekturmotiv auf dem Lousberg-Plateau. Am besten abends als Silhouette gegen den Westhimmel.",
    "lng": 6.08049, "lat": 50.78645,
    "meta": "Umfeld frei zugänglich",
-   "tags": ["fotospot", "kostenlos"],
+   "tags": ["fotospot"],
    "quelle": "https://de.wikipedia.org/wiki/Wasserturm_Belvedere_(Aachen)",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -1128,7 +1128,7 @@
    "text": "Herz des UNESCO-Ensembles: südlich füllt der Dom den Rahmen, nördlich das gotische Rathaus. Am besten: blaue Stunde, wenn beide angestrahlt sind; morgens streifendes Licht von Osten.",
    "lng": 6.08379, "lat": 50.77544,
    "meta": "rund um die Uhr frei",
-   "tags": ["fotospot", "kostenlos"],
+   "tags": ["fotospot"],
    "quelle": "https://de.wikipedia.org/wiki/Aachener_Dom",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -1139,7 +1139,7 @@
    "text": "Klassizistische Säulenhalle von 1827 — ideal für Symmetrie-Aufnahmen. Am besten: abends Sonne von Westen auf der Säulenfront, nachts stimmungsvoll beleuchtet.",
    "lng": 6.0869, "lat": 50.7742,
    "meta": "goldene Stunde abends",
-   "tags": ["fotospot", "kostenlos"],
+   "tags": ["fotospot"],
    "quelle": "https://de.wikipedia.org/wiki/Elisenbrunnen",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -1150,7 +1150,7 @@
    "text": "Mittelalterliches Stadttor mit Vorburg — dramatische Kompositionen von der nördlichen Feldseite. Am besten: goldene Stunde abends von Norden/Nordwesten.",
    "lng": 6.07833, "lat": 50.78153,
    "meta": "goldene Stunde",
-   "tags": ["fotospot", "kostenlos"],
+   "tags": ["fotospot"],
    "quelle": "https://de.wikipedia.org/wiki/Ponttor",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -1161,7 +1161,7 @@
    "text": "Eines der mächtigsten erhaltenen Stadttore Westeuropas, nahe Hauptbahnhof — die breite Südfassade füllt Weitwinkel perfekt. Am besten: Nachmittag bis goldene Stunde.",
    "lng": 6.08694, "lat": 50.76819,
    "meta": "frei zugänglich",
-   "tags": ["fotospot", "kostenlos"],
+   "tags": ["fotospot"],
    "quelle": "https://de.wikipedia.org/wiki/Marschiertor",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -1172,7 +1172,7 @@
    "text": "Wasserburg aus dem 13. Jh. mitten im Viertel: Der Burgweiher liefert bei Windstille Bilderbuch-Spiegelungen. Am besten: Sonnenaufgang — ruhiges Wasser, gelegentlich Morgennebel.",
    "lng": 6.10389, "lat": 50.76778,
    "meta": "Park frei zugänglich",
-   "tags": ["fotospot", "kostenlos"],
+   "tags": ["fotospot"],
    "quelle": "https://de.wikipedia.org/wiki/Burg_Frankenberg_(Aachen)",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -1183,7 +1183,7 @@
    "text": "Aachens beliebtestes Allee-Motiv am historischen Gut Melaten: symmetrische Baumreihen, im Herbst spektakulär gefärbt. Am besten: Sonnenaufgang mit Gegenlicht und Morgennebel.",
    "lng": 6.0466, "lat": 50.7789,
    "meta": "RWTH Campus Melaten",
-   "tags": ["fotospot", "kostenlos", "natur"],
+   "tags": ["fotospot", "natur"],
    "quelle": "https://de.wikipedia.org/wiki/Gut_Melaten",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -1194,7 +1194,7 @@
    "text": "Alte Baumbestände, Wasserbecken und das Neue Kurhaus als Kulisse — ruhiges Park-Motiv abseits der Altstadt. Am besten: morgens, im Herbst wegen Laubfärbung besonders fotogen.",
    "lng": 6.0971, "lat": 50.783,
    "meta": "frei zugänglich",
-   "tags": ["fotospot", "kostenlos", "natur"],
+   "tags": ["fotospot", "natur"],
    "quelle": "https://www.carolus-thermen.de/",
    "hinzu": "2026-08-08", "fest": true
   },
