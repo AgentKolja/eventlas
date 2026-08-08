@@ -2,6 +2,12 @@
 
 Diese Datei bei neuen Chats mit Claude hochladen — sie ist das Projektgedächtnis.
 
+## 🟢 LIVE: https://eventlas.netlify.app (seit 08.08.2026)
+Nach jeder Änderung neu hochladen: **`upload-vorbereiten.cmd` doppelklicken** (kopiert alle
+Live-Dateien nach `Upload/`, verschiebt nichts) → Ordner auf app.netlify.com/drop ziehen.
+Zum Live-Bestand gehören inzwischen: `index.html`, `pins.json`, `manifest.json`, `sw.js`,
+`og.png`, `icon-192.png`, `icon-512.png`.
+
 ## Status (Stand 08.08.2026 — großer V2-Umbau durch KI-Agent)
 - **index.html komplett neu gebaut** — alle 24 Features der Prioritätenliste vom 07.08. sind
   umgesetzt oder entschieden (Details unten). Lokal getestet (Mobile + Desktop), null Konsolenfehler.
@@ -118,11 +124,8 @@ Anzeige — verlinken ist erlaubt. Wachstum manuell und sparsam (Einzel-Anschrei
 - Zweite Stadt aufschalten (Architektur steht: STAEDTE-Eintrag + pins-<stadt>.json)
 
 ## Neue Feature-Ideen (gesammelt 08.08., noch nicht beauftragt)
-- **PWA:** manifest.json + Service-Worker → "Zum Startbildschirm", Offline-Fallback (Fallback-Pins
-  sind schon eingebaut, fehlt nur der SW). Kleiner Aufwand, großer Mobil-Gewinn.
 - **Embed-Widget:** Karte als iframe für wir-frankenberger.de / Café-Websites → Reichweite.
 - **Mehrsprachig EN/NL** für die Euregio (Vaals ist 10 Min entfernt).
-- **Open-Graph-Bild** (Karten-Screenshot) für schönere WhatsApp-Link-Vorschau.
 - **Saisonkalender-Ansicht:** Liste "Was ist gerade Saison?" (Daten sind da: 21 Ernteorte mit
   Saisonfenstern).
 - **Beispiel-Pins automatisch ausblenden,** sobald ≥3 echte Nutzer-Pins derselben Kategorie leben.
@@ -131,6 +134,18 @@ Anzeige — verlinken ist erlaubt. Wachstum manuell und sparsam (Einzel-Anschrei
   bei Klick auffächern (Spiderfy) oder bei niedrigem Zoom leicht versetzen.
 
 ## Erledigt-Log
+**08.08. nach Launch (KI-Agent):** Karte ist live. Live-URL überall eingetragen (Flyer-QR zeigt
+jetzt auf eventlas.netlify.app, alle Anschreiben-Texte einsatzbereit). **PWA** komplett:
+manifest.json, Service Worker (network-first für eigene Dateien, damit Netlify-Uploads sofort
+ankommen; Kacheln bewusst ungecacht), App-Icons, "Zum Startbildschirm"-Knopf im Info-Modal.
+**Open-Graph-Bild** (og.png, 1200×630, im Karten-Design) + Twitter-Card → Links sehen in
+WhatsApp/Insta jetzt aus wie ein Produkt, nicht wie ein nackter Link. **Marker-Auffächerung**:
+Pins auf gleicher Koordinate (7 Gruppen, u. a. Katschhof, Elisenbrunnen, Tivoli) werden im Kreis
+um ~16 m versetzt gezeichnet und sind damit einzeln antippbar — die Route im Popup zeigt weiterhin
+auf die echte Koordinate. Dazu `upload-vorbereiten.cmd` (verhindert, dass Dateien beim Netlify-
+Upload aus dem Projekt verschwinden) und `.claude/bilder-generator.html` (erzeugt og.png/Icons neu,
+falls sich das Design ändert).
+
 **08.08. abends (KI-Agent, nach User-Test + Code-Review):** Alle 6 Punkte aus User Test.md
 umgesetzt (Marker-Positions-Bug behoben — Icons wanderten beim Zoomen; Tag-Chip-Aktivzustand;
 ✕-Zurücksetzen-Chip; Themen-Emojis auf den Karten-Blips; 📅 Zeitraum-Filter mit Von/Bis;

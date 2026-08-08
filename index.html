@@ -5,8 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#14161A">
 <meta name="description" content="Eventlas Aachen — die Viertelkarte: Events, Angebote, Nachbarschaftshilfe und Fotospots auf einen Blick.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://eventlas.netlify.app/">
+<meta property="og:site_name" content="Eventlas">
+<meta property="og:locale" content="de_DE">
 <meta property="og:title" content="Eventlas — Aachen">
-<meta property="og:description" content="Was läuft in Aachen? Events, Angebote, Hilfe-Gesuche und Fotospots auf der Karte.">
+<meta property="og:description" content="Was läuft gerade in Aachen? Events, Angebote, Nachbarschaftshilfe und Fotospots auf einer Karte. Kostenlos, werbefrei, ohne Anmeldung.">
+<meta property="og:image" content="https://eventlas.netlify.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Eventlas — Was läuft gerade in Aachen? Events, Angebote, Hilfe, Fotospots.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Eventlas — Aachen">
+<meta name="twitter:description" content="Was läuft gerade in Aachen? Events, Angebote, Hilfe und Fotospots auf einer Karte.">
+<meta name="twitter:image" content="https://eventlas.netlify.app/og.png">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Eventlas">
 <title>Eventlas — Aachen</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314161A'/%3E%3Ccircle cx='32' cy='27' r='13' fill='%23FFC61A'/%3E%3Cpath d='M32 58 22 38h20z' fill='%23FFC61A'/%3E%3Ccircle cx='32' cy='27' r='5' fill='%2314161A'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
@@ -563,9 +580,30 @@ function popupHTML(p){
 }
 
 /* ---------- Marker ---------- */
+/* Pins auf (fast) identischer Koordinate kreisförmig auffächern, damit jeder antippbar
+   bleibt — z. B. Katschhof und Elisenbrunnen, wo mehrere Pins übereinanderliegen.
+   Der Versatz ist bewusst winzig (~12 m) und wird nur zur Darstellung benutzt. */
+function faecherAuf(pins){
+  const gruppen = new Map();
+  pins.forEach(p => {
+    const key = p.lng.toFixed(3) + "," + p.lat.toFixed(3);   // ~100-m-Raster
+    (gruppen.get(key) || gruppen.set(key, []).get(key)).push(p);
+  });
+  gruppen.forEach(gruppe => {
+    if(gruppe.length < 2) { gruppe.forEach(p => { p._lng = p.lng; p._lat = p.lat; }); return; }
+    const r = 0.00011 * Math.min(2.2, 1 + gruppe.length * 0.16);   // wächst leicht mit der Anzahl
+    gruppe.forEach((p, i) => {
+      const w = (i / gruppe.length) * 2 * Math.PI - Math.PI / 2;
+      p._lng = p.lng + (r * Math.cos(w)) / Math.cos(p.lat * Math.PI / 180);
+      p._lat = p.lat + r * Math.sin(w);
+    });
+  });
+}
+
 function baueMarker(){
   marker.forEach(x => x.m.remove());
   marker.length = 0;
+  faecherAuf(PINS);
   PINS.forEach(p => {
     const el = document.createElement("button");
     el.className = "blip t-"+p.typ + (p.hot ? " hot" : "") + (istNeu(p) ? " frisch" : "");
@@ -573,7 +611,7 @@ function baueMarker(){
     el.innerHTML = '<span class="form"></span>' + (sym ? '<span class="emo">'+sym+'</span>' : ICON[p.typ]);
     el.addEventListener("click", () => lernen(p));
     const m = new maplibregl.Marker({element:el})
-      .setLngLat([p.lng, p.lat])
+      .setLngLat([p._lng ?? p.lng, p._lat ?? p.lat])
       .setPopup(new maplibregl.Popup({offset:22}).setHTML(popupHTML(p)))
       .addTo(map);
     el.setAttribute("aria-label", TYPNAME[p.typ]+": "+p.titel);  // nach addTo — MapLibre überschreibt es sonst
@@ -838,6 +876,7 @@ function zeigeInfo(){
       '<button class="bbtn gelb" id="app-teilen">↗ Eventlas empfehlen</button>'+
       '<a class="bbtn sek" href="https://instagram.com/'+esc(KONFIG.insta)+'" target="_blank" rel="noopener">📷 @'+esc(KONFIG.insta)+'</a>'+
     '</div>'+
+    (installPrompt ? '<div class="blatt-knoepfe"><button class="bbtn sek" id="app-install">⬇ Zum Startbildschirm hinzufügen</button></div>' : '')+
     '<h3>Dein Profil (nur auf diesem Gerät)</h3>'+
     '<div class="zeile"><span>Rang: <b>'+karmaRang()+'</b> · '+karmaPunkte()+' Punkte</span></div>'+
     '<div class="zeile"><span>Interessen: '+esc(meine)+'</span><button class="aktion" id="interessen-bearbeiten">Ändern</button></div>'+
@@ -855,6 +894,14 @@ function zeigeInfo(){
     const daten = {title:"Eventlas "+STADT.name, text:"Schau mal: Events, Angebote und Hilfe-Gesuche aus der Nachbarschaft auf einer Karte.", url:location.href.split("#")[0]};
     if(navigator.share){ try{ await navigator.share(daten); }catch(e){} }
     else window.open("https://wa.me/?text="+encodeURIComponent(daten.text+" "+daten.url), "_blank", "noopener");
+  });
+  const inst = $("#app-install");
+  if(inst) inst.addEventListener("click", async () => {
+    if(!installPrompt) return;
+    installPrompt.prompt();
+    try{ await installPrompt.userChoice; }catch(e){}
+    installPrompt = null;
+    inst.textContent = "✓ Danke!";
   });
   $("#interessen-bearbeiten").addEventListener("click", () => zeigeOnboarding(zeigeInfo));
   $("#heim-setzen").addEventListener("click", heimWaehlen);
@@ -1125,6 +1172,13 @@ function neuBanner(){
   }, {once:true});
   setTimeout(() => { toast.style.display = "none"; }, 12000);
 }
+
+/* ---------- PWA: Service Worker + "Zum Startbildschirm" ---------- */
+let installPrompt = null;
+if("serviceWorker" in navigator && location.protocol !== "file:"){
+  window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(()=>{}));
+}
+window.addEventListener("beforeinstallprompt", e => { e.preventDefault(); installPrompt = e; });
 
 /* ---------- Deep-Link #pin=… (aus "Teilen") ---------- */
 function deepLink(){

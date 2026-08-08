@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>OG-Bild-Generator</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>body{background:#333;margin:0;padding:20px}canvas{max-width:100%;box-shadow:0 4px 20px rgba(0,0,0,.5)}</style>
+</head>
+<body>
+<canvas id="og" width="1200" height="630"></canvas>
+<canvas id="ic512" width="512" height="512"></canvas>
+<canvas id="ic192" width="192" height="192"></canvas>
+<script>
+const NACHT="#14161A", PAPIER="#F5F2E9", GELB="#FFC61A",
+      EVENT="#2FD6C3", ANGEBOT="#FF6A3D", SPOT="#C77DFF", LINIE="#2C3038", GRAU="#9AA0AB";
+
+function rrect(c,x,y,w,h,r){c.beginPath();c.moveTo(x+r,y);c.arcTo(x+w,y,x+w,y+h,r);
+  c.arcTo(x+w,y+h,x,y+h,r);c.arcTo(x,y+h,x,y,r);c.arcTo(x,y,x+w,y,r);c.closePath();}
+
+/* ---------- Karten-Pin (Tropfenform) für Icons ---------- */
+function pinShape(c,cx,cy,r){
+  c.beginPath();
+  c.arc(cx, cy, r, Math.PI*0.85, Math.PI*0.15, false);
+  c.lineTo(cx, cy + r*2.25);
+  c.closePath();
+}
+
+/* ---------- OG-Bild 1200x630 ---------- */
+function zeichneOG(){
+  const c = document.getElementById('og').getContext('2d');
+  c.fillStyle = NACHT; c.fillRect(0,0,1200,630);
+
+  // dezente Deko-Kreise
+  const deko = [[1080,90,190,EVENT],[110,560,150,SPOT],[1150,540,110,ANGEBOT]];
+  deko.forEach(([x,y,r,col])=>{ c.globalAlpha=.13; c.fillStyle=col;
+    c.beginPath(); c.arc(x,y,r,0,7); c.fill(); c.globalAlpha=1; });
+
+  // Rasterlinien (Kartenanmutung)
+  c.strokeStyle = LINIE; c.lineWidth = 1; c.globalAlpha = .55;
+  for(let x=0;x<1200;x+=60){ c.beginPath(); c.moveTo(x,0); c.lineTo(x,630); c.stroke(); }
+  for(let y=0;y<630;y+=60){ c.beginPath(); c.moveTo(0,y); c.lineTo(1200,y); c.stroke(); }
+  c.globalAlpha = 1;
+
+  // Titel
+  c.fillStyle = PAPIER; c.font = "126px Anton"; c.textBaseline = "alphabetic";
+  const t1 = "EVENT", t2 = "LAS";
+  const w1 = c.measureText(t1).width;
+  c.fillText(t1, 80, 250);
+  c.fillStyle = GELB; c.fillText(t2, 80 + w1, 250);
+
+  // Untertitel
+  c.fillStyle = PAPIER; c.font = "600 40px Inter";
+  c.fillText("Was läuft gerade in Aachen?", 84, 320);
+
+  // Kategorie-Zeile mit Pin-Symbolen
+  const kats = [["Events", EVENT, "📅"], ["Angebote", ANGEBOT, "🎁"], ["Hilfe", GELB, "🤝"], ["Fotospots", SPOT, "📸"]];
+  let x = 84;
+  c.font = "600 27px Inter";
+  kats.forEach(([label, col, emo]) => {
+    const tw = c.measureText(label).width;
+    c.fillStyle = "#1D2026"; rrect(c, x, 380, tw + 78, 58, 18); c.fill();
+    c.strokeStyle = LINIE; c.lineWidth = 1.5; c.stroke();
+    c.fillStyle = col; c.beginPath(); c.arc(x + 32, 409, 15, 0, 7); c.fill();
+    c.font = "20px Inter"; c.fillStyle = "#141414";
+    c.textAlign = "center"; c.fillText(emo, x + 32, 417); c.textAlign = "left";
+    c.font = "600 27px Inter"; c.fillStyle = PAPIER;
+    c.fillText(label, x + 58, 418);
+    x += tw + 96;
+  });
+
+  // Fußzeile
+  c.fillStyle = GRAU; c.font = "400 26px Inter";
+  c.fillText("Kostenlos · werbefrei · ohne Anmeldung", 84, 520);
+  c.fillStyle = GELB; c.font = "600 30px Inter";
+  c.fillText("eventlas.netlify.app", 84, 566);
+
+  // großer Karten-Pin rechts
+  c.save();
+  c.translate(985, 300); c.scale(1.55, 1.55);
+  c.shadowColor = "rgba(0,0,0,.5)"; c.shadowBlur = 22; c.shadowOffsetY = 8;
+  c.fillStyle = GELB; pinShape(c, 0, 0, 56); c.fill();
+  c.shadowBlur = 0; c.shadowOffsetY = 0;
+  c.fillStyle = NACHT; c.beginPath(); c.arc(0, 0, 22, 0, 7); c.fill();
+  c.restore();
+}
+
+/* ---------- App-Icons (maskable-tauglich: Motiv mittig, Rand frei) ---------- */
+function zeichneIcon(id, size){
+  const c = document.getElementById(id).getContext('2d');
+  const s = size / 512;
+  c.fillStyle = NACHT; c.fillRect(0, 0, size, size);
+  c.save(); c.scale(s, s);
+  // Deko
+  c.globalAlpha = .16; c.fillStyle = EVENT;
+  c.beginPath(); c.arc(430, 90, 130, 0, 7); c.fill();
+  c.fillStyle = SPOT; c.beginPath(); c.arc(80, 440, 100, 0, 7); c.fill();
+  c.globalAlpha = 1;
+  // Pin
+  c.translate(256, 215);
+  c.fillStyle = GELB; pinShape(c, 0, 0, 118); c.fill();
+  c.fillStyle = NACHT; c.beginPath(); c.arc(0, 0, 47, 0, 7); c.fill();
+  c.restore();
+}
+
+document.fonts.ready.then(() => {
+  zeichneOG(); zeichneIcon('ic512', 512); zeichneIcon('ic192', 192);
+  window.__fertig = true;
+});
+</script>
+</body>
+</html>
