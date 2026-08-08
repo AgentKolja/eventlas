@@ -55,15 +55,19 @@
     background:rgba(29,32,38,.88);color:var(--papier);cursor:pointer;flex:none;
     display:flex;align-items:center;justify-content:center}
   .kbtn svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-  /* Schmale Handys: fünf Knöpfe + Titel gehen sich sonst nicht aus */
+  /* Schmale Handys: fünf Knöpfe + Titel gehen sich sonst nicht aus.
+     Die Knöpfe bleiben trotzdem gut treffbar — die sichtbare Fläche ist kleiner,
+     die Tippfläche über ::before aber weiterhin 44 px (Empfehlung Apple/Google). */
   @media (max-width:430px){
     h1{font-size:17px}
     .sub{font-size:10px}
-    .kopf-knoepfe{gap:5px}
-    .kbtn{width:34px;height:34px;border-radius:10px}
-    .kbtn svg{width:17px;height:17px}
+    .kopf-knoepfe{gap:6px}
+    .kbtn{width:36px;height:36px;border-radius:10px;position:relative}
+    .kbtn::before{content:"";position:absolute;top:50%;left:50%;
+      transform:translate(-50%,-50%);width:44px;height:44px}
+    .kbtn svg{width:18px;height:18px}
   }
-  @media (max-width:340px){ .sub{display:none} }
+  @media (max-width:360px){ .sub{display:none} }
   .kbtn.an{background:var(--papier);color:#141414;border-color:var(--papier)}
   .kbtn.foto{background:var(--hilfe);border-color:var(--hilfe);color:#141414}
   .kbtn.foto:active{transform:scale(.94)}
@@ -106,11 +110,35 @@
     background:linear-gradient(to top, rgba(20,22,26,.94) 62%, rgba(20,22,26,0));}
   .hud-innen{max-width:560px;margin:0 auto}
 
-  /* Tag-Chips (scrollbar) */
-  .tags{display:flex;gap:6px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  /* Filter einklappbar: Auf kleinen Handys nehmen drei Filterreihen ein Drittel des
+     Bildschirms weg. Eingeklappt bleibt die Karte groß, ein Tipp holt alles zurück. */
+  .hud-klapp{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;
+    background:none;border:0;color:var(--grau);font:700 11px 'Inter';letter-spacing:.4px;
+    cursor:pointer;padding:5px 0 7px;min-height:32px}
+  .hud-klapp .pfeil{transition:transform .2s ease;font-size:10px}
+  .hud.zu .hud-klapp .pfeil{transform:rotate(180deg)}
+  .hud-filter{max-height:340px;overflow:hidden;
+    transition:max-height .26s ease, opacity .2s ease}
+  .hud.zu .hud-filter{max-height:0;opacity:0;pointer-events:none}
+  .hud.zu .hud-klapp{color:var(--papier)}
+  .hud-klapp .marke{background:var(--hilfe);color:#141414;border-radius:99px;
+    padding:1px 7px;font-size:10px;display:none}
+  .hud.zu .hud-klapp .marke.da{display:inline-block}
+
+  /* Tag-Chips (scrollbar). Der Verlauf rechts zeigt an, dass es weitergeht —
+     ohne ihn übersehen Nutzer auf schmalen Screens die hinteren Themen. */
+  .tags-wrap{position:relative}
+  .tags-wrap::after{content:"";position:absolute;right:0;top:0;bottom:8px;width:26px;
+    background:linear-gradient(to right, rgba(20,22,26,0), rgba(20,22,26,.92));
+    pointer-events:none;opacity:0;transition:opacity .2s}
+  .tags-wrap.mehr::after{opacity:1}
+  .tags{display:flex;gap:6px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;scroll-snap-type:x proximity}
   .tags::-webkit-scrollbar{display:none}
+  .tags .tagchip{scroll-snap-align:start}
   .tagchip{flex:none;border:1px solid var(--linie);background:rgba(29,32,38,.85);color:var(--grau);
-    border-radius:999px;padding:6px 12px;font:600 12px 'Inter';cursor:pointer;white-space:nowrap}
+    border-radius:999px;padding:9px 13px;font:600 12.5px 'Inter';cursor:pointer;white-space:nowrap;
+    min-height:38px;display:flex;align-items:center}
   .tagchip.an{color:#141414;background:var(--papier);border-color:var(--papier)}
   .tagchip.fuerdich.an{background:var(--hilfe);border-color:var(--hilfe)}
   .tagchip.reset{color:var(--angebot);border-color:var(--angebot);display:none}
@@ -121,15 +149,16 @@
   /* Zeit-Chips: halbtransparent, kontraststark (Roadmap Nr. 14) */
   .zfilter{display:flex;gap:8px;margin-bottom:8px}
   .zchip{flex:1;border:1px solid rgba(245,242,233,.28);background:rgba(20,22,26,.62);color:#E8E5DC;
-    border-radius:10px;padding:8px 4px;font:600 12px 'Inter';cursor:pointer;backdrop-filter:blur(3px)}
+    border-radius:10px;padding:11px 4px;font:600 12.5px 'Inter';cursor:pointer;backdrop-filter:blur(3px);
+    min-height:42px}
   .zchip.an{color:#141414;background:var(--papier);border-color:var(--papier)}
 
   /* Kategorie-Chips mit Icons (Roadmap Nr. 2, 11) */
   .filter{display:flex;gap:6px}
   .chip{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;
     border:1px solid var(--linie);background:var(--panel);color:var(--papier);
-    border-radius:12px;padding:10px 4px;font:600 12px 'Inter';cursor:pointer;
-    transition:transform .12s ease, opacity .12s ease;min-width:0}
+    border-radius:12px;padding:12px 4px;font:600 12px 'Inter';cursor:pointer;
+    transition:transform .12s ease, opacity .12s ease;min-width:0;min-height:46px}
   .chip:active{transform:scale(.97)}
   .chip svg{width:15px;height:15px;flex:none}
   .chip .zahl{font-family:'Anton';font-size:14px;letter-spacing:.5px}
@@ -342,8 +371,39 @@
   .saison-kopf:first-of-type{margin-top:8px}
   .saison-kopf.spaeter{color:var(--grau)}
 
+  /* ---------- Detail-Sheet (Mobil) ----------
+     Auf dem Handy ist ein Popup mitten auf der Karte schlecht: klein, verdeckt den Pin und
+     zwingt zum Zielen. Stattdessen fährt die Info von unten ein (wie in Karten- und
+     Immobilien-Apps) — Karte bleibt oben sichtbar, Daumen erreicht alles. */
+  .sheet{position:fixed;left:0;right:0;bottom:0;z-index:30;
+    background:var(--panel);border-top:1px solid var(--linie);
+    border-radius:18px 18px 0 0;box-shadow:0 -8px 30px rgba(0,0,0,.55);
+    transform:translateY(101%);transition:transform .26s cubic-bezier(.32,.72,0,1);
+    max-height:66vh;display:flex;flex-direction:column;touch-action:none}
+  .sheet.offen{transform:translateY(0)}
+  .sheet-griff{width:100%;height:26px;border:0;background:transparent;cursor:grab;
+    display:flex;align-items:center;justify-content:center;flex:none;padding:0}
+  .sheet-griff::before{content:"";width:38px;height:4px;border-radius:2px;background:var(--linie)}
+  .sheet-griff:active{cursor:grabbing}
+  .sheet-inhalt{overflow-y:auto;overscroll-behavior:contain;
+    padding:2px 16px calc(16px + env(safe-area-inset-bottom));font-family:'Inter'}
+  .sheet .p-titel{font-size:17px;margin:6px 0 7px}
+  .sheet .p-text{font-size:14px}
+  .sheet .p-akt{gap:8px;margin-top:12px}
+  .sheet .p-btn{padding:11px 14px;font-size:13px}
+  .sheet .p-nav{margin:0 0 8px}
+  .sheet .p-nav button{width:42px;height:34px;font-size:17px}
+  .sheet-zurueck{display:flex;align-items:center;gap:6px;background:none;border:0;
+    color:var(--hilfe);font:700 13px 'Inter';cursor:pointer;padding:6px 2px 8px}
+
   @media (prefers-reduced-motion: reduce){ *{transition:none!important;animation:none!important} }
-  @media (min-width:700px){ .schleier{align-items:center} .blatt{border-radius:18px} }
+  @media (min-width:700px){
+    .schleier{align-items:center} .blatt{border-radius:18px}
+    .sheet{display:none}                 /* Desktop behält das Karten-Popup */
+    /* Am Desktop ist Platz genug — Filter immer sichtbar, Klapp-Knopf überflüssig */
+    .hud-klapp{display:none}
+    .hud.zu .hud-filter{max-height:340px;opacity:1;pointer-events:auto}
+  }
 </style>
 </head>
 <body>
@@ -385,18 +445,25 @@
 
 <div class="hud">
   <div class="hud-innen">
-    <div class="tags" id="tagleiste" role="group" aria-label="Nach Thema filtern"></div>
-    <div class="zfilter" role="group" aria-label="Zeitraum filtern">
-      <button class="zchip" data-z="today">Heute</button>
-      <button class="zchip an" data-z="soon">Demnächst</button>
-      <button class="zchip" data-z="all">Alle</button>
-      <button class="zchip" data-z="range" id="zr-chip">📅 Zeitraum</button>
-    </div>
-    <div class="filter" role="group" aria-label="Kategorien filtern">
-      <button class="chip" data-typ="event" aria-pressed="true"></button>
-      <button class="chip" data-typ="angebot" aria-pressed="true"></button>
-      <button class="chip" data-typ="hilfe" aria-pressed="true"></button>
-      <button class="chip" data-typ="spot" aria-pressed="true"></button>
+    <button class="hud-klapp" id="hud-klapp" aria-expanded="true" aria-controls="hud-filter">
+      <span class="pfeil">▼</span><span id="klapp-text">Filter ausblenden</span><span class="marke" id="klapp-marke">aktiv</span>
+    </button>
+    <div class="hud-filter" id="hud-filter">
+      <div class="tags-wrap" id="tags-wrap">
+        <div class="tags" id="tagleiste" role="group" aria-label="Nach Thema filtern"></div>
+      </div>
+      <div class="zfilter" role="group" aria-label="Zeitraum filtern">
+        <button class="zchip" data-z="today">Heute</button>
+        <button class="zchip an" data-z="soon">Demnächst</button>
+        <button class="zchip" data-z="all">Alle</button>
+        <button class="zchip" data-z="range" id="zr-chip">📅 Zeitraum</button>
+      </div>
+      <div class="filter" role="group" aria-label="Kategorien filtern">
+        <button class="chip" data-typ="event" aria-pressed="true"></button>
+        <button class="chip" data-typ="angebot" aria-pressed="true"></button>
+        <button class="chip" data-typ="hilfe" aria-pressed="true"></button>
+        <button class="chip" data-typ="spot" aria-pressed="true"></button>
+      </div>
     </div>
     <div class="hud-aktionen">
       <button class="liste-btn" id="liste-unten"><span class="lb-icon">☰</span><span id="liste-zahl">Liste</span></button>
@@ -404,6 +471,12 @@
     </div>
     <div class="hinweis" id="hinweis"></div>
   </div>
+</div>
+
+<!-- Detail-Sheet (Mobil): Pin-Infos unten statt Popup auf der Karte -->
+<div class="sheet" id="sheet" role="dialog" aria-label="Pin-Details" aria-hidden="true">
+  <button class="sheet-griff" id="sheet-griff" aria-label="Schließen"></button>
+  <div class="sheet-inhalt" id="sheet-inhalt"></div>
 </div>
 
 <!-- Modale -->
@@ -827,6 +900,7 @@ function zeigePinNr(i){
   const liste = blaetterListe();
   const p = liste[i];
   if(!p) return;
+  if(istMobil()){ sheetOeffnen(p); return; }      // im Sheet bleiben statt Popup zu wechseln
   const mk = marker.find(x => x.p.id === p.id);
   if(!mk) return;
   const merkeKontext = blaetterKontext;                  // Kontext übers Schließen hinweg halten
@@ -914,6 +988,75 @@ function hoverInhalt(p){
     (marken.length ? '<i>' + esc(marken.join(" · ")) + '</i>' : '');
 }
 
+/* ---------- Detail-Sheet: auf Mobil ersetzt es das Karten-Popup ---------- */
+const istMobil = () => window.matchMedia("(max-width: 699px)").matches;
+let sheetPin = null;          // welcher Pin steckt gerade im Sheet
+let sheetAusListe = false;    // kam der Nutzer aus der Liste? → Rückweg anbieten
+
+function sheetOeffnen(p, ausListe){
+  sheetPin = p;
+  if(ausListe !== undefined) sheetAusListe = ausListe;
+  const inhalt = $("#sheet-inhalt");
+  inhalt.innerHTML = (sheetAusListe
+      ? '<button class="sheet-zurueck" id="sheet-zur-liste">‹ Zurück zur Liste</button>' : '') +
+    popupHTML(p);
+  $("#sheet").classList.add("offen");
+  $("#sheet").setAttribute("aria-hidden", "false");
+  const zur = $("#sheet-zur-liste");
+  if(zur) zur.addEventListener("click", () => { sheetSchliessen(); zeigeListe(letzterListenTab); });
+  lernen(p);
+  pinFreihalten(p);
+  ansichtAktualisieren();
+}
+function sheetSchliessen(){
+  $("#sheet").classList.remove("offen");
+  $("#sheet").setAttribute("aria-hidden", "true");
+  sheetPin = null; sheetAusListe = false;
+  blaetterKontextLoeschen();
+}
+/* Karte so verschieben, dass der gewählte Pin über dem Sheet sichtbar bleibt */
+function pinFreihalten(p){
+  setTimeout(() => {
+    const sheet = $("#sheet").getBoundingClientRect();
+    const pkt = map.project([p._lng ?? p.lng, p._lat ?? p.lat]);
+    const kopfUnten = document.querySelector("header").getBoundingClientRect().bottom;
+    const obergrenze = kopfUnten + 40, untergrenze = sheet.top - 30;
+    if(pkt.y > untergrenze) map.panBy([0, pkt.y - untergrenze + 40], {duration:300});
+    else if(pkt.y < obergrenze) map.panBy([0, pkt.y - obergrenze], {duration:300});
+  }, 40);
+}
+$("#sheet-griff").addEventListener("click", sheetSchliessen);
+
+/* Wischgesten: nach unten schließen, seitlich blättern — wie in Karten-Apps üblich */
+(() => {
+  const sheet = $("#sheet");
+  let startY = 0, startX = 0, dy = 0, dx = 0, aktiv = false;
+  sheet.addEventListener("touchstart", e => {
+    if($("#sheet-inhalt").scrollTop > 0) return;      // erst scrollen, dann ziehen
+    aktiv = true; startY = e.touches[0].clientY; startX = e.touches[0].clientX; dy = dx = 0;
+    sheet.style.transition = "none";
+  }, {passive:true});
+  sheet.addEventListener("touchmove", e => {
+    if(!aktiv) return;
+    dy = e.touches[0].clientY - startY;
+    dx = e.touches[0].clientX - startX;
+    if(dy > 0) sheet.style.transform = "translateY(" + dy + "px)";
+  }, {passive:true});
+  sheet.addEventListener("touchend", () => {
+    if(!aktiv) return;
+    aktiv = false;
+    sheet.style.transition = "";
+    sheet.style.transform = "";
+    if(dy > 90) { sheetSchliessen(); return; }
+    if(Math.abs(dx) > 70 && Math.abs(dy) < 40 && sheetPin){   // seitlich blättern
+      const liste = blaetterListe(sheetPin);
+      const i = liste.findIndex(x => x.id === sheetPin.id);
+      const ziel = dx < 0 ? i + 1 : i - 1;
+      if(ziel >= 0 && ziel < liste.length) sheetOeffnen(liste[ziel]);
+    }
+  });
+})();
+
 /* ---------- Marker ---------- */
 /* Pins auf (fast) identischer Koordinate kreisförmig auffächern, damit jeder antippbar
    bleibt — z. B. Katschhof und Elisenbrunnen, wo mehrere Pins übereinanderliegen.
@@ -956,6 +1099,13 @@ function baueMarker(){
       .setLngLat([p._lng ?? p.lng, p._lat ?? p.lat])
       .setPopup(new maplibregl.Popup({offset:22, maxWidth:"270px"}).setHTML(popupHTML(p)))
       .addTo(map);
+    // Auf dem Handy übernimmt das Sheet — Popup gar nicht erst öffnen lassen
+    el.addEventListener("click", ev => {
+      if(!istMobil()) return;
+      ev.stopPropagation();
+      if(m.getPopup().isOpen()) m.togglePopup();
+      sheetOeffnen(p, false);
+    }, true);
     // Inhalt bei jedem Öffnen neu bauen: Zähler ("3 von 17"), Danke-Status und
      // Goldene Stunde hängen vom aktuellen Zustand ab, nicht vom Zeitpunkt des Aufbaus.
     m.getPopup().on("open", () => { m.getPopup().setHTML(popupHTML(p)); popupInsBild(m); });
@@ -1034,6 +1184,13 @@ function baueTagleiste(){
     });
     leiste.appendChild(b);
   });
+  scrollHinweisPruefen();
+}
+/* Zeigt den Verlauf nur, wenn rechts wirklich noch Chips warten */
+function scrollHinweisPruefen(){
+  const l = $("#tagleiste"), w = $("#tags-wrap");
+  if(!l || !w) return;
+  w.classList.toggle("mehr", l.scrollWidth - l.scrollLeft - l.clientWidth > 12);
 }
 
 function filterAktiv(){
@@ -1078,6 +1235,8 @@ function ansichtAktualisieren(){
   }
   const rst = $("#filter-reset");
   if(rst) rst.classList.toggle("da", filterAktiv());
+  const marke = $("#klapp-marke");     // eingeklappt sichtbar machen, dass Filter greifen
+  if(marke) marke.classList.toggle("da", filterAktiv());
   const hc = $("#chip-highlights");
   if(hc) hc.classList.toggle("an", nurHighlights);
   const lz = $("#liste-zahl");
@@ -1212,14 +1371,8 @@ function zeigeClusterListe(pins){
     '<p class="klein">'+(sortiert.length > 1 ? 'Nach Ort gebündelt. ' : '')+
     'Antippen öffnet den Pin auf der Karte.</p>'+ rumpf
   );
-  blatt.querySelectorAll(".liste-zeile").forEach(z => z.addEventListener("click", () => {
-    const p = PINS.find(x => x.id === z.dataset.id);
-    if(!p) return;
-    modalSchliessen();
-    map.flyTo({center:[p._lng ?? p.lng, p._lat ?? p.lat], zoom:Math.max(map.getZoom(), CLUSTER_AB_ZOOM)});
-    const mk = marker.find(x => x.p.id === p.id);
-    if(mk) setTimeout(() => { mk.el.style.display = "flex"; if(!mk.m.getPopup().isOpen()) mk.m.togglePopup(); }, 600);
-  }));
+  blatt.querySelectorAll(".liste-zeile").forEach(z =>
+    z.addEventListener("click", () => zumPin(PINS.find(x => x.id === z.dataset.id), true)));
 }
 
 document.querySelectorAll(".chip").forEach(chip => {
@@ -1286,6 +1439,22 @@ function zeitraumWaehlen(){
 /* ---------- Listenansicht (User-Test: Zahl anfassbar machen, Liste ↔ Karte) ---------- */
 $("#btn-liste").addEventListener("click", () => zeigeListe("heute"));
 $("#liste-unten").addEventListener("click", () => zeigeListe("heute"));
+$("#tagleiste").addEventListener("scroll", scrollHinweisPruefen, {passive:true});
+window.addEventListener("resize", scrollHinweisPruefen);
+
+/* Filter ein-/ausklappen — auf kleinen Handys startet die Karte eingeklappt,
+   damit vom Bildschirm möglichst viel Karte bleibt. Die Wahl wird gemerkt. */
+function filterKlappen(zu){
+  $(".hud").classList.toggle("zu", zu);
+  $("#klapp-text").textContent = zu ? "Filter einblenden" : "Filter ausblenden";
+  $("#hud-klapp").setAttribute("aria-expanded", String(!zu));
+  lsSet("filterZu", zu);
+  setTimeout(scrollHinweisPruefen, 300);
+}
+$("#hud-klapp").addEventListener("click", () => filterKlappen(!$(".hud").classList.contains("zu")));
+// Nur auf dem Handy einklappen — am Desktop ist Platz und der Knopf ist ausgeblendet.
+// Kleine Displays starten zu, damit sofort möglichst viel Karte sichtbar ist.
+filterKlappen(istMobil() && lsGet("filterZu", window.innerHeight < 780));
 
 function entfernungText(p){
   if(!meinStandort) return "";
@@ -1301,6 +1470,8 @@ function listenZeile(p, datumText){
     '<span class="lz-meta">'+esc([TYPNAME[p.typ], p.meta, weg].filter(Boolean).join(" · "))+'</span></span>'+
     '<span class="lz-datum">'+esc(datumText ?? fmtDatum(p))+'</span></button>';
 }
+
+let letzterListenTab = "heute";     // für den Rückweg aus dem Detail-Sheet
 
 /* Wie interessant ist ein Pin gerade? Nähe schlägt Ferne, markierte Highlights schlagen alles.
    Damit lässt sich aus 140 Pins eine kurze, ehrliche "Was ist los?"-Liste bilden. */
@@ -1407,20 +1578,31 @@ function zeigeListe(tab){
       '<p>Nichts im aktuellen Ausschnitt — zoome raus oder ändere die Filter.</p>';
   }
 
+  letzterListenTab = tab;
   modalOeffnen(kopf + tabs + rumpf);
   blatt.querySelectorAll(".liste-tabs button").forEach(b =>
     b.addEventListener("click", () => zeigeListe(b.dataset.tab)));
   blatt.querySelectorAll(".vorschlag[data-tab]").forEach(v =>
     v.addEventListener("click", () => zeigeListe(v.dataset.tab)));
-  blatt.querySelectorAll(".liste-zeile").forEach(z => z.addEventListener("click", () => {
-    const p = PINS.find(x => x.id === z.dataset.id);
-    if(!p) return;
-    modalSchliessen();
-    // Mindestens bis zur Cluster-Grenze zoomen, sonst steckt der Pin noch in einer Gruppe
-    map.flyTo({center:[p._lng ?? p.lng, p._lat ?? p.lat], zoom:Math.max(map.getZoom(), CLUSTER_AB_ZOOM)});
+  blatt.querySelectorAll(".liste-zeile").forEach(z =>
+    z.addEventListener("click", () => zumPin(PINS.find(x => x.id === z.dataset.id), true)));
+}
+
+/* Von der Liste zum Pin — auf dem Handy ohne Kontextverlust: Liste zu, Karte hin, Details
+   fahren unten ein, "Zurück zur Liste" bringt einen zurück. Am Desktop wie gehabt per Popup. */
+function zumPin(p, ausListe){
+  if(!p) return;
+  modalSchliessen();
+  const ziel = [p._lng ?? p.lng, p._lat ?? p.lat];
+  if(istMobil()){
+    map.flyTo({center:ziel, zoom:Math.max(map.getZoom(), CLUSTER_AB_ZOOM), duration:500});
     const mk = marker.find(x => x.p.id === p.id);
-    if(mk) setTimeout(() => { mk.el.style.display = "flex"; if(!mk.m.getPopup().isOpen()) mk.m.togglePopup(); }, 600);
-  }));
+    setTimeout(() => { if(mk) mk.el.style.display = "flex"; sheetOeffnen(p, !!ausListe); }, 380);
+    return;
+  }
+  map.flyTo({center:ziel, zoom:Math.max(map.getZoom(), CLUSTER_AB_ZOOM)});
+  const mk = marker.find(x => x.p.id === p.id);
+  if(mk) setTimeout(() => { mk.el.style.display = "flex"; if(!mk.m.getPopup().isOpen()) mk.m.togglePopup(); }, 600);
 }
 
 /* Saison-Status eines Pins: läuft gerade? wie lange noch / wie lange bis dahin? */
