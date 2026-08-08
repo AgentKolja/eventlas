@@ -1,6 +1,14 @@
 ﻿# Deine To-dos + versandfertige Texte (Stand 08.08.2026)
 
 Karte ist live: **https://eventlas.netlify.app** — alle Texte unten sind fertig zum Kopieren.
+
+## 🔼 ZUERST: neu hochladen (2 Min)
+Seit deinem Upload sind PWA, Link-Vorschaubild, Saisonkalender und einige Fixes dazugekommen.
+Der Ordner **`Upload/`** ist schon gefüllt (7 Dateien) — einfach auf **app.netlify.com/drop**
+ziehen, fertig. Künftig: `upload-vorbereiten.cmd` doppelklicken, dann ziehen.
+> Danach einmal die Seite auf dem Handy öffnen: Du solltest sie über das Browser-Menü
+> "Zum Startbildschirm hinzufügen" können, und ein per WhatsApp geteilter Link zeigt jetzt
+> ein Vorschaubild statt eines nackten Links.
 > Die Karte selbst ist fertig umgebaut und getestet — Details in roadmap.md.
 > Unten bei "Fragen an dich" bitte kurz entscheiden, dann kann der Agent weiterarbeiten.
 
