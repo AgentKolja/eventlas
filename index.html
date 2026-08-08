@@ -373,6 +373,8 @@
   .radius-wahl button{border:1px solid var(--linie);background:var(--nacht);color:var(--papier);
     border-radius:8px;padding:6px 10px;font:600 12px 'Inter';cursor:pointer}
   .radius-wahl button.an{background:var(--papier);color:#141414}
+  #stil-wahl{flex-wrap:wrap;margin:4px 0 2px}
+  #stil-wahl button{flex:1;min-width:70px;min-height:40px}
   /* 16px ist Pflicht: Darunter zoomt iOS beim Antippen ins Feld hinein */
   .blatt input[type="date"],.blatt input[type="time"]{border:1px solid var(--linie);
     background:var(--nacht);color:var(--papier);border-radius:8px;padding:9px 10px;
@@ -556,6 +558,16 @@ const KONFIG = {
 };
 const stadtKey = new URLSearchParams(location.search).get("stadt") || "aachen";
 const STADT = STAEDTE[stadtKey] || STAEDTE.aachen;
+
+/* Kartenstile von OpenFreeMap (alle EU-gehostet, ohne Cookies).
+   "liberty" ist der Standard — bunt und detailliert wie gewohnte Straßenkarten.
+   Wer es ruhiger mag, nimmt "positron"; abends passt "dark" zum App-Design. */
+const STILE = {
+  liberty:  { name: "Standard",  url: "https://tiles.openfreemap.org/styles/liberty" },
+  bright:   { name: "Farbig",    url: "https://tiles.openfreemap.org/styles/bright" },
+  positron: { name: "Ruhig",     url: "https://tiles.openfreemap.org/styles/positron" },
+  dark:     { name: "Dunkel",    url: "https://tiles.openfreemap.org/styles/dark" },
+};
 
 /* Pins-Schema (pins.json wird live geladen, dies ist der Offline-Fallback):
    typ:   "event" | "angebot" | "hilfe" | "spot"   (alt: "aufgabe" wird als "hilfe" gelesen)
@@ -791,9 +803,11 @@ function karmaRang(){
 /* ---------- Karte ---------- */
 document.title = KONFIG.name + " — " + STADT.name;
 $("#app-sub").textContent = STADT.name + " — Events · Angebote · Hilfe · Fotospots";
+let stilKey = lsGet("stil", "liberty");
+if(!STILE[stilKey]) stilKey = "liberty";
 const map = new maplibregl.Map({
   container:"map",
-  style:"https://tiles.openfreemap.org/styles/liberty",
+  style:STILE[stilKey].url,
   center:STADT.zentrum, zoom:STADT.zoom,
   attributionControl:{compact:true}
 });
@@ -1930,6 +1944,11 @@ function zeigeInfo(){
     '<div class="zeile"><span>Punkte sammelst du mit 👍 Danke, Teilen, Pin-Meldungen und Ideen.</span></div>'+
     '<div class="zeile"><span class="klein">Profil, Rang und Heimat-Bereich löschen</span><button class="aktion" id="profil-reset">Zurücksetzen</button></div>'+
     '<div class="zeile"><span>Kurze Einführung: Wie funktioniert die Karte?</span><button class="aktion" id="ht-nochmal">Ansehen</button></div>'+
+    '<h3>Kartenbild</h3>'+
+    '<div class="radius-wahl" id="stil-wahl">'+
+      Object.entries(STILE).map(([k,s]) =>
+        '<button data-stil="'+k+'"'+(k === stilKey ? ' class="an"' : '')+'>'+esc(s.name)+'</button>').join("")+
+    '</div>'+
     '<h3>Aktualität</h3>'+
     '<div class="zeile"><span>'+esc(standText())+'</span><button class="aktion" id="daten-neu">Neu laden</button></div>'+
     '<p class="klein">Termine werden täglich automatisch recherchiert und von Hand geprüft. '+
@@ -1975,6 +1994,8 @@ function zeigeInfo(){
   if(ht) ht.addEventListener("click", () => zeigeEinfuehrung(true));
   const exp = $("#daten-export");
   if(exp) exp.addEventListener("click", zeigeExport);
+  blatt.querySelectorAll("#stil-wahl button").forEach(b =>
+    b.addEventListener("click", () => stilWechseln(b.dataset.stil)));
   $("#interessen-bearbeiten").addEventListener("click", () => zeigeOnboarding(zeigeInfo));
   $("#heim-setzen").addEventListener("click", heimWaehlen);
   const hl = $("#heim-loeschen");
@@ -1984,6 +2005,21 @@ function zeigeInfo(){
     ["profil","danke","merk","karma","heim","besuch","onboardingGesehen"].forEach(k => { try{ localStorage.removeItem("eventlas."+k); }catch(e){} });
     fuerDich = false; merkModus = false; heimKreisZeichnen(); baueTagleiste(); ansichtAktualisieren(); modalSchliessen();
   });
+}
+
+/* Kartenbild wechseln. HTML-Marker überleben den Stilwechsel (sie hängen am Container,
+   nicht am Style), eigene GeoJSON-Layer wie der Heimat-Kreis dagegen nicht — der wird
+   nach dem Laden neu gezeichnet. */
+function stilWechseln(neu){
+  if(!STILE[neu] || neu === stilKey) return;
+  stilKey = neu;
+  lsSet("stil", neu);
+  map.setStyle(STILE[neu].url);
+  map.once("styledata", () => { heimKreisZeichnen(); ansichtAktualisieren(); });
+  blatt.querySelectorAll("#stil-wahl button").forEach(b =>
+    b.classList.toggle("an", b.dataset.stil === neu));
+  // Bei hellen Karten sind dunkle Marker-Ränder besser lesbar
+  document.body.classList.toggle("karte-hell", neu === "positron" || neu === "bright" || neu === "liberty");
 }
 
 /* ---------- Heimat-Bereich (Roadmap Nr. 22, lokale Variante ohne Server) ---------- */
