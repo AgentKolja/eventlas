@@ -186,6 +186,39 @@ Anzeige — verlinken ist erlaubt. Wachstum manuell und sparsam (Einzel-Anschrei
 - **Marker-Spreizung bei Überlappung:** Am Katschhof liegen mehrere Pins fast übereinander —
   bei Klick auffächern (Spiderfy) oder bei niedrigem Zoom leicht versetzen.
 
+## Kartenanbieter: Warum NICHT Google Maps (recherchiert 09.08.2026)
+**Entscheidung: Bei MapLibre + OpenFreeMap bleiben.** Drei Varianten geprüft:
+
+| | Google My Maps | Google Maps JS API | **MapLibre + OpenFreeMap (jetzt)** |
+|---|---|---|---|
+| Kosten | 0 € | 10.000 Kartenaufrufe/Monat frei, danach **7 $/1.000** | **0 €, unbegrenzt** |
+| Abrechnungskonto | nein | **Kreditkarte zwingend**, auch im Freikontingent | nein |
+| Cookie-Banner nötig | ja | ja | **nein** |
+| Offline-PWA | nein | **von den ToS verboten** (Caching-Verbot) | ja |
+| Eigene Filter/Zeitlogik | **nein** (max. 10 Ebenen, keine Facetten) | ja | ja |
+| Automatisches Update | **nein** (keine API mehr) | ja | ja |
+| Eigenes Design | nein | eingeschränkt, Google-Branding Pflicht | **frei** |
+
+Die drei Ausschlussgründe, in dieser Reihenfolge:
+1. **Cookie-Banner.** Google Maps überträgt Daten in die USA, bevor die Karte erscheint → in DE
+   einwilligungspflichtig (§ 25 TDDDG; LG München 3 O 17493/20 zu Google Fonts, VG Hannover
+   10 A 5385/22, OLG Frankfurt 11.12.2025). Das zerstört die Kern-Journey „QR scannen → Karte in
+   2 Sekunden". OpenFreeMap dagegen: keine Cookies, EU-Server (Ungarn), Rechtsgrundlage Art. 6
+   Abs. 1 lit. f — kein Banner nötig.
+2. **Offline-Betrieb wäre ToS-widrig.** Die Maps-Platform-Bedingungen verbieten das Zwischen-
+   speichern von Kartenmaterial — genau das macht unser Service Worker.
+3. **Kostenrisiko genau bei Erfolg.** Das alte 200-$-Guthaben wurde im März 2025 abgeschafft.
+   Bei 25.000 Kartenaufrufen/Monat wären es rund 96 €, bei 50.000 rund 256 € — monatlich.
+
+**Stattdessen umgesetzt:** Pin-**Export als GeoJSON und KML** (ⓘ → Exportieren). Damit kann jede:r
+die Orte in die eigene App holen — Organic Maps und OsmAnd lesen GeoJSON direkt, Google My Maps
+importiert KML (GeoJSON kann Google nicht). Ein Multi-Marker-URL-Schema für die Google-Maps-App
+existiert nicht; Deep-Links pro Pin (Route) sind bereits eingebaut und bleiben der richtige Weg.
+
+**Nebenbefund, sofort behoben:** Die Seite lud Anton und Inter von `fonts.googleapis.com` —
+also genau die Konstellation aus dem LG-München-Urteil. Beide Schriften liegen jetzt lokal
+(`schriften/`, 66 KB). Verifiziert: keine Anfrage mehr an Google.
+
 ## Beitragen: Fotos und Tipps (Stand 09.08.)
 Jeder Pin kann ein Foto (`bild {url, credit}`) und Tipps (`tipps [{text, von, datum}]`) tragen.
 Im Detail gibt es „📷 Foto beisteuern" und „💬 Tipp schreiben" — beides geht mit Ortsbezug

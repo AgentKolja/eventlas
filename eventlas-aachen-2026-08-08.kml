@@ -1,0 +1,1355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<name>Eventlas Aachen</name>
+<description>Stand 2026-08-08 · eventlas.netlify.app</description>
+<Style id="event"><IconStyle><Icon><href>https://maps.google.com/mapfiles/kml/paddle/blu-circle.png</href></Icon></IconStyle></Style>
+<Style id="angebot"><IconStyle><Icon><href>https://maps.google.com/mapfiles/kml/paddle/orange-circle.png</href></Icon></IconStyle></Style>
+<Style id="hilfe"><IconStyle><Icon><href>https://maps.google.com/mapfiles/kml/paddle/ylw-circle.png</href></Icon></IconStyle></Style>
+<Style id="spot"><IconStyle><Icon><href>https://maps.google.com/mapfiles/kml/paddle/purple-circle.png</href></Icon></IconStyle></Style>
+<Placemark>
+<name>Wochenmarkt am Markt</name>
+<description>Der große Aachener Wochenmarkt vor dem Rathaus — dienstags und donnerstags vormittags.
+
+jeden Di/Do · vormittags</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0838,50.7762,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Wochenmarkt Neumarkt</name>
+<description>Samstags 7–13 Uhr: Obst, Gemüse, Brot, Feinkost, Kaffee — Treffpunkt im Frankenberger Viertel.
+
+jeden Sa · Sa 7–13 Uhr</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0993,50.7716,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Trödelmarkt Eissporthalle</name>
+<description>Wöchentlicher Trödel an der Hubert-Wienen-Straße 8. Achtung: am 15.8. und 22.8. entfällt der Termin (Reit-WM).
+
+jeden Sa · samstags</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0898,50.7908,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Öcher Sommerbend</name>
+<description>Kirmes auf dem Bendplatz, täglich ab 14 Uhr. Mo 10.8. reizarme Kirmes 14–17 Uhr, Di 11.8. Kindertag, Mi 12.8. Familientag mit 50 % Rabatt, Abschlussfeuerwerk 17.8. gegen 22 Uhr.
+
+Fr 7.8. – Mo 17.8. · Bendplatz
+
+https://www.bend-aachen.de</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.07,50.7822,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Reit-WM: FEI World Championships</name>
+<description>13 Tage Weltmeisterschaft in 6 Disziplinen — 650 Athleten, 800 Pferde, das größte Sportereignis des Jahres in NRW. Allianz Park Soers.
+
+Di 11.8. – So 23.8. · Soers
+
+https://www.aachen2026.com</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0925,50.7972,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Reit-WM: Tag der offenen Tür</name>
+<description>Kostenloses Showprogramm im Hauptstadion, 12–15 Uhr — WM-Luft schnuppern ohne Ticket.
+
+Mo 17.8. · 12–15 Uhr · frei
+
+https://www.aachen2026.com</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0942,50.7963,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Aachen WM Special — Kultur-Rahmenprogramm</name>
+<description>Kostenloses Rahmenprogramm zur Reit-WM in der Innenstadt: Konzerte auf zwei Bühnen, Theater, Tanz, Kunstaktionen. Täglich ab 11 Uhr Food-Markt auf Katschhof und Münsterplatz.
+
+Di 11.8. – So 23.8. · Innenstadt · Eintritt frei</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0836,50.7757,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>AR-Kunstroute zur WM</name>
+<description>Kostenlose Augmented-Reality-Route durch die Stadt: Elisengarten, Büchel, Suermondt-Ludwig-Museum, NAK-Park bis zur Soers.
+
+Di 11.8. – So 23.8. · kostenlos</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0865,50.7743,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Alemannia – SC Verl</name>
+<description>Saisonauftakt am Tivoli, Anstoß 19:30 Uhr. Vorher Fanmarsch: Treffen ab 13 Uhr auf dem Markt, Abmarsch 15:30 Uhr.
+
+So 9.8. · 19:30 · Tivoli
+
+https://www.alemannia-aachen.de</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0955,50.793,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>The Dreadnoughts (Konzert)</name>
+<description>Celtic-Polka-Punk aus Vancouver im Musikbunker, Support: Muirsheen Durkin &amp; Friends. Tickets 25 €.
+
+Fr 14.8. · Musikbunker · 20 Uhr
+
+https://musikbunkeraachen.bigcartel.com/product/the-dreadnoughts-14082026</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.103,50.7695,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Antik- &amp; Kunstmarkt am Elisenbrunnen</name>
+<description>Antiquitäten und Kunst auf dem Friedrich-Wilhelm-Platz. Monatliche Reihe — nächster Termin: 13.9.
+
+So 9.8. · Elisenbrunnen</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0873,50.7745,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Melan Trödelmarkt (Porta)*</name>
+<description>Sonntagströdel am Gut Wolf 2 (Aachen-Nord).
+
+So 9.8. · Am Gut Wolf</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.127,50.7965,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Alemannia – SV Meppen</name>
+<description>3. Spieltag am Tivoli. Genauer Anstoß wird noch terminiert — Details auf der Vereinsseite.
+
+Fr 28.8. – So 30.8. · Tivoli
+
+https://www.alemannia-aachen.de</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0968,50.7925,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>CSD Aachen / Aachen Pride</name>
+<description>Pride-Festival mit Demo, Bühnenprogramm, Infoständen und Party auf Katschhof und Markt. Fr ab 17 Uhr Auftakt, Sa ab 13 Uhr Demo und Straßenfest.
+
+Fr 28.8. – Sa 29.8. · Katschhof &amp; Markt · frei
+
+https://www.csd-aachen.de/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0838,50.776,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Alleenfest + Flohmarkt</name>
+<description>Straßenfest der Frankenb(u)erger auf der Oppenhoffallee. Sa ab 18 Uhr Livemusik, So ab 11 Uhr Fest + Flohmarkt bis 18 Uhr.
+
+Sa 29.8. – So 30.8. · Oppenhoffallee
+
+https://wir-frankenberger.de</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.101,50.7694,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Melan Trödelmarkt (Kaufland)*</name>
+<description>Sonntagströdel an der Breslauer Straße 35 (Aachen-Ost).
+
+So 30.8. · Breslauer Str.</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.131,50.7735,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Verleihung Aachener Friedenspreis</name>
+<description>Öffentliche Preisverleihung in der Aula Carolina, Laudatio: Martin Schulz. Beginn 19 Uhr, Eintritt frei.
+
+Di 1.9. · Aula Carolina · 19 Uhr · frei</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0822,50.7776,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>UWAGA! Open-Air an der Burg Frankenberg</name>
+<description>Das Crossover-Quartett erzählt in 90 Minuten die komplette Musikgeschichte — von Renaissance über Barock und Jazz bis Pop. Open-Air im Burghof.
+
+So 6.9. · Burg Frankenberg · 19:30</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.1061,50.7692,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Alemannia – Jahn Regensburg</name>
+<description>Heimspiel am 5. Spieltag der 3. Liga im Tivoli. Genaue Ansetzung innerhalb des Wochenendes noch offen.
+
+Fr 11.9. – So 13.9. · Tivoli
+
+https://www.alemannia-aachen.de</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0958,50.7928,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Jeck im Sunnesching — Festival</name>
+<description>Kölsches Open-Air auf dem CHIO-Gelände: Höhner, Bläck Fööss, Kasalla, Brings, Cat Ballou u.v.m. Programm 11:15 bis ca. 19:30 Uhr.
+
+Sa 12.9. · CHIO-Gelände Soers</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.076,50.7975,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Alte Bekannte — Mehr! Live</name>
+<description>A-cappella-Konzert der Wise-Guys-Nachfolger im Eurogress. Beginn 20 Uhr.
+
+Sa 12.9. · Eurogress · 20 Uhr</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0898,50.7823,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Tag des offenen Denkmals</name>
+<description>Kostenlose Führungen und offene Türen in historischen Gebäuden in ganz Aachen — Motto: NetzWERKE. Denkmale &amp; Infrastruktur.
+
+So 13.9. · stadtweit · frei</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0838,50.7745,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Antik- &amp; Kunstmarkt am Elisenbrunnen (Sept.)</name>
+<description>Antiquitäten und Kunst auf dem Friedrich-Wilhelm-Platz — monatliche Reihe.
+
+So 13.9. · Elisenbrunnen</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0873,50.7745,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Alemannia – Fortuna Düsseldorf</name>
+<description>Heimspiel am 7. Spieltag der 3. Liga im Tivoli. Genaue Ansetzung innerhalb des Wochenendes noch offen.
+
+Fr 18.9. – So 20.9. · Tivoli
+
+https://www.alemannia-aachen.de</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0958,50.7928,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Burtscheider Aktionstag</name>
+<description>Verkaufsoffener Sonntag in Burtscheid: Geschäfte öffnen 13–18 Uhr, dazu Aktionsprogramm rund um Viehhofstraße und Burtscheider Markt.
+
+So 20.9. · Burtscheid · 13–18 Uhr</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0925,50.766,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Maria Stuart — Premiere</name>
+<description>Eröffnungspremiere der Spielzeit 2026/27: Schillers Maria Stuart im Großen Haus des Theaters Aachen.
+
+So 20.9. · Theater Aachen
+
+https://www.theateraachen.de/de/premieren/schauspiel-musiktheater-2026-2027.html</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0855,50.7737,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Isabel Varell im FRANZ</name>
+<description>Musik- und Entertainment-Abend: Die guten alten Zeiten sind jetzt — im Kulturzentrum FRANZ, Franzstraße.
+
+Fr 25.9. · FRANZ · abends</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.079,50.7709,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Aachener Kunstroute</name>
+<description>Offene Ateliers, Galerien und Kunstorte in der Innenstadt. Vernissage Fr 20 Uhr, Sa/So jeweils 11–18 Uhr, Eintritt frei.
+
+Fr 25.9. – So 27.9. · stadtweit · frei</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0865,50.777,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Reis Against The Spülmachine</name>
+<description>Song-Parodien-Comedy des Duos im Kulturzentrum FRANZ — Tourlaub-Programm.
+
+Sa 26.9. · FRANZ · abends</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.079,50.7709,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Altstadtflohmarkt am Katschhof</name>
+<description>Flohmarkt vor der Kulisse von Dom und Rathaus, 11–18 Uhr — einer von vier Terminen pro Jahr.
+
+So 27.9. · Katschhof · 11–18 Uhr</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0834,50.7756,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Thermalwasser am Elisenbrunnen</name>
+<description>Aachens heiße Schwefelquelle kostenlos probieren — direkt am klassizistischen Brunnen.
+
+kostenlos · frei zugänglich</description>
+<styleUrl>#angebot</styleUrl>
+<Point><coordinates>6.0871,50.7747,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Ernte: Feigenbaum Burtscheid</name>
+<description>Frei zugänglicher Feigenbaum im Bereich Steinebrück/Burtscheid — Leiter nötig, Handstraußregel (Eigenbedarf). Einer der wenigen Feigen-Fundorte im Stadtgebiet.
+
+Saison 15.8.–15.10. · Ernte · mundraub
+
+https://mundraub.org/node/93405</description>
+<styleUrl>#angebot</styleUrl>
+<Point><coordinates>6.092429,50.764275,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Ernte: Obstwiese am Vennbahnweg</name>
+<description>Verwilderte Obstwiese hinter der Kompostanlage: alte Apfelsorten, Birnen, Mirabellen, Brombeeren, Walnüsse, Esskastanien. Zugang über die Böschung, festes Schuhwerk.
+
+Saison 15.7.–31.10. · Ernte · mundraub
+
+https://mundraub.org/node/23031</description>
+<styleUrl>#angebot</styleUrl>
+<Point><coordinates>6.165218,50.762196,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Ernte: Äpfel an der Westwall-Höckerlinie</name>
+<description>Drei Apfelbäume wachsen direkt in der alten Panzersperre an der Forsterheide bei Horbach — tragen jedes Jahr viele kleine Früchte.
+
+Saison 15.8.–31.10. · Ernte · mundraub
+
+https://mundraub.org/node/76079</description>
+<styleUrl>#angebot</styleUrl>
+<Point><coordinates>6.042084,50.826806,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Ernte: Obstwiese Verlautenheide</name>
+<description>Auf der Wiese hinter der Wassermühle stehen Apfel-, Birnen- und Pflaumenbäume.
+
+Saison 1.8.–15.10. · Ernte · mundraub
+
+https://mundraub.org/node/9144</description>
+<styleUrl>#angebot</styleUrl>
+<Point><coordinates>6.12977,50.792603,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Ernte: Mirabellen am Lousberg</name>
+<description>Am Beginn des Spazierwegs auf den Lousberg (Ende Theresienstraße) steht ein gut tragender Mirabellen-/Pflaumenbaum.
+
+Saison 15.7.–31.8. · Ernte · mundraub
+
+https://mundraub.org/node/2444</description>
+<styleUrl>#angebot</styleUrl>
+<Point><coordinates>6.081383,50.783955,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Ernte: Brombeeren an der Vennbahntrasse</name>
+<description>Riesige Brombeersträucher am Wegesrand hinter der Unterführung des Madrider Rings, von Eilendorf kommend.
+
+Saison 15.7.–30.9. · Ernte · mundraub
+
+https://mundraub.org/node/3003</description>
+<styleUrl>#angebot</styleUrl>
+<Point><coordinates>6.137795,50.771152,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Ernte: Brombeeren Kaiser-Friedrich-Allee</name>
+<description>Viele Brombeersträucher stadteinwärts auf Höhe der Scheurenstraße — Handschuhe und lange Kleidung dringend empfohlen.
+
+Saison 15.7.–30.9. · Ernte · mundraub
+
+https://mundraub.org/node/2437</description>
+<styleUrl>#angebot</styleUrl>
+<Point><coordinates>6.072671,50.755489,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Ernte: Brombeeren Vennbahnweg Walheim</name>
+<description>Viele Brombeerbüsche säumen den Vennbahnweg zwischen Walheim und Schmithof — ideal mit dem Rad.
+
+Saison 15.7.–30.9. · Ernte · mundraub
+
+https://mundraub.org/node/20508</description>
+<styleUrl>#angebot</styleUrl>
+<Point><coordinates>6.173201,50.700481,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Ernte: Himbeeren am Kreuzerdriesch</name>
+<description>Viele Himbeersträucher beidseitig des Weges zwischen Beverau und Brander Wald — Vorsicht vor Brennnesseln.
+
+Saison 15.6.–31.8. · Ernte · mundraub
+
+https://mundraub.org/node/145140</description>
+<styleUrl>#angebot</styleUrl>
+<Point><coordinates>6.118735,50.751992,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Ernte: Wilde Heidelbeeren im Brander Wald</name>
+<description>Verstreute Heidelbeersträucher im Brander Wald/Krauthauser Heide. Nur kleine Mengen (Handstraußregel) und Beeren vor dem Verzehr erhitzen (Fuchsbandwurm).
+
+Saison 20.6.–15.8. · Ernte · mundraub
+
+https://mundraub.org/node/14531</description>
+<styleUrl>#angebot</styleUrl>
+<Point><coordinates>6.190871,50.755179,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Ernte: Walnusswiese bei Hergenrath (B)</name>
+<description>Frei zugängliche Gemeindewiese mit über 30 Walnussbäumen bei Kelmis, südwestlich von Aachen. Beste Zeit: morgens nach einer stürmischen Nacht. Belgische Sammelregeln beachten.
+
+Saison 1.9.–31.10. · Ernte · mundraub · Belgien
+
+https://mundraub.org/node/92032</description>
+<styleUrl>#angebot</styleUrl>
+<Point><coordinates>6.029177,50.707135,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Ernte: Esskastanien im Aachener Wald</name>
+<description>Am Waldweg vom Luxemburger Ring Richtung Lütticher Straße stehen auf mehreren Wiesen Esskastanienbäume, die meist gut tragen.
+
+Saison 20.9.–31.10. · Ernte · mundraub
+
+https://mundraub.org/node/2435</description>
+<styleUrl>#angebot</styleUrl>
+<Point><coordinates>6.063251,50.751934,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Ernte: Alte Obstbäume am Schneebergweg</name>
+<description>Vom Golfplatz Richtung Lemiers stehen beidseitig viele alte Obstbäume und Beerensträucher: Äpfel, Birnen, Pflaumen, Mirabellen, Brombeeren. Lange Hose und Handschuhe empfohlen.
+
+Saison 15.7.–31.10. · Ernte · mundraub
+
+https://mundraub.org/node/1787</description>
+<styleUrl>#angebot</styleUrl>
+<Point><coordinates>6.029048,50.780056,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Ernte: Kirschbaum Düppelstraße</name>
+<description>Großer Kirschbaum am Anfang der Düppelstraße (vom Elsassplatz kommend) mit sehr vielen Früchten — kleine Leiter hilfreich.
+
+Saison 1.7.–31.7. · Ernte · mundraub
+
+https://mundraub.org/node/1447</description>
+<styleUrl>#angebot</styleUrl>
+<Point><coordinates>6.115619,50.773987,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Ernte: Kirschbaum Preuswald</name>
+<description>Kirschbaum mit ausladender, niedriger Krone auf dem Grünstreifen an der Preuswaldsiedlung — man kommt leicht an die Kirschen.
+
+Saison 15.6.–31.7. · Ernte · mundraub
+
+https://mundraub.org/node/102542</description>
+<styleUrl>#angebot</styleUrl>
+<Point><coordinates>6.047469,50.738095,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Ernte: Bärlauch am Beverbach</name>
+<description>Nördlich der Brücke sind beide Bachhänge voll mit Bärlauch. Steiles Gelände, feste Schuhe. Achtung Verwechslungsgefahr mit Maiglöckchen — nur ernten, wer sicher bestimmt.
+
+Saison 1.3.–15.5. · Ernte · mundraub · Frühjahr
+
+https://mundraub.org/node/7108</description>
+<styleUrl>#angebot</styleUrl>
+<Point><coordinates>6.103098,50.756604,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Heidelbeeren selbst pflücken: Juppis Hof</name>
+<description>Heidelbeer-Plantage mit Selbstpflücke (2026: 5,50 €/kg, 11–17 Uhr an angekündigten Pflücktagen) in Selfkant-Havert, mit Beerencafé. Nächstgelegene belegte Heidelbeer-Selbstpflücke, ca. 45 km nördlich.
+
+Saison 1.7.–15.8. · Selbstpflücke · Selfkant
+
+https://www.juppis-hof.de/veranstaltungen/beerenpfluecken/</description>
+<styleUrl>#angebot</styleUrl>
+<Point><coordinates>5.911075,51.038885,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Bio-Erdbeeren selbst pflücken: Gut Hasselholz</name>
+<description>Bio-Erdbeerfeld an der Feldeinfahrt Buchweg im Vaalserquartier. Pflückzeiten zuletzt Mi 17–19, Fr 17–18:30, So 10–13 Uhr — vor Anfahrt prüfen.
+
+Saison 25.5.–15.7. · Selbstpflücke · bio</description>
+<styleUrl>#angebot</styleUrl>
+<Point><coordinates>6.029152,50.763459,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Erdbeeren pflücken: Bio-Hof Maria Haus</name>
+<description>Auf den Feldern des Bio-Bauernhofs der Alexianer Werkstätten (Gemmenicher Weg 45) hofeigene Erdbeeren selbst pflücken — vorher im Hofladen anmelden (Mo–Fr 9–16 Uhr).
+
+Saison 1.6.–15.7. · Selbstpflücke · bio</description>
+<styleUrl>#angebot</styleUrl>
+<Point><coordinates>6.048408,50.765419,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Blumen selber schneiden: Blütenreich Richterich</name>
+<description>Blumen direkt vom Feld schneiden (Küppershofweg 13): Frühjahr Tulpen und Ranunkeln, Sommer Dahlien, Wildblumen, Sonnenblumen. Mo–Fr 9–18:30, Sa 9–15 Uhr.
+
+Saison 15.3.–15.10. · Selber schneiden</description>
+<styleUrl>#angebot</styleUrl>
+<Point><coordinates>6.070418,50.817951,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Tres Hombres R&amp;B</name>
+<description>Rhythm-&amp;-Blues-Livekonzert in der Rockkneipe am Boxgraben. Beginn 20 Uhr.
+
+Sa 8.8. · Schlüsselloch · 20 Uhr
+
+https://aachen-kalender.de/event/tres-hombres-r-b-4/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0811371,50.7685803,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Queerbeats — dancing on rainbows</name>
+<description>Queere Partyreihe mit DJ-Sets im Clubkeller. Ab 21 Uhr.
+
+Sa 8.8. · Dein Hotel Europa · 21 Uhr
+
+https://www.deinhoteleuropa.de/programm/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0810781,50.7665207,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Attitude by Ice Kareem</name>
+<description>Clubnacht mit DJ Ice Kareem im Apollo. Einlass ab 23 Uhr.
+
+Sa 8.8. · Apollo · 23 Uhr
+
+https://apollo-aachen.de/club/events/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.078955,50.7806829,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Alles Anders — Das Musical</name>
+<description>Eigene Musicalproduktion mit fünf Vorstellungen in der Klangbrücke. Fr/Sa 19 Uhr, So 18 Uhr.
+
+Sa 8.8. – So 16.8. · Klangbrücke
+
+https://altes-kurhaus-aachen.de/spielplan/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0888792,50.7769983,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Dixie Krekkers — Jazz-Frühschoppen</name>
+<description>Dixieland-Frühschoppen auf den Park-Terrassen. Ab 11 Uhr.
+
+So 9.8. · Park-Terrassen · 11 Uhr
+
+https://aachen-kalender.de/event/dixie-krekkers/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0951,50.7827,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Sonos Cliq (WM-Bühne Markt)</name>
+<description>Auftakt der Gratis-Konzertreihe zur Reit-WM auf dem Marktplatz. Eintritt frei.
+
+Di 11.8. · Markt · 20:30 · frei
+
+https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0838,50.776,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Il Civetto (WM-Bühne Markt)</name>
+<description>Berliner Band zwischen Folk und Gypsy-Pop auf dem Marktplatz. Eintritt frei.
+
+Mi 12.8. · Markt · 20:30 · frei
+
+https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0838,50.776,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Roda de Samba mit den Pagodinhos</name>
+<description>Brasilianische Samba-Runde in der Rotunde am Elisenbrunnen. Ab 17:30 Uhr.
+
+Mi 12.8. · Elisenbrunnen · 17:30
+
+https://aachen-kalender.de/event/roda-de-sambamit-den-pagodinhos-aus-aachen/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0871,50.7747,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Salsa Afterwork</name>
+<description>Salsa-Abend im Apollo, wöchentlich mittwochs. Ab 19 Uhr.
+
+Mi 12.8. · Apollo · 19 Uhr
+
+https://apollo-aachen.de/club/events/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.078955,50.7806829,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>The Maestro &amp; The European Pop Orchestra</name>
+<description>Großes Pop-Orchester auf der WM-Bühne am Markt. Eintritt frei.
+
+Do 13.8. · Markt · 20:30 · frei
+
+https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0838,50.776,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Renaud Marquart Trio — Chansons</name>
+<description>Französische Chansons auf dem Hof, im Rahmenprogramm der Reit-WM. Ab 18 Uhr.
+
+Do 13.8. · Hof · 18 Uhr · frei
+
+https://aachen-kalender.de/event/renaud-marquart-trio-franzoesische-chansons/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0847,50.775,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Querbeat (WM-Bühne Markt)</name>
+<description>Brass-Pop aus Bonn auf dem Marktplatz. Eintritt frei.
+
+Fr 14.8. · Markt · 20:30 · frei
+
+https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0838,50.776,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>SommerOrgelKonzert: Nils Hellemans</name>
+<description>Orgelkonzert in der Annakirche. Beginn 19:30 Uhr.
+
+Fr 14.8. · Annakirche · 19:30
+
+https://aachen-kalender.de/event/sommerorgelkonzerte-nils-hellemans/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.082,50.7768,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Álvaro Soler (WM-Bühne Markt)</name>
+<description>Latin-Pop auf dem Marktplatz — der Publikumsmagnet der WM-Woche. Eintritt frei.
+
+Sa 15.8. · Markt · 20:30 · frei
+
+https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0838,50.776,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Klangkarre im Elisengarten</name>
+<description>Mobiles Straßenmusikformat für alle Altersgruppen. Ab 17 Uhr.
+
+Sa 15.8. · Elisengarten · 17 Uhr · frei
+
+https://aachen-kalender.de/event/reit-wm-2026-rahmenprogramm-klangkarre/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0857,50.7752,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>MiA (WM-Bühne Markt)</name>
+<description>Deutschsprachiger Elektropop auf dem Marktplatz. Eintritt frei.
+
+So 16.8. · Markt · 20:30 · frei
+
+https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0838,50.776,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Ricarda Schumann Barockensemble</name>
+<description>Barockmusik an der Musikmuschel im Kurpark. Ab 13 Uhr.
+
+So 16.8. · Kurpark · 13 Uhr
+
+https://aachen-kalender.de/event/ricarda-schumann-barockensemble/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.093,50.783,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Marley's Ghost (WM-Bühne Markt)</name>
+<description>Reggae auf dem Marktplatz. Eintritt frei.
+
+Mo 17.8. · Markt · 20:30 · frei
+
+https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0838,50.776,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>RINGO (WM-Bühne Markt)</name>
+<description>Livemusik auf dem Marktplatz im WM-Rahmenprogramm. Eintritt frei.
+
+Di 18.8. · Markt · 20:30 · frei
+
+https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0838,50.776,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Shantel (WM-Bühne Markt)</name>
+<description>Balkan-Beats zum Tanzen auf dem Marktplatz. Eintritt frei.
+
+Mi 19.8. · Markt · 20:30 · frei
+
+https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0838,50.776,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Salsa Afterwork (19.8.)</name>
+<description>Salsa-Abend im Apollo. Ab 19 Uhr.
+
+Mi 19.8. · Apollo · 19 Uhr
+
+https://apollo-aachen.de/club/events/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.078955,50.7806829,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Knallblech (WM-Bühne Markt)</name>
+<description>Brass-Band auf dem Marktplatz. Eintritt frei.
+
+Do 20.8. · Markt · 20:30 · frei
+
+https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0838,50.776,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Harris &amp; Ford (WM-Bühne Markt)</name>
+<description>Hardstyle- und EDM-Duo auf dem Marktplatz. Eintritt frei.
+
+Fr 21.8. · Markt · 20:30 · frei
+
+https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0838,50.776,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>SommerOrgelKonzert: Poppeia Berden</name>
+<description>Orgelkonzert in der Annakirche. Beginn 19:30 Uhr.
+
+Fr 21.8. · Annakirche · 19:30
+
+https://aachen-kalender.de/event/sommerorgelkonzerte-poppeia-berden/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.082,50.7768,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>FLUID</name>
+<description>Elektronische Clubnacht im Kellergewölbe. Ab 22 Uhr.
+
+Fr 21.8. · Dein Hotel Europa · 22 Uhr
+
+https://www.deinhoteleuropa.de/programm/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0810781,50.7665207,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Charts Party</name>
+<description>Partynacht mit aktuellen Charts im Apollo. Einlass ab 23 Uhr.
+
+Fr 21.8. · Apollo · 23 Uhr
+
+https://apollo-aachen.de/club/events/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.078955,50.7806829,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Elton and the Joels (WM-Bühne Markt)</name>
+<description>Tribute an Elton John und Billy Joel auf dem Marktplatz. Eintritt frei.
+
+Sa 22.8. · Markt · 20:30 · frei
+
+https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0838,50.776,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Klangkarre im Elisengarten (22.8.)</name>
+<description>Mobiles Straßenmusikformat, zwei Durchgänge ab 15:30 und 17 Uhr.
+
+Sa 22.8. · Elisengarten · 15:30 + 17 Uhr · frei
+
+https://aachen-kalender.de/event/klangkarre/2026-08-22/1/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0857,50.7752,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Rewind</name>
+<description>Clubnacht im Apollo. Einlass ab 23 Uhr.
+
+Sa 22.8. · Apollo · 23 Uhr
+
+https://apollo-aachen.de/club/events/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.078955,50.7806829,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Somebody Wrong Bluesband</name>
+<description>Blues auf dem Marktplatz, im Rahmenprogramm der Reit-WM. Ab 18 Uhr, Eintritt frei.
+
+So 23.8. · Markt · 18 Uhr · frei
+
+https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0838,50.776,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Lagerfeuer-Trio — Abschluss der WM-Reihe</name>
+<description>Letztes Konzert der Gratis-Reihe auf dem Marktplatz. Eintritt frei.
+
+So 23.8. · Markt · 20:30 · frei
+
+https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0838,50.776,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Orgeltage im Aachener Dom — Auftakt</name>
+<description>Beginn der Orgeltage im Dom. Konzertbeginn 19 Uhr.
+
+Di 25.8. · Aachener Dom · 19 Uhr
+
+https://aachen-kalender.de/event/orgeltage-im-aachener-dom-auftakt/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0839,50.7746,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Salsa Afterwork (26.8.)</name>
+<description>Salsa-Abend im Apollo. Ab 19 Uhr.
+
+Mi 26.8. · Apollo · 19 Uhr
+
+https://apollo-aachen.de/club/events/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.078955,50.7806829,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Orgeltage: Stefan Madrzak</name>
+<description>Orgelkonzert im Aachener Dom. Beginn 19 Uhr.
+
+Do 27.8. · Aachener Dom · 19 Uhr
+
+https://aachen-kalender.de/event/orgeltage-im-aachener-dom-stefan-madrzak/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0839,50.7746,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>STILL HERE auf dem CSD</name>
+<description>Livemusik auf der CSD-Bühne am Markt. Ab 15:15 Uhr.
+
+Sa 29.8. · Markt · 15:15 · frei
+
+https://www.csd-aachen.de/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0838,50.776,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>PRISM — Colours of House</name>
+<description>House-Clubnacht im Kellergewölbe. Ab 22 Uhr.
+
+Sa 29.8. · Dein Hotel Europa · 22 Uhr
+
+https://www.deinhoteleuropa.de/programm/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0810781,50.7665207,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Soen</name>
+<description>Die schwedische Progressive-Metal-Band Soen spielt im Musikbunker. Beginn 20 Uhr.
+
+Do 13.8. · Musikbunker · 20 Uhr
+
+https://mubu.ac/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.1035274,50.7672224,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>2000er Party</name>
+<description>Partynacht mit Hits der 2000er im Apollo. Einlass ab 23 Uhr.
+
+Fr 14.8. · Apollo · 23 Uhr
+
+https://apollo-aachen.de/club/events/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.078955,50.7806829,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Kollektiv Herrmannstraße — Beats Beyond Borders</name>
+<description>Clubnacht im Kellergewölbe von Dein Hotel Europa. Start 22 Uhr.
+
+Sa 15.8. · Dein Hotel Europa · 22 Uhr
+
+https://www.deinhoteleuropa.de/programm/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0810781,50.7665207,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Shut Up &amp; Dance</name>
+<description>Clubnacht im Apollo mit Einlass ab 23 Uhr.
+
+Sa 15.8. · Apollo · 23 Uhr
+
+https://apollo-aachen.de/club/events/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.078955,50.7806829,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Open-Air-Kino an der Burg Frankenberg</name>
+<description>Zehn Abende Freiluftkino im Burghof — Programm und Beginn auf der Website der Burg.
+
+Di 18.8. – Do 27.8. · Burg Frankenberg
+
+https://burgfrankenberg.de/programm/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.1038202,50.7678212,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Hufkultur-Tage im Domkeller</name>
+<description>Drei Tage Musikprogramm mit wechselnden Acts, begleitend zur Reit-WM. Ab 18 Uhr.
+
+Mi 19.8. – Fr 21.8. · Domkeller · ab 18 Uhr
+
+https://www.domkeller.de/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0853144,50.775721,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Sound Schwestern — FLINTA-Kollektiv</name>
+<description>Clubnacht des FLINTA-DJ-Kollektivs im Kellergewölbe. Start 22 Uhr.
+
+Sa 22.8. · Dein Hotel Europa · 22 Uhr
+
+https://www.deinhoteleuropa.de/programm/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0810781,50.7665207,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Eine Party für den Fuchs (Figurentheater)</name>
+<description>Figurentheater von Ute Kahmann für Kinder im Burghof. Beginn 15 Uhr.
+
+So 23.8. · Burg Frankenberg · 15 Uhr
+
+https://burgfrankenberg.de/programm/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.1038202,50.7678212,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>CSD-Aftershow-Party</name>
+<description>Aftershow zum Christopher Street Day im Clubkeller. Ab 22:30 Uhr.
+
+Fr 28.8. · Dein Hotel Europa · 22:30 Uhr
+
+https://www.deinhoteleuropa.de/programm/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0810781,50.7665207,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>CSD-Afterparty mit Mary Sánchez</name>
+<description>Aftershow-Party zum Christopher Street Day im FRANZ. Ab 22:30 Uhr.
+
+Sa 29.8. · FRANZ · 22:30 Uhr
+
+https://aachen-franz.de/programm/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0864597,50.7685241,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Kaffeehaus der Eitelkeiten — Trio La Colombe</name>
+<description>Konzert in der Klangbrücke im Alten Kurhaus. Beginn 20 Uhr.
+
+Sa 29.8. · Klangbrücke · 20 Uhr
+
+https://altes-kurhaus-aachen.de/spielplan/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0888792,50.7769983,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>90er Party</name>
+<description>Partynacht mit Hits der 90er im Apollo. Einlass ab 23 Uhr.
+
+Sa 29.8. · Apollo · 23 Uhr
+
+https://apollo-aachen.de/club/events/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.078955,50.7806829,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>[SYNC] Synthesizer-Jam</name>
+<description>Offene Jam-Session für Synthesizer, monatlich in der Raststätte.
+
+Mi 2.9. · Raststätte
+
+https://raststaette.org/termine/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0939733,50.77161,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Fiesta Latina mit gratis Bachata-Kurs</name>
+<description>Latin-Party mit DJ Senci, vorab kostenloser Bachata-Tanzkurs. Ab 20 Uhr.
+
+Fr 4.9. · FRANZ · 20 Uhr
+
+https://aachen-franz.de/programm/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0864597,50.7685241,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Urban Grooves — DJ Royale &amp; VJ Peter K.</name>
+<description>Clubabend mit Big Beats und Live-Visuals im FRANZ. Ab 21 Uhr.
+
+Sa 5.9. · FRANZ · 21 Uhr
+
+https://rausgegangen.de/events/urban-grooves-dj-royale-vj-peter-k-mit-big-beats-und-visuell-0/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0864597,50.7685241,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Reiner Witzel Group feat. Joyce Nuhill</name>
+<description>Jazzkonzert in der Klangbrücke. Beginn 20 Uhr.
+
+Sa 5.9. · Klangbrücke · 20 Uhr
+
+https://rausgegangen.de/events/reiner-witzel-group-feat-joyce-nuhill-2/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0888792,50.7769983,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Weltklassik am Klavier — Zauberflöte und Faustwalzer</name>
+<description>Klavierkonzert aus der Reihe Weltklassik am Klavier. Beginn 17 Uhr.
+
+So 6.9. · Klangbrücke · 17 Uhr
+
+https://altes-kurhaus-aachen.de/spielplan/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0888792,50.7769983,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Wilfried Schmickler — Der tuts noch</name>
+<description>Neues Solo-Programm des Kabarettisten im FRANZ. Beginn 20 Uhr.
+
+Di 8.9. · FRANZ · 20 Uhr
+
+https://aachen-franz.de/programm/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0864597,50.7685241,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Hermetic Delight &amp; FELT</name>
+<description>Doppelkonzert aus Indie Rock und Art Pop im Musikbunker. Beginn 20 Uhr.
+
+Fr 11.9. · Musikbunker · 20 Uhr
+
+https://mubu.ac/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.1035274,50.7672224,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Ponk — Ponk Rock</name>
+<description>Live-Konzert der Band Ponk im FRANZ. Beginn 20 Uhr.
+
+Fr 11.9. · FRANZ · 20 Uhr
+
+https://rausgegangen.de/events/ponk-ponk-rock-0/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0864597,50.7685241,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Georg Zimmermann</name>
+<description>Konzertabend in der Raststätte.
+
+Sa 12.9. · Raststätte
+
+https://raststaette.org/termine/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0939733,50.77161,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Disco Disco mit DJ van de Vooren</name>
+<description>Disco-Party im FRANZ. Ab 21 Uhr.
+
+Sa 12.9. · FRANZ · 21 Uhr
+
+https://aachen-franz.de/programm/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0864597,50.7685241,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Call It Off</name>
+<description>Konzertabend im Musikbunker. Beginn 20 Uhr.
+
+Di 15.9. · Musikbunker · 20 Uhr
+
+https://mubu.ac/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.1035274,50.7672224,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>The Devil's Trade + Fjordheksa</name>
+<description>Zwei Acts an einem Abend im Musikbunker. Beginn 20 Uhr.
+
+Do 17.9. · Musikbunker · 20 Uhr
+
+https://mubu.ac/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.1035274,50.7672224,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Salsa-Party mit gratis Tanzkurs</name>
+<description>Salsa-Abend mit DJ Alan, vorab kostenloser Tanzkurs. Ab 20 Uhr.
+
+Fr 18.9. · FRANZ · 20 Uhr
+
+https://aachen-franz.de/programm/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0864597,50.7685241,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Dominext Kinky-Psytrance-Party</name>
+<description>Clubnacht mit Psytrance im Musikbunker. Start 22 Uhr.
+
+Sa 19.9. · Musikbunker · 22 Uhr
+
+https://mubu.ac/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.1035274,50.7672224,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Wildes Holz — Block-Party</name>
+<description>Konzert des Trios Wildes Holz im Theater Aachen.
+
+Sa 19.9. · Theater Aachen
+
+https://www.theateraachen.de/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.087146,50.7725403,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>1. Sinfoniekonzert — Chorkonzert</name>
+<description>Erstes Sinfoniekonzert der Saison im Eurogress. Beginn 19 Uhr.
+
+Sa 19.9. · Eurogress · 19 Uhr
+
+https://www.aachen-event.com/veranstaltungskalender</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0918663,50.7820937,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Michael Hatzius — Echsklusiv</name>
+<description>Puppen-Comedy im Neuen Kurhaus. Beginn 20 Uhr.
+
+So 20.9. · Neues Kurhaus · 20 Uhr
+
+https://www.aachen-event.com/veranstaltungskalender</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0930307,50.7816451,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>10cc</name>
+<description>Die britische Band 10cc gastiert im Eurogress. Beginn 20 Uhr.
+
+Mi 23.9. · Eurogress · 20 Uhr
+
+https://www.aachen-event.com/veranstaltungskalender</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0918663,50.7820937,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Menschenrechte der Anderen (Vortrag)</name>
+<description>Vortrag von Prof. Dr. Alfred Hirsch auf der Burg Frankenberg. Beginn 19 Uhr.
+
+Do 24.9. · Burg Frankenberg · 19 Uhr
+
+https://burgfrankenberg.de/programm/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.1038202,50.7678212,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Maria Iskariot</name>
+<description>Konzert im Musikbunker. Beginn bereits um 19 Uhr.
+
+Fr 25.9. · Musikbunker · 19 Uhr
+
+https://mubu.ac/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.1035274,50.7672224,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Hellhookah + Hell Gate</name>
+<description>Doppelkonzert im Musikbunker. Beginn 20 Uhr.
+
+Sa 26.9. · Musikbunker · 20 Uhr
+
+https://mubu.ac/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.1035274,50.7672224,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Eivind Aarset 4tet</name>
+<description>Der norwegische Gitarrist tritt mit seinem Quartett auf. Bestuhlt, Beginn 19 Uhr.
+
+So 27.9. · Musikbunker · 19 Uhr
+
+https://mubu.ac/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.1035274,50.7672224,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Capella a Capella singt Comedian Harmonists</name>
+<description>A-cappella-Konzert im Neuen Kurhaus. Beginn 17 Uhr.
+
+So 27.9. · Neues Kurhaus · 17 Uhr
+
+https://www.aachen-event.com/veranstaltungskalender</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0930307,50.7816451,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>MusiSHEans</name>
+<description>Konzert der Reihe Montagskonzerte im Domkeller. Beginn 20 Uhr.
+
+Mo 28.9. · Domkeller · 20 Uhr
+
+https://www.domkeller.de/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0853144,50.775721,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Fuchsthone Orchestra — Peaks &amp; Plots</name>
+<description>Auftritt des Kölner Jazz-Großensembles in der Klangbrücke. Beginn 20 Uhr.
+
+Do 1.10. · Klangbrücke · 20 Uhr
+
+https://altes-kurhaus-aachen.de/spielplan/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0888792,50.7769983,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>16 Jahre FRANZ — Spy Kowlik &amp; Aftershow</name>
+<description>Geburtstagskonzert mit anschließender Party. Eintritt frei, Beginn 20 Uhr.
+
+Fr 2.10. · FRANZ · 20 Uhr · frei
+
+https://aachen-franz.de/programm/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0864597,50.7685241,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Nguyên Lê und Nonett speGTRa</name>
+<description>Jazzgitarrist Nguyên Lê tritt mit dem Nonett speGTRa auf. Beginn 20 Uhr.
+
+Fr 2.10. · Neues Kurhaus · 20 Uhr
+
+https://www.aachen-event.com/veranstaltungskalender</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0930307,50.7816451,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Weltklassik am Klavier — Himmelsglanz und Höllenfeuer</name>
+<description>Klavierkonzert in der Klangbrücke. Beginn 17 Uhr.
+
+So 4.10. · Klangbrücke · 17 Uhr
+
+https://altes-kurhaus-aachen.de/spielplan/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0888792,50.7769983,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Henge — Galaktischer Rave</name>
+<description>Die britische Band Henge bringt ihre Show in den Musikbunker. Beginn 20 Uhr.
+
+Mi 7.10. · Musikbunker · 20 Uhr
+
+https://mubu.ac/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.1035274,50.7672224,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>[SYNC] Synthesizer-Jam (Oktober)</name>
+<description>Offene Jam-Session für Synthesizer in der Raststätte.
+
+Mi 7.10. · Raststätte
+
+https://raststaette.org/termine/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0939733,50.77161,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Don Carlo (Opern-Premiere)</name>
+<description>Premiere von Giuseppe Verdis Oper im Theater Aachen.
+
+Sa 10.10. · Theater Aachen
+
+https://www.theateraachen.de/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.087146,50.7725403,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>GlowUp — Love • Queer • Dance</name>
+<description>Queere Tanzparty mit DJane Blues im FRANZ. Ab 21 Uhr.
+
+Sa 10.10. · FRANZ · 21 Uhr
+
+https://aachen-franz.de/programm/</description>
+<styleUrl>#event</styleUrl>
+<Point><coordinates>6.0864597,50.7685241,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Fotospot: Lousberg (Obelisk &amp; Panorama)</name>
+<description>Aachens Hausberg: vom Tranchot-Obelisken das beste freie Panorama über die Dächer und die Domsilhouette. Aufstieg über die Lousbergstiege (312 Stufen). Am besten: goldene/blaue Stunde abends, Blick nach Süden.
+
+frei zugänglich</description>
+<styleUrl>#spot</styleUrl>
+<Point><coordinates>6.0792,50.7869,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Fotospot: Drehturm Belvedere</name>
+<description>Der 35 m hohe frühere Wasserturm (1958) ist ein markantes Architekturmotiv auf dem Lousberg-Plateau. Am besten abends als Silhouette gegen den Westhimmel.
+
+Umfeld frei zugänglich</description>
+<styleUrl>#spot</styleUrl>
+<Point><coordinates>6.08049,50.78645,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Fotospot: Katschhof (Dom + Rathaus)</name>
+<description>Herz des UNESCO-Ensembles: südlich füllt der Dom den Rahmen, nördlich das gotische Rathaus. Am besten: blaue Stunde, wenn beide angestrahlt sind; morgens streifendes Licht von Osten.
+
+rund um die Uhr frei</description>
+<styleUrl>#spot</styleUrl>
+<Point><coordinates>6.08379,50.77544,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Fotospot: Elisenbrunnen</name>
+<description>Klassizistische Säulenhalle von 1827 — ideal für Symmetrie-Aufnahmen. Am besten: abends Sonne von Westen auf der Säulenfront, nachts stimmungsvoll beleuchtet.
+
+goldene Stunde abends</description>
+<styleUrl>#spot</styleUrl>
+<Point><coordinates>6.0869,50.7742,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Fotospot: Ponttor</name>
+<description>Mittelalterliches Stadttor mit Vorburg — dramatische Kompositionen von der nördlichen Feldseite. Am besten: goldene Stunde abends von Norden/Nordwesten.
+
+goldene Stunde</description>
+<styleUrl>#spot</styleUrl>
+<Point><coordinates>6.07833,50.78153,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Fotospot: Marschiertor</name>
+<description>Eines der mächtigsten erhaltenen Stadttore Westeuropas, nahe Hauptbahnhof — die breite Südfassade füllt Weitwinkel perfekt. Am besten: Nachmittag bis goldene Stunde.
+
+frei zugänglich</description>
+<styleUrl>#spot</styleUrl>
+<Point><coordinates>6.08694,50.76819,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Fotospot: Burg Frankenberg</name>
+<description>Wasserburg aus dem 13. Jh. mitten im Viertel: Der Burgweiher liefert bei Windstille Bilderbuch-Spiegelungen. Am besten: Sonnenaufgang — ruhiges Wasser, gelegentlich Morgennebel.
+
+Park frei zugänglich</description>
+<styleUrl>#spot</styleUrl>
+<Point><coordinates>6.10389,50.76778,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Fotospot: Gut-Melaten-Allee</name>
+<description>Aachens beliebtestes Allee-Motiv am historischen Gut Melaten: symmetrische Baumreihen, im Herbst spektakulär gefärbt. Am besten: Sonnenaufgang mit Gegenlicht und Morgennebel.
+
+RWTH Campus Melaten</description>
+<styleUrl>#spot</styleUrl>
+<Point><coordinates>6.0466,50.7789,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Fotospot: Stadtgarten / Kurpark</name>
+<description>Alte Baumbestände, Wasserbecken und das Neue Kurhaus als Kulisse — ruhiges Park-Motiv abseits der Altstadt. Am besten: morgens, im Herbst wegen Laubfärbung besonders fotogen.
+
+frei zugänglich</description>
+<styleUrl>#spot</styleUrl>
+<Point><coordinates>6.0971,50.783,0</coordinates></Point>
+</Placemark>
+<Placemark>
+<name>Fotospot: Dreiländereck Vaalserberg</name>
+<description>Drei Länder in einem Bild: Grenzmonument, Waldkulisse und Aussichtstürme am höchsten Punkt der Niederlande (322 m). Am besten: Sonnenuntergang mit freier Sicht nach Westen.
+
+D · NL · B · frei</description>
+<styleUrl>#spot</styleUrl>
+<Point><coordinates>6.0208,50.7547,0</coordinates></Point>
+</Placemark>
+</Document>
+</kml>

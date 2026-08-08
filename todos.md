@@ -6,7 +6,9 @@ Karte ist live: **https://eventlas.netlify.app** — alle Texte unten sind ferti
 Seit deinem Upload dazugekommen: **144 Pins statt 64**, davon **84 Musik/Party** — darunter die
 13 Gratis-Konzerte der WM-Bühne auf dem Markt (11.–23.08., u. a. Álvaro Soler, MiA, Shantel).
 Dazu PWA, Link-Vorschaubild, Saisonkalender, Kamera-Knopf, bessere Suche, kein „kostenlos"-Tag mehr.
-Der Ordner **`Upload/`** ist gefüllt (7 Dateien) — auf **app.netlify.com/drop** ziehen.
+Der Ordner **`Upload/`** ist gefüllt (inkl. neuem Unterordner `schriften/`) — auf
+**app.netlify.com/drop** ziehen. Wichtig: den **ganzen Ordner** ziehen, nicht einzelne Dateien,
+sonst fehlen die Schriften.
 Künftig: `upload-vorbereiten.cmd` doppelklicken, dann ziehen.
 > Danach am Handy prüfen: "Zum Startbildschirm hinzufügen" sollte angeboten werden, ein per
 > WhatsApp geteilter Link zeigt ein Vorschaubild, und 🎵 Musik + „Heute" zeigt heute vier Termine.
@@ -48,6 +50,10 @@ Personen im Mittelpunkt? Kein Plakat-/Kunstwerk-Foto (Urheberrecht)? Im Zweifel 
       Ich tausche sie dann in index.html → KONFIG.mail aus.
 - [ ] **Impressum-Daten liefern** (Name + ladungsfähige Anschrift; Pflicht nach § 5 DDG, sobald die
       Seite öffentlich ist). Platzhalter steht im ⓘ-Info-Modal — ich trage es ein, sobald du es schickst.
+- [ ] **Datenschutzerklärung einmal anwaltlich durchsehen lassen** (vor dem 22.08.). Die Angaben in
+      der App sind jetzt vollständig und belegt (OpenFreeMap/Ungarn, Cloudflare, Service-Worker-
+      Speicher, kein Tracking) — aber ich bin kein Anwalt, und die Seite wird öffentlich. Eine
+      einmalige Durchsicht ist gut investiert, gerade weil am 11.08. die Markenanmeldung läuft.
 - [x] ~~Netlify-Upload~~ → **live auf https://eventlas.netlify.app** (08.08.)
 - [x] ~~GitHub-Push~~ → erledigt (08.08.)
 - [ ] **Prüfen: Repo-Secret ANTHROPIC_API_KEY gesetzt?** (github.com → Repo → Settings → Secrets

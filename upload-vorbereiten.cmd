@@ -10,6 +10,10 @@ if exist "sw.js"         copy /Y "sw.js"         "Upload\sw.js"         >nul
 if exist "og.png"        copy /Y "og.png"        "Upload\og.png"        >nul
 if exist "icon-192.png"  copy /Y "icon-192.png"  "Upload\icon-192.png"  >nul
 if exist "icon-512.png"  copy /Y "icon-512.png"  "Upload\icon-512.png"  >nul
+if exist "schriften" (
+  if not exist "Upload\schriften" mkdir "Upload\schriften"
+  copy /Y "schriften\*.woff2" "Upload\schriften\" >nul
+)
 echo.
 echo   Upload-Ordner ist bereit. Ziehe ihn jetzt auf app.netlify.com/drop
 echo   (Die Originale bleiben im Projektordner - nichts wird verschoben.)
