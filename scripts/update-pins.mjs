@@ -1,9 +1,13 @@
-// Eventlas Auto-Update v2 — läuft täglich per GitHub Action.
+// Eventlas Auto-Update v3 — läuft täglich per GitHub Action.
 // Quellen: 1) feste Pins aus pins.json (fest:true — Fotospots, Ernte, Beispiele: bleiben immer),
 //          2) Kulturkalender-JSON-API der Stadt (api.kulturkalender-aachen.de, CORS *),
-//          3) Claude mit Websuche für alles andere (Feste, Märkte, Konzerte, Sport).
+//          3) Claude mit Websuche — bekommt dabei gezielt die Spielstätten aus venues.json,
+//             damit Konzerte & Co. aus Häusern mit wechselndem Programm zuverlässig auftauchen.
 // Schema: typ event|angebot|hilfe|spot · tags[] · quelle · link · hot · hinzu · saison{von,bis} · fest
 // Sicherheitsnetz: bei ungültiger Antwort bricht das Skript ab, ohne die alte pins.json zu zerstören.
+//
+// NEUE STADT AUFSCHALTEN: In venues.json unter "staedte" einen Eintrag anlegen (Name, bbox,
+// Spielstätten mit Koordinaten) und das Skript mit STADT=<schluessel> starten. Nichts im Code ändern.
 
 import { writeFileSync, readFileSync, existsSync } from "fs";
 
@@ -15,10 +19,39 @@ if (!API_KEY) {
 
 const heute = new Date().toISOString().slice(0, 10);
 const heuteDate = new Date(heute + "T00:00:00Z");
-
-// Grobe Region Aachen + Umland (inkl. Selfkant, Kelmis/B, Vaals/NL)
-const BBOX = { lngMin: 5.85, lngMax: 6.35, latMin: 50.6, latMax: 51.1 };
 const TYPEN = new Set(["event", "angebot", "hilfe", "spot"]);
+
+/* ---------- Stadt + Spielstätten laden (venues.json) ---------- */
+const STADT_KEY = process.env.STADT || "aachen";
+let STADT = { name: "Aachen", bbox: { lngMin: 5.85, lngMax: 6.35, latMin: 50.6, latMax: 51.1 }, venues: [] };
+if (existsSync("venues.json")) {
+  try {
+    const v = JSON.parse(readFileSync("venues.json", "utf8"));
+    if (v.staedte && v.staedte[STADT_KEY]) STADT = { ...STADT, ...v.staedte[STADT_KEY] };
+    else console.error(`Warnung: Stadt "${STADT_KEY}" fehlt in venues.json — nutze Vorgaben.`);
+  } catch (e) {
+    console.error("venues.json unlesbar, nutze Vorgaben:", e.message);
+  }
+}
+const BBOX = STADT.bbox;
+const VENUES = (STADT.venues || []).filter(v =>
+  typeof v.lng === "number" && typeof v.lat === "number" && v.name);
+console.log(`Stadt: ${STADT.name} (${STADT_KEY}), ${VENUES.length} Spielstätten hinterlegt.`);
+
+/* Koordinaten-Snapping: Nennt ein recherchierter Pin eine bekannte Spielstätte, setzen wir die
+   hinterlegten (geprüften) Koordinaten ein. Das eliminiert geratene Positionen — die häufigste
+   Fehlerquelle bei LLM-Recherche — und hält alle Events eines Hauses exakt am selben Punkt. */
+function snapAufVenue(p) {
+  const heu = ((p.titel || "") + " " + (p.meta || "") + " " + (p.text || "")).toLowerCase();
+  const treffer = VENUES.find(v =>
+    (v.aliase || [v.name]).concat(v.name).some(a => a && heu.includes(String(a).toLowerCase())));
+  if (!treffer) return p;
+  const weitAb = Math.abs((p.lng ?? treffer.lng) - treffer.lng) > 0.02 ||
+                 Math.abs((p.lat ?? treffer.lat) - treffer.lat) > 0.02;
+  if (weitAb) console.log(`Koordinate korrigiert: "${p.titel}" → ${treffer.name}`);
+  return { ...p, lng: treffer.lng, lat: treffer.lat,
+    tags: [...new Set([...(p.tags || []), ...(treffer.tags || [])])].slice(0, 5) };
+}
 
 /* ---------- 1) Bestehende Pins laden ---------- */
 let alte = [];
@@ -65,20 +98,27 @@ function entschaerfe(p) {
   return q;
 }
 
-/* ---------- 2) Kulturkalender-API (städtischer Kulturbetrieb, 7 feste Häuser) ---------- */
-const VENUES = [
-  { muster: /suermondt/i, lng: 6.0905, lat: 50.7712, name: "Suermondt-Ludwig-Museum" },
-  { muster: /ludwig\s*forum/i, lng: 6.0949, lat: 50.7823, name: "Ludwig Forum" },
-  { muster: /charlemagne/i, lng: 6.0836, lat: 50.7757, name: "Centre Charlemagne" },
-  { muster: /kurhaus/i, lng: 6.0870, lat: 50.7776, name: "Altes Kurhaus" },
-  { muster: /couven/i, lng: 6.0849, lat: 50.7761, name: "Couven Museum" },
-  { muster: /theater/i, lng: 6.0855, lat: 50.7737, name: "Theater Aachen" },
-  { muster: /zeitungsmuseum/i, lng: 6.0824, lat: 50.7758, name: "Zeitungsmuseum" },
-];
+/* ---------- 2) Kulturkalender-API ----------
+   Welche Häuser die API liefert, steht in venues.json: jede Spielstätte mit "muster"
+   (Regex als Text) wird darüber zugeordnet. Fehlt die Datei, greift die Notliste unten. */
+const KULTUR_HAEUSER = VENUES.filter(v => v.muster)
+  .map(v => { try { return { ...v, re: new RegExp(v.muster, "i") }; } catch (e) { return null; } })
+  .filter(Boolean);
+if (!KULTUR_HAEUSER.length) {
+  [ { muster: "suermondt", lng: 6.0905, lat: 50.7712, name: "Suermondt-Ludwig-Museum" },
+    { muster: "ludwig\\s*forum", lng: 6.0949, lat: 50.7823, name: "Ludwig Forum" },
+    { muster: "charlemagne", lng: 6.0836, lat: 50.7757, name: "Centre Charlemagne" },
+    { muster: "kurhaus", lng: 6.0870, lat: 50.7776, name: "Altes Kurhaus" },
+    { muster: "couven", lng: 6.0849, lat: 50.7761, name: "Couven Museum" },
+    { muster: "theater", lng: 6.0855, lat: 50.7737, name: "Theater Aachen" },
+    { muster: "zeitungsmuseum", lng: 6.0824, lat: 50.7758, name: "Zeitungsmuseum" },
+  ].forEach(v => KULTUR_HAEUSER.push({ ...v, re: new RegExp(v.muster, "i") }));
+}
 async function kulturPins() {
+  if (!STADT.kulturApi) return [];          // nur Städte mit passender API
   try {
-    const res = await fetch("https://api.kulturkalender-aachen.de/events", {
-      headers: { "user-agent": "eventlas-aachen (Pin-Update, 1x taeglich)" },
+    const res = await fetch(STADT.kulturApi, {
+      headers: { "user-agent": "eventlas (Pin-Update, 1x taeglich)" },
     });
     if (!res.ok) { console.error("Kulturkalender-API:", res.status, "- übersprungen"); return []; }
     const daten = await res.json();
@@ -94,7 +134,7 @@ async function kulturPins() {
       const s = new Date(start + "T00:00:00Z");
       if (isNaN(s) || s > limit || (ende ? new Date(ende + "T00:00:00Z") : s) < heuteDate) continue;
       const venueName = String(e.venue?.name || e.venue || e.location || "");
-      const venue = VENUES.find(v => v.muster.test(venueName));
+      const venue = KULTUR_HAEUSER.find(v => v.re.test(venueName));
       if (!venue) continue; // ohne Koordinaten kein Pin
       pins.push({
         id: "kk-" + slug(venue.name) + "-" + slug(titel) + "-" + start,
@@ -104,8 +144,8 @@ async function kulturPins() {
         lng: venue.lng, lat: venue.lat,
         start, ...(ende && ende !== start ? { ende } : {}),
         meta: venue.name,
-        tags: ["kultur"],
-        ...(e.url ? { link: String(e.url), quelle: String(e.url) } : { quelle: "https://www.kulturkalender-aachen.de" }),
+        tags: [...new Set(["kultur", ...(venue.tags || [])])].slice(0, 5),
+        ...(e.url ? { link: String(e.url), quelle: String(e.url) } : { quelle: venue.programm || STADT.kulturApi }),
       });
     }
     console.log(`Kulturkalender-API: ${pins.length} Pins übernommen.`);
@@ -117,27 +157,39 @@ async function kulturPins() {
 }
 
 /* ---------- 3) Claude mit Websuche ---------- */
-const SYSTEM = `Du recherchierst aktuelle, öffentliche Veranstaltungen und kostenlose Angebote in Aachen, Deutschland,
+const venueBlock = VENUES.length
+  ? `
+SPIELSTÄTTEN MIT WECHSELNDEM PROGRAMM — diese bitte GEZIELT prüfen (wichtigster Teil des Auftrags):
+${VENUES.map(v => `- ${v.name}${v.art ? " (" + v.art + ")" : ""}: ${v.programm || "Programm per Websuche finden"}`).join("\n")}
+Suche für jede Spielstätte nach den nächsten Terminen (z. B. "${VENUES[0].name} Programm").
+Schreibe bei diesen Events den Namen der Spielstätte in "meta" — die Koordinaten setzen wir selbst ein.
+Bis zu 3 Termine pro Spielstätte; findest du für eine nichts Belegbares, überspringe sie kommentarlos.
+`
+  : "";
+
+const SYSTEM = `Du recherchierst aktuelle, öffentliche Veranstaltungen und kostenlose Angebote in ${STADT.name}, Deutschland,
 für die Karten-App "Eventlas". Heutiges Datum: ${heute}.
 
 Nutze web_search, um echte, aktuelle Informationen zu finden:
-- Wochenmärkte, Flohmärkte, Stadtfeste, Konzerte, Sport-Heimspiele (Alemannia Aachen), Kulturveranstaltungen, Kinderveranstaltungen
+- KONZERTE und Musikveranstaltungen (höchste Priorität — hier fehlt der App am meisten)
+- Wochenmärkte, Flohmärkte, Stadtfeste, Sport-Heimspiele, Kultur- und Kinderveranstaltungen
 - Nur Events, die HEUTE oder in den nächsten 45 Tagen stattfinden oder wiederkehrend sind (wdh)
 - KEINE Geschäfte/Läden/Museen als Dauer-Pins (nur konkrete datierte Veranstaltungen)
 - KEINE Inhalte von Kleinanzeigen.de oder nebenan.de (rechtlich nicht zulässig)
 - KEINE erfundenen Fakten; bei Unsicherheit Eintrag weglassen statt raten
 - Jeder Pin braucht "quelle" (Beleg-URL der Recherche)
-
+${venueBlock}
 Antworte AUSSCHLIESSLICH mit validem JSON, keine Erklärung, kein Markdown, kein Codeblock-Zaun:
 {"pins":[
-  {"typ":"event","titel":"...","text":"max 2 Sätze Deutsch","lng":6.xxx,"lat":50.xxx,"meta":"Kurzinfo z.B. Uhrzeit/Ort",
-   "tags":["flohmarkt"|"musik"|"essen"|"kinder"|"sport"|"kultur"|"fest"|"markt"|"kostenlos"|"party"],
+  {"typ":"event","titel":"...","text":"max 2 Sätze Deutsch","lng":6.xxx,"lat":50.xxx,"meta":"Spielstätte, Uhrzeit",
+   "tags":["musik"|"party"|"flohmarkt"|"essen"|"kinder"|"sport"|"kultur"|"fest"|"markt"|"kostenlos"],
    "quelle":"https://...","link":"https://..." (optional),
-   "start":"JJJJ-MM-TT" (optional),"ende":"JJJJ-MM-TT" (optional),"wdh":"mo|di|mi|do|fr|sa|so, kommagetrennt" (optional),
-   "hot":true (optional, max 3 Pins: nur gerade laufende Publikums-Highlights)}
+   "start":"JJJJ-MM-TT" (optional),"ende":"JJJJ-MM-TT" (optional),"wdh":"mo|di|mi|do|fr|sa|so, kommagetrennt" (optional)}
 ]}
-Koordinaten müssen echte Aachener Orte sein (lng ${BBOX.lngMin}–${BBOX.lngMax}, lat ${BBOX.latMin}–${BBOX.latMax}).
-15-25 Pins insgesamt. Texte sachlich, keine Übernahme fremder Formulierungen.
+Zu "wdh": nur für dauerhaft wöchentliche Termine (Wochenmarkt, Trödel). Eine Konzertreihe mit festen
+Daten bekommt EINZELNE Pins mit "start" — niemals "wdh" mit Enddatum kombinieren.
+Koordinaten müssen echte Orte in ${STADT.name} sein (lng ${BBOX.lngMin}–${BBOX.lngMax}, lat ${BBOX.latMin}–${BBOX.latMax}).
+20-30 Pins insgesamt, davon möglichst viele Konzerte. Texte sachlich, keine Übernahme fremder Formulierungen.
 
 Diese Pins existieren bereits — NICHT erneut liefern, es sei denn mit korrigierten Fakten:
 `;
@@ -221,7 +273,8 @@ async function main() {
   // Kultur-API behält ihre deterministische id, verliert aber fest/hot;
   // LLM-Recherche verliert zusätzlich die id (wird aus Titel+Datum neu gebildet).
   const kulturSicher = kultur.map(p => { const q = entschaerfe(p); q.id = p.id; return q; });
-  const neuGueltig = [...kulturSicher, ...recherche.map(entschaerfe)].filter(valide).map(normiere);
+  const neuGueltig = [...kulturSicher, ...recherche.map(entschaerfe).map(snapAufVenue)]
+    .filter(valide).map(normiere);
   console.log(`Recherche: ${recherche.length} geliefert, Kultur-API: ${kultur.length}, davon valide gesamt: ${neuGueltig.length}.`);
 
   // Merge: feste Pins zuerst, dann bisherige aktuelle, dann Neues — Duplikate (Titel+Datum) fliegen raus.
@@ -248,7 +301,11 @@ async function main() {
     pins: final,
   };
   writeFileSync("pins.json", JSON.stringify(output, null, 1) + "\n");
-  console.log(`OK: ${final.length} Pins geschrieben (${feste.length} feste, Stand ${heute}).`);
+  const musik = final.filter(p => (p.tags || []).includes("musik")).length;
+  console.log(`OK: ${final.length} Pins geschrieben (${feste.length} feste, ${musik} mit Musik-Tag, Stand ${heute}).`);
+  if (VENUES.length && musik < 3) {
+    console.log("Hinweis: wenige Musik-Pins — Programmseiten in venues.json prüfen (evtl. Umzug/Schließung).");
+  }
 }
 
 main().catch(e => {

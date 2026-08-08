@@ -565,10 +565,17 @@ const map = new maplibregl.Map({
   attributionControl:{compact:true}
 });
 map.addControl(new maplibregl.NavigationControl({showCompass:false}), "top-right");
-map.addControl(new maplibregl.GeolocateControl({trackUserLocation:false}), "top-right");
+const orten = new maplibregl.GeolocateControl({trackUserLocation:false});
+map.addControl(orten, "top-right");
+// Standort merken (nur lokal), damit die Liste Entfernungen zeigen kann
+orten.on("geolocate", e => {
+  meinStandort = {lat:e.coords.latitude, lng:e.coords.longitude};
+});
 
 /* ---------- Zustand ---------- */
 let PINS = beispielePruefen(FALLBACK_PINS.map(normalisiere));
+let datenStand = null;          // Datum aus pins.json — zeigt, wie frisch die Daten sind
+let meinStandort = null;        // {lat,lng} — nur im Speicher, wird nie übertragen
 const aktiv = {event:true, angebot:true, hilfe:true, spot:true};
 let zeit = "soon";
 let aktiveTags = new Set();
@@ -899,12 +906,18 @@ function zeitraumWaehlen(){
 /* ---------- Listenansicht (User-Test: Zahl anfassbar machen, Liste ↔ Karte) ---------- */
 $("#btn-liste").addEventListener("click", () => zeigeListe("ausschnitt"));
 
+function entfernungText(p){
+  if(!meinStandort) return "";
+  const km = entfernungKm(p.lat, p.lng, meinStandort.lat, meinStandort.lng);
+  return km < 1 ? Math.round(km * 1000) + " m" : km.toFixed(km < 10 ? 1 : 0) + " km";
+}
 function listenZeile(p, datumText){
   const sym = blipSymbol(p);
+  const weg = entfernungText(p);
   return '<button class="liste-zeile" data-id="'+esc(p.id)+'">'+
     '<span class="lz-sym '+esc(p.typ)+(p.hot ? " hot" : "")+'">'+(sym || ICON[p.typ])+'</span>'+
     '<span class="lz-mitte"><span class="lz-titel">'+esc(p.titel)+'</span>'+
-    '<span class="lz-meta">'+esc([TYPNAME[p.typ], p.meta].filter(Boolean).join(" · "))+'</span></span>'+
+    '<span class="lz-meta">'+esc([TYPNAME[p.typ], p.meta, weg].filter(Boolean).join(" · "))+'</span></span>'+
     '<span class="lz-datum">'+esc(datumText ?? fmtDatum(p))+'</span></button>';
 }
 
@@ -1097,6 +1110,12 @@ $("#btn-idee").addEventListener("click", () => {
 });
 
 /* ---------- Info + Profil (Roadmap Nr. 20, 22, V2) ---------- */
+function standText(){
+  if(!datenStand) return PINS.length + " Pins (eingebauter Stand)";
+  const tage = Math.floor((HEUTE0 - new Date(datenStand + "T00:00:00")) / 864e5);
+  const wann = tage <= 0 ? "heute" : tage === 1 ? "gestern" : "vor " + tage + " Tagen";
+  return PINS.length + " Pins · zuletzt aktualisiert " + wann;
+}
 $("#btn-info").addEventListener("click", zeigeInfo);
 function zeigeInfo(){
   const meine = profil ? (profil.tags.map(t => TAG_LABEL[t]||t).join(", ") || "—") : "noch nicht gewählt";
@@ -1116,6 +1135,10 @@ function zeigeInfo(){
     (heim ? '<div class="zeile"><span class="klein">Beim Öffnen zeigt dir Eventlas neue Pins in deinem Bereich.</span><button class="aktion" id="heim-loeschen">Löschen</button></div>' : '<p class="klein">Mit Heimat-Bereich siehst du beim Öffnen sofort, was es Neues in deiner Hood gibt.</p>')+
     '<div class="zeile"><span>Punkte sammelst du mit 👍 Danke, Teilen, Pin-Meldungen und Ideen.</span></div>'+
     '<div class="zeile"><span class="klein">Profil, Rang und Heimat-Bereich löschen</span><button class="aktion" id="profil-reset">Zurücksetzen</button></div>'+
+    '<h3>Aktualität</h3>'+
+    '<div class="zeile"><span>'+esc(standText())+'</span><button class="aktion" id="daten-neu">Neu laden</button></div>'+
+    '<p class="klein">Termine werden täglich automatisch recherchiert und von Hand geprüft. '+
+    'Fehler gefunden? Über 💡 melden — wird schnell korrigiert.</p>'+
     '<h3>Datenschutz</h3>'+
     '<p class="klein">Keine Cookies, kein Tracking, keine Konten. Interessen, Rang und Heimat-Bereich liegen ausschließlich in deinem Browser (localStorage) und lassen sich hier jederzeit löschen. Karten-Kacheln: OpenFreeMap/OpenMapTiles © OpenStreetMap.</p>'+
     '<h3>Kontakt & Impressum</h3>'+
@@ -1135,6 +1158,8 @@ function zeigeInfo(){
     installPrompt = null;
     inst.textContent = "✓ Danke!";
   });
+  const neu = $("#daten-neu");
+  if(neu) neu.addEventListener("click", () => location.reload());
   $("#interessen-bearbeiten").addEventListener("click", () => zeigeOnboarding(zeigeInfo));
   $("#heim-setzen").addEventListener("click", heimWaehlen);
   const hl = $("#heim-loeschen");
@@ -1580,6 +1605,7 @@ fetch(STADT.pinsDatei + "?v=" + Date.now(), {cache:"no-store"})
   .then(r => r.ok ? r.json() : null)
   .then(d => {
     if(d && Array.isArray(d.pins) && d.pins.length){
+      datenStand = d.stand || null;
       PINS = beispielePruefen(d.pins.map(normalisiere));
       baueMarker();
       baueTagleiste();
