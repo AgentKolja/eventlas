@@ -26,12 +26,21 @@ Zum Live-Bestand gehören inzwischen: `index.html`, `pins.json`, `manifest.json`
 - **Kategorien (4, feste Chip-Reihe):** `event` (türkis, Kreis, Kalender-Icon) · `angebot`
   (orange, Quadrat, Geschenk) · `hilfe` (gelb, Raute, Herz) · `spot` (violett, Ring, Kamera).
   Form + Icon + Farbe → auch für Farbenblinde unterscheidbar. Altes `aufgabe` = `hilfe`.
-- **Themen (genau 9, scrollbare Chip-Leiste):** musik · party · kultur · fest · flohmarkt ·
-  essen · sport · kinder · ernte. Mehr überfordert, weniger unterscheidet zu grob.
-  **Bewusst KEINE Tags** (Stand 08.08., nach Nutzertest): `kostenlos` (Eigenschaft → Meta-Zeile
-  + Volltextsuche), `natur`/`saisonal` (Doppelung zu ernte), `markt` (Doppelung zu essen),
-  `fotospot`/`hilfe`/`verschenken` (Doppelung zur Kategorie-Reihe). Unbekannte Tags werden beim
-  Laden verworfen — so bläht auch das Auto-Update die Leiste nicht wieder auf.
+- **Themen (genau 7, überschneidungsfrei — Stand 08.08. nach drittem Nutzertest):**
+  | Tag | Was hinein gehört |
+  |---|---|
+  | `musik` | Konzerte, Clubnächte, DJs, Livemusik, Oper, Chor *(früher musik + party)* |
+  | `kultur` | Theater, Museum, Ausstellung, Lesung, Kino, Comedy, Führungen |
+  | `fest` | Stadt-/Straßenfeste, Kirmes, CSD — das Feiern selbst ist der Anlass |
+  | `markt` | Wochenmarkt, Flohmarkt, Trödel, Antik, Food *(früher flohmarkt + essen)* |
+  | `sport` | Spiele, Läufe, Turniere, Sport im Park |
+  | `familie` | Programm für Kinder und Familien |
+  | `natur` | Ernte, Selbstpflücke, Natur-Erlebnis |
+
+  **Bewusst KEINE Tags:** `kostenlos` (Eigenschaft → Meta-Zeile + Volltextsuche),
+  `saisonal` (ergibt sich aus dem Feld `saison`), `fotospot`/`hilfe`/`verschenken`
+  (Doppelung zur Kategorie-Reihe darunter). Unbekannte Tags werden beim Laden verworfen —
+  so bläht auch das Auto-Update die Leiste nicht wieder auf.
 - **Pin-Schema:** `tags[]`, `quelle` (Beleg-URL im Popup), `link` (CTA), `hot` (🔥-Puls),
   `hinzu` (für Neu-Badge), `saison {von,bis}` (jährlich wiederkehrend, MM-TT), `fest` (Auto-Update
   löscht nie), `wdh`, `start/ende`.
@@ -178,6 +187,14 @@ Anzeige — verlinken ist erlaubt. Wachstum manuell und sparsam (Einzel-Anschrei
   bei Klick auffächern (Spiderfy) oder bei niedrigem Zoom leicht versetzen.
 
 ## Erledigt-Log
+**09.08. früh (KI-Agent, vierter Nutzertest):** **Kategorien final auf 7** — „Markt" steckte
+doppelt (Flohmarkt/Essen&Markt), Musik/Party/Feste überschnitten sich. Jetzt trennscharf, mit
+erweiterten Suchsynonymen (Museum/Galerie → Kultur, Yoga/Bewegung → Sport). **Zeitraum-Filter
+mit Uhrzeit** (Feld links neben dem Datum) plus Schnellwahl „Heute Abend"; die Startzeit wird aus
+der Meta-Zeile gelesen. **Hover-Vorschau** am Pin (Titel, Datum, Ort ohne Klick).
+**Durchblättern im Popup** nach Immobilienportal-Vorbild („‹ 3 von 17 ›"), Trefferliste beim
+Öffnen eingefroren. **Popup-Überlappung behoben:** Karte schiebt sich minimal, bis das Popup
+frei von Kopfzeile und Filterleiste steht.
 **08.08. spätnachts (KI-Agent, dritter Nutzertest):** **Kategorien halbiert** — von 15 auf 9
 Themen, alle Doppelungen aufgelöst (Natur/Ernte/Saisonal beschrieben dieselben Pins, ebenso
 Essen/Markt). **Highlights clustern jetzt mit:** Sie waren vom Clustering ausgenommen und
