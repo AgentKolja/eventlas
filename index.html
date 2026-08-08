@@ -175,8 +175,8 @@
   .schleier{position:fixed;inset:0;z-index:40;background:rgba(10,11,13,.6);display:none;
     align-items:flex-end;justify-content:center}
   .schleier.offen{display:flex}
-  .blatt{width:100%;max-width:560px;max-height:82vh;overflow-y:auto;background:var(--panel);
-    border:1px solid var(--linie);border-radius:18px 18px 0 0;
+  .blatt{width:100%;max-width:560px;max-height:82vh;overflow-y:auto;overflow-x:hidden;
+    background:var(--panel);border:1px solid var(--linie);border-radius:18px 18px 0 0;
     padding:18px 18px calc(18px + env(safe-area-inset-bottom))}
   .blatt h2{font-family:'Anton';font-size:17px;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px}
   .blatt h3{font-size:13px;font-weight:800;margin:16px 0 6px}
@@ -214,10 +214,21 @@
   .liste-zeile .lz-sym.angebot{background:var(--angebot)}
   .liste-zeile .lz-sym.hilfe{background:var(--hilfe);border-radius:8px}
   .liste-zeile .lz-sym.spot{background:var(--spot);border-radius:50%}
-  .liste-zeile .lz-mitte{flex:1;min-width:0}
-  .liste-zeile .lz-titel{font-weight:700;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .liste-zeile .lz-meta{font-size:11px;color:var(--grau);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .liste-zeile .lz-datum{flex:none;font-size:11px;color:var(--hilfe);font-weight:700;text-align:right}
+  .liste-zeile .lz-mitte{flex:1;min-width:0;overflow:hidden}
+  .liste-zeile .lz-titel{display:block;font-weight:700;font-size:13px;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .liste-zeile .lz-meta{display:block;font-size:11px;color:var(--grau);
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .liste-zeile .lz-datum{flex:none;max-width:33%;font-size:11px;color:var(--hilfe);
+    font-weight:700;text-align:right;white-space:nowrap}
+  .liste-tabs{display:flex;gap:8px;margin:10px 0 4px}
+  .liste-tabs button{flex:1;border:1px solid var(--linie);background:transparent;color:var(--grau);
+    border-radius:10px;padding:9px 6px;font:700 12px 'Inter';cursor:pointer}
+  .liste-tabs button.an{background:var(--papier);color:#141414;border-color:var(--papier)}
+  .saison-kopf{font-family:'Anton';font-size:12px;letter-spacing:1px;text-transform:uppercase;
+    color:var(--hilfe);margin:16px 0 2px}
+  .saison-kopf:first-of-type{margin-top:8px}
+  .saison-kopf.spaeter{color:var(--grau)}
 
   @media (prefers-reduced-motion: reduce){ *{transition:none!important;animation:none!important} }
   @media (min-width:700px){ .schleier{align-items:center} .blatt{border-radius:18px} }
@@ -371,7 +382,17 @@ function normalisiere(p){
   if(p.typ === "spot" && !p.tags.includes("fotospot")) p.tags.push("fotospot");
   if(p.saison && !p.tags.includes("saisonal")) p.tags.push("saisonal");
   p.id = p.id || hashId(p);
+  p.beispiel = /^\[Beispiel\]/.test(p.titel);
   return p;
+}
+
+/* Beispiel-Pins sind nur Platzhalter, damit die Karte zum Start nicht leer wirkt.
+   Sobald in einer Kategorie genug echte Pins existieren, blenden sie sich selbst aus. */
+function beispielePruefen(liste){
+  const echte = {};
+  liste.forEach(p => { if(!p.beispiel) echte[p.typ] = (echte[p.typ] || 0) + 1; });
+  liste.forEach(p => { if(p.beispiel) p.verstecken = (echte[p.typ] || 0) >= 2; });
+  return liste;
 }
 
 /* ---------- Zeitlogik (Roadmap Nr. 13: rollierende Fenster statt Jahresfilter) ----------
@@ -502,7 +523,7 @@ map.addControl(new maplibregl.NavigationControl({showCompass:false}), "top-right
 map.addControl(new maplibregl.GeolocateControl({trackUserLocation:false}), "top-right");
 
 /* ---------- Zustand ---------- */
-let PINS = FALLBACK_PINS.map(normalisiere);
+let PINS = beispielePruefen(FALLBACK_PINS.map(normalisiere));
 const aktiv = {event:true, angebot:true, hilfe:true, spot:true};
 let zeit = "soon";
 let aktiveTags = new Set();
@@ -543,7 +564,7 @@ function tagOk(p){
   if(!aktiveTags.size) return true;
   return p.tags.some(t => aktiveTags.has(t));
 }
-function sichtbar(p){ return aktiv[p.typ] && zeitOk(p) && textOk(p) && tagOk(p); }
+function sichtbar(p){ return !p.verstecken && aktiv[p.typ] && zeitOk(p) && textOk(p) && tagOk(p); }
 function imAusschnitt(p){
   try{ return map.getBounds().contains([p.lng, p.lat]); }catch(e){ return true; }
 }
@@ -556,7 +577,8 @@ function passtZuMir(p){
 /* ---------- Popup (Roadmap Nr. 10, 20, 23) ---------- */
 function popupHTML(p){
   const meta = [fmtDatum(p), p.meta].filter(Boolean).join(" · ");
-  const gold = p.typ === "spot" ? '<div class="p-gold">'+esc(goldeneStundeText(p))+'</div>' : "";
+  const gold = p.typ === "spot" ? '<div class="p-gold">'+esc(goldeneStundeText(p))+'</div>'
+             : p.saison ? '<div class="p-gold">'+esc(saisonStatus(p).lang)+'</div>' : "";
   const route = "https://www.google.com/maps/dir/?api=1&destination=" + p.lat + "," + p.lng;
   const gedankt = danke[p.id];
   let quelle = "";
@@ -760,25 +782,55 @@ function zeitraumWaehlen(){
 }
 
 /* ---------- Listenansicht (User-Test: Zahl anfassbar machen, Liste ↔ Karte) ---------- */
-$("#btn-liste").addEventListener("click", zeigeListe);
-function zeigeListe(){
-  const imBild = PINS.filter(p => sichtbar(p) && imAusschnitt(p));
-  const key = p => { const w = fenster(p); return w ? w.s.getTime() : 0; };
-  const reihenfolge = {event:0, angebot:1, hilfe:2, spot:3};
-  imBild.sort((a,b) => (reihenfolge[a.typ]-reihenfolge[b.typ]) || (key(a)-key(b)));
-  const zeilen = imBild.map(p => {
-    const sym = blipSymbol(p);
-    return '<button class="liste-zeile" data-id="'+esc(p.id)+'">'+
-      '<span class="lz-sym '+esc(p.typ)+'">'+(sym || ICON[p.typ])+'</span>'+
-      '<span class="lz-mitte"><span class="lz-titel">'+esc(p.titel)+'</span>'+
-      '<span class="lz-meta">'+esc([TYPNAME[p.typ], p.meta].filter(Boolean).join(" · "))+'</span></span>'+
-      '<span class="lz-datum">'+esc(fmtDatum(p))+'</span></button>';
-  }).join("");
-  modalOeffnen(
-    '<h2>☰ '+imBild.length+' Pins im Kartenausschnitt</h2>'+
-    '<p class="klein">Zeit-, Themen- und Kategorie-Filter wirken auch hier. Antippen springt zur Karte.</p>'+
-    (zeilen || '<p>Nichts im aktuellen Ausschnitt — zoome raus oder ändere die Filter.</p>')
-  );
+$("#btn-liste").addEventListener("click", () => zeigeListe("ausschnitt"));
+
+function listenZeile(p, datumText){
+  const sym = blipSymbol(p);
+  return '<button class="liste-zeile" data-id="'+esc(p.id)+'">'+
+    '<span class="lz-sym '+esc(p.typ)+'">'+(sym || ICON[p.typ])+'</span>'+
+    '<span class="lz-mitte"><span class="lz-titel">'+esc(p.titel)+'</span>'+
+    '<span class="lz-meta">'+esc([TYPNAME[p.typ], p.meta].filter(Boolean).join(" · "))+'</span></span>'+
+    '<span class="lz-datum">'+esc(datumText ?? fmtDatum(p))+'</span></button>';
+}
+
+function zeigeListe(tab){
+  const saisonPins = PINS.filter(p => p.saison);
+  const tabs = '<div class="liste-tabs">'+
+    '<button data-tab="ausschnitt" class="'+(tab==="ausschnitt"?"an":"")+'">📍 Im Ausschnitt</button>'+
+    (saisonPins.length ? '<button data-tab="saison" class="'+(tab==="saison"?"an":"")+'">🍏 Saison</button>' : '')+
+  '</div>';
+
+  let kopf, rumpf;
+  if(tab === "saison"){
+    // Laufende zuerst und davon das, was bald endet ("letzte Chance"); danach nach Startnähe
+    const mitStatus = saisonPins.map(p => ({p, st:saisonStatus(p)}));
+    const jetzt  = mitStatus.filter(x => x.st.laeuft).sort((a,b) => a.st.tageBisEnde - b.st.tageBisEnde);
+    const kommend = mitStatus.filter(x => !x.st.laeuft).sort((a,b) => a.st.tageBisStart - b.st.tageBisStart);
+    const bald   = kommend.filter(x => x.st.tageBisStart <= 45);
+    const later  = kommend.filter(x => x.st.tageBisStart > 45);
+    const block = (titel, liste, klasse) => liste.length
+      ? '<div class="saison-kopf '+(klasse||"")+'">'+titel+'</div>'+
+        liste.map(x => listenZeile(x.p, x.st.kurz)).join("")
+      : "";
+    kopf = '<h2>🍏 Saisonkalender</h2>'+
+      '<p class="klein">Wilde Ernte und Selbstpflücke rund um Aachen — Zeiten sind witterungsabhängige '+
+      'Richtwerte. Es gilt die Handstraußregel: nur kleine Mengen für den Eigenbedarf.</p>';
+    rumpf = block("Jetzt Saison", jetzt) + block("Bald dran", bald) +
+            block("Später im Jahr", later, "spaeter");
+  } else {
+    const imBild = PINS.filter(p => sichtbar(p) && imAusschnitt(p));
+    const key = p => { const w = fenster(p); return w ? w.s.getTime() : 0; };
+    const reihenfolge = {event:0, angebot:1, hilfe:2, spot:3};
+    imBild.sort((a,b) => (reihenfolge[a.typ]-reihenfolge[b.typ]) || (key(a)-key(b)));
+    kopf = '<h2>☰ '+imBild.length+' Pins im Kartenausschnitt</h2>'+
+      '<p class="klein">Zeit-, Themen- und Kategorie-Filter wirken auch hier. Antippen springt zur Karte.</p>';
+    rumpf = imBild.map(p => listenZeile(p)).join("") ||
+      '<p>Nichts im aktuellen Ausschnitt — zoome raus oder ändere die Filter.</p>';
+  }
+
+  modalOeffnen(kopf + tabs + rumpf);
+  blatt.querySelectorAll(".liste-tabs button").forEach(b =>
+    b.addEventListener("click", () => zeigeListe(b.dataset.tab)));
   blatt.querySelectorAll(".liste-zeile").forEach(z => z.addEventListener("click", () => {
     const p = PINS.find(x => x.id === z.dataset.id);
     if(!p) return;
@@ -787,6 +839,25 @@ function zeigeListe(){
     const mk = marker.find(x => x.p.id === p.id);
     if(mk) setTimeout(() => { if(!mk.m.getPopup().isOpen()) mk.m.togglePopup(); }, 550);
   }));
+}
+
+/* Saison-Status eines Pins: läuft gerade? wie lange noch / wie lange bis dahin? */
+const MONAT = ["Jan","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+function saisonStatus(p){
+  const w = fenster(p);
+  if(!w) return {laeuft:false, tageBisStart:9999, tageBisEnde:9999, kurz:"", lang:""};
+  const tag = 864e5;
+  const bisStart = Math.ceil((w.s - HEUTE0) / tag);
+  const bisEnde  = Math.ceil((w.e - HEUTE0) / tag);
+  const spanne = MONAT[w.s.getMonth()] + "–" + MONAT[w.e.getMonth()];
+  if(bisStart <= 0 && bisEnde >= 0){
+    const kurz = bisEnde === 0 ? "letzter Tag" : "noch " + bisEnde + " T";
+    return {laeuft:true, tageBisStart:0, tageBisEnde:bisEnde, kurz,
+      lang:"🍏 Jetzt Saison — " + kurz + " (" + spanne + ")"};
+  }
+  const kurz = bisStart <= 45 ? "in " + bisStart + " T" : spanne;
+  return {laeuft:false, tageBisStart:bisStart, tageBisEnde:bisEnde,
+    kurz, lang:"🍏 Saison startet in " + bisStart + " Tagen (" + spanne + ")"};
 }
 
 /* ---------- Suche UI ---------- */
@@ -1202,7 +1273,7 @@ fetch(STADT.pinsDatei + "?v=" + Date.now(), {cache:"no-store"})
   .then(r => r.ok ? r.json() : null)
   .then(d => {
     if(d && Array.isArray(d.pins) && d.pins.length){
-      PINS = d.pins.map(normalisiere);
+      PINS = beispielePruefen(d.pins.map(normalisiere));
       baueMarker();
       baueTagleiste();
       ansichtAktualisieren();

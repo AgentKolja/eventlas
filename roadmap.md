@@ -126,14 +126,20 @@ Anzeige — verlinken ist erlaubt. Wachstum manuell und sparsam (Einzel-Anschrei
 ## Neue Feature-Ideen (gesammelt 08.08., noch nicht beauftragt)
 - **Embed-Widget:** Karte als iframe für wir-frankenberger.de / Café-Websites → Reichweite.
 - **Mehrsprachig EN/NL** für die Euregio (Vaals ist 10 Min entfernt).
-- **Saisonkalender-Ansicht:** Liste "Was ist gerade Saison?" (Daten sind da: 21 Ernteorte mit
-  Saisonfenstern).
-- **Beispiel-Pins automatisch ausblenden,** sobald ≥3 echte Nutzer-Pins derselben Kategorie leben.
+- **Saison-Push:** "🍏 Brombeeren sind jetzt reif" als Insta-Story-Vorlage automatisch aus den
+  Saisondaten erzeugen (Content-Marketing ohne Aufwand).
 - **Statistik ohne Tracking:** Netlify-Analytics (serverseitig) reicht für Launch-KPIs.
 - **Marker-Spreizung bei Überlappung:** Am Katschhof liegen mehrere Pins fast übereinander —
   bei Klick auffächern (Spiderfy) oder bei niedrigem Zoom leicht versetzen.
 
 ## Erledigt-Log
+**08.08. nach Launch, Teil 2 (KI-Agent):** **Saisonkalender** als zweiter Tab in der Listenansicht
+— gruppiert in "Jetzt Saison" (sortiert nach letzter Chance: was zuerst endet, steht oben),
+"Bald dran" (≤45 Tage) und "Später im Jahr"; im Popup zeigt jeder Saison-Pin seinen Status
+("🍏 Jetzt Saison — noch 8 T" bzw. "startet in 7 Tagen"). **Beispiel-Pins blenden sich selbst aus,**
+sobald eine Kategorie ≥2 echte Pins hat (aktuell: Sofa-Beispiel weg, Hilfe-Beispiele bleiben, bis
+echte Gesuche eingehen — kein manueller Eingriff mehr nötig).
+
 **08.08. nach Launch (KI-Agent):** Karte ist live. Live-URL überall eingetragen (Flyer-QR zeigt
 jetzt auf eventlas.netlify.app, alle Anschreiben-Texte einsatzbereit). **PWA** komplett:
 manifest.json, Service Worker (network-first für eigene Dateien, damit Netlify-Uploads sofort
