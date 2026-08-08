@@ -115,6 +115,8 @@
   .tagchip.fuerdich.an{background:var(--hilfe);border-color:var(--hilfe)}
   .tagchip.reset{color:var(--angebot);border-color:var(--angebot);display:none}
   .tagchip.reset.da{display:block}
+  .tagchip.highlight{color:#FFC61A;border-color:#FF8A1F}
+  .tagchip.highlight.an{color:#141414;background:linear-gradient(95deg,#FFC61A,#FF8A1F);border-color:#FF8A1F}
 
   /* Zeit-Chips: halbtransparent, kontraststark (Roadmap Nr. 14) */
   .zfilter{display:flex;gap:8px;margin-bottom:8px}
@@ -192,6 +194,8 @@
   .cluster.t-angebot{background:var(--angebot)} .cluster.t-hilfe{background:var(--hilfe)}
   .cluster.t-spot{background:var(--spot)} .cluster.t-event{background:var(--event)}
   .cluster.hat-hot{box-shadow:0 0 0 3px #FF8A1F,0 0 14px 3px rgba(255,138,31,.7),0 2px 10px rgba(0,0,0,.45)}
+  .cluster .c-flamme{position:absolute;top:-7px;right:-6px;font-size:13px;
+    filter:drop-shadow(0 1px 2px rgba(0,0,0,.7))}
   .cluster:focus-visible{outline:2px solid var(--papier);outline-offset:3px}
 
   /* Heimat-Marker */
@@ -209,8 +213,8 @@
   .p-typ svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
   .p-typ.event{color:var(--event)} .p-typ.angebot{color:var(--angebot)}
   .p-typ.hilfe{color:var(--hilfe)} .p-typ.spot{color:var(--spot)}
-  .p-hot{margin-left:auto;letter-spacing:.5px;font-size:9px;color:#141414;
-    background:linear-gradient(95deg,#FFC61A,#FF8A1F);border-radius:6px;padding:3px 7px}
+  .p-hot{margin-left:auto;letter-spacing:.3px;font-size:9px;color:#141414;white-space:nowrap;
+    background:linear-gradient(95deg,#FFC61A,#FF8A1F);border-radius:6px;padding:3px 6px}
   .p-titel{font-weight:800;font-size:15px;margin:4px 0 6px;line-height:1.25}
   .p-text{font-size:13px;color:#C9CDD6;line-height:1.45}
   .p-meta{font-size:11px;color:var(--grau);margin-top:8px}
@@ -426,21 +430,22 @@ const ICON = {
 };
 const TYPNAME  = {event:"Event", angebot:"Angebot", hilfe:"Hilfe", spot:"Fotospot"};
 const TYPPLURAL= {event:"Events", angebot:"Angebote", hilfe:"Hilfe", spot:"Spots"};
-/* Themen-Tags. Bewusst KEIN "kostenlos": Das ist kein Thema, nach dem man die Karte durchsucht,
-   sondern eine Eigenschaft — sie steht im Text bzw. in der Meta-Zeile und ist über die Suche
-   ("gratis", "umsonst", "frei") weiterhin auffindbar. */
-const TAG_LABEL = {flohmarkt:"🛍 Flohmarkt", musik:"🎵 Musik", party:"🪩 Party", essen:"🍽 Essen",
-  kinder:"🧒 Kinder", sport:"⚽ Sport", kultur:"🎭 Kultur", ernte:"🍏 Ernte", fotospot:"📸 Fotospots",
-  markt:"🧺 Markt", fest:"🎉 Feste", hilfe:"🤝 Hilfe", verschenken:"🎁 Verschenken",
-  natur:"🌳 Natur", saisonal:"🍂 Saisonal"};
-/* Blip-Symbol: Thema schlägt Kategorie (User-Test: mundraub soll nicht als generisches
-   "Angebot" erscheinen — dieselben Symbole wie in der Filterleiste auch auf der Karte) */
-const TAG_EMOJI = {ernte:"🍏", fotospot:"📸", flohmarkt:"🛍", markt:"🧺", sport:"⚽", musik:"🎵",
-  party:"🪩", kultur:"🎭", fest:"🎉", kinder:"🧒", essen:"🍽", hilfe:"🤝", verschenken:"🎁", natur:"🌳"};
-const BLIP_PRIO = ["ernte","fotospot","flohmarkt","markt","sport","musik","party","kultur","fest",
-  "kinder","essen","hilfe","verschenken","natur"];
+/* Genau neun Themen — mehr überfordert die Filterleiste, weniger unterscheidet zu grob.
+   Bewusst NICHT als Thema geführt:
+   · "kostenlos"  → Eigenschaft, steht in der Meta-Zeile, über die Suche auffindbar
+   · "fotospot", "hilfe", "verschenken" → decken sich mit den Kategorie-Chips unten
+   · "natur", "saisonal", "markt" → waren Doppelungen von Ernte bzw. Essen */
+const TAG_LABEL = {musik:"🎵 Musik", party:"🪩 Party", kultur:"🎭 Kultur", fest:"🎉 Feste",
+  flohmarkt:"🛍 Flohmarkt", essen:"🍽 Essen & Markt", sport:"⚽ Sport", kinder:"🧒 Kinder",
+  ernte:"🍏 Ernte"};
+/* Blip-Symbol: Thema schlägt Kategorie (mundraub soll nicht als generisches "Angebot"
+   erscheinen — dieselben Symbole wie in der Filterleiste auch auf der Karte).
+   Ohne Thema greift das Kategorie-Icon (Kamera, Herz, Geschenk, Kalender). */
+const TAG_EMOJI = {musik:"🎵", party:"🪩", kultur:"🎭", fest:"🎉", flohmarkt:"🛍",
+  essen:"🍽", sport:"⚽", kinder:"🧒", ernte:"🍏"};
+const BLIP_PRIO = ["ernte","flohmarkt","musik","party","sport","kultur","fest","kinder","essen"];
 function blipSymbol(p){ const t = BLIP_PRIO.find(t => p.tags.includes(t)); return t ? TAG_EMOJI[t] : null; }
-const ONBOARDING_TAGS = ["musik","party","flohmarkt","essen","kinder","sport","kultur","ernte","fotospot","fest","hilfe","verschenken"];
+const ONBOARDING_TAGS = ["musik","party","kultur","fest","flohmarkt","essen","sport","kinder","ernte"];
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = s => document.querySelector(s);
@@ -452,9 +457,8 @@ function hashId(p){ let h = 5381; const s = p.titel + p.lng + p.lat; for(let i=0
 function normalisiere(p){
   if(p.typ === "aufgabe") p.typ = "hilfe";                 // altes Schema
   if(!TYPNAME[p.typ]) p.typ = "event";
-  p.tags = Array.isArray(p.tags) ? p.tags : [];
-  if(p.typ === "spot" && !p.tags.includes("fotospot")) p.tags.push("fotospot");
-  if(p.saison && !p.tags.includes("saisonal")) p.tags.push("saisonal");
+  // Nur bekannte Themen behalten — Altbestand und Auto-Update liefern teils veraltete Tags
+  p.tags = (Array.isArray(p.tags) ? p.tags : []).filter(t => TAG_LABEL[t]);
   p.id = p.id || hashId(p);
   p.beispiel = /^\[Beispiel\]/.test(p.titel);
   return p;
@@ -609,6 +613,7 @@ const aktiv = {event:true, angebot:true, hilfe:true, spot:true};
 let zeit = "soon";
 let aktiveTags = new Set();
 let fuerDich = false;
+let nurHighlights = false;
 let suchTerme = [], suchFenster = null;
 let eigenZeitraum = null;                      // {von:Date, bis:Date} — eigener Zeitraum-Filter
 const marker = [];
@@ -647,7 +652,8 @@ const SYNONYME = [
   ["kultur","kulturell","museum","museen","theater","ausstellung","kunst","lesung","literatur",
    "vortrag","fuehrung","führung","kino","film","comedy","kabarett"],
   ["ernte","ernten","pfluecken","pflücken","obst","beeren","brombeeren","heidelbeeren","apfel",
-   "äpfel","aepfel","kirschen","nuesse","nüsse","walnuss","mundraub","sammeln","wild","essbar"],
+   "äpfel","aepfel","kirschen","nuesse","nüsse","walnuss","mundraub","sammeln","wild","essbar",
+   "natur","saison","saisonal"],
   ["foto","fotos","fotografie","fotospot","fotospots","spot","spots","aussicht","panorama",
    "sonnenuntergang","sonnenaufgang","instagram","insta","bild","bilder"],
   ["hilfe","helfen","gesuch","gesuche","suche","nachbarschaft","nachbarschaftshilfe","unterstuetzung",
@@ -712,6 +718,7 @@ function textOk(p){
 }
 function tagOk(p){
   if(merkModus && !merk[p.id]) return false;
+  if(nurHighlights && !p.hot) return false;
   if(!aktiveTags.size) return true;
   return p.tags.some(t => aktiveTags.has(t));
 }
@@ -738,7 +745,7 @@ function popupHTML(p){
     quelle = '<div class="p-quelle">Quelle: <a href="'+esc(p.quelle)+'" target="_blank" rel="noopener">'+esc(host)+'</a></div>';
   }
   const gemerkt = merk[p.id];
-  return '<div class="p-typ '+esc(p.typ)+'">'+ICON[p.typ]+TYPNAME[p.typ]+(p.hot ? '<span class="p-hot">🔥 gerade beliebt</span>' : '')+'</div>'+
+  return '<div class="p-typ '+esc(p.typ)+'">'+ICON[p.typ]+TYPNAME[p.typ]+(p.hot ? '<span class="p-hot">🔥 Highlight</span>' : '')+'</div>'+
     '<div class="p-titel">'+esc(p.titel)+'</div>'+
     '<div class="p-text">'+esc(p.text)+'</div>'+
     (meta ? '<div class="p-meta">'+esc(meta)+'</div>' : "")+ gold +
@@ -796,7 +803,7 @@ function baueMarker(){
 /* ---------- Tag-Leiste (Roadmap Nr. 7 + V2 "Für dich") ---------- */
 /* Themen, nach denen Leute aktiv suchen — die stehen vorn, auch wenn es (noch) wenige Pins
    gibt. Sonst rutscht z. B. "Musik" hinter 20 Ernte-Pins und wirkt, als gäbe es keine Konzerte. */
-const TAG_PRIO = ["musik", "party", "fest", "flohmarkt", "kultur", "markt", "sport", "kinder", "essen"];
+const TAG_PRIO = ["musik", "party", "kultur", "fest", "flohmarkt", "essen", "sport", "kinder", "ernte"];
 function baueTagleiste(){
   const zaehl = {};
   PINS.forEach(p => { if(zeitOk(p)) p.tags.forEach(t => zaehl[t] = (zaehl[t]||0)+1); });
@@ -811,6 +818,24 @@ function baueTagleiste(){
   reset.textContent = "✕ Zurücksetzen";
   reset.addEventListener("click", filterZuruecksetzen);
   leiste.appendChild(reset);
+
+  // Highlights zuerst: der schnellste Weg zu "was lohnt sich gerade wirklich?"
+  const hotAnzahl = PINS.filter(p => p.hot && zeitOk(p)).length;
+  if(hotAnzahl){
+    const h = document.createElement("button");
+    h.className = "tagchip highlight" + (nurHighlights ? " an" : "");
+    h.id = "chip-highlights";
+    h.textContent = "🔥 Highlights " + hotAnzahl;
+    h.setAttribute("aria-pressed", nurHighlights);
+    h.addEventListener("click", () => {
+      nurHighlights = !nurHighlights;
+      h.classList.toggle("an", nurHighlights);
+      h.setAttribute("aria-pressed", nurHighlights);
+      ansichtAktualisieren();
+      if(nurHighlights) alleTrefferZeigen();      // alle Highlights ins Bild holen
+    });
+    leiste.appendChild(h);
+  }
   if(profil){
     const b = document.createElement("button");
     b.className = "tagchip fuerdich" + (fuerDich ? " an" : "");
@@ -844,11 +869,11 @@ function baueTagleiste(){
 }
 
 function filterAktiv(){
-  return aktiveTags.size > 0 || fuerDich || merkModus || suchTerme.length > 0 ||
+  return aktiveTags.size > 0 || fuerDich || merkModus || nurHighlights || suchTerme.length > 0 ||
     !!suchFenster || zeit === "range" || !aktiv.event || !aktiv.angebot || !aktiv.hilfe || !aktiv.spot;
 }
 function filterZuruecksetzen(){
-  aktiveTags.clear(); fuerDich = false; merkModus = false; eigenZeitraum = null;
+  aktiveTags.clear(); fuerDich = false; merkModus = false; nurHighlights = false; eigenZeitraum = null;
   zeit = "soon";
   Object.keys(aktiv).forEach(k => aktiv[k] = true);
   $("#sucheingabe").value = ""; parseSuche("");
@@ -879,6 +904,8 @@ function ansichtAktualisieren(){
   }
   const rst = $("#filter-reset");
   if(rst) rst.classList.toggle("da", filterAktiv());
+  const hc = $("#chip-highlights");
+  if(hc) hc.classList.toggle("an", nurHighlights);
   suchInfoAktualisieren();
   document.querySelectorAll("#tagleiste .tagchip").forEach(c => {
     if(c.classList.contains("fuerdich")){ c.classList.toggle("an", fuerDich); return; }
@@ -920,7 +947,9 @@ function clusterAufloesen(){
 
 function clusternUndZeichnen(sichtbare){
   clusterAufloesen();
-  if(map.getZoom() >= CLUSTER_AB_ZOOM || sichtbare.length <= 6){
+  // Nicht clustern, wenn ohnehin wenig zu sehen ist oder gezielt gefiltert wurde —
+  // wer auf "🔥 Highlights" tippt, will alle sehen, nicht wieder eine Gruppe.
+  if(map.getZoom() >= CLUSTER_AB_ZOOM || sichtbare.length <= 12 || nurHighlights){
     sichtbare.forEach(x => { x.el.style.display = "flex"; });
     return;
   }
@@ -933,36 +962,56 @@ function clusternUndZeichnen(sichtbare){
   });
   zellen.forEach(gruppe => {
     if(gruppe.length === 1){ gruppe[0].el.style.display = "flex"; return; }
-    // Highlights bleiben immer einzeln sichtbar — sie sind der Grund, warum man hinschaut
-    const hots = gruppe.filter(x => x.p.hot);
-    const rest = gruppe.filter(x => !x.p.hot);
-    hots.forEach(x => { x.el.style.display = "flex"; });
-    if(rest.length === 0) return;
-    if(rest.length === 1){ rest[0].el.style.display = "flex"; return; }
 
-    rest.forEach(x => { x.el.style.display = "none"; });
-    const haeufigsterTyp = Object.entries(rest.reduce((acc, x) => {
+    // Highlights werden mitgeclustert (sonst überlagern sich ihre Glut-Ringe zu einem Klumpen);
+    // der Cluster trägt den Ring stellvertretend und zeigt so, dass hier etwas Besonderes liegt.
+    gruppe.forEach(x => { x.el.style.display = "none"; });
+    const hotAnzahl = gruppe.filter(x => x.p.hot).length;
+    const haeufigsterTyp = Object.entries(gruppe.reduce((acc, x) => {
       acc[x.p.typ] = (acc[x.p.typ] || 0) + 1; return acc;
     }, {})).sort((a,b) => b[1]-a[1])[0][0];
-    const mitteLng = rest.reduce((s,x) => s + (x.p._lng ?? x.p.lng), 0) / rest.length;
-    const mitteLat = rest.reduce((s,x) => s + (x.p._lat ?? x.p.lat), 0) / rest.length;
+    const mitteLng = gruppe.reduce((s,x) => s + (x.p._lng ?? x.p.lng), 0) / gruppe.length;
+    const mitteLat = gruppe.reduce((s,x) => s + (x.p._lat ?? x.p.lat), 0) / gruppe.length;
 
     const el = document.createElement("button");
-    el.className = "cluster t-" + haeufigsterTyp + (rest.length >= 10 ? " gross" : "");
-    el.textContent = rest.length;
-    el.setAttribute("aria-label", rest.length + " Pins hier — antippen zum Aufteilen");
-    el.title = rest.slice(0, 4).map(x => x.p.titel).join("\n") + (rest.length > 4 ? "\n…" : "");
+    el.className = "cluster t-" + haeufigsterTyp + (gruppe.length >= 10 ? " gross" : "") +
+      (hotAnzahl ? " hat-hot" : "");
+    el.innerHTML = (hotAnzahl ? '<span class="c-flamme">🔥</span>' : "") + gruppe.length;
+    el.setAttribute("aria-label", gruppe.length + " Pins hier" +
+      (hotAnzahl ? ", davon " + hotAnzahl + " Highlight" + (hotAnzahl > 1 ? "s" : "") : "") +
+      " — antippen zum Aufteilen");
+    el.title = gruppe.slice(0, 4).map(x => (x.p.hot ? "🔥 " : "") + x.p.titel).join("\n") +
+      (gruppe.length > 4 ? "\n…" : "");
     el.addEventListener("click", e => {
       e.stopPropagation();
       const b = new maplibregl.LngLatBounds();
-      rest.forEach(x => b.extend([x.p._lng ?? x.p.lng, x.p._lat ?? x.p.lat]));
-      // Liegen alle exakt aufeinander, hilft fitBounds nicht — dann einfach hineinzoomen
+      gruppe.forEach(x => b.extend([x.p._lng ?? x.p.lng, x.p._lat ?? x.p.lat]));
+      // Liegen alle praktisch aufeinander, hilft fitBounds nicht — dann Liste statt Zoom zeigen
       const spanne = Math.max(b.getEast()-b.getWest(), b.getNorth()-b.getSouth());
-      if(spanne < 0.0004) map.easeTo({center:[mitteLng, mitteLat], zoom:Math.min(18, map.getZoom()+2.5)});
+      if(spanne < 0.0006 || map.getZoom() >= CLUSTER_AB_ZOOM - 1) zeigeClusterListe(gruppe.map(x => x.p));
       else map.fitBounds(b, {padding:{top:110, bottom:250, left:50, right:50}, maxZoom:17.5, duration:600});
     });
     clusterMarker.push(new maplibregl.Marker({element:el}).setLngLat([mitteLng, mitteLat]).addTo(map));
   });
+}
+
+/* Liegen Pins praktisch übereinander (gleiche Bühne, gleicher Platz), bringt Zoomen nichts —
+   dann zeigen wir sie als Liste, sortiert nach Relevanz. */
+function zeigeClusterListe(pins){
+  const sortiert = [...pins].sort((a,b) => relevanz(b) - relevanz(a));
+  modalOeffnen(
+    '<h2>' + sortiert.length + ' Pins an dieser Stelle</h2>'+
+    '<p class="klein">Antippen öffnet den Pin auf der Karte.</p>'+
+    sortiert.map(p => listenZeile(p)).join("")
+  );
+  blatt.querySelectorAll(".liste-zeile").forEach(z => z.addEventListener("click", () => {
+    const p = PINS.find(x => x.id === z.dataset.id);
+    if(!p) return;
+    modalSchliessen();
+    map.flyTo({center:[p._lng ?? p.lng, p._lat ?? p.lat], zoom:Math.max(map.getZoom(), CLUSTER_AB_ZOOM)});
+    const mk = marker.find(x => x.p.id === p.id);
+    if(mk) setTimeout(() => { mk.el.style.display = "flex"; if(!mk.m.getPopup().isOpen()) mk.m.togglePopup(); }, 600);
+  }));
 }
 
 document.querySelectorAll(".chip").forEach(chip => {

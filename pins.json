@@ -9,7 +9,7 @@
    "text": "Der große Aachener Wochenmarkt vor dem Rathaus — dienstags und donnerstags vormittags.",
    "lng": 6.0838, "lat": 50.7762,
    "wdh": "di,do", "meta": "vormittags",
-   "tags": ["markt", "essen"],
+   "tags": ["essen"],
    "quelle": "https://www.aachen.de/services/wochenmaerkte/",
    "hinzu": "2026-08-07", "fest": true
   },
@@ -20,7 +20,7 @@
    "text": "Samstags 7–13 Uhr: Obst, Gemüse, Brot, Feinkost, Kaffee — Treffpunkt im Frankenberger Viertel.",
    "lng": 6.0993, "lat": 50.7716,
    "wdh": "sa", "meta": "Sa 7–13 Uhr",
-   "tags": ["markt", "essen"],
+   "tags": ["essen"],
    "quelle": "https://www.aachen.de/services/wochenmaerkte/",
    "hinzu": "2026-08-07", "fest": true
   },
@@ -337,7 +337,7 @@
    "text": "Aachens heiße Schwefelquelle kostenlos probieren — direkt am klassizistischen Brunnen.",
    "lng": 6.0871, "lat": 50.7747,
    "meta": "kostenlos · frei zugänglich",
-   "tags": ["natur"],
+   "tags": ["essen"],
    "hinzu": "2026-08-07", "fest": true
   },
   {
@@ -347,7 +347,7 @@
    "text": "So sieht ein privater Angebots-Pin aus — mit Link zu deiner Kleinanzeige. Melde deinen eigenen über den Knopf unten.",
    "lng": 6.09, "lat": 50.7735,
    "meta": "Beispiel — dein Pin?",
-   "tags": ["verschenken"],
+   "tags": [],
    "hinzu": "2026-08-07", "fest": true
   },
   {
@@ -358,7 +358,7 @@
    "lng": 6.092429, "lat": 50.764275,
    "saison": {"von": "08-15", "bis": "10-15"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte", "natur"],
+   "tags": ["ernte"],
    "link": "https://mundraub.org/node/93405", "quelle": "https://mundraub.org/node/93405",
    "hinzu": "2026-08-07", "fest": true
   },
@@ -370,7 +370,7 @@
    "lng": 6.165218, "lat": 50.762196,
    "saison": {"von": "07-15", "bis": "10-31"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte", "natur"],
+   "tags": ["ernte"],
    "link": "https://mundraub.org/node/23031", "quelle": "https://mundraub.org/node/23031",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -382,7 +382,7 @@
    "lng": 6.042084, "lat": 50.826806,
    "saison": {"von": "08-15", "bis": "10-31"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte", "natur"],
+   "tags": ["ernte"],
    "link": "https://mundraub.org/node/76079", "quelle": "https://mundraub.org/node/76079",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -394,7 +394,7 @@
    "lng": 6.12977, "lat": 50.792603,
    "saison": {"von": "08-01", "bis": "10-15"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte", "natur"],
+   "tags": ["ernte"],
    "link": "https://mundraub.org/node/9144", "quelle": "https://mundraub.org/node/9144",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -406,7 +406,7 @@
    "lng": 6.081383, "lat": 50.783955,
    "saison": {"von": "07-15", "bis": "08-31"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte", "natur"],
+   "tags": ["ernte"],
    "link": "https://mundraub.org/node/2444", "quelle": "https://mundraub.org/node/2444",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -418,7 +418,7 @@
    "lng": 6.137795, "lat": 50.771152,
    "saison": {"von": "07-15", "bis": "09-30"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte", "natur"],
+   "tags": ["ernte"],
    "link": "https://mundraub.org/node/3003", "quelle": "https://mundraub.org/node/3003",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -430,7 +430,7 @@
    "lng": 6.072671, "lat": 50.755489,
    "saison": {"von": "07-15", "bis": "09-30"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte", "natur"],
+   "tags": ["ernte"],
    "link": "https://mundraub.org/node/2437", "quelle": "https://mundraub.org/node/2437",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -442,7 +442,7 @@
    "lng": 6.173201, "lat": 50.700481,
    "saison": {"von": "07-15", "bis": "09-30"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte", "natur"],
+   "tags": ["ernte"],
    "link": "https://mundraub.org/node/20508", "quelle": "https://mundraub.org/node/20508",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -454,7 +454,7 @@
    "lng": 6.118735, "lat": 50.751992,
    "saison": {"von": "06-15", "bis": "08-31"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte", "natur"],
+   "tags": ["ernte"],
    "link": "https://mundraub.org/node/145140", "quelle": "https://mundraub.org/node/145140",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -466,7 +466,7 @@
    "lng": 6.190871, "lat": 50.755179,
    "saison": {"von": "06-20", "bis": "08-15"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte", "natur"],
+   "tags": ["ernte"],
    "link": "https://mundraub.org/node/14531", "quelle": "https://mundraub.org/node/14531",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -478,7 +478,7 @@
    "lng": 6.029177, "lat": 50.707135,
    "saison": {"von": "09-01", "bis": "10-31"},
    "meta": "Ernte · mundraub · Belgien",
-   "tags": ["ernte", "natur"],
+   "tags": ["ernte"],
    "link": "https://mundraub.org/node/92032", "quelle": "https://mundraub.org/node/92032",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -490,7 +490,7 @@
    "lng": 6.063251, "lat": 50.751934,
    "saison": {"von": "09-20", "bis": "10-31"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte", "natur"],
+   "tags": ["ernte"],
    "link": "https://mundraub.org/node/2435", "quelle": "https://mundraub.org/node/2435",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -502,7 +502,7 @@
    "lng": 6.029048, "lat": 50.780056,
    "saison": {"von": "07-15", "bis": "10-31"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte", "natur"],
+   "tags": ["ernte"],
    "link": "https://mundraub.org/node/1787", "quelle": "https://mundraub.org/node/1787",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -514,7 +514,7 @@
    "lng": 6.115619, "lat": 50.773987,
    "saison": {"von": "07-01", "bis": "07-31"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte", "natur"],
+   "tags": ["ernte"],
    "link": "https://mundraub.org/node/1447", "quelle": "https://mundraub.org/node/1447",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -526,7 +526,7 @@
    "lng": 6.047469, "lat": 50.738095,
    "saison": {"von": "06-15", "bis": "07-31"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte", "natur"],
+   "tags": ["ernte"],
    "link": "https://mundraub.org/node/102542", "quelle": "https://mundraub.org/node/102542",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -538,7 +538,7 @@
    "lng": 6.103098, "lat": 50.756604,
    "saison": {"von": "03-01", "bis": "05-15"},
    "meta": "Ernte · mundraub · Frühjahr",
-   "tags": ["ernte", "natur"],
+   "tags": ["ernte"],
    "link": "https://mundraub.org/node/7108", "quelle": "https://mundraub.org/node/7108",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -550,7 +550,7 @@
    "lng": 5.911075, "lat": 51.038885,
    "saison": {"von": "07-01", "bis": "08-15"},
    "meta": "Selbstpflücke · Selfkant",
-   "tags": ["ernte", "natur", "kinder"],
+   "tags": ["ernte", "kinder"],
    "link": "https://www.juppis-hof.de/veranstaltungen/beerenpfluecken/", "quelle": "https://www.juppis-hof.de/veranstaltungen/beerenpfluecken/",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -562,7 +562,7 @@
    "lng": 6.029152, "lat": 50.763459,
    "saison": {"von": "05-25", "bis": "07-15"},
    "meta": "Selbstpflücke · bio",
-   "tags": ["ernte", "natur", "kinder", "essen"],
+   "tags": ["ernte", "kinder", "essen"],
    "quelle": "https://kingkalli.de/erdbeeren-pfluecken-im-raum-aachen-dueren/",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -574,7 +574,7 @@
    "lng": 6.048408, "lat": 50.765419,
    "saison": {"von": "06-01", "bis": "07-15"},
    "meta": "Selbstpflücke · bio",
-   "tags": ["ernte", "natur", "kinder", "essen"],
+   "tags": ["ernte", "kinder", "essen"],
    "quelle": "https://kingkalli.de/erdbeeren-pfluecken-im-raum-aachen-dueren/",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -586,7 +586,7 @@
    "lng": 6.070418, "lat": 50.817951,
    "saison": {"von": "03-15", "bis": "10-15"},
    "meta": "Selber schneiden",
-   "tags": ["ernte", "natur"],
+   "tags": ["ernte"],
    "quelle": "https://aachen.t-online.de/region/aachen/id_101197882/geheimtipp-in-aachen-hier-koennen-sie-ihren-fruehlingsstrauss-selbst-pfluecken.html",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -1482,7 +1482,7 @@
    "text": "Paket bis Schuhkartongröße mitnehmen, Trinkgeld nach Absprache. Melde echte Gesuche über den Knopf unten.",
    "lng": 6.092, "lat": 50.776,
    "meta": "Beispiel",
-   "tags": ["hilfe"],
+   "tags": [],
    "hinzu": "2026-08-07", "fest": true
   },
   {
@@ -1492,7 +1492,7 @@
    "text": "1× pro Woche Wochenmarkt-Einkauf für Nachbarin, ca. 45 Min. So sieht ein Nachbarschafts-Gesuch aus.",
    "lng": 6.103, "lat": 50.7698,
    "meta": "Beispiel · wöchentlich",
-   "tags": ["hilfe"],
+   "tags": [],
    "hinzu": "2026-08-07", "fest": true
   },
 
@@ -1503,7 +1503,7 @@
    "text": "Aachens Hausberg: vom Tranchot-Obelisken das beste freie Panorama über die Dächer und die Domsilhouette. Aufstieg über die Lousbergstiege (312 Stufen). Am besten: goldene/blaue Stunde abends, Blick nach Süden.",
    "lng": 6.0792, "lat": 50.7869,
    "meta": "frei zugänglich",
-   "tags": ["fotospot", "natur"],
+   "tags": [],
    "quelle": "https://de.wikipedia.org/wiki/Lousberg",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -1514,7 +1514,7 @@
    "text": "Der 35 m hohe frühere Wasserturm (1958) ist ein markantes Architekturmotiv auf dem Lousberg-Plateau. Am besten abends als Silhouette gegen den Westhimmel.",
    "lng": 6.08049, "lat": 50.78645,
    "meta": "Umfeld frei zugänglich",
-   "tags": ["fotospot"],
+   "tags": [],
    "quelle": "https://de.wikipedia.org/wiki/Wasserturm_Belvedere_(Aachen)",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -1525,7 +1525,7 @@
    "text": "Herz des UNESCO-Ensembles: südlich füllt der Dom den Rahmen, nördlich das gotische Rathaus. Am besten: blaue Stunde, wenn beide angestrahlt sind; morgens streifendes Licht von Osten.",
    "lng": 6.08379, "lat": 50.77544,
    "meta": "rund um die Uhr frei",
-   "tags": ["fotospot"],
+   "tags": [],
    "quelle": "https://de.wikipedia.org/wiki/Aachener_Dom",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -1536,7 +1536,7 @@
    "text": "Klassizistische Säulenhalle von 1827 — ideal für Symmetrie-Aufnahmen. Am besten: abends Sonne von Westen auf der Säulenfront, nachts stimmungsvoll beleuchtet.",
    "lng": 6.0869, "lat": 50.7742,
    "meta": "goldene Stunde abends",
-   "tags": ["fotospot"],
+   "tags": [],
    "quelle": "https://de.wikipedia.org/wiki/Elisenbrunnen",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -1547,7 +1547,7 @@
    "text": "Mittelalterliches Stadttor mit Vorburg — dramatische Kompositionen von der nördlichen Feldseite. Am besten: goldene Stunde abends von Norden/Nordwesten.",
    "lng": 6.07833, "lat": 50.78153,
    "meta": "goldene Stunde",
-   "tags": ["fotospot"],
+   "tags": [],
    "quelle": "https://de.wikipedia.org/wiki/Ponttor",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -1558,7 +1558,7 @@
    "text": "Eines der mächtigsten erhaltenen Stadttore Westeuropas, nahe Hauptbahnhof — die breite Südfassade füllt Weitwinkel perfekt. Am besten: Nachmittag bis goldene Stunde.",
    "lng": 6.08694, "lat": 50.76819,
    "meta": "frei zugänglich",
-   "tags": ["fotospot"],
+   "tags": [],
    "quelle": "https://de.wikipedia.org/wiki/Marschiertor",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -1569,7 +1569,7 @@
    "text": "Wasserburg aus dem 13. Jh. mitten im Viertel: Der Burgweiher liefert bei Windstille Bilderbuch-Spiegelungen. Am besten: Sonnenaufgang — ruhiges Wasser, gelegentlich Morgennebel.",
    "lng": 6.10389, "lat": 50.76778,
    "meta": "Park frei zugänglich",
-   "tags": ["fotospot"],
+   "tags": [],
    "quelle": "https://de.wikipedia.org/wiki/Burg_Frankenberg_(Aachen)",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -1580,7 +1580,7 @@
    "text": "Aachens beliebtestes Allee-Motiv am historischen Gut Melaten: symmetrische Baumreihen, im Herbst spektakulär gefärbt. Am besten: Sonnenaufgang mit Gegenlicht und Morgennebel.",
    "lng": 6.0466, "lat": 50.7789,
    "meta": "RWTH Campus Melaten",
-   "tags": ["fotospot", "natur"],
+   "tags": [],
    "quelle": "https://de.wikipedia.org/wiki/Gut_Melaten",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -1591,7 +1591,7 @@
    "text": "Alte Baumbestände, Wasserbecken und das Neue Kurhaus als Kulisse — ruhiges Park-Motiv abseits der Altstadt. Am besten: morgens, im Herbst wegen Laubfärbung besonders fotogen.",
    "lng": 6.0971, "lat": 50.783,
    "meta": "frei zugänglich",
-   "tags": ["fotospot", "natur"],
+   "tags": [],
    "quelle": "https://www.carolus-thermen.de/",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -1602,7 +1602,7 @@
    "text": "Drei Länder in einem Bild: Grenzmonument, Waldkulisse und Aussichtstürme am höchsten Punkt der Niederlande (322 m). Am besten: Sonnenuntergang mit freier Sicht nach Westen.",
    "lng": 6.0208, "lat": 50.7547,
    "meta": "D · NL · B · frei",
-   "tags": ["fotospot", "natur"],
+   "tags": [],
    "quelle": "https://de.wikipedia.org/wiki/Vaalserberg",
    "hinzu": "2026-08-08", "fest": true
   }
