@@ -187,6 +187,12 @@ Anzeige — verlinken ist erlaubt. Wachstum manuell und sparsam (Einzel-Anschrei
   bei Klick auffächern (Spiderfy) oder bei niedrigem Zoom leicht versetzen.
 
 ## Erledigt-Log
+**09.08. (KI-Agent, fünfter Nutzertest):** **Liste ist Haupteinstieg** — steht gleichwertig im
+HUD neben „Pin melden" und zeigt die Trefferzahl live; Tabs heißen jetzt verständlich
+„🔥 Aktuell / 📍 Auf der Karte / 🍏 Saison". **Cluster öffnen ab 6 Pins die Liste** statt zu
+zoomen, gruppiert nach Spielstätte und chronologisch — am Markt liest sich das als Spielplan
+(„MARKT · 15" mit allen WM-Konzerten). **Hover-Karte** zeigt zusätzlich den ersten
+Beschreibungssatz und Hinweise (Highlight, gratis, laufende Saison, Entfernung).
 **09.08. früh (KI-Agent, vierter Nutzertest):** **Kategorien final auf 7** — „Markt" steckte
 doppelt (Flohmarkt/Essen&Markt), Musik/Party/Feste überschnitten sich. Jetzt trennscharf, mit
 erweiterten Suchsynonymen (Museum/Galerie → Kultur, Yoga/Bewegung → Sport). **Zeitraum-Filter
