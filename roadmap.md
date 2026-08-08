@@ -157,6 +157,12 @@ Anzeige — verlinken ist erlaubt. Wachstum manuell und sparsam (Einzel-Anschrei
 - Zweite Stadt aufschalten (Architektur steht: STAEDTE-Eintrag + pins-<stadt>.json)
 
 ## Neue Feature-Ideen (gesammelt 08.08., noch nicht beauftragt)
+- **Cluster-Vorschau:** Antippen zoomt derzeit hinein — alternativ könnte ein kleines Popup
+  die enthaltenen Pins auflisten (gut bei Pins, die exakt aufeinanderliegen).
+- **„Heute Abend"-Schnellfilter** neben Heute/Demnächst — trifft den häufigsten Impuls
+  („was mache ich gleich?") genauer als der ganze Tag.
+- **Relevanz-Sortierung auch auf der Karte:** unwichtige Pins bei weitem Zoom ausblenden statt
+  clustern (weniger Klickarbeit, aber weniger transparent — erst testen).
 - **Embed-Widget:** Karte als iframe für wir-frankenberger.de / Café-Websites → Reichweite.
 - **Mehrsprachig EN/NL** für die Euregio (Vaals ist 10 Min entfernt).
 - **Saison-Push:** "🍏 Brombeeren sind jetzt reif" als Insta-Story-Vorlage automatisch aus den
@@ -166,6 +172,13 @@ Anzeige — verlinken ist erlaubt. Wachstum manuell und sparsam (Einzel-Anschrei
   bei Klick auffächern (Spiderfy) oder bei niedrigem Zoom leicht versetzen.
 
 ## Erledigt-Log
+**08.08. Nacht (KI-Agent):** **Orientierung statt Datenflut** — mit 144 Pins wurde die Karte
+unübersichtlich. Drei Ebenen dagegen: (1) **„🔥 Was ist los?"** als erster Tab der Listenansicht
+— Heute und Als Nächstes, je max. 8 Einträge nach Relevanz (Highlight-Flag, Zeitnähe,
+Beliebtheit, Profil-Interessen); Dauerangebote nur noch als Fußnote. (2) **Clustering** —
+Pins unter 58 px Abstand werden zu einem Kreis mit Anzahl zusammengefasst, ab Zoom 16 lösen sie
+sich auf, Highlights bleiben immer einzeln. Stadtansicht: ~44 statt 143 Symbole. (3) **Einführung**
+beim ersten Öffnen (5 Punkte, vor der Interessenwahl), jederzeit über ⓘ erneut aufrufbar.
 **08.08. spät (KI-Agent):** **Tag „kostenlos" abgeschafft** — das ist eine Eigenschaft, kein Thema,
 und verdrängte echte Themen aus der Filterleiste. Gratis-Hinweis steht jetzt in der Meta-Zeile,
 Suche nach „gratis/umsonst/verschenken" läuft über den Volltext. Neue Themen 🪩 Party und
