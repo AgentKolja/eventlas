@@ -279,14 +279,87 @@
           "koordinaten_pruefen": true
         },
         {
-          "id": "csd-markt",
-          "name": "CSD auf dem Markt Aachen",
-          "aliase": ["CSD Aachen"],
+          "id": "markt",
+          "name": "Markt",
+          "aliase": ["Marktplatz", "Markt Aachen", "CSD auf dem Markt Aachen", "CSD Aachen", "WM-Bühne", "Rathausplatz"],
           "lng": 6.0838, "lat": 50.7760,
           "adresse": "Markt, 52062 Aachen",
           "art": "Open-Air-Bühne (temporär)",
           "tags": ["musik", "fest"],
-          "programm": "https://www.csd-aachen.de/"
+          "programm": "https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/"
+        },
+        {
+          "id": "hof",
+          "name": "Hof",
+          "aliase": ["Am Hof", "Hof Aachen"],
+          "lng": 6.0847, "lat": 50.7750,
+          "adresse": "Hof, 52062 Aachen",
+          "art": "Platz mit Open-Air-Bühne",
+          "tags": ["musik"],
+          "programm": "https://aachen-kalender.de/"
+        },
+        {
+          "id": "elisengarten",
+          "name": "Elisengarten",
+          "aliase": ["Elisengarten Aachen"],
+          "lng": 6.0857, "lat": 50.7752,
+          "adresse": "Elisengarten, 52062 Aachen",
+          "art": "Park mit Veranstaltungen",
+          "tags": ["musik", "kinder"],
+          "programm": "https://aachen-kalender.de/"
+        },
+        {
+          "id": "elisenbrunnen-venue",
+          "name": "Elisenbrunnen",
+          "aliase": ["Rotunde", "Elisenbrunnen Rotunde", "Friedrich-Wilhelm-Platz"],
+          "lng": 6.0871, "lat": 50.7747,
+          "adresse": "Friedrich-Wilhelm-Platz, 52062 Aachen",
+          "art": "Säulenhalle mit Veranstaltungen",
+          "tags": ["musik", "kultur"],
+          "programm": "https://aachen-kalender.de/"
+        },
+        {
+          "id": "aachener-dom",
+          "name": "Aachener Dom",
+          "aliase": ["Dom Aachen", "Domkapitel", "Orgeltage"],
+          "lng": 6.0839, "lat": 50.7746,
+          "adresse": "Domhof 1, 52062 Aachen",
+          "art": "Kirche mit Konzertreihen",
+          "tags": ["musik", "kultur"],
+          "programm": "https://aachen-kalender.de/"
+        },
+        {
+          "id": "annakirche",
+          "name": "Annakirche",
+          "aliase": ["St. Anna", "SommerOrgelKonzerte"],
+          "lng": 6.0820, "lat": 50.7768,
+          "adresse": "Annastraße, 52062 Aachen",
+          "art": "Kirche mit Orgelkonzerten",
+          "tags": ["musik", "kultur"],
+          "programm": "https://aachen-kalender.de/",
+          "koordinaten_pruefen": true
+        },
+        {
+          "id": "kurpark-musikmuschel",
+          "name": "Musikmuschel im Kurpark",
+          "aliase": ["Kurpark", "Musikmuschel"],
+          "lng": 6.0930, "lat": 50.7830,
+          "adresse": "Kurpark, Monheimsallee, 52062 Aachen",
+          "art": "Open-Air-Pavillon",
+          "tags": ["musik"],
+          "programm": "https://aachen-kalender.de/",
+          "koordinaten_pruefen": true
+        },
+        {
+          "id": "park-terrassen",
+          "name": "Park-Terrassen",
+          "aliase": ["Parkterrassen", "Park Terrassen"],
+          "lng": 6.0951, "lat": 50.7827,
+          "adresse": "Kurpark, 52062 Aachen",
+          "art": "Gastronomie mit Livemusik",
+          "tags": ["musik", "essen"],
+          "programm": "https://aachen-kalender.de/",
+          "koordinaten_pruefen": true
         },
         {
           "id": "tivoli",
