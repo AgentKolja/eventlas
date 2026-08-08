@@ -763,10 +763,16 @@ function baueMarker(){
 }
 
 /* ---------- Tag-Leiste (Roadmap Nr. 7 + V2 "Für dich") ---------- */
+/* Themen, nach denen Leute aktiv suchen — die stehen vorn, auch wenn es (noch) wenige Pins
+   gibt. Sonst rutscht z. B. "Musik" hinter 20 Ernte-Pins und wirkt, als gäbe es keine Konzerte. */
+const TAG_PRIO = ["musik", "fest", "flohmarkt", "kultur", "markt", "sport", "kinder", "essen"];
 function baueTagleiste(){
   const zaehl = {};
   PINS.forEach(p => { if(zeitOk(p)) p.tags.forEach(t => zaehl[t] = (zaehl[t]||0)+1); });
-  const tags = Object.keys(zaehl).sort((a,b) => zaehl[b]-zaehl[a]).slice(0, 12);
+  const vorhanden = Object.keys(zaehl);
+  const wichtig = TAG_PRIO.filter(t => zaehl[t]);
+  const rest = vorhanden.filter(t => !wichtig.includes(t)).sort((a,b) => zaehl[b]-zaehl[a]);
+  const tags = [...wichtig, ...rest].slice(0, 14);
   const leiste = $("#tagleiste");
   leiste.innerHTML = "";
   const reset = document.createElement("button");                 // Auswahl aufheben (User-Test)
@@ -793,8 +799,9 @@ function baueTagleiste(){
   tags.forEach(t => {
     const b = document.createElement("button");
     b.className = "tagchip" + (aktiveTags.has(t) ? " an" : "");
-    b.textContent = TAG_LABEL[t] || t;
+    b.textContent = (TAG_LABEL[t] || t) + " " + zaehl[t];
     b.setAttribute("aria-pressed", aktiveTags.has(t));
+    b.setAttribute("aria-label", (TAG_LABEL[t] || t).replace(/^\S+\s/, "") + ": " + zaehl[t] + " Pins");
     b.addEventListener("click", () => {
       aktiveTags.has(t) ? aktiveTags.delete(t) : aktiveTags.add(t);
       b.classList.toggle("an", aktiveTags.has(t));               // Aktiv-Zustand direkt am Chip

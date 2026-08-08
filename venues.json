@@ -1,134 +1,216 @@
 {
   "stand": "2026-08-08",
-  "hinweis": "Spielstätten mit wechselndem Programm. Das tägliche Update-Skript prüft jede davon gezielt und setzt für gefundene Events die hier hinterlegten (geprüften) Koordinaten ein — so landen Konzerte immer exakt am richtigen Ort. NEUE STADT: einfach einen weiteren Eintrag unter 'staedte' anlegen und das Skript mit STADT=<schluessel> starten; am Code ändert sich nichts. Feld 'muster' (Regex) nur bei Häusern setzen, die über die kulturApi kommen. 'aliase' hilft beim Zuordnen von Events, die den Namen abgekürzt schreiben.",
+  "hinweis": "Spielstätten mit wechselndem Programm. Das tägliche Update-Skript prüft jede gezielt und setzt für gefundene Events die hier hinterlegten (geprüften) Koordinaten ein — so landen Konzerte immer exakt am richtigen Ort. NEUE STADT: einfach einen weiteren Eintrag unter 'staedte' anlegen und das Skript mit STADT=<schluessel> starten; am Code ändert sich nichts. Feld 'muster' (Regex) nur bei Häusern setzen, die über die kulturApi kommen. 'aliase' hilft beim Zuordnen von Events, die den Namen abweichend schreiben. Koordinaten am 08.08.2026 gegen Adresse und OpenStreetMap geprüft.",
   "staedte": {
     "aachen": {
       "name": "Aachen",
       "bbox": { "lngMin": 5.85, "lngMax": 6.35, "latMin": 50.6, "latMax": 51.1 },
       "kulturApi": "https://api.kulturkalender-aachen.de/events",
+      "konzertQuelle": "https://rausgegangen.de/aachen/kategorie/konzerte-und-musik/",
+      "tribeApis": [
+        "https://aachen-kalender.de/wp-json/tribe/events/v1/events",
+        "https://mubu.ac/wp-json/tribe/events/v1/events",
+        "https://raststaette.org/wp-json/tribe/events/v1/events",
+        "https://ludwigforum.de/wp-json/tribe/events/v1/events"
+      ],
+      "bigcartelShop": "musikbunkeraachen",
       "venues": [
         {
           "id": "musikbunker",
           "name": "Musikbunker",
-          "aliase": ["Musikbunker Aachen", "Goffartstraße"],
-          "lng": 6.0999, "lat": 50.7672,
-          "adresse": "Goffartstraße 26",
+          "aliase": ["Musikbunker Aachen e.V.", "Musikbunker Aachen", "mubu", "Goffartstraße 39"],
+          "lng": 6.1035274, "lat": 50.7672224,
+          "adresse": "Goffartstraße 39, 52066 Aachen",
           "art": "Konzertclub",
           "tags": ["musik", "party"],
-          "programm": "https://musikbunkeraachen.bigcartel.com/products"
-        },
-        {
-          "id": "eurogress",
-          "name": "Eurogress",
-          "aliase": ["Eurogress Aachen", "Monheimsallee"],
-          "lng": 6.0898, "lat": 50.7823,
-          "adresse": "Monheimsallee 48",
-          "art": "Kongress- und Konzerthaus",
-          "tags": ["musik", "kultur"],
-          "programm": "https://www.eurogress-aachen.de/veranstaltungen/"
+          "programm": "https://mubu.ac/"
         },
         {
           "id": "franz",
           "name": "FRANZ",
-          "aliase": ["Kulturzentrum FRANZ", "Franzstraße"],
-          "lng": 6.0790, "lat": 50.7709,
-          "adresse": "Franzstraße 74",
-          "art": "Kulturzentrum",
-          "tags": ["musik", "kultur"],
-          "programm": "https://www.franz-aachen.de/programm/"
+          "aliase": ["FRANZ - Aachen", "Franz Aachen", "Kulturzentrum FRANZ", "Franzstraße 74"],
+          "lng": 6.0864597, "lat": 50.7685241,
+          "adresse": "Franzstraße 74, 52064 Aachen",
+          "art": "Kulturzentrum / Kleinkunstbühne",
+          "tags": ["musik", "kultur", "party"],
+          "programm": "https://aachen-franz.de/programm/"
         },
         {
           "id": "suedoase",
           "name": "Südoase",
-          "aliase": ["Suedoase", "Süd-Oase"],
-          "lng": 6.0876, "lat": 50.7645,
-          "adresse": "Trierer Straße (Aachen-Süd)",
-          "art": "Kneipe mit Livemusik",
-          "tags": ["musik", "party"],
-          "programm": "https://www.facebook.com/suedoase",
-          "koordinaten_pruefen": true
+          "aliase": ["Suedoase", "Süd-Oase", "Südstraße 37"],
+          "lng": 6.0817923, "lat": 50.7670280,
+          "adresse": "Südstraße 37, 52064 Aachen",
+          "art": "Kulturkneipe",
+          "tags": ["musik", "kultur"],
+          "programm": "https://www.suedoase.de/",
+          "hinweis": "TLS-Zertifikat defekt — Programmseite per HTTPS-GET nicht abrufbar, nur manuell prüfen"
         },
         {
           "id": "hotel-europa",
-          "name": "Hotel Europa",
-          "aliase": ["Europa Aachen"],
-          "lng": 6.0872, "lat": 50.7690,
-          "adresse": "Aachen (Adresse prüfen)",
-          "art": "Veranstaltungsort / Bar",
+          "name": "Dein Hotel Europa",
+          "aliase": ["Hotel Europa", "Südstraße 54"],
+          "lng": 6.0810781, "lat": 50.7665207,
+          "adresse": "Südstraße 54, 52064 Aachen",
+          "art": "Clubkeller & Bar",
           "tags": ["musik", "party"],
-          "programm": "",
-          "koordinaten_pruefen": true
+          "programm": "https://www.deinhoteleuropa.de/programm/",
+          "hinweis": "Programmseite nennt kein Jahr — Datum über Wochentag prüfen"
         },
         {
-          "id": "az-aachen",
-          "name": "AZ Aachen",
-          "aliase": ["Autonomes Zentrum", "AZ Frère"],
-          "lng": 6.0942, "lat": 50.7699,
-          "adresse": "Frère-Roger-Straße",
-          "art": "Soziokulturelles Zentrum",
-          "tags": ["musik", "party", "kultur"],
-          "programm": "https://az-aachen.org/",
-          "koordinaten_pruefen": true
+          "id": "eurogress",
+          "name": "Eurogress",
+          "aliase": ["Eurogress Aachen", "Monheimsallee 48"],
+          "muster": "eurogress",
+          "lng": 6.0918663, "lat": 50.7820937,
+          "adresse": "Monheimsallee 48, 52062 Aachen",
+          "art": "Kongress- und Konzerthalle",
+          "tags": ["musik", "kultur"],
+          "programm": "https://www.aachen-event.com/veranstaltungskalender"
+        },
+        {
+          "id": "neues-kurhaus",
+          "name": "Neues Kurhaus",
+          "aliase": ["Neues Kurhaus Aachen", "Monheimsallee 44"],
+          "lng": 6.0930307, "lat": 50.7816451,
+          "adresse": "Monheimsallee 44, 52062 Aachen",
+          "art": "Veranstaltungssaal",
+          "tags": ["musik", "kultur"],
+          "programm": "https://www.aachen-event.com/veranstaltungskalender",
+          "hinweis": "NICHT mit dem Alten Kurhaus verwechseln — zwei verschiedene Gebäude"
+        },
+        {
+          "id": "altes-kurhaus",
+          "name": "Klangbrücke im Alten Kurhaus",
+          "aliase": ["Klangbrücke Aachen", "Klangbruecke", "Klangbrücke", "Altes Kurhaus Aachen", "Altes Kurhaus", "Kurhaus Aachen"],
+          "muster": "kurhaus",
+          "lng": 6.0888792, "lat": 50.7769983,
+          "adresse": "Kurhausstraße 1, 52062 Aachen",
+          "art": "Konzert- und Veranstaltungssaal",
+          "tags": ["musik", "kultur"],
+          "programm": "https://altes-kurhaus-aachen.de/spielplan/"
         },
         {
           "id": "apollo",
           "name": "Apollo Kino & Bar",
-          "aliase": ["Apollo Aachen", "Pontstraße 141"],
-          "lng": 6.0790, "lat": 50.7805,
-          "adresse": "Pontstraße 141-149",
-          "art": "Kino, Club",
+          "aliase": ["Apollo Aachen", "Apollo", "Pontstraße 141"],
+          "lng": 6.0789550, "lat": 50.7806829,
+          "adresse": "Pontstraße 141-149, 52062 Aachen",
+          "art": "Kino & Club",
           "tags": ["musik", "party", "kultur"],
-          "programm": "https://www.apollo-aachen.de/",
-          "koordinaten_pruefen": true
+          "programm": "https://apollo-aachen.de/club/events/"
+        },
+        {
+          "id": "az-aachen",
+          "name": "AZ Aachen",
+          "aliase": ["Autonomes Zentrum", "Hackländerstraße 5"],
+          "lng": 6.0928604, "lat": 50.7683778,
+          "adresse": "Hackländerstraße 5, 52064 Aachen",
+          "art": "Selbstverwaltetes Kulturzentrum",
+          "tags": ["musik", "party", "kultur"],
+          "programm": "https://az-aachen.de/termine/"
         },
         {
           "id": "domkeller",
           "name": "Domkeller",
           "aliase": ["Hof 1"],
-          "lng": 6.0839, "lat": 50.7752,
-          "adresse": "Hof 1",
+          "lng": 6.0853144, "lat": 50.7757210,
+          "adresse": "Hof 1, 52062 Aachen",
           "art": "Kneipe mit Livemusik",
-          "tags": ["musik"],
-          "programm": "https://www.domkeller.de/",
-          "koordinaten_pruefen": true
+          "tags": ["musik", "essen"],
+          "programm": "https://www.domkeller.de/"
         },
         {
-          "id": "klangbruecke",
-          "name": "Klangbrücke",
-          "aliase": ["Klangbruecke", "Kaiserplatz"],
-          "lng": 6.0928, "lat": 50.7746,
-          "adresse": "Kaiserplatz",
-          "art": "Veranstaltungshalle",
+          "id": "raststaette",
+          "name": "Raststätte",
+          "aliase": ["Raststaette", "Kulturraum Aachen", "Lothringerstraße 23"],
+          "lng": 6.0939733, "lat": 50.7716100,
+          "adresse": "Lothringerstraße 23, 52062 Aachen",
+          "art": "Soziokulturelles Zentrum",
           "tags": ["musik", "kultur"],
+          "programm": "https://raststaette.org/termine/"
+        },
+        {
+          "id": "schluesselloch",
+          "name": "Schlüsselloch",
+          "aliase": ["Schluesselloch", "Boxgraben 51"],
+          "lng": 6.0811371, "lat": 50.7685803,
+          "adresse": "Boxgraben 51, 52064 Aachen",
+          "art": "Rockkneipe mit Livemusik",
+          "tags": ["musik"],
+          "programm": "https://aachen-kalender.de/"
+        },
+        {
+          "id": "nachtschicht",
+          "name": "Nachtschicht",
+          "aliase": ["Nachtschicht Aachen", "Mostardstraße 15"],
+          "lng": 6.0838112, "lat": 50.7775955,
+          "adresse": "Mostardstraße 15, 52062 Aachen",
+          "art": "Club (elektronische Musik)",
+          "tags": ["musik", "party"],
           "programm": "",
-          "koordinaten_pruefen": true
+          "hinweis": "Nur Facebook/Instagram — nicht automatisierbar"
+        },
+        {
+          "id": "cafe-kittel",
+          "name": "Café Kittel",
+          "aliase": ["Cafe Kittel", "Pontstraße 39"],
+          "lng": 6.0821826, "lat": 50.7778679,
+          "adresse": "Pontstraße 39, 52062 Aachen",
+          "art": "Café/Bar mit Livemusik",
+          "tags": ["musik", "essen"],
+          "programm": "https://aachen-kalender.de/"
+        },
+        {
+          "id": "burg-frankenberg-venue",
+          "name": "Burg Frankenberg",
+          "aliase": ["Frankenberger Burg", "Burghof", "Goffartstraße 45"],
+          "lng": 6.1038202, "lat": 50.7678212,
+          "adresse": "Goffartstraße 45, 52066 Aachen",
+          "art": "Kulturburg",
+          "tags": ["musik", "kultur"],
+          "programm": "https://burgfrankenberg.de/programm/"
         },
         {
           "id": "theater-aachen",
           "name": "Theater Aachen",
+          "aliase": ["Theaterplatz 1"],
           "muster": "theater",
-          "lng": 6.0855, "lat": 50.7737,
-          "adresse": "Theaterplatz 1",
+          "lng": 6.0871460, "lat": 50.7725403,
+          "adresse": "Theaterplatz 1, 52062 Aachen",
           "art": "Stadttheater",
+          "tags": ["kultur", "musik"],
+          "programm": "https://www.theateraachen.de/",
+          "hinweis": "Kalender lädt per AJAX — nur die Startseite ist ohne Browser lesbar"
+        },
+        {
+          "id": "grenzlandtheater",
+          "name": "Grenzlandtheater",
+          "aliase": ["Grenzlandtheater Aachen"],
+          "lng": 6.0846, "lat": 50.7768,
+          "adresse": "Elisabethstraße 9, 52062 Aachen",
+          "art": "Theater",
           "tags": ["kultur"],
-          "programm": "https://www.theateraachen.de/de/spielplan.html"
+          "programm": "https://www.grenzlandtheater.de/",
+          "koordinaten_pruefen": true
         },
         {
           "id": "ludwig-forum",
           "name": "Ludwig Forum",
+          "aliase": ["Ludwig Forum für Internationale Kunst", "Jülicher Straße 97"],
           "muster": "ludwig\\s*forum",
-          "lng": 6.0949, "lat": 50.7823,
-          "adresse": "Jülicher Straße 97-109",
-          "art": "Museum für moderne Kunst",
+          "lng": 6.1017334, "lat": 50.7811145,
+          "adresse": "Jülicher Straße 97-109, 52070 Aachen",
+          "art": "Kunstmuseum",
           "tags": ["kultur"],
-          "programm": "https://ludwigforum.de/"
+          "programm": "https://ludwigforum.de/kalender/"
         },
         {
           "id": "suermondt",
           "name": "Suermondt-Ludwig-Museum",
           "muster": "suermondt",
           "lng": 6.0905, "lat": 50.7712,
-          "adresse": "Wilhelmstraße 18",
+          "adresse": "Wilhelmstraße 18, 52070 Aachen",
           "art": "Kunstmuseum",
           "tags": ["kultur"],
           "programm": "https://suermondt-ludwig-museum.de/"
@@ -138,27 +220,17 @@
           "name": "Centre Charlemagne",
           "muster": "charlemagne",
           "lng": 6.0836, "lat": 50.7757,
-          "adresse": "Katschhof",
+          "adresse": "Katschhof, 52062 Aachen",
           "art": "Stadtmuseum",
           "tags": ["kultur"],
           "programm": "https://www.centre-charlemagne.eu/"
-        },
-        {
-          "id": "altes-kurhaus",
-          "name": "Altes Kurhaus",
-          "muster": "kurhaus",
-          "lng": 6.0870, "lat": 50.7776,
-          "adresse": "Komphausbadstraße 19",
-          "art": "Veranstaltungshaus",
-          "tags": ["kultur", "musik"],
-          "programm": ""
         },
         {
           "id": "couven-museum",
           "name": "Couven Museum",
           "muster": "couven",
           "lng": 6.0849, "lat": 50.7761,
-          "adresse": "Hühnermarkt 17",
+          "adresse": "Hühnermarkt 17, 52062 Aachen",
           "art": "Museum",
           "tags": ["kultur"],
           "programm": ""
@@ -168,17 +240,60 @@
           "name": "Zeitungsmuseum",
           "muster": "zeitungsmuseum",
           "lng": 6.0824, "lat": 50.7758,
-          "adresse": "Pontstraße 13",
+          "adresse": "Pontstraße 13, 52062 Aachen",
           "art": "Museum",
           "tags": ["kultur"],
           "programm": ""
+        },
+        {
+          "id": "saalbau-rothe-erde",
+          "name": "Saalbau Rothe Erde",
+          "aliase": ["SAALBAU ROTHE ERDE", "Rothe Erde"],
+          "lng": 6.1211, "lat": 50.7757,
+          "adresse": "Rothe Erde, Aachen",
+          "art": "Veranstaltungssaal",
+          "tags": ["musik", "party"],
+          "programm": "",
+          "koordinaten_pruefen": true
+        },
+        {
+          "id": "barbarossa",
+          "name": "Barbarossa",
+          "aliase": ["Barbarossa Aachen"],
+          "lng": 6.0925, "lat": 50.7714,
+          "adresse": "Barbarossastraße, Aachen",
+          "art": "Bar mit Livemusik",
+          "tags": ["musik"],
+          "programm": "",
+          "koordinaten_pruefen": true
+        },
+        {
+          "id": "cafe-vers",
+          "name": "Café Vers",
+          "aliase": ["Cafe Vers"],
+          "lng": 6.0836, "lat": 50.7789,
+          "adresse": "Aachen",
+          "art": "Café mit Programm",
+          "tags": ["musik", "kultur"],
+          "programm": "",
+          "koordinaten_pruefen": true
+        },
+        {
+          "id": "csd-markt",
+          "name": "CSD auf dem Markt Aachen",
+          "aliase": ["CSD Aachen"],
+          "lng": 6.0838, "lat": 50.7760,
+          "adresse": "Markt, 52062 Aachen",
+          "art": "Open-Air-Bühne (temporär)",
+          "tags": ["musik", "fest"],
+          "programm": "https://www.csd-aachen.de/"
         },
         {
           "id": "tivoli",
           "name": "Tivoli",
           "aliase": ["Alemannia", "Aachener Tivoli"],
           "lng": 6.0958, "lat": 50.7928,
-          "adresse": "Krefelder Straße 205",
+          "adresse": "Krefelder Straße 205, 52070 Aachen",
           "art": "Fußballstadion",
           "tags": ["sport"],
           "programm": "https://www.alemannia-aachen.de/spielplan/"
@@ -186,9 +301,9 @@
         {
           "id": "chio-soers",
           "name": "CHIO-Gelände Soers",
-          "aliase": ["Soers", "Albert-Vahle-Halle", "Reitstadion"],
+          "aliase": ["Soers", "Reitstadion", "Albert-Vahle-Halle"],
           "lng": 6.0760, "lat": 50.7975,
-          "adresse": "Albert-Servais-Allee",
+          "adresse": "Albert-Servais-Allee, 52070 Aachen",
           "art": "Großveranstaltungsgelände",
           "tags": ["sport", "fest", "musik"],
           "programm": "https://www.chioaachen.de/"

@@ -156,6 +156,174 @@ async function kulturPins() {
   }
 }
 
+/* ---------- 2b) Konzert-Quellen ----------
+   Der Kulturkalender kennt nur Museen — Clubkonzerte fehlten dadurch komplett.
+   Diese beiden Quellen schließen die Lücke, ohne LLM und ohne Browser:
+   a) rausgegangen.de Kategorie "Konzerte und Musik" (robots.txt erlaubt Crawling
+      ausdrücklich, Crawl-Delay 10 s wird eingehalten; Venue + Datum stehen bereits
+      in der Kachel, Detailseiten müssen also nicht abgerufen werden),
+   b) der Bigcartel-Ticketshop des Musikbunkers als echtes JSON.
+   Beide liefern keine Koordinaten — die kommen über snapAufVenue() aus venues.json. */
+
+const MONATE_KURZ = { jan:1, feb:2, "mär":3, mar:3, mrz:3, apr:4, mai:5, jun:6, jul:7,
+  aug:8, sep:9, okt:10, "nov":11, dez:12 };
+
+// Tag/Monat ohne Jahr → nächstes passendes Datum ab heute (löst den Jahreswechsel)
+function datumAusTagMonat(tag, monat) {
+  const jetzt = heuteDate;
+  let jahr = jetzt.getUTCFullYear();
+  let d = new Date(Date.UTC(jahr, monat - 1, tag));
+  if ((jetzt - d) / 864e5 > 30) d = new Date(Date.UTC(jahr + 1, monat - 1, tag));
+  return d.toISOString().slice(0, 10);
+}
+
+function entHtml(s) {
+  return String(s).replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"').replace(/&#39;|&#x27;/g, "'").replace(/&nbsp;/g, " ")
+    .replace(/&auml;/g, "ä").replace(/&ouml;/g, "ö").replace(/&uuml;/g, "ü")
+    .replace(/&szlig;/g, "ß").replace(/&Auml;/g, "Ä").replace(/&Ouml;/g, "Ö").replace(/&Uuml;/g, "Ü")
+    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(+n))
+    .replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+}
+
+async function rausgegangenKonzerte() {
+  if (!STADT.konzertQuelle) return [];
+  const pins = [];
+  for (const seite of [1, 2]) {
+    const url = STADT.konzertQuelle + (seite > 1 ? "?page=" + seite : "");
+    try {
+      if (seite > 1) await new Promise(r => setTimeout(r, 10000));   // Crawl-Delay respektieren
+      const res = await fetch(url, { headers: {
+        "user-agent": "EventlasBot/1.0 (nichtkommerzielle Stadtkarte; +https://eventlas.netlify.app)",
+        "accept": "text/html",
+      }});
+      if (!res.ok) { console.error("rausgegangen:", res.status, "- übersprungen"); break; }
+      const html = await res.text();
+
+      // Jede Kachel beginnt mit event-tile-link und endet vor der nächsten
+      const kacheln = html.split('data-testid="event-tile-link"').slice(1);
+      for (const k of kacheln) {
+        const href    = (k.match(/href="([^"]+)"/) || [])[1];
+        const titel   = entHtml((k.match(/data-testid="event-tile-name"[^>]*>([\s\S]*?)<\/span>/) || [])[1] || "");
+        const ort     = entHtml((k.match(/data-testid="event-tile-location"[^>]*>([\s\S]*?)<\/p>/) || [])[1] || "");
+        const zeitRoh = entHtml((k.match(/data-testid="event-tile-datetime"[^>]*>([\s\S]*?)<\/p>/) || [])[1] || "");
+        if (!titel || !ort || !zeitRoh) continue;
+
+        // "Fr, 14. Aug | 20:00"
+        const m = zeitRoh.match(/(\d{1,2})\.\s*([A-Za-zÄÖÜäöü]{3,})\s*\|?\s*(\d{1,2}:\d{2})?/);
+        if (!m) continue;
+        const monat = MONATE_KURZ[m[2].slice(0, 3).toLowerCase()];
+        if (!monat) continue;
+        const start = datumAusTagMonat(parseInt(m[1], 10), monat);
+        const uhr = m[3] || "";
+
+        pins.push({
+          typ: "event",
+          titel,
+          text: "Konzert in " + ort.replace(/\s+e\.?\s?V\.?$/i, "") + (uhr ? ", Beginn " + uhr + " Uhr." : "."),
+          lng: 0, lat: 0,                                  // wird von snapAufVenue gesetzt
+          start,
+          meta: ort.replace(/\s+e\.?\s?V\.?$/i, "") + (uhr ? " · " + uhr : ""),
+          tags: ["musik"],
+          quelle: href ? "https://rausgegangen.de" + href : STADT.konzertQuelle,
+          link: href ? "https://rausgegangen.de" + href : undefined,
+        });
+      }
+    } catch (e) {
+      console.error("rausgegangen nicht erreichbar (übersprungen):", e.message);
+      break;
+    }
+  }
+  console.log(`rausgegangen: ${pins.length} Konzerte gefunden.`);
+  return pins;
+}
+
+async function musikbunkerKonzerte() {
+  if (!STADT.bigcartelShop) return [];
+  try {
+    const res = await fetch(`https://api.bigcartel.com/${STADT.bigcartelShop}/products.json`, {
+      headers: { "user-agent": "EventlasBot/1.0 (nichtkommerzielle Stadtkarte)" },
+    });
+    if (!res.ok) { console.error("Bigcartel:", res.status, "- übersprungen"); return []; }
+    const liste = await res.json();
+    const pins = [];
+    for (const prod of (Array.isArray(liste) ? liste : [])) {
+      const name = String(prod.name || "");
+      // Format: "SOEN // 13.08.2026"
+      const m = name.match(/^(.*?)\s*\/\/\s*(\d{1,2})\.(\d{1,2})\.(\d{4})/);
+      if (!m) continue;
+      const start = `${m[4]}-${String(m[3]).padStart(2, "0")}-${String(m[2]).padStart(2, "0")}`;
+      if (new Date(start + "T00:00:00Z") < heuteDate) continue;        // vergangene Shows bleiben im Shop stehen
+      const ausverkauft = String(prod.status || "").toLowerCase().includes("sold");
+      pins.push({
+        typ: "event",
+        titel: m[1].trim(),
+        text: "Konzert im Musikbunker." + (ausverkauft ? " Ausverkauft." : ""),
+        lng: 0, lat: 0,
+        start,
+        meta: "Musikbunker" + (ausverkauft ? " · ausverkauft" : ""),
+        tags: ["musik"],
+        quelle: prod.url ? `https://${STADT.bigcartelShop}.bigcartel.com${prod.url}` : "https://mubu.ac",
+        link: prod.url ? `https://${STADT.bigcartelShop}.bigcartel.com${prod.url}` : undefined,
+      });
+    }
+    console.log(`Musikbunker-Shop: ${pins.length} Konzerte gefunden.`);
+    return pins;
+  } catch (e) {
+    console.error("Bigcartel nicht erreichbar (übersprungen):", e.message);
+    return [];
+  }
+}
+
+/* Tribe-Events-API (WordPress-Plugin "The Events Calendar"): sauberes JSON mit Venue-Namen.
+   aachen-kalender.de deckt damit sogar Kneipen ohne eigene Website ab (Schlüsselloch, Café Kittel). */
+async function tribePins() {
+  const quellen = STADT.tribeApis || [];
+  if (!quellen.length) return [];
+  const bis = new Date(heuteDate); bis.setDate(bis.getDate() + 45);
+  const alle = [];
+  for (const basis of quellen) {
+    try {
+      const url = `${basis}?start_date=${heute}&end_date=${bis.toISOString().slice(0, 10)}&per_page=50`;
+      const res = await fetch(url, { headers: {
+        "user-agent": "EventlasBot/1.0 (nichtkommerzielle Stadtkarte; +https://eventlas.netlify.app)",
+        "accept": "application/json",
+      }});
+      if (!res.ok) { console.error("Tribe", basis, res.status, "- übersprungen"); continue; }
+      const daten = await res.json();
+      for (const e of (daten.events || [])) {
+        const titel = entHtml(e.title || "");
+        const start = String(e.start_date || "").slice(0, 10);
+        if (!titel || !/^\d{4}-\d{2}-\d{2}$/.test(start)) continue;
+        const ende = String(e.end_date || "").slice(0, 10);
+        const ort = entHtml(e.venue?.venue || e.venue?.name || "");
+        const uhr = String(e.start_date || "").slice(11, 16);
+        const kategorien = (e.categories || []).map(c => String(c.name || "").toLowerCase()).join(" ");
+        const tags = ["kultur"];
+        if (/konzert|musik|jazz|rock|pop|band|klassik/.test(kategorien + " " + titel.toLowerCase())) tags.unshift("musik");
+        if (/party|disco|dj|tanz/.test(kategorien + " " + titel.toLowerCase())) tags.push("party");
+        alle.push({
+          typ: "event",
+          titel: titel.slice(0, 90),
+          text: (ort ? "In " + ort + "." : "Veranstaltung in " + STADT.name + ".") +
+                (uhr && uhr !== "00:00" ? " Beginn " + uhr + " Uhr." : ""),
+          lng: 0, lat: 0,                              // kommt aus snapAufVenue
+          start,
+          ...(ende && ende !== start ? { ende } : {}),
+          meta: [ort, uhr && uhr !== "00:00" ? uhr : ""].filter(Boolean).join(" · "),
+          tags: [...new Set(tags)].slice(0, 4),
+          quelle: e.url || basis,
+          ...(e.url ? { link: e.url } : {}),
+        });
+      }
+    } catch (err) {
+      console.error("Tribe-API nicht erreichbar:", basis, err.message);
+    }
+  }
+  console.log(`Tribe-APIs: ${alle.length} Termine gefunden.`);
+  return alle;
+}
+
 /* ---------- 3) Claude mit Websuche ---------- */
 const venueBlock = VENUES.length
   ? `
@@ -268,14 +436,21 @@ function normiere(p) {
 
 async function main() {
   const bekannt = [...feste, ...nochAktuell];
-  const [kultur, recherche] = await Promise.all([kulturPins(), claudePins(bekannt)]);
+  const [kultur, konzerte, bunker, tribe, recherche] = await Promise.all([
+    kulturPins(), rausgegangenKonzerte(), musikbunkerKonzerte(), tribePins(), claudePins(bekannt),
+  ]);
 
   // Kultur-API behält ihre deterministische id, verliert aber fest/hot;
-  // LLM-Recherche verliert zusätzlich die id (wird aus Titel+Datum neu gebildet).
+  // alle übrigen Quellen verlieren zusätzlich die id (wird aus Titel+Datum neu gebildet).
   const kulturSicher = kultur.map(p => { const q = entschaerfe(p); q.id = p.id; return q; });
-  const neuGueltig = [...kulturSicher, ...recherche.map(entschaerfe).map(snapAufVenue)]
+  const konzertPins = [...konzerte, ...bunker, ...tribe].map(entschaerfe).map(snapAufVenue)
+    .filter(p => p.lng !== 0 && p.lat !== 0);      // ohne bekannte Spielstätte kein Pin
+  const ohneOrt = konzerte.length + bunker.length + tribe.length - konzertPins.length;
+  if (ohneOrt > 0) console.log(`${ohneOrt} Konzert(e) ohne bekannte Spielstätte verworfen — fehlende Venues in venues.json ergänzen.`);
+
+  const neuGueltig = [...kulturSicher, ...konzertPins, ...recherche.map(entschaerfe).map(snapAufVenue)]
     .filter(valide).map(normiere);
-  console.log(`Recherche: ${recherche.length} geliefert, Kultur-API: ${kultur.length}, davon valide gesamt: ${neuGueltig.length}.`);
+  console.log(`Quellen — Recherche: ${recherche.length}, Kultur-API: ${kultur.length}, Konzerte: ${konzertPins.length}. Valide gesamt: ${neuGueltig.length}.`);
 
   // Merge: feste Pins zuerst, dann bisherige aktuelle, dann Neues — Duplikate (Titel+Datum) fliegen raus.
   const gesehen = new Set();
