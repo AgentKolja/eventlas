@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eventlas — Flyer A6 (Druckvorlage)</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  /* ====== NUR DAS HIER ANPASSEN: Karten-URL unten im Skript eintragen ====== */
+  :root{
+    --nacht:#14161A; --papier:#F5F2E9; --gelb:#FFC61A;
+    --event:#2FD6C3; --angebot:#FF6A3D; --spot:#C77DFF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#3a3d44;font-family:'Inter',sans-serif;display:flex;flex-direction:column;
+    align-items:center;gap:16px;padding:24px;min-height:100vh}
+
+  .werkzeuge{color:#fff;font-size:13px;max-width:420px;text-align:center;line-height:1.5}
+  .werkzeuge button{font:700 14px 'Inter';background:var(--gelb);border:0;border-radius:10px;
+    padding:10px 22px;cursor:pointer;margin-top:8px}
+  .warnung{background:#FF6A3D;color:#141414;font-weight:700;border-radius:10px;padding:10px 14px;
+    max-width:420px;text-align:center;font-size:13px}
+
+  /* A6: 105 × 148 mm */
+  .flyer{width:105mm;height:148mm;background:var(--nacht);color:var(--papier);
+    display:flex;flex-direction:column;padding:9mm 8mm;position:relative;overflow:hidden}
+  .flyer .deko{position:absolute;border-radius:50%;opacity:.14;pointer-events:none}
+  .flyer .d1{width:60mm;height:60mm;background:var(--event);top:-25mm;right:-20mm}
+  .flyer .d2{width:44mm;height:44mm;background:var(--spot);bottom:-18mm;left:-16mm}
+
+  h1{font-family:'Anton';font-size:32pt;letter-spacing:1px;text-transform:uppercase;line-height:.95}
+  h1 span{color:var(--gelb)}
+  .frage{font-family:'Anton';font-size:12.5pt;letter-spacing:.5px;text-transform:uppercase;
+    color:var(--papier);margin-top:2mm}
+  .punkte{margin-top:4mm;display:grid;gap:1.6mm;font-size:8.5pt;font-weight:600}
+  .punkte div{display:flex;align-items:center;gap:2.2mm}
+  .dot{width:3.2mm;height:3.2mm;border-radius:1mm;flex:none}
+  .qrbox{margin:4mm auto 0;background:#fff;padding:2.6mm;border-radius:3mm;width:44mm;height:44mm;
+    display:flex;align-items:center;justify-content:center}
+  .qrbox canvas,.qrbox img{width:100%!important;height:100%!important;image-rendering:pixelated}
+  .scanme{text-align:center;font-family:'Anton';font-size:10pt;letter-spacing:1.5px;
+    text-transform:uppercase;color:var(--gelb);margin-top:2mm}
+  .url{text-align:center;font-size:8pt;color:#C9CDD6;margin-top:1mm;word-break:break-all}
+  .fuss{margin-top:auto;text-align:center;font-size:7pt;color:#9AA0AB;line-height:1.45}
+  .fuss b{color:var(--papier)}
+
+  @media print{
+    @page{size:105mm 148mm;margin:0}
+    body{background:none;padding:0;display:block}
+    .werkzeuge,.warnung{display:none!important}
+    .flyer{width:105mm;height:148mm;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+
+<div class="werkzeuge">
+  <b>Eventlas-Flyer, A6, druckfertig.</b><br>
+  1) Unten im Skript die Karten-URL eintragen → QR baut sich automatisch.<br>
+  2) Drucken (Strg+P) → "Als PDF speichern" → Copyshop: 100 × A6, 300 g, farbig.<br>
+  <button onclick="print()">🖨 Drucken / PDF</button>
+</div>
+<div class="warnung" id="warnung" hidden>⚠ Karten-URL noch nicht eingetragen — unten im
+  Skript <code>KARTEN_URL</code> setzen, dann lädt der QR-Code.</div>
+
+<div class="flyer">
+  <div class="deko d1"></div><div class="deko d2"></div>
+  <h1>Event<span>las</span></h1>
+  <div class="frage">Was läuft gerade in Aachen?</div>
+  <div class="punkte">
+    <div><span class="dot" style="background:var(--event)"></span>Events: Feste, Konzerte, Flohmärkte</div>
+    <div><span class="dot" style="background:var(--angebot)"></span>Angebote: Verschenken &amp; wilde Ernte</div>
+    <div><span class="dot" style="background:var(--gelb)"></span>Nachbarschaftshilfe: suchen &amp; finden</div>
+    <div><span class="dot" style="background:var(--spot)"></span>Fotospots mit goldener Stunde</div>
+  </div>
+  <div class="qrbox" id="qrbox"></div>
+  <div class="scanme">Scannen → Karte offen</div>
+  <div class="url" id="url-anzeige"></div>
+  <div class="fuss">
+    <b>Kostenlos · werbefrei · ohne Anmeldung</b><br>
+    Eigenen Pin melden? Direkt in der Karte — per WhatsApp oder Mail.<br>
+    Instagram: @eventlas_aachen
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+<script>
+/* ====== HIER die Netlify-URL eintragen, sobald sie existiert ====== */
+const KARTEN_URL = "";   // z. B. "https://eventlas-aachen.netlify.app"
+
+if(!KARTEN_URL){
+  document.getElementById("warnung").hidden = false;
+}else{
+  new QRCode(document.getElementById("qrbox"), {
+    text: KARTEN_URL, width: 512, height: 512,
+    colorDark: "#14161A", colorLight: "#ffffff",
+    correctLevel: QRCode.CorrectLevel.M
+  });
+  document.getElementById("url-anzeige").textContent = KARTEN_URL.replace(/^https?:\/\//,"");
+}
+</script>
+</body>
+</html>
