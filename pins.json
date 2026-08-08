@@ -9,7 +9,7 @@
    "text": "Der große Aachener Wochenmarkt vor dem Rathaus — dienstags und donnerstags vormittags.",
    "lng": 6.0838, "lat": 50.7762,
    "wdh": "di,do", "meta": "vormittags",
-   "tags": ["essen"],
+   "tags": ["markt"],
    "quelle": "https://www.aachen.de/services/wochenmaerkte/",
    "hinzu": "2026-08-07", "fest": true
   },
@@ -20,7 +20,7 @@
    "text": "Samstags 7–13 Uhr: Obst, Gemüse, Brot, Feinkost, Kaffee — Treffpunkt im Frankenberger Viertel.",
    "lng": 6.0993, "lat": 50.7716,
    "wdh": "sa", "meta": "Sa 7–13 Uhr",
-   "tags": ["essen"],
+   "tags": ["markt"],
    "quelle": "https://www.aachen.de/services/wochenmaerkte/",
    "hinzu": "2026-08-07", "fest": true
   },
@@ -31,7 +31,7 @@
    "text": "Wöchentlicher Trödel an der Hubert-Wienen-Straße 8. Achtung: am 15.8. und 22.8. entfällt der Termin (Reit-WM).",
    "lng": 6.0898, "lat": 50.7908,
    "wdh": "sa", "meta": "samstags",
-   "tags": ["flohmarkt"],
+   "tags": ["markt"],
    "hinzu": "2026-08-07", "fest": true
   },
   {
@@ -41,7 +41,7 @@
    "text": "Kirmes auf dem Bendplatz, täglich ab 14 Uhr. Mo 10.8. reizarme Kirmes 14–17 Uhr, Di 11.8. Kindertag, Mi 12.8. Familientag mit 50 % Rabatt, Abschlussfeuerwerk 17.8. gegen 22 Uhr.",
    "lng": 6.07, "lat": 50.7822,
    "start": "2026-08-07", "ende": "2026-08-17", "meta": "Bendplatz",
-   "tags": ["fest", "kinder"],
+   "tags": ["fest", "familie"],
    "link": "https://www.bend-aachen.de", "quelle": "https://www.bend-aachen.de",
    "hot": true, "hinzu": "2026-08-07"
   },
@@ -74,7 +74,7 @@
    "text": "Kostenloses Rahmenprogramm zur Reit-WM in der Innenstadt: Konzerte auf zwei Bühnen, Theater, Tanz, Kunstaktionen. Täglich ab 11 Uhr Food-Markt auf Katschhof und Münsterplatz.",
    "lng": 6.0836, "lat": 50.7757,
    "start": "2026-08-11", "ende": "2026-08-23", "meta": "Innenstadt · Eintritt frei",
-   "tags": ["kultur", "musik", "essen"],
+   "tags": ["kultur", "musik", "markt"],
    "quelle": "https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/",
    "hot": true, "hinzu": "2026-08-08"
   },
@@ -107,7 +107,7 @@
    "text": "Celtic-Polka-Punk aus Vancouver im Musikbunker, Support: Muirsheen Durkin & Friends. Tickets 25 €.",
    "lng": 6.103, "lat": 50.7695,
    "start": "2026-08-14", "meta": "Musikbunker · 20 Uhr",
-   "tags": ["musik", "party"],
+   "tags": ["musik"],
    "link": "https://musikbunkeraachen.bigcartel.com/product/the-dreadnoughts-14082026",
    "quelle": "https://musikbunkeraachen.bigcartel.com/product/the-dreadnoughts-14082026",
    "hinzu": "2026-08-08"
@@ -119,7 +119,7 @@
    "text": "Antiquitäten und Kunst auf dem Friedrich-Wilhelm-Platz. Monatliche Reihe — nächster Termin: 13.9.",
    "lng": 6.0873, "lat": 50.7745,
    "start": "2026-08-09", "meta": "Elisenbrunnen",
-   "tags": ["flohmarkt", "kultur"],
+   "tags": ["markt", "kultur"],
    "hinzu": "2026-08-07"
   },
   {
@@ -129,7 +129,7 @@
    "text": "Sonntagströdel am Gut Wolf 2 (Aachen-Nord).",
    "lng": 6.127, "lat": 50.7965,
    "start": "2026-08-09", "meta": "Am Gut Wolf",
-   "tags": ["flohmarkt"],
+   "tags": ["markt"],
    "hinzu": "2026-08-07"
   },
   {
@@ -150,7 +150,7 @@
    "text": "Pride-Festival mit Demo, Bühnenprogramm, Infoständen und Party auf Katschhof und Markt. Fr ab 17 Uhr Auftakt, Sa ab 13 Uhr Demo und Straßenfest.",
    "lng": 6.0838, "lat": 50.776,
    "start": "2026-08-28", "ende": "2026-08-29", "meta": "Katschhof & Markt · frei",
-   "tags": ["fest", "kultur", "party"],
+   "tags": ["fest", "kultur", "musik"],
    "link": "https://www.csd-aachen.de/", "quelle": "https://www.csd-aachen.de/",
    "hinzu": "2026-08-08"
   },
@@ -161,7 +161,7 @@
    "text": "Straßenfest der Frankenb(u)erger auf der Oppenhoffallee. Sa ab 18 Uhr Livemusik, So ab 11 Uhr Fest + Flohmarkt bis 18 Uhr.",
    "lng": 6.101, "lat": 50.7694,
    "start": "2026-08-29", "ende": "2026-08-30", "meta": "Oppenhoffallee",
-   "tags": ["fest", "flohmarkt", "musik"],
+   "tags": ["fest", "markt", "musik"],
    "link": "https://wir-frankenberger.de", "quelle": "https://wir-frankenberger.de",
    "hinzu": "2026-08-07", "fest": true
   },
@@ -172,7 +172,7 @@
    "text": "Sonntagströdel an der Breslauer Straße 35 (Aachen-Ost).",
    "lng": 6.131, "lat": 50.7735,
    "start": "2026-08-30", "meta": "Breslauer Str.",
-   "tags": ["flohmarkt"],
+   "tags": ["markt"],
    "hinzu": "2026-08-07"
   },
   {
@@ -215,7 +215,7 @@
    "text": "Kölsches Open-Air auf dem CHIO-Gelände: Höhner, Bläck Fööss, Kasalla, Brings, Cat Ballou u.v.m. Programm 11:15 bis ca. 19:30 Uhr.",
    "lng": 6.076, "lat": 50.7975,
    "start": "2026-09-12", "meta": "CHIO-Gelände Soers",
-   "tags": ["musik", "fest", "party"],
+   "tags": ["musik", "fest", "musik"],
    "quelle": "https://gaffel.de/2026/08/04/jeck-im-sunnesching-in-aachen-am-12-september-chio-gelaende/",
    "hinzu": "2026-08-08"
   },
@@ -248,7 +248,7 @@
    "text": "Antiquitäten und Kunst auf dem Friedrich-Wilhelm-Platz — monatliche Reihe.",
    "lng": 6.0873, "lat": 50.7745,
    "start": "2026-09-13", "meta": "Elisenbrunnen",
-   "tags": ["flohmarkt", "kultur"],
+   "tags": ["markt", "kultur"],
    "hinzu": "2026-08-08"
   },
   {
@@ -325,7 +325,7 @@
    "text": "Flohmarkt vor der Kulisse von Dom und Rathaus, 11–18 Uhr — einer von vier Terminen pro Jahr.",
    "lng": 6.0834, "lat": 50.7756,
    "start": "2026-09-27", "meta": "Katschhof · 11–18 Uhr",
-   "tags": ["flohmarkt"],
+   "tags": ["markt"],
    "quelle": "https://www.melan.de/fuer-alle/standorte/details/~/Aachen-Altstadt-1o/",
    "hinzu": "2026-08-08"
   },
@@ -337,7 +337,7 @@
    "text": "Aachens heiße Schwefelquelle kostenlos probieren — direkt am klassizistischen Brunnen.",
    "lng": 6.0871, "lat": 50.7747,
    "meta": "kostenlos · frei zugänglich",
-   "tags": ["essen"],
+   "tags": ["markt"],
    "hinzu": "2026-08-07", "fest": true
   },
   {
@@ -358,7 +358,7 @@
    "lng": 6.092429, "lat": 50.764275,
    "saison": {"von": "08-15", "bis": "10-15"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte"],
+   "tags": ["natur"],
    "link": "https://mundraub.org/node/93405", "quelle": "https://mundraub.org/node/93405",
    "hinzu": "2026-08-07", "fest": true
   },
@@ -370,7 +370,7 @@
    "lng": 6.165218, "lat": 50.762196,
    "saison": {"von": "07-15", "bis": "10-31"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte"],
+   "tags": ["natur"],
    "link": "https://mundraub.org/node/23031", "quelle": "https://mundraub.org/node/23031",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -382,7 +382,7 @@
    "lng": 6.042084, "lat": 50.826806,
    "saison": {"von": "08-15", "bis": "10-31"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte"],
+   "tags": ["natur"],
    "link": "https://mundraub.org/node/76079", "quelle": "https://mundraub.org/node/76079",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -394,7 +394,7 @@
    "lng": 6.12977, "lat": 50.792603,
    "saison": {"von": "08-01", "bis": "10-15"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte"],
+   "tags": ["natur"],
    "link": "https://mundraub.org/node/9144", "quelle": "https://mundraub.org/node/9144",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -406,7 +406,7 @@
    "lng": 6.081383, "lat": 50.783955,
    "saison": {"von": "07-15", "bis": "08-31"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte"],
+   "tags": ["natur"],
    "link": "https://mundraub.org/node/2444", "quelle": "https://mundraub.org/node/2444",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -418,7 +418,7 @@
    "lng": 6.137795, "lat": 50.771152,
    "saison": {"von": "07-15", "bis": "09-30"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte"],
+   "tags": ["natur"],
    "link": "https://mundraub.org/node/3003", "quelle": "https://mundraub.org/node/3003",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -430,7 +430,7 @@
    "lng": 6.072671, "lat": 50.755489,
    "saison": {"von": "07-15", "bis": "09-30"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte"],
+   "tags": ["natur"],
    "link": "https://mundraub.org/node/2437", "quelle": "https://mundraub.org/node/2437",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -442,7 +442,7 @@
    "lng": 6.173201, "lat": 50.700481,
    "saison": {"von": "07-15", "bis": "09-30"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte"],
+   "tags": ["natur"],
    "link": "https://mundraub.org/node/20508", "quelle": "https://mundraub.org/node/20508",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -454,7 +454,7 @@
    "lng": 6.118735, "lat": 50.751992,
    "saison": {"von": "06-15", "bis": "08-31"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte"],
+   "tags": ["natur"],
    "link": "https://mundraub.org/node/145140", "quelle": "https://mundraub.org/node/145140",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -466,7 +466,7 @@
    "lng": 6.190871, "lat": 50.755179,
    "saison": {"von": "06-20", "bis": "08-15"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte"],
+   "tags": ["natur"],
    "link": "https://mundraub.org/node/14531", "quelle": "https://mundraub.org/node/14531",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -478,7 +478,7 @@
    "lng": 6.029177, "lat": 50.707135,
    "saison": {"von": "09-01", "bis": "10-31"},
    "meta": "Ernte · mundraub · Belgien",
-   "tags": ["ernte"],
+   "tags": ["natur"],
    "link": "https://mundraub.org/node/92032", "quelle": "https://mundraub.org/node/92032",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -490,7 +490,7 @@
    "lng": 6.063251, "lat": 50.751934,
    "saison": {"von": "09-20", "bis": "10-31"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte"],
+   "tags": ["natur"],
    "link": "https://mundraub.org/node/2435", "quelle": "https://mundraub.org/node/2435",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -502,7 +502,7 @@
    "lng": 6.029048, "lat": 50.780056,
    "saison": {"von": "07-15", "bis": "10-31"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte"],
+   "tags": ["natur"],
    "link": "https://mundraub.org/node/1787", "quelle": "https://mundraub.org/node/1787",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -514,7 +514,7 @@
    "lng": 6.115619, "lat": 50.773987,
    "saison": {"von": "07-01", "bis": "07-31"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte"],
+   "tags": ["natur"],
    "link": "https://mundraub.org/node/1447", "quelle": "https://mundraub.org/node/1447",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -526,7 +526,7 @@
    "lng": 6.047469, "lat": 50.738095,
    "saison": {"von": "06-15", "bis": "07-31"},
    "meta": "Ernte · mundraub",
-   "tags": ["ernte"],
+   "tags": ["natur"],
    "link": "https://mundraub.org/node/102542", "quelle": "https://mundraub.org/node/102542",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -538,7 +538,7 @@
    "lng": 6.103098, "lat": 50.756604,
    "saison": {"von": "03-01", "bis": "05-15"},
    "meta": "Ernte · mundraub · Frühjahr",
-   "tags": ["ernte"],
+   "tags": ["natur"],
    "link": "https://mundraub.org/node/7108", "quelle": "https://mundraub.org/node/7108",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -550,7 +550,7 @@
    "lng": 5.911075, "lat": 51.038885,
    "saison": {"von": "07-01", "bis": "08-15"},
    "meta": "Selbstpflücke · Selfkant",
-   "tags": ["ernte", "kinder"],
+   "tags": ["natur", "familie"],
    "link": "https://www.juppis-hof.de/veranstaltungen/beerenpfluecken/", "quelle": "https://www.juppis-hof.de/veranstaltungen/beerenpfluecken/",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -562,7 +562,7 @@
    "lng": 6.029152, "lat": 50.763459,
    "saison": {"von": "05-25", "bis": "07-15"},
    "meta": "Selbstpflücke · bio",
-   "tags": ["ernte", "kinder", "essen"],
+   "tags": ["natur", "familie", "markt"],
    "quelle": "https://kingkalli.de/erdbeeren-pfluecken-im-raum-aachen-dueren/",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -574,7 +574,7 @@
    "lng": 6.048408, "lat": 50.765419,
    "saison": {"von": "06-01", "bis": "07-15"},
    "meta": "Selbstpflücke · bio",
-   "tags": ["ernte", "kinder", "essen"],
+   "tags": ["natur", "familie", "markt"],
    "quelle": "https://kingkalli.de/erdbeeren-pfluecken-im-raum-aachen-dueren/",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -586,7 +586,7 @@
    "lng": 6.070418, "lat": 50.817951,
    "saison": {"von": "03-15", "bis": "10-15"},
    "meta": "Selber schneiden",
-   "tags": ["ernte"],
+   "tags": ["natur"],
    "quelle": "https://aachen.t-online.de/region/aachen/id_101197882/geheimtipp-in-aachen-hier-koennen-sie-ihren-fruehlingsstrauss-selbst-pfluecken.html",
    "hinzu": "2026-08-08", "fest": true
   },
@@ -609,7 +609,7 @@
    "text": "Queere Partyreihe mit DJ-Sets im Clubkeller. Ab 21 Uhr.",
    "lng": 6.0810781, "lat": 50.7665207,
    "start": "2026-08-08", "meta": "Dein Hotel Europa · 21 Uhr",
-   "tags": ["party", "musik"],
+   "tags": ["musik"],
    "link": "https://www.deinhoteleuropa.de/programm/", "quelle": "https://www.deinhoteleuropa.de/programm/",
    "hinzu": "2026-08-08"
   },
@@ -620,7 +620,7 @@
    "text": "Clubnacht mit DJ Ice Kareem im Apollo. Einlass ab 23 Uhr.",
    "lng": 6.078955, "lat": 50.7806829,
    "start": "2026-08-08", "meta": "Apollo · 23 Uhr",
-   "tags": ["party", "musik"],
+   "tags": ["musik"],
    "link": "https://apollo-aachen.de/club/events/", "quelle": "https://apollo-aachen.de/club/events/",
    "hinzu": "2026-08-08"
   },
@@ -687,7 +687,7 @@
    "text": "Salsa-Abend im Apollo, wöchentlich mittwochs. Ab 19 Uhr.",
    "lng": 6.078955, "lat": 50.7806829,
    "start": "2026-08-12", "meta": "Apollo · 19 Uhr",
-   "tags": ["party", "musik"],
+   "tags": ["musik"],
    "link": "https://apollo-aachen.de/club/events/", "quelle": "https://apollo-aachen.de/club/events/",
    "hinzu": "2026-08-08"
   },
@@ -753,7 +753,7 @@
    "text": "Mobiles Straßenmusikformat für alle Altersgruppen. Ab 17 Uhr.",
    "lng": 6.0857, "lat": 50.7752,
    "start": "2026-08-15", "meta": "Elisengarten · 17 Uhr · frei",
-   "tags": ["musik", "kinder"],
+   "tags": ["musik", "familie"],
    "link": "https://aachen-kalender.de/event/reit-wm-2026-rahmenprogramm-klangkarre/", "quelle": "https://aachen-kalender.de/event/reit-wm-2026-rahmenprogramm-klangkarre/",
    "hinzu": "2026-08-08"
   },
@@ -808,7 +808,7 @@
    "text": "Balkan-Beats zum Tanzen auf dem Marktplatz. Eintritt frei.",
    "lng": 6.0838, "lat": 50.776,
    "start": "2026-08-19", "meta": "Markt · 20:30 · frei",
-   "tags": ["musik", "party"],
+   "tags": ["musik"],
    "link": "https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/", "quelle": "https://aachen-kalender.de/event/aachen-wm-special-shantel/",
    "hot": true, "hinzu": "2026-08-08"
   },
@@ -819,7 +819,7 @@
    "text": "Salsa-Abend im Apollo. Ab 19 Uhr.",
    "lng": 6.078955, "lat": 50.7806829,
    "start": "2026-08-19", "meta": "Apollo · 19 Uhr",
-   "tags": ["party", "musik"],
+   "tags": ["musik"],
    "link": "https://apollo-aachen.de/club/events/", "quelle": "https://apollo-aachen.de/club/events/",
    "hinzu": "2026-08-08"
   },
@@ -841,7 +841,7 @@
    "text": "Hardstyle- und EDM-Duo auf dem Marktplatz. Eintritt frei.",
    "lng": 6.0838, "lat": 50.776,
    "start": "2026-08-21", "meta": "Markt · 20:30 · frei",
-   "tags": ["musik", "party"],
+   "tags": ["musik"],
    "link": "https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/", "quelle": "https://aachen-kalender.de/event/aachen-wm-special-harris-ford/",
    "hot": true, "hinzu": "2026-08-08"
   },
@@ -863,7 +863,7 @@
    "text": "Elektronische Clubnacht im Kellergewölbe. Ab 22 Uhr.",
    "lng": 6.0810781, "lat": 50.7665207,
    "start": "2026-08-21", "meta": "Dein Hotel Europa · 22 Uhr",
-   "tags": ["party", "musik"],
+   "tags": ["musik"],
    "link": "https://www.deinhoteleuropa.de/programm/", "quelle": "https://www.deinhoteleuropa.de/programm/",
    "hinzu": "2026-08-08"
   },
@@ -874,7 +874,7 @@
    "text": "Partynacht mit aktuellen Charts im Apollo. Einlass ab 23 Uhr.",
    "lng": 6.078955, "lat": 50.7806829,
    "start": "2026-08-21", "meta": "Apollo · 23 Uhr",
-   "tags": ["party", "musik"],
+   "tags": ["musik"],
    "link": "https://apollo-aachen.de/club/events/", "quelle": "https://apollo-aachen.de/club/events/",
    "hinzu": "2026-08-08"
   },
@@ -896,7 +896,7 @@
    "text": "Mobiles Straßenmusikformat, zwei Durchgänge ab 15:30 und 17 Uhr.",
    "lng": 6.0857, "lat": 50.7752,
    "start": "2026-08-22", "meta": "Elisengarten · 15:30 + 17 Uhr · frei",
-   "tags": ["musik", "kinder"],
+   "tags": ["musik", "familie"],
    "link": "https://aachen-kalender.de/event/klangkarre/2026-08-22/1/", "quelle": "https://aachen-kalender.de/event/klangkarre/2026-08-22/1/",
    "hinzu": "2026-08-08"
   },
@@ -907,7 +907,7 @@
    "text": "Clubnacht im Apollo. Einlass ab 23 Uhr.",
    "lng": 6.078955, "lat": 50.7806829,
    "start": "2026-08-22", "meta": "Apollo · 23 Uhr",
-   "tags": ["party", "musik"],
+   "tags": ["musik"],
    "link": "https://apollo-aachen.de/club/events/", "quelle": "https://apollo-aachen.de/club/events/",
    "hinzu": "2026-08-08"
   },
@@ -951,7 +951,7 @@
    "text": "Salsa-Abend im Apollo. Ab 19 Uhr.",
    "lng": 6.078955, "lat": 50.7806829,
    "start": "2026-08-26", "meta": "Apollo · 19 Uhr",
-   "tags": ["party", "musik"],
+   "tags": ["musik"],
    "link": "https://apollo-aachen.de/club/events/", "quelle": "https://apollo-aachen.de/club/events/",
    "hinzu": "2026-08-08"
   },
@@ -984,7 +984,7 @@
    "text": "House-Clubnacht im Kellergewölbe. Ab 22 Uhr.",
    "lng": 6.0810781, "lat": 50.7665207,
    "start": "2026-08-29", "meta": "Dein Hotel Europa · 22 Uhr",
-   "tags": ["party", "musik"],
+   "tags": ["musik"],
    "link": "https://www.deinhoteleuropa.de/programm/", "quelle": "https://www.deinhoteleuropa.de/programm/",
    "hinzu": "2026-08-08"
   },
@@ -1006,7 +1006,7 @@
    "text": "Partynacht mit Hits der 2000er im Apollo. Einlass ab 23 Uhr.",
    "lng": 6.078955, "lat": 50.7806829,
    "start": "2026-08-14", "meta": "Apollo · 23 Uhr",
-   "tags": ["party", "musik"],
+   "tags": ["musik"],
    "link": "https://apollo-aachen.de/club/events/", "quelle": "https://apollo-aachen.de/club/events/",
    "hinzu": "2026-08-08"
   },
@@ -1017,7 +1017,7 @@
    "text": "Clubnacht im Kellergewölbe von Dein Hotel Europa. Start 22 Uhr.",
    "lng": 6.0810781, "lat": 50.7665207,
    "start": "2026-08-15", "meta": "Dein Hotel Europa · 22 Uhr",
-   "tags": ["party", "musik"],
+   "tags": ["musik"],
    "link": "https://www.deinhoteleuropa.de/programm/", "quelle": "https://www.deinhoteleuropa.de/programm/",
    "hinzu": "2026-08-08"
   },
@@ -1028,7 +1028,7 @@
    "text": "Clubnacht im Apollo mit Einlass ab 23 Uhr.",
    "lng": 6.078955, "lat": 50.7806829,
    "start": "2026-08-15", "meta": "Apollo · 23 Uhr",
-   "tags": ["party", "musik"],
+   "tags": ["musik"],
    "link": "https://apollo-aachen.de/club/events/", "quelle": "https://apollo-aachen.de/club/events/",
    "hinzu": "2026-08-08"
   },
@@ -1061,7 +1061,7 @@
    "text": "Clubnacht des FLINTA-DJ-Kollektivs im Kellergewölbe. Start 22 Uhr.",
    "lng": 6.0810781, "lat": 50.7665207,
    "start": "2026-08-22", "meta": "Dein Hotel Europa · 22 Uhr",
-   "tags": ["party", "musik"],
+   "tags": ["musik"],
    "link": "https://www.deinhoteleuropa.de/programm/", "quelle": "https://www.deinhoteleuropa.de/programm/",
    "hinzu": "2026-08-08"
   },
@@ -1072,7 +1072,7 @@
    "text": "Figurentheater von Ute Kahmann für Kinder im Burghof. Beginn 15 Uhr.",
    "lng": 6.1038202, "lat": 50.7678212,
    "start": "2026-08-23", "meta": "Burg Frankenberg · 15 Uhr",
-   "tags": ["kinder", "kultur"],
+   "tags": ["familie", "kultur"],
    "link": "https://burgfrankenberg.de/programm/", "quelle": "https://burgfrankenberg.de/programm/",
    "hinzu": "2026-08-08"
   },
@@ -1083,7 +1083,7 @@
    "text": "Aftershow zum Christopher Street Day im Clubkeller. Ab 22:30 Uhr.",
    "lng": 6.0810781, "lat": 50.7665207,
    "start": "2026-08-28", "meta": "Dein Hotel Europa · 22:30 Uhr",
-   "tags": ["party", "musik"],
+   "tags": ["musik"],
    "link": "https://www.deinhoteleuropa.de/programm/", "quelle": "https://www.deinhoteleuropa.de/programm/",
    "hinzu": "2026-08-08"
   },
@@ -1094,7 +1094,7 @@
    "text": "Aftershow-Party zum Christopher Street Day im FRANZ. Ab 22:30 Uhr.",
    "lng": 6.0864597, "lat": 50.7685241,
    "start": "2026-08-29", "meta": "FRANZ · 22:30 Uhr",
-   "tags": ["party", "musik"],
+   "tags": ["musik"],
    "link": "https://aachen-franz.de/programm/", "quelle": "https://aachen-franz.de/programm/",
    "hinzu": "2026-08-08"
   },
@@ -1116,7 +1116,7 @@
    "text": "Partynacht mit Hits der 90er im Apollo. Einlass ab 23 Uhr.",
    "lng": 6.078955, "lat": 50.7806829,
    "start": "2026-08-29", "meta": "Apollo · 23 Uhr",
-   "tags": ["party", "musik"],
+   "tags": ["musik"],
    "link": "https://apollo-aachen.de/club/events/", "quelle": "https://apollo-aachen.de/club/events/",
    "hinzu": "2026-08-08"
   },
@@ -1138,7 +1138,7 @@
    "text": "Latin-Party mit DJ Senci, vorab kostenloser Bachata-Tanzkurs. Ab 20 Uhr.",
    "lng": 6.0864597, "lat": 50.7685241,
    "start": "2026-09-04", "meta": "FRANZ · 20 Uhr",
-   "tags": ["party", "musik"],
+   "tags": ["musik"],
    "link": "https://aachen-franz.de/programm/", "quelle": "https://aachen-franz.de/programm/",
    "hinzu": "2026-08-08"
   },
@@ -1149,7 +1149,7 @@
    "text": "Clubabend mit Big Beats und Live-Visuals im FRANZ. Ab 21 Uhr.",
    "lng": 6.0864597, "lat": 50.7685241,
    "start": "2026-09-05", "meta": "FRANZ · 21 Uhr",
-   "tags": ["party", "musik"],
+   "tags": ["musik"],
    "link": "https://rausgegangen.de/events/urban-grooves-dj-royale-vj-peter-k-mit-big-beats-und-visuell-0/",
    "quelle": "https://rausgegangen.de/events/urban-grooves-dj-royale-vj-peter-k-mit-big-beats-und-visuell-0/",
    "hinzu": "2026-08-08"
@@ -1228,7 +1228,7 @@
    "text": "Disco-Party im FRANZ. Ab 21 Uhr.",
    "lng": 6.0864597, "lat": 50.7685241,
    "start": "2026-09-12", "meta": "FRANZ · 21 Uhr",
-   "tags": ["party", "musik"],
+   "tags": ["musik"],
    "link": "https://aachen-franz.de/programm/", "quelle": "https://aachen-franz.de/programm/",
    "hinzu": "2026-08-08"
   },
@@ -1261,7 +1261,7 @@
    "text": "Salsa-Abend mit DJ Alan, vorab kostenloser Tanzkurs. Ab 20 Uhr.",
    "lng": 6.0864597, "lat": 50.7685241,
    "start": "2026-09-18", "meta": "FRANZ · 20 Uhr",
-   "tags": ["party", "musik"],
+   "tags": ["musik"],
    "link": "https://aachen-franz.de/programm/", "quelle": "https://aachen-franz.de/programm/",
    "hinzu": "2026-08-08"
   },
@@ -1272,7 +1272,7 @@
    "text": "Clubnacht mit Psytrance im Musikbunker. Start 22 Uhr.",
    "lng": 6.1035274, "lat": 50.7672224,
    "start": "2026-09-19", "meta": "Musikbunker · 22 Uhr",
-   "tags": ["party", "musik"],
+   "tags": ["musik"],
    "link": "https://mubu.ac/", "quelle": "https://mubu.ac/",
    "hinzu": "2026-08-08"
   },
@@ -1404,7 +1404,7 @@
    "text": "Geburtstagskonzert mit anschließender Party. Eintritt frei, Beginn 20 Uhr.",
    "lng": 6.0864597, "lat": 50.7685241,
    "start": "2026-10-02", "meta": "FRANZ · 20 Uhr · frei",
-   "tags": ["musik", "party"],
+   "tags": ["musik"],
    "link": "https://aachen-franz.de/programm/", "quelle": "https://aachen-franz.de/programm/",
    "hinzu": "2026-08-08"
   },
@@ -1437,7 +1437,7 @@
    "text": "Die britische Band Henge bringt ihre Show in den Musikbunker. Beginn 20 Uhr.",
    "lng": 6.1035274, "lat": 50.7672224,
    "start": "2026-10-07", "meta": "Musikbunker · 20 Uhr",
-   "tags": ["musik", "party"],
+   "tags": ["musik"],
    "link": "https://mubu.ac/", "quelle": "https://mubu.ac/",
    "hinzu": "2026-08-08"
   },
@@ -1470,7 +1470,7 @@
    "text": "Queere Tanzparty mit DJane Blues im FRANZ. Ab 21 Uhr.",
    "lng": 6.0864597, "lat": 50.7685241,
    "start": "2026-10-10", "meta": "FRANZ · 21 Uhr",
-   "tags": ["party", "musik"],
+   "tags": ["musik"],
    "link": "https://aachen-franz.de/programm/", "quelle": "https://aachen-franz.de/programm/",
    "hinzu": "2026-08-08"
   },

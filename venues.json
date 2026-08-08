@@ -1,4 +1,4 @@
-{
+﻿{
   "stand": "2026-08-08",
   "hinweis": "Spielstätten mit wechselndem Programm. Das tägliche Update-Skript prüft jede gezielt und setzt für gefundene Events die hier hinterlegten (geprüften) Koordinaten ein — so landen Konzerte immer exakt am richtigen Ort. NEUE STADT: einfach einen weiteren Eintrag unter 'staedte' anlegen und das Skript mit STADT=<schluessel> starten; am Code ändert sich nichts. Feld 'muster' (Regex) nur bei Häusern setzen, die über die kulturApi kommen. 'aliase' hilft beim Zuordnen von Events, die den Namen abweichend schreiben. Koordinaten am 08.08.2026 gegen Adresse und OpenStreetMap geprüft.",
   "staedte": {
@@ -22,7 +22,7 @@
           "lng": 6.1035274, "lat": 50.7672224,
           "adresse": "Goffartstraße 39, 52066 Aachen",
           "art": "Konzertclub",
-          "tags": ["musik", "party"],
+          "tags": ["musik"],
           "programm": "https://mubu.ac/"
         },
         {
@@ -32,7 +32,7 @@
           "lng": 6.0864597, "lat": 50.7685241,
           "adresse": "Franzstraße 74, 52064 Aachen",
           "art": "Kulturzentrum / Kleinkunstbühne",
-          "tags": ["musik", "kultur", "party"],
+          "tags": ["musik", "kultur"],
           "programm": "https://aachen-franz.de/programm/"
         },
         {
@@ -53,7 +53,7 @@
           "lng": 6.0810781, "lat": 50.7665207,
           "adresse": "Südstraße 54, 52064 Aachen",
           "art": "Clubkeller & Bar",
-          "tags": ["musik", "party"],
+          "tags": ["musik"],
           "programm": "https://www.deinhoteleuropa.de/programm/",
           "hinweis": "Programmseite nennt kein Jahr — Datum über Wochentag prüfen"
         },
@@ -97,7 +97,7 @@
           "lng": 6.0789550, "lat": 50.7806829,
           "adresse": "Pontstraße 141-149, 52062 Aachen",
           "art": "Kino & Club",
-          "tags": ["musik", "party", "kultur"],
+          "tags": ["musik", "kultur"],
           "programm": "https://apollo-aachen.de/club/events/"
         },
         {
@@ -107,7 +107,7 @@
           "lng": 6.0928604, "lat": 50.7683778,
           "adresse": "Hackländerstraße 5, 52064 Aachen",
           "art": "Selbstverwaltetes Kulturzentrum",
-          "tags": ["musik", "party", "kultur"],
+          "tags": ["musik", "kultur"],
           "programm": "https://az-aachen.de/termine/"
         },
         {
@@ -117,7 +117,7 @@
           "lng": 6.0853144, "lat": 50.7757210,
           "adresse": "Hof 1, 52062 Aachen",
           "art": "Kneipe mit Livemusik",
-          "tags": ["musik", "essen"],
+          "tags": ["musik", "markt"],
           "programm": "https://www.domkeller.de/"
         },
         {
@@ -147,7 +147,7 @@
           "lng": 6.0838112, "lat": 50.7775955,
           "adresse": "Mostardstraße 15, 52062 Aachen",
           "art": "Club (elektronische Musik)",
-          "tags": ["musik", "party"],
+          "tags": ["musik"],
           "programm": "",
           "hinweis": "Nur Facebook/Instagram — nicht automatisierbar"
         },
@@ -158,7 +158,7 @@
           "lng": 6.0821826, "lat": 50.7778679,
           "adresse": "Pontstraße 39, 52062 Aachen",
           "art": "Café/Bar mit Livemusik",
-          "tags": ["musik", "essen"],
+          "tags": ["musik", "markt"],
           "programm": "https://aachen-kalender.de/"
         },
         {
@@ -252,7 +252,7 @@
           "lng": 6.1211, "lat": 50.7757,
           "adresse": "Rothe Erde, Aachen",
           "art": "Veranstaltungssaal",
-          "tags": ["musik", "party"],
+          "tags": ["musik"],
           "programm": "",
           "koordinaten_pruefen": true
         },
@@ -305,7 +305,7 @@
           "lng": 6.0857, "lat": 50.7752,
           "adresse": "Elisengarten, 52062 Aachen",
           "art": "Park mit Veranstaltungen",
-          "tags": ["musik", "kinder"],
+          "tags": ["musik", "familie"],
           "programm": "https://aachen-kalender.de/"
         },
         {
@@ -357,7 +357,7 @@
           "lng": 6.0951, "lat": 50.7827,
           "adresse": "Kurpark, 52062 Aachen",
           "art": "Gastronomie mit Livemusik",
-          "tags": ["musik", "essen"],
+          "tags": ["musik", "markt"],
           "programm": "https://aachen-kalender.de/",
           "koordinaten_pruefen": true
         },

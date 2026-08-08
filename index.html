@@ -198,6 +198,29 @@
     filter:drop-shadow(0 1px 2px rgba(0,0,0,.7))}
   .cluster:focus-visible{outline:2px solid var(--papier);outline-offset:3px}
 
+  /* Hover-Vorschau: Titel erscheint direkt am Pin, ohne dass man klicken muss.
+     Auf Touchgeräten irrelevant (kein Hover) — dort führt der Tipp direkt zum Popup. */
+  .blip .tip{position:absolute;bottom:calc(100% + 7px);left:50%;transform:translateX(-50%);
+    background:var(--panel);color:var(--papier);border:1px solid var(--linie);border-radius:9px;
+    padding:6px 9px;font:600 11.5px 'Inter';white-space:nowrap;max-width:230px;overflow:hidden;
+    text-overflow:ellipsis;pointer-events:none;opacity:0;visibility:hidden;
+    transition:opacity .13s ease;box-shadow:0 4px 14px rgba(0,0,0,.5);z-index:20}
+  .blip .tip small{display:block;color:var(--grau);font-weight:400;font-size:10.5px}
+  @media (hover:hover){
+    .blip:hover{z-index:19}
+    .blip:hover .tip{opacity:1;visibility:visible}
+    .cluster:hover{filter:brightness(1.08)}
+  }
+  .blip:focus-visible .tip{opacity:1;visibility:visible}
+
+  /* Blättern zwischen Pins (wie in Immobilienportalen: Treffer durchklicken) */
+  .p-nav{display:flex;align-items:center;justify-content:space-between;gap:8px;
+    margin:-4px -4px 8px;padding-bottom:8px;border-bottom:1px solid var(--linie)}
+  .p-nav button{width:30px;height:26px;border-radius:7px;border:1px solid var(--linie);
+    background:transparent;color:var(--papier);cursor:pointer;font-size:14px;line-height:1;flex:none}
+  .p-nav button:disabled{opacity:.3;cursor:default}
+  .p-nav .zaehler{font-size:11px;color:var(--grau);text-align:center;flex:1}
+
   /* Heimat-Marker */
   .heim-marker{width:16px;height:16px;border-radius:50%;background:var(--papier);
     border:3px solid var(--nacht);box-shadow:0 0 0 2px var(--papier)}
@@ -267,8 +290,12 @@
   .radius-wahl button{border:1px solid var(--linie);background:var(--nacht);color:var(--papier);
     border-radius:8px;padding:6px 10px;font:600 12px 'Inter';cursor:pointer}
   .radius-wahl button.an{background:var(--papier);color:#141414}
-  .blatt input[type="date"]{border:1px solid var(--linie);background:var(--nacht);color:var(--papier);
-    border-radius:8px;padding:8px 10px;font:600 13px 'Inter';color-scheme:dark}
+  .blatt input[type="date"],.blatt input[type="time"]{border:1px solid var(--linie);
+    background:var(--nacht);color:var(--papier);border-radius:8px;padding:8px 10px;
+    font:600 13px 'Inter';color-scheme:dark}
+  .zeit-feld{display:flex;gap:6px;align-items:center;flex:1;justify-content:flex-end}
+  .zeit-feld input[type="time"]{width:98px;flex:none}
+  .zeit-feld input[type="date"]{flex:none}
 
   /* Listenansicht */
   .liste-zeile{display:flex;align-items:center;gap:10px;width:100%;text-align:left;
@@ -430,22 +457,26 @@ const ICON = {
 };
 const TYPNAME  = {event:"Event", angebot:"Angebot", hilfe:"Hilfe", spot:"Fotospot"};
 const TYPPLURAL= {event:"Events", angebot:"Angebote", hilfe:"Hilfe", spot:"Spots"};
-/* Genau neun Themen — mehr überfordert die Filterleiste, weniger unterscheidet zu grob.
-   Bewusst NICHT als Thema geführt:
-   · "kostenlos"  → Eigenschaft, steht in der Meta-Zeile, über die Suche auffindbar
-   · "fotospot", "hilfe", "verschenken" → decken sich mit den Kategorie-Chips unten
-   · "natur", "saisonal", "markt" → waren Doppelungen von Ernte bzw. Essen */
-const TAG_LABEL = {musik:"🎵 Musik", party:"🪩 Party", kultur:"🎭 Kultur", fest:"🎉 Feste",
-  flohmarkt:"🛍 Flohmarkt", essen:"🍽 Essen & Markt", sport:"⚽ Sport", kinder:"🧒 Kinder",
-  ernte:"🍏 Ernte"};
+/* Sieben Themen, bewusst überschneidungsfrei — jeder Pin lässt sich eindeutig zuordnen:
+     musik   Konzerte, Clubnächte, DJs, Livemusik        (früher musik + party)
+     kultur  Theater, Museum, Ausstellung, Lesung, Kino, Comedy, Führungen
+     fest    Stadt-/Straßenfeste, Kirmes, CSD — das Feiern selbst ist der Anlass
+     markt   Wochenmarkt, Flohmarkt, Trödel, Antik, Food — Stöbern und Kaufen
+     sport   Spiele, Läufe, Turniere, Sport im Park
+     familie Programm für Kinder und Familien
+     natur   Ernte, Selbstpflücke, Natur-Erlebnis
+   NICHT als Thema geführt: "kostenlos" (Eigenschaft → Meta-Zeile + Suche) sowie
+   "fotospot"/"hilfe"/"verschenken" (decken sich mit den Kategorie-Chips darunter). */
+const TAG_LABEL = {musik:"🎵 Musik & Party", kultur:"🎭 Kultur", fest:"🎉 Feste",
+  markt:"🛍 Märkte", sport:"⚽ Sport", familie:"🧒 Familie", natur:"🍏 Natur & Ernte"};
 /* Blip-Symbol: Thema schlägt Kategorie (mundraub soll nicht als generisches "Angebot"
    erscheinen — dieselben Symbole wie in der Filterleiste auch auf der Karte).
    Ohne Thema greift das Kategorie-Icon (Kamera, Herz, Geschenk, Kalender). */
-const TAG_EMOJI = {musik:"🎵", party:"🪩", kultur:"🎭", fest:"🎉", flohmarkt:"🛍",
-  essen:"🍽", sport:"⚽", kinder:"🧒", ernte:"🍏"};
-const BLIP_PRIO = ["ernte","flohmarkt","musik","party","sport","kultur","fest","kinder","essen"];
+const TAG_EMOJI = {musik:"🎵", kultur:"🎭", fest:"🎉", markt:"🛍",
+  sport:"⚽", familie:"🧒", natur:"🍏"};
+const BLIP_PRIO = ["natur","markt","musik","sport","kultur","fest","familie"];
 function blipSymbol(p){ const t = BLIP_PRIO.find(t => p.tags.includes(t)); return t ? TAG_EMOJI[t] : null; }
-const ONBOARDING_TAGS = ["musik","party","kultur","fest","flohmarkt","essen","sport","kinder","ernte"];
+const ONBOARDING_TAGS = ["musik","kultur","fest","markt","sport","familie","natur"];
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = s => document.querySelector(s);
@@ -505,6 +536,28 @@ function wdhImFenster(wdh, von, bis){
   for(let i=0; i<8 && d<=bis; i++){ if(wdhAnTag(wdh, d)) return true; d.setDate(d.getDate()+1); }
   return false;
 }
+/* Uhrzeit aus der Meta-Zeile lesen: "Musikbunker · 20 Uhr", "Markt · 20:30 · frei",
+   "Sa 7–13 Uhr". Liefert Minuten seit Mitternacht oder null, wenn keine Zeit dabeisteht. */
+function startMinute(p){
+  if(p._min !== undefined) return p._min;
+  const text = (p.meta || "") + " " + (p.text || "");
+  const m = text.match(/(?:^|[^\d.])(\d{1,2})[:.](\d{2})\s*(?:Uhr)?/) ||
+            text.match(/(?:^|[^\d.])(\d{1,2})\s*Uhr/);
+  p._min = m ? (+m[1]) * 60 + (m[2] ? +m[2] : 0) : null;
+  if(p._min !== null && (p._min < 0 || p._min > 1439)) p._min = null;
+  return p._min;
+}
+/* Uhrzeit-Fenster prüfen — nur wenn im Filter überhaupt eine Zeit gesetzt wurde.
+   Pins ohne Zeitangabe (Märkte, Ausstellungen, Ernteorte) bleiben bewusst sichtbar. */
+function uhrzeitOk(p, f){
+  if(!f || !f.mitZeit) return true;
+  const min = startMinute(p);
+  if(min === null) return true;
+  const vonMin = f.von.getHours()*60 + f.von.getMinutes();
+  const bisMin = f.bis.getHours()*60 + f.bis.getMinutes();
+  return vonMin <= bisMin ? (min >= vonMin && min <= bisMin) : (min >= vonMin || min <= bisMin);
+}
+
 function wdhAktivImFenster(p, von, bis){
   // wdh-Pin mit optionalem start/ende: nur Tage zählen, die auch im Pin-Fenster liegen
   const w = fenster(p);
@@ -518,6 +571,7 @@ function zeitOk(p){
   if(w && w.e < HEUTE0) return false;                      // vorbei → nie zeigen
   const schnitt = suchFenster || (zeit === "range" ? eigenZeitraum : null); // Suche/eigener Zeitraum
   if(schnitt){
+    if(!uhrzeitOk(p, schnitt)) return false;
     if(p.wdh) return wdhAktivImFenster(p, schnitt.von, schnitt.bis);
     if(!w) return false;
     return w.s <= schnitt.bis && schnitt.von <= w.e;
@@ -640,17 +694,18 @@ const FUELLWOERTER = new Set(["am","an","in","im","und","der","die","das","den",
 const SYNONYME = [
   ["konzert","konzerte","livemusik","live-musik","live","band","bands","gig","auftritt","musik",
    "musikalisch","musikbunker","open-air","openair","festival","dj","party","tanz","tanzen","club",
-   "eurogress","klangbruecke","franz","suedoase","sudoase","apollo","domkeller"],
+   "clubnacht","disco","rave","eurogress","klangbruecke","franz","suedoase","sudoase","apollo",
+   "domkeller","jazz","rock","pop","techno","house","schlager","chor","orgel","sinfonie","oper"],
   ["floh","flohmarkt","troedel","trödel","troedelmarkt","antik","kunstmarkt","secondhand",
-   "gebraucht","kram","basar"],
-  ["essen","food","kulinarisch","markt","wochenmarkt","imbiss","restaurant","kaffee","cafe",
-   "brunch","street-food","streetfood"],
+   "gebraucht","kram","basar","markt","maerkte","märkte","wochenmarkt","stand","staende","stände",
+   "essen","food","kulinarisch","imbiss","kaffee","brunch","street-food","streetfood"],
   ["kind","kinder","kindern","familie","familien","familienfreundlich","spielplatz","kita",
-   "kinderfest","jugend"],
+   "kinderfest","jugend","eltern"],
   ["sport","sportlich","fussball","fußball","alemannia","tivoli","reiten","reit","turnier",
-   "lauf","laufen","marathon","schwimmen"],
-  ["kultur","kulturell","museum","museen","theater","ausstellung","kunst","lesung","literatur",
-   "vortrag","fuehrung","führung","kino","film","comedy","kabarett"],
+   "lauf","laufen","marathon","schwimmen","yoga","fitness","bewegung","training","radfahren","rad"],
+  ["kultur","kulturell","museum","museen","theater","ausstellung","ausstellungen","kunst","lesung",
+   "literatur","vortrag","fuehrung","führung","kino","film","comedy","kabarett","oper","tanztheater",
+   "galerie","atelier","vernissage"],
   ["ernte","ernten","pfluecken","pflücken","obst","beeren","brombeeren","heidelbeeren","apfel",
    "äpfel","aepfel","kirschen","nuesse","nüsse","walnuss","mundraub","sammeln","wild","essbar",
    "natur","saison","saisonal"],
@@ -733,6 +788,36 @@ function passtZuMir(p){
 }
 
 /* ---------- Popup (Roadmap Nr. 10, 20, 23) ---------- */
+/* Grundlage fürs Durchblättern (wie eine Trefferliste in Immobilienportalen): die Pins des
+   aktuellen Ausschnitts, nach Relevanz sortiert. Der Kontext wird beim Öffnen des ersten
+   Popups EINGEFROREN — sonst würde sich "3 von 17" bei jeder Kartenbewegung ändern und man
+   verlöre beim Blättern die Reihenfolge. Zurückgesetzt beim Schließen und bei Filterwechsel. */
+let blaetterKontext = null;
+function blaetterListe(p){
+  if(!blaetterKontext){
+    blaetterKontext = PINS.filter(x => sichtbar(x) && imAusschnitt(x))
+      .sort((a,b) => relevanz(b) - relevanz(a));
+    // Am Rand geöffnet? Dann gehört der Pin trotzdem dazu.
+    if(p && !blaetterKontext.some(x => x.id === p.id)) blaetterKontext.unshift(p);
+  }
+  return blaetterKontext;
+}
+function blaetterKontextLoeschen(){ blaetterKontext = null; }
+function zeigePinNr(i){
+  const liste = blaetterListe();
+  const p = liste[i];
+  if(!p) return;
+  const mk = marker.find(x => x.p.id === p.id);
+  if(!mk) return;
+  const merkeKontext = blaetterKontext;                  // Kontext übers Schließen hinweg halten
+  marker.forEach(x => { if(x.m.getPopup() && x.m.getPopup().isOpen()) x.m.togglePopup(); });
+  blaetterKontext = merkeKontext;
+  mk.el.style.display = "flex";
+  lernen(p);
+  if(!map.getBounds().contains([p._lng ?? p.lng, p._lat ?? p.lat]))
+    map.easeTo({center:[p._lng ?? p.lng, p._lat ?? p.lat], duration:400});
+  mk.m.togglePopup();
+}
 function popupHTML(p){
   const meta = [fmtDatum(p), p.meta].filter(Boolean).join(" · ");
   const gold = p.typ === "spot" ? '<div class="p-gold">'+esc(goldeneStundeText(p))+'</div>'
@@ -745,7 +830,18 @@ function popupHTML(p){
     quelle = '<div class="p-quelle">Quelle: <a href="'+esc(p.quelle)+'" target="_blank" rel="noopener">'+esc(host)+'</a></div>';
   }
   const gemerkt = merk[p.id];
-  return '<div class="p-typ '+esc(p.typ)+'">'+ICON[p.typ]+TYPNAME[p.typ]+(p.hot ? '<span class="p-hot">🔥 Highlight</span>' : '')+'</div>'+
+  // Blätter-Leiste wie in Immobilienportalen: Treffer der Reihe nach durchgehen,
+  // ohne jedes Mal zur Karte zurückzumüssen.
+  const liste = blaetterListe(p);
+  const idx = liste.findIndex(x => x.id === p.id);
+  const nav = liste.length > 1 && idx >= 0
+    ? '<div class="p-nav">'+
+        '<button class="p-vor" data-i="'+(idx-1)+'"'+(idx <= 0 ? ' disabled' : '')+' aria-label="Vorheriger Pin">‹</button>'+
+        '<span class="zaehler">'+(idx+1)+' von '+liste.length+'</span>'+
+        '<button class="p-zurueck" data-i="'+(idx+1)+'"'+(idx >= liste.length-1 ? ' disabled' : '')+' aria-label="Nächster Pin">›</button>'+
+      '</div>'
+    : "";
+  return nav + '<div class="p-typ '+esc(p.typ)+'">'+ICON[p.typ]+TYPNAME[p.typ]+(p.hot ? '<span class="p-hot">🔥 Highlight</span>' : '')+'</div>'+
     '<div class="p-titel">'+esc(p.titel)+'</div>'+
     '<div class="p-text">'+esc(p.text)+'</div>'+
     (meta ? '<div class="p-meta">'+esc(meta)+'</div>' : "")+ gold +
@@ -757,6 +853,28 @@ function popupHTML(p){
       '<button class="p-btn sek p-merk'+(gemerkt?' aktivgruen':'')+'" data-id="'+esc(p.id)+'">★ '+(gemerkt?"Gemerkt ✓":"Merken")+'</button>'+
       (p.start ? '<button class="p-btn sek p-ics" data-id="'+esc(p.id)+'">📅 Kalender</button>' : "")+
     '</div>'+ quelle;
+}
+
+/* Kopfzeile und HUD liegen als Overlay über der Karte — MapLibre weiß davon nichts und
+   öffnet Popups gern genau darunter. Nach dem Öffnen prüfen wir die tatsächliche Lage und
+   schieben die Karte nur so weit, dass das Popup frei steht. */
+function popupInsBild(m){
+  setTimeout(() => {
+    const pop = m.getPopup && m.getPopup();
+    if(!pop || !pop.isOpen()) return;
+    const el = pop.getElement();
+    if(!el) return;
+    const box = el.getBoundingClientRect();
+    const hud = document.querySelector(".hud").getBoundingClientRect();
+    const kopfUnten = document.querySelector("header").getBoundingClientRect().bottom;
+    const rand = 10;
+    let dx = 0, dy = 0;
+    if(box.bottom > hud.top - rand) dy = box.bottom - (hud.top - rand);   // vom HUD wegschieben
+    if(box.top - dy < kopfUnten + rand) dy = box.top - (kopfUnten + rand); // aber nicht unter die Kopfzeile
+    if(box.right > innerWidth - rand) dx = box.right - (innerWidth - rand);
+    if(box.left - dx < rand) dx = box.left - rand;
+    if(dx || dy) map.panBy([dx, dy], {duration:280});
+  }, 60);   // Popup braucht einen Frame, bis es gemessen werden kann
 }
 
 /* ---------- Marker ---------- */
@@ -789,12 +907,23 @@ function baueMarker(){
     const el = document.createElement("button");
     el.className = "blip t-"+p.typ + (p.hot ? " hot" : "") + (istNeu(p) ? " frisch" : "");
     const sym = blipSymbol(p);
-    el.innerHTML = '<span class="form"></span>' + (sym ? '<span class="emo">'+sym+'</span>' : ICON[p.typ]);
+    const vorschau = [fmtDatum(p), p.meta].filter(Boolean).join(" · ");
+    el.innerHTML = '<span class="form"></span>' +
+      (sym ? '<span class="emo">'+sym+'</span>' : ICON[p.typ]) +
+      '<span class="tip">' + (p.hot ? "🔥 " : "") + esc(p.titel) +
+      (vorschau ? '<small>'+esc(vorschau)+'</small>' : '') + '</span>';
     el.addEventListener("click", () => lernen(p));
     const m = new maplibregl.Marker({element:el})
       .setLngLat([p._lng ?? p.lng, p._lat ?? p.lat])
-      .setPopup(new maplibregl.Popup({offset:22}).setHTML(popupHTML(p)))
+      .setPopup(new maplibregl.Popup({offset:22, maxWidth:"270px"}).setHTML(popupHTML(p)))
       .addTo(map);
+    // Inhalt bei jedem Öffnen neu bauen: Zähler ("3 von 17"), Danke-Status und
+     // Goldene Stunde hängen vom aktuellen Zustand ab, nicht vom Zeitpunkt des Aufbaus.
+    m.getPopup().on("open", () => { m.getPopup().setHTML(popupHTML(p)); popupInsBild(m); });
+    m.getPopup().on("close", () => setTimeout(() => {
+      // Kein Popup mehr offen → Blätter-Kontext freigeben, damit er beim nächsten Mal frisch ist
+      if(!marker.some(x => x.m.getPopup() && x.m.getPopup().isOpen())) blaetterKontextLoeschen();
+    }, 30));
     el.setAttribute("aria-label", TYPNAME[p.typ]+": "+p.titel);  // nach addTo — MapLibre überschreibt es sonst
     marker.push({p, m, el});
   });
@@ -803,7 +932,7 @@ function baueMarker(){
 /* ---------- Tag-Leiste (Roadmap Nr. 7 + V2 "Für dich") ---------- */
 /* Themen, nach denen Leute aktiv suchen — die stehen vorn, auch wenn es (noch) wenige Pins
    gibt. Sonst rutscht z. B. "Musik" hinter 20 Ernte-Pins und wirkt, als gäbe es keine Konzerte. */
-const TAG_PRIO = ["musik", "party", "kultur", "fest", "flohmarkt", "essen", "sport", "kinder", "ernte"];
+const TAG_PRIO = ["musik", "kultur", "fest", "markt", "sport", "familie", "natur"];
 function baueTagleiste(){
   const zaehl = {};
   PINS.forEach(p => { if(zeitOk(p)) p.tags.forEach(t => zaehl[t] = (zaehl[t]||0)+1); });
@@ -900,7 +1029,13 @@ function ansichtAktualisieren(){
   const zr = $("#zr-chip");
   if(zr){
     const f = d => d.getDate() + "." + (d.getMonth()+1) + ".";
-    zr.textContent = (zeit === "range" && eigenZeitraum) ? "📅 " + f(eigenZeitraum.von) + "–" + f(eigenZeitraum.bis) : "📅 Zeitraum";
+    const u = d => String(d.getHours()).padStart(2,"0") + ":" + String(d.getMinutes()).padStart(2,"0");
+    if(zeit === "range" && eigenZeitraum){
+      const einTag = eigenZeitraum.von.toDateString() === eigenZeitraum.bis.toDateString();
+      zr.textContent = "📅 " + (einTag
+        ? f(eigenZeitraum.von) + (eigenZeitraum.mitZeit ? " " + u(eigenZeitraum.von) + "–" + u(eigenZeitraum.bis) : "")
+        : f(eigenZeitraum.von) + "–" + f(eigenZeitraum.bis));
+    } else zr.textContent = "📅 Zeitraum";
   }
   const rst = $("#filter-reset");
   if(rst) rst.classList.toggle("da", filterAktiv());
@@ -910,6 +1045,9 @@ function ansichtAktualisieren(){
   document.querySelectorAll("#tagleiste .tagchip").forEach(c => {
     if(c.classList.contains("fuerdich")){ c.classList.toggle("an", fuerDich); return; }
   });
+  // Trefferliste nur verwerfen, wenn gerade niemand darin blättert (sonst würde jede
+  // Kartenbewegung beim Durchklicken die Reihenfolge zerreißen).
+  if(!marker.some(x => x.m.getPopup() && x.m.getPopup().isOpen())) blaetterKontextLoeschen();
   const zuZeigen = [];
   marker.forEach(x => {
     const zeigen = sichtbar(x.p);
@@ -1029,26 +1167,44 @@ document.querySelectorAll(".zchip").forEach(c => {
 /* Eigener Zeitraum (User-Test: "in bestimmten Zeiträumen auswählen") */
 function zeitraumWaehlen(){
   const iso = d => d.toISOString().slice(0,10);
+  const uhr = d => String(d.getHours()).padStart(2,"0") + ":" + String(d.getMinutes()).padStart(2,"0");
   const von = eigenZeitraum ? iso(eigenZeitraum.von) : iso(new Date());
   const bisD = eigenZeitraum ? eigenZeitraum.bis : (() => { const x = new Date(); x.setDate(x.getDate()+7); return x; })();
+  const vonZeit = eigenZeitraum && eigenZeitraum.mitZeit ? uhr(eigenZeitraum.von) : "00:00";
+  const bisZeit = eigenZeitraum && eigenZeitraum.mitZeit ? uhr(eigenZeitraum.bis) : "23:59";
   modalOeffnen(
     '<h2>📅 Eigener Zeitraum</h2>'+
     '<p>Zeige nur Pins, die in diesem Zeitraum stattfinden:</p>'+
-    '<div class="zeile"><span>Von</span><input type="date" id="zr-von" value="'+von+'"></div>'+
-    '<div class="zeile"><span>Bis</span><input type="date" id="zr-bis" value="'+iso(bisD)+'"></div>'+
+    '<div class="zeile"><span>Von</span><span class="zeit-feld">'+
+      '<input type="time" id="zr-von-zeit" value="'+vonZeit+'" aria-label="Startzeit">'+
+      '<input type="date" id="zr-von" value="'+von+'" aria-label="Startdatum"></span></div>'+
+    '<div class="zeile"><span>Bis</span><span class="zeit-feld">'+
+      '<input type="time" id="zr-bis-zeit" value="'+bisZeit+'" aria-label="Endzeit">'+
+      '<input type="date" id="zr-bis" value="'+iso(bisD)+'" aria-label="Enddatum"></span></div>'+
+    '<p class="klein">Uhrzeit ist optional — sie greift nur bei Pins mit Zeitangabe '+
+    '(z. B. „20:30"). Ganztägige Einträge bleiben immer sichtbar.</p>'+
     '<div class="blatt-knoepfe">'+
       '<button class="bbtn gelb" id="zr-ok">Anwenden</button>'+
+      '<button class="bbtn sek" id="zr-abend">Heute Abend</button>'+
       (zeit === "range" ? '<button class="bbtn sek" id="zr-weg">Zeitraum aufheben</button>' : '')+
     '</div>'
   );
-  $("#zr-ok").addEventListener("click", () => {
+  const anwenden = () => {
     const v = $("#zr-von").value, b = $("#zr-bis").value;
     if(!v || !b) return;
-    const von2 = new Date(v+"T00:00:00"), bis2 = new Date(b+"T23:59:59");
+    const vz = $("#zr-von-zeit").value || "00:00", bz = $("#zr-bis-zeit").value || "23:59";
+    const von2 = new Date(v+"T"+vz+":00"), bis2 = new Date(b+"T"+bz+":59");
     if(bis2 < von2) return;
-    eigenZeitraum = {von:von2, bis:bis2};
+    eigenZeitraum = {von:von2, bis:bis2, mitZeit: vz !== "00:00" || bz !== "23:59"};
     zeit = "range"; suchFenster = null;
     baueTagleiste(); ansichtAktualisieren(); modalSchliessen();
+  };
+  $("#zr-ok").addEventListener("click", anwenden);
+  $("#zr-abend").addEventListener("click", () => {          // häufigster Fall: "was geht gleich?"
+    const heute = new Date();
+    $("#zr-von").value = iso(heute); $("#zr-bis").value = iso(heute);
+    $("#zr-von-zeit").value = "17:00"; $("#zr-bis-zeit").value = "23:59";
+    anwenden();
   });
   const weg = $("#zr-weg");
   if(weg) weg.addEventListener("click", () => {
@@ -1534,6 +1690,8 @@ function entfernungKm(lat1, lng1, lat2, lng2){
 
 /* ---------- Danke + Teilen im Popup (Roadmap Nr. 20, Delegation) ---------- */
 document.addEventListener("click", async e => {
+  const navBtn = e.target.closest(".p-vor, .p-zurueck");
+  if(navBtn && !navBtn.disabled){ zeigePinNr(+navBtn.dataset.i); return; }
   const dankeBtn = e.target.closest(".p-danke");
   if(dankeBtn){
     const id = dankeBtn.dataset.id;
@@ -1915,7 +2073,8 @@ fetch(STADT.pinsDatei + "?v=" + Date.now(), {cache:"no-store"})
   })
   .catch(() => {})
   .finally(() => {
-    window.__ev = { map, get pins(){ return PINS; }, get marker(){ return marker; }, deepLink }; // Debug-Haken
+    window.__ev = { map, get pins(){ return PINS; }, get marker(){ return marker; },
+      deepLink, blaetterListe, sichtbar, imAusschnitt, relevanz };   // Debug-Haken
     deepLink();                     // erst nach dem Daten-Load, sonst zerstört der Marker-Neuaufbau das Popup
     neuBanner();
     lsSet("besuch", new Date().toISOString().slice(0,10));

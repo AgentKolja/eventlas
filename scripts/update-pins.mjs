@@ -350,15 +350,23 @@ ${venueBlock}
 Antworte AUSSCHLIESSLICH mit validem JSON, keine Erklärung, kein Markdown, kein Codeblock-Zaun:
 {"pins":[
   {"typ":"event","titel":"...","text":"max 2 Sätze Deutsch","lng":6.xxx,"lat":50.xxx,"meta":"Spielstätte, Uhrzeit",
-   "tags":["musik"|"party"|"kultur"|"fest"|"flohmarkt"|"essen"|"sport"|"kinder"|"ernte"],
+   "tags":["musik"|"kultur"|"fest"|"markt"|"sport"|"familie"|"natur"],
    "quelle":"https://...","link":"https://..." (optional),
    "start":"JJJJ-MM-TT" (optional),"ende":"JJJJ-MM-TT" (optional),"wdh":"mo|di|mi|do|fr|sa|so, kommagetrennt" (optional)}
 ]}
 Zu "wdh": nur für dauerhaft wöchentliche Termine (Wochenmarkt, Trödel). Eine Konzertreihe mit festen
 Daten bekommt EINZELNE Pins mit "start" — niemals "wdh" mit Enddatum kombinieren.
-Es gibt GENAU diese neun Themen — keine anderen erfinden. Gratis-Eintritt gehört in "meta"
-(z. B. "Klangbrücke · 20 Uhr · frei"), nicht in die Tags; "Fotospot", "Hilfe" und "Verschenken"
-ergeben sich aus "typ" und brauchen kein Tag. Wochenmärkte bekommen "essen".
+Es gibt GENAU diese sieben Themen — keine anderen erfinden:
+  musik   = Konzerte, Clubnächte, DJs, Livemusik, Oper, Chor
+  kultur  = Theater, Museum, Ausstellung, Lesung, Kino, Comedy, Führungen
+  fest    = Stadt-/Straßenfeste, Kirmes, CSD (das Feiern selbst ist der Anlass)
+  markt   = Wochenmarkt, Flohmarkt, Trödel, Antik, Food-Markt
+  sport   = Spiele, Läufe, Turniere, Sport im Park
+  familie = Programm für Kinder und Familien
+  natur   = Ernte, Selbstpflücke, Natur-Erlebnis
+Gratis-Eintritt gehört in "meta" (z. B. "Klangbrücke · 20 Uhr · frei"), nicht in die Tags.
+"Fotospot", "Hilfe" und "Verschenken" ergeben sich aus "typ" und brauchen kein Tag.
+Die Uhrzeit gehört in "meta" (z. B. "Musikbunker · 20:30") — daraus liest die App den Beginn.
 Koordinaten müssen echte Orte in ${STADT.name} sein (lng ${BBOX.lngMin}–${BBOX.lngMax}, lat ${BBOX.latMin}–${BBOX.latMax}).
 20-30 Pins insgesamt, davon möglichst viele Konzerte. Texte sachlich, keine Übernahme fremder Formulierungen.
 
