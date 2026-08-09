@@ -1,70 +1,785 @@
 {
- "stand": "2026-08-08",
- "hinweis": "Schema: typ event|angebot|hilfe|spot · tags[] · quelle (Beleg-URL) · link (CTA) · hot (beliebt) · hinzu (Aufnahmedatum) · saison {von,bis als MM-TT, jaehrlich wiederkehrend} · fest:true = wird vom Auto-Update nie geloescht. Recherchestand 08.08.2026, alle Quellen einzeln verifiziert.",
+ "stand": "2026-08-09",
+ "hinweis": "Schema: typ event|angebot|hilfe|spot · tags[] · quelle (Beleg-URL) · link (CTA) · hot (beliebt) · hinzu (Aufnahmedatum) · saison {von,bis als MM-TT, jaehrlich wiederkehrend} · fest:true = wird vom Auto-Update nie geloescht.",
  "pins": [
   {
    "id": "markt-rathaus",
    "typ": "event",
    "titel": "Wochenmarkt am Markt",
    "text": "Der große Aachener Wochenmarkt vor dem Rathaus — dienstags und donnerstags vormittags.",
-   "lng": 6.0838, "lat": 50.7762,
-   "wdh": "di,do", "meta": "vormittags",
-   "tags": ["markt", "essen"],
+   "lng": 6.0838,
+   "lat": 50.7762,
+   "wdh": "di,do",
+   "meta": "vormittags",
+   "tags": [
+    "markt",
+    "essen"
+   ],
    "quelle": "https://www.aachen.de/services/wochenmaerkte/",
-   "hinzu": "2026-08-07", "fest": true
+   "hinzu": "2026-08-07",
+   "fest": true
   },
   {
    "id": "markt-neumarkt",
    "typ": "event",
    "titel": "Wochenmarkt Neumarkt",
    "text": "Samstags 7–13 Uhr: Obst, Gemüse, Brot, Feinkost, Kaffee — Treffpunkt im Frankenberger Viertel.",
-   "lng": 6.0993, "lat": 50.7716,
-   "wdh": "sa", "meta": "Sa 7–13 Uhr",
-   "tags": ["markt", "essen"],
+   "lng": 6.0993,
+   "lat": 50.7716,
+   "wdh": "sa",
+   "meta": "Sa 7–13 Uhr",
+   "tags": [
+    "markt",
+    "essen"
+   ],
    "quelle": "https://www.aachen.de/services/wochenmaerkte/",
-   "hinzu": "2026-08-07", "fest": true
+   "hinzu": "2026-08-07",
+   "fest": true
   },
   {
    "id": "troedel-eissporthalle",
    "typ": "event",
    "titel": "Trödelmarkt Eissporthalle",
    "text": "Wöchentlicher Trödel an der Hubert-Wienen-Straße 8. Achtung: am 15.8. und 22.8. entfällt der Termin (Reit-WM).",
-   "lng": 6.0898, "lat": 50.7908,
-   "wdh": "sa", "meta": "samstags",
-   "tags": ["flohmarkt"],
-   "hinzu": "2026-08-07", "fest": true
+   "lng": 6.0898,
+   "lat": 50.7908,
+   "wdh": "sa",
+   "meta": "samstags",
+   "tags": [
+    "flohmarkt"
+   ],
+   "hinzu": "2026-08-07",
+   "fest": true
+  },
+  {
+   "id": "alleenfest",
+   "typ": "event",
+   "titel": "Alleenfest + Flohmarkt",
+   "text": "Straßenfest der Frankenb(u)erger auf der Oppenhoffallee. Sa ab 18 Uhr Livemusik, So ab 11 Uhr Fest + Flohmarkt bis 18 Uhr.",
+   "lng": 6.101,
+   "lat": 50.7694,
+   "start": "2026-08-29",
+   "ende": "2026-08-30",
+   "meta": "Oppenhoffallee",
+   "tags": [
+    "fest",
+    "flohmarkt",
+    "musik"
+   ],
+   "link": "https://wir-frankenberger.de",
+   "quelle": "https://wir-frankenberger.de",
+   "hinzu": "2026-08-07",
+   "fest": true
+  },
+  {
+   "id": "thermal-elisen",
+   "typ": "angebot",
+   "titel": "Thermalwasser am Elisenbrunnen",
+   "text": "Aachens heiße Schwefelquelle kostenlos probieren — direkt am klassizistischen Brunnen.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "meta": "kostenlos",
+   "tags": [
+    "kostenlos"
+   ],
+   "hinzu": "2026-08-07",
+   "fest": true
+  },
+  {
+   "id": "bsp-sofa",
+   "typ": "angebot",
+   "titel": "[Beispiel] Sofa zu verschenken",
+   "text": "So sieht ein privater Angebots-Pin aus — mit Link zu deiner Kleinanzeige. Melde deinen eigenen über den Knopf unten.",
+   "lng": 6.09,
+   "lat": 50.7735,
+   "meta": "Beispiel — dein Pin?",
+   "tags": [
+    "kostenlos"
+   ],
+   "hinzu": "2026-08-07",
+   "fest": true
+  },
+  {
+   "id": "feige-bendstr",
+   "typ": "angebot",
+   "titel": "Ernte: Feigenbaum Burtscheid",
+   "text": "Frei zugänglicher Feigenbaum im Bereich Steinebrück/Burtscheid — Leiter nötig, Handstraußregel (Eigenbedarf). Einer der wenigen Feigen-Fundorte im Stadtgebiet.",
+   "lng": 6.092429,
+   "lat": 50.764275,
+   "saison": {
+    "von": "08-15",
+    "bis": "10-15"
+   },
+   "meta": "Ernte · mundraub",
+   "tags": [
+    "ernte",
+    "kostenlos",
+    "natur"
+   ],
+   "link": "https://mundraub.org/node/93405",
+   "quelle": "https://mundraub.org/node/93405",
+   "hinzu": "2026-08-07",
+   "fest": true
+  },
+  {
+   "id": "obst-vennbahnweg",
+   "typ": "angebot",
+   "titel": "Ernte: Obstwiese am Vennbahnweg",
+   "text": "Verwilderte Obstwiese hinter der Kompostanlage: alte Apfelsorten, Birnen, Mirabellen, Brombeeren, Walnüsse, Esskastanien. Zugang über die Böschung, festes Schuhwerk.",
+   "lng": 6.165218,
+   "lat": 50.762196,
+   "saison": {
+    "von": "07-15",
+    "bis": "10-31"
+   },
+   "meta": "Ernte · mundraub",
+   "tags": [
+    "ernte",
+    "kostenlos",
+    "natur"
+   ],
+   "link": "https://mundraub.org/node/23031",
+   "quelle": "https://mundraub.org/node/23031",
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "apfel-horbach",
+   "typ": "angebot",
+   "titel": "Ernte: Äpfel an der Westwall-Höckerlinie",
+   "text": "Drei Apfelbäume wachsen direkt in der alten Panzersperre an der Forsterheide bei Horbach — tragen jedes Jahr viele kleine Früchte.",
+   "lng": 6.042084,
+   "lat": 50.826806,
+   "saison": {
+    "von": "08-15",
+    "bis": "10-31"
+   },
+   "meta": "Ernte · mundraub",
+   "tags": [
+    "ernte",
+    "kostenlos",
+    "natur"
+   ],
+   "link": "https://mundraub.org/node/76079",
+   "quelle": "https://mundraub.org/node/76079",
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "obst-verlautenheide",
+   "typ": "angebot",
+   "titel": "Ernte: Obstwiese Verlautenheide",
+   "text": "Auf der Wiese hinter der Wassermühle stehen Apfel-, Birnen- und Pflaumenbäume.",
+   "lng": 6.12977,
+   "lat": 50.792603,
+   "saison": {
+    "von": "08-01",
+    "bis": "10-15"
+   },
+   "meta": "Ernte · mundraub",
+   "tags": [
+    "ernte",
+    "kostenlos",
+    "natur"
+   ],
+   "link": "https://mundraub.org/node/9144",
+   "quelle": "https://mundraub.org/node/9144",
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "mirabelle-lousberg",
+   "typ": "angebot",
+   "titel": "Ernte: Mirabellen am Lousberg",
+   "text": "Am Beginn des Spazierwegs auf den Lousberg (Ende Theresienstraße) steht ein gut tragender Mirabellen-/Pflaumenbaum.",
+   "lng": 6.081383,
+   "lat": 50.783955,
+   "saison": {
+    "von": "07-15",
+    "bis": "08-31"
+   },
+   "meta": "Ernte · mundraub",
+   "tags": [
+    "ernte",
+    "kostenlos",
+    "natur"
+   ],
+   "link": "https://mundraub.org/node/2444",
+   "quelle": "https://mundraub.org/node/2444",
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "brombeere-madriderring",
+   "typ": "angebot",
+   "titel": "Ernte: Brombeeren an der Vennbahntrasse",
+   "text": "Riesige Brombeersträucher am Wegesrand hinter der Unterführung des Madrider Rings, von Eilendorf kommend.",
+   "lng": 6.137795,
+   "lat": 50.771152,
+   "saison": {
+    "von": "07-15",
+    "bis": "09-30"
+   },
+   "meta": "Ernte · mundraub",
+   "tags": [
+    "ernte",
+    "kostenlos",
+    "natur"
+   ],
+   "link": "https://mundraub.org/node/3003",
+   "quelle": "https://mundraub.org/node/3003",
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "brombeere-kfallee",
+   "typ": "angebot",
+   "titel": "Ernte: Brombeeren Kaiser-Friedrich-Allee",
+   "text": "Viele Brombeersträucher stadteinwärts auf Höhe der Scheurenstraße — Handschuhe und lange Kleidung dringend empfohlen.",
+   "lng": 6.072671,
+   "lat": 50.755489,
+   "saison": {
+    "von": "07-15",
+    "bis": "09-30"
+   },
+   "meta": "Ernte · mundraub",
+   "tags": [
+    "ernte",
+    "kostenlos",
+    "natur"
+   ],
+   "link": "https://mundraub.org/node/2437",
+   "quelle": "https://mundraub.org/node/2437",
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "brombeere-walheim",
+   "typ": "angebot",
+   "titel": "Ernte: Brombeeren Vennbahnweg Walheim",
+   "text": "Viele Brombeerbüsche säumen den Vennbahnweg zwischen Walheim und Schmithof — ideal mit dem Rad.",
+   "lng": 6.173201,
+   "lat": 50.700481,
+   "saison": {
+    "von": "07-15",
+    "bis": "09-30"
+   },
+   "meta": "Ernte · mundraub",
+   "tags": [
+    "ernte",
+    "kostenlos",
+    "natur"
+   ],
+   "link": "https://mundraub.org/node/20508",
+   "quelle": "https://mundraub.org/node/20508",
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "himbeere-kreuzerdriesch",
+   "typ": "angebot",
+   "titel": "Ernte: Himbeeren am Kreuzerdriesch",
+   "text": "Viele Himbeersträucher beidseitig des Weges zwischen Beverau und Brander Wald — Vorsicht vor Brennnesseln.",
+   "lng": 6.118735,
+   "lat": 50.751992,
+   "saison": {
+    "von": "06-15",
+    "bis": "08-31"
+   },
+   "meta": "Ernte · mundraub",
+   "tags": [
+    "ernte",
+    "kostenlos",
+    "natur"
+   ],
+   "link": "https://mundraub.org/node/145140",
+   "quelle": "https://mundraub.org/node/145140",
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "heidelbeere-branderwald",
+   "typ": "angebot",
+   "titel": "Ernte: Wilde Heidelbeeren im Brander Wald",
+   "text": "Verstreute Heidelbeersträucher im Brander Wald/Krauthauser Heide. Nur kleine Mengen (Handstraußregel) und Beeren vor dem Verzehr erhitzen (Fuchsbandwurm).",
+   "lng": 6.190871,
+   "lat": 50.755179,
+   "saison": {
+    "von": "06-20",
+    "bis": "08-15"
+   },
+   "meta": "Ernte · mundraub",
+   "tags": [
+    "ernte",
+    "kostenlos",
+    "natur"
+   ],
+   "link": "https://mundraub.org/node/14531",
+   "quelle": "https://mundraub.org/node/14531",
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "walnuss-hergenrath",
+   "typ": "angebot",
+   "titel": "Ernte: Walnusswiese bei Hergenrath (B)",
+   "text": "Frei zugängliche Gemeindewiese mit über 30 Walnussbäumen bei Kelmis, südwestlich von Aachen. Beste Zeit: morgens nach einer stürmischen Nacht. Belgische Sammelregeln beachten.",
+   "lng": 6.029177,
+   "lat": 50.707135,
+   "saison": {
+    "von": "09-01",
+    "bis": "10-31"
+   },
+   "meta": "Ernte · mundraub · Belgien",
+   "tags": [
+    "ernte",
+    "kostenlos",
+    "natur"
+   ],
+   "link": "https://mundraub.org/node/92032",
+   "quelle": "https://mundraub.org/node/92032",
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "esskastanie-wald",
+   "typ": "angebot",
+   "titel": "Ernte: Esskastanien im Aachener Wald",
+   "text": "Am Waldweg vom Luxemburger Ring Richtung Lütticher Straße stehen auf mehreren Wiesen Esskastanienbäume, die meist gut tragen.",
+   "lng": 6.063251,
+   "lat": 50.751934,
+   "saison": {
+    "von": "09-20",
+    "bis": "10-31"
+   },
+   "meta": "Ernte · mundraub",
+   "tags": [
+    "ernte",
+    "kostenlos",
+    "natur"
+   ],
+   "link": "https://mundraub.org/node/2435",
+   "quelle": "https://mundraub.org/node/2435",
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "obst-schneebergweg",
+   "typ": "angebot",
+   "titel": "Ernte: Alte Obstbäume am Schneebergweg",
+   "text": "Vom Golfplatz Richtung Lemiers stehen beidseitig viele alte Obstbäume und Beerensträucher: Äpfel, Birnen, Pflaumen, Mirabellen, Brombeeren. Lange Hose und Handschuhe empfohlen.",
+   "lng": 6.029048,
+   "lat": 50.780056,
+   "saison": {
+    "von": "07-15",
+    "bis": "10-31"
+   },
+   "meta": "Ernte · mundraub",
+   "tags": [
+    "ernte",
+    "kostenlos",
+    "natur"
+   ],
+   "link": "https://mundraub.org/node/1787",
+   "quelle": "https://mundraub.org/node/1787",
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "kirsche-dueppelstr",
+   "typ": "angebot",
+   "titel": "Ernte: Kirschbaum Düppelstraße",
+   "text": "Großer Kirschbaum am Anfang der Düppelstraße (vom Elsassplatz kommend) mit sehr vielen Früchten — kleine Leiter hilfreich.",
+   "lng": 6.115619,
+   "lat": 50.773987,
+   "saison": {
+    "von": "07-01",
+    "bis": "07-31"
+   },
+   "meta": "Ernte · mundraub",
+   "tags": [
+    "ernte",
+    "kostenlos",
+    "natur"
+   ],
+   "link": "https://mundraub.org/node/1447",
+   "quelle": "https://mundraub.org/node/1447",
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "kirsche-preuswald",
+   "typ": "angebot",
+   "titel": "Ernte: Kirschbaum Preuswald",
+   "text": "Kirschbaum mit ausladender, niedriger Krone auf dem Grünstreifen an der Preuswaldsiedlung — man kommt leicht an die Kirschen.",
+   "lng": 6.047469,
+   "lat": 50.738095,
+   "saison": {
+    "von": "06-15",
+    "bis": "07-31"
+   },
+   "meta": "Ernte · mundraub",
+   "tags": [
+    "ernte",
+    "kostenlos",
+    "natur"
+   ],
+   "link": "https://mundraub.org/node/102542",
+   "quelle": "https://mundraub.org/node/102542",
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "baerlauch-beverbach",
+   "typ": "angebot",
+   "titel": "Ernte: Bärlauch am Beverbach",
+   "text": "Nördlich der Brücke sind beide Bachhänge voll mit Bärlauch. Steiles Gelände, feste Schuhe. Achtung Verwechslungsgefahr mit Maiglöckchen — nur ernten, wer sicher bestimmt.",
+   "lng": 6.103098,
+   "lat": 50.756604,
+   "saison": {
+    "von": "03-01",
+    "bis": "05-15"
+   },
+   "meta": "Ernte · mundraub · Frühjahr",
+   "tags": [
+    "ernte",
+    "kostenlos",
+    "natur"
+   ],
+   "link": "https://mundraub.org/node/7108",
+   "quelle": "https://mundraub.org/node/7108",
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "juppis-heidelbeeren",
+   "typ": "angebot",
+   "titel": "Heidelbeeren selbst pflücken: Juppis Hof",
+   "text": "Heidelbeer-Plantage mit Selbstpflücke (2026: 5,50 €/kg, 11–17 Uhr an angekündigten Pflücktagen) in Selfkant-Havert, mit Beerencafé. Nächstgelegene belegte Heidelbeer-Selbstpflücke, ca. 45 km nördlich.",
+   "lng": 5.911075,
+   "lat": 51.038885,
+   "saison": {
+    "von": "07-01",
+    "bis": "08-15"
+   },
+   "meta": "Selbstpflücke · Selfkant",
+   "tags": [
+    "ernte",
+    "natur",
+    "kinder"
+   ],
+   "link": "https://www.juppis-hof.de/veranstaltungen/beerenpfluecken/",
+   "quelle": "https://www.juppis-hof.de/veranstaltungen/beerenpfluecken/",
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "hasselholz-erdbeeren",
+   "typ": "angebot",
+   "titel": "Bio-Erdbeeren selbst pflücken: Gut Hasselholz",
+   "text": "Bio-Erdbeerfeld an der Feldeinfahrt Buchweg im Vaalserquartier. Pflückzeiten zuletzt Mi 17–19, Fr 17–18:30, So 10–13 Uhr — vor Anfahrt prüfen.",
+   "lng": 6.029152,
+   "lat": 50.763459,
+   "saison": {
+    "von": "05-25",
+    "bis": "07-15"
+   },
+   "meta": "Selbstpflücke · bio",
+   "tags": [
+    "ernte",
+    "natur",
+    "kinder",
+    "essen"
+   ],
+   "quelle": "https://kingkalli.de/erdbeeren-pfluecken-im-raum-aachen-dueren/",
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "mariahaus-erdbeeren",
+   "typ": "angebot",
+   "titel": "Erdbeeren pflücken: Bio-Hof Maria Haus",
+   "text": "Auf den Feldern des Bio-Bauernhofs der Alexianer Werkstätten (Gemmenicher Weg 45) hofeigene Erdbeeren selbst pflücken — vorher im Hofladen anmelden (Mo–Fr 9–16 Uhr).",
+   "lng": 6.048408,
+   "lat": 50.765419,
+   "saison": {
+    "von": "06-01",
+    "bis": "07-15"
+   },
+   "meta": "Selbstpflücke · bio",
+   "tags": [
+    "ernte",
+    "natur",
+    "kinder",
+    "essen"
+   ],
+   "quelle": "https://kingkalli.de/erdbeeren-pfluecken-im-raum-aachen-dueren/",
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "bluetenreich",
+   "typ": "angebot",
+   "titel": "Blumen selber schneiden: Blütenreich Richterich",
+   "text": "Blumen direkt vom Feld schneiden (Küppershofweg 13): Frühjahr Tulpen und Ranunkeln, Sommer Dahlien, Wildblumen, Sonnenblumen. Mo–Fr 9–18:30, Sa 9–15 Uhr.",
+   "lng": 6.070418,
+   "lat": 50.817951,
+   "saison": {
+    "von": "03-15",
+    "bis": "10-15"
+   },
+   "meta": "Selber schneiden",
+   "tags": [
+    "ernte",
+    "natur"
+   ],
+   "quelle": "https://aachen.t-online.de/region/aachen/id_101197882/geheimtipp-in-aachen-hier-koennen-sie-ihren-fruehlingsstrauss-selbst-pfluecken.html",
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "bsp-kurier",
+   "typ": "hilfe",
+   "titel": "[Beispiel] Gesuch: Kurier Innenstadt → Brand",
+   "text": "Paket bis Schuhkartongröße mitnehmen, Trinkgeld nach Absprache. Melde echte Gesuche über den Knopf unten.",
+   "lng": 6.092,
+   "lat": 50.776,
+   "meta": "Beispiel",
+   "tags": [
+    "hilfe"
+   ],
+   "hinzu": "2026-08-07",
+   "fest": true
+  },
+  {
+   "id": "bsp-einkauf",
+   "typ": "hilfe",
+   "titel": "[Beispiel] Gesuch: Einkaufshilfe",
+   "text": "1× pro Woche Wochenmarkt-Einkauf für Nachbarin, ca. 45 Min. So sieht ein Nachbarschafts-Gesuch aus.",
+   "lng": 6.103,
+   "lat": 50.7698,
+   "meta": "Beispiel · wöchentlich",
+   "tags": [
+    "hilfe"
+   ],
+   "hinzu": "2026-08-07",
+   "fest": true
+  },
+  {
+   "id": "spot-lousberg",
+   "typ": "spot",
+   "titel": "Fotospot: Lousberg (Obelisk & Panorama)",
+   "text": "Aachens Hausberg: vom Tranchot-Obelisken das beste freie Panorama über die Dächer und die Domsilhouette. Aufstieg über die Lousbergstiege (312 Stufen). Am besten: goldene/blaue Stunde abends, Blick nach Süden.",
+   "lng": 6.0792,
+   "lat": 50.7869,
+   "meta": "frei zugänglich",
+   "tags": [
+    "fotospot",
+    "kostenlos",
+    "natur"
+   ],
+   "quelle": "https://de.wikipedia.org/wiki/Lousberg",
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "spot-belvedere",
+   "typ": "spot",
+   "titel": "Fotospot: Drehturm Belvedere",
+   "text": "Der 35 m hohe frühere Wasserturm (1958) ist ein markantes Architekturmotiv auf dem Lousberg-Plateau. Am besten abends als Silhouette gegen den Westhimmel.",
+   "lng": 6.08049,
+   "lat": 50.78645,
+   "meta": "Umfeld frei zugänglich",
+   "tags": [
+    "fotospot",
+    "kostenlos"
+   ],
+   "quelle": "https://de.wikipedia.org/wiki/Wasserturm_Belvedere_(Aachen)",
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "spot-katschhof",
+   "typ": "spot",
+   "titel": "Fotospot: Katschhof (Dom + Rathaus)",
+   "text": "Herz des UNESCO-Ensembles: südlich füllt der Dom den Rahmen, nördlich das gotische Rathaus. Am besten: blaue Stunde, wenn beide angestrahlt sind; morgens streifendes Licht von Osten.",
+   "lng": 6.08379,
+   "lat": 50.77544,
+   "meta": "rund um die Uhr frei",
+   "tags": [
+    "fotospot",
+    "kostenlos"
+   ],
+   "quelle": "https://de.wikipedia.org/wiki/Aachener_Dom",
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "spot-elisenbrunnen",
+   "typ": "spot",
+   "titel": "Fotospot: Elisenbrunnen",
+   "text": "Klassizistische Säulenhalle von 1827 — ideal für Symmetrie-Aufnahmen. Am besten: abends Sonne von Westen auf der Säulenfront, nachts stimmungsvoll beleuchtet.",
+   "lng": 6.0869,
+   "lat": 50.7742,
+   "meta": "goldene Stunde abends",
+   "tags": [
+    "fotospot",
+    "kostenlos"
+   ],
+   "quelle": "https://de.wikipedia.org/wiki/Elisenbrunnen",
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "spot-ponttor",
+   "typ": "spot",
+   "titel": "Fotospot: Ponttor",
+   "text": "Mittelalterliches Stadttor mit Vorburg — dramatische Kompositionen von der nördlichen Feldseite. Am besten: goldene Stunde abends von Norden/Nordwesten.",
+   "lng": 6.07833,
+   "lat": 50.78153,
+   "meta": "goldene Stunde",
+   "tags": [
+    "fotospot",
+    "kostenlos"
+   ],
+   "quelle": "https://de.wikipedia.org/wiki/Ponttor",
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "spot-marschiertor",
+   "typ": "spot",
+   "titel": "Fotospot: Marschiertor",
+   "text": "Eines der mächtigsten erhaltenen Stadttore Westeuropas, nahe Hauptbahnhof — die breite Südfassade füllt Weitwinkel perfekt. Am besten: Nachmittag bis goldene Stunde.",
+   "lng": 6.08694,
+   "lat": 50.76819,
+   "meta": "frei zugänglich",
+   "tags": [
+    "fotospot",
+    "kostenlos"
+   ],
+   "quelle": "https://de.wikipedia.org/wiki/Marschiertor",
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "spot-frankenberg",
+   "typ": "spot",
+   "titel": "Fotospot: Burg Frankenberg",
+   "text": "Wasserburg aus dem 13. Jh. mitten im Viertel: Der Burgweiher liefert bei Windstille Bilderbuch-Spiegelungen. Am besten: Sonnenaufgang — ruhiges Wasser, gelegentlich Morgennebel.",
+   "lng": 6.10389,
+   "lat": 50.76778,
+   "meta": "Park frei zugänglich",
+   "tags": [
+    "fotospot",
+    "kostenlos"
+   ],
+   "quelle": "https://de.wikipedia.org/wiki/Burg_Frankenberg_(Aachen)",
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "spot-melaten",
+   "typ": "spot",
+   "titel": "Fotospot: Gut-Melaten-Allee",
+   "text": "Aachens beliebtestes Allee-Motiv am historischen Gut Melaten: symmetrische Baumreihen, im Herbst spektakulär gefärbt. Am besten: Sonnenaufgang mit Gegenlicht und Morgennebel.",
+   "lng": 6.0466,
+   "lat": 50.7789,
+   "meta": "RWTH Campus Melaten",
+   "tags": [
+    "fotospot",
+    "kostenlos",
+    "natur"
+   ],
+   "quelle": "https://de.wikipedia.org/wiki/Gut_Melaten",
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "spot-stadtgarten",
+   "typ": "spot",
+   "titel": "Fotospot: Stadtgarten / Kurpark",
+   "text": "Alte Baumbestände, Wasserbecken und das Neue Kurhaus als Kulisse — ruhiges Park-Motiv abseits der Altstadt. Am besten: morgens, im Herbst wegen Laubfärbung besonders fotogen.",
+   "lng": 6.0971,
+   "lat": 50.783,
+   "meta": "frei zugänglich",
+   "tags": [
+    "fotospot",
+    "kostenlos",
+    "natur"
+   ],
+   "quelle": "https://www.carolus-thermen.de/",
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "spot-dreilaendereck",
+   "typ": "spot",
+   "titel": "Fotospot: Dreiländereck Vaalserberg",
+   "text": "Drei Länder in einem Bild: Grenzmonument, Waldkulisse und Aussichtstürme am höchsten Punkt der Niederlande (322 m). Am besten: Sonnenuntergang mit freier Sicht nach Westen.",
+   "lng": 6.0208,
+   "lat": 50.7547,
+   "meta": "D · NL · B · frei",
+   "tags": [
+    "fotospot",
+    "natur"
+   ],
+   "quelle": "https://de.wikipedia.org/wiki/Vaalserberg",
+   "hinzu": "2026-08-08",
+   "fest": true
   },
   {
    "id": "sommerbend",
    "typ": "event",
    "titel": "Öcher Sommerbend",
    "text": "Kirmes auf dem Bendplatz, täglich ab 14 Uhr. Mo 10.8. reizarme Kirmes 14–17 Uhr, Di 11.8. Kindertag, Mi 12.8. Familientag mit 50 % Rabatt, Abschlussfeuerwerk 17.8. gegen 22 Uhr.",
-   "lng": 6.07, "lat": 50.7822,
-   "start": "2026-08-07", "ende": "2026-08-17", "meta": "Bendplatz",
-   "tags": ["fest", "kinder"],
-   "link": "https://www.bend-aachen.de", "quelle": "https://www.bend-aachen.de",
-   "hot": true, "hinzu": "2026-08-07"
+   "lng": 6.07,
+   "lat": 50.7822,
+   "start": "2026-08-07",
+   "ende": "2026-08-17",
+   "meta": "Bendplatz",
+   "tags": [
+    "fest",
+    "kinder"
+   ],
+   "link": "https://www.bend-aachen.de",
+   "quelle": "https://www.bend-aachen.de",
+   "hot": true,
+   "hinzu": "2026-08-07"
   },
   {
    "id": "reitwm",
    "typ": "event",
    "titel": "Reit-WM: FEI World Championships",
    "text": "13 Tage Weltmeisterschaft in 6 Disziplinen — 650 Athleten, 800 Pferde, das größte Sportereignis des Jahres in NRW. Allianz Park Soers.",
-   "lng": 6.0925, "lat": 50.7972,
-   "start": "2026-08-11", "ende": "2026-08-23", "meta": "Soers",
-   "tags": ["sport"],
-   "link": "https://www.aachen2026.com", "quelle": "https://www.aachen2026.com",
-   "hot": true, "hinzu": "2026-08-07"
+   "lng": 6.0925,
+   "lat": 50.7972,
+   "start": "2026-08-11",
+   "ende": "2026-08-23",
+   "meta": "Soers",
+   "tags": [
+    "sport"
+   ],
+   "link": "https://www.aachen2026.com",
+   "quelle": "https://www.aachen2026.com",
+   "hot": true,
+   "hinzu": "2026-08-07"
   },
   {
    "id": "reitwm-tot",
    "typ": "event",
    "titel": "Reit-WM: Tag der offenen Tür",
    "text": "Kostenloses Showprogramm im Hauptstadion, 12–15 Uhr — WM-Luft schnuppern ohne Ticket.",
-   "lng": 6.0942, "lat": 50.7963,
-   "start": "2026-08-17", "meta": "12–15 Uhr · frei",
-   "tags": ["sport", "kostenlos"],
-   "link": "https://www.aachen2026.com", "quelle": "https://www.aachen2026.com",
+   "lng": 6.0942,
+   "lat": 50.7963,
+   "start": "2026-08-17",
+   "meta": "12–15 Uhr · frei",
+   "tags": [
+    "sport",
+    "kostenlos"
+   ],
+   "link": "https://www.aachen2026.com",
+   "quelle": "https://www.aachen2026.com",
    "hinzu": "2026-08-07"
   },
   {
@@ -72,20 +787,35 @@
    "typ": "event",
    "titel": "Aachen WM Special — Kultur-Rahmenprogramm",
    "text": "Kostenloses Rahmenprogramm zur Reit-WM in der Innenstadt: Konzerte auf zwei Bühnen, Theater, Tanz, Kunstaktionen. Täglich ab 11 Uhr Food-Markt auf Katschhof und Münsterplatz.",
-   "lng": 6.0836, "lat": 50.7757,
-   "start": "2026-08-11", "ende": "2026-08-23", "meta": "Innenstadt · Eintritt frei",
-   "tags": ["kultur", "musik", "essen", "kostenlos"],
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-08-11",
+   "ende": "2026-08-23",
+   "meta": "Innenstadt · Eintritt frei",
+   "tags": [
+    "kultur",
+    "musik",
+    "essen",
+    "kostenlos"
+   ],
    "quelle": "https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/",
-   "hot": true, "hinzu": "2026-08-08"
+   "hot": true,
+   "hinzu": "2026-08-08"
   },
   {
    "id": "ar-route",
    "typ": "event",
    "titel": "AR-Kunstroute zur WM",
    "text": "Kostenlose Augmented-Reality-Route durch die Stadt: Elisengarten, Büchel, Suermondt-Ludwig-Museum, NAK-Park bis zur Soers.",
-   "lng": 6.0865, "lat": 50.7743,
-   "start": "2026-08-11", "ende": "2026-08-23", "meta": "kostenlos",
-   "tags": ["kultur", "kostenlos"],
+   "lng": 6.0865,
+   "lat": 50.7743,
+   "start": "2026-08-11",
+   "ende": "2026-08-23",
+   "meta": "kostenlos",
+   "tags": [
+    "kultur",
+    "kostenlos"
+   ],
    "quelle": "https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/",
    "hinzu": "2026-08-07"
   },
@@ -94,10 +824,15 @@
    "typ": "event",
    "titel": "Alemannia – SC Verl",
    "text": "Saisonauftakt am Tivoli, Anstoß 19:30 Uhr. Vorher Fanmarsch: Treffen ab 13 Uhr auf dem Markt, Abmarsch 15:30 Uhr.",
-   "lng": 6.0955, "lat": 50.793,
-   "start": "2026-08-09", "meta": "19:30 · Tivoli",
-   "tags": ["sport"],
-   "link": "https://www.alemannia-aachen.de", "quelle": "https://www.alemannia-aachen.de",
+   "lng": 6.0955,
+   "lat": 50.793,
+   "start": "2026-08-09",
+   "meta": "19:30 · Tivoli",
+   "tags": [
+    "sport"
+   ],
+   "link": "https://www.alemannia-aachen.de",
+   "quelle": "https://www.alemannia-aachen.de",
    "hinzu": "2026-08-07"
   },
   {
@@ -105,9 +840,14 @@
    "typ": "event",
    "titel": "The Dreadnoughts (Konzert)",
    "text": "Celtic-Polka-Punk aus Vancouver im Musikbunker, Support: Muirsheen Durkin & Friends. Tickets 25 €.",
-   "lng": 6.103, "lat": 50.7695,
-   "start": "2026-08-14", "meta": "Musikbunker · 20 Uhr",
-   "tags": ["musik", "party"],
+   "lng": 6.103,
+   "lat": 50.7695,
+   "start": "2026-08-14",
+   "meta": "Musikbunker · 20 Uhr",
+   "tags": [
+    "musik",
+    "party"
+   ],
    "link": "https://musikbunkeraachen.bigcartel.com/product/the-dreadnoughts-14082026",
    "quelle": "https://musikbunkeraachen.bigcartel.com/product/the-dreadnoughts-14082026",
    "hinzu": "2026-08-08"
@@ -117,9 +857,14 @@
    "typ": "event",
    "titel": "Antik- & Kunstmarkt am Elisenbrunnen",
    "text": "Antiquitäten und Kunst auf dem Friedrich-Wilhelm-Platz. Monatliche Reihe — nächster Termin: 13.9.",
-   "lng": 6.0873, "lat": 50.7745,
-   "start": "2026-08-09", "meta": "Elisenbrunnen",
-   "tags": ["flohmarkt", "kultur"],
+   "lng": 6.0873,
+   "lat": 50.7745,
+   "start": "2026-08-09",
+   "meta": "Elisenbrunnen",
+   "tags": [
+    "flohmarkt",
+    "kultur"
+   ],
    "hinzu": "2026-08-07"
   },
   {
@@ -127,9 +872,13 @@
    "typ": "event",
    "titel": "Melan Trödelmarkt (Porta)*",
    "text": "Sonntagströdel am Gut Wolf 2 (Aachen-Nord).",
-   "lng": 6.127, "lat": 50.7965,
-   "start": "2026-08-09", "meta": "Am Gut Wolf",
-   "tags": ["flohmarkt"],
+   "lng": 6.127,
+   "lat": 50.7965,
+   "start": "2026-08-09",
+   "meta": "Am Gut Wolf",
+   "tags": [
+    "flohmarkt"
+   ],
    "hinzu": "2026-08-07"
   },
   {
@@ -137,10 +886,16 @@
    "typ": "event",
    "titel": "Alemannia – SV Meppen",
    "text": "3. Spieltag am Tivoli. Genauer Anstoß wird noch terminiert — Details auf der Vereinsseite.",
-   "lng": 6.0968, "lat": 50.7925,
-   "start": "2026-08-28", "ende": "2026-08-30", "meta": "Tivoli",
-   "tags": ["sport"],
-   "link": "https://www.alemannia-aachen.de", "quelle": "https://www.alemannia-aachen.de",
+   "lng": 6.0968,
+   "lat": 50.7925,
+   "start": "2026-08-28",
+   "ende": "2026-08-30",
+   "meta": "Tivoli",
+   "tags": [
+    "sport"
+   ],
+   "link": "https://www.alemannia-aachen.de",
+   "quelle": "https://www.alemannia-aachen.de",
    "hinzu": "2026-08-07"
   },
   {
@@ -148,31 +903,33 @@
    "typ": "event",
    "titel": "CSD Aachen / Aachen Pride",
    "text": "Pride-Festival mit Demo, Bühnenprogramm, Infoständen und Party auf Katschhof und Markt. Fr ab 17 Uhr Auftakt, Sa ab 13 Uhr Demo und Straßenfest.",
-   "lng": 6.0838, "lat": 50.776,
-   "start": "2026-08-28", "ende": "2026-08-29", "meta": "Katschhof & Markt · frei",
-   "tags": ["fest", "kultur", "party", "kostenlos"],
-   "link": "https://www.csd-aachen.de/", "quelle": "https://www.csd-aachen.de/",
+   "lng": 6.0838,
+   "lat": 50.776,
+   "start": "2026-08-28",
+   "ende": "2026-08-29",
+   "meta": "Katschhof & Markt · frei",
+   "tags": [
+    "fest",
+    "kultur",
+    "party",
+    "kostenlos"
+   ],
+   "link": "https://www.csd-aachen.de/",
+   "quelle": "https://www.csd-aachen.de/",
    "hinzu": "2026-08-08"
-  },
-  {
-   "id": "alleenfest",
-   "typ": "event",
-   "titel": "Alleenfest + Flohmarkt",
-   "text": "Straßenfest der Frankenb(u)erger auf der Oppenhoffallee. Sa ab 18 Uhr Livemusik, So ab 11 Uhr Fest + Flohmarkt bis 18 Uhr.",
-   "lng": 6.101, "lat": 50.7694,
-   "start": "2026-08-29", "ende": "2026-08-30", "meta": "Oppenhoffallee",
-   "tags": ["fest", "flohmarkt", "musik"],
-   "link": "https://wir-frankenberger.de", "quelle": "https://wir-frankenberger.de",
-   "hinzu": "2026-08-07", "fest": true
   },
   {
    "id": "melan-kaufland",
    "typ": "event",
    "titel": "Melan Trödelmarkt (Kaufland)*",
    "text": "Sonntagströdel an der Breslauer Straße 35 (Aachen-Ost).",
-   "lng": 6.131, "lat": 50.7735,
-   "start": "2026-08-30", "meta": "Breslauer Str.",
-   "tags": ["flohmarkt"],
+   "lng": 6.131,
+   "lat": 50.7735,
+   "start": "2026-08-30",
+   "meta": "Breslauer Str.",
+   "tags": [
+    "flohmarkt"
+   ],
    "hinzu": "2026-08-07"
   },
   {
@@ -180,9 +937,14 @@
    "typ": "event",
    "titel": "Verleihung Aachener Friedenspreis",
    "text": "Öffentliche Preisverleihung in der Aula Carolina, Laudatio: Martin Schulz. Beginn 19 Uhr, Eintritt frei.",
-   "lng": 6.0822, "lat": 50.7776,
-   "start": "2026-09-01", "meta": "Aula Carolina · 19 Uhr",
-   "tags": ["kultur", "kostenlos"],
+   "lng": 6.0822,
+   "lat": 50.7776,
+   "start": "2026-09-01",
+   "meta": "Aula Carolina · 19 Uhr",
+   "tags": [
+    "kultur",
+    "kostenlos"
+   ],
    "quelle": "https://www.aachener-friedenspreis.de/",
    "hinzu": "2026-08-08"
   },
@@ -191,9 +953,14 @@
    "typ": "event",
    "titel": "UWAGA! Open-Air an der Burg Frankenberg",
    "text": "Das Crossover-Quartett erzählt in 90 Minuten die komplette Musikgeschichte — von Renaissance über Barock und Jazz bis Pop. Open-Air im Burghof.",
-   "lng": 6.1061, "lat": 50.7692,
-   "start": "2026-09-06", "meta": "Burg Frankenberg · 19:30",
-   "tags": ["musik", "kultur"],
+   "lng": 6.1061,
+   "lat": 50.7692,
+   "start": "2026-09-06",
+   "meta": "Burg Frankenberg · 19:30",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
    "quelle": "https://www.regioactive.de/location/aachen/burg-frankenberg-frankenbuerger-e-v-pNzvsvJMWn",
    "hinzu": "2026-08-08"
   },
@@ -202,10 +969,16 @@
    "typ": "event",
    "titel": "Alemannia – Jahn Regensburg",
    "text": "Heimspiel am 5. Spieltag der 3. Liga im Tivoli. Genaue Ansetzung innerhalb des Wochenendes noch offen.",
-   "lng": 6.0958, "lat": 50.7928,
-   "start": "2026-09-11", "ende": "2026-09-13", "meta": "Tivoli",
-   "tags": ["sport"],
-   "link": "https://www.alemannia-aachen.de", "quelle": "https://www.alemannia-aachen.de",
+   "lng": 6.0958,
+   "lat": 50.7928,
+   "start": "2026-09-11",
+   "ende": "2026-09-13",
+   "meta": "Tivoli",
+   "tags": [
+    "sport"
+   ],
+   "link": "https://www.alemannia-aachen.de",
+   "quelle": "https://www.alemannia-aachen.de",
    "hinzu": "2026-08-08"
   },
   {
@@ -213,9 +986,15 @@
    "typ": "event",
    "titel": "Jeck im Sunnesching — Festival",
    "text": "Kölsches Open-Air auf dem CHIO-Gelände: Höhner, Bläck Fööss, Kasalla, Brings, Cat Ballou u.v.m. Programm 11:15 bis ca. 19:30 Uhr.",
-   "lng": 6.076, "lat": 50.7975,
-   "start": "2026-09-12", "meta": "CHIO-Gelände Soers",
-   "tags": ["musik", "fest", "party"],
+   "lng": 6.076,
+   "lat": 50.7975,
+   "start": "2026-09-12",
+   "meta": "CHIO-Gelände Soers",
+   "tags": [
+    "musik",
+    "fest",
+    "party"
+   ],
    "quelle": "https://gaffel.de/2026/08/04/jeck-im-sunnesching-in-aachen-am-12-september-chio-gelaende/",
    "hinzu": "2026-08-08"
   },
@@ -224,9 +1003,13 @@
    "typ": "event",
    "titel": "Alte Bekannte — Mehr! Live",
    "text": "A-cappella-Konzert der Wise-Guys-Nachfolger im Eurogress. Beginn 20 Uhr.",
-   "lng": 6.0898, "lat": 50.7823,
-   "start": "2026-09-12", "meta": "Eurogress · 20 Uhr",
-   "tags": ["musik"],
+   "lng": 6.0898,
+   "lat": 50.7823,
+   "start": "2026-09-12",
+   "meta": "Eurogress · 20 Uhr",
+   "tags": [
+    "musik"
+   ],
    "quelle": "https://www.aachen-event.com/veranstaltungskalender/veranstaltung/alte-bekannte-mehr-live",
    "hinzu": "2026-08-08"
   },
@@ -235,9 +1018,14 @@
    "typ": "event",
    "titel": "Tag des offenen Denkmals",
    "text": "Kostenlose Führungen und offene Türen in historischen Gebäuden in ganz Aachen — Motto: NetzWERKE. Denkmale & Infrastruktur.",
-   "lng": 6.0838, "lat": 50.7745,
-   "start": "2026-09-13", "meta": "stadtweit · frei",
-   "tags": ["kultur", "kostenlos"],
+   "lng": 6.0838,
+   "lat": 50.7745,
+   "start": "2026-09-13",
+   "meta": "stadtweit · frei",
+   "tags": [
+    "kultur",
+    "kostenlos"
+   ],
    "quelle": "https://www.aachen.de/in-aachen-leben/planen-bauen/denkmalpflege-und-archaeologie/news/tag-des-offenen-denkmals/",
    "hinzu": "2026-08-08"
   },
@@ -246,9 +1034,14 @@
    "typ": "event",
    "titel": "Antik- & Kunstmarkt am Elisenbrunnen (Sept.)",
    "text": "Antiquitäten und Kunst auf dem Friedrich-Wilhelm-Platz — monatliche Reihe.",
-   "lng": 6.0873, "lat": 50.7745,
-   "start": "2026-09-13", "meta": "Elisenbrunnen",
-   "tags": ["flohmarkt", "kultur"],
+   "lng": 6.0873,
+   "lat": 50.7745,
+   "start": "2026-09-13",
+   "meta": "Elisenbrunnen",
+   "tags": [
+    "flohmarkt",
+    "kultur"
+   ],
    "hinzu": "2026-08-08"
   },
   {
@@ -256,10 +1049,16 @@
    "typ": "event",
    "titel": "Alemannia – Fortuna Düsseldorf",
    "text": "Heimspiel am 7. Spieltag der 3. Liga im Tivoli. Genaue Ansetzung innerhalb des Wochenendes noch offen.",
-   "lng": 6.0958, "lat": 50.7928,
-   "start": "2026-09-18", "ende": "2026-09-20", "meta": "Tivoli",
-   "tags": ["sport"],
-   "link": "https://www.alemannia-aachen.de", "quelle": "https://www.alemannia-aachen.de",
+   "lng": 6.0958,
+   "lat": 50.7928,
+   "start": "2026-09-18",
+   "ende": "2026-09-20",
+   "meta": "Tivoli",
+   "tags": [
+    "sport"
+   ],
+   "link": "https://www.alemannia-aachen.de",
+   "quelle": "https://www.alemannia-aachen.de",
    "hinzu": "2026-08-08"
   },
   {
@@ -267,9 +1066,13 @@
    "typ": "event",
    "titel": "Burtscheider Aktionstag",
    "text": "Verkaufsoffener Sonntag in Burtscheid: Geschäfte öffnen 13–18 Uhr, dazu Aktionsprogramm rund um Viehhofstraße und Burtscheider Markt.",
-   "lng": 6.0925, "lat": 50.766,
-   "start": "2026-09-20", "meta": "Burtscheid · 13–18 Uhr",
-   "tags": ["fest"],
+   "lng": 6.0925,
+   "lat": 50.766,
+   "start": "2026-09-20",
+   "meta": "Burtscheid · 13–18 Uhr",
+   "tags": [
+    "fest"
+   ],
    "quelle": "https://www.verkaufsoffener-sonntag.com/in/aachen/",
    "hinzu": "2026-08-08"
   },
@@ -278,9 +1081,13 @@
    "typ": "event",
    "titel": "Maria Stuart — Premiere",
    "text": "Eröffnungspremiere der Spielzeit 2026/27: Schillers Maria Stuart im Großen Haus des Theaters Aachen.",
-   "lng": 6.0855, "lat": 50.7737,
-   "start": "2026-09-20", "meta": "Theater Aachen",
-   "tags": ["kultur"],
+   "lng": 6.0855,
+   "lat": 50.7737,
+   "start": "2026-09-20",
+   "meta": "Theater Aachen",
+   "tags": [
+    "kultur"
+   ],
    "link": "https://www.theateraachen.de/de/premieren/schauspiel-musiktheater-2026-2027.html",
    "quelle": "https://www.theateraachen.de/de/premieren/schauspiel-musiktheater-2026-2027.html",
    "hinzu": "2026-08-08"
@@ -290,9 +1097,14 @@
    "typ": "event",
    "titel": "Isabel Varell im FRANZ",
    "text": "Musik- und Entertainment-Abend: Die guten alten Zeiten sind jetzt — im Kulturzentrum FRANZ, Franzstraße.",
-   "lng": 6.079, "lat": 50.7709,
-   "start": "2026-09-25", "meta": "FRANZ · abends",
-   "tags": ["musik", "kultur"],
+   "lng": 6.079,
+   "lat": 50.7709,
+   "start": "2026-09-25",
+   "meta": "FRANZ · abends",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
    "quelle": "https://rausgegangen.de/aachen/",
    "hinzu": "2026-08-08"
   },
@@ -301,9 +1113,15 @@
    "typ": "event",
    "titel": "Aachener Kunstroute",
    "text": "Offene Ateliers, Galerien und Kunstorte in der Innenstadt. Vernissage Fr 20 Uhr, Sa/So jeweils 11–18 Uhr, Eintritt frei.",
-   "lng": 6.0865, "lat": 50.777,
-   "start": "2026-09-25", "ende": "2026-09-27", "meta": "stadtweit · frei",
-   "tags": ["kultur", "kostenlos"],
+   "lng": 6.0865,
+   "lat": 50.777,
+   "start": "2026-09-25",
+   "ende": "2026-09-27",
+   "meta": "stadtweit · frei",
+   "tags": [
+    "kultur",
+    "kostenlos"
+   ],
    "quelle": "https://www.aachenerkunstroute.de/aachener-kunstroute-2026-die-vorbereitungen-laufen.html",
    "hinzu": "2026-08-08"
   },
@@ -312,9 +1130,14 @@
    "typ": "event",
    "titel": "Reis Against The Spülmachine",
    "text": "Song-Parodien-Comedy des Duos im Kulturzentrum FRANZ — Tourlaub-Programm.",
-   "lng": 6.079, "lat": 50.7709,
-   "start": "2026-09-26", "meta": "FRANZ · abends",
-   "tags": ["musik", "kultur"],
+   "lng": 6.079,
+   "lat": 50.7709,
+   "start": "2026-09-26",
+   "meta": "FRANZ · abends",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
    "quelle": "https://rausgegangen.de/aachen/",
    "hinzu": "2026-08-08"
   },
@@ -323,404 +1146,1772 @@
    "typ": "event",
    "titel": "Altstadtflohmarkt am Katschhof",
    "text": "Flohmarkt vor der Kulisse von Dom und Rathaus, 11–18 Uhr — einer von vier Terminen pro Jahr.",
-   "lng": 6.0834, "lat": 50.7756,
-   "start": "2026-09-27", "meta": "Katschhof · 11–18 Uhr",
-   "tags": ["flohmarkt"],
+   "lng": 6.0834,
+   "lat": 50.7756,
+   "start": "2026-09-27",
+   "meta": "Katschhof · 11–18 Uhr",
+   "tags": [
+    "flohmarkt"
+   ],
    "quelle": "https://www.melan.de/fuer-alle/standorte/details/~/Aachen-Altstadt-1o/",
    "hinzu": "2026-08-08"
   },
-
   {
-   "id": "thermal-elisen",
-   "typ": "angebot",
-   "titel": "Thermalwasser am Elisenbrunnen",
-   "text": "Aachens heiße Schwefelquelle kostenlos probieren — direkt am klassizistischen Brunnen.",
-   "lng": 6.0871, "lat": 50.7747,
-   "meta": "kostenlos",
-   "tags": ["kostenlos"],
-   "hinzu": "2026-08-07", "fest": true
+   "id": "kk-ludwig-forum-sommerferien-2026-07-22",
+   "typ": "event",
+   "titel": "Sommerferien",
+   "text": "Im Ludwig Forum. Kategorie: Veranstaltung.",
+   "lng": 6.0949,
+   "lat": 50.7823,
+   "start": "2026-07-22",
+   "ende": "2026-08-29",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/sommerferien/",
+   "quelle": "https://ludwigforum.de/event/sommerferien/",
+   "hinzu": "2026-08-09"
   },
   {
-   "id": "bsp-sofa",
-   "typ": "angebot",
-   "titel": "[Beispiel] Sofa zu verschenken",
-   "text": "So sieht ein privater Angebots-Pin aus — mit Link zu deiner Kleinanzeige. Melde deinen eigenen über den Knopf unten.",
-   "lng": 6.09, "lat": 50.7735,
-   "meta": "Beispiel — dein Pin?",
-   "tags": ["kostenlos"],
-   "hinzu": "2026-08-07", "fest": true
+   "id": "kk-suermondt-ludwig-museum-monotypie-zweitaegiger-workshop-2026-08-08",
+   "typ": "event",
+   "titel": "Monotypie: Zweitägiger Workshop",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Veranstaltung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-08-08",
+   "ende": "2026-08-09",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/monotypie-zweitaegiger-workshop/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/monotypie-zweitaegiger-workshop/",
+   "hinzu": "2026-08-09"
   },
   {
-   "id": "feige-bendstr",
-   "typ": "angebot",
-   "titel": "Ernte: Feigenbaum Burtscheid",
-   "text": "Frei zugänglicher Feigenbaum im Bereich Steinebrück/Burtscheid — Leiter nötig, Handstraußregel (Eigenbedarf). Einer der wenigen Feigen-Fundorte im Stadtgebiet.",
-   "lng": 6.092429, "lat": 50.764275,
-   "saison": {"von": "08-15", "bis": "10-15"},
-   "meta": "Ernte · mundraub",
-   "tags": ["ernte", "kostenlos", "natur"],
-   "link": "https://mundraub.org/node/93405", "quelle": "https://mundraub.org/node/93405",
-   "hinzu": "2026-08-07", "fest": true
+   "id": "kk-centre-charlemagne-finissage-urban-sketching-2026-08-09",
+   "typ": "event",
+   "titel": "Finissage „Urban Sketching“",
+   "text": "Im Centre Charlemagne. Kategorie: Veranstaltung.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-08-09",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/finissage-urban-sketching/",
+   "quelle": "https://centre-charlemagne.eu/termin/finissage-urban-sketching/",
+   "hinzu": "2026-08-09"
   },
   {
-   "id": "obst-vennbahnweg",
-   "typ": "angebot",
-   "titel": "Ernte: Obstwiese am Vennbahnweg",
-   "text": "Verwilderte Obstwiese hinter der Kompostanlage: alte Apfelsorten, Birnen, Mirabellen, Brombeeren, Walnüsse, Esskastanien. Zugang über die Böschung, festes Schuhwerk.",
-   "lng": 6.165218, "lat": 50.762196,
-   "saison": {"von": "07-15", "bis": "10-31"},
-   "meta": "Ernte · mundraub",
-   "tags": ["ernte", "kostenlos", "natur"],
-   "link": "https://mundraub.org/node/23031", "quelle": "https://mundraub.org/node/23031",
-   "hinzu": "2026-08-08", "fest": true
+   "id": "kk-centre-charlemagne-workshop-urban-sketching-2026-08-09",
+   "typ": "event",
+   "titel": "Workshop „Urban Sketching“",
+   "text": "Im Centre Charlemagne. Kategorie: Workshop.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-08-09",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/workshop-urban-sketching-2/",
+   "quelle": "https://centre-charlemagne.eu/termin/workshop-urban-sketching-2/",
+   "hinzu": "2026-08-09"
   },
   {
-   "id": "apfel-horbach",
-   "typ": "angebot",
-   "titel": "Ernte: Äpfel an der Westwall-Höckerlinie",
-   "text": "Drei Apfelbäume wachsen direkt in der alten Panzersperre an der Forsterheide bei Horbach — tragen jedes Jahr viele kleine Früchte.",
-   "lng": 6.042084, "lat": 50.826806,
-   "saison": {"von": "08-15", "bis": "10-31"},
-   "meta": "Ernte · mundraub",
-   "tags": ["ernte", "kostenlos", "natur"],
-   "link": "https://mundraub.org/node/76079", "quelle": "https://mundraub.org/node/76079",
-   "hinzu": "2026-08-08", "fest": true
+   "id": "kk-centre-charlemagne-badestadt-aachen-2026-08-09",
+   "typ": "event",
+   "titel": "Badestadt Aachen",
+   "text": "Im Centre Charlemagne. Kategorie: Führung.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-08-09",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/badestadt-aachen-5/",
+   "quelle": "https://centre-charlemagne.eu/termin/badestadt-aachen-5/",
+   "hinzu": "2026-08-09"
   },
   {
-   "id": "obst-verlautenheide",
-   "typ": "angebot",
-   "titel": "Ernte: Obstwiese Verlautenheide",
-   "text": "Auf der Wiese hinter der Wassermühle stehen Apfel-, Birnen- und Pflaumenbäume.",
-   "lng": 6.12977, "lat": 50.792603,
-   "saison": {"von": "08-01", "bis": "10-15"},
-   "meta": "Ernte · mundraub",
-   "tags": ["ernte", "kostenlos", "natur"],
-   "link": "https://mundraub.org/node/9144", "quelle": "https://mundraub.org/node/9144",
-   "hinzu": "2026-08-08", "fest": true
+   "id": "kk-suermondt-ludwig-museum-schoenheit-und-vergaenglichkeit-in-der-m-2026-08-09",
+   "typ": "event",
+   "titel": "Schönheit und Vergänglichkeit in der Malerei",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Führung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-08-09",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/schoenheit-und-vergaenglichkeit-in-der-malerei/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/schoenheit-und-vergaenglichkeit-in-der-malerei/",
+   "hinzu": "2026-08-09"
   },
   {
-   "id": "mirabelle-lousberg",
-   "typ": "angebot",
-   "titel": "Ernte: Mirabellen am Lousberg",
-   "text": "Am Beginn des Spazierwegs auf den Lousberg (Ende Theresienstraße) steht ein gut tragender Mirabellen-/Pflaumenbaum.",
-   "lng": 6.081383, "lat": 50.783955,
-   "saison": {"von": "07-15", "bis": "08-31"},
-   "meta": "Ernte · mundraub",
-   "tags": ["ernte", "kostenlos", "natur"],
-   "link": "https://mundraub.org/node/2444", "quelle": "https://mundraub.org/node/2444",
-   "hinzu": "2026-08-08", "fest": true
+   "id": "kk-zeitungsmuseum-formen-der-informationsverbreitung-2026-08-09",
+   "typ": "event",
+   "titel": "Formen der Informationsverbreitung",
+   "text": "Im Zeitungsmuseum. Kategorie: Führung.",
+   "lng": 6.0824,
+   "lat": 50.7758,
+   "start": "2026-08-09",
+   "meta": "Zeitungsmuseum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://izm.de/event/formen-der-informationsverbreitung/",
+   "quelle": "https://izm.de/event/formen-der-informationsverbreitung/",
+   "hinzu": "2026-08-09"
   },
   {
-   "id": "brombeere-madriderring",
-   "typ": "angebot",
-   "titel": "Ernte: Brombeeren an der Vennbahntrasse",
-   "text": "Riesige Brombeersträucher am Wegesrand hinter der Unterführung des Madrider Rings, von Eilendorf kommend.",
-   "lng": 6.137795, "lat": 50.771152,
-   "saison": {"von": "07-15", "bis": "09-30"},
-   "meta": "Ernte · mundraub",
-   "tags": ["ernte", "kostenlos", "natur"],
-   "link": "https://mundraub.org/node/3003", "quelle": "https://mundraub.org/node/3003",
-   "hinzu": "2026-08-08", "fest": true
+   "id": "kk-suermondt-ludwig-museum-das-glueck-dieser-erde-duerer-rubens-goy-2026-08-09",
+   "typ": "event",
+   "titel": "Das Glück dieser Erde. Dürer, Rubens, Goya: Pferde in der Kunst",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Führung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-08-09",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/das-glueck-dieser-erde-duerer-rubens-goya-pferde-in-der-kunst-3-3/2026-08-09/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/das-glueck-dieser-erde-duerer-rubens-goya-pferde-in-der-kunst-3-3/2026-08-09/",
+   "hinzu": "2026-08-09"
   },
   {
-   "id": "brombeere-kfallee",
-   "typ": "angebot",
-   "titel": "Ernte: Brombeeren Kaiser-Friedrich-Allee",
-   "text": "Viele Brombeersträucher stadteinwärts auf Höhe der Scheurenstraße — Handschuhe und lange Kleidung dringend empfohlen.",
-   "lng": 6.072671, "lat": 50.755489,
-   "saison": {"von": "07-15", "bis": "09-30"},
-   "meta": "Ernte · mundraub",
-   "tags": ["ernte", "kostenlos", "natur"],
-   "link": "https://mundraub.org/node/2437", "quelle": "https://mundraub.org/node/2437",
-   "hinzu": "2026-08-08", "fest": true
+   "id": "kk-altes-kurhaus-8222-alles-anders-8220-8211-eine-musical-2026-08-09",
+   "typ": "event",
+   "titel": "&#8222;Alles Anders&#8220; &#8211; Eine Musicalproduktion",
+   "text": "Im Altes Kurhaus. Kategorie: Veranstaltung.",
+   "lng": 6.087,
+   "lat": 50.7776,
+   "start": "2026-08-09",
+   "meta": "Altes Kurhaus",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://altes-kurhaus-aachen.de/veranstaltung/alles-anders-eine-musicalproduktion-3/",
+   "quelle": "https://altes-kurhaus-aachen.de/veranstaltung/alles-anders-eine-musicalproduktion-3/",
+   "hinzu": "2026-08-09"
   },
   {
-   "id": "brombeere-walheim",
-   "typ": "angebot",
-   "titel": "Ernte: Brombeeren Vennbahnweg Walheim",
-   "text": "Viele Brombeerbüsche säumen den Vennbahnweg zwischen Walheim und Schmithof — ideal mit dem Rad.",
-   "lng": 6.173201, "lat": 50.700481,
-   "saison": {"von": "07-15", "bis": "09-30"},
-   "meta": "Ernte · mundraub",
-   "tags": ["ernte", "kostenlos", "natur"],
-   "link": "https://mundraub.org/node/20508", "quelle": "https://mundraub.org/node/20508",
-   "hinzu": "2026-08-08", "fest": true
+   "id": "kk-centre-charlemagne-wissensreporter-innen-sommerferienprogra-2026-08-11",
+   "typ": "event",
+   "titel": "Wissensreporter*innen – Sommerferienprogramm",
+   "text": "Im Centre Charlemagne. Kategorie: Workshop.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-08-11",
+   "ende": "2026-08-13",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/wissensreporterinnen-sommerferienprogramm-2/",
+   "quelle": "https://centre-charlemagne.eu/termin/wissensreporterinnen-sommerferienprogramm-2/",
+   "hinzu": "2026-08-09"
   },
   {
-   "id": "himbeere-kreuzerdriesch",
-   "typ": "angebot",
-   "titel": "Ernte: Himbeeren am Kreuzerdriesch",
-   "text": "Viele Himbeersträucher beidseitig des Weges zwischen Beverau und Brander Wald — Vorsicht vor Brennnesseln.",
-   "lng": 6.118735, "lat": 50.751992,
-   "saison": {"von": "06-15", "bis": "08-31"},
-   "meta": "Ernte · mundraub",
-   "tags": ["ernte", "kostenlos", "natur"],
-   "link": "https://mundraub.org/node/145140", "quelle": "https://mundraub.org/node/145140",
-   "hinzu": "2026-08-08", "fest": true
+   "id": "kk-suermondt-ludwig-museum-interkultureller-kunstworkshop-2026-08-11",
+   "typ": "event",
+   "titel": "Interkultureller Kunstworkshop",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Veranstaltung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-08-11",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/interkultureller-kunstworkshop-2/2026-08-11/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/interkultureller-kunstworkshop-2/2026-08-11/",
+   "hinzu": "2026-08-09"
   },
   {
-   "id": "heidelbeere-branderwald",
-   "typ": "angebot",
-   "titel": "Ernte: Wilde Heidelbeeren im Brander Wald",
-   "text": "Verstreute Heidelbeersträucher im Brander Wald/Krauthauser Heide. Nur kleine Mengen (Handstraußregel) und Beeren vor dem Verzehr erhitzen (Fuchsbandwurm).",
-   "lng": 6.190871, "lat": 50.755179,
-   "saison": {"von": "06-20", "bis": "08-15"},
-   "meta": "Ernte · mundraub",
-   "tags": ["ernte", "kostenlos", "natur"],
-   "link": "https://mundraub.org/node/14531", "quelle": "https://mundraub.org/node/14531",
-   "hinzu": "2026-08-08", "fest": true
+   "id": "kk-suermondt-ludwig-museum-ludwig-hohlwein-1874-1949-schrittarbeit--2026-08-11",
+   "typ": "event",
+   "titel": "Ludwig Hohlwein (1874 – 1949),  Schrittarbeit (Blatt 3/12 aus &#8222;Turf. Zwölf Rennsport",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Kunstpause.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-08-11",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/ludwig-hohlwein-1874-1949-schrittarbeit-blatt-3-12-aus-turf-zwoelf-rennsportbilder/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/ludwig-hohlwein-1874-1949-schrittarbeit-blatt-3-12-aus-turf-zwoelf-rennsportbilder/",
+   "hinzu": "2026-08-09"
   },
   {
-   "id": "walnuss-hergenrath",
-   "typ": "angebot",
-   "titel": "Ernte: Walnusswiese bei Hergenrath (B)",
-   "text": "Frei zugängliche Gemeindewiese mit über 30 Walnussbäumen bei Kelmis, südwestlich von Aachen. Beste Zeit: morgens nach einer stürmischen Nacht. Belgische Sammelregeln beachten.",
-   "lng": 6.029177, "lat": 50.707135,
-   "saison": {"von": "09-01", "bis": "10-31"},
-   "meta": "Ernte · mundraub · Belgien",
-   "tags": ["ernte", "kostenlos", "natur"],
-   "link": "https://mundraub.org/node/92032", "quelle": "https://mundraub.org/node/92032",
-   "hinzu": "2026-08-08", "fest": true
+   "id": "kk-ludwig-forum-huettisti-2026-08-12",
+   "typ": "event",
+   "titel": "Hüttisti",
+   "text": "Im Ludwig Forum. Kategorie: Veranstaltung.",
+   "lng": 6.0949,
+   "lat": 50.7823,
+   "start": "2026-08-12",
+   "ende": "2026-08-14",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/huettisti-4/",
+   "quelle": "https://ludwigforum.de/event/huettisti-4/",
+   "hinzu": "2026-08-09"
   },
   {
-   "id": "esskastanie-wald",
-   "typ": "angebot",
-   "titel": "Ernte: Esskastanien im Aachener Wald",
-   "text": "Am Waldweg vom Luxemburger Ring Richtung Lütticher Straße stehen auf mehreren Wiesen Esskastanienbäume, die meist gut tragen.",
-   "lng": 6.063251, "lat": 50.751934,
-   "saison": {"von": "09-20", "bis": "10-31"},
-   "meta": "Ernte · mundraub",
-   "tags": ["ernte", "kostenlos", "natur"],
-   "link": "https://mundraub.org/node/2435", "quelle": "https://mundraub.org/node/2435",
-   "hinzu": "2026-08-08", "fest": true
+   "id": "kk-suermondt-ludwig-museum-kunst-am-mittag-oeffentliche-fuehrung-2026-08-12",
+   "typ": "event",
+   "titel": "Kunst am Mittag – Öffentliche Führung",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Führung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-08-12",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/kunst-am-mittag-oeffentliche-fuehrung-2-2-2/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/kunst-am-mittag-oeffentliche-fuehrung-2-2-2/",
+   "hinzu": "2026-08-09"
   },
   {
-   "id": "obst-schneebergweg",
-   "typ": "angebot",
-   "titel": "Ernte: Alte Obstbäume am Schneebergweg",
-   "text": "Vom Golfplatz Richtung Lemiers stehen beidseitig viele alte Obstbäume und Beerensträucher: Äpfel, Birnen, Pflaumen, Mirabellen, Brombeeren. Lange Hose und Handschuhe empfohlen.",
-   "lng": 6.029048, "lat": 50.780056,
-   "saison": {"von": "07-15", "bis": "10-31"},
-   "meta": "Ernte · mundraub",
-   "tags": ["ernte", "kostenlos", "natur"],
-   "link": "https://mundraub.org/node/1787", "quelle": "https://mundraub.org/node/1787",
-   "hinzu": "2026-08-08", "fest": true
+   "id": "kk-couven-museum-kueche-und-haushalt-im-18-und-19-jahrhun-2026-08-13",
+   "typ": "event",
+   "titel": "Küche und Haushalt im 18. und 19. Jahrhundert",
+   "text": "Im Couven Museum. Kategorie: Veranstaltung.",
+   "lng": 6.0849,
+   "lat": 50.7761,
+   "start": "2026-08-13",
+   "meta": "Couven Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://couven-museum.de/event/kueche-und-haushalt-im-18-und-19-jahrhundert-3/",
+   "quelle": "https://couven-museum.de/event/kueche-und-haushalt-im-18-und-19-jahrhundert-3/",
+   "hinzu": "2026-08-09"
   },
   {
-   "id": "kirsche-dueppelstr",
-   "typ": "angebot",
-   "titel": "Ernte: Kirschbaum Düppelstraße",
-   "text": "Großer Kirschbaum am Anfang der Düppelstraße (vom Elsassplatz kommend) mit sehr vielen Früchten — kleine Leiter hilfreich.",
-   "lng": 6.115619, "lat": 50.773987,
-   "saison": {"von": "07-01", "bis": "07-31"},
-   "meta": "Ernte · mundraub",
-   "tags": ["ernte", "kostenlos", "natur"],
-   "link": "https://mundraub.org/node/1447", "quelle": "https://mundraub.org/node/1447",
-   "hinzu": "2026-08-08", "fest": true
+   "id": "kk-suermondt-ludwig-museum-buchvorstellung-eine-sprache-der-liebe-2026-08-13",
+   "typ": "event",
+   "titel": "Buchvorstellung: Eine Sprache der Liebe",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Veranstaltung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-08-13",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/buchvorstellung-eine-sprache-der-liebe/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/buchvorstellung-eine-sprache-der-liebe/",
+   "hinzu": "2026-08-09"
   },
   {
-   "id": "kirsche-preuswald",
-   "typ": "angebot",
-   "titel": "Ernte: Kirschbaum Preuswald",
-   "text": "Kirschbaum mit ausladender, niedriger Krone auf dem Grünstreifen an der Preuswaldsiedlung — man kommt leicht an die Kirschen.",
-   "lng": 6.047469, "lat": 50.738095,
-   "saison": {"von": "06-15", "bis": "07-31"},
-   "meta": "Ernte · mundraub",
-   "tags": ["ernte", "kostenlos", "natur"],
-   "link": "https://mundraub.org/node/102542", "quelle": "https://mundraub.org/node/102542",
-   "hinzu": "2026-08-08", "fest": true
+   "id": "kk-altes-kurhaus-8222-alles-anders-8220-8211-eine-musical-2026-08-14",
+   "typ": "event",
+   "titel": "&#8222;Alles Anders&#8220; &#8211; Eine Musicalproduktion",
+   "text": "Im Altes Kurhaus. Kategorie: Veranstaltung.",
+   "lng": 6.087,
+   "lat": 50.7776,
+   "start": "2026-08-14",
+   "meta": "Altes Kurhaus",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://altes-kurhaus-aachen.de/veranstaltung/alles-anders-eine-musicalproduktion-4/",
+   "quelle": "https://altes-kurhaus-aachen.de/veranstaltung/alles-anders-eine-musicalproduktion-4/",
+   "hinzu": "2026-08-09"
   },
   {
-   "id": "baerlauch-beverbach",
-   "typ": "angebot",
-   "titel": "Ernte: Bärlauch am Beverbach",
-   "text": "Nördlich der Brücke sind beide Bachhänge voll mit Bärlauch. Steiles Gelände, feste Schuhe. Achtung Verwechslungsgefahr mit Maiglöckchen — nur ernten, wer sicher bestimmt.",
-   "lng": 6.103098, "lat": 50.756604,
-   "saison": {"von": "03-01", "bis": "05-15"},
-   "meta": "Ernte · mundraub · Frühjahr",
-   "tags": ["ernte", "kostenlos", "natur"],
-   "link": "https://mundraub.org/node/7108", "quelle": "https://mundraub.org/node/7108",
-   "hinzu": "2026-08-08", "fest": true
+   "id": "kk-ludwig-forum-fuehrung-electrical-walks-aachen-2026-08-15",
+   "typ": "event",
+   "titel": "Führung: Electrical Walks Aachen",
+   "text": "Im Ludwig Forum. Kategorie: Führung.",
+   "lng": 6.0949,
+   "lat": 50.7823,
+   "start": "2026-08-15",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/fuehrung-electrical-walks-aachen-2/",
+   "quelle": "https://ludwigforum.de/event/fuehrung-electrical-walks-aachen-2/",
+   "hinzu": "2026-08-09"
   },
   {
-   "id": "juppis-heidelbeeren",
-   "typ": "angebot",
-   "titel": "Heidelbeeren selbst pflücken: Juppis Hof",
-   "text": "Heidelbeer-Plantage mit Selbstpflücke (2026: 5,50 €/kg, 11–17 Uhr an angekündigten Pflücktagen) in Selfkant-Havert, mit Beerencafé. Nächstgelegene belegte Heidelbeer-Selbstpflücke, ca. 45 km nördlich.",
-   "lng": 5.911075, "lat": 51.038885,
-   "saison": {"von": "07-01", "bis": "08-15"},
-   "meta": "Selbstpflücke · Selfkant",
-   "tags": ["ernte", "natur", "kinder"],
-   "link": "https://www.juppis-hof.de/veranstaltungen/beerenpfluecken/", "quelle": "https://www.juppis-hof.de/veranstaltungen/beerenpfluecken/",
-   "hinzu": "2026-08-08", "fest": true
+   "id": "kk-centre-charlemagne-ohne-dom-nix-los-2026-08-15",
+   "typ": "event",
+   "titel": "Ohne Dom nix los?",
+   "text": "Im Centre Charlemagne. Kategorie: Führung.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-08-15",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/ohne-dom-nix-los-8/",
+   "quelle": "https://centre-charlemagne.eu/termin/ohne-dom-nix-los-8/",
+   "hinzu": "2026-08-09"
   },
   {
-   "id": "hasselholz-erdbeeren",
-   "typ": "angebot",
-   "titel": "Bio-Erdbeeren selbst pflücken: Gut Hasselholz",
-   "text": "Bio-Erdbeerfeld an der Feldeinfahrt Buchweg im Vaalserquartier. Pflückzeiten zuletzt Mi 17–19, Fr 17–18:30, So 10–13 Uhr — vor Anfahrt prüfen.",
-   "lng": 6.029152, "lat": 50.763459,
-   "saison": {"von": "05-25", "bis": "07-15"},
-   "meta": "Selbstpflücke · bio",
-   "tags": ["ernte", "natur", "kinder", "essen"],
-   "quelle": "https://kingkalli.de/erdbeeren-pfluecken-im-raum-aachen-dueren/",
-   "hinzu": "2026-08-08", "fest": true
+   "id": "kk-centre-charlemagne-kuratorenfuehrung-tradition-innovation-e-2026-08-15",
+   "typ": "event",
+   "titel": "Kuratorenführung „Tradition – Innovation – Emotion.&#8220;",
+   "text": "Im Centre Charlemagne. Kategorie: Führung.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-08-15",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/kuratorenfuehrung-tradition-innovation-emotion-2/",
+   "quelle": "https://centre-charlemagne.eu/termin/kuratorenfuehrung-tradition-innovation-emotion-2/",
+   "hinzu": "2026-08-09"
   },
   {
-   "id": "mariahaus-erdbeeren",
-   "typ": "angebot",
-   "titel": "Erdbeeren pflücken: Bio-Hof Maria Haus",
-   "text": "Auf den Feldern des Bio-Bauernhofs der Alexianer Werkstätten (Gemmenicher Weg 45) hofeigene Erdbeeren selbst pflücken — vorher im Hofladen anmelden (Mo–Fr 9–16 Uhr).",
-   "lng": 6.048408, "lat": 50.765419,
-   "saison": {"von": "06-01", "bis": "07-15"},
-   "meta": "Selbstpflücke · bio",
-   "tags": ["ernte", "natur", "kinder", "essen"],
-   "quelle": "https://kingkalli.de/erdbeeren-pfluecken-im-raum-aachen-dueren/",
-   "hinzu": "2026-08-08", "fest": true
+   "id": "kk-altes-kurhaus-8222-alles-anders-8220-8211-eine-musical-2026-08-15",
+   "typ": "event",
+   "titel": "&#8222;Alles Anders&#8220; &#8211; Eine Musicalproduktion",
+   "text": "Im Altes Kurhaus. Kategorie: Veranstaltung.",
+   "lng": 6.087,
+   "lat": 50.7776,
+   "start": "2026-08-15",
+   "meta": "Altes Kurhaus",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://altes-kurhaus-aachen.de/veranstaltung/alles-anders-eine-musicalproduktion-5/",
+   "quelle": "https://altes-kurhaus-aachen.de/veranstaltung/alles-anders-eine-musicalproduktion-5/",
+   "hinzu": "2026-08-09"
   },
   {
-   "id": "bluetenreich",
-   "typ": "angebot",
-   "titel": "Blumen selber schneiden: Blütenreich Richterich",
-   "text": "Blumen direkt vom Feld schneiden (Küppershofweg 13): Frühjahr Tulpen und Ranunkeln, Sommer Dahlien, Wildblumen, Sonnenblumen. Mo–Fr 9–18:30, Sa 9–15 Uhr.",
-   "lng": 6.070418, "lat": 50.817951,
-   "saison": {"von": "03-15", "bis": "10-15"},
-   "meta": "Selber schneiden",
-   "tags": ["ernte", "natur"],
-   "quelle": "https://aachen.t-online.de/region/aachen/id_101197882/geheimtipp-in-aachen-hier-koennen-sie-ihren-fruehlingsstrauss-selbst-pfluecken.html",
-   "hinzu": "2026-08-08", "fest": true
-  },
-
-  {
-   "id": "bsp-kurier",
-   "typ": "hilfe",
-   "titel": "[Beispiel] Gesuch: Kurier Innenstadt → Brand",
-   "text": "Paket bis Schuhkartongröße mitnehmen, Trinkgeld nach Absprache. Melde echte Gesuche über den Knopf unten.",
-   "lng": 6.092, "lat": 50.776,
-   "meta": "Beispiel",
-   "tags": ["hilfe"],
-   "hinzu": "2026-08-07", "fest": true
+   "id": "kk-centre-charlemagne-stein-wasser-und-metall-2026-08-16",
+   "typ": "event",
+   "titel": "Stein, Wasser und Metall",
+   "text": "Im Centre Charlemagne. Kategorie: Führung.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-08-16",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/stein-wasser-und-metall-6/",
+   "quelle": "https://centre-charlemagne.eu/termin/stein-wasser-und-metall-6/",
+   "hinzu": "2026-08-09"
   },
   {
-   "id": "bsp-einkauf",
-   "typ": "hilfe",
-   "titel": "[Beispiel] Gesuch: Einkaufshilfe",
-   "text": "1× pro Woche Wochenmarkt-Einkauf für Nachbarin, ca. 45 Min. So sieht ein Nachbarschafts-Gesuch aus.",
-   "lng": 6.103, "lat": 50.7698,
-   "meta": "Beispiel · wöchentlich",
-   "tags": ["hilfe"],
-   "hinzu": "2026-08-07", "fest": true
-  },
-
-  {
-   "id": "spot-lousberg",
-   "typ": "spot",
-   "titel": "Fotospot: Lousberg (Obelisk & Panorama)",
-   "text": "Aachens Hausberg: vom Tranchot-Obelisken das beste freie Panorama über die Dächer und die Domsilhouette. Aufstieg über die Lousbergstiege (312 Stufen). Am besten: goldene/blaue Stunde abends, Blick nach Süden.",
-   "lng": 6.0792, "lat": 50.7869,
-   "meta": "frei zugänglich",
-   "tags": ["fotospot", "kostenlos", "natur"],
-   "quelle": "https://de.wikipedia.org/wiki/Lousberg",
-   "hinzu": "2026-08-08", "fest": true
+   "id": "kk-suermondt-ludwig-museum-frivole-sitten-und-strenge-moral-8211-al-2026-08-16",
+   "typ": "event",
+   "titel": "Frivole Sitten und strenge Moral &#8211; Alltag und Festtag in der Malerei",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Führung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-08-16",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/frivole-sitten-und-strenge-moral-alltag-und-festtag-in-der-malerei/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/frivole-sitten-und-strenge-moral-alltag-und-festtag-in-der-malerei/",
+   "hinzu": "2026-08-09"
   },
   {
-   "id": "spot-belvedere",
-   "typ": "spot",
-   "titel": "Fotospot: Drehturm Belvedere",
-   "text": "Der 35 m hohe frühere Wasserturm (1958) ist ein markantes Architekturmotiv auf dem Lousberg-Plateau. Am besten abends als Silhouette gegen den Westhimmel.",
-   "lng": 6.08049, "lat": 50.78645,
-   "meta": "Umfeld frei zugänglich",
-   "tags": ["fotospot", "kostenlos"],
-   "quelle": "https://de.wikipedia.org/wiki/Wasserturm_Belvedere_(Aachen)",
-   "hinzu": "2026-08-08", "fest": true
+   "id": "kk-centre-charlemagne-fuehrung-zollmuseum-2026-08-16",
+   "typ": "event",
+   "titel": "Führung Zollmuseum",
+   "text": "Im Centre Charlemagne. Kategorie: Führung.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-08-16",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/fuehrung-zollmuseum-11/2026-08-16/",
+   "quelle": "https://centre-charlemagne.eu/termin/fuehrung-zollmuseum-11/2026-08-16/",
+   "hinzu": "2026-08-09"
   },
   {
-   "id": "spot-katschhof",
-   "typ": "spot",
-   "titel": "Fotospot: Katschhof (Dom + Rathaus)",
-   "text": "Herz des UNESCO-Ensembles: südlich füllt der Dom den Rahmen, nördlich das gotische Rathaus. Am besten: blaue Stunde, wenn beide angestrahlt sind; morgens streifendes Licht von Osten.",
-   "lng": 6.08379, "lat": 50.77544,
-   "meta": "rund um die Uhr frei",
-   "tags": ["fotospot", "kostenlos"],
-   "quelle": "https://de.wikipedia.org/wiki/Aachener_Dom",
-   "hinzu": "2026-08-08", "fest": true
+   "id": "kk-suermondt-ludwig-museum-das-glueck-dieser-erde-duerer-rubens-goy-2026-08-16",
+   "typ": "event",
+   "titel": "Das Glück dieser Erde. Dürer, Rubens, Goya: Pferde in der Kunst",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Führung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-08-16",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/das-glueck-dieser-erde-duerer-rubens-goya-pferde-in-der-kunst-3/2026-08-16/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/das-glueck-dieser-erde-duerer-rubens-goya-pferde-in-der-kunst-3/2026-08-16/",
+   "hinzu": "2026-08-09"
   },
   {
-   "id": "spot-elisenbrunnen",
-   "typ": "spot",
-   "titel": "Fotospot: Elisenbrunnen",
-   "text": "Klassizistische Säulenhalle von 1827 — ideal für Symmetrie-Aufnahmen. Am besten: abends Sonne von Westen auf der Säulenfront, nachts stimmungsvoll beleuchtet.",
-   "lng": 6.0869, "lat": 50.7742,
-   "meta": "goldene Stunde abends",
-   "tags": ["fotospot", "kostenlos"],
-   "quelle": "https://de.wikipedia.org/wiki/Elisenbrunnen",
-   "hinzu": "2026-08-08", "fest": true
+   "id": "kk-altes-kurhaus-8222-alles-anders-8220-8211-eine-musical-2026-08-16",
+   "typ": "event",
+   "titel": "&#8222;Alles Anders&#8220; &#8211; Eine Musicalproduktion",
+   "text": "Im Altes Kurhaus. Kategorie: Veranstaltung.",
+   "lng": 6.087,
+   "lat": 50.7776,
+   "start": "2026-08-16",
+   "meta": "Altes Kurhaus",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://altes-kurhaus-aachen.de/veranstaltung/alles-anders-eine-musicalproduktion-6/",
+   "quelle": "https://altes-kurhaus-aachen.de/veranstaltung/alles-anders-eine-musicalproduktion-6/",
+   "hinzu": "2026-08-09"
   },
   {
-   "id": "spot-ponttor",
-   "typ": "spot",
-   "titel": "Fotospot: Ponttor",
-   "text": "Mittelalterliches Stadttor mit Vorburg — dramatische Kompositionen von der nördlichen Feldseite. Am besten: goldene Stunde abends von Norden/Nordwesten.",
-   "lng": 6.07833, "lat": 50.78153,
-   "meta": "goldene Stunde",
-   "tags": ["fotospot", "kostenlos"],
-   "quelle": "https://de.wikipedia.org/wiki/Ponttor",
-   "hinzu": "2026-08-08", "fest": true
+   "id": "kk-centre-charlemagne-tagung-dressursport-2026-08-17",
+   "typ": "event",
+   "titel": "Tagung Dressursport",
+   "text": "Im Centre Charlemagne. Kategorie: Veranstaltung.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-08-17",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/tagung-dressursport/",
+   "quelle": "https://centre-charlemagne.eu/termin/tagung-dressursport/",
+   "hinzu": "2026-08-09"
   },
   {
-   "id": "spot-marschiertor",
-   "typ": "spot",
-   "titel": "Fotospot: Marschiertor",
-   "text": "Eines der mächtigsten erhaltenen Stadttore Westeuropas, nahe Hauptbahnhof — die breite Südfassade füllt Weitwinkel perfekt. Am besten: Nachmittag bis goldene Stunde.",
-   "lng": 6.08694, "lat": 50.76819,
-   "meta": "frei zugänglich",
-   "tags": ["fotospot", "kostenlos"],
-   "quelle": "https://de.wikipedia.org/wiki/Marschiertor",
-   "hinzu": "2026-08-08", "fest": true
+   "id": "kk-centre-charlemagne-wissensreporter-innen-sommerferienprogra-2026-08-18",
+   "typ": "event",
+   "titel": "Wissensreporter*innen – Sommerferienprogramm",
+   "text": "Im Centre Charlemagne. Kategorie: Workshop.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-08-18",
+   "ende": "2026-08-20",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/wissensreporterinnen-sommerferienprogramm-3/",
+   "quelle": "https://centre-charlemagne.eu/termin/wissensreporterinnen-sommerferienprogramm-3/",
+   "hinzu": "2026-08-09"
   },
   {
-   "id": "spot-frankenberg",
-   "typ": "spot",
-   "titel": "Fotospot: Burg Frankenberg",
-   "text": "Wasserburg aus dem 13. Jh. mitten im Viertel: Der Burgweiher liefert bei Windstille Bilderbuch-Spiegelungen. Am besten: Sonnenaufgang — ruhiges Wasser, gelegentlich Morgennebel.",
-   "lng": 6.10389, "lat": 50.76778,
-   "meta": "Park frei zugänglich",
-   "tags": ["fotospot", "kostenlos"],
-   "quelle": "https://de.wikipedia.org/wiki/Burg_Frankenberg_(Aachen)",
-   "hinzu": "2026-08-08", "fest": true
+   "id": "kk-suermondt-ludwig-museum-lese-theater-fuer-kinder-2026-08-18",
+   "typ": "event",
+   "titel": "Lese-Theater für Kinder",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Veranstaltung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-08-18",
+   "ende": "2026-08-21",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/lese-theater-fuer-kinder/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/lese-theater-fuer-kinder/",
+   "hinzu": "2026-08-09"
   },
   {
-   "id": "spot-melaten",
-   "typ": "spot",
-   "titel": "Fotospot: Gut-Melaten-Allee",
-   "text": "Aachens beliebtestes Allee-Motiv am historischen Gut Melaten: symmetrische Baumreihen, im Herbst spektakulär gefärbt. Am besten: Sonnenaufgang mit Gegenlicht und Morgennebel.",
-   "lng": 6.0466, "lat": 50.7789,
-   "meta": "RWTH Campus Melaten",
-   "tags": ["fotospot", "kostenlos", "natur"],
-   "quelle": "https://de.wikipedia.org/wiki/Gut_Melaten",
-   "hinzu": "2026-08-08", "fest": true
+   "id": "kk-couven-museum-alltag-und-glamour-im-couven-museum-2026-08-18",
+   "typ": "event",
+   "titel": "Alltag und Glamour im Couven-Museum",
+   "text": "Im Couven Museum. Kategorie: Führung.",
+   "lng": 6.0849,
+   "lat": 50.7761,
+   "start": "2026-08-18",
+   "meta": "Couven Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://couven-museum.de/event/alltag-und-glamour-im-couven-museum/",
+   "quelle": "https://couven-museum.de/event/alltag-und-glamour-im-couven-museum/",
+   "hinzu": "2026-08-09"
   },
   {
-   "id": "spot-stadtgarten",
-   "typ": "spot",
-   "titel": "Fotospot: Stadtgarten / Kurpark",
-   "text": "Alte Baumbestände, Wasserbecken und das Neue Kurhaus als Kulisse — ruhiges Park-Motiv abseits der Altstadt. Am besten: morgens, im Herbst wegen Laubfärbung besonders fotogen.",
-   "lng": 6.0971, "lat": 50.783,
-   "meta": "frei zugänglich",
-   "tags": ["fotospot", "kostenlos", "natur"],
-   "quelle": "https://www.carolus-thermen.de/",
-   "hinzu": "2026-08-08", "fest": true
+   "id": "kk-suermondt-ludwig-museum-carl-steffeck-1818-1890-der-trakehnerhen-2026-08-18",
+   "typ": "event",
+   "titel": "Carl Steffeck (1818-1890), Der Trakehnerhengst NEDJED ox, um 1870",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Kunstpause.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-08-18",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/carl-steffeck-1818-1890-der-trakehnerhengst-nedjed-ox-um-1870/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/carl-steffeck-1818-1890-der-trakehnerhengst-nedjed-ox-um-1870/",
+   "hinzu": "2026-08-09"
   },
   {
-   "id": "spot-dreilaendereck",
-   "typ": "spot",
-   "titel": "Fotospot: Dreiländereck Vaalserberg",
-   "text": "Drei Länder in einem Bild: Grenzmonument, Waldkulisse und Aussichtstürme am höchsten Punkt der Niederlande (322 m). Am besten: Sonnenuntergang mit freier Sicht nach Westen.",
-   "lng": 6.0208, "lat": 50.7547,
-   "meta": "D · NL · B · frei",
-   "tags": ["fotospot", "natur"],
-   "quelle": "https://de.wikipedia.org/wiki/Vaalserberg",
-   "hinzu": "2026-08-08", "fest": true
+   "id": "kk-centre-charlemagne-kuratorenfuehrung-das-volle-paket-2026-08-18",
+   "typ": "event",
+   "titel": "Kuratorenführung „Das volle Paket!“",
+   "text": "Im Centre Charlemagne. Kategorie: Führung.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-08-18",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/kuratorenfuehrung-das-volle-paket/",
+   "quelle": "https://centre-charlemagne.eu/termin/kuratorenfuehrung-das-volle-paket/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-das-volle-paket-fuehrung-durch-die-pferd-2026-08-18",
+   "typ": "event",
+   "titel": "Das volle Paket! Führung durch die Pferde-Ausstellungen im Centre Charlemagne und SLM",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Führung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-08-18",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/das-volle-paket-fuehrung-durch-die-pferde-ausstellungen-im-centre-charlemagne-und-slm/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/das-volle-paket-fuehrung-durch-die-pferde-ausstellungen-im-centre-charlemagne-und-slm/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-kunst-croissants-und-konfituere-2026-08-19",
+   "typ": "event",
+   "titel": "Kunst, Croissants und Konfitüre",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Veranstaltung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-08-19",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/kunst-croissants-und-konfituere-4-2-2-2/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/kunst-croissants-und-konfituere-4-2-2-2/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-centre-charlemagne-aachens-reiterdenkmaeler-2026-08-19",
+   "typ": "event",
+   "titel": "Aachens Reiterdenkmäler",
+   "text": "Im Centre Charlemagne. Kategorie: Veranstaltung.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-08-19",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/aachens-reiterdenkmaeler/",
+   "quelle": "https://centre-charlemagne.eu/termin/aachens-reiterdenkmaeler/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-kunst-am-mittag-oeffentliche-fuehrung-2026-08-20",
+   "typ": "event",
+   "titel": "Kunst am Mittag – Öffentliche Führung",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Führung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-08-20",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/kunst-am-mittag-oeffentliche-fuehrung-2-2/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/kunst-am-mittag-oeffentliche-fuehrung-2-2/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-ludwig-forum-centaur-fuehrung-mit-esther-boehle-2026-08-20",
+   "typ": "event",
+   "titel": "Centaur – Führung mit Esther Boehle",
+   "text": "Im Ludwig Forum. Kategorie: Führung.",
+   "lng": 6.0949,
+   "lat": 50.7823,
+   "start": "2026-08-20",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/centaur-fuehrung-mit-esther-boehle/",
+   "quelle": "https://ludwigforum.de/event/centaur-fuehrung-mit-esther-boehle/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-fuehrung-mit-petits-fours-2026-08-21",
+   "typ": "event",
+   "titel": "Führung mit Petits Fours    ",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Führung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-08-21",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/fuehrung-mit-petits-fours-6-2/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/fuehrung-mit-petits-fours-6-2/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-centre-charlemagne-karl-der-grosse-2026-08-22",
+   "typ": "event",
+   "titel": "Karl der Große",
+   "text": "Im Centre Charlemagne. Kategorie: Führung.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-08-22",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/karl-der-grosse-3/",
+   "quelle": "https://centre-charlemagne.eu/termin/karl-der-grosse-3/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-centre-charlemagne-kuratorenfuehrung-tradition-innovation-e-2026-08-22",
+   "typ": "event",
+   "titel": "Kuratorenführung „Tradition – Innovation – Emotion.&#8220;",
+   "text": "Im Centre Charlemagne. Kategorie: Führung.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-08-22",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/kuratorenfuehrung-tradition-innovation-emotion-3/",
+   "quelle": "https://centre-charlemagne.eu/termin/kuratorenfuehrung-tradition-innovation-emotion-3/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-finissage-das-glueck-dieser-erde-2026-08-23",
+   "typ": "event",
+   "titel": "FINISSAGE  Das Glück dieser Erde",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Veranstaltung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-08-23",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/finissage-das-glueck-dieser-erde/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/finissage-das-glueck-dieser-erde/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-couven-museum-oeffentliche-sonntags-fuehrung-2026-08-23",
+   "typ": "event",
+   "titel": "Öffentliche Sonntags-Führung",
+   "text": "Im Couven Museum. Kategorie: Führung.",
+   "lng": 6.0849,
+   "lat": 50.7761,
+   "start": "2026-08-23",
+   "meta": "Couven Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://couven-museum.de/event/oeffentliche-sonntags-fuehrung-24/",
+   "quelle": "https://couven-museum.de/event/oeffentliche-sonntags-fuehrung-24/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-centre-charlemagne-highlights-der-stadtgeschichte-2026-08-23",
+   "typ": "event",
+   "titel": "Highlights der Stadtgeschichte",
+   "text": "Im Centre Charlemagne. Kategorie: Führung.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-08-23",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/highlights-der-stadtgeschichte-24/",
+   "quelle": "https://centre-charlemagne.eu/termin/highlights-der-stadtgeschichte-24/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-der-teufel-steckt-im-detail-2026-08-23",
+   "typ": "event",
+   "titel": "Der Teufel steckt im Detail",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Führung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-08-23",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/der-teufel-steckt-im-detail/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/der-teufel-steckt-im-detail/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-das-glueck-dieser-erde-duerer-rubens-goy-2026-08-23",
+   "typ": "event",
+   "titel": "Das Glück dieser Erde. Dürer, Rubens, Goya: Pferde in der Kunst",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Führung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-08-23",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/das-glueck-dieser-erde-duerer-rubens-goya-pferde-in-der-kunst-3-4/2026-08-23/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/das-glueck-dieser-erde-duerer-rubens-goya-pferde-in-der-kunst-3-4/2026-08-23/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-centre-charlemagne-wissensreporter-innen-sommerferienprogra-2026-08-25",
+   "typ": "event",
+   "titel": "Wissensreporter*innen – Sommerferienprogramm",
+   "text": "Im Centre Charlemagne. Kategorie: Workshop.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-08-25",
+   "ende": "2026-08-27",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/wissensreporterinnen-sommerferienprogramm-4/",
+   "quelle": "https://centre-charlemagne.eu/termin/wissensreporterinnen-sommerferienprogramm-4/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-couven-museum-kunstplausch-mit-fruehstueck-2026-08-25",
+   "typ": "event",
+   "titel": "Kunstplausch mit Frühstück",
+   "text": "Im Couven Museum. Kategorie: Führung.",
+   "lng": 6.0849,
+   "lat": 50.7761,
+   "start": "2026-08-25",
+   "meta": "Couven Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://couven-museum.de/event/kunstplausch-mit-fruehstueck-2/",
+   "quelle": "https://couven-museum.de/event/kunstplausch-mit-fruehstueck-2/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-centre-charlemagne-wissensreporter-innen-sommerferienprogra-2026-08-26",
+   "typ": "event",
+   "titel": "Wissensreporter*innen – Sommerferienprogramm",
+   "text": "Im Centre Charlemagne. Kategorie: Workshop.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-08-26",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/wissensreporterinnen-sommerferienprogramm-5/",
+   "quelle": "https://centre-charlemagne.eu/termin/wissensreporterinnen-sommerferienprogramm-5/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-couven-museum-geheimnisvolle-glasuren-yue-celadon-aus--2026-08-26",
+   "typ": "event",
+   "titel": "Geheimnisvolle Glasuren – Yue-Celadon aus China",
+   "text": "Im Couven Museum. Kategorie: Führung.",
+   "lng": 6.0849,
+   "lat": 50.7761,
+   "start": "2026-08-26",
+   "meta": "Couven Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://couven-museum.de/event/geheimnisvolle-glasuren-yue-celadon-aus-china-3/",
+   "quelle": "https://couven-museum.de/event/geheimnisvolle-glasuren-yue-celadon-aus-china-3/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-kleid-mantel-haube-038-kragen-8211-kunst-2026-08-26",
+   "typ": "event",
+   "titel": "Kleid, Mantel, Haube &#038; Kragen &#8211; Kunstwerke zum Thema Mode einfach erklärt",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Führung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-08-26",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/kleid-mantel-haube-kragen-kunstwerke-zum-thema-mode-einfach-erklaert-3/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/kleid-mantel-haube-kragen-kunstwerke-zum-thema-mode-einfach-erklaert-3/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-ludwig-forum-floating-colours-2026-08-27",
+   "typ": "event",
+   "titel": "Floating Colours",
+   "text": "Im Ludwig Forum. Kategorie: Veranstaltung.",
+   "lng": 6.0949,
+   "lat": 50.7823,
+   "start": "2026-08-27",
+   "ende": "2026-08-28",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/floating-colours/",
+   "quelle": "https://ludwigforum.de/event/floating-colours/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-centre-charlemagne-wissensreporter-innen-sommerferienprogra-2026-08-27",
+   "typ": "event",
+   "titel": "Wissensreporter*innen – Sommerferienprogramm",
+   "text": "Im Centre Charlemagne. Kategorie: Workshop.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-08-27",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/wissensreporterinnen-sommerferienprogramm-6/",
+   "quelle": "https://centre-charlemagne.eu/termin/wissensreporterinnen-sommerferienprogramm-6/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-suermondt-kunst-treff-2026-08-27",
+   "typ": "event",
+   "titel": "Suermondt-Kunst-Treff",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Führung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-08-27",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/suermondt-kunst-treff-6-2-2-2/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/suermondt-kunst-treff-6-2-2-2/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-centre-charlemagne-wissensreporter-innen-sommerferienprogra-2026-08-28",
+   "typ": "event",
+   "titel": "Wissensreporter*innen – Sommerferienprogramm",
+   "text": "Im Centre Charlemagne. Kategorie: Workshop.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-08-28",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/wissensreporterinnen-sommerferienprogramm-7/",
+   "quelle": "https://centre-charlemagne.eu/termin/wissensreporterinnen-sommerferienprogramm-7/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-centre-charlemagne-die-pfalz-karls-2026-08-29",
+   "typ": "event",
+   "titel": "Die Pfalz Karls",
+   "text": "Im Centre Charlemagne. Kategorie: Führung.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-08-29",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/die-pfalz-karls/",
+   "quelle": "https://centre-charlemagne.eu/termin/die-pfalz-karls/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-altes-kurhaus-kaffeehaus-der-eitelkeiten-8211-trio-la--2026-08-29",
+   "typ": "event",
+   "titel": "Kaffeehaus der Eitelkeiten &#8211; Trio La Colombe",
+   "text": "Im Altes Kurhaus. Kategorie: Konzert.",
+   "lng": 6.087,
+   "lat": 50.7776,
+   "start": "2026-08-29",
+   "meta": "Altes Kurhaus",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://altes-kurhaus-aachen.de/veranstaltung/kaffeehaus-der-eitelkeiten-trio-la-colombe/",
+   "quelle": "https://altes-kurhaus-aachen.de/veranstaltung/kaffeehaus-der-eitelkeiten-trio-la-colombe/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-centre-charlemagne-von-koenigen-pilger-innen-und-anderen-ga-2026-08-30",
+   "typ": "event",
+   "titel": "Von Königen, Pilger*innen und anderen Gästen – die Welt zu Besuch in Aachen",
+   "text": "Im Centre Charlemagne. Kategorie: Führung.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-08-30",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/von-koenigen-pilgerinnen-und-anderen-gaesten-die-welt-zu-besuch-in-aachen-2/",
+   "quelle": "https://centre-charlemagne.eu/termin/von-koenigen-pilgerinnen-und-anderen-gaesten-die-welt-zu-besuch-in-aachen-2/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-wie-es-euch-gefaellt-oder-der-kunde-ist--2026-08-30",
+   "typ": "event",
+   "titel": "Wie es euch gefällt – oder: Der Kunde ist König",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Führung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-08-30",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/wie-es-euch-gefaellt-oder-der-kunde-ist-koenig/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/wie-es-euch-gefaellt-oder-der-kunde-ist-koenig/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-ludwig-forum-mit-baby-ins-museum-2026-09-02",
+   "typ": "event",
+   "titel": "Mit Baby ins Museum",
+   "text": "Im Ludwig Forum. Kategorie: Führung.",
+   "lng": 6.0949,
+   "lat": 50.7823,
+   "start": "2026-09-02",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/mit-baby-ins-museum-2/",
+   "quelle": "https://ludwigforum.de/event/mit-baby-ins-museum-2/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-ludwig-forum-siebdruck-2026-09-03",
+   "typ": "event",
+   "titel": "Siebdruck",
+   "text": "Im Ludwig Forum. Kategorie: Veranstaltung.",
+   "lng": 6.0949,
+   "lat": 50.7823,
+   "start": "2026-09-03",
+   "ende": "2026-11-05",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/siebdruck-5/",
+   "quelle": "https://ludwigforum.de/event/siebdruck-5/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-stickwerkstatt-caf-wunderkammer-2026-09-04",
+   "typ": "event",
+   "titel": "Stickwerkstatt Café Wunderkammer",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Veranstaltung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-09-04",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/stickwerkstatt-cafe-wunderkammer-10-2-2/2026-09-04/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/stickwerkstatt-cafe-wunderkammer-10-2-2/2026-09-04/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-ludwig-forum-your-body-your-power-2026-09-05",
+   "typ": "event",
+   "titel": "Your Body – Your Power",
+   "text": "Im Ludwig Forum. Kategorie: Veranstaltung.",
+   "lng": 6.0949,
+   "lat": 50.7823,
+   "start": "2026-09-05",
+   "ende": "2027-02-12",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/your-body-your-power/",
+   "quelle": "https://ludwigforum.de/event/your-body-your-power/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-ludwig-forum-klangspiele-8211-bewegung-zufall-resonan-2026-09-05",
+   "typ": "event",
+   "titel": "Klangspiele &#8211; Bewegung, Zufall, Resonanz",
+   "text": "Im Ludwig Forum. Kategorie: Veranstaltung.",
+   "lng": 6.0949,
+   "lat": 50.7823,
+   "start": "2026-09-05",
+   "ende": "2026-09-06",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/klangspiele-bewegung-zufall-resonanz/",
+   "quelle": "https://ludwigforum.de/event/klangspiele-bewegung-zufall-resonanz/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-der-wolkenhimmel-und-seine-stimmungen-in-2026-09-06",
+   "typ": "event",
+   "titel": "Der Wolkenhimmel und seine Stimmungen in der niederländischen Malerei",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Führung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-09-06",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/der-wolkenhimmel-und-seine-stimmungen-in-der-niederlaendischen-malerei/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/der-wolkenhimmel-und-seine-stimmungen-in-der-niederlaendischen-malerei/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-altes-kurhaus-8222-weltklassik-am-klavier-8211-zauberf-2026-09-06",
+   "typ": "event",
+   "titel": "&#8222;Weltklassik am Klavier &#8211; Zauberflöte und Faustwalzer &#8211; Mythos, Magie un",
+   "text": "Im Altes Kurhaus. Kategorie: Konzert.",
+   "lng": 6.087,
+   "lat": 50.7776,
+   "start": "2026-09-06",
+   "meta": "Altes Kurhaus",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://altes-kurhaus-aachen.de/veranstaltung/weltklassik-am-klavier-zauberfloete-und-faustwalzer-mythos-magie-und-metamorphose/",
+   "quelle": "https://altes-kurhaus-aachen.de/veranstaltung/weltklassik-am-klavier-zauberfloete-und-faustwalzer-mythos-magie-und-metamorphose/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-interkultureller-kunstworkshop-2026-09-08",
+   "typ": "event",
+   "titel": "Interkultureller Kunstworkshop",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Veranstaltung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-09-08",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/interkultureller-kunstworkshop-2/2026-09-08/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/interkultureller-kunstworkshop-2/2026-09-08/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-suermondt-museumsclub-2026-09-08",
+   "typ": "event",
+   "titel": "Suermondt-Museumsclub",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Veranstaltung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-09-08",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/suermondt-museumsclub-12-2/2026-09-08/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/suermondt-museumsclub-12-2/2026-09-08/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-ludwig-forum-lufonauten-8211-museumsclub-fuer-kinder-2026-09-09",
+   "typ": "event",
+   "titel": "Lufonauten &#8211; Museumsclub für Kinder",
+   "text": "Im Ludwig Forum. Kategorie: Veranstaltung.",
+   "lng": 6.0949,
+   "lat": 50.7823,
+   "start": "2026-09-09",
+   "ende": "2026-10-14",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/lufonauten-museumsclub-fuer-kinder/",
+   "quelle": "https://ludwigforum.de/event/lufonauten-museumsclub-fuer-kinder/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-stickwerkstatt-caf-wunderkammer-2026-09-11",
+   "typ": "event",
+   "titel": "Stickwerkstatt Café Wunderkammer",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Veranstaltung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-09-11",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/stickwerkstatt-cafe-wunderkammer-10-2-2/2026-09-11/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/stickwerkstatt-cafe-wunderkammer-10-2-2/2026-09-11/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-ludwig-forum-tag-des-offenen-denkmals-2026-09-13",
+   "typ": "event",
+   "titel": "Tag des offenen Denkmals",
+   "text": "Im Ludwig Forum. Kategorie: Führung.",
+   "lng": 6.0949,
+   "lat": 50.7823,
+   "start": "2026-09-13",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/tag-des-offenen-denkmals-4/",
+   "quelle": "https://ludwigforum.de/event/tag-des-offenen-denkmals-4/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-tag-des-offenen-denkmals-2026-09-13",
+   "typ": "event",
+   "titel": "Tag des offenen Denkmals",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Aktionstag.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-09-13",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/tag-des-offenen-denkmals-2/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/tag-des-offenen-denkmals-2/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-kuenstler-und-ihre-werkstaetten-von-duer-2026-09-13",
+   "typ": "event",
+   "titel": "Künstler und ihre Werkstätten von Dürer bis Rubens",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Veranstaltung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-09-13",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/kuenstler-und-ihre-werkstaetten-von-duerer-bis-rubens/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/kuenstler-und-ihre-werkstaetten-von-duerer-bis-rubens/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-ludwig-forum-sonntagsmalerei-2026-09-13",
+   "typ": "event",
+   "titel": "Sonntagsmalerei",
+   "text": "Im Ludwig Forum. Kategorie: Veranstaltung.",
+   "lng": 6.0949,
+   "lat": 50.7823,
+   "start": "2026-09-13",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/sonntagsmalerei-2026-09-13/",
+   "quelle": "https://ludwigforum.de/event/sonntagsmalerei-2026-09-13/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-suermondt-museumsclub-2026-09-15",
+   "typ": "event",
+   "titel": "Suermondt-Museumsclub",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Veranstaltung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-09-15",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/suermondt-museumsclub-12-2/2026-09-15/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/suermondt-museumsclub-12-2/2026-09-15/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-kunst-croissants-und-konfituere-2026-09-16",
+   "typ": "event",
+   "titel": "Kunst, Croissants und Konfitüre",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Veranstaltung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-09-16",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/kunst-croissants-und-konfituere-4-2-2-2-2/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/kunst-croissants-und-konfituere-4-2-2-2-2/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-aachener-kuenstler-innen-der-sammlung-2026-09-17",
+   "typ": "event",
+   "titel": "Aachener Künstler*innen der Sammlung",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Führung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-09-17",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/aachener-kuenstlerinnen-der-sammlung-3-2/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/aachener-kuenstlerinnen-der-sammlung-3-2/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-ludwig-forum-museumsclub-nebenan-2026-09-17",
+   "typ": "event",
+   "titel": "Museumsclub – Nebenan!",
+   "text": "Im Ludwig Forum. Kategorie: Veranstaltung.",
+   "lng": 6.0949,
+   "lat": 50.7823,
+   "start": "2026-09-17",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/museumsclub-nebenan/",
+   "quelle": "https://ludwigforum.de/event/museumsclub-nebenan/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-stickwerkstatt-caf-wunderkammer-2026-09-18",
+   "typ": "event",
+   "titel": "Stickwerkstatt Café Wunderkammer",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Veranstaltung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-09-18",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/stickwerkstatt-cafe-wunderkammer-10-2-2/2026-09-18/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/stickwerkstatt-cafe-wunderkammer-10-2-2/2026-09-18/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-fuehrung-mit-petits-fours-2026-09-18",
+   "typ": "event",
+   "titel": "Führung mit Petits Fours    ",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Führung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-09-18",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/fuehrung-mit-petits-fours-6-2-2/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/fuehrung-mit-petits-fours-6-2-2/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-ludwig-forum-play-with-clay-2026-09-19",
+   "typ": "event",
+   "titel": "Play with Clay",
+   "text": "Im Ludwig Forum. Kategorie: Veranstaltung.",
+   "lng": 6.0949,
+   "lat": 50.7823,
+   "start": "2026-09-19",
+   "ende": "2026-10-05",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/play-with-clay/",
+   "quelle": "https://ludwigforum.de/event/play-with-clay/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-ludwig-forum-kakophonie-sound-workshop-2026-09-20",
+   "typ": "event",
+   "titel": "Kakophonie – Sound-Workshop",
+   "text": "Im Ludwig Forum. Kategorie: Veranstaltung.",
+   "lng": 6.0949,
+   "lat": 50.7823,
+   "start": "2026-09-20",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/kakophonie/",
+   "quelle": "https://ludwigforum.de/event/kakophonie/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-sommersymbole-im-stillleben-2026-09-20",
+   "typ": "event",
+   "titel": "Sommersymbole im Stillleben",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Führung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-09-20",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/sommersymbole-im-stillleben/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/sommersymbole-im-stillleben/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-familienangebot-fuer-grosse-und-kleine-k-2026-09-20",
+   "typ": "event",
+   "titel": "Familienangebot für große und kleine Künstler*innen",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Veranstaltung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-09-20",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/familienangebot-fuer-grosse-und-kleine-kuenstlerinnen-3-2/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/familienangebot-fuer-grosse-und-kleine-kuenstlerinnen-3-2/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-jan-vermeer-van-haarlem-zugeschr-niederl-2026-09-22",
+   "typ": "event",
+   "titel": "Jan Vermeer van Haarlem zugeschr., Niederländische Flusslandschaft Öl auf Eichenholz",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Kunstpause.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-09-22",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/jan-vermeer-van-haarlem-zugeschr-niederlaendische-flusslandschaft-oel-auf-eichenholz/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/jan-vermeer-van-haarlem-zugeschr-niederlaendische-flusslandschaft-oel-auf-eichenholz/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-suermondt-museumsclub-2026-09-22",
+   "typ": "event",
+   "titel": "Suermondt-Museumsclub",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Veranstaltung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-09-22",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/suermondt-museumsclub-12-2/2026-09-22/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/suermondt-museumsclub-12-2/2026-09-22/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-vom-wohnpalast-zum-kunstpalast-eine-arch-2026-09-23",
+   "typ": "event",
+   "titel": "Vom Wohnpalast zum Kunstpalast. Eine Architekturführung durch das Suermondt Ludwig Museum",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Führung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-09-23",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/vom-wohnpalast-zum-kunstpalast-eine-architekturfuehrung-durch-das-suermondt-ludwig-museum/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/vom-wohnpalast-zum-kunstpalast-eine-architekturfuehrung-durch-das-suermondt-ludwig-museum/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "wm-special-querbeat-kostenlos-2026-08-14",
+   "typ": "event",
+   "titel": "WM Special: Querbeat (kostenlos)",
+   "text": "Brasspop-Konzert der Kölner Band Querbeat auf der Sparkassen-Bühne am Markt – Eintritt frei. Teil der 13-tägigen Open-Air-Konzertreihe zur Reit-WM.",
+   "lng": 6.0838,
+   "lat": 50.7762,
+   "start": "2026-08-14",
+   "ende": "2026-08-14",
+   "meta": "14.08.2026 ab 20:30 Uhr | Markt (vor dem Rathaus)",
+   "tags": [
+    "musik",
+    "kostenlos",
+    "fest"
+   ],
+   "quelle": "https://www.aachen-tourismus.de/aachen-entdecken/fuehrungen-rundgaenge/details/open-air-konzerte-zur-reit-wm/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "wm-special-lvaro-soler-kostenlos-2026-08-15",
+   "typ": "event",
+   "titel": "WM Special: Álvaro Soler (kostenlos)",
+   "text": "Der spanisch-deutsche Popsänger Álvaro Soler bringt seine Sommerhits auf die Sparkassen-Bühne am Markt – kostenloser Eintritt.",
+   "lng": 6.0838,
+   "lat": 50.7762,
+   "start": "2026-08-15",
+   "ende": "2026-08-15",
+   "meta": "15.08.2026 ab 20:30 Uhr | Markt (vor dem Rathaus)",
+   "tags": [
+    "musik",
+    "kostenlos",
+    "fest"
+   ],
+   "quelle": "https://www.aachen-tourismus.de/aachen-entdecken/fuehrungen-rundgaenge/details/open-air-konzerte-zur-reit-wm/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "wm-special-mia-kostenlos-2026-08-16",
+   "typ": "event",
+   "titel": "WM Special: MIA. (kostenlos)",
+   "text": "Berliner Elektropop-Band MIA. auf der Sparkassen-Bühne am Markt, Eintritt frei. Teil der kostenlosen WM-Konzertreihe.",
+   "lng": 6.0838,
+   "lat": 50.7762,
+   "start": "2026-08-16",
+   "ende": "2026-08-16",
+   "meta": "16.08.2026 ab 20:30 Uhr | Markt (vor dem Rathaus)",
+   "tags": [
+    "musik",
+    "kostenlos",
+    "fest"
+   ],
+   "quelle": "https://www.aachen-tourismus.de/aachen-entdecken/fuehrungen-rundgaenge/details/open-air-konzerte-zur-reit-wm/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "wm-special-shantel-balkanbeat-kostenlos-2026-08-19",
+   "typ": "event",
+   "titel": "WM Special: Shantel – Balkanbeat (kostenlos)",
+   "text": "Shantel, internationaler Vertreter des Balkan-Pop, spielt auf der Sparkassen-Bühne am Markt. Eintritt kostenlos.",
+   "lng": 6.0838,
+   "lat": 50.7762,
+   "start": "2026-08-19",
+   "ende": "2026-08-19",
+   "meta": "19.08.2026 ab 20:30 Uhr | Markt (vor dem Rathaus)",
+   "tags": [
+    "musik",
+    "kostenlos",
+    "fest"
+   ],
+   "quelle": "https://www.aachen-tourismus.de/aachen-entdecken/fuehrungen-rundgaenge/details/open-air-konzerte-zur-reit-wm/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "wm-special-taegliche-wm-show-am-katschho-2026-08-11",
+   "typ": "event",
+   "titel": "WM Special: Tägliche WM-Show am Katschhof (kostenlos)",
+   "text": "Täglich ab 19 Uhr zeigt die STAWAG-Bühne auf dem Katschhof die Highlights des Wettkampftages per Public Viewing – mit Talkrunden und lokalen Künstlern. Eintritt frei.",
+   "lng": 6.0835,
+   "lat": 50.7749,
+   "start": "2026-08-11",
+   "ende": "2026-08-23",
+   "meta": "11.–23.08.2026 tägl. ab 19 Uhr | Katschhof",
+   "tags": [
+    "sport",
+    "kultur",
+    "kostenlos",
+    "fest"
+   ],
+   "quelle": "https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "soen-progressive-metal-musikbunker-2026-08-13",
+   "typ": "event",
+   "titel": "Soen – Progressive Metal (Musikbunker)",
+   "text": "Die schwedische Progressive-Metal-Band Soen gastiert mit ihrer Reliance Tour 2026 im Musikbunker Aachen. Einlass ab 19 Uhr.",
+   "lng": 6.08,
+   "lat": 50.772,
+   "start": "2026-08-13",
+   "ende": "2026-08-13",
+   "meta": "13.08.2026, 20:00 Uhr | Musikbunker, Rehmannstr. 26",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://musikbunkeraachen.bigcartel.com/",
+   "quelle": "https://mubu.ac/event/soen/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "wochenmarkt-burtscheid",
+   "typ": "event",
+   "titel": "Wochenmarkt Burtscheid",
+   "text": "Frischer Wochenmarkt in der Kapellenstraße in Burtscheid mit regionalen Lebensmitteln, Obst, Gemüse, Blumen und mehr.",
+   "lng": 6.0911,
+   "lat": 50.7604,
+   "wdh": "fr",
+   "meta": "Jeden Freitag 7–13 Uhr | Kapellenstraße, Burtscheid",
+   "tags": [
+    "markt"
+   ],
+   "quelle": "https://www.aachen.de/strukturierte-daten/orte/wochenmaerkte/wochenmarkt-burtscheid-innenstadt/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "maedchen-klamotte-frauenflohmarkt-100-5--2026-08-30",
+   "typ": "event",
+   "titel": "Mädchen Klamotte – Frauenflohmarkt 100,5 Arena",
+   "text": "Großer Frauenflohmarkt mit Second-Hand-Mode, Vintage, Schuhen, Accessoires und Kinderklamotten in der 100,5 Arena.",
+   "lng": 6.0747,
+   "lat": 50.7666,
+   "start": "2026-08-30",
+   "ende": "2026-08-30",
+   "meta": "30.08.2026 | 100,5 Arena, Hubert-Wienen-Str. 8",
+   "tags": [
+    "flohmarkt",
+    "kinder"
+   ],
+   "quelle": "https://meine-flohmarkt-termine.de/ort/aachen",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "hermetic-delight-felt-indie-rock-musikbu-2026-09-11",
+   "typ": "event",
+   "titel": "Hermetic Delight & FELT – Indie Rock (Musikbunker)",
+   "text": "Doppelkonzert mit der Indie-Rock/Art-Pop-Band Hermetic Delight (Strasbourg/Ankara) und der deutschen Band FELT im Musikbunker Aachen.",
+   "lng": 6.08,
+   "lat": 50.772,
+   "start": "2026-09-11",
+   "ende": "2026-09-11",
+   "meta": "11.09.2026, 20:00 Uhr (Einlass 19 Uhr) | Musikbunker",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://musikbunkeraachen.bigcartel.com/",
+   "quelle": "https://mubu.ac/event/hermetic-delight-japanama/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "call-it-off-konzert-musikbunker-2026-09-15",
+   "typ": "event",
+   "titel": "Call It Off – Konzert (Musikbunker)",
+   "text": "Rockkonzert mit Call It Off im Musikbunker Aachen.",
+   "lng": 6.08,
+   "lat": 50.772,
+   "start": "2026-09-15",
+   "ende": "2026-09-15",
+   "meta": "15.09.2026, 20:00 Uhr | Musikbunker, Rehmannstr. 26",
+   "tags": [
+    "musik"
+   ],
+   "quelle": "https://musikbunkeraachen.bigcartel.com/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "10cc-greatest-hits-tour-eurogress-2026-09-23",
+   "typ": "event",
+   "titel": "10cc – Greatest Hits Tour (Eurogress)",
+   "text": "Die britische Rocklegende 10cc spielt im Eurogress Aachen ihre größten Hits live – von 'I'm Not In Love' bis 'Dreadlock Holiday'.",
+   "lng": 6.0781,
+   "lat": 50.7817,
+   "start": "2026-09-23",
+   "ende": "2026-09-23",
+   "meta": "23.09.2026, 20:00 Uhr | Eurogress, Monheimsallee 48",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://www.eventim.de/artist/10cc/",
+   "quelle": "https://www.livegigs.de/10cc",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "eivind-aarset-4tet-jazz-musikbunker-2026-09-27",
+   "typ": "event",
+   "titel": "Eivind Aarset 4tet – Jazz (Musikbunker)",
+   "text": "Jazzkonzert mit dem norwegischen Gitarristen Eivind Aarset und seinem Quartett anlässlich seines neuen Albums im Musikbunker.",
+   "lng": 6.08,
+   "lat": 50.772,
+   "start": "2026-09-27",
+   "ende": "2026-09-27",
+   "meta": "27.09.2026, 19:00 Uhr | Musikbunker, Rehmannstr. 26",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
+   "quelle": "https://musikbunkeraachen.bigcartel.com/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "troedelmarkt-eissporthalle-100-5-arena",
+   "typ": "event",
+   "titel": "Trödelmarkt Eissporthalle (100,5 Arena)",
+   "text": "Wöchentlicher Trödelmarkt auf dem Gelände der 100,5 Arena / Eissporthalle – Achtung: 15. und 22. August fallen aus.",
+   "lng": 6.0747,
+   "lat": 50.7666,
+   "wdh": "sa",
+   "meta": "Sa. ab ca. 7 Uhr | Hubert-Wienen-Str. 8 (entfällt 15.8. & 22",
+   "tags": [
+    "flohmarkt",
+    "markt"
+   ],
+   "quelle": "https://meine-flohmarkt-termine.de/ort/aachen/veranstaltungsarten/floh-troedelmarkt",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "alemannia-aachen-sc-verl-3-liga-heimspie-2026-08-09",
+   "typ": "event",
+   "titel": "Alemannia Aachen – SC Verl (3. Liga Heimspiel)",
+   "text": "Saisonauftakt in der 3. Liga: Alemannia Aachen empfängt den SC Verl zum Heimspiel auf dem Tivoli. Anpfiff um 19:30 Uhr.",
+   "lng": 6.0741,
+   "lat": 50.7668,
+   "start": "2026-08-09",
+   "ende": "2026-08-09",
+   "meta": "09.08.2026, 19:30 Uhr | Tivoli-Stadion",
+   "tags": [
+    "sport"
+   ],
+   "quelle": "https://www.alemannia-aachen.de/aktuelles/nachrichten/details/Der-Spielplan-der-3-Liga-2026-27-im-Ueberblick-27000Z/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "alemannia-aachen-sv-meppen-3-liga-heimsp-2026-08-29",
+   "typ": "event",
+   "titel": "Alemannia Aachen – SV Meppen (3. Liga Heimspiel)",
+   "text": "3. Liga Heimspiel: Alemannia Aachen gegen Aufsteiger SV Meppen auf dem Tivoli.",
+   "lng": 6.0741,
+   "lat": 50.7668,
+   "start": "2026-08-29",
+   "ende": "2026-08-29",
+   "meta": "29.08.2026, 14:00 Uhr | Tivoli-Stadion",
+   "tags": [
+    "sport"
+   ],
+   "quelle": "https://www.fussballeuropa.com/team/alemannia-aachen/spielplan",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "alemannia-aachen-jahn-regensburg-3-liga--2026-09-12",
+   "typ": "event",
+   "titel": "Alemannia Aachen – Jahn Regensburg (3. Liga Heimspiel)",
+   "text": "5. Spieltag der 3. Liga: Alemannia Aachen gegen SSV Jahn Regensburg auf dem Tivoli.",
+   "lng": 6.0741,
+   "lat": 50.7668,
+   "start": "2026-09-12",
+   "ende": "2026-09-12",
+   "meta": "12.09.2026, 16:30 Uhr | Tivoli-Stadion",
+   "tags": [
+    "sport"
+   ],
+   "quelle": "https://www.fussballeuropa.com/team/alemannia-aachen/spielplan",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "alemannia-aachen-fortuna-duesseldorf-3-l-2026-09-19",
+   "typ": "event",
+   "titel": "Alemannia Aachen – Fortuna Düsseldorf (3. Liga Heimspiel)",
+   "text": "7. Spieltag der 3. Liga: Alemannia Aachen trifft auf Zweitliga-Absteiger Fortuna Düsseldorf – ein Highlight auf dem Tivoli.",
+   "lng": 6.0741,
+   "lat": 50.7668,
+   "start": "2026-09-19",
+   "ende": "2026-09-19",
+   "meta": "19.09.2026, 14:00 Uhr | Tivoli-Stadion",
+   "tags": [
+    "sport"
+   ],
+   "quelle": "https://www.fussballeuropa.com/team/alemannia-aachen/spielplan",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "melan-troedelmarkt-kaufland-breslauer-st-2026-08-30",
+   "typ": "event",
+   "titel": "Melan Trödelmarkt (Kaufland Breslauer Str.)",
+   "text": "Großer Trödelmarkt auf dem Kaufland-Gelände an der Breslauerstraße, veranstaltet von Melan macht Märkte.",
+   "lng": 6.1047,
+   "lat": 50.781,
+   "start": "2026-08-30",
+   "ende": "2026-08-30",
+   "meta": "30.08.2026 | Breslauerstr. 35, Aachen",
+   "tags": [
+    "flohmarkt",
+    "markt"
+   ],
+   "quelle": "https://meine-flohmarkt-termine.de/ort/aachen",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "wochenmarkt-frankenberger-viertel",
+   "typ": "event",
+   "titel": "Wochenmarkt Frankenberger Viertel",
+   "text": "Wöchentlicher Freitagsmarkt im Frankenberger Viertel mit frischen regionalen Produkten.",
+   "lng": 6.0997,
+   "lat": 50.7716,
+   "wdh": "fr",
+   "meta": "Jeden Freitag 7–13 Uhr | Frankenberger Viertel",
+   "tags": [
+    "markt"
+   ],
+   "quelle": "https://www.aachen.de/services/wochenmaerkte/",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "antik-kunstmarkt-am-elisenbrunnen-sept-2026-09-13",
+   "typ": "event",
+   "titel": "Antik- & Kunstmarkt am Elisenbrunnen (Sept.)",
+   "text": "Monatlicher Antik- und Kunstmarkt am Friedrich-Wilhelm-Platz beim Elisenbrunnen mit Sammlerstücken, Schmuck und Kunst.",
+   "lng": 6.0844,
+   "lat": 50.776,
+   "start": "2026-09-13",
+   "ende": "2026-09-13",
+   "meta": "13.09.2026 | Friedrich-Wilhelm-Platz",
+   "tags": [
+    "markt",
+    "kultur"
+   ],
+   "quelle": "https://meine-flohmarkt-termine.de/ort/aachen",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "maedchen-klamotte-das-liebig-sept-2026-09-20",
+   "typ": "event",
+   "titel": "Mädchen Klamotte @ Das Liebig (Sept.)",
+   "text": "Frauenflohmarkt mit Second-Hand-Mode, Vintage und Accessoires im Veranstaltungsort Das Liebig in Aachen.",
+   "lng": 6.107,
+   "lat": 50.7784,
+   "start": "2026-09-20",
+   "ende": "2026-09-20",
+   "meta": "20.09.2026 | Liebigstr. 19, Aachen",
+   "tags": [
+    "flohmarkt"
+   ],
+   "quelle": "https://meine-flohmarkt-termine.de/ort/aachen",
+   "hinzu": "2026-08-09"
+  },
+  {
+   "id": "hellhookah-hell-gate-doom-black-metal-mu-2026-09-26",
+   "typ": "event",
+   "titel": "Hellhookah + Hell Gate – Doom/Black Metal (Musikbunker)",
+   "text": "Doppelkonzert: Hellhookah (Oldschool-Doom-Duo aus Vilnius) und Hell Gate (Post-Black-Metal) im Musikbunker Aachen.",
+   "lng": 6.08,
+   "lat": 50.772,
+   "start": "2026-09-26",
+   "ende": "2026-09-26",
+   "meta": "26.09.2026, 20:00 Uhr | Musikbunker, Rehmannstr. 26",
+   "tags": [
+    "musik"
+   ],
+   "quelle": "https://musikbunkeraachen.bigcartel.com/",
+   "hinzu": "2026-08-09"
   }
  ]
 }
