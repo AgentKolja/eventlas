@@ -1,5 +1,5 @@
 {
- "stand": "2026-08-09",
+ "stand": "2026-08-10",
  "hinweis": "Schema: typ event|angebot|hilfe|spot · tags[] · quelle (Beleg-URL) · link (CTA) · hot (beliebt) · hinzu (Aufnahmedatum) · saison {von,bis als MM-TT, jaehrlich wiederkehrend} · fest:true = wird vom Auto-Update nie geloescht.",
  "pins": [
   {
@@ -2912,6 +2912,247 @@
    ],
    "quelle": "https://musikbunkeraachen.bigcartel.com/",
    "hinzu": "2026-08-09"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-suermondt-kunst-treff-2026-09-24",
+   "typ": "event",
+   "titel": "Suermondt-Kunst-Treff",
+   "text": "Im Suermondt-Ludwig-Museum. Kategorie: Führung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-09-24",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/suermondt-kunst-treff-6-2-2-2-2/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/suermondt-kunst-treff-6-2-2-2-2/",
+   "hinzu": "2026-08-10"
+  },
+  {
+   "id": "wm-special-il-civetto-kostenlos-2026-08-12",
+   "typ": "event",
+   "titel": "WM Special: Il Civetto (kostenlos)",
+   "text": "Berliner Fusion-Pop-Band Il Civetto auf der Open-Air-Bühne am Aachener Marktplatz. Teil des kostenlosen Rahmenprogramms zur Reit-WM, täglich ab 20:30 Uhr.",
+   "lng": 6.0838,
+   "lat": 50.7763,
+   "start": "2026-08-12",
+   "meta": "12.08.2026, 20:30 Uhr, Marktplatz Aachen",
+   "tags": [
+    "musik",
+    "kostenlos",
+    "fest"
+   ],
+   "quelle": "https://www.aachen-tourismus.de/aachen-entdecken/fuehrungen-rundgaenge/details/open-air-konzerte-zur-reit-wm/",
+   "hinzu": "2026-08-10"
+  },
+  {
+   "id": "wm-special-the-maestro-orchestra-kostenl-2026-08-13",
+   "typ": "event",
+   "titel": "WM Special: The Maestro & Orchestra (kostenlos)",
+   "text": "Das Ensemble The Maestro & The European Pop Orchestra verbindet große Pophits mit orchestraler Klassik auf dem Aachener Markt. Eintritt frei.",
+   "lng": 6.0838,
+   "lat": 50.7763,
+   "start": "2026-08-13",
+   "meta": "13.08.2026, 20:30 Uhr, Marktplatz Aachen",
+   "tags": [
+    "musik",
+    "kostenlos",
+    "fest",
+    "kultur"
+   ],
+   "quelle": "https://www.aachen-tourismus.de/aachen-entdecken/fuehrungen-rundgaenge/details/open-air-konzerte-zur-reit-wm/",
+   "hinzu": "2026-08-10"
+  },
+  {
+   "id": "wm-special-marley-s-ghost-reggae-kostenl-2026-08-17",
+   "typ": "event",
+   "titel": "WM Special: Marley's Ghost – Reggae (kostenlos)",
+   "text": "Reggae-Abend mit Marley's Ghost auf dem Marktplatz Aachen als Teil des WM Special-Rahmenprogramms. Eintritt frei, Beginn 20:30 Uhr.",
+   "lng": 6.0838,
+   "lat": 50.7763,
+   "start": "2026-08-17",
+   "meta": "17.08.2026, 20:30 Uhr, Marktplatz Aachen",
+   "tags": [
+    "musik",
+    "kostenlos",
+    "fest"
+   ],
+   "quelle": "https://www.aachen-tourismus.de/aachen-entdecken/fuehrungen-rundgaenge/details/open-air-konzerte-zur-reit-wm/",
+   "hinzu": "2026-08-10"
+  },
+  {
+   "id": "wm-special-ringo-beatles-tribute-kostenl-2026-08-18",
+   "typ": "event",
+   "titel": "WM Special: RINGO – Beatles-Tribute (kostenlos)",
+   "text": "Die Aachener Band Ringo huldigt der Musik der Beatles auf der Sparkassen-Bühne am Markt. Kostenloses Open-Air-Konzert.",
+   "lng": 6.0838,
+   "lat": 50.7763,
+   "start": "2026-08-18",
+   "meta": "18.08.2026, 20:30 Uhr, Marktplatz Aachen",
+   "tags": [
+    "musik",
+    "kostenlos",
+    "fest"
+   ],
+   "quelle": "https://www.aachen-tourismus.de/aachen-entdecken/fuehrungen-rundgaenge/details/open-air-konzerte-zur-reit-wm/",
+   "hinzu": "2026-08-10"
+  },
+  {
+   "id": "wm-special-knallblech-brass-meets-dj-kos-2026-08-20",
+   "typ": "event",
+   "titel": "WM Special: Knallblech – Brass meets DJ (kostenlos)",
+   "text": "Knallblech vereint Blasmusik und DJ-Beats auf der Open-Air-Bühne am Markt – Eintritt frei.",
+   "lng": 6.0838,
+   "lat": 50.7763,
+   "start": "2026-08-20",
+   "meta": "20.08.2026, 20:30 Uhr, Marktplatz Aachen",
+   "tags": [
+    "musik",
+    "kostenlos",
+    "fest"
+   ],
+   "quelle": "https://www.aachen-tourismus.de/aachen-entdecken/fuehrungen-rundgaenge/details/open-air-konzerte-zur-reit-wm/",
+   "hinzu": "2026-08-10"
+  },
+  {
+   "id": "wm-special-harris-ford-kostenlos-2026-08-21",
+   "typ": "event",
+   "titel": "WM Special: Harris & Ford (kostenlos)",
+   "text": "Das österreichische Hard-Dance-Duo Harris & Ford bringt elektronische Energie auf den Marktplatz Aachen. Eintritt frei.",
+   "lng": 6.0838,
+   "lat": 50.7763,
+   "start": "2026-08-21",
+   "meta": "21.08.2026, 20:30 Uhr, Marktplatz Aachen",
+   "tags": [
+    "musik",
+    "kostenlos",
+    "fest",
+    "party"
+   ],
+   "quelle": "https://www.aachen-tourismus.de/aachen-entdecken/fuehrungen-rundgaenge/details/open-air-konzerte-zur-reit-wm/",
+   "hinzu": "2026-08-10"
+  },
+  {
+   "id": "wm-special-elton-the-joels-kostenlos-2026-08-22",
+   "typ": "event",
+   "titel": "WM Special: Elton & The Joels (kostenlos)",
+   "text": "Greatest Hits von Elton John und Billy Joel in einem Konzert – kostenlos auf dem Marktplatz Aachen, ab 20:30 Uhr.",
+   "lng": 6.0838,
+   "lat": 50.7763,
+   "start": "2026-08-22",
+   "meta": "22.08.2026, 20:30 Uhr, Marktplatz Aachen",
+   "tags": [
+    "musik",
+    "kostenlos",
+    "fest"
+   ],
+   "quelle": "https://www.aachen-tourismus.de/aachen-entdecken/fuehrungen-rundgaenge/details/open-air-konzerte-zur-reit-wm/",
+   "hinzu": "2026-08-10"
+  },
+  {
+   "id": "wm-special-lagerfeuer-trio-abschlusskonz-2026-08-23",
+   "typ": "event",
+   "titel": "WM Special: Lagerfeuer-Trio – Abschlusskonzert (kostenlos)",
+   "text": "Das Aachener Lagerfeuer-Trio beschließt das 13-tägige WM Special auf dem Marktplatz. Letztes kostenloses Open-Air-Konzert der Reihe.",
+   "lng": 6.0838,
+   "lat": 50.7763,
+   "start": "2026-08-23",
+   "meta": "23.08.2026, 20:30 Uhr, Marktplatz Aachen",
+   "tags": [
+    "musik",
+    "kostenlos",
+    "fest"
+   ],
+   "quelle": "https://www.aachen-tourismus.de/aachen-entdecken/fuehrungen-rundgaenge/details/open-air-konzerte-zur-reit-wm/",
+   "hinzu": "2026-08-10"
+  },
+  {
+   "id": "reit-wm-public-viewing-am-katschhof-2026-08-11",
+   "typ": "event",
+   "titel": "Reit-WM: Public Viewing am Katschhof",
+   "text": "Täglich kostenloser WM-Livestream auf dem Katschhof mit abendlicher Show ab 19 Uhr und Riesenrad. Eintritt frei, Kulinarik aus der Euregio.",
+   "lng": 6.0824,
+   "lat": 50.7752,
+   "start": "2026-08-11",
+   "ende": "2026-08-23",
+   "meta": "11.–23.08.2026, täglich ab 19 Uhr, Katschhof",
+   "tags": [
+    "sport",
+    "kostenlos",
+    "fest",
+    "kinder"
+   ],
+   "quelle": "https://aachen-schoene-altstadt.de/reit-wm-2026-in-aachen-pferdesport-und-altstadtflair/",
+   "hinzu": "2026-08-10"
+  },
+  {
+   "id": "europamarkt-aachen-kunsthandwerk-design-2026-09-05",
+   "typ": "event",
+   "titel": "Europamarkt Aachen – Kunsthandwerk & Design",
+   "text": "Rund 300 Aussteller aus ganz Europa zeigen handgefertigte Unikate auf sieben Plätzen rund um Dom und Rathaus. Eintritt frei, inkl. Designforum in der Aula Carolina.",
+   "lng": 6.0838,
+   "lat": 50.7758,
+   "start": "2026-09-05",
+   "ende": "2026-09-06",
+   "meta": "05.–06.09.2026, Sa 10–19 Uhr, So 11–18 Uhr, Innenstadt",
+   "tags": [
+    "markt",
+    "kultur",
+    "kostenlos"
+   ],
+   "link": "https://www.europamarkt-aachen.de/",
+   "quelle": "https://www.hwk-aachen.de/artikel/europamarkt-aachen-2026-33,0,2791.html",
+   "hinzu": "2026-08-10"
+  },
+  {
+   "id": "the-devil-s-trade-fjordheksa-musikbunker-2026-09-17",
+   "typ": "event",
+   "titel": "The Devil's Trade + Fjordheksa (Musikbunker)",
+   "text": "The Devil's Trade spielt Darkfolk als Antithese zur Happy Music, Support: Fjordheksa (Stoner Doom). Konzert im Musikbunker Aachen, Einlass ab 19 Uhr.",
+   "lng": 6.091,
+   "lat": 50.7712,
+   "start": "2026-09-17",
+   "meta": "17.09.2026, 20:00 Uhr, Musikbunker Aachen, Goffartstr. 26",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://musikbunkeraachen.bigcartel.com/",
+   "quelle": "https://mubu.ac/",
+   "hinzu": "2026-08-10"
+  },
+  {
+   "id": "maria-iskariot-post-punk-musikbunker-2026-09-25",
+   "typ": "event",
+   "titel": "Maria Iskariot – Post-Punk (Musikbunker)",
+   "text": "Das belgische Quartett Maria Iskariot gastiert im Musikbunker Aachen mit ihrem Debütalbum-Programm. Einlass ab 19 Uhr.",
+   "lng": 6.091,
+   "lat": 50.7712,
+   "start": "2026-09-25",
+   "meta": "25.09.2026, 19:00 Uhr, Musikbunker Aachen, Goffartstr. 26",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://musikbunkeraachen.bigcartel.com/",
+   "quelle": "https://mubu.ac/",
+   "hinzu": "2026-08-10"
+  },
+  {
+   "id": "troedelmarkt-eissporthalle-ausfall-15-22-2026-08-29",
+   "typ": "event",
+   "titel": "Trödelmarkt Eissporthalle (Ausfall 15. & 22. Aug.)",
+   "text": "Der wöchentliche Samstagströdelmarkt an der 100,5 Arena fällt am 15. und 22. August 2026 aus (WM-bedingt). Nächste reguläre Termine: 29. August und 5. September 2026.",
+   "lng": 6.0748,
+   "lat": 50.7887,
+   "start": "2026-08-29",
+   "wdh": "sa",
+   "meta": "Sa ab 29.08.2026 wieder regulär, Hubert-Wienen-Str. 8",
+   "tags": [
+    "flohmarkt",
+    "markt"
+   ],
+   "quelle": "https://meine-flohmarkt-termine.de/ort/aachen/veranstaltungsarten/floh-troedelmarkt",
+   "hinzu": "2026-08-10"
   }
  ]
 }
