@@ -122,6 +122,26 @@ theater-aachen.de → theateraachen.de (ohne Bindestrich), az-aachen.**de** (nic
 **Pflege:** Vier Einträge tragen noch `"koordinaten_pruefen": true` (Grenzlandtheater, Saalbau
 Rothe Erde, Barbarossa, Café Vers) — beim nächsten Durchgang verifizieren und das Flag entfernen.
 
+## Deploy-Kette (wichtig — Stand 10.08.)
+```
+GitHub Action (täglich 05:30 UTC)
+   └─ recherchiert → schreibt pins.json → committet ins Repo
+        └─ Netlify (verbunden mit dem Repo) baut und veröffentlicht automatisch
+             └─ Live-Seite zeigt die neuen Termine
+```
+**Bis zum 10.08. fehlte das mittlere Glied:** Die Action lief zwar (Commits vom 09. und 10.08.),
+die Live-Seite wurde aber per Drag-and-drop befüllt und bekam davon nichts mit. Behoben durch
+`netlify.toml` + Repository-Verknüpfung (Anleitung in todos.md).
+
+**Zweiter Fehler derselben Ursache:** Weil der aktuelle Stand nicht gepusht war, lief die Action
+tagelang mit dem Skript vom 08.08. — ohne Konzertquellen und ohne `venues.json`. Ergebnis waren
+28 statt 84 Musik-Pins und Tags aus dem alten Schema. Seit dem Push vom 10.08. behoben.
+
+**Merke:** Nach jeder Änderung an `scripts/`, `venues.json` oder `index.html` muss gepusht
+werden — sonst arbeitet die nächtliche Action mit einem veralteten Stand weiter, ohne zu meckern.
+Der Workflow prüft das Ergebnis jetzt (Pin-Anzahl, Koordinaten, gültige Tags) und committet bei
+Auffälligkeiten gar nicht erst, damit eine kaputte Datei nie live geht.
+
 ## Content-Pipeline (aktualisiert 08.08.)
 **Automatisch (GitHub Action, täglich 05:30 UTC):** scripts/update-pins.mjs
 1. Feste Pins (`fest:true`) bleiben immer: Fotospots, Ernteorte, Beispiele, Wochenmärkte, Alleenfest.

@@ -2,7 +2,31 @@
 
 Karte ist live: **https://eventlas.netlify.app** — alle Texte unten sind fertig zum Kopieren.
 
-## 🔼 ZUERST: neu hochladen (2 Min)
+## 🔴 ZUERST: Netlify mit GitHub verbinden (5 Min, einmalig)
+**Das ist die Ursache für „daily update funktioniert nicht".** Die nächtliche Aktualisierung
+läuft — sie schreibt die neuen Termine aber nur ins GitHub-Repo. Deine Live-Seite kennt davon
+nichts, weil du sie per Drag-and-drop hochlädst. Zwei getrennte Welten.
+
+**So verbindest du sie** (danach entfällt das Hochladen für immer):
+1. app.netlify.com → deine Site **eventlas** → **Site configuration** → **Build & deploy**
+2. Bei „Continuous deployment" auf **Link repository** klicken → **GitHub** → Zugriff erlauben
+3. Repository **AgentKolja/eventlas** wählen, Branch **main**
+4. Build-Einstellungen musst du **nicht** ausfüllen — die stehen in `netlify.toml` im Repo
+5. **Deploy site** klicken
+
+Danach: Jede Änderung im Repo geht automatisch live — auch das nächtliche Pin-Update.
+Der Build veröffentlicht nur die neun Live-Dateien; `roadmap.md`, `todos.md`, `venues.json`
+und die Skripte bleiben von der Website ausgeschlossen (geprüft).
+
+> Warnung: Beim ersten verbundenen Deploy überschreibt Netlify deinen Drag-and-drop-Stand mit
+> dem Repo-Stand. Das ist gewollt — im Repo liegt der aktuellere Stand (144 Pins, neues Schema).
+
+- [ ] Verbindung eingerichtet
+- [ ] Danach einmal prüfen: github.com/AgentKolja/eventlas → **Actions** → „Eventlas täglich
+      aktualisieren" → **Run workflow** → nach ~2 Min auf der Live-Seite unter ⓘ schauen,
+      ob „zuletzt aktualisiert heute" steht.
+
+## 🔼 Falls du (noch) beim Hochladen bleibst
 Seit deinem Upload dazugekommen: **144 Pins statt 64**, davon **84 Musik/Party** — darunter die
 13 Gratis-Konzerte der WM-Bühne auf dem Markt (11.–23.08., u. a. Álvaro Soler, MiA, Shantel).
 Dazu PWA, Link-Vorschaubild, Saisonkalender, Kamera-Knopf, bessere Suche, kein „kostenlos"-Tag mehr.
