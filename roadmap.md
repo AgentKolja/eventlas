@@ -247,20 +247,27 @@ den **Stil-Umschalter** (Info → Kartenbild): Standard · Farbig · Ruhig · Du
 OpenFreeMap, EU-gehostet, ohne Cookies. Falls später doch Google-Kacheln gewünscht sind, wäre
 der saubere Weg ein Umschalter mit vorgeschalteter Einwilligung nur für diesen Stil.
 
-## Beitragen: Fotos und Tipps (Stand 09.08.)
-Jeder Pin kann ein Foto (`bild {url, credit}`) und Tipps (`tipps [{text, von, datum}]`) tragen.
-Im Detail gibt es „📷 Foto beisteuern" und „💬 Tipp schreiben" — beides geht mit Ortsbezug
-per WhatsApp/Mail raus und wird von Hand eingepflegt.
+## Kommentare: echtes Gespräch pro Pin (Stand 13.08.)
+Jeder Pin hat eine Gesprächssektion. Beiträge werden **in der App** geschrieben und erscheinen
+**sofort für alle** — kein Wechsel zu WhatsApp mehr, kein Warten auf Freigabe. Umgesetzt gegen
+die REST-Schnittstelle von **Supabase** (kostenlose Stufe, Region Frankfurt), ohne eigenen
+Server und ohne zusätzliche Bibliothek. Einrichtung: `scripts/kommentare-setup.sql` + zwei
+Werte in KONFIG (Anleitung in todos.md). Solange die Werte fehlen, zeigt die Sektion einen
+Hinweis und verweist auf E-Mail — die App funktioniert also auch ohne.
 
-**Warum keine offene Kommentarspalte:** Für nutzergenerierte Bilder und Texte haftet der
-Betreiber (Urheberrecht bei fremden Fotos, Persönlichkeitsrechte bei abgebildeten Personen,
-Störerhaftung nach §§ 7–10 DDG). Ohne Moderationsteam ist Prüfen vor Veröffentlichen der
-einzig tragfähige Weg. Das Auto-Update kann Beiträge weder überschreiben noch erfinden.
+**Sicherheit:** Der öffentliche anon-Key steht im Quelltext; was damit geht, entscheiden allein
+die Datenbank-Regeln: sichtbare Beiträge lesen, neue schreiben (2–600 Zeichen), melden, eigene
+binnen 24 h löschen. Kein Ändern fremder Beiträge, keine anderen Tabellen. Längen und
+Moderationsfelder sind zusätzlich in der Datenbank abgesichert, nicht nur im Browser.
 
-**Ausbaustufe mit Backend (V3):** Erst mit Konto und Moderations-Queue lohnt sich direktes
-Hochladen. Realistisch: Netlify Function + Supabase (kostenlose Stufe), Uploads landen in
-einer Warteschlange, Freigabe per Handy. Vorher lohnt es nicht — unter ~5 Beiträgen pro Woche
-ist die manuelle Pflege schneller als das Bauen und Betreiben.
+**Moderation ohne Team:** Beiträge erscheinen sofort — eine Vorabfreigabe würde das Gespräch
+töten, und rechtlich haftet man als Host erst ab Kenntnis (§ 10 DDG). Jeder kann melden; ab
+drei Meldungen verschwindet ein Beitrag automatisch. Übersicht über `select * from moderation;`.
+
+**Redaktionelle Tipps** (`tipps [{text, von, datum}]` in pins.json) bleiben daneben bestehen —
+sie stehen über dem Gespräch und eignen sich für geprüfte Hinweise, die immer sichtbar sein
+sollen. Fotos laufen weiterhin über Einreichung, weil dort Urheber- und Persönlichkeitsrechte
+eine Vorabprüfung nötig machen.
 
 ## Mobile-Konzept (Stand 09.08., nach Messung)
 Ausgangslage: HUD belegte 25 % des Bildschirms (auf 360×740 sogar 32 %), Touch-Ziele lagen bei

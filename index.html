@@ -319,15 +319,38 @@
   .p-bild{width:100%;border-radius:10px;margin:9px 0 3px;display:block;
     background:var(--nacht);object-fit:cover;max-height:170px}
   .p-bild-credit{font-size:10px;color:var(--grau);margin-bottom:4px}
-  .p-tipps{margin-top:10px;border-top:1px solid var(--linie);padding-top:9px}
+  .p-tipps{margin-top:12px;border-top:1px solid var(--linie);padding-top:10px}
   .p-tipps h4{font:800 11px 'Inter';letter-spacing:.6px;text-transform:uppercase;
-    color:var(--grau);margin-bottom:6px}
-  .p-tipp{font-size:12.5px;line-height:1.45;color:#C9CDD6;padding:6px 0;
-    border-bottom:1px solid rgba(44,48,56,.6)}
-  .p-tipp:last-of-type{border-bottom:0}
-  .p-tipp b{color:var(--papier);font-weight:700}
-  .p-tipp .wer{color:var(--grau);font-size:11px}
-  .p-beitragen{display:flex;gap:6px;margin-top:9px}
+    color:var(--grau);margin-bottom:8px}
+
+  /* Gesprächsverlauf: Beiträge als Sprechblasen, damit ein Austausch erkennbar ist */
+  .komm{background:var(--nacht);border:1px solid var(--linie);border-radius:11px;
+    padding:8px 11px;margin-bottom:7px}
+  .komm-kopf{display:flex;align-items:baseline;gap:8px;margin-bottom:3px}
+  .komm-kopf b{font-size:12px;font-weight:700;color:var(--papier)}
+  .komm-zeit{font-size:10.5px;color:var(--grau);margin-left:auto;flex:none}
+  .komm-text{font-size:13px;line-height:1.5;color:#D3D7DF;white-space:pre-wrap;word-break:break-word}
+  .komm-aktion{margin-top:5px}
+  .komm-aktion button{background:none;border:0;color:var(--grau);font:600 10.5px 'Inter';
+    cursor:pointer;padding:2px 0}
+  .komm-aktion button:hover{color:var(--angebot)}
+  .komm-hinweis,.komm-laedt{font-size:12px;color:var(--grau);padding:6px 0 8px}
+  .komm-neuladen{background:none;border:0;color:var(--hilfe);font:600 12px 'Inter';cursor:pointer}
+
+  /* Eingabe */
+  .komm-neu{margin-top:9px}
+  .komm-feld{width:100%;border:1px solid var(--linie);background:var(--nacht);color:var(--papier);
+    border-radius:10px;padding:10px;font:400 16px 'Inter';resize:vertical;min-height:44px}
+  .komm-feld::placeholder{color:var(--grau)}
+  .komm-zeile{display:flex;gap:7px;margin-top:7px}
+  .komm-name{flex:1;min-width:0;border:1px solid var(--linie);background:var(--nacht);
+    color:var(--papier);border-radius:10px;padding:10px;font:400 16px 'Inter'}
+  .komm-name::placeholder{color:var(--grau)}
+  .komm-senden{flex:none;background:var(--hilfe);color:#141414;border:0;border-radius:10px;
+    padding:10px 18px;font:800 13px 'Inter';cursor:pointer;min-height:44px}
+  .komm-senden:disabled{opacity:.5;cursor:default}
+
+  .p-beitragen{display:flex;gap:6px;margin-top:10px}
   .p-beitragen button{flex:1;border:1px dashed var(--linie);background:transparent;
     color:var(--grau);border-radius:9px;padding:9px 6px;font:600 11.5px 'Inter';cursor:pointer}
   .p-beitragen button:active{transform:scale(.98)}
@@ -551,6 +574,7 @@
 <input type="file" id="plakat-galerie" accept="image/*" hidden>
 <input type="file" id="beitrag-datei" accept="image/*" hidden>
 
+
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 <script>
 /* ================= KONFIG — nur diesen Block anpassen ================= */
@@ -564,6 +588,13 @@ const KONFIG = {
   whatsapp: "4915254170703",              // Pin-Meldungen + Feedback (Roadmap Nr. 19)
   mail: "nikolas.voth92@gmail.com",       // Alternative zu WhatsApp (Roadmap Nr. 9) — TODO: eigene Eventlas-Adresse
   insta: "eventlas_aachen",
+  /* Kommentare brauchen einen Speicher — statische Dateien können das nicht.
+     Hier kommen die zwei Werte aus dem Supabase-Projekt hinein (Anleitung in todos.md).
+     Der anon-Key ist zur Veröffentlichung gedacht: Was damit erlaubt ist, legen die
+     Datenbank-Regeln fest (lesen + schreiben von Kommentaren, sonst nichts).
+     Solange die Felder leer sind, zeigt die App bei den Kommentaren einen Hinweis. */
+  supabaseUrl: "",                        // z. B. https://abcdefgh.supabase.co
+  supabaseKey: "",                        // der öffentliche "anon"-Schlüssel
 };
 const stadtKey = new URLSearchParams(location.search).get("stadt") || "aachen";
 const STADT = STAEDTE[stadtKey] || STAEDTE.aachen;
@@ -988,6 +1019,80 @@ function zeigePinNr(i){
     map.easeTo({center:[p._lng ?? p.lng, p._lat ?? p.lat], duration:400});
   mk.m.togglePopup();
 }
+/* ---------- Kommentare ----------
+   Eine echte Unterhaltung braucht einen gemeinsamen Speicher. Wir sprechen dafür direkt
+   die REST-Schnittstelle von Supabase an — kein eigener Server, keine Bibliothek, keine
+   Anmeldung für Schreibende. Was erlaubt ist, entscheiden die Datenbank-Regeln:
+   Kommentare lesen und schreiben, mehr nicht.
+   Moderation: Beiträge erscheinen sofort (sonst ist es kein Gespräch). Jeder kann melden;
+   gemeldete Beiträge verschwinden ab drei Meldungen automatisch aus der Ansicht und
+   landen zur Prüfung beim Betreiber. */
+const KOMMENTARE_AN = () => !!(KONFIG.supabaseUrl && KONFIG.supabaseKey);
+/* Kurzlebiger Zwischenspeicher: Beim Durchblättern soll nicht bei jedem Pin neu geladen
+   werden, ein Gespräch darf aber auch nicht veralten. 30 Sekunden sind der Kompromiss —
+   danach wird frisch geholt, damit neue oder ausgeblendete Beiträge sofort stimmen. */
+const kommentarCache = new Map();          // pinId → {zeit, daten}
+const CACHE_DAUER = 30000;
+let meineBeitraege = lsGet("meineKommentare", {});   // eigene Beiträge dürfen gelöscht werden
+
+function sbKopf(){
+  return { apikey: KONFIG.supabaseKey, Authorization: "Bearer " + KONFIG.supabaseKey,
+           "Content-Type": "application/json" };
+}
+async function kommentareLaden(pinId, frisch){
+  if(!KOMMENTARE_AN()) return [];
+  const gemerkt = kommentarCache.get(pinId);
+  if(!frisch && gemerkt && Date.now() - gemerkt.zeit < CACHE_DAUER) return gemerkt.daten;
+  try{
+    const url = KONFIG.supabaseUrl + "/rest/v1/kommentare?stadt=eq." + encodeURIComponent(stadtKey) +
+      "&pin_id=eq." + encodeURIComponent(pinId) + "&versteckt=is.false&order=erstellt.asc&limit=100";
+    const res = await fetch(url, { headers: sbKopf() });
+    if(!res.ok) throw new Error(res.status);
+    const daten = await res.json();
+    kommentarCache.set(pinId, {zeit: Date.now(), daten});
+    return daten;
+  }catch(e){
+    console.warn("Kommentare nicht erreichbar:", e.message);
+    return null;                            // null = Fehler, [] = einfach leer
+  }
+}
+async function kommentarSenden(pinId, text, name){
+  const eintrag = { stadt: stadtKey, pin_id: pinId, text: text.slice(0, 600),
+                    name: (name || "").slice(0, 40) || null };
+  const res = await fetch(KONFIG.supabaseUrl + "/rest/v1/kommentare", {
+    method: "POST", headers: { ...sbKopf(), Prefer: "return=representation" },
+    body: JSON.stringify(eintrag),
+  });
+  if(!res.ok) throw new Error("Senden fehlgeschlagen (" + res.status + ")");
+  const [neu] = await res.json();
+  meineBeitraege[neu.id] = true; lsSet("meineKommentare", meineBeitraege);
+  kommentarCache.delete(pinId);
+  return neu;
+}
+async function kommentarMelden(id){
+  await fetch(KONFIG.supabaseUrl + "/rest/v1/rpc/kommentar_melden", {
+    method: "POST", headers: sbKopf(), body: JSON.stringify({ kommentar_id: id }),
+  });
+}
+async function kommentarLoeschen(id){
+  await fetch(KONFIG.supabaseUrl + "/rest/v1/rpc/kommentar_loeschen", {
+    method: "POST", headers: sbKopf(), body: JSON.stringify({ kommentar_id: id }),
+  });
+  delete meineBeitraege[id]; lsSet("meineKommentare", meineBeitraege);
+}
+/* "vor 5 Minuten" liest sich in einem Gespräch besser als ein Zeitstempel */
+function vorZeit(iso){
+  const min = Math.floor((Date.now() - new Date(iso)) / 60000);
+  if(min < 1) return "gerade eben";
+  if(min < 60) return "vor " + min + " Min.";
+  const std = Math.floor(min / 60);
+  if(std < 24) return "vor " + std + " Std.";
+  const tage = Math.floor(std / 24);
+  if(tage === 1) return "gestern";
+  if(tage < 7) return "vor " + tage + " Tagen";
+  return new Date(iso).toLocaleDateString("de-DE", {day:"numeric", month:"short"});
+}
+
 /* ---------- Nutzerbeiträge: Bild und Tipps ----------
    Beides wird eingereicht (WhatsApp/Mail), vom Betreiber geprüft und dann in pins.json
    eingetragen — bewusst mit Vorabprüfung: Für fremde Fotos und Texte haftet der Betreiber
@@ -998,17 +1103,64 @@ function bildBlock(p){
   return '<img class="p-bild" src="'+esc(p.bild.url)+'" alt="'+esc(p.titel)+'" loading="lazy">'+
     (p.bild.credit ? '<div class="p-bild-credit">Foto: '+esc(p.bild.credit)+'</div>' : "");
 }
+/* Gerüst der Kommentarsektion. Die Beiträge werden asynchron nachgeladen und hier
+   eingesetzt — so öffnet sich das Detail sofort, ohne aufs Netz zu warten. */
 function tippBlock(p){
-  const tipps = Array.isArray(p.tipps) ? p.tipps.filter(t => t && t.text) : [];
-  const liste = tipps.map(t =>
-    '<div class="p-tipp">'+esc(t.text)+
-    (t.von ? ' <span class="wer">— '+esc(t.von)+(t.datum ? ", "+esc(fmtKurzDatum(t.datum)) : "")+'</span>' : '')+
-    '</div>').join("");
-  return '<div class="p-tipps">'+
-    (tipps.length ? '<h4>Tipps aus der Nachbarschaft</h4>' + liste : '')+
+  const feste = Array.isArray(p.tipps) ? p.tipps.filter(t => t && t.text) : [];
+  const festeHtml = feste.map(t =>
+    '<div class="komm"><div class="komm-kopf"><b>'+esc(t.von || "Eventlas")+'</b>'+
+    '<span class="komm-zeit">'+(t.datum ? esc(fmtKurzDatum(t.datum)) : "")+'</span></div>'+
+    '<div class="komm-text">'+esc(t.text)+'</div></div>').join("");
+  return '<div class="p-tipps" data-pin="'+esc(p.id)+'">'+
+    '<h4>💬 Gespräch</h4>'+
+    festeHtml +
+    '<div class="komm-liste" data-fuer="'+esc(p.id)+'">'+
+      (KOMMENTARE_AN() ? '<div class="komm-laedt">Beiträge werden geladen …</div>' : '')+
+    '</div>'+
+    (KOMMENTARE_AN()
+      ? '<div class="komm-neu">'+
+          '<textarea class="komm-feld" data-id="'+esc(p.id)+'" rows="2" maxlength="600" '+
+            'placeholder="Warst du da? Schreib den anderen, wie es war."></textarea>'+
+          '<div class="komm-zeile">'+
+            '<input class="komm-name" type="text" maxlength="40" placeholder="Dein Name (optional)" '+
+              'value="'+esc(lsGet("kommName",""))+'">'+
+            '<button class="komm-senden" data-id="'+esc(p.id)+'">Senden</button>'+
+          '</div>'+
+        '</div>'
+      : '<p class="klein">Das Gespräch wird gerade eingerichtet. Bis dahin gern per '+
+        '<a href="mailto:'+esc(KONFIG.mail)+'?subject='+encodeURIComponent("Tipp: "+p.titel)+'" style="color:var(--hilfe)">E-Mail</a>.</p>')+
     '<div class="p-beitragen">'+
       '<button class="bei-foto" data-id="'+esc(p.id)+'">📷 Foto beisteuern</button>'+
-      '<button class="bei-tipp" data-id="'+esc(p.id)+'">💬 '+(tipps.length ? "Tipp ergänzen" : "Ersten Tipp schreiben")+'</button>'+
+    '</div></div>';
+}
+
+/* Beiträge nachladen und in das Gerüst einsetzen */
+async function kommentareEinsetzen(pinId){
+  const box = document.querySelector('.komm-liste[data-fuer="'+CSS.escape(pinId)+'"]');
+  if(!box || !KOMMENTARE_AN()) return;
+  const daten = await kommentareLaden(pinId);
+  if(!document.body.contains(box)) return;        // Detail wurde zwischenzeitlich geschlossen
+  if(daten === null){
+    box.innerHTML = '<div class="komm-hinweis">Beiträge konnten nicht geladen werden. '+
+      '<button class="komm-neuladen" data-id="'+esc(pinId)+'">Erneut versuchen</button></div>';
+    return;
+  }
+  if(!daten.length){
+    box.innerHTML = '<div class="komm-hinweis">Noch keine Beiträge — schreib den ersten.</div>';
+    return;
+  }
+  box.innerHTML = daten.map(k => kommentarHTML(k)).join("");
+}
+function kommentarHTML(k){
+  const eigen = !!meineBeitraege[k.id];
+  return '<div class="komm" data-kid="'+esc(k.id)+'">'+
+    '<div class="komm-kopf"><b>'+esc(k.name || "Anonym")+'</b>'+
+    '<span class="komm-zeit">'+esc(vorZeit(k.erstellt))+'</span></div>'+
+    '<div class="komm-text">'+esc(k.text)+'</div>'+
+    '<div class="komm-aktion">'+
+      (eigen
+        ? '<button class="komm-weg" data-kid="'+esc(k.id)+'">löschen</button>'
+        : '<button class="komm-melden" data-kid="'+esc(k.id)+'">melden</button>')+
     '</div></div>';
 }
 function fmtKurzDatum(iso){
@@ -1114,6 +1266,7 @@ function sheetOeffnen(p, ausListe){
   $("#sheet").setAttribute("aria-hidden", "false");
   const zur = $("#sheet-zur-liste");
   if(zur) zur.addEventListener("click", () => { sheetSchliessen(); zeigeListe(letzterListenTab); });
+  kommentareEinsetzen(p.id);
   lernen(p);
   pinFreihalten(p);
   ansichtAktualisieren();
@@ -1218,7 +1371,11 @@ function baueMarker(){
     }, true);
     // Inhalt bei jedem Öffnen neu bauen: Zähler ("3 von 17"), Danke-Status und
      // Goldene Stunde hängen vom aktuellen Zustand ab, nicht vom Zeitpunkt des Aufbaus.
-    m.getPopup().on("open", () => { m.getPopup().setHTML(popupHTML(p)); popupInsBild(m); });
+    m.getPopup().on("open", () => {
+      m.getPopup().setHTML(popupHTML(p));
+      popupInsBild(m);
+      kommentareEinsetzen(p.id);
+    });
     m.getPopup().on("close", () => setTimeout(() => {
       // Kein Popup mehr offen → Blätter-Kontext freigeben, damit er beim nächsten Mal frisch ist
       if(!marker.some(x => x.m.getPopup() && x.m.getPopup().isOpen())) blaetterKontextLoeschen();
@@ -2179,12 +2336,67 @@ document.addEventListener("click", async e => {
     if(p) fotoBeisteuern(p);
     return;
   }
-  const tippBtn = e.target.closest(".bei-tipp");
-  if(tippBtn){
-    const p = PINS.find(x => x.id === tippBtn.dataset.id);
-    if(p) tippSchreiben(p);
+  const senden = e.target.closest(".komm-senden");
+  if(senden){ kommentarAbschicken(senden); return; }
+
+  const melden = e.target.closest(".komm-melden");
+  if(melden){
+    const box = melden.closest(".komm");
+    melden.disabled = true; melden.textContent = "gemeldet — danke";
+    try{ await kommentarMelden(melden.dataset.kid); }catch(err){}
+    box.style.opacity = ".5";
+    kommentarCache.clear();      // damit ein ausgeblendeter Beitrag beim nächsten Öffnen weg ist
+    return;
+  }
+  const loeschen = e.target.closest(".komm-weg");
+  if(loeschen){
+    const box = loeschen.closest(".komm");
+    try{
+      await kommentarLoeschen(loeschen.dataset.kid);
+      box.remove();
+      kommentarCache.clear();
+    }catch(err){ loeschen.textContent = "ging nicht"; }
+    return;
+  }
+  const neuladen = e.target.closest(".komm-neuladen");
+  if(neuladen){
+    const id = neuladen.dataset.id;
+    const box = document.querySelector('.komm-liste[data-fuer="'+CSS.escape(id)+'"]');
+    if(box) box.innerHTML = '<div class="komm-laedt">Beiträge werden geladen …</div>';
+    kommentarCache.delete(id);
+    kommentareEinsetzen(id);
   }
 });
+
+/* Senden: optimistisch anzeigen, damit sich das Gespräch flüssig anfühlt */
+async function kommentarAbschicken(knopf){
+  const pinId = knopf.dataset.id;
+  const wurzel = knopf.closest(".p-tipps");
+  const feld = wurzel.querySelector(".komm-feld");
+  const nameFeld = wurzel.querySelector(".komm-name");
+  const text = feld.value.trim();
+  if(text.length < 2){ feld.focus(); return; }
+  if(text.length > 600){ return; }
+
+  knopf.disabled = true; knopf.textContent = "…";
+  const name = nameFeld.value.trim();
+  lsSet("kommName", name);
+  try{
+    const neu = await kommentarSenden(pinId, text, name);
+    const liste = wurzel.querySelector(".komm-liste");
+    const platzhalter = liste.querySelector(".komm-hinweis, .komm-laedt");
+    if(platzhalter) platzhalter.remove();
+    liste.insertAdjacentHTML("beforeend", kommentarHTML(neu));
+    feld.value = "";
+    karma.ideen++; lsSet("karma", karma);
+    liste.lastElementChild.scrollIntoView({block:"nearest", behavior:"smooth"});
+  }catch(err){
+    const liste = wurzel.querySelector(".komm-liste");
+    liste.insertAdjacentHTML("beforeend",
+      '<div class="komm-hinweis">Konnte nicht gesendet werden — bitte später nochmal versuchen.</div>');
+  }
+  knopf.disabled = false; knopf.textContent = "Senden";
+}
 
 /* Foto zu einem bestehenden Ort beisteuern — Kamera auf, Bild teilen, fertig.
    Der Ort ist bekannt, es braucht also weder Karte noch Adresse. */
@@ -2208,41 +2420,6 @@ function fotoBeisteuern(p){
   $("#bei-foto-ab").addEventListener("click", () => { nachModal = null; beitragPin = null; modalSchliessen(); });
 }
 
-/* Kurzer Tipp zu einem Ort — der häufigste Wunsch: "wo parken?", "was lohnt sich?" */
-function tippSchreiben(p){
-  beitragPin = p;
-  modalOeffnen(
-    '<h2>💬 Dein Tipp</h2>'+
-    '<p>Was sollte man über <b>'+esc(p.titel)+'</b> wissen? Ein, zwei Sätze reichen.</p>'+
-    '<textarea id="tipp-text" placeholder="z. B. Am besten früh da sein, ab 11 Uhr wird es voll. Parken an der …"></textarea>'+
-    '<div class="zeile"><span>Name (optional, wird angezeigt)</span></div>'+
-    '<input type="text" id="tipp-name" placeholder="Vorname oder Spitzname" '+
-      'style="width:100%;border:1px solid var(--linie);background:var(--nacht);color:var(--papier);'+
-      'border-radius:8px;padding:10px;font:400 16px Inter">'+
-    '<p class="klein">Wir prüfen Tipps kurz und stellen sie meist innerhalb von 24 h online. '+
-    'Keine Werbung, keine Beleidigungen, keine fremden Texte.</p>'+
-    '<div class="blatt-knoepfe">'+
-      '<button class="bbtn wa" id="tipp-wa">Per WhatsApp senden</button>'+
-      '<button class="bbtn sek" id="tipp-mail">Per E-Mail senden</button>'+
-    '</div>'
-  );
-  const senden = perMail => {
-    const text = $("#tipp-text").value.trim();
-    if(!text) return;
-    const name = $("#tipp-name").value.trim();
-    const nachricht = "💬 Tipp für Eventlas\n"+
-      "Ort: "+p.titel+"  ["+p.id+"]\n"+
-      "Tipp: "+text+"\n"+
-      (name ? "Von: "+name+"\n" : "Von: (anonym)\n");
-    karma.ideen++; lsSet("karma", karma);
-    if(perMail) location.href = "mailto:"+KONFIG.mail+"?subject="+encodeURIComponent("Tipp: "+p.titel)+"&body="+encodeURIComponent(nachricht);
-    else window.open("https://wa.me/"+KONFIG.whatsapp+"?text="+encodeURIComponent(nachricht), "_blank", "noopener");
-    beitragPin = null;
-    modalSchliessen();
-  };
-  $("#tipp-wa").addEventListener("click", () => senden(false));
-  $("#tipp-mail").addEventListener("click", () => senden(true));
-}
 
 /* Beigesteuertes Foto verschicken — mit Ortsbezug, damit es sich zuordnen lässt */
 $("#beitrag-datei").addEventListener("change", async e => {

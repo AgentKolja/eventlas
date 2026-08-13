@@ -37,6 +37,40 @@ Künftig: `upload-vorbereiten.cmd` doppelklicken, dann ziehen.
 > Danach am Handy prüfen: "Zum Startbildschirm hinzufügen" sollte angeboten werden, ein per
 > WhatsApp geteilter Link zeigt ein Vorschaubild, und 🎵 Musik + „Heute" zeigt heute vier Termine.
 
+## 💬 Kommentare freischalten (10 Min, einmalig)
+Jeder Pin hat jetzt eine **Gesprächssektion**: Leute schreiben direkt in der App, sehen die
+Beiträge der anderen und können antworten — kein WhatsApp mehr. Dafür braucht es einen Speicher;
+statische Dateien können keine Nutzereingaben behalten. Ich habe **Supabase** vorbereitet
+(kostenlose Stufe reicht dauerhaft, EU-Server wählbar).
+
+1. **supabase.com** → kostenlos registrieren → **New project**
+   - Name: `eventlas` · Region: **Frankfurt (eu-central-1)** ← wichtig für die DSGVO
+   - Datenbank-Passwort vergeben und notieren (brauchst du später kaum)
+2. Im Projekt links auf **SQL Editor** → **New query** → den kompletten Inhalt von
+   `scripts/kommentare-setup.sql` hineinkopieren → **Run**. Das legt die Tabelle und die
+   Sicherheitsregeln an.
+3. Links auf **Project Settings** (Zahnrad) → **API**. Dort stehen zwei Werte:
+   - **Project URL** (z. B. `https://abcdefgh.supabase.co`)
+   - **anon public** (ein langer Schlüssel)
+4. Beides in `index.html` ganz oben im KONFIG-Block eintragen:
+   ```js
+   supabaseUrl: "https://abcdefgh.supabase.co",
+   supabaseKey: "eyJhbGci…",
+   ```
+5. Hochladen bzw. pushen — fertig. Die Gesprächssektion schaltet sich von selbst frei.
+
+**Ist der öffentliche Schlüssel ein Risiko?** Nein — er ist zur Veröffentlichung gedacht. Was
+damit möglich ist, legen die Regeln in der SQL-Datei fest: Kommentare lesen, schreiben, melden,
+eigene binnen 24 h löschen. Mehr nicht — auch kein Ändern fremder Beiträge.
+
+**Moderation:** Beiträge erscheinen sofort (sonst ist es kein Gespräch). Ab **drei Meldungen**
+verschwindet einer automatisch. Zum Nachsehen: Supabase → SQL Editor → `select * from moderation;`
+— gemeldete und ausgeblendete stehen oben. Löschen kannst du dort per Rechtsklick.
+
+- [ ] Supabase-Projekt angelegt und SQL ausgeführt
+- [ ] URL + Key in index.html eingetragen
+- [ ] Einmal selbst einen Kommentar geschrieben und wieder gelöscht (Test)
+
 ## Neu: Fotos und Tipps von Nutzern
 Im Detail eines Pins gibt es jetzt „📷 Foto beisteuern" und „💬 Tipp schreiben". Beides landet
 per WhatsApp/Mail bei dir. **So pflegst du es ein** (in `pins.json` beim jeweiligen Pin):
