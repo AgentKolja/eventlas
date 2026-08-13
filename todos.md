@@ -2,40 +2,28 @@
 
 Karte ist live: **https://eventlas.netlify.app** — alle Texte unten sind fertig zum Kopieren.
 
-## 🔴 ZUERST: Netlify mit GitHub verbinden (5 Min, einmalig)
-**Das ist die Ursache für „daily update funktioniert nicht".** Die nächtliche Aktualisierung
-läuft — sie schreibt die neuen Termine aber nur ins GitHub-Repo. Deine Live-Seite kennt davon
-nichts, weil du sie per Drag-and-drop hochlädst. Zwei getrennte Welten.
+## ✅ Erledigt: Deploy-Kette läuft (14.08.)
+Netlify ist mit GitHub verbunden — **das Hochladen entfällt ab jetzt komplett.** Geprüft: Der
+erste verbundene Build ist sauber durchgelaufen, alle Live-Dateien sind da (auch die neuen
+`bilder/` und `orte.json`), und `roadmap.md`, `todos.md`, `venues.json` sind korrekt von der
+Website ausgeschlossen. Der Ordner `Upload/` und `upload-vorbereiten.cmd` bleiben als Notnagel
+liegen, brauchst du aber nicht mehr.
 
-**So verbindest du sie** (danach entfällt das Hochladen für immer):
-1. app.netlify.com → deine Site **eventlas** → **Site configuration** → **Build & deploy**
-2. Bei „Continuous deployment" auf **Link repository** klicken → **GitHub** → Zugriff erlauben
-3. Repository **AgentKolja/eventlas** wählen, Branch **main**
-4. Build-Einstellungen musst du **nicht** ausfüllen — die stehen in `netlify.toml` im Repo
-5. **Deploy site** klicken
+**Der zweite Grund, warum „daily update nicht funktioniert" hat**, war ein eigener Fehler und
+ist ebenfalls behoben: Die nächtlichen Läufe vom **11., 12. und 13.08. sind alle abgestürzt.**
+Nicht weil eine Datenquelle kaputt war, sondern weil ein Aussetzer der Recherche-Schnittstelle
+den *ganzen* Lauf beendete — obwohl Kulturkalender, Musikbunker und die Konzertkalender
+einwandfrei lieferten. Dadurch sind rund **144 Termine nie live gegangen**.
 
-Danach: Jede Änderung im Repo geht automatisch live — auch das nächtliche Pin-Update.
-Der Build veröffentlicht nur die neun Live-Dateien; `roadmap.md`, `todos.md`, `venues.json`
-und die Skripte bleiben von der Website ausgeschlossen (geprüft).
+Ab jetzt: Fällt die Recherche aus, laufen die übrigen vier Quellen weiter, und der Ausfall steht
+als Warnung oben im Action-Bericht. Beim nächsten nächtlichen Lauf solltest du deutlich mehr
+Termine auf der Karte sehen (im Test: 284 statt 144).
 
-> Warnung: Beim ersten verbundenen Deploy überschreibt Netlify deinen Drag-and-drop-Stand mit
-> dem Repo-Stand. Das ist gewollt — im Repo liegt der aktuellere Stand (144 Pins, neues Schema).
-
-- [ ] Verbindung eingerichtet
-- [ ] Danach einmal prüfen: github.com/AgentKolja/eventlas → **Actions** → „Eventlas täglich
-      aktualisieren" → **Run workflow** → nach ~2 Min auf der Live-Seite unter ⓘ schauen,
-      ob „zuletzt aktualisiert heute" steht.
-
-## 🔼 Falls du (noch) beim Hochladen bleibst
-Seit deinem Upload dazugekommen: **144 Pins statt 64**, davon **84 Musik/Party** — darunter die
-13 Gratis-Konzerte der WM-Bühne auf dem Markt (11.–23.08., u. a. Álvaro Soler, MiA, Shantel).
-Dazu PWA, Link-Vorschaubild, Saisonkalender, Kamera-Knopf, bessere Suche, kein „kostenlos"-Tag mehr.
-Der Ordner **`Upload/`** ist gefüllt (inkl. neuem Unterordner `schriften/`) — auf
-**app.netlify.com/drop** ziehen. Wichtig: den **ganzen Ordner** ziehen, nicht einzelne Dateien,
-sonst fehlen die Schriften.
-Künftig: `upload-vorbereiten.cmd` doppelklicken, dann ziehen.
-> Danach am Handy prüfen: "Zum Startbildschirm hinzufügen" sollte angeboten werden, ein per
-> WhatsApp geteilter Link zeigt ein Vorschaubild, und 🎵 Musik + „Heute" zeigt heute vier Termine.
+- [ ] Falls du nicht bis morgen früh warten willst: github.com/AgentKolja/eventlas → **Actions**
+      → „Eventlas täglich aktualisieren" → **Run workflow**. Nach ~2 Min ist die Karte aktuell.
+- [ ] Wenn im Bericht „⚠️ Recherche ausgefallen" steht: meist ist das Guthaben des API-Schlüssels
+      leer oder das Modell wurde umbenannt. Beides ohne Codeänderung lösbar — Modell umstellen
+      unter Settings → Secrets and variables → Actions → **Variables** → `EVENTLAS_MODELL`.
 
 ## 💬 Kommentare freischalten (10 Min, einmalig)
 Jeder Pin hat jetzt eine **Gesprächssektion**: Leute schreiben direkt in der App, sehen die
@@ -135,9 +123,12 @@ neue Action **„Ortsdaten auffrischen"** — ohne API-Schlüssel, weil beide Qu
       einmalige Durchsicht ist gut investiert, gerade weil am 11.08. die Markenanmeldung läuft.
 - [x] ~~Netlify-Upload~~ → **live auf https://eventlas.netlify.app** (08.08.)
 - [x] ~~GitHub-Push~~ → erledigt (08.08.)
-- [ ] **Prüfen: Repo-Secret ANTHROPIC_API_KEY gesetzt?** (github.com → Repo → Settings → Secrets
-      and variables → Actions). Ohne das bricht der tägliche Auto-Update-Lauf ab. Testen kannst du
-      es unter "Actions" → "Eventlas täglich aktualisieren" → "Run workflow".
+- [x] ~~Netlify mit GitHub verbinden~~ → erledigt (14.08.), Build geprüft
+- [ ] **Prüfen: Repo-Secret ANTHROPIC_API_KEY gültig und mit Guthaben?** (github.com → Repo →
+      Settings → Secrets and variables → Actions). Gesetzt ist er — die Läufe am 09./10.08. haben
+      funktioniert. Ob er noch Guthaben hat, sieht man nur am Bericht des nächsten Laufs: steht
+      dort „⚠️ Recherche ausgefallen", liegt es meist daran. Die Karte bleibt trotzdem aktuell,
+      es fehlen dann nur die per Websuche gefundenen Termine.
 - [ ] Mail an die Stadt schicken (Text 6) → schaltet die beste Datenquelle frei (1427 Events)
 - [ ] Google-Kalender-Zeitzone von Asia/Tokyo auf Europe/Berlin umstellen (alter Fund)
 

@@ -122,34 +122,58 @@ theater-aachen.de → theateraachen.de (ohne Bindestrich), az-aachen.**de** (nic
 **Pflege:** Vier Einträge tragen noch `"koordinaten_pruefen": true` (Grenzlandtheater, Saalbau
 Rothe Erde, Barbarossa, Café Vers) — beim nächsten Durchgang verifizieren und das Flag entfernen.
 
-## Deploy-Kette (wichtig — Stand 10.08.)
+## Deploy-Kette (geschlossen seit 14.08.)
 ```
 GitHub Action (täglich 05:30 UTC)
    └─ recherchiert → schreibt pins.json → committet ins Repo
-        └─ Netlify (verbunden mit dem Repo) baut und veröffentlicht automatisch
+        └─ Netlify (mit dem Repo verbunden) baut und veröffentlicht automatisch
              └─ Live-Seite zeigt die neuen Termine
 ```
-**Bis zum 10.08. fehlte das mittlere Glied:** Die Action lief zwar (Commits vom 09. und 10.08.),
-die Live-Seite wurde aber per Drag-and-drop befüllt und bekam davon nichts mit. Behoben durch
-`netlify.toml` + Repository-Verknüpfung (Anleitung in todos.md).
+Die Kette hatte **drei** unabhängige Bruchstellen. Alle drei sahen für sich genommen aus wie
+„das Update funktioniert nicht", hatten aber nichts miteinander zu tun:
 
-**Zweiter Fehler derselben Ursache:** Weil der aktuelle Stand nicht gepusht war, lief die Action
-tagelang mit dem Skript vom 08.08. — ohne Konzertquellen und ohne `venues.json`. Ergebnis waren
-28 statt 84 Musik-Pins und Tags aus dem alten Schema. Seit dem Push vom 10.08. behoben.
+| # | Bruchstelle | Symptom | behoben |
+|---|---|---|---|
+| 1 | Netlify war nie mit dem Repo verbunden | Action grün, Live-Seite alt | 14.08. (Nutzer) |
+| 2 | Aktueller Stand nicht gepusht | Action lief mit dem Skript vom 08.08. | 10.08. |
+| 3 | Recherche brach den ganzen Lauf ab | Action rot, 11.–13.08. gar kein Update | 14.08. |
+
+**Zu Nr. 3 (der teuerste):** `claudePins()` war die einzige der fünf Quellen ohne Auffangnetz —
+vier `process.exit(1)`, wo alle anderen bei einem Fehler still ein leeres Array liefern. Ein
+Aussetzer der Anthropic-API beendete damit alles, obwohl Kulturkalender, Musikbunker und die
+Tribe-Kalender einwandfrei lieferten. Rund 144 Termine gingen dadurch nie live.
+Jetzt: Die Recherche darf ausfallen, der Lauf geht weiter, der Ausfall landet als Warnung in der
+Zusammenfassung. Umgekehrt bricht der Lauf ab, wenn **keine** Quelle etwas liefert — sonst würden
+die alten Pins nur mit neuem Datum zurückgeschrieben und Stillstand sähe aus wie Erfolg.
 
 **Merke:** Nach jeder Änderung an `scripts/`, `venues.json` oder `index.html` muss gepusht
 werden — sonst arbeitet die nächtliche Action mit einem veralteten Stand weiter, ohne zu meckern.
-Der Workflow prüft das Ergebnis jetzt (Pin-Anzahl, Koordinaten, gültige Tags) und committet bei
+Der Workflow prüft das Ergebnis (Pin-Anzahl, Koordinaten, gültige Tags) und committet bei
 Auffälligkeiten gar nicht erst, damit eine kaputte Datei nie live geht.
+
+**Modellname ist eine Zeitbombe:** Fest verdrahtet war `claude-sonnet-4-6`. Wird ein Modell
+abgekündigt, scheitert der Lauf jede Nacht neu. Jetzt `claude-sonnet-5`, umstellbar ohne
+Codeänderung über die Repo-Variable `EVENTLAS_MODELL` (Settings → Secrets and variables →
+Actions → Variables). Sieht ein Fehler nach Modellproblem aus, sagt das Log es ausdrücklich.
 
 ## Content-Pipeline (aktualisiert 08.08.)
 **Automatisch (GitHub Action, täglich 05:30 UTC):** scripts/update-pins.mjs
 1. Feste Pins (`fest:true`) bleiben immer: Fotospots, Ernteorte, Beispiele, Wochenmärkte, Alleenfest.
 2. Kulturkalender-API `api.kulturkalender-aachen.de/events` (undokumentiert, CORS *, 7 städtische
    Häuser mit fester Koordinaten-Map) → Kultur-Pins der nächsten 45 Tage, ohne LLM.
-3. Claude + Websuche für den Rest (neues Schema, Quelle pro Pin Pflicht, keine Geschäfte).
-4. Merge + Dedupe (Titel+Datum), `hinzu` bleibt bei bekannten Pins stabil, 90-Tage-Pruning.
-   Abbruch ohne Schaden bei ungültiger Antwort.
+3. Konzertquellen ohne LLM: rausgegangen.de, Bigcartel-Shop des Musikbunkers, Tribe-Kalender.
+4. Claude + Websuche für den Rest (neues Schema, Quelle pro Pin Pflicht, keine Geschäfte).
+   **Darf ausfallen** — siehe Deploy-Kette Nr. 3.
+5. Merge + Dedupe (Titel+Datum), `hinzu` bleibt bei bekannten Pins stabil, 90-Tage-Pruning.
+
+**Titel aus dem Kulturkalender brauchen Nacharbeit (14.08.):** Die Stadt liefert Katalog-
+schreibweise und HTML-kodiert — `&#8222;Alles Anders&#8220; &#8211; Eine Musicalproduktion`
+oder `Reit WM 2026 – Rahmenprogramm. „Ms. Jeanna Magic".` Reihenfolge der Aufbereitung ist
+wichtig: **erst** Entities dekodieren (Node kann das nicht von selbst), **dann** Anführungs-
+zeichen auswerten — sonst findet die Titelbereinigung die Zeichen gar nicht, weil sie noch als
+`&#8222;` dastehen. Regel: Was in Anführungszeichen steht, ist der Titel; alles davor und
+dahinter wandert in den Beschreibungstext. Ergebnis auf 104 Pins: keine Entities, keine
+Anführungszeichen, keine Schlusspunkte, maximal 70 Zeichen.
 
 **Beste ungenutzte Quelle (V2.6-Kandidat):** offizieller iCal-Export des aachen.de-Kalenders —
 `https://www.aachen.de/kalender/veranstaltungskalender-alle-termine/event.ics?weekends=false&tagMode=ALL`
