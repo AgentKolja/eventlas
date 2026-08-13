@@ -17,6 +17,11 @@ if (!API_KEY) {
   process.exit(1);
 }
 
+// Modelle werden mit der Zeit abgekündigt; ein fest verdrahteter Name ist eine Zeitbombe.
+// Ohne Codeänderung umstellbar: Repo-Variable EVENTLAS_MODELL setzen (Settings → Secrets
+// and variables → Actions → Variables).
+const MODELL = process.env.EVENTLAS_MODELL || "claude-sonnet-5";
+
 const heute = new Date().toISOString().slice(0, 10);
 const heuteDate = new Date(heute + "T00:00:00Z");
 const TYPEN = new Set(["event", "angebot", "hilfe", "spot"]);
@@ -374,48 +379,50 @@ Koordinaten müssen echte Orte in ${STADT.name} sein (lng ${BBOX.lngMin}–${BBO
 Diese Pins existieren bereits — NICHT erneut liefern, es sei denn mit korrigierten Fakten:
 `;
 
+// Die LLM-Recherche ist EINE von fünf Quellen — und die einzige, die von einem fremden
+// Dienst mit Kontingent, Modellwechseln und Preisänderungen abhängt. Sie darf den Lauf
+// deshalb nicht mehr abbrechen: Fällt sie aus, liefern Kulturkalender, rausgegangen,
+// Musikbunker und die Tribe-Kalender weiter Termine. (Genau daran starben die Läufe
+// vom 11.–13.08.: ein Fehlschlag hier beendete alles, obwohl die anderen Quellen liefen.)
+let rechercheFehler = null;
 async function claudePins(bekannt) {
-  const bekanntListe = bekannt.map(p => `- ${p.titel} (${p.start || p.wdh || "laufend"})`).join("\n");
-  const res = await fetch("https://api.anthropic.com/v1/messages", {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-      "x-api-key": API_KEY,
-      "anthropic-version": "2023-06-01",
-    },
-    body: JSON.stringify({
-      model: "claude-sonnet-4-6",
-      max_tokens: 8000,
-      system: SYSTEM + bekanntListe,
-      messages: [{ role: "user", content: "Recherchiere jetzt und liefere das JSON." }],
-      tools: [{ type: "web_search_20250305", name: "web_search" }],
-    }),
-  });
-  if (!res.ok) {
-    console.error("API-Fehler:", res.status, await res.text());
-    process.exit(1);
-  }
-  const data = await res.json();
-  const raw = (data.content || []).filter(b => b.type === "text").map(b => b.text).join("\n").trim();
-  const start = raw.indexOf("{");
-  const end = raw.lastIndexOf("}");
-  if (start === -1 || end === -1) {
-    console.error("Keine JSON-Struktur in der Antwort. Breche ab, alte pins.json bleibt.");
-    console.error(raw.slice(0, 500));
-    process.exit(1);
-  }
-  let parsed;
   try {
-    parsed = JSON.parse(raw.slice(start, end + 1));
+    const bekanntListe = bekannt.map(p => `- ${p.titel} (${p.start || p.wdh || "laufend"})`).join("\n");
+    const res = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        "x-api-key": API_KEY,
+        "anthropic-version": "2023-06-01",
+      },
+      body: JSON.stringify({
+        model: MODELL,
+        max_tokens: 8000,
+        system: SYSTEM + bekanntListe,
+        messages: [{ role: "user", content: "Recherchiere jetzt und liefere das JSON." }],
+        tools: [{ type: "web_search_20250305", name: "web_search" }],
+      }),
+    });
+    if (!res.ok) {
+      const text = (await res.text()).slice(0, 300);
+      // Ein abgekündigtes Modell ist der wahrscheinlichste Dauerfehler — deutlich benennen.
+      const hinweis = /model/i.test(text)
+        ? ` Modell "${MODELL}" prüfen (umbenannt oder abgekündigt?) — MODELL oben im Skript oder Variable EVENTLAS_MODELL.`
+        : "";
+      throw new Error(`HTTP ${res.status}: ${text}${hinweis}`);
+    }
+    const data = await res.json();
+    const raw = (data.content || []).filter(b => b.type === "text").map(b => b.text).join("\n").trim();
+    const start = raw.indexOf("{"), end = raw.lastIndexOf("}");
+    if (start === -1 || end === -1) throw new Error("Keine JSON-Struktur in der Antwort: " + raw.slice(0, 200));
+    const parsed = JSON.parse(raw.slice(start, end + 1));
+    if (!Array.isArray(parsed.pins)) throw new Error("Kein pins-Array in der Antwort.");
+    return parsed.pins;
   } catch (e) {
-    console.error("JSON ungültig, breche ab, alte pins.json bleibt:", e.message);
-    process.exit(1);
+    rechercheFehler = e.message;
+    console.log(`::warning::Recherche fehlgeschlagen — die übrigen Quellen laufen weiter. ${e.message}`);
+    return [];
   }
-  if (!parsed.pins || !Array.isArray(parsed.pins)) {
-    console.error("Kein pins-Array in der Antwort, breche ab.");
-    process.exit(1);
-  }
-  return parsed.pins;
 }
 
 /* ---------- Validierung + Merge ---------- */
@@ -472,6 +479,14 @@ async function main() {
     .filter(valide).map(normiere);
   console.log(`Quellen — Recherche: ${recherche.length}, Kultur-API: ${kultur.length}, Konzerte: ${konzertPins.length}. Valide gesamt: ${neuGueltig.length}.`);
 
+  // Wenn keine einzige Quelle etwas liefert, würden die alten Pins nur mit neuem Datum
+  // zurückgeschrieben — das sähe nach Erfolg aus, wäre aber Stillstand. Laut sagen.
+  if (!neuGueltig.length) {
+    console.log("::error::Keine einzige Quelle hat verwertbare Termine geliefert." +
+      (rechercheFehler ? ` Recherche: ${rechercheFehler}` : " Programmseiten in venues.json prüfen."));
+    process.exit(1);
+  }
+
   // Merge: feste Pins zuerst, dann bisherige aktuelle, dann Neues — Duplikate (Titel+Datum) fliegen raus.
   const gesehen = new Set();
   const ergebnis = [];
@@ -500,6 +515,19 @@ async function main() {
   console.log(`OK: ${final.length} Pins geschrieben (${feste.length} feste, ${musik} mit Musik-Tag, Stand ${heute}).`);
   if (VENUES.length && musik < 3) {
     console.log("Hinweis: wenige Musik-Pins — Programmseiten in venues.json prüfen (evtl. Umzug/Schließung).");
+  }
+
+  // Ein Ausfall der Recherche macht den Lauf nicht mehr rot — dann darf er aber auch nicht
+  // unbemerkt bleiben. Deshalb oben in die Zusammenfassung des Laufs schreiben.
+  if (rechercheFehler && process.env.GITHUB_STEP_SUMMARY) {
+    try {
+      writeFileSync(process.env.GITHUB_STEP_SUMMARY,
+        `### ⚠️ Recherche ausgefallen\n\nDie übrigen Quellen liefen weiter, ` +
+        `${final.length} Pins sind aktuell. Aber neue Termine per Websuche fehlen:\n\n` +
+        "```\n" + rechercheFehler + "\n```\n\n" +
+        `Modell derzeit: \`${MODELL}\` (umstellbar über die Repo-Variable \`EVENTLAS_MODELL\`).\n`,
+        { flag: "a" });
+    } catch (e) { /* Zusammenfassung ist Beiwerk — nie den Lauf daran scheitern lassen */ }
   }
 }
 
