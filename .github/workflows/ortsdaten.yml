@@ -1,0 +1,65 @@
+name: Ortsdaten auffrischen (orte.json)
+
+# Anfahrt, Barrierefreiheit und Ortsbeschreibungen ändern sich über Jahre kaum — anders als
+# die Termine in pins.json, die täglich laufen. Einmal im Monat genügt völlig.
+# Braucht keinen API-Schlüssel: OpenStreetMap und Wikipedia sind frei abfragbar.
+on:
+  schedule:
+    - cron: "0 4 1 * *"     # am 1. jedes Monats, 04:00 UTC
+  workflow_dispatch: {}      # manueller Start unter "Actions" → "Run workflow"
+
+permissions:
+  contents: write
+
+jobs:
+  orte:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Voraussetzungen prüfen
+        run: |
+          fehlt=0
+          for datei in scripts/orte-aktualisieren.mjs venues.json pins.json; do
+            if [ ! -f "$datei" ]; then
+              echo "::error::$datei fehlt im Repository — bitte den aktuellen Stand pushen."
+              fehlt=1
+            fi
+          done
+          exit $fehlt
+
+      - name: Ortsdaten holen und schreiben
+        run: node scripts/orte-aktualisieren.mjs
+
+      # Sicherheitsnetz: Overpass drosselt gern. Lieber die alte Datei behalten als eine
+      # halbleere live stellen — die Anfahrtsangaben verschwänden sonst aus der App.
+      - name: Ergebnis prüfen
+        run: |
+          node -e '
+            const d = JSON.parse(require("fs").readFileSync("orte.json","utf8"));
+            const o = d.orte || [];
+            const halt = o.filter(x => x.halt).length;
+            const wiki = o.filter(x => x.wiki).length;
+            console.log(`Orte: ${o.length} · mit Haltestelle: ${halt} · mit Beschreibung: ${wiki} · Stand: ${d.stand}`);
+            if (o.length < 20) { console.log("::error::Nur " + o.length + " Orte — das sieht nach einem Fehlschlag aus."); process.exit(1); }
+            if (halt < o.length * 0.5) { console.log("::error::Nur " + halt + " Orte mit Haltestelle — Overpass hat vermutlich gedrosselt."); process.exit(1); }
+            if (!wiki) { console.log("::warning::Keine einzige Ortsbeschreibung — Wikipedia-Abruf prüfen."); }
+          '
+
+      - name: Änderungen committen (nur wenn orte.json sich geändert hat)
+        run: |
+          git config user.name "Eventlas Auto-Update"
+          git config user.email "actions@github.com"
+          git add orte.json
+          if git diff --cached --quiet; then
+            echo "Keine Änderung, nichts zu committen."
+          else
+            git commit -m "Auto-Update orte.json ($(date -u +%Y-%m-%d))"
+            git push
+            echo "### Ortsdaten aufgefrischt" >> $GITHUB_STEP_SUMMARY
+            echo "Netlify deployt den neuen Stand automatisch, sobald die Site mit diesem Repo verbunden ist." >> $GITHUB_STEP_SUMMARY
+          fi

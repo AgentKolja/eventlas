@@ -5,6 +5,7 @@ cd /d "%~dp0"
 if not exist "Upload" mkdir "Upload"
 copy /Y "index.html" "Upload\index.html" >nul
 copy /Y "pins.json"  "Upload\pins.json"  >nul
+if exist "orte.json" copy /Y "orte.json" "Upload\orte.json" >nul
 if exist "manifest.json" copy /Y "manifest.json" "Upload\manifest.json" >nul
 if exist "sw.js"         copy /Y "sw.js"         "Upload\sw.js"         >nul
 if exist "og.png"        copy /Y "og.png"        "Upload\og.png"        >nul

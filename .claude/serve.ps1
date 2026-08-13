@@ -28,11 +28,12 @@ while ($listener.IsListening) {
     $res = $ctx.Response
     $path = [Uri]::UnescapeDataString($req.Url.AbsolutePath)
 
-    # Dev-Helfer: POST /__save?name=og.png mit Base64-Body legt eine Bilddatei im Projekt ab.
-    # Nur localhost, nur PNG/ICO, nur flache Dateinamen — dient dem Erzeugen von og.png/Icons.
+    # Dev-Helfer: POST /__save?name=og.png mit Base64-Body legt eine Datei im Projekt ab.
+    # Nur localhost, nur diese Endungen, kein Ausbrechen aus dem Projektordner.
+    # Dient dem Erzeugen von og.png/Icons und dem Einpflegen recherchierter Daten (orte.json).
     if ($req.HttpMethod -eq 'POST' -and $path -eq '/__save') {
       $name = $req.QueryString['name']
-      if ($name -notmatch '^[a-z0-9._/-]+\.(png|ico|woff2|jpg|webp)$' -or $name -match '\.\.') {
+      if ($name -notmatch '^[a-z0-9._/-]+\.(png|ico|woff2|jpg|webp|json)$' -or $name -match '\.\.') {
         $res.StatusCode = 400
         $res.Close(); continue
       }

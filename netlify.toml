@@ -12,7 +12,7 @@
   publish = "public"
   command = """
     mkdir -p public/schriften public/bilder && \
-    cp index.html pins.json manifest.json sw.js flyer.html public/ && \
+    cp index.html pins.json orte.json manifest.json sw.js flyer.html public/ && \
     cp og.png icon-192.png icon-512.png public/ && \
     cp schriften/*.woff2 public/schriften/ && \
     cp bilder/*.jpg public/bilder/

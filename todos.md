@@ -75,12 +75,33 @@ verschwindet einer automatisch. Zum Nachsehen: Supabase → SQL Editor → `sele
 Im Detail eines Pins gibt es jetzt „📷 Foto beisteuern" und „💬 Tipp schreiben". Beides landet
 per WhatsApp/Mail bei dir. **So pflegst du es ein** (in `pins.json` beim jeweiligen Pin):
 ```json
-"bild": { "url": "https://…/foto.jpg", "credit": "Foto: Vorname" },
+"bild": { "url": "bilder/foto.jpg", "credit": "Foto: Vorname", "lizenz": "", "quelle": "" },
 "tipps": [ { "text": "Am besten früh da sein.", "von": "Lisa", "datum": "2026-08-12" } ]
 ```
-Bilder brauchen eine Web-Adresse — am einfachsten mit ins Netlify-Upload legen (dann
-`"url": "bilder/lousberg.jpg"`). **Vor dem Einpflegen kurz prüfen:** eigene Aufnahme? Keine
-Personen im Mittelpunkt? Kein Plakat-/Kunstwerk-Foto (Urheberrecht)? Im Zweifel weglassen.
+Datei in den Ordner **`bilder/`** legen — `upload-vorbereiten.cmd` und der Netlify-Build nehmen
+ihn automatisch mit. **Vor dem Einpflegen kurz prüfen:** eigene Aufnahme? Keine Personen im
+Mittelpunkt? Kein Plakat-/Kunstwerk-Foto (Urheberrecht)? Im Zweifel weglassen. Bei fremden
+Fotos unter freier Lizenz gehören `lizenz` und `quelle` dazu — die Angabe erscheint dann
+zwingend unter dem Bild, so verlangen es die CC-Lizenzen.
+
+## Nichts zu tun: 10 Ortsfotos sind schon drauf (13.08.)
+Die Fotospots zeigen jetzt Bilder — frei lizenzierte Aufnahmen von Wikimedia Commons
+(Lousberg, Belvedere, Katschhof, Elisenbrunnen, Ponttor, Marschiertor, Burg Frankenberg,
+Gut Melaten, Stadtgarten, Dreiländereck). Sie liegen bei uns im Ordner `bilder/`, nicht bei
+Wikimedia — dadurch entsteht beim Betrachten keine Verbindung zu einem fremden Server, und
+die Seite bleibt ohne Einwilligungsbanner. Urheber und Lizenz stehen unter jedem Bild.
+
+## Nichts zu tun: Anfahrt und Barrierefreiheit stehen jetzt an jedem Pin (13.08.)
+Im Detail steht ab sofort die nächste Haltestelle mit Fußweg und Linien, ob der Ort
+barrierefrei ist, ggf. die Öffnungszeiten und ein Satz Hintergrund aus der Wikipedia.
+Das gilt für **143 von 144 Pins** — die Zuordnung läuft über Koordinaten, also erben auch
+alle künftigen Konzerte am selben Ort die Angaben automatisch.
+
+Die Daten stehen in der neuen Datei **`orte.json`** (OpenStreetMap + Wikipedia, einmal
+abgeholt statt live abgefragt). Aufgefrischt wird sie automatisch am 1. jedes Monats über die
+neue Action **„Ortsdaten auffrischen"** — ohne API-Schlüssel, weil beide Quellen frei sind.
+- [ ] Nur falls du magst: einmal unter *Actions* → „Ortsdaten auffrischen" → **Run workflow**
+      testen. Nötig ist es nicht, die Datei ist aktuell.
 
 ## Kurz gegenprüfen, wenn du magst (Datenqualität)
 - [ ] **Hotel Europa / Apollo:** Deren Programmseiten drucken kein Jahr; die Termine wurden über

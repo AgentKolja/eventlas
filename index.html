@@ -321,6 +321,16 @@
     background:var(--nacht);object-fit:cover;max-height:170px}
   .p-bild-credit{font-size:10px;color:var(--grau);margin-bottom:4px}
   .p-bild-credit a{color:var(--grau);text-decoration:underline}
+
+  /* Ortswissen: Anfahrt, Zugänglichkeit, Hintergrund — als ruhiger Block, damit es
+     die Veranstaltung nicht überstrahlt, aber vor dem Haupt-Knopf noch gelesen wird. */
+  .p-ort{background:var(--nacht);border:1px solid var(--linie);border-radius:10px;
+    padding:8px 10px;margin:9px 0 3px}
+  .o-zeile{font-size:12px;color:var(--papier);line-height:1.5}
+  .o-wiki{font-size:11.5px;color:var(--grau);line-height:1.55;margin-top:6px;
+    padding-top:6px;border-top:1px solid var(--linie)}
+  .o-wiki a{color:var(--event);text-decoration:none;white-space:nowrap}
+  .o-wiki a:hover{text-decoration:underline}
   .p-tipps{margin-top:12px;border-top:1px solid var(--linie);padding-top:10px}
   .p-tipps h4{font:800 11px 'Inter';letter-spacing:.6px;text-transform:uppercase;
     color:var(--grau);margin-bottom:8px}
@@ -1113,6 +1123,68 @@ function wetterZeile(p){
     (v.min !== v.max ? '/'+v.min+'°' : '')+esc(regen)+esc(rat)+'</div>';
 }
 
+/* ---------- Ortswissen (orte.json) ----------
+   Was ein Ort ist — Anfahrt, Zugänglichkeit, Geschichte — steht längst in OpenStreetMap und
+   in der Wikipedia. Statt es abzuschreiben oder bei jedem Aufruf nachzuladen, ist es einmal
+   recherchiert und liegt bei uns: keine Verbindung zu fremden Servern beim Betrachten, kein
+   Einwilligungsbanner, und offline funktioniert es auch.
+   Die Zuordnung läuft über Koordinaten, nicht über Pin-IDs — dadurch erbt jede neue
+   Veranstaltung am selben Ort die Infos automatisch, ohne dass jemand etwas nachtragen muss. */
+let ORTE = [];
+const ortCache = new Map();
+function ortZu(p){
+  const key = p.lat + "," + p.lng;
+  if(ortCache.has(key)) return ortCache.get(key);
+  let treffer = null, best = 150;                     // weiter weg gilt nicht mehr als derselbe Ort
+  for(const o of ORTE){
+    const d = luftlinie(p.lat, p.lng, o.lat, o.lng);
+    if(d < best){ best = d; treffer = o; }
+  }
+  ortCache.set(key, treffer);
+  return treffer;
+}
+function luftlinie(lat1, lng1, lat2, lng2){
+  const R = 6371000, rad = Math.PI/180;
+  const dLat = (lat2-lat1)*rad, dLng = (lng2-lng1)*rad;
+  const x = Math.sin(dLat/2)**2 + Math.cos(lat1*rad)*Math.cos(lat2*rad)*Math.sin(dLng/2)**2;
+  return 2 * R * Math.asin(Math.sqrt(x));
+}
+const ROLLI = {yes:"barrierefrei", limited:"teilweise barrierefrei", no:"nicht barrierefrei",
+               designated:"barrierefrei"};
+// OSM schreibt Öffnungszeiten englisch und technisch ("Tu-Su 10:00-17:00") — lesbar machen.
+const OSM_TAGE = {Mo:"Mo", Tu:"Di", We:"Mi", Th:"Do", Fr:"Fr", Sa:"Sa", Su:"So", PH:"Feiertags"};
+function zeitenLesbar(s){
+  if(!s || s.length > 90) return "";                  // verschachtelte Regeln lieber gar nicht zeigen
+  if(/24\/7/.test(s)) return "durchgehend geöffnet";
+  return s.replace(/\b(Mo|Tu|We|Th|Fr|Sa|Su|PH)\b/g, m => OSM_TAGE[m])
+          .replace(/(\d{2}):00/g, "$1")               // 10:00 → 10
+          .replace(/;\s*/g, " · ").replace(/,\s*/g, ", ").replace(/-/g, "–");
+}
+/* Anfahrt, Zugänglichkeit und ein Satz Hintergrund — die drei Fragen, die man sich vor
+   einem Besuch stellt und für die man sonst die App wechseln müsste. */
+function ortsZeile(p){
+  const o = ortZu(p);
+  if(!o) return "";
+  const teile = [];
+  if(o.halt){
+    const min = Math.max(1, Math.round(o.halt.m / 80));        // ~5 km/h Gehtempo
+    const l = o.halt.linien || [];
+    const linien = l.length ? " · Linie" + (l.length > 1 ? "n " : " ") +
+      l.slice(0, 6).join(", ") + (l.length > 6 ? " +" + (l.length - 6) : "") : "";
+    teile.push('<div class="o-zeile">🚏 '+esc(o.halt.name)+' · '+min+' Min zu Fuß'+esc(linien)+'</div>');
+  }
+  if(o.rolli && ROLLI[o.rolli]) teile.push('<div class="o-zeile">♿ '+ROLLI[o.rolli]+'</div>');
+  const z = zeitenLesbar(o.zeiten);
+  if(z) teile.push('<div class="o-zeile">🕒 '+esc(z)+'</div>');
+  if(o.wiki && o.wiki.text){
+    // Wikipedia-Texte stehen unter CC BY-SA: Quelle und Link gehören sichtbar dazu.
+    teile.push('<div class="o-wiki">'+esc(o.wiki.text)+
+      (urlOk(o.wiki.url) ? ' <a href="'+esc(o.wiki.url)+'" target="_blank" rel="noopener">Wikipedia ↗</a>' : "")+
+      '</div>');
+  }
+  return teile.length ? '<div class="p-ort">'+teile.join("")+'</div>' : "";
+}
+
 /* ---------- Kommentare ----------
    Eine echte Unterhaltung braucht einen gemeinsamen Speicher. Wir sprechen dafür direkt
    die REST-Schnittstelle von Supabase an — kein eigener Server, keine Bibliothek, keine
@@ -1311,7 +1383,7 @@ function popupHTML(p){
     '<div class="p-titel">'+esc(p.titel)+'</div>'+
     '<div class="p-text">'+esc(p.text)+'</div>'+
     (meta ? '<div class="p-meta">'+esc(meta)+'</div>' : "")+ gold + wetterInfo +
-    bildBlock(p) + primaer +
+    bildBlock(p) + ortsZeile(p) + primaer +
     '<div class="p-akt">'+
       (urlOk(p.link) ? '<a class="p-btn sek" href="'+esc(route)+'" target="_blank" rel="noopener">📍 Route</a>' : "")+
       '<button class="p-btn sek p-danke'+(gedankt?' aktivgruen':'')+'" data-id="'+esc(p.id)+'">👍 '+(gedankt?"Danke ✓":"Danke")+'</button>'+
@@ -2282,11 +2354,27 @@ function zeigeInfo(){
     'Angaben standardmäßig keine IP-Adressen. Rechtsgrundlage: berechtigtes Interesse an der '+
     'Darstellung der von dir aufgerufenen Karte (Art. 6 Abs. 1 lit. f DSGVO). '+
     'Kartendaten © OpenStreetMap-Mitwirkende.</p>'+
+    '<p class="klein">Für die Wettervorhersage bei Veranstaltungen unter freiem Himmel wird einmal '+
+    'pro Aufruf <b>Open-Meteo</b> (Open-Meteo, Zürich — Server in der EU) abgefragt. Übertragen '+
+    'werden dabei deine IP-Adresse und die Koordinaten des Stadtzentrums, <b>nicht</b> dein '+
+    'Standort. Open-Meteo speichert nach eigenen Angaben keine personenbezogenen Daten. '+
+    'Rechtsgrundlage: berechtigtes Interesse an der angefragten Information (Art. 6 Abs. 1 lit. f DSGVO).</p>'+
     '<p class="klein">Speicherst du Eventlas auf dem Startbildschirm, legt die App Dateien im '+
     'Browser-Speicher deines Geräts ab, damit sie ohne Netz funktioniert. Das ist für diese '+
     'Funktion technisch erforderlich; Löschen der Website-Daten entfernt sie wieder.</p>'+
     '<p class="klein">Absichtlich <b>nicht</b> eingebunden: Google Maps, Google Fonts vom Google-'+
     'Server, Analyse- oder Werbedienste.</p>'+
+    '<h3>Woher die Angaben kommen</h3>'+
+    '<p class="klein">Fotos, Haltestellen, Öffnungszeiten und die kurzen Ortsbeschreibungen sind '+
+    '<b>einmal recherchiert und liegen bei uns</b> — beim Betrachten entsteht also keine Verbindung '+
+    'zu den Quellservern:</p>'+
+    '<p class="klein">· Ortsfotos: <b>Wikimedia Commons</b>, jeweils mit Urheber und Lizenz unter dem Bild.<br>'+
+    '· Haltestellen, Barrierefreiheit, Öffnungszeiten: <b>OpenStreetMap</b>-Mitwirkende, '+
+    '<a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">ODbL 1.0</a>.<br>'+
+    '· Ortsbeschreibungen: <b>Wikipedia</b> (deutschsprachig), '+
+    '<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" target="_blank" rel="noopener">CC BY-SA 4.0</a> — '+
+    'der jeweilige Artikel ist am Ende des Textes verlinkt.<br>'+
+    '· Termine: die im Pin genannte Quelle, verlinkt unter jedem Eintrag.</p>'+
     '<h3>Kontakt & Impressum</h3>'+
     '<p class="klein">Pins melden: WhatsApp-Knopf unten oder E-Mail. [Impressum: Name + Anschrift vor Launch eintragen — Pflicht nach § 5 DDG.]</p>'
   );
@@ -2982,6 +3070,16 @@ fetch(STADT.pinsDatei + "?v=" + Date.now(), {cache:"no-store"})
   })
   .catch(() => {})
   .finally(() => {
+    // Ortswissen nachladen: fehlt die Datei, bleibt die Karte vollständig nutzbar.
+    fetch("orte.json?v=" + Date.now(), {cache:"no-store"})
+      .then(r => r.ok ? r.json() : null)
+      .then(d => {
+        if(!d || !Array.isArray(d.orte)) return;
+        ORTE = d.orte.filter(o => typeof o.lat === "number" && typeof o.lng === "number");
+        ortCache.clear();
+        if(sheetPin) sheetOeffnen(sheetPin);      // offenes Detail nachträglich ergänzen
+      })
+      .catch(() => {});
     wetterLaden();          // Vorhersage im Hintergrund holen, blockiert nichts
     window.__ev = { map, get pins(){ return PINS; }, get marker(){ return marker; },
       deepLink, blaetterListe, sichtbar, imAusschnitt, relevanz,

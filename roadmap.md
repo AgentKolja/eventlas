@@ -254,16 +254,57 @@ ohne Cookies, EU-nah — sonst kollidiert es mit dem bannerfreien Profil.
 
 | Quelle | Liefert | Status |
 |---|---|---|
-| **Open-Meteo** | Wetter für Open-Air-Pins (7 Tage) | ✅ eingebaut |
-| **Wikimedia Commons** | freie Fotos der Wahrzeichen und Fotospots | 🔎 in Recherche |
+| **Open-Meteo** | Wetter für Open-Air-Pins (7 Tage) | ✅ eingebaut (live abgefragt) |
+| **Wikimedia Commons** | freie Fotos der Wahrzeichen und Fotospots | ✅ 10 Bilder eingepflegt |
 | **mundraub.org** | Ernteorte samt Beschreibungen | ✅ eingebaut (verlinkt) |
 | **rausgegangen / Tribe-APIs / Bigcartel** | Konzerttermine | ✅ eingebaut |
-| **Wikipedia** | Kurzbeschreibungen, Quellenlinks | teils als `quelle` verlinkt |
-| **OpenStreetMap** | Öffnungszeiten, Barrierefreiheit, Haltestellen | offen |
-| **GTFS der AVV/ASEAG** | ÖPNV-Anbindung je Pin | offen |
+| **Wikipedia** | Kurzbeschreibungen der Orte | ✅ 19 Beschreibungen in `orte.json` |
+| **OpenStreetMap** | Haltestellen + Linien, Barrierefreiheit, Öffnungszeiten | ✅ in `orte.json` |
+| **GTFS der AVV/ASEAG** | Abfahrtszeiten je Haltestelle | offen (Linien reichen vorerst) |
 
 Umgekehrt gilt: Was rechtlich nicht sauber übernehmbar ist (Google-Bewertungen, Forenbeiträge,
 Presse-Fotos), wird **verlinkt statt kopiert** — siehe die `quelle`-Zeile in jedem Pin.
+
+### Warum eingepflegt statt live abgefragt (Entscheidung 13.08.)
+Jede Live-Abfrage überträgt die IP des Besuchers an einen fremden Server und muss in der
+Datenschutzerklärung stehen. Bei Wetterdaten ist das unvermeidlich — eine Vorhersage von
+gestern ist wertlos. Fotos, Haltestellen und Ortsbeschreibungen ändern sich dagegen über
+Jahre kaum. Sie werden deshalb **einmal recherchiert und liegen bei uns**: keine Verbindung
+zu Wikimedia, OpenStreetMap oder Wikipedia beim Betrachten, kein Bannerbedarf, offline nutzbar,
+und die Karte bleibt schnell. Nachgeführt wird per Skript, nicht von Hand.
+
+### `orte.json` — Ortswissen getrennt von Terminen
+| | `pins.json` | `orte.json` |
+|---|---|---|
+| Inhalt | was **passiert** (Termine) | was der **Ort ist** |
+| Erzeugt von | `update-pins.mjs`, täglich | `orte-aktualisieren.mjs`, monatlich genügt |
+| Verknüpfung | — | über **Koordinaten** (bis 150 m), nicht über Pin-IDs |
+
+Die Koordinaten-Verknüpfung ist der Kern: Sie überlebt das nächtliche Update (das `pins.json`
+komplett neu schreibt) und gilt **automatisch für jede neue Veranstaltung am selben Ort**.
+Deshalb haben 143 von 144 Pins eine Anfahrtsangabe, obwohl nur 70 Orte erfasst sind — alle
+Konzerte im Musikbunker erben sie von ihrem Ort.
+
+Stand 13.08.: 70 Orte · 69 mit Haltestelle (Median 171 m Luftlinie) · 19 mit Wikipedia-Absatz ·
+15 mit Barrierefreiheit · 5 mit Öffnungszeiten.
+
+**Erneuern:** `node scripts/orte-aktualisieren.mjs` (im Projektordner). Braucht Node ≥ 18,
+läuft sonst über die GitHub Action `ortsdaten.yml` (Reiter *Actions* → *Run workflow*).
+
+**Fallstricke, die beim Bau Zeit gekostet haben:**
+- Overpass drosselt hart (HTTP 429) und lässt eine abgebrochene Abfrage serverseitig
+  weiterlaufen. Das Skript weicht deshalb auf `overpass.kumi.systems` aus.
+- Eine `around`-Abfrage mit 70 Koordinaten läuft in den Timeout. Eine Bounding-Box-Abfrage
+  mit lokaler Zuordnung ist um ein Vielfaches billiger — und liefert dasselbe.
+- Buslinien stehen **nicht** am Haltestellen-Knoten (nur 7 von 2952 hatten `route_ref`),
+  sondern in den Routen-Relationen. Zweite Abfrage über `rel(bn.h)`, dann auf den
+  Haltestellennamen hochrollen — so kamen 44 von 46 Haltestellen zu ihren Linien.
+- Reine Namensähnlichkeit ordnet falsch zu: „Grenzlandtheater Aachen" fängt den Stadtknoten
+  *Aachen* ein, „Café Kittel" die *Pontstraße*. Objekte mit `place`- oder `highway`-Tag werden
+  deshalb ausgeschlossen, und Füllwörter („Markt", „Fotospot", „Konzert") dürfen einen Treffer
+  nie allein begründen.
+- Wikimedia-Vorschaubilder gibt es nur in bestimmten Breiten: 960 px liefert ein Bild,
+  800 px antwortet mit HTTP 400. Immer die `thumburl` aus der API verwenden.
 
 ## Kommentare: echtes Gespräch pro Pin (Stand 13.08.)
 Jeder Pin hat eine Gesprächssektion. Beiträge werden **in der App** geschrieben und erscheinen

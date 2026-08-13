@@ -10,6 +10,7 @@ const SHELL = [
   "./",
   "./index.html",
   "./pins.json",
+  "./orte.json",
   "./icon-192.png",
   "./icon-512.png",
   "./schriften/anton.woff2",
