@@ -44,7 +44,7 @@ Zum Live-Bestand gehören inzwischen: `index.html`, `pins.json`, `manifest.json`
 - **Pin-Schema:** `tags[]`, `quelle` (Beleg-URL im Popup), `link` (CTA), `hot` (🔥-Puls),
   `hinzu` (für Neu-Badge), `saison {von,bis}` (jährlich wiederkehrend, MM-TT), `fest` (Auto-Update
   löscht nie), `wdh`, `start/ende`.
-- **Zeitfilter:** Heute | Demnächst (30 Tage) | Alle (alles Kommende) — rollierende Fenster statt
+- **Zeitfilter:** Heute | 🌙 Abend | Demnächst (30 Tage) | Alle (alles Kommende) — rollierende Fenster statt
   Jahresfilter, damit der Jahreswechsel nie bricht. Abgelaufenes wird nie angezeigt; das
   Update-Skript räumt Einträge >90 Tage nach Ende aus der Datei (Nr. 13).
 - **Filter:** Tag-Chips (dynamisch aus den Pins, mit Emoji), Kategorie-Chips mit Icons + Zählern,
@@ -215,11 +215,10 @@ Anzeige — verlinken ist erlaubt. Wachstum manuell und sparsam (Einzel-Anschrei
 - Featured-Pin-Verwaltung für zahlende Händler
 - Zweite Stadt aufschalten (Architektur steht: STAEDTE-Eintrag + pins-<stadt>.json)
 
-## Neue Feature-Ideen (gesammelt 08.08., noch nicht beauftragt)
-- **Cluster-Vorschau:** Antippen zoomt derzeit hinein — alternativ könnte ein kleines Popup
-  die enthaltenen Pins auflisten (gut bei Pins, die exakt aufeinanderliegen).
-- **„Heute Abend"-Schnellfilter** neben Heute/Demnächst — trifft den häufigsten Impuls
-  („was mache ich gleich?") genauer als der ganze Tag.
+## Neue Feature-Ideen (gesammelt 08.08.)
+- ~~**Cluster-Vorschau**~~ ✅ umgesetzt: Antippen listet die enthaltenen Pins nach Spielstätte
+  gebündelt auf ("49 Pins an dieser Stelle → Centre Charlemagne · 30").
+- ~~**„Heute Abend"-Schnellfilter**~~ ✅ umgesetzt 14.08. — siehe unten.
 - **Relevanz-Sortierung auch auf der Karte:** unwichtige Pins bei weitem Zoom ausblenden statt
   clustern (weniger Klickarbeit, aber weniger transparent — erst testen).
 - **Embed-Widget:** Karte als iframe für wir-frankenberger.de / Café-Websites → Reichweite.
@@ -329,6 +328,23 @@ läuft sonst über die GitHub Action `ortsdaten.yml` (Reiter *Actions* → *Run 
   nie allein begründen.
 - Wikimedia-Vorschaubilder gibt es nur in bestimmten Breiten: 960 px liefert ein Bild,
   800 px antwortet mit HTTP 400. Immer die `thumburl` aus der API verwenden.
+
+## „Heute Abend"-Filter (14.08.)
+Beantwortet die häufigste Frage überhaupt — *was mache ich gleich?* — und ist bei über 250
+Terminen der schnellste Weg durch die Menge. Aus 31 Tagesterminen werden 5 Abendtermine.
+
+Bewusst **strenger** als der Uhrzeit-Filter im Zeitraum-Dialog: Dort bleiben Pins ohne
+Zeitangabe sichtbar (im Zweifel zeigen), hier fliegen sie raus. Wer „Abend" wählt, will eine
+kurze verlässliche Liste — Wochenmarkt, Ausstellung und Fotospot gehören nicht hinein. Ohne
+Zahl im Text zählt nur ein ausdrückliches Wort wie „abends" oder „open end".
+
+**Dabei einen älteren Fehler gefunden:** `startMinute()` las Zeitspannen von hinten. Aus
+„Sa 7–13 Uhr" wurde 13:00, aus „11–17 Uhr" wurde 17:00 — weil das Wort „Uhr" hinter der
+*End*zeit steht und die Einzelzeit-Suche dort zugriff. Zwei Ernteorte tauchten dadurch unter
+„Heute Abend" auf. Der Fehler betraf auch den Uhrzeit-Filter seit dem 09.08.: Eine Suche nach
+„8–12 Uhr" hätte den Wochenmarkt fälschlich ausgeschlossen. Jetzt werden Zeitspannen zuerst
+geprüft, und der Beginn zählt. Acht Formate gegengeprüft („20 Uhr", „20:30", „ab 18 Uhr",
+„Mo–Fr 8–18:30 Uhr", ohne Zeit …).
 
 ## Kommentare: echtes Gespräch pro Pin (Stand 13.08.)
 Jeder Pin hat eine Gesprächssektion. Beiträge werden **in der App** geschrieben und erscheinen

@@ -552,6 +552,8 @@
       </div>
       <div class="zfilter" role="group" aria-label="Zeitraum filtern">
         <button class="zchip" data-z="today">Heute</button>
+        <button class="zchip" data-z="abend" title="Heute Abend — was ab 17 Uhr läuft"
+                aria-label="Heute Abend">🌙 Abend</button>
         <button class="zchip an" data-z="soon">Demnächst</button>
         <button class="zchip" data-z="all">Alle</button>
         <button class="zchip" data-z="range" id="zr-chip">📅 Zeitraum</button>
@@ -751,7 +753,11 @@ function wdhImFenster(wdh, von, bis){
 function startMinute(p){
   if(p._min !== undefined) return p._min;
   const text = (p.meta || "") + " " + (p.text || "");
-  const m = text.match(/(?:^|[^\d.])(\d{1,2})[:.](\d{2})\s*(?:Uhr)?/) ||
+  /* Zeitspannen ZUERST prüfen: Bei "Sa 7–13 Uhr" steht das Wort "Uhr" hinter der Endzeit,
+     eine Einzelzeit-Suche greift deshalb die 13 und macht aus dem Vormittagsmarkt eine
+     Nachmittagsveranstaltung. Uns interessiert immer der Beginn. */
+  const m = text.match(/(?:^|[^\d.])(\d{1,2})(?:[:.](\d{2}))?\s*[–—-]\s*\d{1,2}(?:[:.]\d{2})?\s*Uhr/) ||
+            text.match(/(?:^|[^\d.])(\d{1,2})[:.](\d{2})\s*(?:Uhr)?/) ||
             text.match(/(?:^|[^\d.])(\d{1,2})\s*Uhr/);
   p._min = m ? (+m[1]) * 60 + (m[2] ? +m[2] : 0) : null;
   if(p._min !== null && (p._min < 0 || p._min > 1439)) p._min = null;
@@ -766,6 +772,17 @@ function uhrzeitOk(p, f){
   const vonMin = f.von.getHours()*60 + f.von.getMinutes();
   const bisMin = f.bis.getHours()*60 + f.bis.getMinutes();
   return vonMin <= bisMin ? (min >= vonMin && min <= bisMin) : (min >= vonMin || min <= bisMin);
+}
+
+/* Läuft dieser Pin am Abend? Bewusst strenger als der Uhrzeit-Filter oben: Dort bleiben Pins
+   ohne Zeitangabe sichtbar (im Zweifel zeigen), hier fliegen sie raus. Wer "Heute Abend" wählt,
+   will eine kurze, verlässliche Liste — der Wochenmarkt und ein Fotospot gehören nicht hinein.
+   Ohne Zahl im Text zählt nur ein ausdrückliches Wort wie "abends" oder "ab 20 Uhr". */
+const ABENDWORT = /\b(abends?|nachts?|nightlife|late|feierabend|sundowner|open.?end)\b/i;
+function abendPin(p){
+  const min = startMinute(p);
+  if(min !== null) return min >= 17 * 60;                 // 17:00 oder später
+  return ABENDWORT.test((p.meta || "") + " " + (p.text || "") + " " + (p.titel || ""));
 }
 
 function wdhAktivImFenster(p, von, bis){
@@ -789,6 +806,19 @@ function zeitOk(p){
   if(zeit === "all") return true;
   const heuteEnde = new Date(HEUTE0); heuteEnde.setHours(23,59,59);
   const limit = new Date(HEUTE0); limit.setDate(limit.getDate()+30);
+  /* "Heute Abend" beantwortet die häufigste Frage überhaupt — „was mache ich gleich?" —
+     und ist bei über 250 Terminen der schnellste Weg durch die Menge. Technisch: heute,
+     aber nur was ab 17 Uhr läuft. Tagesangebote (Wochenmarkt vormittags) fallen raus,
+     undatierte Orte ebenfalls: ein Fotospot ist keine Abendplanung. */
+  if(zeit === "abend"){
+    if(!abendPin(p)) return false;
+    if(p.wdh){
+      if(w && w.s > heuteEnde) return false;
+      return wdhAnTag(p.wdh, HEUTE0);
+    }
+    if(!w) return false;                                   // undatiert = keine Abendplanung
+    return w.s <= heuteEnde && HEUTE0 <= w.e;
+  }
   if(p.wdh){                                               // wdh + start/ende: erst ab Fensterbeginn zeigen
     if(w && w.s > (zeit === "today" ? heuteEnde : limit)) return false;
     return zeit === "soon" ? true : wdhAnTag(p.wdh, HEUTE0);
@@ -1930,7 +1960,7 @@ function aktiveFilterNamen(){
   if(fuerDich) namen.push("✦ Für dich");
   if(merkModus) namen.push("★ Gemerkt");
   aktiveTags.forEach(t => namen.push(TAG_LABEL[t] || t));
-  const zeitName = {today:"Heute", soon:"Demnächst", all:"Alle Termine"}[zeit];
+  const zeitName = {today:"Heute", abend:"🌙 Heute Abend", soon:"Demnächst", all:"Alle Termine"}[zeit];
   if(zeit === "range" && eigenZeitraum){
     const f = d => d.getDate() + "." + (d.getMonth()+1) + ".";
     namen.push("📅 " + f(eigenZeitraum.von) + "–" + f(eigenZeitraum.bis));
@@ -2225,7 +2255,7 @@ function zeigeEinfuehrung(nurAnsehen){
     '<p>Die Karte zeigt, was gerade in '+esc(STADT.name)+' läuft. In 20 Sekunden erklärt:</p>'+
     punkt("🔥", "Was ist los?", "Der ☰-Knopf oben zeigt die Liste: heute, als Nächstes, Saison. Damit findest du dich am schnellsten zurecht.") +
     punkt("🎵", "Nach Thema filtern", "Unten die Chips antippen — Musik, Flohmarkt, Ernte … Die Zahl daneben sagt, wie viel es davon gibt.") +
-    punkt("🗓", "Zeitraum wählen", "Heute · Demnächst · Alle — oder 📅 für eigene Daten. Abgelaufenes verschwindet von selbst.") +
+    punkt("🗓", "Zeitraum wählen", "Heute · 🌙 Heute Abend · Demnächst · Alle — oder 📅 für eigene Daten. Abgelaufenes verschwindet von selbst.") +
     punkt("📷", "Plakat gesehen?", "Foto-Knopf oben: Kamera auf, abdrücken, fertig. Den Ort erkennt die App selbst.") +
     punkt("＋", "Eigenen Pin melden", "Verschenken, Hilfe gesucht, Hofflohmarkt: gelber Knopf unten. Kostenlos und ohne Anmeldung.") +
     '<div class="blatt-knoepfe">'+
