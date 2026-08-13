@@ -247,6 +247,24 @@ den **Stil-Umschalter** (Info → Kartenbild): Standard · Farbig · Ruhig · Du
 OpenFreeMap, EU-gehostet, ohne Cookies. Falls später doch Google-Kacheln gewünscht sind, wäre
 der saubere Weg ein Umschalter mit vorgeschalteter Einwilligung nur für diesen Stil.
 
+## Prinzip: Bestehendes einbinden statt selbst erzeugen
+Leitgedanke seit 13.08.: Für alles, was es schon frei und verlässlich gibt, bauen wir keine
+eigene Datenpflege auf. Voraussetzung ist jedes Mal dieselbe: kostenlos, ohne Anmeldung,
+ohne Cookies, EU-nah — sonst kollidiert es mit dem bannerfreien Profil.
+
+| Quelle | Liefert | Status |
+|---|---|---|
+| **Open-Meteo** | Wetter für Open-Air-Pins (7 Tage) | ✅ eingebaut |
+| **Wikimedia Commons** | freie Fotos der Wahrzeichen und Fotospots | 🔎 in Recherche |
+| **mundraub.org** | Ernteorte samt Beschreibungen | ✅ eingebaut (verlinkt) |
+| **rausgegangen / Tribe-APIs / Bigcartel** | Konzerttermine | ✅ eingebaut |
+| **Wikipedia** | Kurzbeschreibungen, Quellenlinks | teils als `quelle` verlinkt |
+| **OpenStreetMap** | Öffnungszeiten, Barrierefreiheit, Haltestellen | offen |
+| **GTFS der AVV/ASEAG** | ÖPNV-Anbindung je Pin | offen |
+
+Umgekehrt gilt: Was rechtlich nicht sauber übernehmbar ist (Google-Bewertungen, Forenbeiträge,
+Presse-Fotos), wird **verlinkt statt kopiert** — siehe die `quelle`-Zeile in jedem Pin.
+
 ## Kommentare: echtes Gespräch pro Pin (Stand 13.08.)
 Jeder Pin hat eine Gesprächssektion. Beiträge werden **in der App** geschrieben und erscheinen
 **sofort für alle** — kein Wechsel zu WhatsApp mehr, kein Warten auf Freigabe. Umgesetzt gegen
