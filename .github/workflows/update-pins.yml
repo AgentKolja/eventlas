@@ -18,15 +18,58 @@ jobs:
         with:
           node-version: 20
 
+      # Ohne Schlüssel lief das Skript bisher los und brach erst spät ab. Besser gleich
+      # mit klarer Ansage scheitern — dann steht der Grund oben im Action-Log.
+      - name: Voraussetzungen prüfen
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          fehlt=0
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "::error::Repo-Secret ANTHROPIC_API_KEY fehlt. Settings → Secrets and variables → Actions → New repository secret."
+            fehlt=1
+          fi
+          for datei in scripts/update-pins.mjs venues.json pins.json; do
+            if [ ! -f "$datei" ]; then
+              echo "::error::$datei fehlt im Repository — bitte den aktuellen Stand pushen."
+              fehlt=1
+            fi
+          done
+          exit $fehlt
+
       - name: Pins recherchieren und schreiben
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: node scripts/update-pins.mjs
+
+      # Sicherheitsnetz: Das Skript soll die Datei nie kaputtschreiben. Wenn hier etwas
+      # nicht stimmt, wird nicht committet — die alte pins.json bleibt live.
+      - name: Ergebnis prüfen
+        run: |
+          node -e '
+            const d = JSON.parse(require("fs").readFileSync("pins.json","utf8"));
+            const pins = d.pins || [];
+            const erlaubt = new Set(["musik","kultur","fest","markt","sport","familie","natur"]);
+            const fremde = [...new Set(pins.flatMap(p => p.tags || []).filter(t => !erlaubt.has(t)))];
+            const ohneKoordinaten = pins.filter(p => typeof p.lng !== "number" || typeof p.lat !== "number").length;
+            const musik = pins.filter(p => (p.tags||[]).includes("musik")).length;
+            console.log(`Pins: ${pins.length} · davon Musik: ${musik} · Stand: ${d.stand}`);
+            if (pins.length < 20) { console.log("::error::Nur " + pins.length + " Pins — das sieht nach einem Fehlschlag aus."); process.exit(1); }
+            if (ohneKoordinaten) { console.log("::error::" + ohneKoordinaten + " Pins ohne Koordinaten."); process.exit(1); }
+            if (fremde.length) { console.log("::warning::Unbekannte Themen-Tags: " + fremde.join(", ")); }
+            if (musik < 5) { console.log("::warning::Wenige Musik-Pins (" + musik + ") — Konzertquellen prüfen."); }
+          '
 
       - name: Änderungen committen (nur wenn pins.json sich geändert hat)
         run: |
           git config user.name "Eventlas Auto-Update"
           git config user.email "actions@github.com"
           git add pins.json
-          git diff --cached --quiet && echo "Keine Änderung, nichts zu committen." || git commit -m "Auto-Update pins.json ($(date -u +%Y-%m-%d))"
-          git push
+          if git diff --cached --quiet; then
+            echo "Keine Änderung, nichts zu committen."
+          else
+            git commit -m "Auto-Update pins.json ($(date -u +%Y-%m-%d))"
+            git push
+            echo "### Pins aktualisiert" >> $GITHUB_STEP_SUMMARY
+            echo "Netlify deployt den neuen Stand automatisch, sobald die Site mit diesem Repo verbunden ist." >> $GITHUB_STEP_SUMMARY
+          fi

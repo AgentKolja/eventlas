@@ -1,0 +1,57 @@
+# Netlify-Konfiguration für automatisches Deployen aus GitHub.
+#
+# Warum es das braucht: Bisher lief das tägliche Pin-Update in GitHub Actions, die neue
+# pins.json landete aber nur im Repo — die per Drag-and-drop hochgeladene Live-Seite bekam
+# davon nichts mit. Mit dieser Datei und einer verknüpften Site deployt Netlify bei jedem
+# Push automatisch, also auch nach jedem nächtlichen Auto-Update.
+#
+# Der Build kopiert nur die Dateien, die wirklich öffentlich sein sollen. roadmap.md,
+# todos.md, venues.json und die Skripte bleiben damit von der Website ausgeschlossen.
+
+[build]
+  publish = "public"
+  command = """
+    mkdir -p public/schriften && \
+    cp index.html pins.json manifest.json sw.js flyer.html public/ && \
+    cp og.png icon-192.png icon-512.png public/ && \
+    cp schriften/*.woff2 public/schriften/
+  """
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# pins.json muss immer frisch kommen — sonst sieht niemand die neuen Termine.
+[[headers]]
+  for = "/pins.json"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Die App selbst darf ebenfalls nicht festhängen (der Service Worker holt sie network-first).
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Schriften und Symbole ändern sich praktisch nie — die dürfen lange im Cache bleiben.
+[[headers]]
+  for = "/schriften/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# Grundlegende Schutz-Header (kein Tracking, keine Einbettung durch Fremde außer per Absicht).
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(self), camera=(self), microphone=()"
