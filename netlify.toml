@@ -11,10 +11,11 @@
 [build]
   publish = "public"
   command = """
-    mkdir -p public/schriften && \
+    mkdir -p public/schriften public/bilder && \
     cp index.html pins.json manifest.json sw.js flyer.html public/ && \
     cp og.png icon-192.png icon-512.png public/ && \
-    cp schriften/*.woff2 public/schriften/
+    cp schriften/*.woff2 public/schriften/ && \
+    cp bilder/*.jpg public/bilder/
   """
 
 [build.environment]
@@ -47,6 +48,13 @@
   for = "/*.png"
   [headers.values]
     Cache-Control = "public, max-age=604800"
+
+# Ortsfotos liegen bewusst bei uns statt bei Wikimedia — so entsteht beim Betrachten
+# keine Verbindung zu einem fremden Server. Sie ändern sich nicht, dürfen also lange bleiben.
+[[headers]]
+  for = "/bilder/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
 
 # Grundlegende Schutz-Header (kein Tracking, keine Einbettung durch Fremde außer per Absicht).
 [[headers]]

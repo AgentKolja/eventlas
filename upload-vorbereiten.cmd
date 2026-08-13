@@ -14,6 +14,10 @@ if exist "schriften" (
   if not exist "Upload\schriften" mkdir "Upload\schriften"
   copy /Y "schriften\*.woff2" "Upload\schriften\" >nul
 )
+if exist "bilder" (
+  if not exist "Upload\bilder" mkdir "Upload\bilder"
+  copy /Y "bilder\*.jpg" "Upload\bilder\" >nul
+)
 echo.
 echo   Upload-Ordner ist bereit. Ziehe ihn jetzt auf app.netlify.com/drop
 echo   (Die Originale bleiben im Projektordner - nichts wird verschoben.)

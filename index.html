@@ -320,6 +320,7 @@
   .p-bild{width:100%;border-radius:10px;margin:9px 0 3px;display:block;
     background:var(--nacht);object-fit:cover;max-height:170px}
   .p-bild-credit{font-size:10px;color:var(--grau);margin-bottom:4px}
+  .p-bild-credit a{color:var(--grau);text-decoration:underline}
   .p-tipps{margin-top:12px;border-top:1px solid var(--linie);padding-top:10px}
   .p-tipps h4{font:800 11px 'Inter';letter-spacing:.6px;text-transform:uppercase;
     color:var(--grau);margin-bottom:8px}
@@ -1191,10 +1192,25 @@ function vorZeit(iso){
    eingetragen — bewusst mit Vorabprüfung: Für fremde Fotos und Texte haftet der Betreiber
    (Urheber- und Persönlichkeitsrechte), automatische Veröffentlichung wäre riskant.
    Schema: bild {url, credit}, tipps [{text, von, datum}] */
+/* Bild mit Lizenzangabe. Bei freien Lizenzen (CC BY, CC BY-SA) sind Urheber, Lizenzname und
+   ein Link zur Quelle Pflicht — deshalb steht die Zeile immer unter dem Bild, nicht versteckt.
+   Die Dateien liegen im Projekt (Ordner bilder/), damit beim Betrachten keine Verbindung zu
+   einem fremden Server entsteht und die Karte auch offline etwas zu zeigen hat. */
 function bildBlock(p){
-  if(!p.bild || !urlOk(p.bild.url)) return "";
-  return '<img class="p-bild" src="'+esc(p.bild.url)+'" alt="'+esc(p.titel)+'" loading="lazy">'+
-    (p.bild.credit ? '<div class="p-bild-credit">Foto: '+esc(p.bild.credit)+'</div>' : "");
+  const b = p.bild;
+  if(!b || !b.url) return "";
+  const lokal = !/^https?:\/\//i.test(b.url);
+  if(!lokal && !urlOk(b.url)) return "";
+  const nachweis = [
+    b.credit ? "Foto: " + b.credit : "",
+    b.lizenz || "",
+  ].filter(Boolean).join(" · ");
+  const link = urlOk(b.quelle)
+    ? ' <a href="'+esc(b.quelle)+'" target="_blank" rel="noopener">Quelle</a>' : "";
+    // Kein loading="lazy": Das Detail-Sheet wird eingefügt, während es noch unterhalb des
+    // Bildschirmrands sitzt — der Browser stufte das Bild dann als unsichtbar ein und lud es nie.
+  return '<img class="p-bild" src="'+esc(b.url)+'" alt="'+esc(p.titel)+'" decoding="async">'+
+    (nachweis ? '<div class="p-bild-credit">'+esc(nachweis)+link+'</div>' : "");
 }
 /* Gerüst der Kommentarsektion. Die Beiträge werden asynchron nachgeladen und hier
    eingesetzt — so öffnet sich das Detail sofort, ohne aufs Netz zu warten. */

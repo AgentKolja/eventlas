@@ -1508,6 +1508,7 @@
    "tipps": [
     {"text": "Die 312 Stufen kann man umgehen: Von der Kupferstraße führt ein flacher Weg hoch, auch mit Kinderwagen machbar.", "von": "Beispiel-Tipp", "datum": "2026-08-09"}
    ],
+   "bild": { "url": "bilder/lousberg.jpg", "credit": "Xamos / Wikimedia Commons", "lizenz": "CC BY-SA 3.0", "quelle": "https://commons.wikimedia.org/wiki/File:Ac_lousberg.JPG" },
    "hinzu": "2026-08-08", "fest": true
   },
   {
@@ -1519,6 +1520,7 @@
    "meta": "Umfeld frei zugänglich",
    "tags": [],
    "quelle": "https://de.wikipedia.org/wiki/Wasserturm_Belvedere_(Aachen)",
+   "bild": { "url": "bilder/belvedere.jpg", "credit": "qwesy qwesy / Wikimedia Commons", "lizenz": "CC BY 3.0", "quelle": "https://commons.wikimedia.org/wiki/File:Drehturm_Belvedere_auf_dem_Lousberg_in_Aachen_-_panoramio.jpg" },
    "hinzu": "2026-08-08", "fest": true
   },
   {
@@ -1530,6 +1532,7 @@
    "meta": "rund um die Uhr frei",
    "tags": [],
    "quelle": "https://de.wikipedia.org/wiki/Aachener_Dom",
+   "bild": { "url": "bilder/katschhof.jpg", "credit": "Anil Öztas / Wikimedia Commons", "lizenz": "CC BY-SA 4.0", "quelle": "https://commons.wikimedia.org/wiki/File:Aachen_(DE),_Dom_--_2021_--_4849_(cropped).jpg" },
    "hinzu": "2026-08-08", "fest": true
   },
   {
@@ -1541,6 +1544,7 @@
    "meta": "goldene Stunde abends",
    "tags": [],
    "quelle": "https://de.wikipedia.org/wiki/Elisenbrunnen",
+   "bild": { "url": "bilder/elisenbrunnen.jpg", "credit": "Dietmar Rabich / Wikimedia Commons", "lizenz": "CC BY-SA 4.0", "quelle": "https://commons.wikimedia.org/wiki/File:Aachen,_Elisenbrunnen_--_2016_--_2824.jpg" },
    "hinzu": "2026-08-08", "fest": true
   },
   {
@@ -1552,6 +1556,7 @@
    "meta": "goldene Stunde",
    "tags": [],
    "quelle": "https://de.wikipedia.org/wiki/Ponttor",
+   "bild": { "url": "bilder/ponttor.jpg", "credit": "Kleon3 / Wikimedia Commons", "lizenz": "CC BY-SA 4.0", "quelle": "https://commons.wikimedia.org/wiki/File:2025_Aachen,_Ponttor_(03).jpg" },
    "hinzu": "2026-08-08", "fest": true
   },
   {
@@ -1563,6 +1568,7 @@
    "meta": "frei zugänglich",
    "tags": [],
    "quelle": "https://de.wikipedia.org/wiki/Marschiertor",
+   "bild": { "url": "bilder/marschiertor.jpg", "credit": "Sascha Gebhardt / Wikimedia Commons", "lizenz": "CC BY-SA 3.0 DE", "quelle": "https://commons.wikimedia.org/wiki/File:Marschiertor_Aachen_S%C3%BCdseite.jpg" },
    "hinzu": "2026-08-08", "fest": true
   },
   {
@@ -1574,6 +1580,7 @@
    "meta": "Park frei zugänglich",
    "tags": [],
    "quelle": "https://de.wikipedia.org/wiki/Burg_Frankenberg_(Aachen)",
+   "bild": { "url": "bilder/frankenberg.jpg", "credit": "ArthurMcGill / Wikimedia Commons", "lizenz": "CC BY 3.0", "quelle": "https://commons.wikimedia.org/wiki/File:Burg_Frankenberg,_Aachen_(11).JPG" },
    "hinzu": "2026-08-08", "fest": true
   },
   {
@@ -1585,6 +1592,7 @@
    "meta": "RWTH Campus Melaten",
    "tags": [],
    "quelle": "https://de.wikipedia.org/wiki/Gut_Melaten",
+   "bild": { "url": "bilder/melaten.jpg", "credit": "Kleon3 / Wikimedia Commons", "lizenz": "CC BY-SA 4.0", "quelle": "https://commons.wikimedia.org/wiki/File:2025_Aachen,_Gut_Melaten_(01).jpg" },
    "hinzu": "2026-08-08", "fest": true
   },
   {
@@ -1596,6 +1604,7 @@
    "meta": "frei zugänglich",
    "tags": [],
    "quelle": "https://www.carolus-thermen.de/",
+   "bild": { "url": "bilder/stadtgarten.jpg", "credit": "Kleon3 / Wikimedia Commons", "lizenz": "CC BY-SA 4.0", "quelle": "https://commons.wikimedia.org/wiki/File:2025_Aachen,_Stadtgarten_(09).jpg" },
    "hinzu": "2026-08-08", "fest": true
   },
   {
@@ -1607,6 +1616,7 @@
    "meta": "D · NL · B · frei",
    "tags": [],
    "quelle": "https://de.wikipedia.org/wiki/Vaalserberg",
+   "bild": { "url": "bilder/dreilaendereck.jpg", "credit": "Steven Lek / Wikimedia Commons", "lizenz": "Public Domain", "quelle": "https://commons.wikimedia.org/wiki/File:Drielandenpunt_Netherlands.JPG" },
    "hinzu": "2026-08-08", "fest": true
   }
  ]
