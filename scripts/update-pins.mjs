@@ -120,6 +120,53 @@ if (!KULTUR_HAEUSER.length) {
     { muster: "zeitungsmuseum", lng: 6.0824, lat: 50.7758, name: "Zeitungsmuseum" },
   ].forEach(v => KULTUR_HAEUSER.push({ ...v, re: new RegExp(v.muster, "i") }));
 }
+
+/* Der Kulturkalender liefert Titel in Katalogschreibweise: mit Anführungszeichen, Schlusspunkt
+   und einer vorangestellten Reihe ("Reit WM 2026 – Rahmenprogramm. „Ms. Jeanna Magic"."). Auf
+   einer Karte liest sich das schlecht und frisst die Breite. Wir schälen den eigentlichen Titel
+   heraus und heben die Reihe in den Beschreibungstext — dort gehört sie hin. */
+/* Der Kulturkalender liefert HTML-kodiert: „ steht als &#8222; in der Antwort. Ungefiltert
+   landet das wörtlich auf der Karte ("&#8222;Alles Anders&#8220;"), und die Titelbereinigung
+   unten findet die Anführungszeichen nicht. Node bringt dafür nichts mit. */
+const ENTITIES = {
+  amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " ",
+  bdquo: "„", ldquo: "“", rdquo: "”", lsquo: "‘", rsquo: "’", laquo: "«", raquo: "»",
+  ndash: "–", mdash: "—", hellip: "…", szlig: "ß", euro: "€", auml: "ä", ouml: "ö",
+  uuml: "ü", Auml: "Ä", Ouml: "Ö", Uuml: "Ü", shy: "", zwnj: "",
+};
+function entschluessle(s) {
+  if (typeof s !== "string" || !s.includes("&")) return s;
+  return s
+    .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
+    .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(+d))
+    .replace(/&([a-z]+);/gi, (t, n) => (n in ENTITIES ? ENTITIES[n] : t))
+    .replace(/&amp;/g, "&");          // doppelt kodiert (&amp;#8222;) kommt vor
+}
+
+function titelAufraeumen(roh) {
+  let t = entschluessle(String(roh)).replace(/\s+/g, " ").trim();
+  let zusatz = "";
+  // Was in Anführungszeichen steht, IST der Titel — egal ob die Reihe davor steht
+  // ("Reit WM 2026 – Rahmenprogramm. „Ms. Jeanna Magic".") oder der Untertitel dahinter
+  // („Im Schatten des Turniers". Ein Criminales Bankett beim CHIO 1927.).
+  // Zeichenklassen bewusst als Unicode-Escapes: „ (201E) und “ (201C) sehen im Quelltext
+  // fast gleich aus, und U+201C ist deutsch schließend, englisch öffnend — als Literal
+  // geschrieben ist das eine Fehlerquelle, die still das falsche Zeichen trifft.
+  const AUF = "\\u201E\\u201C\\u00AB\\u2018\"'";
+  const ZU  = "\\u201C\\u201D\\u00BB\\u2019\"'";
+  const zitat = t.match(new RegExp(`^(.*?)[${AUF}]([^${AUF}${ZU}]{4,})[${ZU}]\\.?(.*)$`));
+  if (zitat) {
+    zusatz = (zitat[1] + " " + zitat[3]).replace(/\s+/g, " ").replace(/^[.\s–-]+|[\s–-]+$/g, "").trim();
+    t = zitat[2].trim();
+  }
+  // Reste abräumen, falls kein sauberes Paar gefunden wurde (einseitiges Zeichen)
+  t = t.replace(new RegExp(`^[${AUF}\\s]+`), "").replace(new RegExp(`[${ZU}\\s]+$`), "");
+  t = t.replace(/\.$/, "");                       // Schlusspunkt: in einer Überschrift falsch
+  if (t.length > 70) t = t.slice(0, 67).replace(/\s\S*$/, "") + "…";
+  if (zusatz && !/[.!?]$/.test(zusatz)) zusatz += ".";
+  return { titel: t || String(roh).slice(0, 70), zusatz };
+}
+
 async function kulturPins() {
   if (!STADT.kulturApi) return [];          // nur Städte mit passender API
   try {
@@ -139,14 +186,25 @@ async function kulturPins() {
       const ende = e.end_date ? String(e.end_date).slice(0, 10) : undefined;
       const s = new Date(start + "T00:00:00Z");
       if (isNaN(s) || s > limit || (ende ? new Date(ende + "T00:00:00Z") : s) < heuteDate) continue;
-      const venueName = String(e.venue?.name || e.venue || e.location || "");
+      const venueName = entschluessle(String(e.venue?.name || e.venue || e.location || ""));
       const venue = KULTUR_HAEUSER.find(v => v.re.test(venueName));
       if (!venue) continue; // ohne Koordinaten kein Pin
+      const sauber = titelAufraeumen(titel);
+      // "Veranstaltung" als Kategorie sagt auf einer Veranstaltungskarte nichts; und wenn
+      // Titel oder Zusatz die Kategorie schon nennen ("Kuratorenführung" → "Führung"),
+      // wäre die Wiederholung nur Füllmaterial.
+      let kategorie = entschluessle(String(e.main_cat || "")).trim();
+      if (/^(veranstaltung|sonstiges|event)$/i.test(kategorie)) kategorie = "";
+      if (kategorie && new RegExp(kategorie, "i").test(sauber.titel + " " + sauber.zusatz)) kategorie = "";
       pins.push({
         id: "kk-" + slug(venue.name) + "-" + slug(titel) + "-" + start,
         typ: "event",
-        titel: String(titel).slice(0, 90),
-        text: ("Im " + venue.name + ". " + (e.main_cat ? "Kategorie: " + e.main_cat + "." : "")).trim(),
+        titel: sauber.titel,
+        // Kein "Im <Venue>": der Ort steht schon in meta, und der Artikel wäre oft falsch
+        // ("Im Klangbrücke"). Grammatik automatisch richtig zu raten lohnt hier nicht.
+        text: [sauber.zusatz, kategorie ? kategorie + "." : "",
+               sauber.zusatz || kategorie ? "" : "Aus dem Kulturkalender der Stadt Aachen."]
+              .filter(Boolean).join(" "),
         lng: venue.lng, lat: venue.lat,
         start, ...(ende && ende !== start ? { ende } : {}),
         meta: venue.name,
