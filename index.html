@@ -410,6 +410,15 @@
   .liste-tabs button{flex:1;border:1px solid var(--linie);background:transparent;color:var(--grau);
     border-radius:10px;padding:9px 6px;font:700 12px 'Inter';cursor:pointer}
   .liste-tabs button.an{background:var(--papier);color:#141414;border-color:var(--papier)}
+  /* Aktive Filter im Kopf der Liste — macht sichtbar, warum die Auswahl so aussieht */
+  .filter-zeile{display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+    background:var(--nacht);border:1px solid var(--linie);border-radius:10px;
+    padding:8px 10px;margin:8px 0 2px}
+  .filter-zeile .fz-liste{flex:1;min-width:0;font-size:11.5px;color:var(--grau);line-height:1.6}
+  .filter-zeile .fz-liste b{color:var(--papier);font-weight:600;background:rgba(245,242,233,.09);
+    border-radius:6px;padding:2px 7px;margin-right:3px;display:inline-block;white-space:nowrap}
+  .filter-zeile .fz-weg{flex:none;background:none;border:0;color:var(--angebot);
+    font:700 11.5px 'Inter';cursor:pointer;padding:4px 2px;min-height:32px}
   .saison-kopf{font-family:'Anton';font-size:12px;letter-spacing:1px;text-transform:uppercase;
     color:var(--hilfe);margin:16px 0 2px}
   .saison-kopf:first-of-type{margin-top:8px}
@@ -1574,6 +1583,32 @@ function listenZeile(p, datumText){
 
 let letzterListenTab = "heute";     // für den Rückweg aus dem Detail-Sheet
 
+/* Zeigt oben in der Liste, welche Filter gerade greifen — sonst wundert man sich,
+   warum wenig dasteht, und sucht den Fehler bei den Daten statt bei der Auswahl. */
+function aktiveFilterNamen(){
+  const namen = [];
+  if(nurHighlights) namen.push("🔥 Highlights");
+  if(fuerDich) namen.push("✦ Für dich");
+  if(merkModus) namen.push("★ Gemerkt");
+  aktiveTags.forEach(t => namen.push(TAG_LABEL[t] || t));
+  const zeitName = {today:"Heute", soon:"Demnächst", all:"Alle Termine"}[zeit];
+  if(zeit === "range" && eigenZeitraum){
+    const f = d => d.getDate() + "." + (d.getMonth()+1) + ".";
+    namen.push("📅 " + f(eigenZeitraum.von) + "–" + f(eigenZeitraum.bis));
+  } else if(zeit !== "soon") namen.push("🗓 " + zeitName);
+  Object.entries(aktiv).forEach(([t, an]) => { if(!an) namen.push("ohne " + TYPPLURAL[t]); });
+  if(suchTerme.length) namen.push('Suche: „' + suchTerme.map(v => v[0]).join(" ") + '"');
+  if(suchFenster) namen.push("🗓 Suchzeitraum");
+  return namen;
+}
+function filterZeile(){
+  const namen = aktiveFilterNamen();
+  if(!namen.length) return "";
+  return '<div class="filter-zeile">'+
+    '<span class="fz-liste">'+ namen.map(n => '<b>'+esc(n)+'</b>').join(" ") +'</span>'+
+    '<button class="fz-weg" id="liste-filter-weg">✕ aufheben</button></div>';
+}
+
 /* Wie interessant ist ein Pin gerade? Nähe schlägt Ferne, markierte Highlights schlagen alles.
    Damit lässt sich aus 140 Pins eine kurze, ehrliche "Was ist los?"-Liste bilden. */
 function relevanz(p){
@@ -1614,27 +1649,39 @@ function zeigeListe(tab){
 
   let kopf, rumpf;
   if(tab === "heute"){
-    // Kategorie- und Themenfilter gelten weiter, der Zeitfilter bewusst nicht: hier zählt,
-    // was jetzt und in den nächsten Tagen ansteht. Saisonale Dauerangebote (Ernte) würden
-    // die Liste sonst zuschütten — die haben ihren eigenen Tab und stehen unten als Fußnote.
-    const merkeZeit = zeit, merkeFenster = suchFenster;
-    zeit = "all"; suchFenster = null;
-    const alle = PINS.filter(p => sichtbar(p) && !p.beispiel);
-    zeit = merkeZeit; suchFenster = merkeFenster;
+    /* Alle Filter der Karte gelten auch hier — Thema, Kategorie UND Zeit. Nur bei den
+       weiten Zeiteinstellungen ("Demnächst"/"Alle") blicken wir zusätzlich nach vorn, um
+       den "Als Nächstes"-Block zu füllen. Bei "Heute", eigenem Zeitraum oder aktiver Suche
+       bleibt es strikt bei dem, was gewählt wurde. Saison-Dauerangebote stehen als Fußnote,
+       sonst schütten 20 Ernteorte die Liste zu. */
+    const weiterBlick = (zeit === "soon" || zeit === "all") && !suchFenster;
+    let alle = PINS.filter(p => sichtbar(p) && !p.beispiel);
+    if(weiterBlick){
+      const merkeZeit = zeit;
+      zeit = "all";
+      alle = PINS.filter(p => sichtbar(p) && !p.beispiel);
+      zeit = merkeZeit;
+    }
     const termine = alle.filter(p => !p.saison);
 
-    const heute = termine.filter(laeuftHeute).sort((a,b) => relevanz(b) - relevanz(a)).slice(0, 8);
+    /* Die Trennung „Heute / Als Nächstes" passt nur, solange der heutige Tag im gewählten
+       Fenster liegt. Bei einem eigenen Zeitraum (z. B. 20.–22.8.) wäre eine Überschrift
+       „Heute" irreführend — dann zeigen wir eine schlichte chronologische Liste. */
+    const eigenesFenster = zeit === "range" || !!suchFenster;
+    const heute = eigenesFenster ? [] :
+      termine.filter(laeuftHeute).sort((a,b) => relevanz(b) - relevanz(a)).slice(0, 8);
     const heuteIds = new Set(heute.map(p => p.id));
     const kommend = termine.filter(p => !heuteIds.has(p.id))
       .map(p => ({p, w:fenster(p)}))
-      .filter(x => x.w && x.w.s > HEUTE0)
-      .sort((a,b) => (relevanz(b.p) - relevanz(a.p)) || (a.w.s - b.w.s))
-      .slice(0, 8);
+      .filter(x => eigenesFenster ? true : (x.w && x.w.s > HEUTE0))
+      .sort((a,b) => eigenesFenster
+        ? ((a.w ? a.w.s : 0) - (b.w ? b.w.s : 0)) || (relevanz(b.p) - relevanz(a.p))
+        : (relevanz(b.p) - relevanz(a.p)) || (a.w.s - b.w.s))
+      .slice(0, eigenesFenster ? 14 : 8);
 
     const heuteName = ["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"][HEUTE0.getDay()];
-    kopf = '<h2>🔥 Was ist los?</h2>'+
-      '<p class="klein">Das Wichtigste zuerst, 🔥 = Highlight. Themen- und Kategoriefilter '+
-      'von der Karte gelten auch hier.</p>';
+    kopf = '<h2>🔥 Was ist los?</h2>' + filterZeile() +
+      '<p class="klein">Das Wichtigste zuerst, 🔥 = Highlight.</p>';
     const block = (titel, liste, datumFn) => liste.length
       ? '<div class="saison-kopf">'+titel+'</div>' + liste.map(x => {
           const p = x.p || x;
@@ -1650,8 +1697,8 @@ function zeigeListe(tab){
          spots ? spots + ' Fotospots' : ''].filter(Boolean).join(" · ") + '</p>'
       : "";
     rumpf = (block("Heute (" + heuteName + ")", heute, p => p.hot ? "🔥 jetzt" : "heute") +
-      block("Als Nächstes", kommend) ||
-      '<p>Zu diesen Filtern ist gerade nichts los — tippe oben auf ✕ Zurücksetzen.</p>') + fuss;
+      block(eigenesFenster ? "Im gewählten Zeitraum" : "Als Nächstes", kommend) ||
+      '<p>Zu diesen Filtern ist gerade nichts los — tippe oben auf ✕ aufheben.</p>') + fuss;
   } else if(tab === "saison"){
     // Laufende zuerst und davon das, was bald endet ("letzte Chance"); danach nach Startnähe
     const mitStatus = saisonPins.map(p => ({p, st:saisonStatus(p)}));
@@ -1663,7 +1710,7 @@ function zeigeListe(tab){
       ? '<div class="saison-kopf '+(klasse||"")+'">'+titel+'</div>'+
         liste.map(x => listenZeile(x.p, x.st.kurz)).join("")
       : "";
-    kopf = '<h2>🍏 Saisonkalender</h2>'+
+    kopf = '<h2>🍏 Saisonkalender</h2>' + filterZeile() +
       '<p class="klein">Wilde Ernte und Selbstpflücke rund um Aachen — Zeiten sind witterungsabhängige '+
       'Richtwerte. Es gilt die Handstraußregel: nur kleine Mengen für den Eigenbedarf.</p>';
     rumpf = block("Jetzt Saison", jetzt) + block("Bald dran", bald) +
@@ -1673,8 +1720,8 @@ function zeigeListe(tab){
     const key = p => { const w = fenster(p); return w ? w.s.getTime() : 0; };
     const reihenfolge = {event:0, angebot:1, hilfe:2, spot:3};
     imBild.sort((a,b) => (reihenfolge[a.typ]-reihenfolge[b.typ]) || (key(a)-key(b)));
-    kopf = '<h2>☰ '+imBild.length+' Pins im Kartenausschnitt</h2>'+
-      '<p class="klein">Zeit-, Themen- und Kategorie-Filter wirken auch hier. Antippen springt zur Karte.</p>';
+    kopf = '<h2>☰ '+imBild.length+' Pins im Kartenausschnitt</h2>' + filterZeile() +
+      '<p class="klein">Antippen springt zur Karte.</p>';
     rumpf = imBild.map(p => listenZeile(p)).join("") ||
       '<p>Nichts im aktuellen Ausschnitt — zoome raus oder ändere die Filter.</p>';
   }
@@ -1685,6 +1732,8 @@ function zeigeListe(tab){
     b.addEventListener("click", () => zeigeListe(b.dataset.tab)));
   blatt.querySelectorAll(".vorschlag[data-tab]").forEach(v =>
     v.addEventListener("click", () => zeigeListe(v.dataset.tab)));
+  const fw = $("#liste-filter-weg");    // Filter direkt aus der Liste heraus aufheben
+  if(fw) fw.addEventListener("click", () => { filterZuruecksetzen(); zeigeListe(tab); });
   blatt.querySelectorAll(".liste-zeile").forEach(z =>
     z.addEventListener("click", () => zumPin(PINS.find(x => x.id === z.dataset.id), true)));
 }
