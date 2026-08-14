@@ -195,6 +195,17 @@
           "koordinaten_pruefen": true
         },
         {
+          "id": "dasda-theater",
+          "name": "DAS DA Theater",
+          "aliase": ["Das Da Theater", "DasDa Theater", "Das-Da-Theater", "Liebigstraße 9"],
+          "muster": "da[s\\s-]*da[\\s-]*theater",
+          "lng": 6.1123358, "lat": 50.7899205,
+          "adresse": "Liebigstraße 9, 52070 Aachen",
+          "art": "Theater",
+          "tags": ["kultur"],
+          "programm": "https://www.dasda.de/"
+        },
+        {
           "id": "ludwig-forum",
           "name": "Ludwig Forum",
           "aliase": ["Ludwig Forum für Internationale Kunst", "Jülicher Straße 97"],

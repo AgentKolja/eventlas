@@ -3,6 +3,28 @@
  "hinweis": "Schema: typ event|angebot|hilfe|spot · tags[] (nur musik|kultur|fest|markt|sport|familie|natur) · quelle (Beleg-URL) · link (CTA) · hot (beliebt) · hinzu (Aufnahmedatum) · saison {von,bis als MM-TT, jaehrlich wiederkehrend} · fest:true = wird vom Auto-Update nie geloescht · bild {url, credit} · tipps [{text, von, datum}] — Bilder und Tipps kommen von Nutzern und werden VOR der Aufnahme geprueft (Urheber- und Persoenlichkeitsrechte). Recherchestand 08.08.2026.",
  "pins": [
   {
+   "id": "suedoase-jam-do",
+   "typ": "event",
+   "titel": "Live-Jam & Billard: Reggae-Abend",
+   "text": "Jeden Donnerstag ab 19 Uhr offene Jam-Session mit Reggae-Schwerpunkt, dazu Billard. Mitspielen erwünscht, Zuhören genauso.",
+   "lng": 6.0817923, "lat": 50.767028,
+   "wdh": "do", "meta": "Südoase · ab 19 Uhr",
+   "tags": ["musik"],
+   "quelle": "https://www.suedoase.de/",
+   "hinzu": "2026-08-14", "fest": true
+  },
+  {
+   "id": "suedoase-jam-fr",
+   "typ": "event",
+   "titel": "Live-Jam & Billard: offene Session",
+   "text": "Jeden Freitag ab 19 Uhr offene Jam-Session — jede Musikrichtung willkommen, dazu Billard.",
+   "lng": 6.0817923, "lat": 50.767028,
+   "wdh": "fr", "meta": "Südoase · ab 19 Uhr",
+   "tags": ["musik"],
+   "quelle": "https://www.suedoase.de/",
+   "hinzu": "2026-08-14", "fest": true
+  },
+  {
    "id": "markt-rathaus",
    "typ": "event",
    "titel": "Wochenmarkt am Markt",
