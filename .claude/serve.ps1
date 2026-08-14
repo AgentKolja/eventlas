@@ -1,8 +1,13 @@
 # Minimaler statischer Dev-Server für Eventlas (kein Node/Python nötig).
 # Startet über .claude/launch.json — serviert den Projektordner auf http://localhost:8123/
+#
+# Der Port lässt sich überschreiben (.\serve.ps1 -Port 8124), damit man einen zweiten
+# Server danebenstellen kann, ohne den laufenden abzuschießen.
+param([int]$Port = 8123)
+
 $ErrorActionPreference = 'Stop'
 $root = Split-Path $PSScriptRoot -Parent
-$prefix = 'http://localhost:8123/'
+$prefix = "http://localhost:$Port/"
 $listener = New-Object System.Net.HttpListener
 $listener.Prefixes.Add($prefix)
 $listener.Start()
@@ -20,6 +25,43 @@ $mime = @{
   '.ico'  = 'image/x-icon'
   '.md'   = 'text/plain; charset=utf-8'
 }
+
+# Diese Dateien werden auf Änderungen beobachtet — index.html und die Daten daneben.
+$beobachtet = @('index.html', 'pins.json', 'orte.json', 'venues.json', 'sw.js', 'manifest.json')
+# Bewusst per Hand statt mit Measure-Object: Das gibt einen Double zurück, und der stellt
+# 18-stellige Ticks als "6.39E+17" dar — Änderungen fielen dann unter den Tisch.
+function Get-Stand {
+  $max = 0L
+  foreach ($n in $beobachtet) {
+    $p = Join-Path $root $n
+    if (Test-Path $p -PathType Leaf) {
+      $t = (Get-Item $p).LastWriteTimeUtc.Ticks
+      if ($t -gt $max) { $max = $t }
+    }
+  }
+  return $max
+}
+
+# Livesynchronisation: Der Server hängt dieses Schnipsel an jede HTML-Antwort. Es fragt
+# zweimal pro Sekunde nach dem Stand der Projektdateien und lädt die Seite neu, sobald sich
+# etwas geändert hat. Bewusst NICHT in index.html: So kann es gar nicht erst in die
+# Auslieferung geraten — bauen.sh kopiert die Datei direkt, nicht über diesen Server.
+$liveSkript = @'
+<script>
+(function(){
+  var stand = null;
+  setInterval(function(){
+    fetch('/__stand', {cache: 'no-store'})
+      .then(function(r){ return r.text(); })
+      .then(function(t){
+        if(stand === null){ stand = t; return; }
+        if(t !== stand){ location.reload(); }
+      })
+      .catch(function(){});
+  }, 700);
+})();
+</script>
+'@
 
 while ($listener.IsListening) {
   try {
@@ -57,6 +99,16 @@ while ($listener.IsListening) {
       $res.Close(); continue
     }
 
+    # Dev-Helfer: /__stand liefert den jüngsten Änderungszeitpunkt der beobachteten Dateien.
+    if ($path -eq '/__stand') {
+      $out = [Text.Encoding]::UTF8.GetBytes([string](Get-Stand))
+      $res.ContentType = 'text/plain; charset=utf-8'
+      $res.Headers.Add('Cache-Control', 'no-store')
+      $res.ContentLength64 = $out.Length
+      $res.OutputStream.Write($out, 0, $out.Length)
+      $res.Close(); continue
+    }
+
     if ($path -eq '/') { $path = '/index.html' }
     $file = Join-Path $root ($path.TrimStart('/') -replace '/', '\')
     $full = [System.IO.Path]::GetFullPath($file)
@@ -70,7 +122,11 @@ while ($listener.IsListening) {
     $ext = [System.IO.Path]::GetExtension($full).ToLower()
     $res.ContentType = if ($mime.ContainsKey($ext)) { $mime[$ext] } else { 'application/octet-stream' }
     $res.Headers.Add('Cache-Control', 'no-store')
-    $bytes = [System.IO.File]::ReadAllBytes($full)
+    if ($ext -eq '.html') {
+      $bytes = [Text.Encoding]::UTF8.GetBytes([System.IO.File]::ReadAllText($full, [Text.Encoding]::UTF8) + $liveSkript)
+    } else {
+      $bytes = [System.IO.File]::ReadAllBytes($full)
+    }
     $res.ContentLength64 = $bytes.Length
     $res.OutputStream.Write($bytes, 0, $bytes.Length)
     $res.Close()
