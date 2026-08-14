@@ -8,3 +8,7 @@ public/
 eventlas-*.kml
 eventlas-*.geojson
 _kommentartest.html
+
+# Wegwerf-Testdateien aus Browser-Diagnosen
+_syntaxtest.html
+_*.html
