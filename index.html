@@ -68,19 +68,29 @@
     background:rgba(29,32,38,.88);color:var(--papier);cursor:pointer;flex:none;
     display:flex;align-items:center;justify-content:center}
   .kbtn svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-  /* Schmale Handys: fünf Knöpfe + Titel gehen sich sonst nicht aus.
+  /* Schmale Handys: sechs Knöpfe + Titel gehen sich sonst nicht aus.
      Die Knöpfe bleiben trotzdem gut treffbar — die sichtbare Fläche ist kleiner,
-     die Tippfläche über ::before aber weiterhin 44 px (Empfehlung Apple/Google). */
+     die Tippfläche über ::before aber so groß wie das Raster erlaubt (36 + 6 Lücke).
+     Genau bis an die Lücke und nicht darüber: Sonst überlappen sich die Flächen und
+     ein Tipp zwischen zwei Knöpfen trifft den falschen. */
   @media (max-width:430px){
     h1{font-size:17px}
     .sub{font-size:10px}
     .kopf-knoepfe{gap:6px}
     .kbtn{width:36px;height:36px;border-radius:10px;position:relative}
     .kbtn::before{content:"";position:absolute;top:50%;left:50%;
-      transform:translate(-50%,-50%);width:44px;height:44px}
+      transform:translate(-50%,-50%);width:42px;height:44px}
     .kbtn svg{width:18px;height:18px}
   }
-  @media (max-width:360px){ .sub{display:none} }
+  /* Sehr schmal (iPhone SE u. Ä.): Untertitel weg, Knöpfe und Lücken enger — sonst
+     schiebt die sechste Schaltfläche den Titel aus dem Bild. */
+  @media (max-width:360px){
+    .sub{display:none}
+    .kopf-knoepfe{gap:4px}
+    .kbtn{width:34px;height:34px}
+    .kbtn::before{width:38px;height:44px}
+    .kbtn svg{width:17px;height:17px}
+  }
   .kbtn.an{background:var(--papier);color:#141414;border-color:var(--papier)}
   .kbtn.foto{background:var(--hilfe);border-color:var(--hilfe);color:#141414}
   .kbtn.foto:active{transform:scale(.94)}
@@ -109,6 +119,25 @@
   .such-info.da{display:block}
   .such-info b{color:var(--papier)}
   .such-info .vorschlag{color:var(--hilfe);cursor:pointer;font-weight:600;white-space:nowrap}
+
+  /* Begrüßung als Streifen statt Vollbild: Die Karte bleibt sichtbar und bedienbar.
+     Liegt über der Karte, aber unterhalb der Kopfzeile — und nimmt keine Klicks weg,
+     außer auf den eigenen beiden Knöpfen. */
+  .willkommen{position:absolute;left:12px;right:12px;z-index:18;
+    top:calc(58px + env(safe-area-inset-top));max-width:560px;margin:0 auto;
+    display:flex;align-items:center;gap:10px;
+    background:var(--panel);border:1px solid var(--linie);border-radius:12px;
+    padding:10px 12px;box-shadow:0 6px 20px rgba(0,0,0,.45);
+    animation:wk-rein .35s ease both}
+  @keyframes wk-rein{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+  .willkommen[hidden]{display:none}
+  .wk-text{flex:1;min-width:0;font-size:12.5px;line-height:1.45;color:var(--grau)}
+  .wk-text b{display:block;color:var(--papier);font-size:13.5px;margin-bottom:1px}
+  .wk-mehr{flex:none;background:var(--hilfe);color:#14161A;border:0;border-radius:9px;
+    padding:9px 12px;font:800 12px 'Inter';cursor:pointer;min-height:38px}
+  .wk-zu{flex:none;width:34px;min-height:38px;background:none;border:0;color:var(--grau);
+    font-size:16px;cursor:pointer;border-radius:9px}
+  .wk-zu:hover{background:var(--nacht);color:var(--papier)}
 
   /* Toast (neue Pins) */
   .toast{position:absolute;left:12px;right:12px;z-index:18;display:none;
@@ -526,11 +555,26 @@
     <button class="kbtn" id="btn-idee" aria-label="Verbesserungsvorschlag" title="Idee einreichen">
       <svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.8.7 1 1.6 1 2.5h6c0-.9.2-1.8 1-2.5A6 6 0 0 0 12 3z"/></svg>
     </button>
-    <button class="kbtn" id="btn-info" aria-label="Info und Profil" title="Info & Profil">
+    <button class="kbtn" id="btn-profil" aria-label="Profil und Personalisierung" title="Profil — Interessen, Wohnort, Kartenstil">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c0-3.6 3.4-6 7.5-6s7.5 2.4 7.5 6"/></svg>
+    </button>
+    <button class="kbtn" id="btn-info" aria-label="Info und Datenschutz" title="Info & Datenschutz">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M12 11v5"/></svg>
     </button>
   </div>
 </header>
+
+<!-- Statt eines Vollbild-Dialogs beim ersten Aufruf: ein schmaler Streifen. Wer über einen
+     QR-Code kommt, will die Karte sehen, nicht ein Formular — die Karte bleibt bedienbar,
+     der Hinweis lässt sich wegtippen und ist danach über den Profil-Knopf erreichbar. -->
+<div class="willkommen" id="willkommen" hidden>
+  <div class="wk-text">
+    <b>Willkommen bei Eventlas</b>
+    <span>Was gerade in <span id="wk-stadt">Aachen</span> läuft — tippe einen Pin an.</span>
+  </div>
+  <button class="wk-mehr" id="wk-mehr">Kurz erklären</button>
+  <button class="wk-zu" id="wk-zu" aria-label="Hinweis schließen">✕</button>
+</div>
 
 <div class="suche" id="suchleiste">
   <input id="sucheingabe" type="search" placeholder="z. B. Konzert, Flohmarkt, Wochenende …"
@@ -2246,35 +2290,26 @@ schleier.addEventListener("click", e => { if(e.target === schleier) modalSchlies
 document.addEventListener("keydown", e => { if(e.key === "Escape") modalSchliessen(); });
 
 /* ---------- Einführung: was kann die Karte? (Schritt 1 von 2) ---------- */
-function zeigeEinfuehrung(nurAnsehen){
+function zeigeEinfuehrung(){
   const punkt = (icon, titel, text) =>
     '<div class="howto"><span class="ht-icon">'+icon+'</span>'+
     '<span class="ht-text"><b>'+titel+'</b>'+text+'</span></div>';
   modalOeffnen(
-    '<h2>Willkommen bei Eventlas</h2>'+
+    '<h2>So funktioniert Eventlas</h2>'+
     '<p>Die Karte zeigt, was gerade in '+esc(STADT.name)+' läuft. In 20 Sekunden erklärt:</p>'+
     punkt("🔥", "Was ist los?", "Der ☰-Knopf oben zeigt die Liste: heute, als Nächstes, Saison. Damit findest du dich am schnellsten zurecht.") +
     punkt("🎵", "Nach Thema filtern", "Unten die Chips antippen — Musik, Flohmarkt, Ernte … Die Zahl daneben sagt, wie viel es davon gibt.") +
-    punkt("🗓", "Zeitraum wählen", "Heute · 🌙 Heute Abend · Demnächst · Alle — oder 📅 für eigene Daten. Abgelaufenes verschwindet von selbst.") +
+    punkt("🗓", "Zeitraum wählen", "Heute · 🌙 Abend · Demnächst · Alle — oder 📅 für eigene Daten. Abgelaufenes verschwindet von selbst.") +
     punkt("📷", "Plakat gesehen?", "Foto-Knopf oben: Kamera auf, abdrücken, fertig. Den Ort erkennt die App selbst.") +
     punkt("＋", "Eigenen Pin melden", "Verschenken, Hilfe gesucht, Hofflohmarkt: gelber Knopf unten. Kostenlos und ohne Anmeldung.") +
+    punkt("👤", "Auf dich zuschneiden", "Das Männchen oben rechts: Interessen wählen, Wohnort setzen, Kartenbild ändern. Alles freiwillig und nur auf deinem Gerät.") +
     '<div class="blatt-knoepfe">'+
-      (nurAnsehen
-        ? '<button class="bbtn gelb" id="ht-fertig">Alles klar</button>'
-        : '<button class="bbtn gelb" id="ht-weiter">Weiter</button>'+
-          '<button class="bbtn sek" id="ht-skip">Direkt zur Karte</button>')+
-    '</div>'+
-    (nurAnsehen ? '' : '<div class="schritte"><span class="an"></span><span></span></div>')
+      '<button class="bbtn gelb" id="ht-fertig">Alles klar</button>'+
+      '<button class="bbtn sek" id="ht-profil">👤 Jetzt einstellen</button>'+
+    '</div>'
   );
-  if(nurAnsehen){
-    $("#ht-fertig").addEventListener("click", modalSchliessen);
-  } else {
-    $("#ht-weiter").addEventListener("click", () => zeigeOnboarding());
-    $("#ht-skip").addEventListener("click", () => {
-      lsSet("onboardingGesehen", true);
-      modalSchliessen();
-    });
-  }
+  $("#ht-fertig").addEventListener("click", modalSchliessen);
+  $("#ht-profil").addEventListener("click", zeigeProfil);
 }
 
 /* ---------- Onboarding (V2: Interessen, nur lokal) — Schritt 2 von 2 ---------- */
@@ -2285,12 +2320,11 @@ function zeigeOnboarding(nachher){
     '<h2>Was interessiert dich?</h2>'+
     '<p>Tippe 3–5 Themen an — passende Pins werden für dich hervorgehoben.</p>'+
     '<div class="wahl-tags">'+chips+'</div>'+
-    '<p class="klein">Deine Auswahl wird nur auf deinem Gerät gespeichert, um Pins zu sortieren. Jederzeit löschbar (Info → Profil zurücksetzen).</p>'+
+    '<p class="klein">Deine Auswahl wird nur auf deinem Gerät gespeichert, um Pins zu sortieren. Jederzeit löschbar über 👤 → Zurücksetzen.</p>'+
     '<div class="blatt-knoepfe">'+
-      '<button class="bbtn gelb" id="ob-fertig">Los geht’s</button>'+
-      '<button class="bbtn sek" id="ob-skip">Überspringen</button>'+
-    '</div>'+
-    (nachher ? '' : '<div class="schritte"><span></span><span class="an"></span></div>')
+      '<button class="bbtn gelb" id="ob-fertig">Übernehmen</button>'+
+      '<button class="bbtn sek" id="ob-skip">Abbrechen</button>'+
+    '</div>'
   );
   const gewaehlt = new Set(profil ? profil.tags : []);
   blatt.querySelectorAll(".ob-tag").forEach(b => {
@@ -2309,7 +2343,7 @@ function zeigeOnboarding(nachher){
   });
   $("#ob-skip").addEventListener("click", () => {
     lsSet("onboardingGesehen", true);
-    modalSchliessen();
+    nachher ? nachher() : modalSchliessen();       // zurück, wo man hergekommen ist
   });
 }
 
@@ -2354,19 +2388,8 @@ function zeigeInfo(){
       '<a class="bbtn sek" href="https://instagram.com/'+esc(KONFIG.insta)+'" target="_blank" rel="noopener">📷 @'+esc(KONFIG.insta)+'</a>'+
     '</div>'+
     (installPrompt ? '<div class="blatt-knoepfe"><button class="bbtn sek" id="app-install">⬇ Zum Startbildschirm hinzufügen</button></div>' : '')+
-    '<h3>Dein Profil (nur auf diesem Gerät)</h3>'+
-    '<div class="zeile"><span>Rang: <b>'+karmaRang()+'</b> · '+karmaPunkte()+' Punkte</span></div>'+
-    '<div class="zeile"><span>Interessen: '+esc(meine)+'</span><button class="aktion" id="interessen-bearbeiten">Ändern</button></div>'+
-    '<div class="zeile"><span>Heimat-Bereich: '+heimText+'</span><button class="aktion" id="heim-setzen">'+(heim?"Ändern":"Festlegen")+'</button></div>'+
-    (heim ? '<div class="zeile"><span class="klein">Beim Öffnen zeigt dir Eventlas neue Pins in deinem Bereich.</span><button class="aktion" id="heim-loeschen">Löschen</button></div>' : '<p class="klein">Mit Heimat-Bereich siehst du beim Öffnen sofort, was es Neues in deiner Hood gibt.</p>')+
-    '<div class="zeile"><span>Punkte sammelst du mit 👍 Danke, Teilen, Pin-Meldungen und Ideen.</span></div>'+
-    '<div class="zeile"><span class="klein">Profil, Rang und Heimat-Bereich löschen</span><button class="aktion" id="profil-reset">Zurücksetzen</button></div>'+
+    '<div class="zeile"><span>Interessen, Wohnort und Kartenbild einstellen</span><button class="aktion" id="zum-profil">Profil öffnen</button></div>'+
     '<div class="zeile"><span>Kurze Einführung: Wie funktioniert die Karte?</span><button class="aktion" id="ht-nochmal">Ansehen</button></div>'+
-    '<h3>Kartenbild</h3>'+
-    '<div class="radius-wahl" id="stil-wahl">'+
-      Object.entries(STILE).map(([k,s]) =>
-        '<button data-stil="'+k+'"'+(k === stilKey ? ' class="an"' : '')+'>'+esc(s.name)+'</button>').join("")+
-    '</div>'+
     '<h3>Aktualität</h3>'+
     '<div class="zeile"><span>'+esc(standText())+'</span><button class="aktion" id="daten-neu">Neu laden</button></div>'+
     '<p class="klein">Termine werden täglich automatisch recherchiert und von Hand geprüft. '+
@@ -2425,15 +2448,48 @@ function zeigeInfo(){
   const neu = $("#daten-neu");
   if(neu) neu.addEventListener("click", () => location.reload());
   const ht = $("#ht-nochmal");
-  if(ht) ht.addEventListener("click", () => zeigeEinfuehrung(true));
+  if(ht) ht.addEventListener("click", () => zeigeEinfuehrung());
   const exp = $("#daten-export");
   if(exp) exp.addEventListener("click", zeigeExport);
+  $("#zum-profil").addEventListener("click", zeigeProfil);
+}
+
+/* ---------- Profil: alles Persönliche an einer Stelle ----------
+   Früher lag das mitten im Info-Fenster und die Interessen-Abfrage sprang beim ersten
+   Aufruf als Vollbild-Dialog hoch. Das ist die schlechteste Stelle für eine Hürde: Wer
+   über einen QR-Code kommt, will die Karte sehen. Jetzt wartet es hinter dem Männchen
+   oben rechts, bis jemand von sich aus personalisieren möchte. */
+$("#btn-profil").addEventListener("click", zeigeProfil);
+function zeigeProfil(){
+  const meine = profil ? (profil.tags.map(t => TAG_LABEL[t]||t).join(", ") || "—") : "noch nicht gewählt";
+  const heimText = heim ? ("gesetzt · Radius " + heim.radius + " km") : "nicht gesetzt";
+  modalOeffnen(
+    '<h2>Dein Profil</h2>'+
+    '<p class="klein">Alles hier bleibt auf diesem Gerät — kein Konto, kein Server, jederzeit löschbar.</p>'+
+    '<h3>Was dich interessiert</h3>'+
+    '<div class="zeile"><span>'+esc(meine)+'</span><button class="aktion" id="interessen-bearbeiten">'+(profil?"Ändern":"Wählen")+'</button></div>'+
+    '<p class="klein">Passende Pins werden hervorgehoben und im Filter „✦ Für dich" zusammengefasst.</p>'+
+    '<h3>Wo du wohnst</h3>'+
+    '<div class="zeile"><span>'+heimText+'</span><button class="aktion" id="heim-setzen">'+(heim?"Ändern":"Festlegen")+'</button></div>'+
+    (heim
+      ? '<div class="zeile"><span class="klein">Beim Öffnen zeigt dir Eventlas neue Pins in deinem Bereich.</span><button class="aktion" id="heim-loeschen">Löschen</button></div>'
+      : '<p class="klein">Mit Wohnort siehst du beim Öffnen sofort, was es Neues in deiner Nähe gibt. Der Punkt wird nur lokal gespeichert und nie übertragen.</p>')+
+    '<h3>Kartenbild</h3>'+
+    '<div class="radius-wahl" id="stil-wahl">'+
+      Object.entries(STILE).map(([k,s]) =>
+        '<button data-stil="'+k+'"'+(k === stilKey ? ' class="an"' : '')+'>'+esc(s.name)+'</button>').join("")+
+    '</div>'+
+    '<h3>Dein Rang</h3>'+
+    '<div class="zeile"><span><b>'+karmaRang()+'</b> · '+karmaPunkte()+' Punkte</span></div>'+
+    '<p class="klein">Punkte sammelst du mit 👍 Danke, Teilen, Pin-Meldungen und Ideen.</p>'+
+    '<div class="zeile"><span class="klein">Profil, Rang und Wohnort löschen</span><button class="aktion" id="profil-reset">Zurücksetzen</button></div>'
+  );
   blatt.querySelectorAll("#stil-wahl button").forEach(b =>
     b.addEventListener("click", () => stilWechseln(b.dataset.stil)));
-  $("#interessen-bearbeiten").addEventListener("click", () => zeigeOnboarding(zeigeInfo));
+  $("#interessen-bearbeiten").addEventListener("click", () => zeigeOnboarding(zeigeProfil));
   $("#heim-setzen").addEventListener("click", heimWaehlen);
   const hl = $("#heim-loeschen");
-  if(hl) hl.addEventListener("click", () => { heim = null; lsSet("heim", null); heimKreisZeichnen(); zeigeInfo(); });
+  if(hl) hl.addEventListener("click", () => { heim = null; lsSet("heim", null); heimKreisZeichnen(); zeigeProfil(); });
   $("#profil-reset").addEventListener("click", () => {
     profil = null; danke = {}; merk = {}; karma = {danke:0, geteilt:0, gemeldet:0, ideen:0}; heim = null;
     ["profil","danke","merk","karma","heim","besuch","onboardingGesehen"].forEach(k => { try{ localStorage.removeItem("eventlas."+k); }catch(e){} });
@@ -3117,8 +3173,23 @@ fetch(STADT.pinsDatei + "?v=" + Date.now(), {cache:"no-store"})
     deepLink();                     // erst nach dem Daten-Load, sonst zerstört der Marker-Neuaufbau das Popup
     neuBanner();
     lsSet("besuch", tagKey(new Date()));
-    if(!profil && !lsGet("onboardingGesehen", false) && !location.hash.includes("pin=")) setTimeout(() => zeigeEinfuehrung(), 900);
+    willkommenPruefen();
   });
+
+/* Beim ersten Besuch nur ein Streifen, kein Dialog: Die Karte ist sofort da und bedienbar.
+   Wer mehr wissen will, tippt „Kurz erklären"; wer personalisieren will, findet das
+   Männchen oben rechts. Ein per Link geteilter Pin unterdrückt den Streifen ganz — dort
+   will jemand genau eine Sache sehen. */
+function willkommenPruefen(){
+  if(profil || lsGet("onboardingGesehen", false) || location.hash.includes("pin=")) return;
+  const streifen = $("#willkommen");
+  const stadt = $("#wk-stadt");
+  if(stadt) stadt.textContent = STADT.name;
+  streifen.hidden = false;
+  const weg = () => { streifen.hidden = true; lsSet("onboardingGesehen", true); };
+  $("#wk-zu").addEventListener("click", weg);
+  $("#wk-mehr").addEventListener("click", () => { weg(); zeigeEinfuehrung(); });
+}
 </script>
 </body>
 </html>
