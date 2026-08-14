@@ -105,6 +105,19 @@
     .kbtn::before{width:38px;height:44px}
     .kbtn svg{width:17px;height:17px}
   }
+  /* Meldeformular: kurze Felder statt einer Freitext-Vorlage, die niemand ausfüllt */
+  .mf-zeile{margin:10px 0 0}
+  .mf-zeile label{display:block;font:700 11.5px 'Inter';color:var(--grau);margin-bottom:4px}
+  .mf-zeile input,.mf-zeile select,.mf-zeile textarea{
+    width:100%;background:var(--nacht);border:1px solid var(--linie);color:var(--papier);
+    border-radius:10px;padding:10px 11px;font:500 13.5px 'Inter';min-height:44px}
+  .mf-zeile textarea{min-height:64px;resize:vertical}
+  .mf-zeile input::placeholder,.mf-zeile textarea::placeholder{color:var(--grau)}
+  .mf-zeile input:focus,.mf-zeile select:focus,.mf-zeile textarea:focus{
+    outline:2px solid var(--hilfe);outline-offset:1px;border-color:var(--hilfe)}
+  .mf-halb{display:flex;gap:8px}
+  .mf-halb > span{flex:1;min-width:0}
+
   /* Trenner + eigene Färbung heben das Profil von den Karten-Werkzeugen ab */
   .kopf-trenner{width:1px;align-self:stretch;margin:2px 2px;background:var(--linie);flex:none}
   .kbtn.profil{background:rgba(199,125,255,.16);border-color:rgba(199,125,255,.5);color:var(--spot)}
@@ -601,9 +614,9 @@
     <button class="kbtn foto" id="btn-foto" aria-label="Plakat fotografieren" title="Plakat fotografieren — Ort wird automatisch erkannt">
       <svg viewBox="0 0 24 24"><path d="M4 8h3l1.5-2.5h7L17 8h3v11H4z"/><circle cx="12" cy="13" r="3.4"/></svg>
     </button>
-    <button class="kbtn" id="btn-liste" aria-label="Listenansicht" title="Liste der sichtbaren Pins">
-      <svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></svg>
-    </button>
+    <!-- Der Listen-Knopf stand hier doppelt: einmal als Icon unter fünf gleich aussehenden,
+         einmal unten neben „Pin melden". Der untere gewinnt — er trägt die Zahl der gerade
+         sichtbaren Pins („Liste 12") und liegt beim Halten des Handys unter dem Daumen. -->
     <button class="kbtn" id="btn-suche" aria-label="Suchen" title="Suchen">
       <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg>
     </button>
@@ -874,20 +887,44 @@ function uhrzeitOk(p, f){
   return vonMin <= bisMin ? (min >= vonMin && min <= bisMin) : (min >= vonMin || min <= bisMin);
 }
 
+/* Bis wann läuft der Termin? Aus „11–18 Uhr" die 18 Uhr, aus „ab 20 Uhr" nichts. Zwei
+   Sonderfälle: „bis 24 Uhr" und Zeiten über Mitternacht („22–3 Uhr") laufen bis Tagesende —
+   sonst wäre die Endzeit kleiner als der Beginn und der Termin schon vor dem Anfang vorbei. */
+function endMinute(p){
+  if(p._maxMin !== undefined) return p._maxMin;
+  const text = (p.meta || "") + " " + (p.text || "");
+  const m = text.match(/(?:^|[^\d.])(\d{1,2})(?:[:.](\d{2}))?\s*[–—-]\s*(\d{1,2})(?:[:.](\d{2}))?\s*Uhr/);
+  let ende = null;
+  if(m){
+    const start = (+m[1]) * 60 + (m[2] ? +m[2] : 0);
+    ende = (+m[3]) * 60 + (m[4] ? +m[4] : 0);
+    if(ende > 1440) ende = null;                      // unplausible Zahl im Text
+    else if(ende === 1440 || ende <= start) ende = 1439;
+  }
+  p._maxMin = ende;
+  return ende;
+}
+
 /* Ist der heutige Termin schon vorbei? „Heute" rechnet ab JETZT, nicht ab Mitternacht —
    ein Konzert von 20 Uhr gehört mittags in die Liste, um 23 Uhr nicht mehr. Das ersetzt den
    früheren Abendfilter: Wer um 19 Uhr schaut, sieht dadurch von selbst nur noch Abendliches.
 
-   Zwei bewusste Ausnahmen, damit nichts fälschlich verschwindet:
+   Drei bewusste Ausnahmen, damit nichts fälschlich verschwindet:
+   - Steht eine Endzeit im Text („Flohmarkt 11–18 Uhr"), zählt die. Nur den Beginn zu prüfen
+     hat den Flohmarkt um 12 Uhr aus der Liste geworfen, obwohl er noch sechs Stunden lief.
    - Pins OHNE erkennbare Uhrzeit (Wochenmarkt „vormittags", Ausstellungen) bleiben stehen.
      Sie auszublenden wäre geraten, nicht gewusst — sie rutschen stattdessen ans Listenende.
-   - Eine Kulanzstunde: Wer um 20:15 sucht, findet das Konzert von 20 Uhr noch. */
+   - Ist nur der Beginn bekannt, eine Kulanzstunde: Wer um 20:15 sucht, findet das Konzert
+     von 20 Uhr noch. */
 const KULANZ_MIN = 60;
 function heuteSchonVorbei(p){
-  const min = startMinute(p);
-  if(min === null) return false;                      // keine Zeit bekannt → nie ausblenden
   const jetzt = new Date();
-  return min + KULANZ_MIN < jetzt.getHours() * 60 + jetzt.getMinutes();
+  const min = jetzt.getHours() * 60 + jetzt.getMinutes();
+  const ende = endMinute(p);
+  if(ende !== null) return ende < min;                // Endzeit bekannt → die entscheidet
+  const start = startMinute(p);
+  if(start === null) return false;                    // keine Zeit bekannt → nie ausblenden
+  return start + KULANZ_MIN < min;
 }
 
 function wdhAktivImFenster(p, von, bis){
@@ -2080,7 +2117,6 @@ function zeitraumWaehlen(){
 }
 
 /* ---------- Listenansicht (User-Test: Zahl anfassbar machen, Liste ↔ Karte) ---------- */
-$("#btn-liste").addEventListener("click", () => zeigeListe("heute"));
 $("#liste-unten").addEventListener("click", () => zeigeListe("heute"));
 $("#tagleiste").addEventListener("scroll", scrollHinweisPruefen, {passive:true});
 window.addEventListener("resize", scrollHinweisPruefen);
@@ -3063,23 +3099,127 @@ function meldeText(mitOrt){
     ortZeile +
     "(Plakat-Foto einfach anhängen — wir lesen Titel, Datum und Ort daraus.)";
 }
+/* ---------- Pin absenden: ausgefülltes Formular statt Freitext ----------
+   Vorher stand in der Mail eine Vorlage mit leeren Zeilen ("Titel: ___"), die viele gar
+   nicht ausfüllten — jede Meldung kostete dann eine Rückfrage. Jetzt fragt ein kurzes
+   Formular genau das ab, was ein Pin braucht, und erzeugt daraus zweierlei:
+   einen lesbaren Text für Menschen und einen fertigen JSON-Block zum Einfügen in pins.json.
+   Bei Terminen kommt ein Kalendereintrag (.ics) dazu, den ein Mail-Assistent direkt
+   übernehmen kann. Das ersetzt die geplante Datenbank: kein zusätzlicher Dienst, keine
+   ungeprüften Fremdinhalte auf der Seite und damit keine Haftungsfrage nach § 10 DDG. */
 function sendeOptionen(mitOrt){
   if(plakatDatei){ plakatSenden(); return; }      // Foto-Meldung hat ihren eigenen Weg (Bild anhängen)
-  const t = meldeText(mitOrt);
+  const heute = tagKey(new Date());
   modalOeffnen(
-    '<h2>Pin absenden</h2>'+
-    '<p>'+(mitOrt && neuOrt ? "Ort ist gewählt — " : "")+'Wohin sollen wir deine Meldung schicken? Wir prüfen sie kurz und stellen sie meist innerhalb von 24 h online.</p>'+
+    '<h2>Pin melden</h2>'+
+    '<p class="klein">'+(mitOrt && neuOrt ? "Ort ist gesetzt ✓ — " : "")+
+      'Kurz ausfüllen, wir prüfen und stellen online. Nur Titel ist Pflicht.</p>'+
+    '<div class="mf-zeile"><label>Was ist es?</label>'+
+      '<select id="mf-typ">'+
+        '<option value="event">Veranstaltung</option>'+
+        '<option value="angebot">Angebot / zu verschenken</option>'+
+        '<option value="hilfe">Hilfe gesucht</option>'+
+      '</select></div>'+
+    '<div class="mf-zeile"><label>Titel *</label>'+
+      '<input id="mf-titel" type="text" maxlength="80" placeholder="z. B. Hofflohmarkt Oppenhoffallee"></div>'+
+    '<div class="mf-zeile mf-halb"><span><label>Datum</label>'+
+      '<input id="mf-datum" type="date" value="'+heute+'"></span>'+
+      '<span><label>Uhrzeit</label><input id="mf-zeit" type="time"></span></div>'+
+    '<div class="mf-zeile"><label>Was gibt es zu wissen?</label>'+
+      '<textarea id="mf-text" rows="3" maxlength="400" placeholder="Ein, zwei Sätze reichen."></textarea></div>'+
+    '<div class="mf-zeile"><label>Link (falls es eine Seite gibt)</label>'+
+      '<input id="mf-link" type="url" placeholder="https://…"></div>'+
     '<div class="blatt-knoepfe">'+
-      '<a class="bbtn wa" target="_blank" rel="noopener" id="senden-wa" href="https://wa.me/'+KONFIG.whatsapp+'?text='+encodeURIComponent(t)+'">Per WhatsApp</a>'+
-      '<a class="bbtn sek" id="senden-mail" href="mailto:'+KONFIG.mail+'?subject='+encodeURIComponent("Neuer Pin für Eventlas "+STADT.name)+'&body='+encodeURIComponent(t)+'">Per E-Mail</a>'+
-      '<button class="bbtn sek" id="senden-abbruch">✕ Meldung abbrechen</button>'+
+      '<button class="bbtn gelb" id="senden-mail">✉ Absenden</button>'+
+      '<a class="bbtn wa" target="_blank" rel="noopener" id="senden-wa" href="#">Per WhatsApp</a>'+
     '</div>'+
-    '<p class="klein">Kein Spam, keine Werbung, keine fremden Rechte verletzen — sonst kommt der Pin nicht online.</p>'
+    '<div class="blatt-knoepfe"><button class="bbtn sek" id="senden-abbruch">✕ Abbrechen</button></div>'+
+    '<p class="klein">Kein Spam, keine Werbung, keine fremden Rechte verletzen — sonst kommt der Pin nicht online. '+
+    'Deine Angaben gehen nur an uns, nicht an Dritte.</p>'
   );
+  const lese = () => ({
+    typ: $("#mf-typ").value,
+    titel: $("#mf-titel").value.trim(),
+    datum: $("#mf-datum").value,
+    uhr: $("#mf-zeit").value,
+    text: $("#mf-text").value.trim(),
+    link: $("#mf-link").value.trim(),
+  });
   const zaehlen = () => { karma.gemeldet++; lsSet("karma", karma); meldenReset(); modalSchliessen(); };
-  $("#senden-wa").addEventListener("click", zaehlen);
-  $("#senden-mail").addEventListener("click", zaehlen);
+
+  $("#senden-mail").addEventListener("click", () => {
+    const d = lese();
+    if(!d.titel){ $("#mf-titel").focus(); hinweisZeigen("Bitte gib wenigstens einen Titel an."); return; }
+    const betreff = "Neuer Pin: " + d.titel;
+    location.href = "mailto:" + KONFIG.mail + "?subject=" + encodeURIComponent(betreff) +
+      "&body=" + encodeURIComponent(meldungsText(d, mitOrt));
+    if(d.datum) icsHerunterladen(d);            // Kalendereintrag zum Anhängen bzw. Öffnen
+    zaehlen();
+  });
+  $("#senden-wa").addEventListener("click", e => {
+    const d = lese();
+    if(!d.titel){ e.preventDefault(); $("#mf-titel").focus(); hinweisZeigen("Bitte gib wenigstens einen Titel an."); return; }
+    e.currentTarget.href = "https://wa.me/" + KONFIG.whatsapp + "?text=" + encodeURIComponent(meldungsText(d, mitOrt));
+    zaehlen();
+  });
   $("#senden-abbruch").addEventListener("click", () => { meldenReset(); modalSchliessen(); });
+  setTimeout(() => $("#mf-titel").focus(), 60);
+}
+
+/* Zwei Teile in einer Nachricht: oben zum Lesen, unten zum Einfügen. Der JSON-Block hält
+   sich exakt an das Schema von pins.json — Prüfen heißt dann nur noch lesen und kopieren. */
+function meldungsText(d, mitOrt){
+  const ort = (mitOrt && neuOrt) ? {lng:+neuOrt.lng.toFixed(5), lat:+neuOrt.lat.toFixed(5)} : null;
+  const pin = {
+    id: slugFuerId(d.titel) + (d.datum ? "-" + d.datum : ""),
+    typ: d.typ,
+    titel: d.titel,
+    text: d.text || "",
+    ...(ort ? {lng: ort.lng, lat: ort.lat} : {}),
+    ...(d.datum ? {start: d.datum} : {}),
+    ...(d.uhr ? {meta: d.uhr + " Uhr"} : {}),
+    ...(d.link ? {link: d.link, quelle: d.link} : {}),
+    hinzu: tagKey(new Date()),
+    fest: true,
+  };
+  const wann = [d.datum ? new Date(d.datum+"T00:00:00").toLocaleDateString("de-DE",{weekday:"long",day:"numeric",month:"long"}) : "",
+                d.uhr ? d.uhr + " Uhr" : ""].filter(Boolean).join(", ");
+  return "Neuer Pin für Eventlas " + STADT.name + "\n\n" +
+    "Was: " + ({event:"Veranstaltung", angebot:"Angebot", hilfe:"Hilfe gesucht"}[d.typ]) + "\n" +
+    "Titel: " + d.titel + "\n" +
+    (wann ? "Wann: " + wann + "\n" : "") +
+    (d.text ? "Beschreibung: " + d.text + "\n" : "") +
+    (d.link ? "Link: " + d.link + "\n" : "") +
+    (ort ? "Ort: " + ort.lat + ", " + ort.lng +
+           "\nAuf der Karte: https://www.google.com/maps?q=" + ort.lat + "," + ort.lng + "\n"
+         : "Ort: nicht auf der Karte gesetzt\n") +
+    "\n— — — Fertig für pins.json — — —\n" +
+    JSON.stringify(pin, null, 1) + "\n";
+}
+function slugFuerId(s){
+  return String(s).toLowerCase()
+    .replace(/ä/g,"ae").replace(/ö/g,"oe").replace(/ü/g,"ue").replace(/ß/g,"ss")
+    .replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"").slice(0,36) || "pin";
+}
+/* Kalendereintrag als Datei. Eine mailto-Nachricht kann keine Anhänge tragen — die .ics
+   landet deshalb im Download-Ordner und lässt sich anhängen oder direkt öffnen. */
+function icsHerunterladen(d){
+  const start = d.datum.replace(/-/g,"") + (d.uhr ? "T" + d.uhr.replace(":","") + "00" : "");
+  const zeilen = [
+    "BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Eventlas//Pin-Meldung//DE","BEGIN:VEVENT",
+    "UID:" + slugFuerId(d.titel) + "-" + Date.now() + "@eventlas",
+    d.uhr ? "DTSTART:" + start : "DTSTART;VALUE=DATE:" + start,
+    "SUMMARY:" + icsEsc("Eventlas-Pin prüfen: " + d.titel),
+    "DESCRIPTION:" + icsEsc(meldungsText(d, true)),
+    neuOrt ? "GEO:" + neuOrt.lat.toFixed(5) + ";" + neuOrt.lng.toFixed(5) : "",
+    "END:VEVENT","END:VCALENDAR",
+  ].filter(Boolean);
+  const blob = new Blob([zeilen.join("\r\n")], {type:"text/calendar;charset=utf-8"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "eventlas-" + slugFuerId(d.titel) + ".ics";
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 5000);
 }
 function meldenReset(){
   meldeModus = false; neuOrt = null; plakatDatei = null;
