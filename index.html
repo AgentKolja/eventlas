@@ -415,9 +415,17 @@
   .schleier{position:fixed;inset:0;z-index:40;background:rgba(10,11,13,.6);display:none;
     align-items:flex-end;justify-content:center}
   .schleier.offen{display:flex}
-  .blatt{width:100%;max-width:560px;max-height:82vh;overflow-y:auto;overflow-x:hidden;
+  /* 72 statt 82 vh: Oben bleibt ein Streifen Karte stehen — man sieht, wo man ist, und
+     kommt mit einem Tipp darauf zurück. Ein Blatt, das den ganzen Bildschirm füllt, wirkt
+     wie eine eigene Seite; genau das war die Klage. */
+  .blatt{width:100%;max-width:560px;max-height:72vh;overflow-y:auto;overflow-x:hidden;
     background:var(--panel);border:1px solid var(--linie);border-radius:18px 18px 0 0;
-    padding:18px 18px calc(18px + env(safe-area-inset-bottom))}
+    padding:18px 18px calc(18px + env(safe-area-inset-bottom));
+    box-shadow:0 -8px 32px rgba(0,0,0,.5)}
+  /* Der freie Bereich über dem Blatt schließt bei Antippen (der Schleier fängt den Klick
+     bereits ab) — der Zeiger macht das sichtbar. */
+  .schleier{cursor:pointer}
+  .blatt{cursor:auto}
   .blatt h2{font-family:'Anton';font-size:17px;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px}
   .blatt h3{font-size:13px;font-weight:800;margin:16px 0 6px}
   .blatt p{font-size:13px;color:#C9CDD6;line-height:1.5;margin:6px 0}
@@ -497,10 +505,27 @@
     border-radius:6px;padding:2px 7px;margin-right:3px;display:inline-block;white-space:nowrap}
   .filter-zeile .fz-weg{flex:none;background:none;border:0;color:var(--angebot);
     font:700 11.5px 'Inter';cursor:pointer;padding:4px 2px;min-height:32px}
-  .saison-kopf{font-family:'Anton';font-size:12px;letter-spacing:1px;text-transform:uppercase;
-    color:var(--hilfe);margin:16px 0 2px}
-  .saison-kopf:first-of-type{margin-top:8px}
+  /* Abschnittsköpfe bleiben beim Scrollen oben kleben und sind farblich abgesetzt: In einer
+     langen Liste soll jederzeit ablesbar sein, welcher Block gerade unter dem Daumen ist. */
+  .saison-kopf{position:sticky;top:-2px;z-index:2;
+    font-family:'Anton';font-size:12px;letter-spacing:1px;text-transform:uppercase;
+    color:var(--hilfe);margin:16px -18px 2px;padding:7px 18px 6px;
+    background:var(--panel);border-top:1px solid var(--linie);
+    display:flex;align-items:center;gap:8px}
+  .saison-kopf:first-of-type{margin-top:8px;border-top:0}
   .saison-kopf.spaeter{color:var(--grau)}
+  .saison-kopf .anzahl{margin-left:auto;font-family:'Inter';font-size:11px;font-weight:700;
+    letter-spacing:0;text-transform:none;color:var(--grau)}
+
+  /* Filterzeile in der Liste: bedienbar, nicht nur informativ */
+  .fz-zeit{display:flex;gap:5px;width:100%}
+  .fz-z{flex:1;border:1px solid var(--linie);background:transparent;color:var(--grau);
+    border-radius:9px;padding:8px 4px;font:700 11.5px 'Inter';cursor:pointer;min-height:38px}
+  .fz-z.an{background:var(--papier);color:#141414;border-color:var(--papier)}
+  .fz-tags{display:flex;flex-wrap:wrap;gap:5px;width:100%}
+  .fz-tag{border:1px solid var(--linie);background:var(--panel);color:var(--papier);
+    border-radius:8px;padding:6px 9px;font:600 11.5px 'Inter';cursor:pointer;min-height:34px}
+  .fz-tag:hover{border-color:var(--hilfe);color:var(--hilfe)}
 
   /* ---------- Detail-Sheet (Mobil) ----------
      Auf dem Handy ist ein Popup mitten auf der Karte schlecht: klein, verdeckt den Pin und
@@ -1526,6 +1551,7 @@ let sheetPin = null;          // welcher Pin steckt gerade im Sheet
 let sheetAusListe = false;    // kam der Nutzer aus der Liste? → Rückweg anbieten
 
 function sheetOeffnen(p, ausListe){
+  const wechsel = $("#sheet").classList.contains("offen");   // Durchblättern ≠ neu öffnen
   sheetPin = p;
   if(ausListe !== undefined) sheetAusListe = ausListe;
   const inhalt = $("#sheet-inhalt");
@@ -1540,12 +1566,19 @@ function sheetOeffnen(p, ausListe){
   lernen(p);
   pinFreihalten(p);
   ansichtAktualisieren();
+  if(!wechsel) overlayAnmelden(() => sheetSchliessen(true));
 }
-function sheetSchliessen(){
+function sheetSchliessen(vonZurueck){
+  if(!$("#sheet").classList.contains("offen")) return;
+  const kamAusListe = sheetAusListe;
   $("#sheet").classList.remove("offen");
   $("#sheet").setAttribute("aria-hidden", "true");
   sheetPin = null; sheetAusListe = false;
   blaetterKontextLoeschen();
+  if(!vonZurueck) overlayAbmelden();
+  // Wer aus der Liste kam, will mit der Zurück-Geste dorthin zurück — nicht auf die
+  // nackte Karte. Beim Zuwischen des Sheets dagegen ist die Karte gemeint.
+  else if(kamAusListe) zeigeListe(letzterListenTab);
 }
 /* Karte so verschieben, dass der gewählte Pin über dem Sheet sichtbar bleibt */
 function pinFreihalten(p){
@@ -1815,7 +1848,13 @@ map.on("moveend", ansichtAktualisieren);
    liegt, wird zu einem Kreis mit Anzahl. Beim Reinzoomen lösen sich die Cluster von
    selbst auf. Tippen zoomt auf die Gruppe. */
 const clusterMarker = [];
-const CLUSTER_RASTER = 58;        // Kantenlänge einer Zelle in Bildschirmpixeln
+/* Zellgröße nach Bildschirmbreite: Auf einem 375 px breiten Handy liegt bei gleichem Zoom
+   alles enger beieinander als auf einem 1400-px-Monitor, und der Daumen ist ungenauer als
+   ein Mauszeiger. Mit fester Zellgröße blieb auf dem Handy ein Symbolteppich stehen. */
+function clusterRaster(){
+  const b = window.innerWidth;
+  return b < 420 ? 76 : b < 700 ? 66 : 58;
+}
 const CLUSTER_AB_ZOOM = 16;       // ab diesem Zoom immer alle Einzel-Pins zeigen
 
 function clusterAufloesen(){
@@ -1827,52 +1866,78 @@ function clusternUndZeichnen(sichtbare){
   clusterAufloesen();
   // Nicht clustern, wenn ohnehin wenig zu sehen ist oder gezielt gefiltert wurde —
   // wer auf "🔥 Highlights" tippt, will alle sehen, nicht wieder eine Gruppe.
+  /* Pins am GLEICHEN Ort werden immer gebündelt, auch beim tiefsten Zoom und bei aktivem
+     Highlight-Filter. Zwanzig Konzerte desselben Hauses nebeneinanderzulegen hilft niemandem:
+     Sie überdecken sich, tragen alle dieselbe Adresse, und man muss jeden einzeln antippen,
+     um zu sehen, was gespielt wird. Als ein Kreis mit Anzahl führt ein Tipp zur Liste. */
+  const amSelbenOrt = new Map();
+  sichtbare.forEach(x => {
+    const k = (x.p.lat).toFixed(4) + "," + (x.p.lng).toFixed(4);   // ~11 m
+    if(!amSelbenOrt.has(k)) amSelbenOrt.set(k, []);
+    amSelbenOrt.get(k).push(x);
+  });
+  const ortsGruppen = [...amSelbenOrt.values()].filter(g => g.length > 1);
+  const inOrtsGruppe = new Set(ortsGruppen.flat());
+
   if(map.getZoom() >= CLUSTER_AB_ZOOM || sichtbare.length <= 12 || nurHighlights){
-    sichtbare.forEach(x => { x.el.style.display = "flex"; });
+    sichtbare.forEach(x => { x.el.style.display = inOrtsGruppe.has(x) ? "none" : "flex"; });
+    ortsGruppen.forEach(zeichneCluster);
     return;
   }
+  const raster = clusterRaster();
   const zellen = new Map();
   sichtbare.forEach(x => {
+    if(inOrtsGruppe.has(x)) return;                 // steckt schon in einer Ortsgruppe
     const pkt = map.project([x.p._lng ?? x.p.lng, x.p._lat ?? x.p.lat]);
-    const key = Math.floor(pkt.x / CLUSTER_RASTER) + ":" + Math.floor(pkt.y / CLUSTER_RASTER);
+    const key = Math.floor(pkt.x / raster) + ":" + Math.floor(pkt.y / raster);
     if(!zellen.has(key)) zellen.set(key, []);
     zellen.get(key).push(x);
   });
   zellen.forEach(gruppe => {
     if(gruppe.length === 1){ gruppe[0].el.style.display = "flex"; return; }
-
-    // Highlights werden mitgeclustert (sonst überlagern sich ihre Glut-Ringe zu einem Klumpen);
-    // der Cluster trägt den Ring stellvertretend und zeigt so, dass hier etwas Besonderes liegt.
-    gruppe.forEach(x => { x.el.style.display = "none"; });
-    const hotAnzahl = gruppe.filter(x => x.p.hot).length;
-    const haeufigsterTyp = Object.entries(gruppe.reduce((acc, x) => {
-      acc[x.p.typ] = (acc[x.p.typ] || 0) + 1; return acc;
-    }, {})).sort((a,b) => b[1]-a[1])[0][0];
-    const mitteLng = gruppe.reduce((s,x) => s + (x.p._lng ?? x.p.lng), 0) / gruppe.length;
-    const mitteLat = gruppe.reduce((s,x) => s + (x.p._lat ?? x.p.lat), 0) / gruppe.length;
-
-    const el = document.createElement("button");
-    el.className = "cluster t-" + haeufigsterTyp + (gruppe.length >= 10 ? " gross" : "") +
-      (hotAnzahl ? " hat-hot" : "");
-    el.innerHTML = (hotAnzahl ? '<span class="c-flamme">🔥</span>' : "") + gruppe.length;
-    el.setAttribute("aria-label", gruppe.length + " Pins hier" +
-      (hotAnzahl ? ", davon " + hotAnzahl + " Highlight" + (hotAnzahl > 1 ? "s" : "") : "") +
-      " — antippen zum Aufteilen");
-    el.title = gruppe.slice(0, 4).map(x => (x.p.hot ? "🔥 " : "") + x.p.titel).join("\n") +
-      (gruppe.length > 4 ? "\n…" : "");
-    el.addEventListener("click", e => {
-      e.stopPropagation();
-      const b = new maplibregl.LngLatBounds();
-      gruppe.forEach(x => b.extend([x.p._lng ?? x.p.lng, x.p._lat ?? x.p.lat]));
-      // Zoomen hilft nur, wenn die Pins auch wirklich auseinanderliegen. Sind es viele
-      // (typisch: eine Bühne mit ganzer Konzertreihe), ist die Liste der schnellere Weg.
-      const spanne = Math.max(b.getEast()-b.getWest(), b.getNorth()-b.getSouth());
-      if(spanne < 0.0006 || gruppe.length >= 6 || map.getZoom() >= CLUSTER_AB_ZOOM - 1)
-        zeigeClusterListe(gruppe.map(x => x.p));
-      else map.fitBounds(b, {padding:{top:110, bottom:250, left:50, right:50}, maxZoom:17.5, duration:600});
-    });
-    clusterMarker.push(new maplibregl.Marker({element:el}).setLngLat([mitteLng, mitteLat]).addTo(map));
+    zeichneCluster(gruppe);
   });
+}
+
+function zeichneCluster(gruppe){
+  // Highlights werden mitgeclustert (sonst überlagern sich ihre Glut-Ringe zu einem Klumpen);
+  // der Cluster trägt den Ring stellvertretend und zeigt so, dass hier etwas Besonderes liegt.
+  gruppe.forEach(x => { x.el.style.display = "none"; });
+  const hotAnzahl = gruppe.filter(x => x.p.hot).length;
+  const haeufigsterTyp = Object.entries(gruppe.reduce((acc, x) => {
+    acc[x.p.typ] = (acc[x.p.typ] || 0) + 1; return acc;
+  }, {})).sort((a,b) => b[1]-a[1])[0][0];
+  const mitteLng = gruppe.reduce((s,x) => s + (x.p._lng ?? x.p.lng), 0) / gruppe.length;
+  const mitteLat = gruppe.reduce((s,x) => s + (x.p._lat ?? x.p.lat), 0) / gruppe.length;
+  // Alles am selben Fleck? Dann ist Zoomen sinnlos — der Klick geht direkt in die Liste.
+  const b = new maplibregl.LngLatBounds();
+  gruppe.forEach(x => b.extend([x.p._lng ?? x.p.lng, x.p._lat ?? x.p.lat]));
+  const spanne = Math.max(b.getEast()-b.getWest(), b.getNorth()-b.getSouth());
+  const einOrt = spanne < 0.0006;
+
+  const el = document.createElement("button");
+  el.className = "cluster t-" + haeufigsterTyp + (gruppe.length >= 10 ? " gross" : "") +
+    (hotAnzahl ? " hat-hot" : "") + (einOrt ? " ein-ort" : "");
+  el.innerHTML = (hotAnzahl ? '<span class="c-flamme">🔥</span>' : "") + gruppe.length;
+  el.setAttribute("aria-label", gruppe.length + (einOrt
+    ? " Termine an diesem Ort — antippen für die Liste"
+    : " Pins hier" + (hotAnzahl ? ", davon " + hotAnzahl + " Highlight" + (hotAnzahl > 1 ? "s" : "") : "") +
+      " — antippen zum Aufteilen"));
+  el.title = gruppe.slice(0, 4).map(x => (x.p.hot ? "🔥 " : "") + x.p.titel).join("\n") +
+    (gruppe.length > 4 ? "\n…" : "");
+  el.addEventListener("click", e => {
+    e.stopPropagation();
+    // Zoomen hilft nur, wenn die Pins auch wirklich auseinanderliegen. Sind es viele
+    // (typisch: eine Bühne mit ganzer Konzertreihe), ist die Liste der schnellere Weg.
+    if(einOrt || gruppe.length >= 6 || map.getZoom() >= CLUSTER_AB_ZOOM - 1)
+      zeigeClusterListe(gruppe.map(x => x.p));
+    else map.fitBounds(b, {padding:{top:110, bottom:250, left:50, right:50}, maxZoom:17.5, duration:600});
+  });
+  const beschriftung = el.getAttribute("aria-label");
+  clusterMarker.push(new maplibregl.Marker({element:el}).setLngLat([mitteLng, mitteLat]).addTo(map));
+  // MapLibre setzt beim Anlegen sein eigenes aria-label ("Map marker") auf das Element und
+  // überschreibt damit unseres. Für Screenreader wäre das wertlos — deshalb danach zurück.
+  el.setAttribute("aria-label", beschriftung);
 }
 
 /* Cluster-Liste: Was steckt in dieser Gruppe? Nach Spielstätte gebündelt, denn genau das
@@ -1915,13 +1980,15 @@ function zeigeClusterListe(pins){
 document.querySelectorAll(".chip").forEach(chip => {
   chip.addEventListener("click", () => { aktiv[chip.dataset.typ] = !aktiv[chip.dataset.typ]; ansichtAktualisieren(); });
 });
+/* Ein Weg für beide Stellen: die Chips über der Karte und die Schnellwahl in der Liste. */
+function zeitSetzen(z){
+  if(z === "range"){ zeitraumWaehlen(); return; }
+  zeit = z;
+  if(suchFenster){ suchFenster = null; $("#sucheingabe").value = suchTerme.join(" "); }
+  baueTagleiste(); ansichtAktualisieren();
+}
 document.querySelectorAll(".zchip").forEach(c => {
-  c.addEventListener("click", () => {
-    if(c.dataset.z === "range"){ zeitraumWaehlen(); return; }
-    zeit = c.dataset.z;
-    if(suchFenster){ suchFenster = null; $("#sucheingabe").value = suchTerme.join(" "); }
-    baueTagleiste(); ansichtAktualisieren();
-  });
+  c.addEventListener("click", () => zeitSetzen(c.dataset.z));
 });
 
 /* Eigener Zeitraum (User-Test: "in bestimmten Zeiträumen auswählen") */
@@ -2012,28 +2079,50 @@ let letzterListenTab = "heute";     // für den Rückweg aus dem Detail-Sheet
 
 /* Zeigt oben in der Liste, welche Filter gerade greifen — sonst wundert man sich,
    warum wenig dasteht, und sucht den Fehler bei den Daten statt bei der Auswahl. */
-function aktiveFilterNamen(){
+/* ohneChips: In der Liste stehen Zeitraum und Themen bereits als eigene, bedienbare Chips —
+   sie hier zu wiederholen wäre doppelt gemoppelt. Über der Karte gibt es diese Chips nicht,
+   dort gehört alles in die Aufzählung. */
+function aktiveFilterNamen(ohneChips){
   const namen = [];
   if(nurHighlights) namen.push("🔥 Highlights");
   if(fuerDich) namen.push("✦ Für dich");
   if(merkModus) namen.push("★ Gemerkt");
-  aktiveTags.forEach(t => namen.push(TAG_LABEL[t] || t));
+  if(!ohneChips) aktiveTags.forEach(t => namen.push(TAG_LABEL[t] || t));
   const zeitName = {today:"Heute", abend:"🌙 Heute Abend", soon:"Demnächst", all:"Alle Termine"}[zeit];
   if(zeit === "range" && eigenZeitraum){
     const f = d => d.getDate() + "." + (d.getMonth()+1) + ".";
     namen.push("📅 " + f(eigenZeitraum.von) + "–" + f(eigenZeitraum.bis));
-  } else if(zeit !== "soon") namen.push("🗓 " + zeitName);
+  } else if(zeit !== "soon" && !ohneChips) namen.push("🗓 " + zeitName);
   Object.entries(aktiv).forEach(([t, an]) => { if(!an) namen.push("ohne " + TYPPLURAL[t]); });
   if(suchTerme.length) namen.push('Suche: „' + suchTerme.map(v => v[0]).join(" ") + '"');
   if(suchFenster) namen.push("🗓 Suchzeitraum");
   return namen;
 }
+/* Filter direkt in der Liste — vorher stand hier nur, WAS gefiltert ist, ändern ging aber
+   nur nach dem Schließen auf der Karte. Wer eine Liste durchsieht, will genau dort
+   nachjustieren („doch lieber nur heute Abend"), ohne den Überblick zu verlieren. */
 function filterZeile(){
-  const namen = aktiveFilterNamen();
-  if(!namen.length) return "";
-  return '<div class="filter-zeile">'+
-    '<span class="fz-liste">'+ namen.map(n => '<b>'+esc(n)+'</b>').join(" ") +'</span>'+
-    '<button class="fz-weg" id="liste-filter-weg">✕ aufheben</button></div>';
+  const namen = aktiveFilterNamen(true);
+  const zeiten = [["today","Heute"],["abend","🌙 Abend"],["soon","Demnächst"],["all","Alle"]];
+  const schnell = '<div class="fz-zeit" role="group" aria-label="Zeitraum">'+
+    zeiten.map(([k,n]) => '<button class="fz-z'+(zeit===k?" an":"")+'" data-z="'+k+'">'+n+'</button>').join("")+
+    '</div>';
+  const themen = [...aktiveTags];
+  const abwahl = themen.length
+    ? '<div class="fz-tags">'+ themen.map(t =>
+        '<button class="fz-tag" data-tag="'+esc(t)+'">'+esc(TAG_LABEL[t]||t)+' ✕</button>').join("") +'</div>'
+    : "";
+  // "Alles aufheben" auch dann anbieten, wenn nur Themen gesetzt sind — die stehen zwar
+  // schon als eigene Chips da, aber einzeln abwählen ist bei vier Themen mühsam.
+  const etwasAktiv = namen.length || themen.length;
+  return '<div class="filter-zeile">'+ schnell + abwahl +
+    (namen.length ? '<span class="fz-liste">'+ namen.map(n => '<b>'+esc(n)+'</b>').join(" ") +'</span>' : '')+
+    (etwasAktiv
+      ? '<button class="fz-weg" id="liste-filter-weg">✕ alle aufheben</button>'
+      // Nicht "alles wird gezeigt": Der Zeitraum oben ist ja auch eine Auswahl, sie steht
+      // nur schon als Chip da und wird hier deshalb nicht wiederholt.
+      : '<span class="fz-liste klein">Keine weiteren Filter</span>')+
+    '</div>';
 }
 
 /* Wie interessant ist ein Pin gerade? Nähe schlägt Ferne, markierte Highlights schlagen alles.
@@ -2110,7 +2199,8 @@ function zeigeListe(tab){
     kopf = '<h2>🔥 Was ist los?</h2>' + filterZeile() +
       '<p class="klein">Das Wichtigste zuerst, 🔥 = Highlight.</p>';
     const block = (titel, liste, datumFn) => liste.length
-      ? '<div class="saison-kopf">'+titel+'</div>' + liste.map(x => {
+      ? '<div class="saison-kopf">'+titel+'<span class="anzahl">'+liste.length+'</span></div>' +
+        liste.map(x => {
           const p = x.p || x;
           return listenZeile(p, datumFn ? datumFn(p) : undefined);
         }).join("")
@@ -2134,7 +2224,7 @@ function zeigeListe(tab){
     const bald   = kommend.filter(x => x.st.tageBisStart <= 45);
     const later  = kommend.filter(x => x.st.tageBisStart > 45);
     const block = (titel, liste, klasse) => liste.length
-      ? '<div class="saison-kopf '+(klasse||"")+'">'+titel+'</div>'+
+      ? '<div class="saison-kopf '+(klasse||"")+'">'+titel+'<span class="anzahl">'+liste.length+'</span></div>'+
         liste.map(x => listenZeile(x.p, x.st.kurz)).join("")
       : "";
     kopf = '<h2>🍏 Saisonkalender</h2>' + filterZeile() +
@@ -2161,6 +2251,16 @@ function zeigeListe(tab){
     v.addEventListener("click", () => zeigeListe(v.dataset.tab)));
   const fw = $("#liste-filter-weg");    // Filter direkt aus der Liste heraus aufheben
   if(fw) fw.addEventListener("click", () => { filterZuruecksetzen(); zeigeListe(tab); });
+  // Zeitraum und Themen direkt in der Liste ändern — die Karte zieht mit, die Liste bleibt offen
+  blatt.querySelectorAll(".fz-z").forEach(b => b.addEventListener("click", () => {
+    zeitSetzen(b.dataset.z);
+    zeigeListe(tab);
+  }));
+  blatt.querySelectorAll(".fz-tag").forEach(b => b.addEventListener("click", () => {
+    aktiveTags.delete(b.dataset.tag);
+    baueTagleiste(); ansichtAktualisieren();
+    zeigeListe(tab);
+  }));
   blatt.querySelectorAll(".liste-zeile").forEach(z =>
     z.addEventListener("click", () => zumPin(PINS.find(x => x.id === z.dataset.id), true)));
 }
@@ -2295,11 +2395,54 @@ function alleTrefferZeigen(){
   map.fitBounds(b, {padding:{top:120, bottom:260, left:50, right:50}, maxZoom:15, duration:700});
 }
 
+/* ---------- Zurück-Geste ----------
+   Auf dem Handy erwartet man, dass die Wischgeste von der Bildschirmkante das zuletzt
+   Geöffnete schließt — nicht die ganze Seite verlässt. Ohne das landet man beim Zurück
+   aus der Liste versehentlich wieder in der Suchmaschine und muss alles neu laden.
+
+   Umsetzung: Jedes Overlay legt beim Öffnen einen Eintrag in der Verlaufsliste an und
+   merkt sich, wie es sich schließt. Die Zurück-Geste nimmt den obersten Eintrag; ein Klick
+   auf ✕ ruft umgekehrt history.back(), damit der Eintrag nicht liegen bleibt und man
+   nicht zweimal zurück tippen muss. */
+const overlayStapel = [];
+let zurueckIgnorieren = false;
+function overlayAnmelden(schliesser){
+  overlayStapel.push(schliesser);
+  history.pushState({ eventlasOverlay: overlayStapel.length }, "");
+}
+function overlayAbmelden(){
+  // Von Hand geschlossen: den eigenen Verlaufseintrag wieder abräumen. Das history.back()
+  // löst selbst ein popstate aus — ohne den Merker würde dieses gleich noch das darunter
+  // liegende Overlay mitschließen (Detail unter der Liste zum Beispiel).
+  if(!overlayStapel.length) return;
+  overlayStapel.pop();
+  if(history.state && history.state.eventlasOverlay){
+    zurueckIgnorieren = true;
+    history.back();
+  }
+}
+window.addEventListener("popstate", () => {
+  if(zurueckIgnorieren){ zurueckIgnorieren = false; return; }
+  const schliessen = overlayStapel.pop();
+  if(schliessen) schliessen();
+});
+
 /* ---------- Modale (ein Container, wechselnder Inhalt) ---------- */
 const schleier = $("#schleier"), blatt = $("#blatt");
 let nachModal = null;
-function modalOeffnen(html){ blatt.innerHTML = html; schleier.classList.add("offen"); }
-function modalSchliessen(){ schleier.classList.remove("offen"); if(nachModal){ const f = nachModal; nachModal = null; f(); } }
+function modalOeffnen(html){
+  const wechsel = schleier.classList.contains("offen");   // Inhalt tauschen ≠ neu öffnen
+  blatt.innerHTML = html;
+  blatt.scrollTop = 0;
+  schleier.classList.add("offen");
+  if(!wechsel) overlayAnmelden(() => modalSchliessen(true));
+}
+function modalSchliessen(vonZurueck){
+  if(!schleier.classList.contains("offen")) return;
+  schleier.classList.remove("offen");
+  if(!vonZurueck) overlayAbmelden();
+  if(nachModal){ const f = nachModal; nachModal = null; f(); }
+}
 schleier.addEventListener("click", e => { if(e.target === schleier) modalSchliessen(); });
 document.addEventListener("keydown", e => { if(e.key === "Escape") modalSchliessen(); });
 

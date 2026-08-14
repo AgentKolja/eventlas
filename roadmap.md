@@ -9,16 +9,16 @@ Zum Live-Bestand gehören: `index.html`, `pins.json`, `orte.json`, `manifest.jso
 `flyer.html`, `og.png`, die Icons, `schriften/` und `bilder/`.
 
 ## 🔧 Auftragsliste vom 14.08. (Nutzer) — Reihenfolge nach Dringlichkeit
-| # | Was | Warum zuerst / später | Status |
-|---|---|---|---|
-| 4 | **Tägliche Fehlermail abstellen** | Nervt jeden Tag, verdeckt echte Fehler | 🔨 in Arbeit |
-| 8 | **Onboarding blockiert die Karte** | Erster Eindruck für jeden neuen Besucher | offen |
-| 1 | **Liste auf dem Handy**: Zurück-Geste, Karte sichtbar lassen, Bereiche erkennbar, filterbar | Hauptnavigation auf dem wichtigsten Gerät | offen |
-| 5 | **Filter auf dem Handy präsenter** | hängt mit 1 zusammen | offen |
-| 6 | **Clustering auf dem Handy empfindlicher**, gleicher Ort → direkt Liste | hängt mit 1 zusammen | offen |
-| 3 | **Pin melden: Ortauswahl sofort**, Nutzer legen Einträge selbst an (mit Prüfung) | braucht Supabase-Tabelle + Moderationslauf | offen |
-| 7 | **DAS DA Theater und Südoase aufnehmen** | Datenpflege, klar umrissen | offen |
-| 2 | **Code-Diebstahl erschweren** | ehrliche Einordnung nötig, siehe unten | offen |
+| # | Was | Status |
+|---|---|---|
+| 4 | **Tägliche Fehlermail abstellen** | ✅ 14.08. |
+| 8 | **Onboarding blockiert die Karte** | ✅ 14.08. |
+| 7 | **DAS DA Theater und Südoase aufnehmen** | ✅ 14.08. |
+| 2 | **Code-Diebstahl erschweren** | ✅ 14.08. |
+| 1 | **Liste auf dem Handy**: Zurück-Geste, Karte sichtbar, Bereiche erkennbar, filterbar | ✅ 14.08. |
+| 5 | **Filter auf dem Handy präsenter** | ✅ 14.08. (in der Liste) |
+| 6 | **Clustering empfindlicher**, gleicher Ort → direkt Liste | ✅ 14.08. |
+| 3 | **Pin melden: Ortauswahl sofort**, Nutzer legen Einträge selbst an | offen — braucht Supabase |
 
 ### Zu Nr. 2 vorab, damit die Erwartung stimmt
 Eine Web-App wird im Browser des Besuchers ausgeführt — der Quelltext **muss** dorthin
