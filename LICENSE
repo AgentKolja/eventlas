@@ -1,0 +1,41 @@
+Eventlas — Copyright (c) 2026 Nikolas Voth. Alle Rechte vorbehalten.
+
+DEUTSCH
+
+Diese Software und die zugehörigen Inhalte (Quelltext, Gestaltung, Texte,
+zusammengestellte Datenbestände) sind urheberrechtlich geschützt.
+
+Nicht gestattet ist ohne vorherige schriftliche Zustimmung des Rechteinhabers:
+  - Vervielfältigung, Verbreitung oder öffentliche Zugänglichmachung,
+    ganz oder in Teilen
+  - Bearbeitung, Umgestaltung oder Erstellung abgeleiteter Werke
+  - Betrieb einer eigenen Instanz dieser Anwendung, auch in abgewandelter Form
+  - Nutzung des Namens "Eventlas" oder verwechslungsfähiger Bezeichnungen
+
+Ausdrücklich gestattet ist:
+  - das Betrachten und Benutzen der Website unter eventlas.netlify.app
+  - das Verlinken auf die Website
+  - das Einsehen des Quelltextes im Browser (technisch unvermeidbar und
+    ausdrücklich unbedenklich — daraus folgt keine Nutzungserlaubnis)
+
+FREMDE BESTANDTEILE — eigene Lizenzen, hiervon unberührt:
+  - MapLibre GL JS ......... BSD-3-Clause
+  - Kartendaten ............ OpenStreetMap-Mitwirkende, ODbL 1.0
+  - Kartenkacheln .......... OpenFreeMap
+  - Wetterdaten ............ Open-Meteo, CC BY 4.0
+  - Ortsbeschreibungen ..... Wikipedia, CC BY-SA 4.0
+  - Ortsfotos (bilder/) .... Wikimedia Commons, Lizenz je Datei in pins.json
+  - Schriften .............. Anton und Inter, SIL Open Font License 1.1
+
+Die vorstehenden Beschränkungen gelten nicht für diese fremden Bestandteile;
+für sie gelten allein die jeweils genannten Lizenzen.
+
+Kontakt für Anfragen: siehe Impressum unter https://eventlas.netlify.app
+
+
+ENGLISH (informal summary)
+
+All rights reserved. This is NOT open-source software. You may view and use the
+website and inspect the source in your browser; you may not copy, modify,
+redistribute, or run your own instance of it without prior written permission.
+Third-party components listed above keep their own licenses.

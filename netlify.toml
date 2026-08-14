@@ -10,16 +10,10 @@
 
 [build]
   publish = "public"
-  command = """
-    mkdir -p public/schriften public/bilder && \
-    cp index.html pins.json orte.json manifest.json sw.js flyer.html public/ && \
-    cp og.png icon-192.png icon-512.png public/ && \
-    cp schriften/*.woff2 public/schriften/ && \
-    cp bilder/*.jpg public/bilder/
-  """
+  command = "bash bauen.sh"
 
 [build.environment]
-  NODE_VERSION = "20"
+  NODE_VERSION = "22"
 
 # pins.json muss immer frisch kommen — sonst sieht niemand die neuen Termine.
 [[headers]]

@@ -1,6 +1,9 @@
 # Netlify-Drop-Ordner: reine Kopie der Live-Dateien, gehört nicht ins Repo
 Upload/
 
+# Ergebnis des Netlify-Builds (bauen.sh) — wird bei jedem Deploy neu erzeugt
+public/
+
 # Test-Exporte aus dem Browser
 eventlas-*.kml
 eventlas-*.geojson
