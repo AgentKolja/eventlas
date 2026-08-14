@@ -12,11 +12,11 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version: 22
 
       # Ohne Schlüssel lief das Skript bisher los und brach erst spät ab. Besser gleich
       # mit klarer Ansage scheitern — dann steht der Grund oben im Action-Log.
@@ -37,13 +37,39 @@ jobs:
           done
           exit $fehlt
 
+      # Die Ausgabe wandert mitsamt Fehlermeldung in die Zusammenfassung des Laufs. Sonst
+      # steht in der Benachrichtigungsmail nur "exit code 1", und die eigentliche Ursache
+      # liegt in einem Log, das nur mit Token abrufbar ist.
       - name: Pins recherchieren und schreiben
+        id: update
+        continue-on-error: true
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: node scripts/update-pins.mjs
+        run: |
+          set -o pipefail
+          node scripts/update-pins.mjs 2>&1 | tee /tmp/update.log
 
-      # Sicherheitsnetz: Das Skript soll die Datei nie kaputtschreiben. Wenn hier etwas
-      # nicht stimmt, wird nicht committet — die alte pins.json bleibt live.
+      - name: Ausgabe in die Zusammenfassung schreiben
+        if: always()
+        run: |
+          if [ "${{ steps.update.outcome }}" = "failure" ]; then
+            echo "### ❌ Das Update-Skript ist abgebrochen" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "Die bisherige \`pins.json\` bleibt unverändert live — die Karte zeigt weiter Termine." >> $GITHUB_STEP_SUMMARY
+          fi
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "<details><summary>Vollständige Ausgabe des Laufs</summary>" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          tail -c 40000 /tmp/update.log >> $GITHUB_STEP_SUMMARY || echo "(keine Ausgabe)" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          echo "</details>" >> $GITHUB_STEP_SUMMARY
+
+      # Wann ist ein Lauf ein Fehler? Nicht schon dann, wenn das Skript einmal stolpert —
+      # die alte pins.json bleibt dann einfach live und die Karte funktioniert weiter. Eine
+      # rote Meldung (und damit eine Mail) soll es nur geben, wenn die Datei beschädigt ist
+      # oder das Update MEHRERE TAGE nicht mehr durchkommt. Ein Hänger bei einer fremden
+      # Schnittstelle ist Alltag; wochenlang veraltete Termine sind ein echtes Problem.
       - name: Ergebnis prüfen
         run: |
           node -e '
@@ -53,11 +79,19 @@ jobs:
             const fremde = [...new Set(pins.flatMap(p => p.tags || []).filter(t => !erlaubt.has(t)))];
             const ohneKoordinaten = pins.filter(p => typeof p.lng !== "number" || typeof p.lat !== "number").length;
             const musik = pins.filter(p => (p.tags||[]).includes("musik")).length;
-            console.log(`Pins: ${pins.length} · davon Musik: ${musik} · Stand: ${d.stand}`);
-            if (pins.length < 20) { console.log("::error::Nur " + pins.length + " Pins — das sieht nach einem Fehlschlag aus."); process.exit(1); }
+            const alter = d.stand ? Math.floor((Date.now() - new Date(d.stand + "T00:00:00Z")) / 864e5) : 999;
+            console.log(`Pins: ${pins.length} · davon Musik: ${musik} · Stand: ${d.stand} (${alter} Tage alt)`);
+
+            if (pins.length < 20) { console.log("::error::Nur " + pins.length + " Pins — die Datei ist beschädigt."); process.exit(1); }
             if (ohneKoordinaten) { console.log("::error::" + ohneKoordinaten + " Pins ohne Koordinaten."); process.exit(1); }
-            if (fremde.length) { console.log("::warning::Unbekannte Themen-Tags: " + fremde.join(", ")); }
-            if (musik < 5) { console.log("::warning::Wenige Musik-Pins (" + musik + ") — Konzertquellen prüfen."); }
+
+            if (alter >= 3) {
+              console.log("::error::Die Termine sind " + alter + " Tage alt — das Update kommt seit mehreren Tagen nicht durch. Ursache steht in der Zusammenfassung oben.");
+              process.exit(1);
+            }
+            if (alter >= 1) console.log("::warning::Heute kein neuer Stand geschrieben (Daten " + alter + " Tag(e) alt). Einmalig ist das unkritisch.");
+            if (fremde.length) console.log("::warning::Unbekannte Themen-Tags: " + fremde.join(", "));
+            if (musik < 5) console.log("::warning::Wenige Musik-Pins (" + musik + ") — Konzertquellen prüfen.");
           '
 
       - name: Änderungen committen (nur wenn pins.json sich geändert hat)

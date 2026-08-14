@@ -3,10 +3,37 @@
 Diese Datei bei neuen Chats mit Claude hochladen — sie ist das Projektgedächtnis.
 
 ## 🟢 LIVE: https://eventlas.netlify.app (seit 08.08.2026)
-Nach jeder Änderung neu hochladen: **`upload-vorbereiten.cmd` doppelklicken** (kopiert alle
-Live-Dateien nach `Upload/`, verschiebt nichts) → Ordner auf app.netlify.com/drop ziehen.
-Zum Live-Bestand gehören inzwischen: `index.html`, `pins.json`, `manifest.json`, `sw.js`,
-`og.png`, `icon-192.png`, `icon-512.png`.
+**Seit 14.08. verbunden mit GitHub** — jeder Push geht automatisch live, Hochladen entfällt.
+`upload-vorbereiten.cmd` und der Ordner `Upload/` bleiben nur noch als Notnagel liegen.
+Zum Live-Bestand gehören: `index.html`, `pins.json`, `orte.json`, `manifest.json`, `sw.js`,
+`flyer.html`, `og.png`, die Icons, `schriften/` und `bilder/`.
+
+## 🔧 Auftragsliste vom 14.08. (Nutzer) — Reihenfolge nach Dringlichkeit
+| # | Was | Warum zuerst / später | Status |
+|---|---|---|---|
+| 4 | **Tägliche Fehlermail abstellen** | Nervt jeden Tag, verdeckt echte Fehler | 🔨 in Arbeit |
+| 8 | **Onboarding blockiert die Karte** | Erster Eindruck für jeden neuen Besucher | offen |
+| 1 | **Liste auf dem Handy**: Zurück-Geste, Karte sichtbar lassen, Bereiche erkennbar, filterbar | Hauptnavigation auf dem wichtigsten Gerät | offen |
+| 5 | **Filter auf dem Handy präsenter** | hängt mit 1 zusammen | offen |
+| 6 | **Clustering auf dem Handy empfindlicher**, gleicher Ort → direkt Liste | hängt mit 1 zusammen | offen |
+| 3 | **Pin melden: Ortauswahl sofort**, Nutzer legen Einträge selbst an (mit Prüfung) | braucht Supabase-Tabelle + Moderationslauf | offen |
+| 7 | **DAS DA Theater und Südoase aufnehmen** | Datenpflege, klar umrissen | offen |
+| 2 | **Code-Diebstahl erschweren** | ehrliche Einordnung nötig, siehe unten | offen |
+
+### Zu Nr. 2 vorab, damit die Erwartung stimmt
+Eine Web-App wird im Browser des Besuchers ausgeführt — der Quelltext **muss** dorthin
+übertragen werden, sonst läuft nichts. Vollständig verhindern lässt sich das Kopieren daher
+nicht, bei keiner Website, auch nicht bei Google. Was wirklich hilft, ist eine Mischung aus:
+- **Rechtlich** (der eigentliche Schutz): Urheberrecht besteht automatisch, aber ein sichtbarer
+  Copyright-Hinweis + `LICENSE`-Datei machen eine Übernahme angreifbar statt geduldet.
+  Dazu die laufende **Markenanmeldung** — sie schützt den Namen, und der ist das Wertvolle.
+- **Praktisch:** Minifizierung macht das Weiterentwickeln fremden Codes unattraktiv.
+- **Inhaltlich:** Der echte Wert steckt nicht im Code, sondern in den gepflegten Daten
+  (`pins.json`, `venues.json`, `orte.json`) und in der lokalen Präsenz. Der Code ist in ein
+  paar Tagen nachgebaut, die Datenpflege nicht.
+
+Was **nicht** hilft und deshalb nicht gebaut wird: Rechtsklick sperren, Tastenkürzel abfangen,
+„DevTools-Erkennung". Das kostet Barrierefreiheit und hält niemanden auf, der kopieren will.
 
 ## Status (Stand 08.08.2026 — großer V2-Umbau durch KI-Agent)
 - **index.html komplett neu gebaut** — alle 24 Features der Prioritätenliste vom 07.08. sind
@@ -228,6 +255,69 @@ Anzeige — verlinken ist erlaubt. Wachstum manuell und sparsam (Einzel-Anschrei
 - **Statistik ohne Tracking:** Netlify-Analytics (serverseitig) reicht für Launch-KPIs.
 - **Marker-Spreizung bei Überlappung:** Am Katschhof liegen mehrere Pins fast übereinander —
   bei Klick auffächern (Spiderfy) oder bei niedrigem Zoom leicht versetzen.
+
+## Auftrag 14.08. im Detail (Nummern wie in der Tabelle oben)
+
+### 1 — Liste auf dem Handy überarbeiten
+Vier Teilprobleme, die zusammen die Hauptnavigation auf dem Handy ausmachen:
+- **Zurück-Geste:** Wischen von der Bildschirmkante schließt derzeit die ganze Seite statt der
+  Liste. Lösung: beim Öffnen einen `history.pushState`-Eintrag setzen, `popstate` schließt die
+  Liste. Gleiches Muster für das Detail-Sheet und die Modals — sonst wird es inkonsistent.
+- **Karte sichtbar lassen:** Die Liste darf nicht den ganzen Bildschirm füllen. Oben ein
+  Kartenstreifen bleibt stehen und ist antippbar zum Schließen (wie Google Maps / Airbnb).
+- **Bereiche erkennbar machen:** Sichtbare Abschnittsköpfe („Heute Abend", „Als Nächstes",
+  „Dauerhaft") statt einer durchlaufenden Liste — man muss sehen, was man gerade ansieht.
+- **In der Liste filtern:** Filterzeile direkt in der Liste, ohne sie schließen zu müssen.
+
+### 2 — Code-Diebstahl erschweren
+Einordnung siehe oben. Konkret umzusetzen:
+- `LICENSE`-Datei (proprietär, alle Rechte vorbehalten) + Copyright-Kommentar im Quelltext
+- Sichtbarer Hinweis im ⓘ-Fenster: Inhalte und Gestaltung urheberrechtlich geschützt
+- Minifizierung im Netlify-Build (Quelle im Repo bleibt lesbar, ausgeliefert wird kompakt)
+- **Nicht** umgesetzt: Rechtsklicksperre und DevTools-Erkennung (schaden mehr, als sie nützen)
+
+### 3 — Pin melden: direkter und selbstbedienbar
+- **Ortauswahl sofort:** Der Zwischenschritt entfällt, die Karte geht direkt in den
+  Setzen-Modus. Der Ort ist die einzige Angabe, die man auf der Karte machen *muss*.
+- **Nutzer legen Einträge selbst an:** Neue Supabase-Tabelle `vorschlaege` (gleiche Bauart wie
+  `kommentare`: anon darf einfügen, aber nicht lesen, was noch nicht geprüft ist). Eingereichte
+  Pins landen dort mit Status `neu`.
+- **Prüflauf:** Ich hole die offenen Vorschläge, prüfe sie (Ort plausibel? Rechte? Kein
+  Kommerz-Spam?) und trage die guten mit `fest:true` in `pins.json` ein — danach Bescheid.
+  Wichtig: **Das läuft nicht automatisch, sondern wenn du mich darum bittest.** Ein Agent, der
+  ungeprüft veröffentlicht, wäre nach § 10 DDG ein Haftungsrisiko.
+
+### 4 — Tägliche Fehlermail (im Screenshot vom 14.08.)
+Zwei Dinge, die nichts miteinander zu tun haben:
+- **Node-20-Warnung:** `actions/checkout@v4` und `setup-node@v4` laufen auf Node 20, das
+  GitHub abkündigt. Auf `@v5` heben.
+- **Der Fehlschlag selbst:** „Voraussetzungen prüfen" war grün, der Schlüssel ist also da —
+  das Skript stürzt danach binnen Sekunden ab. Ohne Log-Zugriff (die API gibt sie nur mit
+  Token heraus) ist die Ursache nicht direkt lesbar, deshalb: Das Skript schreibt seine
+  Ausgabe künftig **selbst in die Job-Zusammenfassung**, dann steht die Ursache in der Mail.
+
+### 5 — Filter auf dem Handy präsenter
+Aktuell klappt die Filterzeile weg und ist schwach sichtbar. Ziel: dauerhaft erreichbar,
+mit erkennbarem Zustand („3 Filter aktiv"), ohne mehr Platz von der Karte zu nehmen.
+
+### 6 — Clustering auf dem Handy empfindlicher
+Auf kleinen Bildschirmen liegen Marker dichter beieinander als auf dem Desktop, die Zellgröße
+ist aber dieselbe. Zwei Änderungen: Zellgröße abhängig von der Bildschirmbreite, und Pins am
+**selben Ort** (gleiche Spielstätte) werden nie räumlich aufgefächert, sondern immer sofort
+als Liste geöffnet — nebeneinandergelegte Marker desselben Hauses helfen niemandem.
+
+### 7 — Zwei Spielstätten ergänzen
+- **DAS DA Theater** — steht schon in `venues.json`, Termine kommen über den Kulturkalender.
+- **Südoase** — Website hat ein kaputtes TLS-Zertifikat, daher nicht automatisch auslesbar.
+  Vom Nutzer bestätigtes festes Programm, wird als wiederkehrender Pin eingetragen:
+  **Do ab 19 Uhr** Live-Jam & Billard (Reggae), **Fr ab 19 Uhr** Live-Jam & Billard (offen).
+
+### 8 — Onboarding blockiert die Karte
+Beim ersten Aufruf liegt die Interessen-Abfrage über dem ganzen Bildschirm. Das ist die
+schlechteste Stelle für eine Hürde: Wer über einen QR-Code kommt, will die Karte sehen, nicht
+ein Formular. Neu: Karte sofort sichtbar, Personalisierung über einen **Profil-Knopf (Männchen)
+oben rechts** — Interessen, Wohnort, Kartenstil. Der Kurz-Hinweis für Neulinge bleibt, aber
+als kleiner Streifen, den man wegtippen kann.
 
 ## Kartenanbieter: Warum NICHT Google Maps (recherchiert 09.08.2026)
 **Entscheidung: Bei MapLibre + OpenFreeMap bleiben.** Drei Varianten geprüft:

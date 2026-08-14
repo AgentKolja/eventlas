@@ -121,24 +121,27 @@ if (!KULTUR_HAEUSER.length) {
   ].forEach(v => KULTUR_HAEUSER.push({ ...v, re: new RegExp(v.muster, "i") }));
 }
 
-/* Der Kulturkalender liefert Titel in Katalogschreibweise: mit Anführungszeichen, Schlusspunkt
-   und einer vorangestellten Reihe ("Reit WM 2026 – Rahmenprogramm. „Ms. Jeanna Magic"."). Auf
-   einer Karte liest sich das schlecht und frisst die Breite. Wir schälen den eigentlichen Titel
-   heraus und heben die Reihe in den Beschreibungstext — dort gehört sie hin. */
-/* Der Kulturkalender liefert HTML-kodiert: „ steht als &#8222; in der Antwort. Ungefiltert
-   landet das wörtlich auf der Karte ("&#8222;Alles Anders&#8220;"), und die Titelbereinigung
-   unten findet die Anführungszeichen nicht. Node bringt dafür nichts mit. */
+/* Der Kulturkalender liefert Titel in Katalogschreibweise ("Reit WM 2026 – Rahmenprogramm.
+   „Ms. Jeanna Magic".") und zusätzlich HTML-kodiert — „ steht als &#8222; in der Antwort.
+   Ungefiltert landet das wörtlich auf der Karte, und die Titelbereinigung unten fände die
+   Anführungszeichen gar nicht. Node bringt für das Entschlüsseln nichts mit. */
 const ENTITIES = {
   amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " ",
   bdquo: "„", ldquo: "“", rdquo: "”", lsquo: "‘", rsquo: "’", laquo: "«", raquo: "»",
   ndash: "–", mdash: "—", hellip: "…", szlig: "ß", euro: "€", auml: "ä", ouml: "ö",
   uuml: "ü", Auml: "Ä", Ouml: "Ö", Uuml: "Ü", shy: "", zwnj: "",
 };
+// fromCodePoint wirft bei Werten über 0x10FFFF einen RangeError. Eine einzige kaputte
+// Zeichenangabe in einem Veranstaltungstitel darf nicht den ganzen Lauf umbringen.
+function zeichen(n) {
+  try { return (n >= 0 && n <= 0x10FFFF) ? String.fromCodePoint(n) : ""; }
+  catch { return ""; }
+}
 function entschluessle(s) {
   if (typeof s !== "string" || !s.includes("&")) return s;
   return s
-    .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
-    .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(+d))
+    .replace(/&#x([0-9a-f]+);/gi, (_, h) => zeichen(parseInt(h, 16)))
+    .replace(/&#(\d+);/g, (_, d) => zeichen(+d))
     .replace(/&([a-z]+);/gi, (t, n) => (n in ENTITIES ? ENTITIES[n] : t))
     .replace(/&amp;/g, "&");          // doppelt kodiert (&amp;#8222;) kommt vor
 }
