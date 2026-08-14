@@ -239,6 +239,12 @@
     padding:13px;cursor:pointer}
   .hinweis{margin:6px auto 0;font-size:11px;color:var(--grau);text-align:center;display:none}
   .hinweis a{color:var(--hilfe);font-weight:600}
+  .hinweis b{color:var(--papier);font-size:12.5px}
+  /* Alternativen im Hinweisbalken statt in einem Dialog davor: Der Ortauswahl-Vorgang
+     läuft schon, der zweite Weg bleibt trotzdem einen Fingertipp entfernt. */
+  .hw-neben{display:block;margin-top:3px}
+  .hw-btn{background:none;border:0;color:var(--hilfe);font:600 11px 'Inter';cursor:pointer;
+    padding:6px 4px;text-decoration:underline;min-height:32px}
 
   /* ---------- Map-Blips: Form + Icon statt Buchstaben (farbenblind-tauglich) ----------
      WICHTIG: position:absolute — MapLibre positioniert Marker absolut; ein relative
@@ -3051,28 +3057,22 @@ function meldenReset(){
   hinweisWeg();
 }
 
+/* Ein Dialog mit der Frage "Karte oder Foto?" stand bisher vor jeder Meldung. Der Ort ist
+   aber die einzige Angabe, die man zwingend auf der Karte machen muss — also fängt der
+   Vorgang direkt damit an. Das Plakat-Foto bleibt als zweiter Weg erreichbar, jetzt im
+   Hinweisbalken statt in einem eigenen Schritt davor. */
 meldenBtn.addEventListener("click", () => {
   if(meldeModus && neuOrt){ sendeOptionen(true); return; }   // Weg 2: über den Knopf unten
   if(meldeModus){ meldenReset(); return; }
-  modalOeffnen(
-    '<h2>Pin melden</h2>'+
-    '<p>Events, Angebote (verschenken, Ernte, …) oder Hilfe-Gesuche aus der Nachbarschaft — kostenlos.</p>'+
-    '<div class="blatt-knoepfe">'+
-      '<button class="bbtn gelb" id="melde-karte">📍 Ort auf der Karte wählen</button>'+
-      '<button class="bbtn sek" id="melde-plakat">📷 Plakat-Foto senden</button>'+
-    '</div>'+
-    '<p class="klein">Beim Plakat-Foto brauchst du keinen Ort zu wählen, wenn er auf dem Plakat steht.</p>'
-  );
-  $("#melde-karte").addEventListener("click", () => {
-    modalSchliessen();
-    meldeModus = true;
-    meldenBtn.textContent = "Ort antippen …";
-    hinweisZeigen("Tippe jetzt den Ort auf der Karte an.");
-  });
-  $("#melde-plakat").addEventListener("click", () => {
-    nachModal = () => $("#plakat-datei").click();   // öffnet direkt die Kamera (capture)
-    modalSchliessen();
-  });
+  meldeModus = true;
+  meldenBtn.textContent = "Ort antippen …";
+  hinweisZeigen('<b>Tippe den Ort auf der Karte an.</b>'+
+    '<span class="hw-neben">oder <button class="hw-btn" id="hw-plakat">📷 Plakat fotografieren</button>'+
+    ' · <button class="hw-btn" id="hw-abbruch">abbrechen</button></span>');
+  const pl = $("#hw-plakat");
+  if(pl) pl.addEventListener("click", () => { meldenReset(); $("#plakat-datei").click(); });
+  const ab = $("#hw-abbruch");
+  if(ab) ab.addEventListener("click", meldenReset);
 });
 
 /* ---------- Plakat-Foto mit automatischer Ortsbestimmung ----------
