@@ -91,6 +91,30 @@ neue Action **„Ortsdaten auffrischen"** — ohne API-Schlüssel, weil beide Qu
 - [ ] Nur falls du magst: einmal unter *Actions* → „Ortsdaten auffrischen" → **Run workflow**
       testen. Nötig ist es nicht, die Datei ist aktuell.
 
+## ✨ Neu: Neueröffnungen auf der Karte (testweise, 15.08.)
+Vier Einträge sind drauf — **Action** (Aachen Arkaden, Adresse über die offizielle Filialseite
+belegt), **Cura's Coffee** (obere Pontstraße), **Çiğköftem** (Adalbertstraße) und das
+**CinemaxX**, das für Januar 2027 angekündigt ist. Eigene Kategorie „✨ Neu eröffnet", eigenes
+Symbol auf der Karte.
+
+Bei dreien kenne ich nur die Straße, nicht die Hausnummer. Das steht auch so im Pin (mit `*`),
+statt eine Nummer zu erfinden. Zwei Wege, das zu klären:
+
+- **Besucher bestätigen selbst:** Jeder Ortseintrag hat jetzt „Bist du gerade dort?" mit
+  ✓ Gibt es / ✗ Gibt es nicht mehr. Ein Tipp öffnet eine fertig formulierte Mail an dich —
+  absenden, fertig. Bewusst über dich statt automatisch: Eine Angabe, die ungeprüft durch
+  Klicks kippt, wäre manipulierbar, und für falsche Fremdinhalte haftest du (§ 10 DDG).
+- [ ] **Du fragst direkt nach:** Vorlage unten als **Text 7**. Klärt die Hausnummer und lädt
+      den Laden gleich ein, künftig eigene Termine zu schicken. Adressen der Läden über deren
+      Website oder Instagram.
+
+> Wichtig zur Erwartung: Es gibt **keine automatische Quelle** für Neueröffnungen.
+> OpenStreetMap trägt bei Läden fast nie ein Eröffnungsdatum ein, und Presseartikel sind
+> urheberrechtlich geschützt — die *Tatsachen* daraus (wer, wo, wann) darf ich übernehmen,
+> die Formulierungen nicht. Diese vier sind daher von Hand recherchiert und belegt.
+> Nachschub kommt am ehesten über die GastroNews der Aachener Zeitung, über
+> neueroeffnung.info und über die Läden selbst.
+
 ## Kurz gegenprüfen, wenn du magst (Datenqualität)
 - [ ] **Hotel Europa / Apollo:** Deren Programmseiten drucken kein Jahr; die Termine wurden über
       den Wochentag auf 2026 datiert. Bei Gelegenheit stichprobenartig prüfen.
@@ -177,6 +201,34 @@ ich wohne im Viertel und habe eine kostenlose Online-Stadtkarte gebaut: https://
 2. Gibt es beim Alleenfest am 30.8. im Rahmen von "Ein Viertel präsentiert sich" die Möglichkeit, das Projekt kurz vorzustellen oder Flyer auszulegen? Die Karte ist komplett kostenlos und werbefrei.
 Viele Grüße
 [NAME], [STRASSE]
+
+## Text 7 — Anfrage an eine Neueröffnung (Bestätigung + Einladung)
+*Wofür:* Die vier Neueröffnungs-Pins stehen auf der Karte, drei davon mit ungenauer Hausnummer.
+Diese Mail klärt beides auf einmal — Adresse bestätigen und den Laden gleich einladen, künftig
+selbst Bescheid zu geben. Adresse der Läden über deren Website oder Instagram.
+
+Betreff: Ihr steht auf der Aachener Stadtkarte — stimmen die Angaben?
+
+Hallo [NAME],
+
+herzlichen Glückwunsch zur Eröffnung! Ich betreibe **Eventlas**, eine kostenlose und werbefreie
+Karte für Aachen: https://eventlas.netlify.app — dort sieht man auf einen Blick, was gerade in
+der Stadt läuft. Neueröffnungen wie eure sind darauf als eigene Kategorie markiert.
+
+Euer Eintrag steht schon drin. Zwei kurze Fragen dazu:
+
+1. **Stimmt die Adresse?** Ich habe bisher nur „[STRASSE]" ohne Hausnummer — mit der genauen
+   Angabe sitzt der Punkt exakt richtig.
+2. **Wollt ihr eigene Termine daraufsetzen?** Eröffnungsfeier, Aktionstage, besondere
+   Angebote — schickt sie mir einfach, ich pflege sie kostenlos ein. Ihr müsst euch nirgends
+   anmelden und es entstehen keine Kosten; die Karte finanziert sich nicht über Einträge.
+
+Falls etwas nicht stimmt oder ihr den Eintrag lieber nicht möchtet, sagt einfach Bescheid —
+dann nehme ich ihn heraus.
+
+Viele Grüße
+[NAME]
+Eventlas Aachen · https://eventlas.netlify.app
 
 ## Text 4 — Kleinanzeigen-Einzelanschreiben (nur einzeln, individuell anpassen)
 Hi! Ich habe deine Anzeige gesehen — ich betreibe eine kleine kostenlose Karte für Aachen: https://eventlas.netlify.app. Wenn du magst, setze ich dein Angebot als Pin mit Link auf deine Anzeige darauf. Mehr Sichtbarkeit direkt aus der Nachbarschaft, kostet nichts — ein kurzes Ok reicht.

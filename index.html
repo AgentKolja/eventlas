@@ -105,6 +105,20 @@
     .kbtn::before{width:38px;height:44px}
     .kbtn svg{width:17px;height:17px}
   }
+  /* "Stimmt das noch?" — unaufdringlich, aber auffindbar. Bewusst unter den Aktionen:
+     Erst will man wissen, was der Ort ist, dann ob die Angabe frisch ist. */
+  .p-bestaetigen{margin-top:10px;padding:9px 11px;border-radius:10px;
+    background:var(--nacht);border:1px solid var(--linie);font-size:11.5px;color:var(--grau)}
+  .bs-stand{display:block}
+  .bs-stand.alt{color:var(--hilfe)}
+  .bs-frage{display:block;margin:6px 0 6px;color:var(--papier);font-weight:700;font-size:12px}
+  .bs-knoepfe{display:flex;gap:6px;flex-wrap:wrap}
+  .bs-btn{flex:1;min-width:118px;min-height:38px;border-radius:8px;cursor:pointer;
+    border:1px solid var(--linie);background:var(--panel);color:var(--papier);
+    font:700 11.5px 'Inter';padding:8px 6px}
+  .bs-btn.ja:hover{border-color:var(--event);color:var(--event)}
+  .bs-btn.nein:hover{border-color:var(--angebot);color:var(--angebot)}
+
   /* Meldeformular: kurze Felder statt einer Freitext-Vorlage, die niemand ausfüllt */
   .mf-zeile{margin:10px 0 0}
   .mf-zeile label{display:block;font:700 11.5px 'Inter';color:var(--grau);margin-bottom:4px}
@@ -783,15 +797,18 @@ const TYPPLURAL= {event:"Events", angebot:"Angebote", hilfe:"Hilfe", spot:"Spots
    NICHT als Thema geführt: "kostenlos" (Eigenschaft → Meta-Zeile + Suche) sowie
    "fotospot"/"hilfe"/"verschenken" (decken sich mit den Kategorie-Chips darunter). */
 const TAG_LABEL = {musik:"🎵 Musik & Party", kultur:"🎭 Kultur", fest:"🎉 Feste",
-  markt:"🛍 Märkte", sport:"⚽ Sport", familie:"🧒 Familie", natur:"🍏 Natur & Ernte"};
+  markt:"🛍 Märkte", sport:"⚽ Sport", familie:"🧒 Familie", natur:"🍏 Natur & Ernte",
+  neu:"✨ Neu eröffnet"};
 /* Blip-Symbol: Thema schlägt Kategorie (mundraub soll nicht als generisches "Angebot"
    erscheinen — dieselben Symbole wie in der Filterleiste auch auf der Karte).
    Ohne Thema greift das Kategorie-Icon (Kamera, Herz, Geschenk, Kalender). */
 const TAG_EMOJI = {musik:"🎵", kultur:"🎭", fest:"🎉", markt:"🛍",
-  sport:"⚽", familie:"🧒", natur:"🍏"};
-const BLIP_PRIO = ["natur","markt","musik","sport","kultur","fest","familie"];
+  sport:"⚽", familie:"🧒", natur:"🍏", neu:"✨"};
+// "neu" steht vorn: Eine Neueröffnung ist genau das Bemerkenswerte an dem Pin — als
+// generisches Laden-Symbol wäre sie von hundert anderen nicht zu unterscheiden.
+const BLIP_PRIO = ["neu","natur","markt","musik","sport","kultur","fest","familie"];
 function blipSymbol(p){ const t = BLIP_PRIO.find(t => p.tags.includes(t)); return t ? TAG_EMOJI[t] : null; }
-const ONBOARDING_TAGS = ["musik","kultur","fest","markt","sport","familie","natur"];
+const ONBOARDING_TAGS = ["musik","kultur","fest","markt","sport","familie","natur","neu"];
 
 /* ---------- Hilfsfunktionen ---------- */
 const $ = s => document.querySelector(s);
@@ -1473,6 +1490,70 @@ function preisText(p){
   return "";
 }
 
+/* ---------- Stimmt das noch? ----------
+   Manche Angaben altern schneller als andere: Ein Konzerttermin ist am Tag danach erledigt,
+   ein neu eröffnetes Café kann in drei Monaten wieder zu sein. Für alles, was dauerhaft
+   gelten soll, steht deshalb dabei, wann es zuletzt bestätigt wurde — und wer gerade davor
+   steht, kann es mit einem Tipp bestätigen oder widersprechen.
+
+   Ohne Server heißt Bestätigen: eine vorbereitete Nachricht an uns. Das ist kein Umweg,
+   sondern Absicht — eine Angabe, die ungeprüft durch Klicks kippt, wäre manipulierbar, und
+   für falsche Fremdinhalte haftet der Betreiber (§ 10 DDG). Der Klick kostet den Nutzer
+   zwei Sekunden, uns eine kurze Prüfung, und die Karte bleibt verlässlich. */
+function pruefStand(p){
+  if(!p.geprueft) return null;
+  const tage = Math.floor((Date.now() - new Date(p.geprueft + "T12:00:00")) / 864e5);
+  if(tage < 0) return null;
+  return { tage, text: tage === 0 ? "heute" : tage === 1 ? "gestern"
+    : tage < 31 ? "vor " + tage + " Tagen"
+    : tage < 365 ? "vor " + Math.round(tage / 30) + " Monaten" : "vor über einem Jahr" };
+}
+/* Nur dort anbieten, wo die Frage überhaupt Sinn ergibt: bei Orten und Dauerangeboten.
+   Bei einem Konzert am Samstag ist „gibt es das noch?" keine sinnvolle Frage. */
+function braucthBestaetigung(p){
+  return p.typ === "spot" || p.typ === "angebot" || (p.tags || []).includes("neu") ||
+         (!p.start && !p.wdh) || !!p.saison;
+}
+function bestaetigungsBlock(p){
+  if(!braucthBestaetigung(p)) return "";
+  const stand = pruefStand(p);
+  const alt = stand && stand.tage > 180;
+  const zeile = stand
+    ? '<span class="bs-stand'+(alt ? " alt" : "")+'">Zuletzt bestätigt: '+esc(stand.text)+'</span>'
+    : '<span class="bs-stand alt">Noch nicht bestätigt</span>';
+  return '<div class="p-bestaetigen">'+ zeile +
+    '<span class="bs-frage">Bist du gerade dort?</span>'+
+    '<span class="bs-knoepfe">'+
+      '<button class="bs-btn ja" data-id="'+esc(p.id)+'" data-antwort="ja">✓ Gibt es</button>'+
+      '<button class="bs-btn nein" data-id="'+esc(p.id)+'" data-antwort="nein">✗ Gibt es nicht mehr</button>'+
+    '</span></div>';
+}
+/* Eine Rückmeldung ist ein Zweizeiler — dafür lohnt kein Formular. Die Nachricht ist fertig
+   formuliert, der Nutzer schickt sie nur ab. */
+function bestaetigungSenden(pinId, antwort){
+  const p = PINS.find(x => x.id === pinId);
+  if(!p) return;
+  const ja = antwort === "ja";
+  const betreff = (ja ? "Bestätigt: " : "Stimmt nicht mehr: ") + p.titel;
+  const text = (ja
+      ? "Ich war gerade dort — es gibt " + p.titel + " noch.\n"
+      : "Hinweis: " + p.titel + " gibt es dort nicht mehr (oder die Angabe stimmt nicht).\n") +
+    "\nPin-Kennung: " + p.id +
+    "\nStand laut Karte: " + (p.geprueft || "noch nie bestätigt") +
+    "\nOrt: " + p.lat + ", " + p.lng +
+    "\n\n(Falls dir noch etwas auffällt, schreib es einfach dazu.)\n";
+  location.href = "mailto:" + KONFIG.mail + "?subject=" + encodeURIComponent(betreff) +
+    "&body=" + encodeURIComponent(text);
+  karma.gemeldet++; lsSet("karma", karma);
+  // Lokal merken, damit man nicht zweimal dasselbe meldet
+  const gemeldet = lsGet("bestaetigt", {});
+  gemeldet[pinId] = { antwort, datum: tagKey(new Date()) };
+  lsSet("bestaetigt", gemeldet);
+  hinweisZeigen(ja ? "Danke! Deine Bestätigung ist unterwegs."
+                   : "Danke für den Hinweis — wir prüfen das.");
+  setTimeout(hinweisWeg, 4000);
+}
+
 function tippBlock(p){
   const feste = Array.isArray(p.tipps) ? p.tipps.filter(t => t && t.text) : [];
   const festeHtml = feste.map(t =>
@@ -1586,7 +1667,7 @@ function popupHTML(p){
       '<button class="p-btn sek p-merk'+(gemerkt?' aktivgruen':'')+'" data-id="'+esc(p.id)+'">★ '+(gemerkt?"Gemerkt ✓":"Merken")+'</button>'+
       '<button class="p-btn sek p-teilen" data-id="'+esc(p.id)+'">↗ Teilen</button>'+
       (p.start ? '<button class="p-btn sek p-ics" data-id="'+esc(p.id)+'">📅 Kalender</button>' : "")+
-    '</div>'+ tippBlock(p) + quelle;
+    '</div>'+ bestaetigungsBlock(p) + tippBlock(p) + quelle;
 }
 
 /* Kopfzeile und HUD liegen als Overlay über der Karte — MapLibre weiß davon nichts und
@@ -2807,6 +2888,13 @@ function entfernungKm(lat1, lng1, lat2, lng2){
 document.addEventListener("click", async e => {
   const navBtn = e.target.closest(".p-vor, .p-zurueck");
   if(navBtn && !navBtn.disabled){ zeigePinNr(+navBtn.dataset.i); return; }
+  const bsBtn = e.target.closest(".bs-btn");
+  if(bsBtn){
+    bestaetigungSenden(bsBtn.dataset.id, bsBtn.dataset.antwort);
+    bsBtn.closest(".p-bestaetigen").innerHTML =
+      '<span class="bs-stand">Danke — deine Rückmeldung ist unterwegs.</span>';
+    return;
+  }
   const dankeBtn = e.target.closest(".p-danke");
   if(dankeBtn){
     const id = dankeBtn.dataset.id;

@@ -67,10 +67,34 @@ von gestern wertlos ist.
 | **iCal-Export aachen.de** (1427 Events, mit Adressen!) | ⏸ wartet auf Freigabe | `X-Robots-Tag: noai`, keine Lizenzangabe → Anfrage an offenedaten@mail.aachen.de liegt in todos.md (Text 6). **Größter Hebel überhaupt.** |
 | **Kinostarts** (Kinopolis, Cineplex, Apollo) | 🔎 zu prüfen | Ketten-Websites sind oft JS-gerendert. Erst robots.txt, dann ob es einen JSON-Endpunkt gibt. Apollo läuft bereits über die Tribe-API. |
 | **openairaachen.de** | 🔎 zu prüfen | Domain existiert. Struktur unbekannt — wahrscheinlich saisonal und klein genug für einen einfachen Parser oder Handpflege. |
-| **Neueröffnungen** (Läden, Restaurants) | 🔎 schwierig | Keine saubere Quelle. Realistisch: OSM-Objekte mit jungem `start_date`, Lokalpresse per LLM-Recherche, oder Meldungen der Betreiber selbst. |
+| **Neueröffnungen** (Läden, Restaurants) | ✅ testweise drin, Pflege von Hand | Siehe eigenen Abschnitt unten |
 | **AVV/ASEAG GTFS** | offen | Abfahrtszeiten je Haltestelle. Die Linien haben wir schon aus OSM — der Zusatznutzen wäre gering. |
 
 ---
+
+### Neueröffnungen — warum das von Hand läuft (geprüft 15.08.2026)
+
+Drei Wege geprüft, keiner automatisierbar:
+
+| Weg | Befund |
+|---|---|
+| **OpenStreetMap `start_date`** | Läden tragen das fast nie ein. Als Quelle unbrauchbar — man fände einzelne Objekte, aber keine Systematik. |
+| **Lokalpresse** (AZ-GastroNews) | Inhaltlich die beste Quelle, aber urheberrechtlich geschützt. Die **Tatsachen** (wer, wo, wann) sind frei und dürfen übernommen werden, die **Formulierungen** nicht. Also: lesen, eigene Worte, verlinken. |
+| **neueroeffnung.info** | Führt Aachen, aber überwiegend Zukunftsprojekte („2. Halbjahr 2026") und nur PLZ statt Adresse. Als Frühwarnung brauchbar, für Kartenpunkte zu ungenau. |
+
+**Deshalb:** Neueröffnungen sind ein eigener Themen-Tag `neu` mit eigenem Symbol (✨) und
+werden von Hand gepflegt. Damit die Karte trotzdem nicht veraltet, hat jeder Ortseintrag eine
+**Bestätigungszeile**: „Zuletzt bestätigt vor X" plus zwei Knöpfe, mit denen Besucher vor Ort
+melden, ob es den Ort noch gibt. Die Rückmeldung läuft als vorbereitete Mail über den
+Betreiber — nicht automatisch, weil eine durch Klicks kippende Angabe manipulierbar wäre und
+für falsche Fremdinhalte der Betreiber haftet (§ 10 DDG).
+
+Angezeigt wird die Frage nur, wo sie Sinn ergibt: bei Orten, Dauerangeboten und
+Neueröffnungen. Bei einem Konzert am Samstag ist „gibt es das noch?" keine sinnvolle Frage.
+
+**Wo die Hausnummer fehlt**, steht das im Pin (`*` in der Meta-Zeile) statt eine zu erfinden.
+Genau diese Fälle klärt die Bestätigungsfunktion — oder eine Mail an den Laden (Text 7 in
+todos.md), die gleich einlädt, künftig eigene Termine zu schicken.
 
 ## 4. Neue Stadt aufschalten — Reihenfolge
 

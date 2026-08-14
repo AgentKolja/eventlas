@@ -3,6 +3,69 @@
  "hinweis": "Schema: typ event|angebot|hilfe|spot · tags[] (nur musik|kultur|fest|markt|sport|familie|natur) · quelle (Beleg-URL) · link (CTA) · hot (beliebt) · hinzu (Aufnahmedatum) · saison {von,bis als MM-TT, jaehrlich wiederkehrend} · fest:true = wird vom Auto-Update nie geloescht · bild {url, credit} · tipps [{text, von, datum}] — Bilder und Tipps kommen von Nutzern und werden VOR der Aufnahme geprueft (Urheber- und Persoenlichkeitsrechte). Recherchestand 08.08.2026.",
  "pins": [
   {
+   "id": "neu-action-arkaden",
+   "typ": "angebot",
+   "titel": "Neu: Action (Aachen Arkaden)",
+   "text": "Non-Food-Discounter, seit 27. Juni 2026 in den Aachen Arkaden. Haushalt, Deko, Bastelbedarf.",
+   "lng": 6.11852,
+   "lat": 50.77062,
+   "meta": "Trierer Straße 1 · seit 27.6.2026",
+   "tags": [
+    "neu"
+   ],
+   "quelle": "https://www.action.com/de-de/laden/aachen-rothe-erde-trierer-strasse-1/",
+   "link": "https://www.action.com/de-de/laden/aachen-rothe-erde-trierer-strasse-1/",
+   "hinzu": "2026-08-15",
+   "geprueft": "2026-08-15",
+   "fest": true
+  },
+  {
+   "id": "neu-curas-coffee",
+   "typ": "angebot",
+   "titel": "Neu: Cura's Coffee",
+   "text": "Café mit Bagels, Kaffee und Matcha, seit 10. März 2026 an der oberen Pontstraße. Genaue Hausnummer noch offen — wer vorbeikommt, darf sie uns gern durchgeben.",
+   "lng": 6.08045,
+   "lat": 50.78002,
+   "meta": "obere Pontstraße* · seit 10.3.2026",
+   "tags": [
+    "neu"
+   ],
+   "quelle": "https://www.aachener-zeitung.de/kultur/klenkes/neue-restaurants-in-aachen-und-der-euregio/140359587.html",
+   "hinzu": "2026-08-15",
+   "fest": true
+  },
+  {
+   "id": "neu-cigkoeftem",
+   "typ": "angebot",
+   "titel": "Neu: Çiğköftem",
+   "text": "Türkischer Imbiss mit Çiğköfte, seit 17. April 2026 in der Adalbertstraße. Genaue Hausnummer noch offen.",
+   "lng": 6.08943,
+   "lat": 50.77489,
+   "meta": "Adalbertstraße* · seit 17.4.2026",
+   "tags": [
+    "neu"
+   ],
+   "quelle": "https://www.neueroeffnung.info/aachen/cigkoeftem_15",
+   "hinzu": "2026-08-15",
+   "fest": true
+  },
+  {
+   "id": "neu-cinemaxx",
+   "typ": "angebot",
+   "titel": "Kommt: CinemaxX Aachen",
+   "text": "Neues Kino im Aachener Zentrum, Eröffnung angekündigt für Januar 2027. Termin ohne Gewähr — sobald es losgeht, steht es hier.",
+   "lng": 6.0838,
+   "lat": 50.7745,
+   "meta": "Innenstadt* · geplant Januar 2027",
+   "tags": [
+    "neu",
+    "kultur"
+   ],
+   "quelle": "https://www.neueroeffnung.info/stadt/aachen",
+   "hinzu": "2026-08-15",
+   "fest": true
+  },
+  {
    "id": "suedoase-jam-do",
    "typ": "event",
    "titel": "Live-Jam & Billard: Reggae-Abend",
