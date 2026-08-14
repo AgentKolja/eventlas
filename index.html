@@ -626,9 +626,9 @@
     <button class="kbtn" id="btn-info" aria-label="Info und Datenschutz" title="Info & Datenschutz">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M12 11v5"/></svg>
     </button>
-    <!-- Das Profil steht abgesetzt hinter einem Trenner: Die anderen fünf Knöpfe wirken auf
+    <!-- Das Profil steht abgesetzt hinter einem Trenner: Die anderen vier Knöpfe wirken auf
          das, was man gerade auf der Karte sieht. Das Profil betrifft dagegen einen selbst
-         und wird viel seltener gebraucht — als sechstes gleich aussehendes Symbol ging es
+         und wird viel seltener gebraucht — als fünftes gleich aussehendes Symbol ging es
          in der Reihe unter. -->
     <span class="kopf-trenner" aria-hidden="true"></span>
     <button class="kbtn profil" id="btn-profil" aria-label="Profil und Personalisierung" title="Profil — Interessen, Wohnort, Kartenbild">
@@ -861,20 +861,45 @@ function wdhImFenster(wdh, von, bis){
   for(let i=0; i<8 && d<=bis; i++){ if(wdhAnTag(wdh, d)) return true; d.setDate(d.getDate()+1); }
   return false;
 }
-/* Uhrzeit aus der Meta-Zeile lesen: "Musikbunker · 20 Uhr", "Markt · 20:30 · frei",
-   "Sa 7–13 Uhr". Liefert Minuten seit Mitternacht oder null, wenn keine Zeit dabeisteht. */
+/* Uhrzeiten aus einem Text lesen: "Musikbunker · 20 Uhr", "Markt · 20:30 · frei",
+   "Sa 7–13 Uhr". Liefert {start, ende} in Minuten seit Mitternacht — ende nur, wenn wirklich
+   eine Spanne dasteht. Null, wenn gar keine Zeit gefunden wurde.
+
+   Zeitspannen werden ZUERST geprüft: Bei "Sa 7–13 Uhr" steht das Wort "Uhr" hinter der
+   Endzeit, eine Einzelzeit-Suche greift deshalb die 13 und macht aus dem Vormittagsmarkt
+   eine Nachmittagsveranstaltung.
+
+   Zwei Sonderfälle beim Ende: "bis 24 Uhr" und Spannen über Mitternacht ("22–3 Uhr") laufen
+   bis Tagesende — sonst läge das Ende vor dem Beginn und der Termin wäre nie aktuell. */
+function zeitAusText(text){
+  const spanne = text.match(/(?:^|[^\d.])(\d{1,2})(?:[:.](\d{2}))?\s*[–—-]\s*(\d{1,2})(?:[:.](\d{2}))?\s*Uhr/);
+  if(spanne){
+    const start = (+spanne[1]) * 60 + (spanne[2] ? +spanne[2] : 0);
+    if(start > 1439) return null;
+    let ende = (+spanne[3]) * 60 + (spanne[4] ? +spanne[4] : 0);
+    if(ende > 1440) ende = null;
+    else if(ende === 1440 || ende <= start) ende = 1439;
+    return {start, ende};
+  }
+  const einzeln = text.match(/(?:^|[^\d.])(\d{1,2})[:.](\d{2})\s*(?:Uhr)?/) ||
+                  text.match(/(?:^|[^\d.])(\d{1,2})\s*Uhr/);
+  if(!einzeln) return null;
+  const start = (+einzeln[1]) * 60 + (einzeln[2] ? +einzeln[2] : 0);
+  return start > 1439 ? null : {start, ende: null};
+}
 function startMinute(p){
   if(p._min !== undefined) return p._min;
-  const text = (p.meta || "") + " " + (p.text || "");
-  /* Zeitspannen ZUERST prüfen: Bei "Sa 7–13 Uhr" steht das Wort "Uhr" hinter der Endzeit,
-     eine Einzelzeit-Suche greift deshalb die 13 und macht aus dem Vormittagsmarkt eine
-     Nachmittagsveranstaltung. Uns interessiert immer der Beginn. */
-  const m = text.match(/(?:^|[^\d.])(\d{1,2})(?:[:.](\d{2}))?\s*[–—-]\s*\d{1,2}(?:[:.]\d{2})?\s*Uhr/) ||
-            text.match(/(?:^|[^\d.])(\d{1,2})[:.](\d{2})\s*(?:Uhr)?/) ||
-            text.match(/(?:^|[^\d.])(\d{1,2})\s*Uhr/);
-  p._min = m ? (+m[1]) * 60 + (m[2] ? +m[2] : 0) : null;
-  if(p._min !== null && (p._min < 0 || p._min > 1439)) p._min = null;
+  const z = zeitAusText((p.meta || "") + " " + (p.text || ""));
+  p._min = z ? z.start : null;
   return p._min;
+}
+/* Für die Frage "läuft das jetzt noch?" zählt allein die Meta-Zeile — die gepflegte
+   Kurzangabe ("Katschhof · 11–18 Uhr"). Im Fließtext stehen oft Zeiten, die nur für einen
+   einzelnen Tag gelten ("Mo 10.8. reizarme Kirmes 14–17 Uhr"); daraus eine tägliche Endzeit
+   abzuleiten hat die zehntägige Kirmes jeden Nachmittag um 17 Uhr verschwinden lassen. */
+function metaZeit(p){
+  if(p._metaZeit === undefined) p._metaZeit = zeitAusText(p.meta || "");
+  return p._metaZeit;
 }
 /* Uhrzeit-Fenster prüfen — nur wenn im Filter überhaupt eine Zeit gesetzt wurde.
    Pins ohne Zeitangabe (Märkte, Ausstellungen, Ernteorte) bleiben bewusst sichtbar. */
@@ -887,44 +912,24 @@ function uhrzeitOk(p, f){
   return vonMin <= bisMin ? (min >= vonMin && min <= bisMin) : (min >= vonMin || min <= bisMin);
 }
 
-/* Bis wann läuft der Termin? Aus „11–18 Uhr" die 18 Uhr, aus „ab 20 Uhr" nichts. Zwei
-   Sonderfälle: „bis 24 Uhr" und Zeiten über Mitternacht („22–3 Uhr") laufen bis Tagesende —
-   sonst wäre die Endzeit kleiner als der Beginn und der Termin schon vor dem Anfang vorbei. */
-function endMinute(p){
-  if(p._maxMin !== undefined) return p._maxMin;
-  const text = (p.meta || "") + " " + (p.text || "");
-  const m = text.match(/(?:^|[^\d.])(\d{1,2})(?:[:.](\d{2}))?\s*[–—-]\s*(\d{1,2})(?:[:.](\d{2}))?\s*Uhr/);
-  let ende = null;
-  if(m){
-    const start = (+m[1]) * 60 + (m[2] ? +m[2] : 0);
-    ende = (+m[3]) * 60 + (m[4] ? +m[4] : 0);
-    if(ende > 1440) ende = null;                      // unplausible Zahl im Text
-    else if(ende === 1440 || ende <= start) ende = 1439;
-  }
-  p._maxMin = ende;
-  return ende;
-}
-
 /* Ist der heutige Termin schon vorbei? „Heute" rechnet ab JETZT, nicht ab Mitternacht —
    ein Konzert von 20 Uhr gehört mittags in die Liste, um 23 Uhr nicht mehr. Das ersetzt den
    früheren Abendfilter: Wer um 19 Uhr schaut, sieht dadurch von selbst nur noch Abendliches.
 
    Drei bewusste Ausnahmen, damit nichts fälschlich verschwindet:
-   - Steht eine Endzeit im Text („Flohmarkt 11–18 Uhr"), zählt die. Nur den Beginn zu prüfen
+   - Steht eine Endzeit dabei („Flohmarkt 11–18 Uhr"), zählt die. Nur den Beginn zu prüfen
      hat den Flohmarkt um 12 Uhr aus der Liste geworfen, obwohl er noch sechs Stunden lief.
-   - Pins OHNE erkennbare Uhrzeit (Wochenmarkt „vormittags", Ausstellungen) bleiben stehen.
+   - Pins OHNE gepflegte Uhrzeit (Wochenmarkt „vormittags", Ausstellungen) bleiben stehen.
      Sie auszublenden wäre geraten, nicht gewusst — sie rutschen stattdessen ans Listenende.
    - Ist nur der Beginn bekannt, eine Kulanzstunde: Wer um 20:15 sucht, findet das Konzert
      von 20 Uhr noch. */
 const KULANZ_MIN = 60;
 function heuteSchonVorbei(p){
+  const z = metaZeit(p);
+  if(!z) return false;                                // keine gepflegte Zeit → nie ausblenden
   const jetzt = new Date();
   const min = jetzt.getHours() * 60 + jetzt.getMinutes();
-  const ende = endMinute(p);
-  if(ende !== null) return ende < min;                // Endzeit bekannt → die entscheidet
-  const start = startMinute(p);
-  if(start === null) return false;                    // keine Zeit bekannt → nie ausblenden
-  return start + KULANZ_MIN < min;
+  return (z.ende !== null ? z.ende : z.start + KULANZ_MIN) < min;
 }
 
 function wdhAktivImFenster(p, von, bis){
@@ -2527,7 +2532,7 @@ function zeigeEinfuehrung(){
   modalOeffnen(
     '<h2>So funktioniert Eventlas</h2>'+
     '<p>Die Karte zeigt, was gerade in '+esc(STADT.name)+' läuft. In 20 Sekunden erklärt:</p>'+
-    punkt("🔥", "Was ist los?", "Der ☰-Knopf oben zeigt die Liste: heute, als Nächstes, Saison. Damit findest du dich am schnellsten zurecht.") +
+    punkt("🔥", "Was ist los?", "Der ☰-Knopf unten links zeigt die Liste: heute, als Nächstes, Saison. Die Zahl daran sagt, wie viel gerade im Kartenausschnitt liegt.") +
     punkt("🎵", "Nach Thema filtern", "Unten die Chips antippen — Musik, Flohmarkt, Ernte … Die Zahl daneben sagt, wie viel es davon gibt.") +
     punkt("🗓", "Zeitraum wählen", "Heute · Demnächst · Alle — oder 📅 für eigene Daten. „Heute“ zeigt nur, was noch nicht vorbei ist.") +
     punkt("📷", "Plakat gesehen?", "Foto-Knopf oben: Kamera auf, abdrücken, fertig. Den Ort erkennt die App selbst.") +

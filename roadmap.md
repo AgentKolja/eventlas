@@ -28,10 +28,10 @@ Zum Live-Bestand gehören: `index.html`, `pins.json`, `orte.json`, `manifest.jso
 | B3 | **Beispiel-Gesuche entfernen** | 🔨 |
 | B4 | **Profil-Knopf absetzen** von den übrigen Symbolen | 🔨 |
 | B5 | **Ticketkauf verlinken, mit Preisangabe** | 🔨 |
-| B6 | **Neue Quellen:** Kinostarts, Neueröffnungen (Läden, Restaurants), rausgegangen.de über Konzerte hinaus, openairaachen | 🔨 |
-| B7 | **Pins bestätigen ohne Supabase:** Mail an nikolas.voth92@gmail.com bzw. Kalendereintrag, den der Mail-Assistent verarbeitet | 🔨 |
-| B8 | **Fotos und Kommentare aus dem Netz** einbinden, soweit rechtlich sauber und kostenlos | 🔨 |
-| B9 | **Quellen-Handbuch** schreiben, damit die nächste Stadt schnell geht | 🔨 |
+| B6 | **Neue Quellen:** rausgegangen breiter ✅ · Kinostarts/Neueröffnungen/openairaachen 🔎 geprüft, siehe Handbuch | teilweise |
+| B7 | **Pins bestätigen ohne Supabase:** Formular → Mail mit fertigem JSON + .ics | ✅ 15.08. |
+| B8 | **Fotos und Kommentare aus dem Netz** einbinden, soweit rechtlich sauber | siehe Grenze unten |
+| B9 | **Quellen-Handbuch** für die nächste Stadt | ✅ [quellen-handbuch.md](quellen-handbuch.md) |
 
 ### Zu B1: warum „Abend" entfallen kann
 Der Filter war eine Krücke gegen ein anderes Problem: „Heute" zeigte auch das, was um 10 Uhr

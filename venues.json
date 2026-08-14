@@ -7,6 +7,19 @@
       "bbox": { "lngMin": 5.85, "lngMax": 6.35, "latMin": 50.6, "latMax": 51.1 },
       "kulturApi": "https://api.kulturkalender-aachen.de/events",
       "konzertQuelle": "https://rausgegangen.de/aachen/kategorie/konzerte-und-musik/",
+      "rausgegangen": [
+        { "url": "https://rausgegangen.de/aachen/kategorie/konzerte-und-musik/", "tags": ["musik"], "was": "Konzert" },
+        { "url": "https://rausgegangen.de/aachen/kategorie/party/", "tags": ["musik"], "was": "Party" },
+        { "url": "https://rausgegangen.de/aachen/kategorie/kunst-und-ausstellungen/", "tags": ["kultur"], "was": "Ausstellung" },
+        { "url": "https://rausgegangen.de/aachen/kategorie/theater-und-buehne/", "tags": ["kultur"], "was": "Bühne" },
+        { "url": "https://rausgegangen.de/aachen/kategorie/comedy-und-kabarett/", "tags": ["kultur"], "was": "Comedy" },
+        { "url": "https://rausgegangen.de/aachen/kategorie/film/", "tags": ["kultur"], "was": "Film" },
+        { "url": "https://rausgegangen.de/aachen/kategorie/markt-und-flohmarkt/", "tags": ["markt"], "was": "Markt" },
+        { "url": "https://rausgegangen.de/aachen/kategorie/essen-und-trinken/", "tags": ["markt"], "was": "Kulinarik" },
+        { "url": "https://rausgegangen.de/aachen/kategorie/sport-und-aktiv/", "tags": ["sport"], "was": "Sport" },
+        { "url": "https://rausgegangen.de/aachen/kategorie/fuer-kinder/", "tags": ["familie"], "was": "Für Kinder" },
+        { "url": "https://rausgegangen.de/aachen/kategorie/kennenlernen/", "tags": ["fest"], "was": "Kennenlernen" }
+      ],
       "tribeApis": [
         "https://aachen-kalender.de/wp-json/tribe/events/v1/events",
         "https://mubu.ac/wp-json/tribe/events/v1/events",

@@ -253,18 +253,40 @@ function entHtml(s) {
     .replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
 }
 
-async function rausgegangenKonzerte() {
-  if (!STADT.konzertQuelle) return [];
+/* rausgegangen führt mehr als Konzerte — Ausstellungen, Comedy, Sport, Märkte, sogar
+   Kennenlern-Formate wie Schatzsuchen. Welche Rubriken geholt werden, steht in venues.json,
+   damit eine neue Stadt nur ihre eigene Liste einträgt statt Code zu ändern. Eine Rubrik,
+   die es nicht gibt, wird übersprungen statt den Lauf zu stoppen. */
+function rausgegangenRubriken() {
+  if (Array.isArray(STADT.rausgegangen) && STADT.rausgegangen.length) return STADT.rausgegangen;
+  if (STADT.konzertQuelle) return [{ url: STADT.konzertQuelle, tags: ["musik"], was: "Konzert" }];
+  return [];
+}
+
+async function rausgegangenPins() {
+  const rubriken = rausgegangenRubriken();
+  if (!rubriken.length) return [];
+  const alle = [];
+  for (const rubrik of rubriken) {
+    const teil = await rausgegangenRubrik(rubrik);
+    alle.push(...teil);
+    await new Promise(r => setTimeout(r, 10000));    // Crawl-Delay auch zwischen Rubriken
+  }
+  console.log(`rausgegangen gesamt: ${alle.length} Termine aus ${rubriken.length} Rubrik(en).`);
+  return alle;
+}
+
+async function rausgegangenRubrik(rubrik) {
   const pins = [];
   for (const seite of [1, 2]) {
-    const url = STADT.konzertQuelle + (seite > 1 ? "?page=" + seite : "");
+    const url = rubrik.url + (seite > 1 ? "?page=" + seite : "");
     try {
       if (seite > 1) await new Promise(r => setTimeout(r, 10000));   // Crawl-Delay respektieren
       const res = await fetch(url, { headers: {
         "user-agent": "EventlasBot/1.0 (nichtkommerzielle Stadtkarte; +https://eventlas.netlify.app)",
         "accept": "text/html",
       }});
-      if (!res.ok) { console.error("rausgegangen:", res.status, "- übersprungen"); break; }
+      if (!res.ok) { console.log(`rausgegangen ${rubrik.was || ""}: HTTP ${res.status} — Rubrik übersprungen.`); break; }
       const html = await res.text();
 
       // Jede Kachel beginnt mit event-tile-link und endet vor der nächsten
@@ -284,24 +306,25 @@ async function rausgegangenKonzerte() {
         const start = datumAusTagMonat(parseInt(m[1], 10), monat);
         const uhr = m[3] || "";
 
+        const haus = ort.replace(/\s+e\.?\s?V\.?$/i, "");
         pins.push({
           typ: "event",
           titel,
-          text: "Konzert in " + ort.replace(/\s+e\.?\s?V\.?$/i, "") + (uhr ? ", Beginn " + uhr + " Uhr." : "."),
+          text: (rubrik.was || "Termin") + " in " + haus + (uhr ? ", Beginn " + uhr + " Uhr." : "."),
           lng: 0, lat: 0,                                  // wird von snapAufVenue gesetzt
           start,
-          meta: ort.replace(/\s+e\.?\s?V\.?$/i, "") + (uhr ? " · " + uhr : ""),
-          tags: ["musik"],
-          quelle: href ? "https://rausgegangen.de" + href : STADT.konzertQuelle,
+          meta: haus + (uhr ? " · " + uhr : ""),
+          tags: rubrik.tags && rubrik.tags.length ? rubrik.tags.slice(0, 3) : ["kultur"],
+          quelle: href ? "https://rausgegangen.de" + href : rubrik.url,
           link: href ? "https://rausgegangen.de" + href : undefined,
         });
       }
     } catch (e) {
-      console.error("rausgegangen nicht erreichbar (übersprungen):", e.message);
+      console.log(`rausgegangen ${rubrik.was || ""} nicht erreichbar (übersprungen): ${e.message}`);
       break;
     }
   }
-  console.log(`rausgegangen: ${pins.length} Konzerte gefunden.`);
+  console.log(`  rausgegangen/${rubrik.was || "?"}: ${pins.length} Termine.`);
   return pins;
 }
 
@@ -525,7 +548,7 @@ function normiere(p) {
 async function main() {
   const bekannt = [...feste, ...nochAktuell];
   const [kultur, konzerte, bunker, tribe, recherche] = await Promise.all([
-    kulturPins(), rausgegangenKonzerte(), musikbunkerKonzerte(), tribePins(), claudePins(bekannt),
+    kulturPins(), rausgegangenPins(), musikbunkerKonzerte(), tribePins(), claudePins(bekannt),
   ]);
 
   // Kultur-API behält ihre deterministische id, verliert aber fest/hot;
