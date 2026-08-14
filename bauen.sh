@@ -15,9 +15,18 @@ cp bilder/*.jpg public/bilder/
 
 # Erste und wichtigste Nagelprobe: Lässt sich das JavaScript überhaupt lesen? Ein einziges
 # schiefes Anführungszeichen im deutschen Text macht die ganze Datei unparsbar und die App
-# zeigt nur noch eine leere Karte — genau das ist am 14.08. passiert. Hier bricht der Build
-# absichtlich hart ab: Eine Seite, die gar nicht startet, darf nicht live gehen.
-node scripts/js-pruefen.mjs index.html
+# zeigt nur noch eine leere Karte — genau das ist am 14.08. passiert. Findet die Prüfung
+# einen Syntaxfehler, bricht der Build absichtlich hart ab: Eine Seite, die gar nicht
+# startet, darf nicht live gehen.
+#
+# Fehlt dagegen node selbst, ist das ein Problem der Bauumgebung und kein Codefehler. Dann
+# nur warnen und weitermachen — sonst friert ein Umgebungsfehler die Seite auf ewig auf dem
+# alten Stand ein, und man sucht den Fehler tagelang im eigenen Code.
+if command -v node >/dev/null 2>&1; then
+  node scripts/js-pruefen.mjs index.html
+else
+  echo "WARNUNG: node nicht gefunden — JavaScript-Prüfung übersprungen."
+fi
 
 roh=$(wc -c < index.html)
 
@@ -38,7 +47,7 @@ if npx --yes html-minifier-terser@7 \
      && grep -q "maplibre-gl.js" public/index.html \
      && grep -q "pinsDatei" public/index.html \
      && grep -q "Alle Rechte vorbehalten" public/index.html \
-     && node scripts/js-pruefen.mjs public/index.html; then
+     && { ! command -v node >/dev/null 2>&1 || node scripts/js-pruefen.mjs public/index.html; }; then
     echo "index.html verkleinert: $roh → $klein Bytes ($(( 100 - klein * 100 / roh )) % gespart)"
   else
     echo "WARNUNG: Minifizierung sah unvollständig aus ($klein Bytes) — nehme das Original."
@@ -48,6 +57,18 @@ else
   echo "WARNUNG: Minifizierung fehlgeschlagen — nehme das Original."
   cp index.html public/index.html
 fi
+
+# Was steht eigentlich gerade live? Ohne diese Datei ließ sich das nur raten — man vergleicht
+# Dateigrößen und sucht nach Codeschnipseln, um herauszufinden, ob ein Deploy angekommen ist.
+# Netlify reicht Commit und Zeitpunkt als Umgebungsvariablen herein.
+cat > public/version.json <<VERSION
+{
+  "commit": "${COMMIT_REF:-unbekannt}",
+  "gebaut": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+  "zweig": "${BRANCH:-unbekannt}",
+  "hinweis": "Zeigt, welcher Stand gerade ausgeliefert wird. Erzeugt von bauen.sh bei jedem Deploy."
+}
+VERSION
 
 echo "Build fertig:"
 ls -la public/ | tail -n +2
