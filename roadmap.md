@@ -18,7 +18,49 @@ Zum Live-Bestand gehören: `index.html`, `pins.json`, `orte.json`, `manifest.jso
 | 1 | **Liste auf dem Handy**: Zurück-Geste, Karte sichtbar, Bereiche erkennbar, filterbar | ✅ 14.08. |
 | 5 | **Filter auf dem Handy präsenter** | ✅ 14.08. (in der Liste) |
 | 6 | **Clustering empfindlicher**, gleicher Ort → direkt Liste | ✅ 14.08. |
-| 3 | **Pin melden: Ortauswahl sofort**, Nutzer legen Einträge selbst an | offen — braucht Supabase |
+| 3 | **Pin melden: Ortauswahl sofort** ✅, Nutzer legen Einträge selbst an | siehe B7 unten |
+
+## 🔧 Auftragsliste vom 14.08., zweite Runde
+| # | Was | Status |
+|---|---|---|
+| B1 | **Zeitfilter aufräumen:** „Heute" zeigt nur noch, was nicht schon vorbei ist → „Abend" wird dadurch überflüssig und entfällt | 🔨 |
+| B2 | **Kategorie-Filter (Events/Angebote/Hilfe/Spots) entfernen** — wird nicht gebraucht | 🔨 |
+| B3 | **Beispiel-Gesuche entfernen** | 🔨 |
+| B4 | **Profil-Knopf absetzen** von den übrigen Symbolen | 🔨 |
+| B5 | **Ticketkauf verlinken, mit Preisangabe** | 🔨 |
+| B6 | **Neue Quellen:** Kinostarts, Neueröffnungen (Läden, Restaurants), rausgegangen.de über Konzerte hinaus, openairaachen | 🔨 |
+| B7 | **Pins bestätigen ohne Supabase:** Mail an nikolas.voth92@gmail.com bzw. Kalendereintrag, den der Mail-Assistent verarbeitet | 🔨 |
+| B8 | **Fotos und Kommentare aus dem Netz** einbinden, soweit rechtlich sauber und kostenlos | 🔨 |
+| B9 | **Quellen-Handbuch** schreiben, damit die nächste Stadt schnell geht | 🔨 |
+
+### Zu B1: warum „Abend" entfallen kann
+Der Filter war eine Krücke gegen ein anderes Problem: „Heute" zeigte auch das, was um 10 Uhr
+begonnen und um 12 Uhr geendet hat. Wenn „Heute" stattdessen ab **jetzt** rechnet, steht um
+19 Uhr von selbst nur noch das da, was am Abend läuft — ein eigener Abendfilter wäre dann
+dieselbe Liste unter anderem Namen. Ein Chip weniger, und die verbleibenden stimmen immer.
+
+Ausgenommen bleiben Pins **ohne Uhrzeit** (Wochenmarkt „vormittags", Ausstellungen): Ohne
+belastbare Zeitangabe wäre das Ausblenden geraten. Sie rutschen ans Ende statt zu verschwinden.
+
+### Zu B2: warum die Kategoriezeile weg kann
+Vier Chips für event/angebot/hilfe/spot kosten dauerhaft Platz, obwohl Form und Farbe der
+Marker dieselbe Information tragen. Die Themen-Chips (Musik, Kultur, Markt …) sind das, wonach
+Leute tatsächlich filtern. Die Kategorien bleiben in den Daten und in der Legende erhalten —
+nur die Filterzeile entfällt.
+
+### Zu B7: Bestätigen per Mail statt per Datenbank
+Deutlich einfacher als Supabase und ohne laufende Kosten: Eine Meldung erzeugt eine
+**strukturierte Mail** an dich (feste Felder, Koordinaten, fertiger JSON-Block zum Einfügen)
+plus optional einen **Kalendereintrag als .ics**. Dein Mail-Assistent kann daraus direkt einen
+Termin anlegen. Vorteil gegenüber der Datenbank: keine Moderationsschulden, keine Haftung für
+ungeprüfte Fremdinhalte (§ 10 DDG), kein zusätzlicher Dienst im Datenschutztext.
+
+### Zu B8, ehrliche Grenze
+Fotos und Kommentare von Google Maps, Instagram oder TripAdvisor sind **nicht** frei
+übernehmbar — deren Nutzungsbedingungen untersagen das Auslesen ausdrücklich, und an fremden
+Fotos hängen Urheberrechte. Was geht: freie Quellen einbinden (Wikimedia Commons, OSM-Fotos,
+Veranstalter-Material mit Erlaubnis) und alles andere **verlinken statt kopieren**. Genau so
+läuft es schon bei Wikipedia und den Ortsfotos.
 
 ### Zu Nr. 2 vorab, damit die Erwartung stimmt
 Eine Web-App wird im Browser des Besuchers ausgeführt — der Quelltext **muss** dorthin
