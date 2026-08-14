@@ -91,6 +91,30 @@ neue Action **„Ortsdaten auffrischen"** — ohne API-Schlüssel, weil beide Qu
 - [ ] Nur falls du magst: einmal unter *Actions* → „Ortsdaten auffrischen" → **Run workflow**
       testen. Nötig ist es nicht, die Datei ist aktuell.
 
+## 🔴 ZUERST: Netlify baut nicht mehr (Stand 14.08., 18:06)
+Die letzten **vier Commits sind nicht live gegangen**. Netlify steht auf `4f31d0a`; alles
+danach fehlt auf der Seite — auch die Neueröffnungen und die Bestätigungsfunktion.
+
+Gemessen, nicht vermutet: Die ausgelieferten Dateien liegen seit 17 Minuten unverändert im
+CDN, und `/version.json` (die der neue Build anlegt) antwortet mit 404. Es wurde also gar
+nicht gebaut. Am Code liegt es nicht — lokal ist alles geprüft: JavaScript parst, `pins.json`
+ist gültig mit 147 Pins, der Build läuft lokal vollständig durch.
+
+**Bitte einmal nachsehen:** app.netlify.com → Site **eventlas** → **Deploys**.
+Dort steht in der Liste, was los ist. Die vier üblichen Ursachen:
+
+| Was du siehst | Bedeutung | Lösung |
+|---|---|---|
+| Deploy mit rotem **Failed** | Build bricht ab | Log öffnen, letzte Zeilen schicken — dann finde ich es |
+| Gar kein neuer Eintrag | Auto-Deploy hängt oder ist aus | **Site configuration → Build & deploy → Continuous deployment** prüfen; „Stop builds" darf nicht aktiv sein |
+| **Building** seit Ewigkeiten | Warteschlange | abwarten oder abbrechen und **Trigger deploy → Deploy site** |
+| Hinweis auf **Build minutes** | Freikontingent (300 min/Monat) aufgebraucht | bis zum Monatswechsel warten oder per Drag-and-drop hochladen |
+
+**Notnagel, falls es dauert:** `upload-vorbereiten.cmd` doppelklicken und den `Upload`-Ordner
+auf app.netlify.com/drop ziehen. Damit ist der aktuelle Stand sofort live, unabhängig vom Build.
+
+- [ ] Nachgesehen, was in **Deploys** steht
+
 ## ✨ Neu: Neueröffnungen auf der Karte (testweise, 15.08.)
 Vier Einträge sind drauf — **Action** (Aachen Arkaden, Adresse über die offizielle Filialseite
 belegt), **Cura's Coffee** (obere Pontstraße), **Çiğköftem** (Adalbertstraße) und das
