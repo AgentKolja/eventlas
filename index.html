@@ -132,7 +132,7 @@
     border-radius:10px;background:var(--nacht);border:1px solid var(--linie);margin:8px 0}
   .ort-status.ok{border-color:var(--event);color:var(--event)}
   .ort-status.warn{border-color:var(--hilfe);color:var(--hilfe)}
-  .kbtn:focus-visible,.chip:focus-visible,.zchip:focus-visible,.tagchip:focus-visible,.melden:focus-visible{outline:2px solid var(--papier);outline-offset:2px}
+  .kbtn:focus-visible,.zchip:focus-visible,.tagchip:focus-visible,.melden:focus-visible{outline:2px solid var(--papier);outline-offset:2px}
 
   /* Suchleiste */
   .suche{position:absolute;left:12px;right:12px;z-index:19;display:none;
@@ -226,19 +226,9 @@
     min-height:42px}
   .zchip.an{color:#141414;background:var(--papier);border-color:var(--papier)}
 
-  /* Kategorie-Chips mit Icons (Roadmap Nr. 2, 11) */
-  .filter{display:flex;gap:6px}
-  .chip{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;
-    border:1px solid var(--linie);background:var(--panel);color:var(--papier);
-    border-radius:12px;padding:12px 4px;font:600 12px 'Inter';cursor:pointer;
-    transition:transform .12s ease, opacity .12s ease;min-width:0;min-height:46px}
-  .chip:active{transform:scale(.97)}
-  .chip svg{width:15px;height:15px;flex:none}
-  .chip .zahl{font-family:'Anton';font-size:14px;letter-spacing:.5px}
-  .chip[data-typ="event"] svg{color:var(--event)} .chip[data-typ="angebot"] svg{color:var(--angebot)}
-  .chip[data-typ="hilfe"] svg{color:var(--hilfe)} .chip[data-typ="spot"] svg{color:var(--spot)}
-  .chip.aus{opacity:.35}
-  .chip .lbl{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  /* Die Kategorie-Chips (event/angebot/hilfe/spot) sind mit ihrer Filterzeile entfallen —
+     ihr CSS steht deshalb nicht mehr hier. Form und Farbe der Marker tragen dieselbe
+     Information; die Legende im Info-Dialog erklärt sie. */
 
   /* Liste und Melden gleichwertig nebeneinander: Die Liste ist der Haupteinstieg,
      wenn man nicht auf der Karte suchen will — nicht nur ein Icon unter vielen oben. */
