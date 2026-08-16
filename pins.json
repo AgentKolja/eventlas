@@ -1,6 +1,6 @@
 {
- "stand": "2026-08-08",
- "hinweis": "Schema: typ event|angebot|hilfe|spot · tags[] (nur musik|kultur|fest|markt|sport|familie|natur) · quelle (Beleg-URL) · link (CTA) · hot (beliebt) · hinzu (Aufnahmedatum) · saison {von,bis als MM-TT, jaehrlich wiederkehrend} · fest:true = wird vom Auto-Update nie geloescht · bild {url, credit} · tipps [{text, von, datum}] — Bilder und Tipps kommen von Nutzern und werden VOR der Aufnahme geprueft (Urheber- und Persoenlichkeitsrechte). Recherchestand 08.08.2026.",
+ "stand": "2026-08-16",
+ "hinweis": "Schema: typ event|angebot|hilfe|spot · tags[] · quelle (Beleg-URL) · link (CTA) · hot (beliebt) · hinzu (Aufnahmedatum) · saison {von,bis als MM-TT, jaehrlich wiederkehrend} · fest:true = wird vom Auto-Update nie geloescht.",
  "pins": [
   {
    "id": "neu-action-arkaden",
@@ -13,10 +13,9 @@
    "tags": [
     "neu"
    ],
-   "quelle": "https://www.action.com/de-de/laden/aachen-rothe-erde-trierer-strasse-1/",
    "link": "https://www.action.com/de-de/laden/aachen-rothe-erde-trierer-strasse-1/",
+   "quelle": "https://www.action.com/de-de/laden/aachen-rothe-erde-trierer-strasse-1/",
    "hinzu": "2026-08-15",
-   "geprueft": "2026-08-15",
    "fest": true
   },
   {
@@ -145,191 +144,6 @@
    "fest": true
   },
   {
-   "id": "sommerbend",
-   "typ": "event",
-   "titel": "Öcher Sommerbend",
-   "text": "Kirmes auf dem Bendplatz, täglich ab 14 Uhr. Mo 10.8. reizarme Kirmes 14–17 Uhr, Di 11.8. Kindertag, Mi 12.8. Familientag mit 50 % Rabatt, Abschlussfeuerwerk 17.8. gegen 22 Uhr.",
-   "lng": 6.07,
-   "lat": 50.7822,
-   "start": "2026-08-07",
-   "ende": "2026-08-17",
-   "meta": "Bendplatz",
-   "tags": [
-    "fest",
-    "familie"
-   ],
-   "link": "https://www.bend-aachen.de",
-   "quelle": "https://www.bend-aachen.de",
-   "hot": true,
-   "hinzu": "2026-08-07"
-  },
-  {
-   "id": "reitwm",
-   "typ": "event",
-   "titel": "Reit-WM: FEI World Championships",
-   "text": "13 Tage Weltmeisterschaft in 6 Disziplinen — 650 Athleten, 800 Pferde, das größte Sportereignis des Jahres in NRW. Allianz Park Soers.",
-   "lng": 6.0925,
-   "lat": 50.7972,
-   "start": "2026-08-11",
-   "ende": "2026-08-23",
-   "meta": "Soers",
-   "tags": [
-    "sport"
-   ],
-   "link": "https://www.aachen2026.com",
-   "quelle": "https://www.aachen2026.com",
-   "hot": true,
-   "hinzu": "2026-08-07"
-  },
-  {
-   "id": "reitwm-tot",
-   "typ": "event",
-   "titel": "Reit-WM: Tag der offenen Tür",
-   "text": "Kostenloses Showprogramm im Hauptstadion, 12–15 Uhr — WM-Luft schnuppern ohne Ticket.",
-   "lng": 6.0942,
-   "lat": 50.7963,
-   "start": "2026-08-17",
-   "meta": "12–15 Uhr · frei",
-   "tags": [
-    "sport"
-   ],
-   "link": "https://www.aachen2026.com",
-   "quelle": "https://www.aachen2026.com",
-   "hinzu": "2026-08-07"
-  },
-  {
-   "id": "wm-special",
-   "typ": "event",
-   "titel": "Aachen WM Special — Kultur-Rahmenprogramm",
-   "text": "Kostenloses Rahmenprogramm zur Reit-WM in der Innenstadt: Konzerte auf zwei Bühnen, Theater, Tanz, Kunstaktionen. Täglich ab 11 Uhr Food-Markt auf Katschhof und Münsterplatz.",
-   "lng": 6.0836,
-   "lat": 50.7757,
-   "start": "2026-08-11",
-   "ende": "2026-08-23",
-   "meta": "Innenstadt · Eintritt frei",
-   "tags": [
-    "kultur",
-    "musik",
-    "markt"
-   ],
-   "quelle": "https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/",
-   "hot": true,
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "ar-route",
-   "typ": "event",
-   "titel": "AR-Kunstroute zur WM",
-   "text": "Kostenlose Augmented-Reality-Route durch die Stadt: Elisengarten, Büchel, Suermondt-Ludwig-Museum, NAK-Park bis zur Soers.",
-   "lng": 6.0865,
-   "lat": 50.7743,
-   "start": "2026-08-11",
-   "ende": "2026-08-23",
-   "meta": "kostenlos",
-   "tags": [
-    "kultur"
-   ],
-   "quelle": "https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/",
-   "hinzu": "2026-08-07"
-  },
-  {
-   "id": "alemannia-verl",
-   "typ": "event",
-   "titel": "Alemannia – SC Verl",
-   "text": "Saisonauftakt am Tivoli, Anstoß 19:30 Uhr. Vorher Fanmarsch: Treffen ab 13 Uhr auf dem Markt, Abmarsch 15:30 Uhr.",
-   "lng": 6.0955,
-   "lat": 50.793,
-   "start": "2026-08-09",
-   "meta": "19:30 · Tivoli",
-   "tags": [
-    "sport"
-   ],
-   "link": "https://www.alemannia-aachen.de",
-   "quelle": "https://www.alemannia-aachen.de",
-   "hinzu": "2026-08-07"
-  },
-  {
-   "id": "dreadnoughts",
-   "typ": "event",
-   "titel": "The Dreadnoughts (Konzert)",
-   "text": "Celtic-Polka-Punk aus Vancouver im Musikbunker, Support: Muirsheen Durkin & Friends. Tickets 25 €.",
-   "lng": 6.103,
-   "lat": 50.7695,
-   "start": "2026-08-14",
-   "meta": "Musikbunker · 20 Uhr",
-   "tags": [
-    "musik"
-   ],
-   "link": "https://musikbunkeraachen.bigcartel.com/product/the-dreadnoughts-14082026",
-   "quelle": "https://musikbunkeraachen.bigcartel.com/product/the-dreadnoughts-14082026",
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "antikmarkt-elisen",
-   "typ": "event",
-   "titel": "Antik- & Kunstmarkt am Elisenbrunnen",
-   "text": "Antiquitäten und Kunst auf dem Friedrich-Wilhelm-Platz. Monatliche Reihe — nächster Termin: 13.9.",
-   "lng": 6.0873,
-   "lat": 50.7745,
-   "start": "2026-08-09",
-   "meta": "Elisenbrunnen",
-   "tags": [
-    "markt",
-    "kultur"
-   ],
-   "hinzu": "2026-08-07"
-  },
-  {
-   "id": "melan-porta",
-   "typ": "event",
-   "titel": "Melan Trödelmarkt (Porta)*",
-   "text": "Sonntagströdel am Gut Wolf 2 (Aachen-Nord).",
-   "lng": 6.127,
-   "lat": 50.7965,
-   "start": "2026-08-09",
-   "meta": "Am Gut Wolf",
-   "tags": [
-    "markt"
-   ],
-   "hinzu": "2026-08-07"
-  },
-  {
-   "id": "alemannia-meppen",
-   "typ": "event",
-   "titel": "Alemannia – SV Meppen",
-   "text": "3. Spieltag am Tivoli. Genauer Anstoß wird noch terminiert — Details auf der Vereinsseite.",
-   "lng": 6.0968,
-   "lat": 50.7925,
-   "start": "2026-08-28",
-   "ende": "2026-08-30",
-   "meta": "Tivoli",
-   "tags": [
-    "sport"
-   ],
-   "link": "https://www.alemannia-aachen.de",
-   "quelle": "https://www.alemannia-aachen.de",
-   "hinzu": "2026-08-07"
-  },
-  {
-   "id": "csd-aachen",
-   "typ": "event",
-   "titel": "CSD Aachen / Aachen Pride",
-   "text": "Pride-Festival mit Demo, Bühnenprogramm, Infoständen und Party auf Katschhof und Markt. Fr ab 17 Uhr Auftakt, Sa ab 13 Uhr Demo und Straßenfest.",
-   "lng": 6.0838,
-   "lat": 50.776,
-   "start": "2026-08-28",
-   "ende": "2026-08-29",
-   "meta": "Katschhof & Markt · frei",
-   "tags": [
-    "fest",
-    "kultur",
-    "musik"
-   ],
-   "link": "https://www.csd-aachen.de/",
-   "quelle": "https://www.csd-aachen.de/",
-   "hinzu": "2026-08-08"
-  },
-  {
    "id": "alleenfest",
    "typ": "event",
    "titel": "Alleenfest + Flohmarkt",
@@ -348,241 +162,6 @@
    "quelle": "https://wir-frankenberger.de",
    "hinzu": "2026-08-07",
    "fest": true
-  },
-  {
-   "id": "melan-kaufland",
-   "typ": "event",
-   "titel": "Melan Trödelmarkt (Kaufland)*",
-   "text": "Sonntagströdel an der Breslauer Straße 35 (Aachen-Ost).",
-   "lng": 6.131,
-   "lat": 50.7735,
-   "start": "2026-08-30",
-   "meta": "Breslauer Str.",
-   "tags": [
-    "markt"
-   ],
-   "hinzu": "2026-08-07"
-  },
-  {
-   "id": "friedenspreis",
-   "typ": "event",
-   "titel": "Verleihung Aachener Friedenspreis",
-   "text": "Öffentliche Preisverleihung in der Aula Carolina, Laudatio: Martin Schulz. Beginn 19 Uhr, Eintritt frei.",
-   "lng": 6.0822,
-   "lat": 50.7776,
-   "start": "2026-09-01",
-   "meta": "Aula Carolina · 19 Uhr · frei",
-   "tags": [
-    "kultur"
-   ],
-   "quelle": "https://www.aachener-friedenspreis.de/",
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "uwaga-frankenberg",
-   "typ": "event",
-   "titel": "UWAGA! Open-Air an der Burg Frankenberg",
-   "text": "Das Crossover-Quartett erzählt in 90 Minuten die komplette Musikgeschichte — von Renaissance über Barock und Jazz bis Pop. Open-Air im Burghof.",
-   "lng": 6.1061,
-   "lat": 50.7692,
-   "start": "2026-09-06",
-   "meta": "Burg Frankenberg · 19:30",
-   "tags": [
-    "musik",
-    "kultur"
-   ],
-   "quelle": "https://www.regioactive.de/location/aachen/burg-frankenberg-frankenbuerger-e-v-pNzvsvJMWn",
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "alemannia-jahn",
-   "typ": "event",
-   "titel": "Alemannia – Jahn Regensburg",
-   "text": "Heimspiel am 5. Spieltag der 3. Liga im Tivoli. Genaue Ansetzung innerhalb des Wochenendes noch offen.",
-   "lng": 6.0958,
-   "lat": 50.7928,
-   "start": "2026-09-11",
-   "ende": "2026-09-13",
-   "meta": "Tivoli",
-   "tags": [
-    "sport"
-   ],
-   "link": "https://www.alemannia-aachen.de",
-   "quelle": "https://www.alemannia-aachen.de",
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "jeck-sunnesching",
-   "typ": "event",
-   "titel": "Jeck im Sunnesching — Festival",
-   "text": "Kölsches Open-Air auf dem CHIO-Gelände: Höhner, Bläck Fööss, Kasalla, Brings, Cat Ballou u.v.m. Programm 11:15 bis ca. 19:30 Uhr.",
-   "lng": 6.076,
-   "lat": 50.7975,
-   "start": "2026-09-12",
-   "meta": "CHIO-Gelände Soers",
-   "tags": [
-    "musik",
-    "fest",
-    "musik"
-   ],
-   "quelle": "https://gaffel.de/2026/08/04/jeck-im-sunnesching-in-aachen-am-12-september-chio-gelaende/",
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "alte-bekannte",
-   "typ": "event",
-   "titel": "Alte Bekannte — Mehr! Live",
-   "text": "A-cappella-Konzert der Wise-Guys-Nachfolger im Eurogress. Beginn 20 Uhr.",
-   "lng": 6.0898,
-   "lat": 50.7823,
-   "start": "2026-09-12",
-   "meta": "Eurogress · 20 Uhr",
-   "tags": [
-    "musik"
-   ],
-   "quelle": "https://www.aachen-event.com/veranstaltungskalender/veranstaltung/alte-bekannte-mehr-live",
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "denkmaltag",
-   "typ": "event",
-   "titel": "Tag des offenen Denkmals",
-   "text": "Kostenlose Führungen und offene Türen in historischen Gebäuden in ganz Aachen — Motto: NetzWERKE. Denkmale & Infrastruktur.",
-   "lng": 6.0838,
-   "lat": 50.7745,
-   "start": "2026-09-13",
-   "meta": "stadtweit · frei",
-   "tags": [
-    "kultur"
-   ],
-   "quelle": "https://www.aachen.de/in-aachen-leben/planen-bauen/denkmalpflege-und-archaeologie/news/tag-des-offenen-denkmals/",
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "antikmarkt-sept",
-   "typ": "event",
-   "titel": "Antik- & Kunstmarkt am Elisenbrunnen (Sept.)",
-   "text": "Antiquitäten und Kunst auf dem Friedrich-Wilhelm-Platz — monatliche Reihe.",
-   "lng": 6.0873,
-   "lat": 50.7745,
-   "start": "2026-09-13",
-   "meta": "Elisenbrunnen",
-   "tags": [
-    "markt",
-    "kultur"
-   ],
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "alemannia-fortuna",
-   "typ": "event",
-   "titel": "Alemannia – Fortuna Düsseldorf",
-   "text": "Heimspiel am 7. Spieltag der 3. Liga im Tivoli. Genaue Ansetzung innerhalb des Wochenendes noch offen.",
-   "lng": 6.0958,
-   "lat": 50.7928,
-   "start": "2026-09-18",
-   "ende": "2026-09-20",
-   "meta": "Tivoli",
-   "tags": [
-    "sport"
-   ],
-   "link": "https://www.alemannia-aachen.de",
-   "quelle": "https://www.alemannia-aachen.de",
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "burtscheid-aktionstag",
-   "typ": "event",
-   "titel": "Burtscheider Aktionstag",
-   "text": "Verkaufsoffener Sonntag in Burtscheid: Geschäfte öffnen 13–18 Uhr, dazu Aktionsprogramm rund um Viehhofstraße und Burtscheider Markt.",
-   "lng": 6.0925,
-   "lat": 50.766,
-   "start": "2026-09-20",
-   "meta": "Burtscheid · 13–18 Uhr",
-   "tags": [
-    "fest"
-   ],
-   "quelle": "https://www.verkaufsoffener-sonntag.com/in/aachen/",
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "maria-stuart",
-   "typ": "event",
-   "titel": "Maria Stuart — Premiere",
-   "text": "Eröffnungspremiere der Spielzeit 2026/27: Schillers Maria Stuart im Großen Haus des Theaters Aachen.",
-   "lng": 6.0855,
-   "lat": 50.7737,
-   "start": "2026-09-20",
-   "meta": "Theater Aachen",
-   "tags": [
-    "kultur"
-   ],
-   "link": "https://www.theateraachen.de/de/premieren/schauspiel-musiktheater-2026-2027.html",
-   "quelle": "https://www.theateraachen.de/de/premieren/schauspiel-musiktheater-2026-2027.html",
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "varell-franz",
-   "typ": "event",
-   "titel": "Isabel Varell im FRANZ",
-   "text": "Musik- und Entertainment-Abend: Die guten alten Zeiten sind jetzt — im Kulturzentrum FRANZ, Franzstraße.",
-   "lng": 6.079,
-   "lat": 50.7709,
-   "start": "2026-09-25",
-   "meta": "FRANZ · abends",
-   "tags": [
-    "musik",
-    "kultur"
-   ],
-   "quelle": "https://rausgegangen.de/aachen/",
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "kunstroute",
-   "typ": "event",
-   "titel": "Aachener Kunstroute",
-   "text": "Offene Ateliers, Galerien und Kunstorte in der Innenstadt. Vernissage Fr 20 Uhr, Sa/So jeweils 11–18 Uhr, Eintritt frei.",
-   "lng": 6.0865,
-   "lat": 50.777,
-   "start": "2026-09-25",
-   "ende": "2026-09-27",
-   "meta": "stadtweit · frei",
-   "tags": [
-    "kultur"
-   ],
-   "quelle": "https://www.aachenerkunstroute.de/aachener-kunstroute-2026-die-vorbereitungen-laufen.html",
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "reis-spuelmachine",
-   "typ": "event",
-   "titel": "Reis Against The Spülmachine",
-   "text": "Song-Parodien-Comedy des Duos im Kulturzentrum FRANZ — Tourlaub-Programm.",
-   "lng": 6.079,
-   "lat": 50.7709,
-   "start": "2026-09-26",
-   "meta": "FRANZ · abends",
-   "tags": [
-    "musik",
-    "kultur"
-   ],
-   "quelle": "https://rausgegangen.de/aachen/",
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "altstadtflohmarkt",
-   "typ": "event",
-   "titel": "Altstadtflohmarkt am Katschhof",
-   "text": "Flohmarkt vor der Kulisse von Dom und Rathaus, 11–18 Uhr — einer von vier Terminen pro Jahr.",
-   "lng": 6.0834,
-   "lat": 50.7756,
-   "start": "2026-09-27",
-   "meta": "Katschhof · 11–18 Uhr",
-   "tags": [
-    "markt"
-   ],
-   "quelle": "https://www.melan.de/fuer-alle/standorte/details/~/Aachen-Altstadt-1o/",
-   "hinzu": "2026-08-08"
   },
   {
    "id": "thermal-elisen",
@@ -999,6 +578,606 @@
    "quelle": "https://aachen.t-online.de/region/aachen/id_101197882/geheimtipp-in-aachen-hier-koennen-sie-ihren-fruehlingsstrauss-selbst-pfluecken.html",
    "hinzu": "2026-08-08",
    "fest": true
+  },
+  {
+   "id": "spot-lousberg",
+   "typ": "spot",
+   "titel": "Fotospot: Lousberg (Obelisk & Panorama)",
+   "text": "Aachens Hausberg: vom Tranchot-Obelisken das beste freie Panorama über die Dächer und die Domsilhouette. Aufstieg über die Lousbergstiege (312 Stufen). Am besten: goldene/blaue Stunde abends, Blick nach Süden.",
+   "lng": 6.0792,
+   "lat": 50.7869,
+   "meta": "frei zugänglich",
+   "quelle": "https://de.wikipedia.org/wiki/Lousberg",
+   "bild": {
+    "url": "bilder/lousberg.jpg",
+    "credit": "Xamos / Wikimedia Commons",
+    "lizenz": "CC BY-SA 3.0",
+    "quelle": "https://commons.wikimedia.org/wiki/File:Ac_lousberg.JPG"
+   },
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "spot-belvedere",
+   "typ": "spot",
+   "titel": "Fotospot: Drehturm Belvedere",
+   "text": "Der 35 m hohe frühere Wasserturm (1958) ist ein markantes Architekturmotiv auf dem Lousberg-Plateau. Am besten abends als Silhouette gegen den Westhimmel.",
+   "lng": 6.08049,
+   "lat": 50.78645,
+   "meta": "Umfeld frei zugänglich",
+   "quelle": "https://de.wikipedia.org/wiki/Wasserturm_Belvedere_(Aachen)",
+   "bild": {
+    "url": "bilder/belvedere.jpg",
+    "credit": "qwesy qwesy / Wikimedia Commons",
+    "lizenz": "CC BY 3.0",
+    "quelle": "https://commons.wikimedia.org/wiki/File:Drehturm_Belvedere_auf_dem_Lousberg_in_Aachen_-_panoramio.jpg"
+   },
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "spot-katschhof",
+   "typ": "spot",
+   "titel": "Fotospot: Katschhof (Dom + Rathaus)",
+   "text": "Herz des UNESCO-Ensembles: südlich füllt der Dom den Rahmen, nördlich das gotische Rathaus. Am besten: blaue Stunde, wenn beide angestrahlt sind; morgens streifendes Licht von Osten.",
+   "lng": 6.08379,
+   "lat": 50.77544,
+   "meta": "rund um die Uhr frei",
+   "quelle": "https://de.wikipedia.org/wiki/Aachener_Dom",
+   "bild": {
+    "url": "bilder/katschhof.jpg",
+    "credit": "Anil Öztas / Wikimedia Commons",
+    "lizenz": "CC BY-SA 4.0",
+    "quelle": "https://commons.wikimedia.org/wiki/File:Aachen_(DE),_Dom_--_2021_--_4849_(cropped).jpg"
+   },
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "spot-elisenbrunnen",
+   "typ": "spot",
+   "titel": "Fotospot: Elisenbrunnen",
+   "text": "Klassizistische Säulenhalle von 1827 — ideal für Symmetrie-Aufnahmen. Am besten: abends Sonne von Westen auf der Säulenfront, nachts stimmungsvoll beleuchtet.",
+   "lng": 6.0869,
+   "lat": 50.7742,
+   "meta": "goldene Stunde abends",
+   "quelle": "https://de.wikipedia.org/wiki/Elisenbrunnen",
+   "bild": {
+    "url": "bilder/elisenbrunnen.jpg",
+    "credit": "Dietmar Rabich / Wikimedia Commons",
+    "lizenz": "CC BY-SA 4.0",
+    "quelle": "https://commons.wikimedia.org/wiki/File:Aachen,_Elisenbrunnen_--_2016_--_2824.jpg"
+   },
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "spot-ponttor",
+   "typ": "spot",
+   "titel": "Fotospot: Ponttor",
+   "text": "Mittelalterliches Stadttor mit Vorburg — dramatische Kompositionen von der nördlichen Feldseite. Am besten: goldene Stunde abends von Norden/Nordwesten.",
+   "lng": 6.07833,
+   "lat": 50.78153,
+   "meta": "goldene Stunde",
+   "quelle": "https://de.wikipedia.org/wiki/Ponttor",
+   "bild": {
+    "url": "bilder/ponttor.jpg",
+    "credit": "Kleon3 / Wikimedia Commons",
+    "lizenz": "CC BY-SA 4.0",
+    "quelle": "https://commons.wikimedia.org/wiki/File:2025_Aachen,_Ponttor_(03).jpg"
+   },
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "spot-marschiertor",
+   "typ": "spot",
+   "titel": "Fotospot: Marschiertor",
+   "text": "Eines der mächtigsten erhaltenen Stadttore Westeuropas, nahe Hauptbahnhof — die breite Südfassade füllt Weitwinkel perfekt. Am besten: Nachmittag bis goldene Stunde.",
+   "lng": 6.08694,
+   "lat": 50.76819,
+   "meta": "frei zugänglich",
+   "quelle": "https://de.wikipedia.org/wiki/Marschiertor",
+   "bild": {
+    "url": "bilder/marschiertor.jpg",
+    "credit": "Sascha Gebhardt / Wikimedia Commons",
+    "lizenz": "CC BY-SA 3.0 DE",
+    "quelle": "https://commons.wikimedia.org/wiki/File:Marschiertor_Aachen_S%C3%BCdseite.jpg"
+   },
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "spot-frankenberg",
+   "typ": "spot",
+   "titel": "Fotospot: Burg Frankenberg",
+   "text": "Wasserburg aus dem 13. Jh. mitten im Viertel: Der Burgweiher liefert bei Windstille Bilderbuch-Spiegelungen. Am besten: Sonnenaufgang — ruhiges Wasser, gelegentlich Morgennebel.",
+   "lng": 6.10389,
+   "lat": 50.76778,
+   "meta": "Park frei zugänglich",
+   "quelle": "https://de.wikipedia.org/wiki/Burg_Frankenberg_(Aachen)",
+   "bild": {
+    "url": "bilder/frankenberg.jpg",
+    "credit": "ArthurMcGill / Wikimedia Commons",
+    "lizenz": "CC BY 3.0",
+    "quelle": "https://commons.wikimedia.org/wiki/File:Burg_Frankenberg,_Aachen_(11).JPG"
+   },
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "spot-melaten",
+   "typ": "spot",
+   "titel": "Fotospot: Gut-Melaten-Allee",
+   "text": "Aachens beliebtestes Allee-Motiv am historischen Gut Melaten: symmetrische Baumreihen, im Herbst spektakulär gefärbt. Am besten: Sonnenaufgang mit Gegenlicht und Morgennebel.",
+   "lng": 6.0466,
+   "lat": 50.7789,
+   "meta": "RWTH Campus Melaten",
+   "quelle": "https://de.wikipedia.org/wiki/Gut_Melaten",
+   "bild": {
+    "url": "bilder/melaten.jpg",
+    "credit": "Kleon3 / Wikimedia Commons",
+    "lizenz": "CC BY-SA 4.0",
+    "quelle": "https://commons.wikimedia.org/wiki/File:2025_Aachen,_Gut_Melaten_(01).jpg"
+   },
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "spot-stadtgarten",
+   "typ": "spot",
+   "titel": "Fotospot: Stadtgarten / Kurpark",
+   "text": "Alte Baumbestände, Wasserbecken und das Neue Kurhaus als Kulisse — ruhiges Park-Motiv abseits der Altstadt. Am besten: morgens, im Herbst wegen Laubfärbung besonders fotogen.",
+   "lng": 6.0971,
+   "lat": 50.783,
+   "meta": "frei zugänglich",
+   "quelle": "https://www.carolus-thermen.de/",
+   "bild": {
+    "url": "bilder/stadtgarten.jpg",
+    "credit": "Kleon3 / Wikimedia Commons",
+    "lizenz": "CC BY-SA 4.0",
+    "quelle": "https://commons.wikimedia.org/wiki/File:2025_Aachen,_Stadtgarten_(09).jpg"
+   },
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "spot-dreilaendereck",
+   "typ": "spot",
+   "titel": "Fotospot: Dreiländereck Vaalserberg",
+   "text": "Drei Länder in einem Bild: Grenzmonument, Waldkulisse und Aussichtstürme am höchsten Punkt der Niederlande (322 m). Am besten: Sonnenuntergang mit freier Sicht nach Westen.",
+   "lng": 6.0208,
+   "lat": 50.7547,
+   "meta": "D · NL · B · frei",
+   "quelle": "https://de.wikipedia.org/wiki/Vaalserberg",
+   "bild": {
+    "url": "bilder/dreilaendereck.jpg",
+    "credit": "Steven Lek / Wikimedia Commons",
+    "lizenz": "Public Domain",
+    "quelle": "https://commons.wikimedia.org/wiki/File:Drielandenpunt_Netherlands.JPG"
+   },
+   "hinzu": "2026-08-08",
+   "fest": true
+  },
+  {
+   "id": "sommerbend",
+   "typ": "event",
+   "titel": "Öcher Sommerbend",
+   "text": "Kirmes auf dem Bendplatz, täglich ab 14 Uhr. Mo 10.8. reizarme Kirmes 14–17 Uhr, Di 11.8. Kindertag, Mi 12.8. Familientag mit 50 % Rabatt, Abschlussfeuerwerk 17.8. gegen 22 Uhr.",
+   "lng": 6.07,
+   "lat": 50.7822,
+   "start": "2026-08-07",
+   "ende": "2026-08-17",
+   "meta": "Bendplatz",
+   "tags": [
+    "fest",
+    "familie"
+   ],
+   "link": "https://www.bend-aachen.de",
+   "quelle": "https://www.bend-aachen.de",
+   "hot": true,
+   "hinzu": "2026-08-07"
+  },
+  {
+   "id": "reitwm",
+   "typ": "event",
+   "titel": "Reit-WM: FEI World Championships",
+   "text": "13 Tage Weltmeisterschaft in 6 Disziplinen — 650 Athleten, 800 Pferde, das größte Sportereignis des Jahres in NRW. Allianz Park Soers.",
+   "lng": 6.0925,
+   "lat": 50.7972,
+   "start": "2026-08-11",
+   "ende": "2026-08-23",
+   "meta": "Soers",
+   "tags": [
+    "sport"
+   ],
+   "link": "https://www.aachen2026.com",
+   "quelle": "https://www.aachen2026.com",
+   "hot": true,
+   "hinzu": "2026-08-07"
+  },
+  {
+   "id": "reitwm-tot",
+   "typ": "event",
+   "titel": "Reit-WM: Tag der offenen Tür",
+   "text": "Kostenloses Showprogramm im Hauptstadion, 12–15 Uhr — WM-Luft schnuppern ohne Ticket.",
+   "lng": 6.0942,
+   "lat": 50.7963,
+   "start": "2026-08-17",
+   "meta": "12–15 Uhr · frei",
+   "tags": [
+    "sport"
+   ],
+   "link": "https://www.aachen2026.com",
+   "quelle": "https://www.aachen2026.com",
+   "hinzu": "2026-08-07"
+  },
+  {
+   "id": "wm-special",
+   "typ": "event",
+   "titel": "Aachen WM Special — Kultur-Rahmenprogramm",
+   "text": "Kostenloses Rahmenprogramm zur Reit-WM in der Innenstadt: Konzerte auf zwei Bühnen, Theater, Tanz, Kunstaktionen. Täglich ab 11 Uhr Food-Markt auf Katschhof und Münsterplatz.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-08-11",
+   "ende": "2026-08-23",
+   "meta": "Innenstadt · Eintritt frei",
+   "tags": [
+    "kultur",
+    "musik",
+    "markt"
+   ],
+   "quelle": "https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/",
+   "hot": true,
+   "hinzu": "2026-08-08"
+  },
+  {
+   "id": "ar-route",
+   "typ": "event",
+   "titel": "AR-Kunstroute zur WM",
+   "text": "Kostenlose Augmented-Reality-Route durch die Stadt: Elisengarten, Büchel, Suermondt-Ludwig-Museum, NAK-Park bis zur Soers.",
+   "lng": 6.0865,
+   "lat": 50.7743,
+   "start": "2026-08-11",
+   "ende": "2026-08-23",
+   "meta": "kostenlos",
+   "tags": [
+    "kultur"
+   ],
+   "quelle": "https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/",
+   "hinzu": "2026-08-07"
+  },
+  {
+   "id": "alemannia-verl",
+   "typ": "event",
+   "titel": "Alemannia – SC Verl",
+   "text": "Saisonauftakt am Tivoli, Anstoß 19:30 Uhr. Vorher Fanmarsch: Treffen ab 13 Uhr auf dem Markt, Abmarsch 15:30 Uhr.",
+   "lng": 6.0955,
+   "lat": 50.793,
+   "start": "2026-08-09",
+   "meta": "19:30 · Tivoli",
+   "tags": [
+    "sport"
+   ],
+   "link": "https://www.alemannia-aachen.de",
+   "quelle": "https://www.alemannia-aachen.de",
+   "hinzu": "2026-08-07"
+  },
+  {
+   "id": "dreadnoughts",
+   "typ": "event",
+   "titel": "The Dreadnoughts (Konzert)",
+   "text": "Celtic-Polka-Punk aus Vancouver im Musikbunker, Support: Muirsheen Durkin & Friends. Tickets 25 €.",
+   "lng": 6.103,
+   "lat": 50.7695,
+   "start": "2026-08-14",
+   "meta": "Musikbunker · 20 Uhr",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://musikbunkeraachen.bigcartel.com/product/the-dreadnoughts-14082026",
+   "quelle": "https://musikbunkeraachen.bigcartel.com/product/the-dreadnoughts-14082026",
+   "hinzu": "2026-08-08"
+  },
+  {
+   "id": "antikmarkt-elisen",
+   "typ": "event",
+   "titel": "Antik- & Kunstmarkt am Elisenbrunnen",
+   "text": "Antiquitäten und Kunst auf dem Friedrich-Wilhelm-Platz. Monatliche Reihe — nächster Termin: 13.9.",
+   "lng": 6.0873,
+   "lat": 50.7745,
+   "start": "2026-08-09",
+   "meta": "Elisenbrunnen",
+   "tags": [
+    "markt",
+    "kultur"
+   ],
+   "hinzu": "2026-08-07"
+  },
+  {
+   "id": "melan-porta",
+   "typ": "event",
+   "titel": "Melan Trödelmarkt (Porta)*",
+   "text": "Sonntagströdel am Gut Wolf 2 (Aachen-Nord).",
+   "lng": 6.127,
+   "lat": 50.7965,
+   "start": "2026-08-09",
+   "meta": "Am Gut Wolf",
+   "tags": [
+    "markt"
+   ],
+   "hinzu": "2026-08-07"
+  },
+  {
+   "id": "alemannia-meppen",
+   "typ": "event",
+   "titel": "Alemannia – SV Meppen",
+   "text": "3. Spieltag am Tivoli. Genauer Anstoß wird noch terminiert — Details auf der Vereinsseite.",
+   "lng": 6.0968,
+   "lat": 50.7925,
+   "start": "2026-08-28",
+   "ende": "2026-08-30",
+   "meta": "Tivoli",
+   "tags": [
+    "sport"
+   ],
+   "link": "https://www.alemannia-aachen.de",
+   "quelle": "https://www.alemannia-aachen.de",
+   "hinzu": "2026-08-07"
+  },
+  {
+   "id": "csd-aachen",
+   "typ": "event",
+   "titel": "CSD Aachen / Aachen Pride",
+   "text": "Pride-Festival mit Demo, Bühnenprogramm, Infoständen und Party auf Katschhof und Markt. Fr ab 17 Uhr Auftakt, Sa ab 13 Uhr Demo und Straßenfest.",
+   "lng": 6.0838,
+   "lat": 50.776,
+   "start": "2026-08-28",
+   "ende": "2026-08-29",
+   "meta": "Katschhof & Markt · frei",
+   "tags": [
+    "fest",
+    "kultur",
+    "musik"
+   ],
+   "link": "https://www.csd-aachen.de/",
+   "quelle": "https://www.csd-aachen.de/",
+   "hinzu": "2026-08-08"
+  },
+  {
+   "id": "melan-kaufland",
+   "typ": "event",
+   "titel": "Melan Trödelmarkt (Kaufland)*",
+   "text": "Sonntagströdel an der Breslauer Straße 35 (Aachen-Ost).",
+   "lng": 6.131,
+   "lat": 50.7735,
+   "start": "2026-08-30",
+   "meta": "Breslauer Str.",
+   "tags": [
+    "markt"
+   ],
+   "hinzu": "2026-08-07"
+  },
+  {
+   "id": "friedenspreis",
+   "typ": "event",
+   "titel": "Verleihung Aachener Friedenspreis",
+   "text": "Öffentliche Preisverleihung in der Aula Carolina, Laudatio: Martin Schulz. Beginn 19 Uhr, Eintritt frei.",
+   "lng": 6.0822,
+   "lat": 50.7776,
+   "start": "2026-09-01",
+   "meta": "Aula Carolina · 19 Uhr · frei",
+   "tags": [
+    "kultur"
+   ],
+   "quelle": "https://www.aachener-friedenspreis.de/",
+   "hinzu": "2026-08-08"
+  },
+  {
+   "id": "uwaga-frankenberg",
+   "typ": "event",
+   "titel": "UWAGA! Open-Air an der Burg Frankenberg",
+   "text": "Das Crossover-Quartett erzählt in 90 Minuten die komplette Musikgeschichte — von Renaissance über Barock und Jazz bis Pop. Open-Air im Burghof.",
+   "lng": 6.1061,
+   "lat": 50.7692,
+   "start": "2026-09-06",
+   "meta": "Burg Frankenberg · 19:30",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
+   "quelle": "https://www.regioactive.de/location/aachen/burg-frankenberg-frankenbuerger-e-v-pNzvsvJMWn",
+   "hinzu": "2026-08-08"
+  },
+  {
+   "id": "alemannia-jahn",
+   "typ": "event",
+   "titel": "Alemannia – Jahn Regensburg",
+   "text": "Heimspiel am 5. Spieltag der 3. Liga im Tivoli. Genaue Ansetzung innerhalb des Wochenendes noch offen.",
+   "lng": 6.0958,
+   "lat": 50.7928,
+   "start": "2026-09-11",
+   "ende": "2026-09-13",
+   "meta": "Tivoli",
+   "tags": [
+    "sport"
+   ],
+   "link": "https://www.alemannia-aachen.de",
+   "quelle": "https://www.alemannia-aachen.de",
+   "hinzu": "2026-08-08"
+  },
+  {
+   "id": "jeck-sunnesching",
+   "typ": "event",
+   "titel": "Jeck im Sunnesching — Festival",
+   "text": "Kölsches Open-Air auf dem CHIO-Gelände: Höhner, Bläck Fööss, Kasalla, Brings, Cat Ballou u.v.m. Programm 11:15 bis ca. 19:30 Uhr.",
+   "lng": 6.076,
+   "lat": 50.7975,
+   "start": "2026-09-12",
+   "meta": "CHIO-Gelände Soers",
+   "tags": [
+    "musik",
+    "fest",
+    "musik"
+   ],
+   "quelle": "https://gaffel.de/2026/08/04/jeck-im-sunnesching-in-aachen-am-12-september-chio-gelaende/",
+   "hinzu": "2026-08-08"
+  },
+  {
+   "id": "alte-bekannte",
+   "typ": "event",
+   "titel": "Alte Bekannte — Mehr! Live",
+   "text": "A-cappella-Konzert der Wise-Guys-Nachfolger im Eurogress. Beginn 20 Uhr.",
+   "lng": 6.0898,
+   "lat": 50.7823,
+   "start": "2026-09-12",
+   "meta": "Eurogress · 20 Uhr",
+   "tags": [
+    "musik"
+   ],
+   "quelle": "https://www.aachen-event.com/veranstaltungskalender/veranstaltung/alte-bekannte-mehr-live",
+   "hinzu": "2026-08-08"
+  },
+  {
+   "id": "denkmaltag",
+   "typ": "event",
+   "titel": "Tag des offenen Denkmals",
+   "text": "Kostenlose Führungen und offene Türen in historischen Gebäuden in ganz Aachen — Motto: NetzWERKE. Denkmale & Infrastruktur.",
+   "lng": 6.0838,
+   "lat": 50.7745,
+   "start": "2026-09-13",
+   "meta": "stadtweit · frei",
+   "tags": [
+    "kultur"
+   ],
+   "quelle": "https://www.aachen.de/in-aachen-leben/planen-bauen/denkmalpflege-und-archaeologie/news/tag-des-offenen-denkmals/",
+   "hinzu": "2026-08-08"
+  },
+  {
+   "id": "antikmarkt-sept",
+   "typ": "event",
+   "titel": "Antik- & Kunstmarkt am Elisenbrunnen (Sept.)",
+   "text": "Antiquitäten und Kunst auf dem Friedrich-Wilhelm-Platz — monatliche Reihe.",
+   "lng": 6.0873,
+   "lat": 50.7745,
+   "start": "2026-09-13",
+   "meta": "Elisenbrunnen",
+   "tags": [
+    "markt",
+    "kultur"
+   ],
+   "hinzu": "2026-08-08"
+  },
+  {
+   "id": "alemannia-fortuna",
+   "typ": "event",
+   "titel": "Alemannia – Fortuna Düsseldorf",
+   "text": "Heimspiel am 7. Spieltag der 3. Liga im Tivoli. Genaue Ansetzung innerhalb des Wochenendes noch offen.",
+   "lng": 6.0958,
+   "lat": 50.7928,
+   "start": "2026-09-18",
+   "ende": "2026-09-20",
+   "meta": "Tivoli",
+   "tags": [
+    "sport"
+   ],
+   "link": "https://www.alemannia-aachen.de",
+   "quelle": "https://www.alemannia-aachen.de",
+   "hinzu": "2026-08-08"
+  },
+  {
+   "id": "burtscheid-aktionstag",
+   "typ": "event",
+   "titel": "Burtscheider Aktionstag",
+   "text": "Verkaufsoffener Sonntag in Burtscheid: Geschäfte öffnen 13–18 Uhr, dazu Aktionsprogramm rund um Viehhofstraße und Burtscheider Markt.",
+   "lng": 6.0925,
+   "lat": 50.766,
+   "start": "2026-09-20",
+   "meta": "Burtscheid · 13–18 Uhr",
+   "tags": [
+    "fest"
+   ],
+   "quelle": "https://www.verkaufsoffener-sonntag.com/in/aachen/",
+   "hinzu": "2026-08-08"
+  },
+  {
+   "id": "maria-stuart",
+   "typ": "event",
+   "titel": "Maria Stuart — Premiere",
+   "text": "Eröffnungspremiere der Spielzeit 2026/27: Schillers Maria Stuart im Großen Haus des Theaters Aachen.",
+   "lng": 6.0855,
+   "lat": 50.7737,
+   "start": "2026-09-20",
+   "meta": "Theater Aachen",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://www.theateraachen.de/de/premieren/schauspiel-musiktheater-2026-2027.html",
+   "quelle": "https://www.theateraachen.de/de/premieren/schauspiel-musiktheater-2026-2027.html",
+   "hinzu": "2026-08-08"
+  },
+  {
+   "id": "varell-franz",
+   "typ": "event",
+   "titel": "Isabel Varell im FRANZ",
+   "text": "Musik- und Entertainment-Abend: Die guten alten Zeiten sind jetzt — im Kulturzentrum FRANZ, Franzstraße.",
+   "lng": 6.079,
+   "lat": 50.7709,
+   "start": "2026-09-25",
+   "meta": "FRANZ · abends",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
+   "quelle": "https://rausgegangen.de/aachen/",
+   "hinzu": "2026-08-08"
+  },
+  {
+   "id": "kunstroute",
+   "typ": "event",
+   "titel": "Aachener Kunstroute",
+   "text": "Offene Ateliers, Galerien und Kunstorte in der Innenstadt. Vernissage Fr 20 Uhr, Sa/So jeweils 11–18 Uhr, Eintritt frei.",
+   "lng": 6.0865,
+   "lat": 50.777,
+   "start": "2026-09-25",
+   "ende": "2026-09-27",
+   "meta": "stadtweit · frei",
+   "tags": [
+    "kultur"
+   ],
+   "quelle": "https://www.aachenerkunstroute.de/aachener-kunstroute-2026-die-vorbereitungen-laufen.html",
+   "hinzu": "2026-08-08"
+  },
+  {
+   "id": "reis-spuelmachine",
+   "typ": "event",
+   "titel": "Reis Against The Spülmachine",
+   "text": "Song-Parodien-Comedy des Duos im Kulturzentrum FRANZ — Tourlaub-Programm.",
+   "lng": 6.079,
+   "lat": 50.7709,
+   "start": "2026-09-26",
+   "meta": "FRANZ · abends",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
+   "quelle": "https://rausgegangen.de/aachen/",
+   "hinzu": "2026-08-08"
+  },
+  {
+   "id": "altstadtflohmarkt",
+   "typ": "event",
+   "titel": "Altstadtflohmarkt am Katschhof",
+   "text": "Flohmarkt vor der Kulisse von Dom und Rathaus, 11–18 Uhr — einer von vier Terminen pro Jahr.",
+   "lng": 6.0834,
+   "lat": 50.7756,
+   "start": "2026-09-27",
+   "meta": "Katschhof · 11–18 Uhr",
+   "tags": [
+    "markt"
+   ],
+   "quelle": "https://www.melan.de/fuer-alle/standorte/details/~/Aachen-Altstadt-1o/",
+   "hinzu": "2026-08-08"
   },
   {
    "id": "schluessel-tres-hombres",
@@ -2301,194 +2480,291 @@
    "hinzu": "2026-08-08"
   },
   {
-   "id": "spot-lousberg",
-   "typ": "spot",
-   "titel": "Fotospot: Lousberg (Obelisk & Panorama)",
-   "text": "Aachens Hausberg: vom Tranchot-Obelisken das beste freie Panorama über die Dächer und die Domsilhouette. Aufstieg über die Lousbergstiege (312 Stufen). Am besten: goldene/blaue Stunde abends, Blick nach Süden.",
-   "lng": 6.0792,
-   "lat": 50.7869,
-   "meta": "frei zugänglich",
-   "tags": [],
-   "quelle": "https://de.wikipedia.org/wiki/Lousberg",
-   "bild": {
-    "url": "bilder/lousberg.jpg",
-    "credit": "Xamos / Wikimedia Commons",
-    "lizenz": "CC BY-SA 3.0",
-    "quelle": "https://commons.wikimedia.org/wiki/File:Ac_lousberg.JPG"
-   },
-   "hinzu": "2026-08-08",
-   "fest": true
+   "id": "stunk-unplugged-tour-2026-2026-09-04",
+   "typ": "event",
+   "titel": "Stunk Unplugged – Tour 2026",
+   "text": "Zwölf Mitglieder der Kölner Stunksitzung bringen als Ensemble Kabarett-Highlights und Lieder aus über 40 Jahren Stunksitzung auf die Bühne. Live-Musik begleitet das größte Kabarett-Ensemble der Republik.",
+   "lng": 6.114,
+   "lat": 50.762,
+   "start": "2026-09-04",
+   "meta": "Saalbau Rothe Erde · 20:00 Uhr",
+   "tags": [
+    "kultur"
+   ],
+   "quelle": "https://www.eventim-light.com/de/a/5c83adcca8e5b800017cbee5/e/687e35286ce16d78e40b1881",
+   "hinzu": "2026-08-16"
   },
   {
-   "id": "spot-belvedere",
-   "typ": "spot",
-   "titel": "Fotospot: Drehturm Belvedere",
-   "text": "Der 35 m hohe frühere Wasserturm (1958) ist ein markantes Architekturmotiv auf dem Lousberg-Plateau. Am besten abends als Silhouette gegen den Westhimmel.",
-   "lng": 6.08049,
-   "lat": 50.78645,
-   "meta": "Umfeld frei zugänglich",
-   "tags": [],
-   "quelle": "https://de.wikipedia.org/wiki/Wasserturm_Belvedere_(Aachen)",
-   "bild": {
-    "url": "bilder/belvedere.jpg",
-    "credit": "qwesy qwesy / Wikimedia Commons",
-    "lizenz": "CC BY 3.0",
-    "quelle": "https://commons.wikimedia.org/wiki/File:Drehturm_Belvedere_auf_dem_Lousberg_in_Aachen_-_panoramio.jpg"
-   },
-   "hinzu": "2026-08-08",
-   "fest": true
+   "id": "nils-kercher-trio-mit-barou-kouyat-kira--2026-09-05",
+   "typ": "event",
+   "titel": "Nils Kercher Trio mit Barou Kouyaté & Kira Kaipainen",
+   "text": "Weltmusik-Trio mit Nils Kercher, dem malischen Gast-Musiker Barou Kouyaté und Kira Kaipainen auf dem Erlebnishof 4 Linden im Aachener Norden.",
+   "lng": 6.061,
+   "lat": 50.807,
+   "start": "2026-09-05",
+   "meta": "4 Linden Aachen · 18:00 Uhr",
+   "tags": [
+    "musik"
+   ],
+   "quelle": "https://nilskercher.com/konzerte.html",
+   "hinzu": "2026-08-16"
   },
   {
-   "id": "spot-katschhof",
-   "typ": "spot",
-   "titel": "Fotospot: Katschhof (Dom + Rathaus)",
-   "text": "Herz des UNESCO-Ensembles: südlich füllt der Dom den Rahmen, nördlich das gotische Rathaus. Am besten: blaue Stunde, wenn beide angestrahlt sind; morgens streifendes Licht von Osten.",
-   "lng": 6.08379,
-   "lat": 50.77544,
-   "meta": "rund um die Uhr frei",
-   "tags": [],
-   "quelle": "https://de.wikipedia.org/wiki/Aachener_Dom",
-   "bild": {
-    "url": "bilder/katschhof.jpg",
-    "credit": "Anil Öztas / Wikimedia Commons",
-    "lizenz": "CC BY-SA 4.0",
-    "quelle": "https://commons.wikimedia.org/wiki/File:Aachen_(DE),_Dom_--_2021_--_4849_(cropped).jpg"
-   },
-   "hinzu": "2026-08-08",
-   "fest": true
+   "id": "europamarkt-aachen-handwerk-und-design-2026-09-05",
+   "typ": "event",
+   "titel": "Europamarkt Aachen – Handwerk und Design",
+   "text": "Rund 300 Kunsthandwerker:innen aus ganz Europa zeigen auf sieben Plätzen rund um Dom und Rathaus hochwertiges Design; der Eintritt ist frei.",
+   "lng": 6.0839,
+   "lat": 50.7753,
+   "start": "2026-09-05",
+   "ende": "2026-09-06",
+   "meta": "Innenstadt rund um Dom & Rathaus · Sa 10-19, So 11-18 Uhr · ",
+   "tags": [
+    "markt"
+   ],
+   "quelle": "https://www.hwk-aachen.de/artikel/europamarkt-aachen-2026-33,0,2791.html",
+   "hinzu": "2026-08-16"
   },
   {
-   "id": "spot-elisenbrunnen",
-   "typ": "spot",
-   "titel": "Fotospot: Elisenbrunnen",
-   "text": "Klassizistische Säulenhalle von 1827 — ideal für Symmetrie-Aufnahmen. Am besten: abends Sonne von Westen auf der Säulenfront, nachts stimmungsvoll beleuchtet.",
-   "lng": 6.0869,
-   "lat": 50.7742,
-   "meta": "goldene Stunde abends",
-   "tags": [],
-   "quelle": "https://de.wikipedia.org/wiki/Elisenbrunnen",
-   "bild": {
-    "url": "bilder/elisenbrunnen.jpg",
-    "credit": "Dietmar Rabich / Wikimedia Commons",
-    "lizenz": "CC BY-SA 4.0",
-    "quelle": "https://commons.wikimedia.org/wiki/File:Aachen,_Elisenbrunnen_--_2016_--_2824.jpg"
-   },
-   "hinzu": "2026-08-08",
-   "fest": true
+   "id": "kindersachenflohmarkt-kita-rappelkiste-2026-09-05",
+   "typ": "event",
+   "titel": "Kindersachenflohmarkt Kita Rappelkiste",
+   "text": "Der beliebte Kindersachen-Flohmarkt der Kita Rappelkiste öffnet wieder seine Türen für gebrauchte Kindersachen und Spielzeug.",
+   "lng": 6.083,
+   "lat": 50.87,
+   "start": "2026-09-05",
+   "meta": "Kita Rappelkiste, In d. Linen, Herzogenrath · vormittags",
+   "tags": [
+    "familie"
+   ],
+   "quelle": "https://aachenerkinder.de/veranstaltungen/kategorie/flohmarkt/",
+   "hinzu": "2026-08-16"
   },
   {
-   "id": "spot-ponttor",
-   "typ": "spot",
-   "titel": "Fotospot: Ponttor",
-   "text": "Mittelalterliches Stadttor mit Vorburg — dramatische Kompositionen von der nördlichen Feldseite. Am besten: goldene Stunde abends von Norden/Nordwesten.",
-   "lng": 6.07833,
-   "lat": 50.78153,
-   "meta": "goldene Stunde",
-   "tags": [],
-   "quelle": "https://de.wikipedia.org/wiki/Ponttor",
-   "bild": {
-    "url": "bilder/ponttor.jpg",
-    "credit": "Kleon3 / Wikimedia Commons",
-    "lizenz": "CC BY-SA 4.0",
-    "quelle": "https://commons.wikimedia.org/wiki/File:2025_Aachen,_Ponttor_(03).jpg"
-   },
-   "hinzu": "2026-08-08",
-   "fest": true
+   "id": "kukuk-flohmarkt-2026-09-06",
+   "typ": "event",
+   "titel": "KuKuK-Flohmarkt",
+   "text": "Rund um das ehemalige Zollhaus KuKuK werden alte Möbel, Bücher, Kleidung und weitere Schätze angeboten – mitmachen kann jede:r.",
+   "lng": 6.169,
+   "lat": 50.696,
+   "start": "2026-09-06",
+   "meta": "KuKuK, Eupener Straße 420 · 9-16 Uhr",
+   "tags": [
+    "markt"
+   ],
+   "quelle": "https://kingkalli.de/veranstaltungsort/kukuk-kunst-kultur-koepfchen/",
+   "hinzu": "2026-08-16"
   },
   {
-   "id": "spot-marschiertor",
-   "typ": "spot",
-   "titel": "Fotospot: Marschiertor",
-   "text": "Eines der mächtigsten erhaltenen Stadttore Westeuropas, nahe Hauptbahnhof — die breite Südfassade füllt Weitwinkel perfekt. Am besten: Nachmittag bis goldene Stunde.",
-   "lng": 6.08694,
-   "lat": 50.76819,
-   "meta": "frei zugänglich",
-   "tags": [],
-   "quelle": "https://de.wikipedia.org/wiki/Marschiertor",
-   "bild": {
-    "url": "bilder/marschiertor.jpg",
-    "credit": "Sascha Gebhardt / Wikimedia Commons",
-    "lizenz": "CC BY-SA 3.0 DE",
-    "quelle": "https://commons.wikimedia.org/wiki/File:Marschiertor_Aachen_S%C3%BCdseite.jpg"
-   },
-   "hinzu": "2026-08-08",
-   "fest": true
+   "id": "william-wahl-wahlweise-2026-09-10",
+   "typ": "event",
+   "titel": "William Wahl – wahlweise",
+   "text": "Mit seinem dritten Klavierkabarett-Programm verbindet William Wahl Wortspiele, Alltagskomik und poetische Klavierlieder; 2026 ausgezeichnet mit dem Deutschen Kleinkunstpreis in der Sparte Musik.",
+   "lng": 6.078,
+   "lat": 50.78,
+   "start": "2026-09-10",
+   "meta": "FRANZ Aachen · 20:00 Uhr",
+   "tags": [
+    "kultur"
+   ],
+   "quelle": "https://www.regioactive.de/vvk/3500394/william-wahl-tour-2026-2027-termine",
+   "hinzu": "2026-08-16"
   },
   {
-   "id": "spot-frankenberg",
-   "typ": "spot",
-   "titel": "Fotospot: Burg Frankenberg",
-   "text": "Wasserburg aus dem 13. Jh. mitten im Viertel: Der Burgweiher liefert bei Windstille Bilderbuch-Spiegelungen. Am besten: Sonnenaufgang — ruhiges Wasser, gelegentlich Morgennebel.",
-   "lng": 6.10389,
-   "lat": 50.76778,
-   "meta": "Park frei zugänglich",
-   "tags": [],
-   "quelle": "https://de.wikipedia.org/wiki/Burg_Frankenberg_(Aachen)",
-   "bild": {
-    "url": "bilder/frankenberg.jpg",
-    "credit": "ArthurMcGill / Wikimedia Commons",
-    "lizenz": "CC BY 3.0",
-    "quelle": "https://commons.wikimedia.org/wiki/File:Burg_Frankenberg,_Aachen_(11).JPG"
-   },
-   "hinzu": "2026-08-08",
-   "fest": true
+   "id": "aachener-fahrradmarkt-2026-09-12",
+   "typ": "event",
+   "titel": "Aachener Fahrradmarkt",
+   "text": "Oberhalb des Kármán-Auditoriums können gebrauchte Fahrräder gekauft oder verkauft werden – ohne Anmeldung, jeder kann mitmachen.",
+   "lng": 6.0805,
+   "lat": 50.7788,
+   "start": "2026-09-12",
+   "meta": "Platanenplatz, Templergraben · 9-16 Uhr",
+   "tags": [
+    "markt"
+   ],
+   "quelle": "https://www.aachener-fahrradmarkt.com/termine",
+   "hinzu": "2026-08-16"
   },
   {
-   "id": "spot-melaten",
-   "typ": "spot",
-   "titel": "Fotospot: Gut-Melaten-Allee",
-   "text": "Aachens beliebtestes Allee-Motiv am historischen Gut Melaten: symmetrische Baumreihen, im Herbst spektakulär gefärbt. Am besten: Sonnenaufgang mit Gegenlicht und Morgennebel.",
-   "lng": 6.0466,
-   "lat": 50.7789,
-   "meta": "RWTH Campus Melaten",
-   "tags": [],
-   "quelle": "https://de.wikipedia.org/wiki/Gut_Melaten",
-   "bild": {
-    "url": "bilder/melaten.jpg",
-    "credit": "Kleon3 / Wikimedia Commons",
-    "lizenz": "CC BY-SA 4.0",
-    "quelle": "https://commons.wikimedia.org/wiki/File:2025_Aachen,_Gut_Melaten_(01).jpg"
-   },
-   "hinzu": "2026-08-08",
-   "fest": true
+   "id": "maik-krahl-konzert-2026-09-13",
+   "typ": "event",
+   "titel": "Maik Krahl – Konzert",
+   "text": "Kammerkonzert im Rahmen des Programms der Kulturinitiative Kornelimünster in der historischen Abtei.",
+   "lng": 6.1655,
+   "lat": 50.7315,
+   "start": "2026-09-13",
+   "meta": "Kulturinitiative Kornelimünster",
+   "tags": [
+    "musik"
+   ],
+   "quelle": "https://www.songkick.com/metro-areas/28429-germany-aachen",
+   "hinzu": "2026-08-16"
   },
   {
-   "id": "spot-stadtgarten",
-   "typ": "spot",
-   "titel": "Fotospot: Stadtgarten / Kurpark",
-   "text": "Alte Baumbestände, Wasserbecken und das Neue Kurhaus als Kulisse — ruhiges Park-Motiv abseits der Altstadt. Am besten: morgens, im Herbst wegen Laubfärbung besonders fotogen.",
-   "lng": 6.0971,
-   "lat": 50.783,
-   "meta": "frei zugänglich",
-   "tags": [],
-   "quelle": "https://www.carolus-thermen.de/",
-   "bild": {
-    "url": "bilder/stadtgarten.jpg",
-    "credit": "Kleon3 / Wikimedia Commons",
-    "lizenz": "CC BY-SA 4.0",
-    "quelle": "https://commons.wikimedia.org/wiki/File:2025_Aachen,_Stadtgarten_(09).jpg"
-   },
-   "hinzu": "2026-08-08",
-   "fest": true
+   "id": "eilendorfer-weinfest-2026-09-18",
+   "typ": "event",
+   "titel": "Eilendorfer Weinfest",
+   "text": "Straßenfest im Aachener Stadtteil Eilendorf mit Wein, Ständen und geselligem Beisammensein auf dem Severinusplatz.",
+   "lng": 6.146,
+   "lat": 50.798,
+   "start": "2026-09-18",
+   "meta": "Severinusplatz, Eilendorf · ab 17:00 Uhr",
+   "tags": [
+    "fest"
+   ],
+   "quelle": "https://allevents.in/aachen/september",
+   "hinzu": "2026-08-16"
   },
   {
-   "id": "spot-dreilaendereck",
-   "typ": "spot",
-   "titel": "Fotospot: Dreiländereck Vaalserberg",
-   "text": "Drei Länder in einem Bild: Grenzmonument, Waldkulisse und Aussichtstürme am höchsten Punkt der Niederlande (322 m). Am besten: Sonnenuntergang mit freier Sicht nach Westen.",
-   "lng": 6.0208,
-   "lat": 50.7547,
-   "meta": "D · NL · B · frei",
-   "tags": [],
-   "quelle": "https://de.wikipedia.org/wiki/Vaalserberg",
-   "bild": {
-    "url": "bilder/dreilaendereck.jpg",
-    "credit": "Steven Lek / Wikimedia Commons",
-    "lizenz": "Public Domain",
-    "quelle": "https://commons.wikimedia.org/wiki/File:Drielandenpunt_Netherlands.JPG"
-   },
-   "hinzu": "2026-08-08",
-   "fest": true
+   "id": "real-berlin-street-swing-2026-09-25",
+   "typ": "event",
+   "titel": "Real Berlin Street Swing",
+   "text": "Konzertabend der Kulturinitiative Kornelimünster mit Swing-Musik in historischem Ambiente.",
+   "lng": 6.1655,
+   "lat": 50.7315,
+   "start": "2026-09-25",
+   "meta": "Kulturinitiative Kornelimünster",
+   "tags": [
+    "musik"
+   ],
+   "quelle": "https://kulturkik.de/",
+   "hinzu": "2026-08-16"
+  },
+  {
+   "id": "jesus-lives-in-vegas-konzert-2026-09-26",
+   "typ": "event",
+   "titel": "Jesus Lives in Vegas – Konzert",
+   "text": "Live-Konzert im kleinen Kulturraum Le Suk, der ehemaligen Atelier-Bühne in der Lothringerstraße.",
+   "lng": 6.1,
+   "lat": 50.765,
+   "start": "2026-09-26",
+   "meta": "Le Suk, Lothringerstraße 91 · abends",
+   "tags": [
+    "musik"
+   ],
+   "quelle": "https://www.songkick.com/metro-areas/28429-germany-aachen/2026",
+   "hinzu": "2026-08-16"
+  },
+  {
+   "id": "diver-friends-festival-open-birthday-bas-2026-09-26",
+   "typ": "event",
+   "titel": "Diver & Friends Festival – Open Birthday Bash",
+   "text": "Benefiz-Gala mit Live-Acts aus den Bereichen EBM, Synthpop und Dark Electro, veranstaltet in der Area 28.",
+   "lng": 6.098,
+   "lat": 50.769,
+   "start": "2026-09-26",
+   "meta": "Area 28, Grüner Weg 28 · abends",
+   "tags": [
+    "musik"
+   ],
+   "quelle": "https://www.eventfinder.de/veranstaltungsort/154476/area-28-in-aachen/",
+   "hinzu": "2026-08-16"
+  },
+  {
+   "id": "hattler-25-jahre-jubilaeumskonzert-2026-09-27",
+   "typ": "event",
+   "titel": "Hattler – 25 Jahre Jubiläumskonzert",
+   "text": "Bassist Hellmut Hattler (Kraan, Tab Two) feiert mit einem Jubiläumskonzert 25 Jahre seiner Solokarriere.",
+   "lng": 6.098,
+   "lat": 50.769,
+   "start": "2026-09-27",
+   "meta": "Area 28, Grüner Weg 28 · Einlass 19:00, Beginn 20:00",
+   "tags": [
+    "musik"
+   ],
+   "quelle": "https://ticketree.de/event-kategorie/mufab-area-28/",
+   "hinzu": "2026-08-16"
+  },
+  {
+   "id": "arcadie-quartett-walzer-milonga-co-2026-09-27",
+   "typ": "event",
+   "titel": "arcadie quartett – Walzer, Milonga & Co.",
+   "text": "Das Aachener Flötenquartett arcadie präsentiert im Ballsaal des Alten Kurhauses ein Programm mit Tänzen aus aller Welt für Flötenquartett.",
+   "lng": 6.0919,
+   "lat": 50.7795,
+   "start": "2026-09-27",
+   "meta": "Altes Kurhaus, Monheimsallee 44 · 17:00 Uhr",
+   "tags": [
+    "musik"
+   ],
+   "quelle": "https://www.aachen.de/services/presse/pressemitteilungen/2026/juni/150626-arcadie-quartett/",
+   "hinzu": "2026-08-16"
+  },
+  {
+   "id": "ferienspiele-fuer-kinder-am-kukuk-2026-08-24",
+   "typ": "event",
+   "titel": "Ferienspiele für Kinder am KuKuK",
+   "text": "Ferienbetreuung mit vielfältigem Programm für Kinder am ehemaligen Zollhaus KuKuK an der deutsch-belgischen Grenze.",
+   "lng": 6.169,
+   "lat": 50.696,
+   "start": "2026-08-24",
+   "ende": "2026-08-28",
+   "meta": "KuKuK, Eupener Straße 420 · ab 11:00 Uhr",
+   "tags": [
+    "familie"
+   ],
+   "quelle": "https://kukukandergrenze.eu/",
+   "hinzu": "2026-08-16"
+  },
+  {
+   "id": "aachener-waldwochen-am-kukuk-2026-08-24",
+   "typ": "event",
+   "titel": "Aachener Waldwochen am KuKuK",
+   "text": "Waldpädagogin Ute Reifferscheidt führt Kinder zwischen sieben und zwölf Jahren in den Aachener Wald, um Tierspuren zu suchen und die Natur zu entdecken.",
+   "lng": 6.169,
+   "lat": 50.696,
+   "start": "2026-08-24",
+   "meta": "KuKuK, Eupener Straße 420 · 11:00-15:00 Uhr",
+   "tags": [
+    "natur"
+   ],
+   "quelle": "https://kingkalli.de/veranstaltungsort/kukuk-kunst-kultur-koepfchen/",
+   "hinzu": "2026-08-16"
+  },
+  {
+   "id": "sundowner-mit-dj-michael-georgi-2026-08-21",
+   "typ": "event",
+   "titel": "Sundowner mit DJ Michael Georgi",
+   "text": "Entspannter Sommerabend mit DJ-Set am ehemaligen Zollhaus KuKuK direkt an der deutsch-belgischen Grenze.",
+   "lng": 6.169,
+   "lat": 50.696,
+   "start": "2026-08-21",
+   "meta": "KuKuK, Eupener Straße 420 · 18:30 Uhr",
+   "tags": [
+    "musik"
+   ],
+   "quelle": "https://kukukandergrenze.eu/",
+   "hinzu": "2026-08-16"
+  },
+  {
+   "id": "bluesaders-konzert-2026-08-28",
+   "typ": "event",
+   "titel": "Bluesaders – Konzert",
+   "text": "Live-Blues-Konzert im Rahmen des Sommerprogramms am KuKuK an der deutsch-belgischen Grenze.",
+   "lng": 6.169,
+   "lat": 50.696,
+   "start": "2026-08-28",
+   "meta": "KuKuK, Eupener Straße 420 · 19:00 Uhr",
+   "tags": [
+    "musik"
+   ],
+   "quelle": "https://kukukandergrenze.eu/",
+   "hinzu": "2026-08-16"
+  },
+  {
+   "id": "pflanzenmonster-monsterpflanzen-2026-09-12",
+   "typ": "event",
+   "titel": "Pflanzenmonster – Monsterpflanzen",
+   "text": "Mitmach-Aktion rund um ungewöhnliche Pflanzen für Familien am KuKuK-Kulturgelände an der Grenze.",
+   "lng": 6.169,
+   "lat": 50.696,
+   "start": "2026-09-12",
+   "meta": "KuKuK, Eupener Straße 420 · 11:00 Uhr",
+   "tags": [
+    "familie"
+   ],
+   "quelle": "https://kukukandergrenze.eu/",
+   "hinzu": "2026-08-16"
   }
  ]
 }
