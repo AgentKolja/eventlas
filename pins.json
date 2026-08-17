@@ -1,5 +1,5 @@
 {
- "stand": "2026-08-16",
+ "stand": "2026-08-17",
  "hinweis": "Schema: typ event|angebot|hilfe|spot · tags[] · quelle (Beleg-URL) · link (CTA) · hot (beliebt) · hinzu (Aufnahmedatum) · saison {von,bis als MM-TT, jaehrlich wiederkehrend} · fest:true = wird vom Auto-Update nie geloescht.",
  "pins": [
   {
@@ -2765,6 +2765,204 @@
    ],
    "quelle": "https://kukukandergrenze.eu/",
    "hinzu": "2026-08-16"
+  },
+  {
+   "id": "h2o-punkrock-festival-2026-08-22",
+   "typ": "event",
+   "titel": "H2O (Punkrock-Festival)",
+   "text": "Die New Yorker Hardcore-Band H2O gibt ein Open-Air-Konzert auf dem Lindenplatz. Support-Acts ergänzen das Punkrock-Programm im Herzen des Pontviertels.",
+   "lng": 6.079,
+   "lat": 50.7768,
+   "start": "2026-08-22",
+   "meta": "Lindenplatz Aachen · 11:00 Uhr",
+   "tags": [
+    "musik",
+    "fest"
+   ],
+   "quelle": "https://www.livegigs.de/h2o",
+   "hinzu": "2026-08-17"
+  },
+  {
+   "id": "elena-uhlig-fritz-karl-die-ehe-2026-08-29",
+   "typ": "event",
+   "titel": "Elena Uhlig & Fritz Karl – Die Ehe",
+   "text": "Die beiden Schauspieler nehmen das Eheleben mit Literatur, Selbstironie und Filmzitaten humorvoll auseinander. Das Bühnenprogramm trägt den Titel „Die Ehe – eine feindliche Übernahme“.",
+   "lng": 6.0908,
+   "lat": 50.7776,
+   "start": "2026-08-29",
+   "meta": "Eurogress Aachen · 20:00 Uhr",
+   "tags": [
+    "kultur"
+   ],
+   "quelle": "https://aachen-kalender.de/veranstaltungsort/eurogress/",
+   "hinzu": "2026-08-17"
+  },
+  {
+   "id": "alexander-stevens-jacqueline-belle-true--2026-09-12",
+   "typ": "event",
+   "titel": "Alexander Stevens & Jacqueline Belle – True Crime TOXIC LOVE",
+   "text": "True-Crime-Lesung und Bühnenshow rund um toxische Beziehungen im Eurogress. Comedy-Format mit True-Crime-Elementen.",
+   "lng": 6.0908,
+   "lat": 50.7776,
+   "start": "2026-09-12",
+   "meta": "Eurogress Aachen · 20:00 Uhr",
+   "tags": [
+    "kultur"
+   ],
+   "quelle": "https://www.wasgehtapp.de/location.php?id=3418",
+   "hinzu": "2026-08-17"
+  },
+  {
+   "id": "wochenmarkt-brand",
+   "typ": "event",
+   "titel": "Wochenmarkt Brand",
+   "text": "Auf dem Brander Marktplatz gibt es dienstags und samstags frisches Obst, Gemüse und regionale Spezialitäten unter freiem Himmel. Ein beliebter Treffpunkt im Aachener Osten.",
+   "lng": 6.1372,
+   "lat": 50.7554,
+   "wdh": "di,sa",
+   "meta": "Brander Marktplatz · 7:00–13:00 Uhr",
+   "tags": [
+    "markt"
+   ],
+   "quelle": "https://www.aachen.de/strukturierte-daten/orte/wochenmaerkte/wochenmarkt-brand/",
+   "hinzu": "2026-08-17"
+  },
+  {
+   "id": "maedchen-klamotte-second-hand-flohmarkt-2026-09-20",
+   "typ": "event",
+   "titel": "Mädchen Klamotte – Second-Hand-Flohmarkt",
+   "text": "Frauen- und Mädchenflohmarkt mit Vintage-Kleidung, Schuhen und Accessoires im Liebig in Aachen. Second-Hand-Schätze warten auf ein neues Zuhause.",
+   "lng": 6.043,
+   "lat": 50.791,
+   "start": "2026-09-20",
+   "meta": "Das Liebig, Liebigstraße 19 · 11:00–16:00 Uhr",
+   "tags": [
+    "markt"
+   ],
+   "quelle": "https://meine-flohmarkt-termine.de/ort/aachen",
+   "hinzu": "2026-08-17"
+  },
+  {
+   "id": "kindersachenflohmarkt-bleiberger-fabrik-2026-09-05",
+   "typ": "event",
+   "titel": "Kindersachenflohmarkt Bleiberger Fabrik",
+   "text": "Kindersachen können mitgebracht und gegen andere gut erhaltene Stücke getauscht werden. Ein nachhaltiges Angebot für Familien in der Bleiberger Fabrik.",
+   "lng": 6.135,
+   "lat": 50.755,
+   "start": "2026-09-05",
+   "meta": "Bleiberger Fabrik · 10:00–14:30 Uhr",
+   "tags": [
+    "familie",
+    "markt"
+   ],
+   "quelle": "https://kingkalli.de/flohmarkt/",
+   "hinzu": "2026-08-17"
+  },
+  {
+   "id": "buecherbasar-der-stadtbibliothek",
+   "typ": "event",
+   "titel": "Bücherbasar der Stadtbibliothek",
+   "text": "Der Förderverein der Stadtbibliothek bietet regelmäßig Antiquarisches und Lesestoff für kleines Geld an. Der Erlös kommt vollständig der Bibliothek zugute.",
+   "lng": 6.0835,
+   "lat": 50.7745,
+   "wdh": "do",
+   "meta": "Stadtbibliothek Aachen, Couvenstraße 15 · 15:30–18:00 Uhr · ",
+   "tags": [
+    "markt"
+   ],
+   "quelle": "https://www.klenkes.de/markt-und-messe/markt/event/5f1859a13d65a16a75459018.637cd5b418876943567519d3.buecherbasar",
+   "hinzu": "2026-08-17"
+  },
+  {
+   "id": "satznachvorn-poetry-slam-2026-09-04",
+   "typ": "event",
+   "titel": "satznachvorn Poetry Slam",
+   "text": "Deutschlands westlichster Poetry Slam findet seit über 25 Jahren monatlich in der Raststätte statt. Slam-Poet:innen aus ganz Deutschland treten gegeneinander an, das Publikum entscheidet.",
+   "lng": 6.077,
+   "lat": 50.777,
+   "start": "2026-09-04",
+   "meta": "Raststätte Aachen · 19:00 Uhr",
+   "tags": [
+    "kultur"
+   ],
+   "quelle": "https://rausgegangen.de/en/events/satznachvorn-poetry-slam-16/",
+   "hinzu": "2026-08-17"
+  },
+  {
+   "id": "filmfest-aachen-2026-09-24",
+   "typ": "event",
+   "titel": "Filmfest Aachen",
+   "text": "Die zweite Auflage des Aachener Filmfests bespielt alle vier Säle des Apollo-Kinos mit rund 30 Filmen, Workshops und Gesprächen. Das Festival läuft über vier Tage plus Eröffnungsnacht.",
+   "lng": 6.0779,
+   "lat": 50.7794,
+   "start": "2026-09-24",
+   "ende": "2026-09-27",
+   "meta": "Apollo Kino, Pontstraße 141–149",
+   "tags": [
+    "kultur"
+   ],
+   "quelle": "https://www.aachener-zeitung.de/lokales/region-aachen/aachen/zweites-filmfest-aachen-mehr-tage-mehr-filme-mehr-programm/144578414.html",
+   "hinzu": "2026-08-17"
+  },
+  {
+   "id": "aachener-comedy-clash-2026-09-23",
+   "typ": "event",
+   "titel": "Aachener Comedy Clash",
+   "text": "Deutschlands größter Stand-up-Comedy-Wettbewerb macht Station im Grenzlandtheater. Drei Vorrunden und ein Finale bringen die beste Nachwuchs-Comedy auf die Bühne.",
+   "lng": 6.087,
+   "lat": 50.7745,
+   "start": "2026-09-23",
+   "meta": "Grenzlandtheater Aachen",
+   "tags": [
+    "kultur"
+   ],
+   "quelle": "https://www.regioactive.de/location/aachen/grenzlandtheater-NgKKBJc0Fy",
+   "hinzu": "2026-08-17"
+  },
+  {
+   "id": "forced-to-mode-depeche-mode-tribute-2026-09-24",
+   "typ": "event",
+   "titel": "Forced To Mode – Depeche-Mode-Tribute",
+   "text": "Die Tribute-Band lässt den Sound der ikonischen Depeche-Mode-Ära mit wechselnden Setlists wieder aufleben. Auch seltene, live kaum gespielte Songs stehen auf dem Programm.",
+   "lng": 6.1215,
+   "lat": 50.7669,
+   "start": "2026-09-24",
+   "meta": "Saalbau Rothe Erde · 21:30 Uhr · teilweise frei",
+   "tags": [
+    "musik"
+   ],
+   "quelle": "https://www.wasgehtapp.de/location.php?id=6039",
+   "hinzu": "2026-08-17"
+  },
+  {
+   "id": "der-zerbrochne-krug-premiere-2026-09-24",
+   "typ": "event",
+   "titel": "Der zerbrochne Krug – Premiere",
+   "text": "Kleists Komödienklassiker über Stolpersteine und Selbsttäuschung feiert Premiere im Grenzlandtheater. Ein Justizfall gerät zur Farce um Lug und Trug.",
+   "lng": 6.087,
+   "lat": 50.7745,
+   "start": "2026-09-24",
+   "meta": "Grenzlandtheater Aachen",
+   "tags": [
+    "kultur"
+   ],
+   "quelle": "https://grenzlandtheater.de/category/spielplan/",
+   "hinzu": "2026-08-17"
+  },
+  {
+   "id": "salsa-afterwork-im-apollo",
+   "typ": "event",
+   "titel": "Salsa Afterwork im Apollo",
+   "text": "Jeden Mittwoch startet im Saal 4 des Apollo ein Tanzkurs, gefolgt von einer Salsa-Fiesta bis in den Abend. Einsteiger und Geübte tanzen gemeinsam zu Latin-Rhythmen.",
+   "lng": 6.0779,
+   "lat": 50.7794,
+   "wdh": "mi",
+   "meta": "Apollo, Pontstraße 141–149 · 19:00 Uhr",
+   "tags": [
+    "musik"
+   ],
+   "quelle": "https://www.regioactive.de/location/aachen/apollo-dt2mnZt1km",
+   "hinzu": "2026-08-17"
   }
  ]
 }
