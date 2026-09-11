@@ -1,8 +1,11 @@
-name: Eventlas täglich aktualisieren
+name: Eventlas wöchentlich aktualisieren
 
 on:
   schedule:
-    - cron: "30 5 * * *"   # 05:30 UTC = 07:30 Sommerzeit / 06:30 Winterzeit in Aachen
+    # Mittwochs 05:30 UTC = 07:30 Sommerzeit / 06:30 Winterzeit in Aachen. Die 3 am Ende
+    # ist der Wochentag (0 = Sonntag). Mittwoch liegt weit genug vor dem Wochenende, dass
+    # neu angekündigte Wochenendtermine es noch auf die Karte schaffen.
+    - cron: "30 5 * * 3"
   workflow_dispatch: {}     # erlaubt manuellen Klick-Start unter "Actions" zum Testen
 
 permissions:
@@ -72,8 +75,14 @@ jobs:
       # Wann ist ein Lauf ein Fehler? Nicht schon dann, wenn das Skript einmal stolpert —
       # die alte pins.json bleibt dann einfach live und die Karte funktioniert weiter. Eine
       # rote Meldung (und damit eine Mail) soll es nur geben, wenn die Datei beschädigt ist
-      # oder das Update MEHRERE TAGE nicht mehr durchkommt. Ein Hänger bei einer fremden
+      # oder das Update MEHRERE LÄUFE nicht mehr durchkommt. Ein Hänger bei einer fremden
       # Schnittstelle ist Alltag; wochenlang veraltete Termine sind ein echtes Problem.
+      #
+      # Die Schwellen hängen am Rhythmus: Bei wöchentlichen Läufen ist der Stand nach einem
+      # erfolgreichen Lauf 0 Tage alt und nach einem Aussetzer genau 7. Ein verpasster
+      # Mittwoch (7 Tage) ist deshalb nur eine Warnung, zwei verpasste (14) sind ein Fehler.
+      # Beim früheren Tagesrhythmus standen hier 1 und 3 — dieselbe Logik, andere Taktung.
+      # Wer den Rhythmus in "on: schedule" ändert, muss diese zwei Zahlen mitziehen.
       - name: Ergebnis prüfen
         env:
           SKRIPT_ERGEBNIS: ${{ steps.update.outcome }}
@@ -91,17 +100,17 @@ jobs:
             if (pins.length < 20) { console.log("::error::Nur " + pins.length + " Pins — die Datei ist beschädigt."); process.exit(1); }
             if (ohneKoordinaten) { console.log("::error::" + ohneKoordinaten + " Pins ohne Koordinaten."); process.exit(1); }
 
-            if (alter >= 3) {
+            if (alter >= 14) {
               // Nicht nur "es ist alt" melden, sondern gleich wohin man schauen muss. Vorher
               // stand hier "Ursache steht in der Zusammenfassung oben" — und weil das Skript
               // wegen continue-on-error grün aussah, suchte man wochenlang am falschen Schritt.
               const wo = process.env.SKRIPT_ERGEBNIS === "failure"
                 ? "Das Update-Skript selbst ist abgebrochen (Schritt »Pins recherchieren und schreiben«, steht trotz Abbruch auf grün) — seine Ausgabe steht unten in dieser Zusammenfassung."
                 : "Das Skript lief durch, hat aber keinen neuen Stand geschrieben — Quellen-Bilanz in der Zusammenfassung prüfen.";
-              console.log("::error::Die Termine sind " + alter + " Tage alt — das Update kommt seit mehreren Tagen nicht durch. " + wo);
+              console.log("::error::Die Termine sind " + alter + " Tage alt — das Update kommt seit mehreren Wochen nicht durch. " + wo);
               process.exit(1);
             }
-            if (alter >= 1) console.log("::warning::Heute kein neuer Stand geschrieben (Daten " + alter + " Tag(e) alt). Einmalig ist das unkritisch.");
+            if (alter >= 1) console.log("::warning::Kein neuer Stand geschrieben (Daten " + alter + " Tag(e) alt). Ein verpasster Mittwoch ist unkritisch, zwei sind es nicht.");
             if (fremde.length) console.log("::warning::Unbekannte Themen-Tags: " + fremde.join(", "));
             if (musik < 5) console.log("::warning::Wenige Musik-Pins (" + musik + ") — Konzertquellen prüfen.");
           '

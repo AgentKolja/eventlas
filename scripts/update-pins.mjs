@@ -1,4 +1,4 @@
-// Eventlas Auto-Update v3 — läuft täglich per GitHub Action.
+// Eventlas Auto-Update v3 — läuft mittwochs per GitHub Action.
 // Quellen: 1) feste Pins aus pins.json (fest:true — Fotospots, Ernte, Beispiele: bleiben immer),
 //          2) Kulturkalender-JSON-API der Stadt (api.kulturkalender-aachen.de, CORS *),
 //          3) Claude mit Websuche — bekommt dabei gezielt die Spielstätten aus venues.json,
@@ -196,7 +196,7 @@ async function kulturPins() {
   if (!STADT.kulturApi) return [];          // nur Städte mit passender API
   try {
     const res = await fetch(STADT.kulturApi, {
-      headers: { "user-agent": "eventlas (Pin-Update, 1x taeglich)" },
+      headers: { "user-agent": "eventlas (Pin-Update, 1x woechentlich)" },
     });
     if (!res.ok) { console.error("Kulturkalender-API:", res.status, "- übersprungen"); return []; }
     const daten = await res.json();
@@ -429,7 +429,7 @@ async function tribePins() {
         const tags = ["kultur"];
         // Erlaubte Themen sind nur musik kultur fest markt sport familie natur — "party" gehörte
         // nie dazu: die Karte konnte danach nicht filtern und der Ergebnis-Check monierte es
-        // täglich. Party, Disco und Tanz laufen deshalb unter musik, in EINEM Ausdruck mit den
+        // bei jedem Lauf. Party, Disco und Tanz laufen deshalb unter musik, in EINEM Ausdruck mit den
         // Konzerten — zwei Zweige, die beide dasselbe Tag setzen, lesen sich wie zwei Regeln.
         if (/konzert|musik|jazz|rock|pop|band|klassik|party|disco|dj|tanz/.test(kategorien + " " + titel.toLowerCase())) tags.unshift("musik");
         alle.push({

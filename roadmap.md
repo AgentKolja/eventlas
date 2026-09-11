@@ -213,7 +213,7 @@ Rothe Erde, Barbarossa, Café Vers) — beim nächsten Durchgang verifizieren un
 
 ## Deploy-Kette (geschlossen seit 14.08.)
 ```
-GitHub Action (täglich 05:30 UTC)
+GitHub Action (mittwochs 05:30 UTC)
    └─ recherchiert → schreibt pins.json → committet ins Repo
         └─ Netlify (mit dem Repo verbunden) baut und veröffentlicht automatisch
              └─ Live-Seite zeigt die neuen Termine
@@ -246,7 +246,7 @@ Codeänderung über die Repo-Variable `EVENTLAS_MODELL` (Settings → Secrets an
 Actions → Variables). Sieht ein Fehler nach Modellproblem aus, sagt das Log es ausdrücklich.
 
 ## Content-Pipeline (aktualisiert 08.08.)
-**Automatisch (GitHub Action, täglich 05:30 UTC):** scripts/update-pins.mjs
+**Automatisch (GitHub Action, mittwochs 05:30 UTC):** scripts/update-pins.mjs
 1. Feste Pins (`fest:true`) bleiben immer: Fotospots, Ernteorte, Beispiele, Wochenmärkte, Alleenfest.
 2. Kulturkalender-API `api.kulturkalender-aachen.de/events` (undokumentiert, CORS *, 7 städtische
    Häuser mit fester Koordinaten-Map) → Kultur-Pins der nächsten 45 Tage, ohne LLM.
@@ -452,7 +452,7 @@ und die Karte bleibt schnell. Nachgeführt wird per Skript, nicht von Hand.
 | | `pins.json` | `orte.json` |
 |---|---|---|
 | Inhalt | was **passiert** (Termine) | was der **Ort ist** |
-| Erzeugt von | `update-pins.mjs`, täglich | `orte-aktualisieren.mjs`, monatlich genügt |
+| Erzeugt von | `update-pins.mjs`, wöchentlich | `orte-aktualisieren.mjs`, monatlich genügt |
 | Verknüpfung | — | über **Koordinaten** (bis 150 m), nicht über Pin-IDs |
 
 Die Koordinaten-Verknüpfung ist der Kern: Sie überlebt das nächtliche Update (das `pins.json`
