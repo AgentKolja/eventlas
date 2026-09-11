@@ -524,7 +524,12 @@ async function claudePins(bekannt) {
         max_tokens: 8000,
         system: SYSTEM + bekanntListe,
         messages: [{ role: "user", content: "Recherchiere jetzt und liefere das JSON." }],
-        tools: [{ type: "web_search_20250305", name: "web_search" }],
+        // Websuche kostet 10 $ je 1.000 Suchen, dazu die Treffer als Eingabe-Token. Ohne
+        // Obergrenze entscheidet allein das Modell, wie oft es sucht — bei einem Lauf, der
+        // jede Nacht unbeaufsichtigt startet, ist das die einzige Stelle, an der die Kosten
+        // aus dem Ruder laufen koennen. Acht Suchen reichen fuer eine Stadt und deckeln den
+        // Lauf bei rund 8 Cent Suchkosten.
+        tools: [{ type: "web_search_20250305", name: "web_search", max_uses: 8 }],
       }),
     });
     if (!res.ok) {
