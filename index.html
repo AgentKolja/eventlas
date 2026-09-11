@@ -2014,7 +2014,25 @@ function ansichtAktualisieren(){
   clusternUndZeichnen(zuZeigen);
   if(offen) offen.el.style.display = "flex";
 }
-map.on("moveend", ansichtAktualisieren);
+/* Neu zeichnen erst, wenn die Karte zur Ruhe gekommen ist.
+   MapLibre meldet "moveend" auch mitten im Zoomen: Mausrad und Trackpad lösen pro
+   Raddrehung eine eigene kleine Zoomfahrt aus, die jedes Mal zu Ende geht. Zeichneten wir
+   sofort darauf neu, würden sich die Cluster schon während des Zoomens mehrfach neu bilden
+   und vor den Augen zerspringen — man zoomt in einen Kreis hinein und er teilt sich unter
+   dem Finger. Darum nach jedem "moveend" kurz abwarten, ob noch etwas nachkommt, und erst
+   clustern, wenn losgelassen wurde und die Karte wirklich stillsteht. */
+const RUHE_MS = 140;          // so lange muss Ruhe sein, bevor neu gezeichnet wird
+let ruheTimer = null;
+function ansichtNachRuhe(){
+  clearTimeout(ruheTimer);
+  ruheTimer = setTimeout(() => {
+    // Finger noch unten, Schwung läuft noch, nächste Raddrehung schon unterwegs?
+    // Dann ist die Geste nicht vorbei — gleich nochmal nachsehen statt neu zu zeichnen.
+    if(map.isMoving() || map.isZooming() || map.isRotating()){ ansichtNachRuhe(); return; }
+    ansichtAktualisieren();
+  }, RUHE_MS);
+}
+map.on("moveend", ansichtNachRuhe);
 
 /* ---------- Clustering ----------
    Bei 140+ Pins ist die Karte sonst ein Teppich aus Symbolen. Wir gruppieren nach
