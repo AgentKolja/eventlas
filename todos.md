@@ -18,9 +18,15 @@ wählen" der auffällige Knopf, und im Meldeformular steht der Ort als eigene Ze
 
 ## 💶 Geldplan (11.09.) — der ganze Plan steht in [geschaeftsmodell.md](geschaeftsmodell.md)
 
-Kurz: Verkauft wird nicht die Aachen-Karte (die bleibt kostenlos und werbefrei), sondern die
-Fähigkeit, so eine Karte für jemanden mit Budget zu bauen. Vier Dinge musst du dafür tun,
-den Rest mache ich.
+Auf deine Ansage „reich werden mit minimalem Aufwand" umgerechnet (11.09., zweite Fassung):
+Kein Verkaufen, kein Klinkenputzen, keine bezahlten Einträge. Stattdessen **Fördergeld
+mitnehmen** und die Maschine so umbauen, dass **Google Besucher liefert statt du**.
+Dein Anteil daran: rund **8 Stunden insgesamt** — der Rest läuft über den Build und über mich.
+
+> Die eine Zahl, die du kennen musst: Werbung bringt 2–5 € je 1.000 Seitenaufrufe. 1.000 €
+> im Monat wären also ~300.000 Aufrufe. Aachen allein schafft im besten Fall 50.000 (≈ 150 €).
+> Reich macht das nicht — realistisch sind **500–1.200 €/Monat passiv nach 2–3 Jahren**, dazu
+> einmalig 2.000–16.400 € Fördergeld. Die ganze Rechnung steht in geschaeftsmodell.md.
 
 ### 🔴 Zuerst: Die Karte lebt nicht mehr — Ursache gefunden (11.09.)
 Das tägliche Update war seit dem **18.08.** kaputt. Der Grund war weder GitHub noch der
@@ -89,23 +95,37 @@ Verkaufsgespräch und jedem Antrag steht — dieses Jahr also kostenlos ausspiel
 - [ ] **AStA RWTH und AStA FH anschreiben** (Text 9 unten), Ziel: Link in die Ersti-Kanäle
 - [ ] Falls du Flyer übrig hast: Ersti-Wochen sind der beste Verteilzeitpunkt des Jahres
 
-### Voraussetzungen, bevor die erste Rechnung rausgeht
-- [ ] **Domain eventlas.de** — antwortet aktuell nicht, also noch frei/nicht eingerichtet
-- [ ] **Projekt-Mail** (private Gmail steht öffentlich in der App) — beides steht schon weiter unten
-- [ ] **Impressum** (§ 5 DDG) — überfällig, Daten reichen mir
-- [ ] **Gewerbe anmelden** (~20–40 €, Gewerbeamt Aachen) — erst nötig, wenn der erste Auftrag
-      kommt, nicht vorher. Im Fragebogen die **Kleinunternehmerregelung** ankreuzen
-      (Grenzen 25.000 € Vorjahr / 100.000 € laufendes Jahr → du bleibst weit darunter).
-- [ ] **Stand der DPMA-Markenanmeldung?** War für den 11.08. geplant — erledigt oder offen?
-      Vor Lizenzverkäufen an andere Städte ist sie Pflicht.
+### 🔍 Der eigentliche Flaschenhals: Google sieht Eventlas nicht
+Gemessen an der Live-Seite: **keine schema.org-Auszeichnung, `sitemap.xml` 404, `robots.txt`
+404, eine einzige URL, und die Pins kommen erst nach dem Laden per JavaScript.** Für Google
+ist das eine leere Seite mit einer Karte darauf — es gibt schlicht nichts zu indexieren.
 
-### Fragen an mich zurück (kurze Antwort reicht, dann arbeite ich weiter)
-- [ ] **Hauptberuflich?** Das Gründungsstipendium verlangt, dass du das Vorhaben hauptberuflich
-      verfolgst. Ist das für dich denkbar — oder soll ich den Plan ohne diesen Posten rechnen?
-- [ ] **Wie lief der Launch?** Alleenfest 29./30.08., Flyer verteilt, nebenan-Post raus? Davon
-      hängt ab, ob wir bei null Reichweite anfangen oder schon etwas vorzeigen können.
-- [ ] **Ab wann darf ich Kunden ansprechen?** Ich kann Musterkarten und Anschreiben vorbereiten
-      — verschickt werden sie natürlich nur von dir.
+Deshalb steckte im ersten Plan so viel Handarbeit: Ohne Suchmaschine musst du jeden Besucher
+selbst herbeitragen. Der Umbau (Einzelseiten je Termin/Ort/Stadt aus denselben Daten,
+schema.org/Event, Sitemap) ist ein Build-Schritt, keine neue Datenpflege — ich baue ihn,
+du brauchst nur eine Domain. **Rechne mit 6–18 Monaten, bis es wirkt.** Es gibt keine
+Abkürzung, die nicht abgestraft wird.
+
+- [ ] **`eventlas.de` registrieren** (~1 €/Monat). `netlify.app` ist eine geteilte Subdomain
+      und für Suchmaschinen wertlos — ohne eigene Domain lohnt der ganze Umbau nicht.
+      Die Domain antwortet aktuell nicht, ist also vermutlich noch frei.
+- [ ] **GetYourGuide-Partnerkonto anlegen** → [partner.getyourguide.com](https://partner.getyourguide.com/de-de/signup).
+      Bis 7 % Provision (≈ 2,80 € je 40-€-Tour) statt ~0,70 € bei Eventim-Tickets — Aachen ist
+      Touristenstadt (Dom, Weihnachtsmarkt, Thermen, Dreiländereck). Die Links erzeuge ich
+      danach automatisch aus den vorhandenen Ortsdaten.
+- [ ] **Projekt-Mail + Impressum** (§ 5 DDG) — steht schon weiter unten, wird mit eigener
+      Domain ohnehin fällig (`hallo@eventlas.de`).
+
+### Nicht mehr nötig (aus dem ersten Plan gestrichen)
+Läden abklappern, Einträge verkaufen, Auftragskarten aktiv anbieten, Flyer als Hauptkanal,
+Partner-Profile. Alles tauscht deine Zeit gegen Geld, statt sie zu vervielfachen. Die
+**Preisliste bleibt im Anhang von geschaeftsmodell.md** — falls jemand von allein fragt,
+nimmst du 600–2.500 € je Karte. Hinterherlaufen lohnt für dein Ziel nicht.
+
+### Eine Frage an dich (der Rest läuft ohne)
+- [ ] **Hauptberuflich denkbar?** Nur davon hängt das Gründungsstipendium ab — mit 14.400 €
+      der größte Einzelposten im ganzen Plan, mehr als die passiven Hebel in drei Jahren
+      zusammen. Wenn nein, streiche ich ihn und rechne ohne.
 
 ---
 

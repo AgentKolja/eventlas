@@ -9,16 +9,24 @@ Zum Live-Bestand gehören: `index.html`, `pins.json`, `orte.json`, `manifest.jso
 `flyer.html`, `og.png`, die Icons, `schriften/` und `bilder/`.
 
 ## 💶 Geschäftsmodell (11.09.) → [geschaeftsmodell.md](geschaeftsmodell.md)
-Beschlossen: **Die Aachen-Karte bleibt dauerhaft kostenlos und werbefrei** — Platzierung und
-Reihenfolge sind dort niemals käuflich. Verkauft wird stattdessen die *Fähigkeit*: Auftrags-
-karten für Feste/Vereine/Wohnungsbau (600–2.500 €), Einbett-Widget im Abo (30–80 €/Monat),
-weitere Städte als Lizenz (1.500–3.000 € + Betrieb), dazu Fördergeld (Heimat-Scheck 2.000 €
-bis 31.10.2026, Gründungsstipendium.NRW 14.400 €). Begründung, Preisliste, Zielkunden,
-Rechtliches und Abbruchkriterien stehen in der Datei.
+Zielvorgabe des Betreibers: **maximaler Ertrag pro Stunde, nichts, was laufend Handarbeit
+kostet.** Deshalb kein aktiver Verkauf, kein Klinkenputzen, keine bezahlten Einträge — die
+Aachen-Karte bleibt kostenlos und werbefrei. Vier Hebel, in dieser Reihenfolge:
 
-**Blocker für alles davon:** Die ausgelieferte `pins.json` hat Datenstand **08.08.**, der letzte
-Auto-Update-Lauf liegt am 10.08., `/version.json` antwortet 404 → seit 14.08. kein Build mehr.
-Erst wieder tagesaktuell machen und Besucher zählen, dann verkaufen.
+1. **Fördergeld** — Heimat-Scheck 2.000 € (Frist 31.10.2026), Gründungsstipendium.NRW 14.400 €.
+   Die einzigen sicheren vierstelligen Beträge; ~500–700 € pro aufgewendeter Stunde.
+2. **SEO-Ausgabe bauen** — statische Seiten je Termin/Ort/Stadt + schema.org/Event + sitemap.xml
+   + eigene Domain. Gemessen am 11.09.: **0× schema.org, sitemap 404, robots 404, eine einzige
+   URL, Pins nur per fetch** → Google kann Eventlas nicht indexieren, also gibt es null
+   organischen Traffic. Das ist der Flaschenhals für jedes passive Einkommen.
+3. **Tourismus-Affiliate statt Ticket-Affiliate** — GetYourGuide ~7 % (≈ 2,80 € je 40-€-Tour)
+   gegen Eventim ≈ 2 % vom Ticket (≈ 0,70 €). Display-Werbung erst ab ~30.000 Aufrufen/Monat.
+4. **Städte vervielfachen** — erst wenn 2 in Aachen nachweislich wirkt; ~1 Tag je Stadt,
+   danach läuft sie im selben nächtlichen Lauf mit.
+
+Erwartung laut Datei: ~500–1.200 €/Monat passiv nach zwei bis drei Jahren, plus einmalig
+2.000–16.400 € Fördergeld. **Reich wird man damit nicht** — dafür bräuchte es rund fünfzigmal
+mehr Seitenaufrufe. Preisliste für Auftragsarbeit steht als Anhang bereit, falls jemand fragt.
 
 ## 🔧 Auftragsliste vom 14.08. (Nutzer) — Reihenfolge nach Dringlichkeit
 | # | Was | Status |
