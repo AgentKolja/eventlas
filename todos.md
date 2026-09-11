@@ -2,24 +2,64 @@
 
 Karte ist live: **https://eventlas.netlify.app** — alle Texte unten sind fertig zum Kopieren.
 
+## Behoben: „Ort hinzufügen ging nicht" (11.09.)
+Zwei Ursachen, beide im Plakat-Foto-Weg. Erstens blieb ein einmal ausgewähltes Foto im
+Hintergrund gemerkt, auch wenn man das Fenster nur zugemacht hat — **danach landete jede
+weitere Meldung wieder im Foto-Weg**, ohne Formular und ohne Ortauswahl, nur noch mit
+WhatsApp und Mail. Zweitens war das Fenster „Fast geschafft" eine Sackgasse: zwei Knöpfe,
+beide aus der App heraus, kein Weg zum Ort — und es behauptete trotzdem, die Koordinaten
+seien vorbereitet. Deshalb kam die Mail ohne Ort an.
+
+Jetzt: Fenster zu = abgebrochen (Foto wird verworfen), fehlt der Ort, ist „📍 Ort auf Karte
+wählen" der auffällige Knopf, und im Meldeformular steht der Ort als eigene Zeile — mit
+„ändern", ohne dass die Eingaben verloren gehen.
+- [ ] Nach dem nächsten Deploy einmal auf dem Handy nachtesten: Plakat fotografieren →
+      Standort ablehnen → Ort auf der Karte wählen → Mail muss die Koordinaten enthalten
+
 ## 💶 Geldplan (11.09.) — der ganze Plan steht in [geschaeftsmodell.md](geschaeftsmodell.md)
 
 Kurz: Verkauft wird nicht die Aachen-Karte (die bleibt kostenlos und werbefrei), sondern die
 Fähigkeit, so eine Karte für jemanden mit Budget zu bauen. Vier Dinge musst du dafür tun,
 den Rest mache ich.
 
-### 🔴 Zuerst: Die Karte lebt nicht mehr
-Gemessen am 11.09.: Die ausgelieferte `pins.json` hat **Datenstand 08.08.** — die Karte zeigt
-seit fünf Wochen abgelaufene August-Termine. Der letzte nächtliche Lauf liegt im Git-Log am
-**10.08.**, und `/version.json` antwortet weiter mit 404, also ist seit dem 14.08. auch kein
-Build mehr durchgelaufen. Solange das so ist, kann man die Karte niemandem zeigen — weder
-einem Kunden noch einer Förderjury.
+### 🔴 Zuerst: Die Karte lebt nicht mehr — Ursache gefunden (11.09.)
+Das tägliche Update war seit dem **18.08.** kaputt. Der Grund war weder GitHub noch der
+Schlüssel, sondern **ein unsichtbares Zeichen am Anfang von `venues.json`** (ein sogenanntes
+BOM, das Windows-Editoren beim Speichern gern anhängen). Node stolpert darüber, das Skript
+fing den Fehler still auf und lief mit einer **Notkonfiguration ohne jede Datenquelle**
+weiter: kein Kulturkalender, kein rausgegangen, kein Musikbunker, keine Vereinskalender.
+Übrig blieb allein die Claude-Recherche — und als deren Guthaben am 18.08. auslief, kam
+gar nichts mehr. Deshalb lief der Schritt „Pins recherchieren und schreiben" jeden Morgen
+**in unter einer Sekunde** durch und das rote Kreuz landete beim Ergebnis-Check, der nur
+meldete, dass die Termine alt sind.
 
-- [ ] **github.com → Repo → Actions**: Läuft „Update pins" noch, oder steht dort rot/pausiert?
-      (GitHub schaltet geplante Läufe in stillen Repos ab — dann reicht ein „Enable workflow".)
-- [ ] **Settings → Secrets → `ANTHROPIC_API_KEY`**: noch gültig und mit Guthaben?
+Das BOM ist entfernt, das Skript verträgt jetzt eins und bricht laut ab, statt still
+weiterzulaufen. Nachgemessen: Kulturkalender liefert aktuell 112 passende Termine, die vier
+Vereinskalender zusammen 170 — die Quellen sind also gesund. Zwei Dinge musst nur du tun:
+
+- [x] ~~**Actions**: Läuft „Update pins" noch?~~ — Ja, läuft täglich, nie pausiert.
+- [ ] **💳 Anthropic-Guthaben aufladen** — [console.anthropic.com → Plans & Billing](https://console.anthropic.com/settings/billing).
+      Der Schlüssel ist gültig, aber das Konto ist leer; die API antwortet wörtlich mit
+      „Your credit balance is too low". **Ohne Aufladen fehlen nur die recherchierten
+      Extra-Funde — die Karte füllt sich nach dem Push trotzdem wieder** aus den vier
+      übrigen Quellen. Also wichtig, aber kein Blocker.
+- [ ] **⬆️ Die Reparatur nach `main` pushen** — erst dann greift sie (die Action läuft auf
+      `main`, dein Branch `uebersichtlicher` ist 3 Commits voraus und 2 zurück):
+      ```
+      git add venues.json scripts/update-pins.mjs .github/workflows/update-pins.yml
+      git commit -m "Taegliches Update repariert: BOM in venues.json legte alle Quellen still"
+      git pull --rebase origin main && git push origin HEAD:main
+      ```
+      Danach unter **Actions → „Eventlas täglich aktualisieren" → Run workflow** einmal von
+      Hand starten, statt bis morgen früh zu warten.
 - [ ] **app.netlify.com → eventlas → Deploys**: letzter Build grün oder rot? Bei rot: die
-      letzten Zeilen aus dem Log schicken, dann finde ich es.
+      letzten Zeilen aus dem Log schicken, dann finde ich es. (Das ist ein **eigenes**
+      Problem — es hat mit dem Update-Fehler oben nichts zu tun.)
+
+> Nebenbei aufgefallen: **rausgegangen.de sperrt uns inzwischen aus** (HTTP 403, Bot-Schutz)
+> — auch von hier aus, nicht nur von GitHub. Das Skript probiert die Rubriken jetzt nicht
+> mehr alle elf durch, sondern hört nach der ersten Abweisung auf und sagt es im Lauf.
+> Die Quelle liefert bis auf Weiteres nichts; ersetzen können wir sie später.
 
 ### ⏳ Mit Frist: 2.000 € Fördergeld, das nur beantragt werden muss
 **Heimat-Scheck NRW** — pauschal 2.000 € für Nachbarschaftsprojekte, Antrag komplett online,

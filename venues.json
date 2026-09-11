@@ -1,4 +1,4 @@
-﻿{
+{
   "stand": "2026-08-08",
   "hinweis": "Spielstätten mit wechselndem Programm. Das tägliche Update-Skript prüft jede gezielt und setzt für gefundene Events die hier hinterlegten (geprüften) Koordinaten ein — so landen Konzerte immer exakt am richtigen Ort. NEUE STADT: einfach einen weiteren Eintrag unter 'staedte' anlegen und das Skript mit STADT=<schluessel> starten; am Code ändert sich nichts. Feld 'muster' (Regex) nur bei Häusern setzen, die über die kulturApi kommen. 'aliase' hilft beim Zuordnen von Events, die den Namen abweichend schreiben. Koordinaten am 08.08.2026 gegen Adresse und OpenStreetMap geprüft.",
   "staedte": {

@@ -53,6 +53,10 @@ jobs:
         if: always()
         run: |
           if [ "${{ steps.update.outcome }}" = "failure" ]; then
+            # continue-on-error lässt diesen Schritt in der Übersicht grün aussehen — das rote
+            # Kreuz landet dann beim Ergebnis-Check, der nur das Symptom kennt. Eine Annotation
+            # hier stellt die eigentliche Ursache oben in den Lauf, wo man sie zuerst sieht.
+            echo "::warning::Der eigentliche Fehler steckt im Schritt »Pins recherchieren und schreiben« — er ist abgebrochen (steht wegen continue-on-error trotzdem auf grün). Volle Ausgabe unten in dieser Zusammenfassung."
             echo "### ❌ Das Update-Skript ist abgebrochen" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
             echo "Die bisherige \`pins.json\` bleibt unverändert live — die Karte zeigt weiter Termine." >> $GITHUB_STEP_SUMMARY
@@ -71,6 +75,8 @@ jobs:
       # oder das Update MEHRERE TAGE nicht mehr durchkommt. Ein Hänger bei einer fremden
       # Schnittstelle ist Alltag; wochenlang veraltete Termine sind ein echtes Problem.
       - name: Ergebnis prüfen
+        env:
+          SKRIPT_ERGEBNIS: ${{ steps.update.outcome }}
         run: |
           node -e '
             const d = JSON.parse(require("fs").readFileSync("pins.json","utf8"));
@@ -86,7 +92,13 @@ jobs:
             if (ohneKoordinaten) { console.log("::error::" + ohneKoordinaten + " Pins ohne Koordinaten."); process.exit(1); }
 
             if (alter >= 3) {
-              console.log("::error::Die Termine sind " + alter + " Tage alt — das Update kommt seit mehreren Tagen nicht durch. Ursache steht in der Zusammenfassung oben.");
+              // Nicht nur "es ist alt" melden, sondern gleich wohin man schauen muss. Vorher
+              // stand hier "Ursache steht in der Zusammenfassung oben" — und weil das Skript
+              // wegen continue-on-error grün aussah, suchte man wochenlang am falschen Schritt.
+              const wo = process.env.SKRIPT_ERGEBNIS === "failure"
+                ? "Das Update-Skript selbst ist abgebrochen (Schritt »Pins recherchieren und schreiben«, steht trotz Abbruch auf grün) — seine Ausgabe steht unten in dieser Zusammenfassung."
+                : "Das Skript lief durch, hat aber keinen neuen Stand geschrieben — Quellen-Bilanz in der Zusammenfassung prüfen.";
+              console.log("::error::Die Termine sind " + alter + " Tage alt — das Update kommt seit mehreren Tagen nicht durch. " + wo);
               process.exit(1);
             }
             if (alter >= 1) console.log("::warning::Heute kein neuer Stand geschrieben (Daten " + alter + " Tag(e) alt). Einmalig ist das unkritisch.");

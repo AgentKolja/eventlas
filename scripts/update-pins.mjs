@@ -26,17 +26,37 @@ const heute = new Date().toISOString().slice(0, 10);
 const heuteDate = new Date(heute + "T00:00:00Z");
 const TYPEN = new Set(["event", "angebot", "hilfe", "spot"]);
 
+/* Windows-Editoren (Notepad, Excel, manche Git-Tools) schreiben JSON gern mit einem BOM
+   an den Anfang. JSON.parse verschluckt sich daran und wirft — deshalb hier abschneiden.
+   Genau das hat das Update vom 18.08.–11.09.2026 lahmgelegt: venues.json hatte ein BOM,
+   der Fehler wurde stillschweigend aufgefangen und das Skript lief mit einer leeren
+   Notkonfiguration weiter — also ohne jede Datenquelle. */
+function jsonLesen(datei) {
+  return JSON.parse(readFileSync(datei, "utf8").replace(/^\uFEFF/, ""));
+}
+
 /* ---------- Stadt + Spielstätten laden (venues.json) ---------- */
 const STADT_KEY = process.env.STADT || "aachen";
 let STADT = { name: "Aachen", bbox: { lngMin: 5.85, lngMax: 6.35, latMin: 50.6, latMax: 51.1 }, venues: [] };
 if (existsSync("venues.json")) {
+  // Ohne venues.json gibt es weder kulturApi noch tribeApis noch Spielstätten — dann liefert
+  // KEINE Quelle etwas und der Lauf wäre ohnehin sinnlos. Also lieber sofort und laut
+  // abbrechen, statt mit Vorgaben weiterzulaufen, die nichts finden können.
+  let v;
   try {
-    const v = JSON.parse(readFileSync("venues.json", "utf8"));
-    if (v.staedte && v.staedte[STADT_KEY]) STADT = { ...STADT, ...v.staedte[STADT_KEY] };
-    else console.error(`Warnung: Stadt "${STADT_KEY}" fehlt in venues.json — nutze Vorgaben.`);
+    v = jsonLesen("venues.json");
   } catch (e) {
-    console.error("venues.json unlesbar, nutze Vorgaben:", e.message);
+    console.log(`::error::venues.json ist unlesbar (${e.message}). Ohne diese Datei kennt das Skript keine einzige Datenquelle — Abbruch, die alte pins.json bleibt live.`);
+    process.exit(1);
   }
+  if (!v.staedte || !v.staedte[STADT_KEY]) {
+    console.log(`::error::Stadt "${STADT_KEY}" fehlt in venues.json unter "staedte". Ohne Stadt-Eintrag gibt es keine Datenquellen — Abbruch.`);
+    process.exit(1);
+  }
+  STADT = { ...STADT, ...v.staedte[STADT_KEY] };
+} else {
+  console.log("::error::venues.json fehlt — ohne Spielstätten und Quellen-URLs kann das Skript nichts finden. Abbruch.");
+  process.exit(1);
 }
 const BBOX = STADT.bbox;
 const VENUES = (STADT.venues || []).filter(v =>
@@ -62,7 +82,7 @@ function snapAufVenue(p) {
 let alte = [];
 if (existsSync("pins.json")) {
   try {
-    alte = JSON.parse(readFileSync("pins.json", "utf8")).pins || [];
+    alte = jsonLesen("pins.json").pins || [];
   } catch (e) {
     console.error("Bestehende pins.json unlesbar:", e.message);
     process.exit(1);
@@ -106,7 +126,9 @@ function entschaerfe(p) {
 
 /* ---------- 2) Kulturkalender-API ----------
    Welche Häuser die API liefert, steht in venues.json: jede Spielstätte mit "muster"
-   (Regex als Text) wird darüber zugeordnet. Fehlt die Datei, greift die Notliste unten. */
+   (Regex als Text) wird darüber zugeordnet. Ohne venues.json bricht das Skript schon oben
+   ab; die Notliste unten greift nur, wenn die Datei zwar da ist, aber kein Haus ein
+   "muster" trägt — sonst käme aus dem Kulturkalender nichts an. */
 const KULTUR_HAEUSER = VENUES.filter(v => v.muster)
   .map(v => { try { return { ...v, re: new RegExp(v.muster, "i") }; } catch (e) { return null; } })
   .filter(Boolean);
@@ -263,16 +285,27 @@ function rausgegangenRubriken() {
   return [];
 }
 
+// Sperrt uns rausgegangen.de aus (Bot-Schutz antwortet mit 403), dann tut es das für JEDE
+// Rubrik. Elf Rubriken mit je 10 s Crawl-Delay durchzuprobieren kostet knapp zwei Minuten
+// Laufzeit für garantiert null Termine — nach der ersten Abweisung also aufhören.
+let rausgegangenGesperrt = 0;
+
 async function rausgegangenPins() {
   const rubriken = rausgegangenRubriken();
   if (!rubriken.length) return [];
   const alle = [];
+  let geholt = 0;
   for (const rubrik of rubriken) {
     const teil = await rausgegangenRubrik(rubrik);
     alle.push(...teil);
+    geholt++;
+    if (rausgegangenGesperrt) {
+      console.log(`::warning::rausgegangen.de weist uns ab (HTTP ${rausgegangenGesperrt}) — restliche ${rubriken.length - geholt} Rubrik(en) übersprungen. Wahrscheinlich Bot-Schutz; die Quelle liefert derzeit nichts.`);
+      break;
+    }
     await new Promise(r => setTimeout(r, 10000));    // Crawl-Delay auch zwischen Rubriken
   }
-  console.log(`rausgegangen gesamt: ${alle.length} Termine aus ${rubriken.length} Rubrik(en).`);
+  console.log(`rausgegangen gesamt: ${alle.length} Termine aus ${geholt} Rubrik(en).`);
   return alle;
 }
 
@@ -286,7 +319,11 @@ async function rausgegangenRubrik(rubrik) {
         "user-agent": "EventlasBot/1.0 (nichtkommerzielle Stadtkarte; +https://eventlas.netlify.app)",
         "accept": "text/html",
       }});
-      if (!res.ok) { console.log(`rausgegangen ${rubrik.was || ""}: HTTP ${res.status} — Rubrik übersprungen.`); break; }
+      if (!res.ok) {
+        console.log(`rausgegangen ${rubrik.was || ""}: HTTP ${res.status} — Rubrik übersprungen.`);
+        if (res.status === 403 || res.status === 429 || res.status === 503) rausgegangenGesperrt = res.status;
+        break;
+      }
       const html = await res.text();
 
       // Jede Kachel beginnt mit event-tile-link und endet vor der nächsten
@@ -391,7 +428,9 @@ async function tribePins() {
         const kategorien = (e.categories || []).map(c => String(c.name || "").toLowerCase()).join(" ");
         const tags = ["kultur"];
         if (/konzert|musik|jazz|rock|pop|band|klassik/.test(kategorien + " " + titel.toLowerCase())) tags.unshift("musik");
-        if (/party|disco|dj|tanz/.test(kategorien + " " + titel.toLowerCase())) tags.push("party");
+        // "party" ist KEIN erlaubtes Thema (erlaubt: musik kultur fest markt sport familie natur) —
+        // die Karte könnte danach gar nicht filtern, und der Ergebnis-Check hätte es täglich moniert.
+        if (/party|disco|dj|tanz/.test(kategorien + " " + titel.toLowerCase())) tags.unshift("musik");
         alle.push({
           typ: "event",
           titel: titel.slice(0, 90),
@@ -561,7 +600,19 @@ async function main() {
 
   const neuGueltig = [...kulturSicher, ...konzertPins, ...recherche.map(entschaerfe).map(snapAufVenue)]
     .filter(valide).map(normiere);
-  console.log(`Quellen — Recherche: ${recherche.length}, Kultur-API: ${kultur.length}, Konzerte: ${konzertPins.length}. Valide gesamt: ${neuGueltig.length}.`);
+
+  // Eine Bilanz pro Quelle — und zwar als Annotation, nicht als console.log. Das ist der
+  // Unterschied zwischen "steht irgendwo im Log" und "steht oben im Lauf". Vier Wochen lang
+  // lieferte KEINE der vier Nicht-LLM-Quellen etwas (BOM in venues.json), und weil die Zahlen
+  // nur im Log standen, sah man wochenlang nur das rote Kreuz beim Ergebnis-Check.
+  const bilanz = [
+    ["Kulturkalender", kultur.length], ["rausgegangen", konzerte.length],
+    ["Musikbunker", bunker.length], ["Tribe-Kalender", tribe.length],
+    ["LLM-Recherche", recherche.length],
+  ];
+  console.log(`Quellen — ${bilanz.map(([n, z]) => `${n}: ${z}`).join(", ")}. Valide gesamt: ${neuGueltig.length}.`);
+  const stumm = bilanz.filter(([, z]) => !z).map(([n]) => n);
+  if (stumm.length) console.log(`::warning::Ohne Ergebnis geblieben: ${stumm.join(", ")} (${bilanz.length - stumm.length} von ${bilanz.length} Quellen haben geliefert).`);
 
   // Wenn keine einzige Quelle etwas liefert, würden die alten Pins nur mit neuem Datum
   // zurückgeschrieben — das sähe nach Erfolg aus, wäre aber Stillstand. Laut sagen.
