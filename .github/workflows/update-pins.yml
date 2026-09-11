@@ -90,7 +90,10 @@ jobs:
           node -e '
             const d = JSON.parse(require("fs").readFileSync("pins.json","utf8"));
             const pins = d.pins || [];
-            const erlaubt = new Set(["musik","kultur","fest","markt","sport","familie","natur"]);
+            // Muss zu TAG_LABEL in index.html passen. "neu" gehoert dazu: die Karte fuehrt es
+            // als eigenen Filter ("✨ Neu eröffnet") mit eigenem Symbol. Es fehlte hier nur,
+            // deshalb warnte jeder Lauf ueber ein Tag, das voellig in Ordnung ist.
+            const erlaubt = new Set(["musik","kultur","fest","markt","sport","familie","natur","neu"]);
             const fremde = [...new Set(pins.flatMap(p => p.tags || []).filter(t => !erlaubt.has(t)))];
             const ohneKoordinaten = pins.filter(p => typeof p.lng !== "number" || typeof p.lat !== "number").length;
             const musik = pins.filter(p => (p.tags||[]).includes("musik")).length;

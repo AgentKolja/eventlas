@@ -438,7 +438,7 @@ async function tribePins() {
         const uhr = String(e.start_date || "").slice(11, 16);
         const kategorien = (e.categories || []).map(c => String(c.name || "").toLowerCase()).join(" ");
         const tags = ["kultur"];
-        // Erlaubte Themen sind nur musik kultur fest markt sport familie natur — "party" gehörte
+        // Erlaubte Themen sind nur musik kultur fest markt sport familie natur neu — "party" gehörte
         // nie dazu: die Karte konnte danach nicht filtern und der Ergebnis-Check monierte es
         // bei jedem Lauf. Party, Disco und Tanz laufen deshalb unter musik, in EINEM Ausdruck mit den
         // Konzerten — zwei Zweige, die beide dasselbe Tag setzen, lesen sich wie zwei Regeln.
