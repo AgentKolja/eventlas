@@ -198,7 +198,8 @@ async function kulturPins() {
     const res = await fetch(STADT.kulturApi, {
       headers: { "user-agent": "eventlas (Pin-Update, 1x woechentlich)" },
     });
-    if (!res.ok) { console.error("Kulturkalender-API:", res.status, "- übersprungen"); return []; }
+    // Fällt der Kulturkalender aus, fehlen über 100 Termine — das darf nicht im Log versickern.
+    if (!res.ok) { console.log(`::warning::Kulturkalender-API antwortet mit HTTP ${res.status} (${STADT.kulturApi}) — übersprungen, diesmal ohne Museums- und Theatertermine.`); return []; }
     const daten = await res.json();
     const liste = Array.isArray(daten) ? daten : (daten.events || daten.data || []);
     const limit = new Date(heuteDate); limit.setDate(limit.getDate() + 45);
@@ -320,7 +321,15 @@ async function rausgegangenRubrik(rubrik) {
         "accept": "text/html",
       }});
       if (!res.ok) {
-        console.log(`rausgegangen ${rubrik.was || ""}: HTTP ${res.status} — Rubrik übersprungen.`);
+        // 404/410 heisst: die Rubrik gibt es unter dieser Adresse nicht mehr. Das ist kein
+        // vorübergehender Hänger, sondern eine Umbenennung — sie repariert sich nie von selbst
+        // und muss deshalb oben im Lauf stehen, nicht im Log. Acht der elf Rubriken lieferten
+        // monatelang 404, und weil es nur ein console.log war, fiel es niemandem auf.
+        if (res.status === 404 || res.status === 410) {
+          console.log(`::warning::rausgegangen-Rubrik "${rubrik.was || rubrik.url}" antwortet mit ${res.status} — die Adresse ${rubrik.url} gibt es nicht mehr. Aktuelle Rubriknamen auf rausgegangen.de/aachen nachsehen und in venues.json korrigieren.`);
+        } else {
+          console.log(`rausgegangen ${rubrik.was || ""}: HTTP ${res.status} — Rubrik übersprungen.`);
+        }
         if (res.status === 403 || res.status === 429 || res.status === 503) rausgegangenGesperrt = res.status;
         break;
       }
@@ -416,7 +425,9 @@ async function tribePins() {
         "user-agent": "EventlasBot/1.0 (nichtkommerzielle Stadtkarte; +https://eventlas.netlify.app)",
         "accept": "application/json",
       }});
-      if (!res.ok) { console.error("Tribe", basis, res.status, "- übersprungen"); continue; }
+      // Ein umgezogener oder abgeschalteter Vereinskalender meldet sich nie von selbst —
+      // sichtbar wird er nur, wenn der Ausfall oben im Lauf steht.
+      if (!res.ok) { console.log(`::warning::Tribe-Kalender ${basis} antwortet mit HTTP ${res.status} — übersprungen. Läuft die Seite noch? Adresse in venues.json prüfen.`); continue; }
       const daten = await res.json();
       for (const e of (daten.events || [])) {
         const titel = entHtml(e.title || "");
@@ -599,10 +610,25 @@ async function main() {
   // Kultur-API behält ihre deterministische id, verliert aber fest/hot;
   // alle übrigen Quellen verlieren zusätzlich die id (wird aus Titel+Datum neu gebildet).
   const kulturSicher = kultur.map(p => { const q = entschaerfe(p); q.id = p.id; return q; });
-  const konzertPins = [...konzerte, ...bunker, ...tribe].map(entschaerfe).map(snapAufVenue)
-    .filter(p => p.lng !== 0 && p.lat !== 0);      // ohne bekannte Spielstätte kein Pin
-  const ohneOrt = konzerte.length + bunker.length + tribe.length - konzertPins.length;
-  if (ohneOrt > 0) console.log(`${ohneOrt} Konzert(e) ohne bekannte Spielstätte verworfen — fehlende Venues in venues.json ergänzen.`);
+  const alleKonzerte = [...konzerte, ...bunker, ...tribe].map(entschaerfe).map(snapAufVenue);
+  const konzertPins = alleKonzerte.filter(p => p.lng !== 0 && p.lat !== 0);   // ohne bekannte Spielstätte kein Pin
+
+  // Eine nackte Zahl ("49 Konzerte verworfen") sagt nicht, WAS zu tun ist — deshalb lag der
+  // Hinweis monatelang unbeachtet im Log. Jetzt stehen die fehlenden Ortsnamen mit Häufigkeit
+  // als Annotation oben im Lauf: daraus lässt sich venues.json direkt ergänzen. Orte ausserhalb
+  // der bbox (Eupen, Stolberg, Alsdorf …) tauchen hier ebenfalls auf; die gehören nicht ergänzt,
+  // sondern sind korrekt verworfen — die Liste ist ein Vorschlag, keine Aufgabenliste.
+  const fehlendeOrte = new Map();
+  for (const p of alleKonzerte) {
+    if (p.lng !== 0 || p.lat !== 0) continue;
+    const ort = (p.meta || "").split(" · ")[0].trim() || "(kein Ort angegeben)";
+    fehlendeOrte.set(ort, (fehlendeOrte.get(ort) || 0) + 1);
+  }
+  if (fehlendeOrte.size) {
+    const liste = [...fehlendeOrte.entries()].sort((a, b) => b[1] - a[1])
+      .map(([ort, n]) => `${ort} (${n})`).join(", ");
+    console.log(`::warning::${alleKonzerte.length - konzertPins.length} Termin(e) ohne bekannte Spielstätte verworfen. Fehlende Orte: ${liste} — in venues.json ergänzen, dann landen sie beim nächsten Lauf auf der Karte.`);
+  }
 
   const neuGueltig = [...kulturSicher, ...konzertPins, ...recherche.map(entschaerfe).map(snapAufVenue)]
     .filter(valide).map(normiere);
