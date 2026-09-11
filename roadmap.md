@@ -8,6 +8,18 @@ Diese Datei bei neuen Chats mit Claude hochladen — sie ist das Projektgedächt
 Zum Live-Bestand gehören: `index.html`, `pins.json`, `orte.json`, `manifest.json`, `sw.js`,
 `flyer.html`, `og.png`, die Icons, `schriften/` und `bilder/`.
 
+## 💶 Geschäftsmodell (11.09.) → [geschaeftsmodell.md](geschaeftsmodell.md)
+Beschlossen: **Die Aachen-Karte bleibt dauerhaft kostenlos und werbefrei** — Platzierung und
+Reihenfolge sind dort niemals käuflich. Verkauft wird stattdessen die *Fähigkeit*: Auftrags-
+karten für Feste/Vereine/Wohnungsbau (600–2.500 €), Einbett-Widget im Abo (30–80 €/Monat),
+weitere Städte als Lizenz (1.500–3.000 € + Betrieb), dazu Fördergeld (Heimat-Scheck 2.000 €
+bis 31.10.2026, Gründungsstipendium.NRW 14.400 €). Begründung, Preisliste, Zielkunden,
+Rechtliches und Abbruchkriterien stehen in der Datei.
+
+**Blocker für alles davon:** Die ausgelieferte `pins.json` hat Datenstand **08.08.**, der letzte
+Auto-Update-Lauf liegt am 10.08., `/version.json` antwortet 404 → seit 14.08. kein Build mehr.
+Erst wieder tagesaktuell machen und Besucher zählen, dann verkaufen.
+
 ## 🔧 Auftragsliste vom 14.08. (Nutzer) — Reihenfolge nach Dringlichkeit
 | # | Was | Status |
 |---|---|---|

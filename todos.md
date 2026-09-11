@@ -2,6 +2,86 @@
 
 Karte ist live: **https://eventlas.netlify.app** — alle Texte unten sind fertig zum Kopieren.
 
+## 💶 Geldplan (11.09.) — der ganze Plan steht in [geschaeftsmodell.md](geschaeftsmodell.md)
+
+Kurz: Verkauft wird nicht die Aachen-Karte (die bleibt kostenlos und werbefrei), sondern die
+Fähigkeit, so eine Karte für jemanden mit Budget zu bauen. Vier Dinge musst du dafür tun,
+den Rest mache ich.
+
+### 🔴 Zuerst: Die Karte lebt nicht mehr
+Gemessen am 11.09.: Die ausgelieferte `pins.json` hat **Datenstand 08.08.** — die Karte zeigt
+seit fünf Wochen abgelaufene August-Termine. Der letzte nächtliche Lauf liegt im Git-Log am
+**10.08.**, und `/version.json` antwortet weiter mit 404, also ist seit dem 14.08. auch kein
+Build mehr durchgelaufen. Solange das so ist, kann man die Karte niemandem zeigen — weder
+einem Kunden noch einer Förderjury.
+
+- [ ] **github.com → Repo → Actions**: Läuft „Update pins" noch, oder steht dort rot/pausiert?
+      (GitHub schaltet geplante Läufe in stillen Repos ab — dann reicht ein „Enable workflow".)
+- [ ] **Settings → Secrets → `ANTHROPIC_API_KEY`**: noch gültig und mit Guthaben?
+- [ ] **app.netlify.com → eventlas → Deploys**: letzter Build grün oder rot? Bei rot: die
+      letzten Zeilen aus dem Log schicken, dann finde ich es.
+
+### ⏳ Mit Frist: 2.000 € Fördergeld, das nur beantragt werden muss
+**Heimat-Scheck NRW** — pauschal 2.000 € für Nachbarschaftsprojekte, Antrag komplett online,
+natürliche Personen sind antragsberechtigt (kein Verein nötig). Eventlas ist ein Musterfall.
+Das Geld ist für Projektausgaben (Druck, Material, eine Aktion im Viertel), **nicht für deine
+Arbeitszeit** — deckt also genau das Marketing ab, das du sowieso bezahlen müsstest.
+
+- [ ] **Bis 31.10.2026 beantragen** über [mhkbd.nrw → Heimat-Scheck](https://www.mhkbd.nrw/foerderprogramme/heimat-scheck)
+      (Anträge nach dem 31.10. zählen erst fürs nächste Jahr). Sag Bescheid, wenn du den
+      Antrag aufmachst — Projektbeschreibung und Ausgabenliste schreibe ich dir fertig.
+
+### 📞 Ein Anruf, der 14.400 € wert sein kann
+**Gründungsstipendium.NRW**: 1.200 €/Monat für 12 Monate. Die Jurysitzungen pausieren seit
+01.04.2026 „vorerst", eingereichte Anträge werden aber weiter bearbeitet und bewilligt — in
+die Warteschlange zu kommen kostet also nur ein Gespräch. Die Beratung der GründerRegion ist
+kostenlos und bringt dir unabhängig davon eine Einschätzung deines Geschäftsmodells.
+
+- [ ] **GründerRegion Aachen anschreiben** (Text 8 unten) — `info@gruenderregion.de`,
+      Ansprechpartner Peter Kampmeier, T 0241 4460-361. Alternative: digitalHUB Aachen,
+      `startup@hubaachen.de`.
+
+### 🎓 Oktober nicht verpassen (Semesterstart)
+Der einzige Moment im Jahr, an dem zehntausend Menschen gleichzeitig neu in Aachen sind und
+genau die Frage haben, die Eventlas beantwortet. Reichweite ist die Zahl, die später in jedem
+Verkaufsgespräch und jedem Antrag steht — dieses Jahr also kostenlos ausspielen.
+
+- [ ] **AStA RWTH und AStA FH anschreiben** (Text 9 unten), Ziel: Link in die Ersti-Kanäle
+- [ ] Falls du Flyer übrig hast: Ersti-Wochen sind der beste Verteilzeitpunkt des Jahres
+
+### Voraussetzungen, bevor die erste Rechnung rausgeht
+- [ ] **Domain eventlas.de** — antwortet aktuell nicht, also noch frei/nicht eingerichtet
+- [ ] **Projekt-Mail** (private Gmail steht öffentlich in der App) — beides steht schon weiter unten
+- [ ] **Impressum** (§ 5 DDG) — überfällig, Daten reichen mir
+- [ ] **Gewerbe anmelden** (~20–40 €, Gewerbeamt Aachen) — erst nötig, wenn der erste Auftrag
+      kommt, nicht vorher. Im Fragebogen die **Kleinunternehmerregelung** ankreuzen
+      (Grenzen 25.000 € Vorjahr / 100.000 € laufendes Jahr → du bleibst weit darunter).
+- [ ] **Stand der DPMA-Markenanmeldung?** War für den 11.08. geplant — erledigt oder offen?
+      Vor Lizenzverkäufen an andere Städte ist sie Pflicht.
+
+### Fragen an mich zurück (kurze Antwort reicht, dann arbeite ich weiter)
+- [ ] **Hauptberuflich?** Das Gründungsstipendium verlangt, dass du das Vorhaben hauptberuflich
+      verfolgst. Ist das für dich denkbar — oder soll ich den Plan ohne diesen Posten rechnen?
+- [ ] **Wie lief der Launch?** Alleenfest 29./30.08., Flyer verteilt, nebenan-Post raus? Davon
+      hängt ab, ob wir bei null Reichweite anfangen oder schon etwas vorzeigen können.
+- [ ] **Ab wann darf ich Kunden ansprechen?** Ich kann Musterkarten und Anschreiben vorbereiten
+      — verschickt werden sie natürlich nur von dir.
+
+---
+
+## Neu: Quellcode wird beim Build verschleiert (11.09.)
+`bauen.sh` jagt das JavaScript jetzt zusätzlich durch `javascript-obfuscator`, bevor es
+minifiziert wird — Variablennamen werden zu Hexcodes, Texte landen als Base64-Tabelle im Code.
+Damit lässt sich die Seite nicht mehr einfach per "Seitenquelltext anzeigen" kopieren. Fällt
+die Verschleierung aus irgendeinem Grund aus, baut die Seite trotzdem ganz normal weiter (wie
+bei der Minifizierung schon immer: lieber lesbarer Code live als eine kaputte Seite).
+
+Ich konnte das mangels Node/Python auf diesem Rechner nicht selbst durchlaufen lassen — bitte
+beim nächsten Netlify-Deploy kurz das Build-Log ansehen:
+- [ ] Steht dort „JavaScript verschleiert." (gut) oder eine WARNUNG-Zeile (dann lief die
+      Verschleierung nicht, ist aber unkritisch — einfach kurz Bescheid geben)
+- [ ] Karte danach einmal öffnen und kurz durchklicken, ob alles normal funktioniert
+
 ## ✅ Erledigt: Deploy-Kette läuft (14.08.)
 Netlify ist mit GitHub verbunden — **das Hochladen entfällt ab jetzt komplett.** Geprüft: Der
 erste verbundene Build ist sauber durchgelaufen, alle Live-Dateien sind da (auch die neuen
@@ -267,6 +347,50 @@ Guten Tag,
 ich betreibe die nichtkommerzielle, werbefreie Stadtkarte "Eventlas Aachen" (https://eventlas.netlify.app), die Aachener Veranstaltungen mit Quellenangabe und Link auf die Originalseite darstellt. Der Veranstaltungskalender auf aachen.de bietet einen iCal-Export (event.ics). Darf ich diesen Export automatisiert einmal täglich abrufen, um daraus Veranstaltungshinweise (Titel, Datum, Ort) mit Verlinkung auf aachen.de zu übernehmen? Falls es dafür eine bevorzugte Schnittstelle, Lizenz oder Bedingungen gibt, richte ich mich gern danach. Ein offener Veranstaltungsdatensatz auf offenedaten.aachen.de wäre übrigens ein Traum — ich wäre sofort Erstnutzer.
 Vielen Dank und viele Grüße
 [NAME], [KONTAKT]
+
+## Text 8 — Mail an die GründerRegion Aachen (Erstgespräch Gründungsstipendium)
+Betreff: Erstgespräch zum Gründungsstipendium.NRW — hyperlokale Stadtkarte "Eventlas"
+
+Guten Tag Herr Kampmeier,
+
+ich habe in Aachen eine hyperlokale Stadtkarte gebaut und betreibe sie seit August:
+https://eventlas.netlify.app. Sie bündelt Veranstaltungen, Angebote und Nachbarschafts-
+gesuche für Aachen auf einer Karte — automatisch aus offenen Quellen aktualisiert
+(Kulturkalender der Stadt, Konzertkalender der Spielstätten, OpenStreetMap) und von Hand
+geprüft. Die Karte ist kostenlos und werbefrei.
+
+Verdienen möchte ich nicht an der Karte selbst, sondern an dem, was darunter steckt: Für
+Veranstalter, Vereine, Stadtmarketing und Wohnungsunternehmen lässt sich dieselbe Karte
+in wenigen Tagen auf deren Anlass zuschneiden; die Datenquellen und der Aufbauprozess für
+weitere Städte sind bereits dokumentiert.
+
+Ich würde das Vorhaben gern einmal mit Ihnen besprechen — insbesondere, ob es für das
+Gründungsstipendium.NRW in Frage kommt und wie der Ablauf angesichts der derzeit
+pausierenden Jurysitzungen aussieht. Über einen Termin für ein Erstgespräch würde ich
+mich freuen.
+
+Viele Grüße
+[NAME], [TELEFON]
+
+## Text 9 — Mail an AStA / Fachschaften (Ersti-Karte, Semesterstart)
+Betreff: Kostenlose Aachen-Karte für die Ersti-Wochen
+
+Hallo zusammen,
+
+ich betreibe Eventlas, eine kostenlose und werbefreie Karte für Aachen:
+https://eventlas.netlify.app. Darauf steht, was in der Stadt gerade läuft — Konzerte,
+Feste, Wochenmärkte, Flohmärkte, Fotospots, dazu Nachbarschaftliches wie Verschenken
+und Hilfe-Gesuche. Alles aus offenen Quellen, von Hand geprüft, ohne Anmeldung, ohne
+Tracking und ohne App-Installation (die Seite lässt sich aufs Handy legen wie eine App).
+
+Für Erstsemester ist das ziemlich genau die Frage, die sie in den ersten Wochen haben.
+Wenn ihr mögt, verlinkt die Karte gern in euren Ersti-Kanälen, im Ersti-Heft oder als
+QR-Code auf euren Aushängen — sie kostet nichts und wird auch nichts kosten. Wenn ihr
+eigene Ersti-Termine habt, die dort auftauchen sollen, schickt sie mir einfach, ich
+pflege sie kostenlos ein.
+
+Viele Grüße
+[NAME]
 
 ---
 
