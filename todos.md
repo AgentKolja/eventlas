@@ -63,7 +63,7 @@ Das BOM ist entfernt, das Skript verträgt jetzt eins und bricht laut ab, statt 
 weiterzulaufen. Nachgemessen: Kulturkalender liefert aktuell 112 passende Termine, die vier
 Vereinskalender zusammen 170 — die Quellen sind also gesund. Zwei Dinge musst nur du tun:
 
-- [x] ~~**Actions**: Läuft „Update pins" noch?~~ — Ja, läuft täglich, nie pausiert.
+- [x] ~~**Actions**: Läuft „Update pins" noch?~~ — Ja, lief täglich und war nie pausiert (inzwischen auf mittwochs umgestellt).
 - [ ] **💳 Anthropic-Guthaben aufladen** — [console.anthropic.com → Plans & Billing](https://console.anthropic.com/settings/billing).
       Der Schlüssel ist gültig, aber das Konto ist leer; die API antwortet wörtlich mit
       „Your credit balance is too low". **Ohne Aufladen fehlen nur die recherchierten
@@ -76,7 +76,7 @@ Vereinskalender zusammen 170 — die Quellen sind also gesund. Zwei Dinge musst 
       git commit -m "Taegliches Update repariert: BOM in venues.json legte alle Quellen still"
       git pull --rebase origin main && git push origin HEAD:main
       ```
-      Danach unter **Actions → „Eventlas täglich aktualisieren" → Run workflow** einmal von
+      Danach unter **Actions → „Eventlas wöchentlich aktualisieren" → Run workflow** einmal von
       Hand starten, statt bis morgen früh zu warten.
 - [ ] **app.netlify.com → eventlas → Deploys**: letzter Build grün oder rot? Bei rot: die
       letzten Zeilen aus dem Log schicken, dann finde ich es. (Das ist ein **eigenes**
@@ -180,7 +180,7 @@ als Warnung oben im Action-Bericht. Beim nächsten nächtlichen Lauf solltest du
 Termine auf der Karte sehen (im Test: 284 statt 144).
 
 - [ ] Falls du nicht bis morgen früh warten willst: github.com/AgentKolja/eventlas → **Actions**
-      → „Eventlas täglich aktualisieren" → **Run workflow**. Nach ~2 Min ist die Karte aktuell.
+      → „Eventlas wöchentlich aktualisieren" → **Run workflow**. Nach ~2 Min ist die Karte aktuell.
 - [ ] Wenn im Bericht „⚠️ Recherche ausgefallen" steht: meist ist das Guthaben des API-Schlüssels
       leer oder das Modell wurde umbenannt. Beides ohne Codeänderung lösbar — Modell umstellen
       unter Settings → Secrets and variables → Actions → **Variables** → `EVENTLAS_MODELL`.
@@ -424,7 +424,7 @@ Danke für deine Pin-Meldung für Eventlas! Ich prüfe sie kurz und stelle sie m
 Betreff: Nutzung des Veranstaltungskalender-iCal-Exports für nichtkommerzielle Stadtkarte
 
 Guten Tag,
-ich betreibe die nichtkommerzielle, werbefreie Stadtkarte "Eventlas Aachen" (https://eventlas.netlify.app), die Aachener Veranstaltungen mit Quellenangabe und Link auf die Originalseite darstellt. Der Veranstaltungskalender auf aachen.de bietet einen iCal-Export (event.ics). Darf ich diesen Export automatisiert einmal täglich abrufen, um daraus Veranstaltungshinweise (Titel, Datum, Ort) mit Verlinkung auf aachen.de zu übernehmen? Falls es dafür eine bevorzugte Schnittstelle, Lizenz oder Bedingungen gibt, richte ich mich gern danach. Ein offener Veranstaltungsdatensatz auf offenedaten.aachen.de wäre übrigens ein Traum — ich wäre sofort Erstnutzer.
+ich betreibe die nichtkommerzielle, werbefreie Stadtkarte "Eventlas Aachen" (https://eventlas.netlify.app), die Aachener Veranstaltungen mit Quellenangabe und Link auf die Originalseite darstellt. Der Veranstaltungskalender auf aachen.de bietet einen iCal-Export (event.ics). Darf ich diesen Export automatisiert einmal wöchentlich abrufen, um daraus Veranstaltungshinweise (Titel, Datum, Ort) mit Verlinkung auf aachen.de zu übernehmen? Falls es dafür eine bevorzugte Schnittstelle, Lizenz oder Bedingungen gibt, richte ich mich gern danach. Ein offener Veranstaltungsdatensatz auf offenedaten.aachen.de wäre übrigens ein Traum — ich wäre sofort Erstnutzer.
 Vielen Dank und viele Grüße
 [NAME], [KONTAKT]
 
