@@ -89,7 +89,9 @@
      ein Tipp zwischen zwei Knöpfen trifft den falschen. */
   @media (max-width:430px){
     h1{font-size:17px}
-    .sub{font-size:10px}
+    /* Untertitel weg: Was die Karte zeigt, sieht man auf der Karte. Auf dem Handy ist der
+       Platz zu knapp für eine Zeile, die nichts erklärt, was nicht ohnehin sichtbar wäre. */
+    .sub{display:none}
     .kopf-knoepfe{gap:6px}
     .kbtn{width:36px;height:36px;border-radius:10px;position:relative}
     .kbtn::before{content:"";position:absolute;top:50%;left:50%;
@@ -176,8 +178,8 @@
     animation:wk-rein .35s ease both}
   @keyframes wk-rein{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
   .willkommen[hidden]{display:none}
-  .wk-text{flex:1;min-width:0;font-size:12.5px;line-height:1.45;color:var(--grau)}
-  .wk-text b{display:block;color:var(--papier);font-size:13.5px;margin-bottom:1px}
+  .wk-text{flex:1;min-width:0;font-size:12.5px;line-height:1.4;color:var(--grau)}
+  .wk-text b{color:var(--papier)}
   .wk-mehr{flex:none;background:var(--hilfe);color:#14161A;border:0;border-radius:9px;
     padding:9px 12px;font:800 12px 'Inter';cursor:pointer;min-height:38px}
   .wk-zu{flex:none;width:34px;min-height:38px;background:none;border:0;color:var(--grau);
@@ -239,6 +241,8 @@
     border-radius:10px;padding:11px 4px;font:600 12.5px 'Inter';cursor:pointer;backdrop-filter:blur(3px);
     min-height:42px}
   .zchip.an{color:#141414;background:var(--papier);border-color:var(--papier)}
+  .zchip.zr{flex:none;min-width:46px;padding-left:0;padding-right:0}
+  .zchip.zr.gewaehlt{flex:1.4;padding-left:6px;padding-right:6px}
 
   /* Die Kategorie-Chips (event/angebot/hilfe/spot) sind mit ihrer Filterzeile entfallen —
      ihr CSS steht deshalb nicht mehr hier. Form und Farbe der Marker tragen dieselbe
@@ -383,7 +387,14 @@
   .p-preis{background:rgba(20,22,26,.22);border-radius:7px;padding:3px 8px;
     font:800 12px 'Inter';white-space:nowrap}
   .p-preis.frei{background:rgba(20,22,26,.14)}
-  .p-akt{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px}
+  .p-akt{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:7px}
+  /* Selten Gebrauchtes als reines Symbol: erreichbar, aber ohne Anspruch auf Aufmerksamkeit */
+  .p-klein{display:flex;gap:4px;margin-left:auto}
+  .p-ikon{width:38px;height:38px;border-radius:8px;cursor:pointer;font-size:15px;
+    border:1px solid var(--linie);background:transparent;color:var(--papier);
+    display:flex;align-items:center;justify-content:center;line-height:1;padding:0}
+  .p-ikon:hover{border-color:var(--papier)}
+  .p-ikon.aktivgruen{border-color:var(--event);color:var(--event)}
   .p-btn{display:inline-block;font:600 12px 'Inter';color:#141414;border:0;cursor:pointer;
     background:var(--papier);border-radius:8px;padding:7px 11px;text-decoration:none}
   .p-btn.sek{background:transparent;color:var(--papier);border:1px solid var(--linie)}
@@ -624,12 +635,9 @@
     <button class="kbtn" id="btn-suche" aria-label="Suchen" title="Suchen">
       <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg>
     </button>
-    <button class="kbtn" id="btn-idee" aria-label="Verbesserungsvorschlag" title="Idee einreichen">
-      <svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.8.7 1 1.6 1 2.5h6c0-.9.2-1.8 1-2.5A6 6 0 0 0 12 3z"/></svg>
-    </button>
-    <button class="kbtn" id="btn-info" aria-label="Info und Datenschutz" title="Info & Datenschutz">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M12 11v5"/></svg>
-    </button>
+    <!-- Idee und Info lagen hier als zwei weitere gleich aussehende Symbole und wurden selten
+         gebraucht. Sie stehen jetzt im Profil-Fenster, wo ohnehin alles Persönliche und
+         Erklärende versammelt ist. Oben bleibt nur, was man während des Schauens braucht. -->
     <!-- Das Profil steht abgesetzt hinter einem Trenner: Die anderen vier Knöpfe wirken auf
          das, was man gerade auf der Karte sieht. Das Profil betrifft dagegen einen selbst
          und wird viel seltener gebraucht — als fünftes gleich aussehendes Symbol ging es
@@ -645,10 +653,10 @@
      QR-Code kommt, will die Karte sehen, nicht ein Formular — die Karte bleibt bedienbar,
      der Hinweis lässt sich wegtippen und ist danach über den Profil-Knopf erreichbar. -->
 <div class="willkommen" id="willkommen" hidden>
-  <div class="wk-text">
-    <b>Willkommen bei Eventlas</b>
-    <span>Was gerade in <span id="wk-stadt">Aachen</span> läuft — tippe einen Pin an.</span>
-  </div>
+  <!-- Eine Zeile statt drei: Der Streifen ist das Erste, was ein neuer Besucher sieht, und
+       verdeckte in der langen Fassung die halbe Kopfzeile. Die Erklärung steht ohnehin
+       hinter "Kurz erklären" — hier reicht der Anstoß. -->
+  <div class="wk-text"><b>Tippe einen Pin an</b> — so siehst du, was läuft.</div>
   <button class="wk-mehr" id="wk-mehr">Kurz erklären</button>
   <button class="wk-zu" id="wk-zu" aria-label="Hinweis schließen">✕</button>
 </div>
@@ -675,7 +683,10 @@
         <button class="zchip" data-z="today" title="Was heute noch läuft — Vergangenes fällt automatisch raus">Heute</button>
         <button class="zchip an" data-z="soon">Demnächst</button>
         <button class="zchip" data-z="all">Alle</button>
-        <button class="zchip" data-z="range" id="zr-chip">📅 Zeitraum</button>
+        <!-- Nimmt nur Platz, wenn er etwas zu sagen hat: ungenutzt ein schmales Symbol,
+             bei gesetztem Zeitraum wächst er und zeigt die gewählten Tage. -->
+        <button class="zchip zr" data-z="range" id="zr-chip" title="Eigenen Zeitraum wählen"
+                aria-label="Eigenen Zeitraum wählen">📅</button>
       </div>
       <!-- Die Kategoriezeile (Events/Angebote/Hilfe/Spots) ist bewusst entfernt: Sie kostete
            dauerhaft Platz, obwohl Form und Farbe der Marker dieselbe Information tragen.
@@ -1661,12 +1672,19 @@ function popupHTML(p){
     '<div class="p-text">'+esc(p.text)+'</div>'+
     (meta ? '<div class="p-meta">'+esc(meta)+'</div>' : "")+ gold + wetterInfo +
     bildBlock(p) + ortsZeile(p) + primaer +
+    /* Fünf gleich große Textknöpfe brachen auf zwei Zeilen um und sahen alle gleich wichtig
+       aus. Jetzt trägt nur beschriftet, was man wirklich oft braucht — Route und Merken.
+       Danke, Teilen und Kalender bleiben erreichbar, aber als reine Symbole: Sie kosten
+       dadurch eine halbe Zeile statt einer ganzen und drängen sich nicht mehr auf. */
     '<div class="p-akt">'+
       (urlOk(p.link) ? '<a class="p-btn sek" href="'+esc(route)+'" target="_blank" rel="noopener">📍 Route</a>' : "")+
-      '<button class="p-btn sek p-danke'+(gedankt?' aktivgruen':'')+'" data-id="'+esc(p.id)+'">👍 '+(gedankt?"Danke ✓":"Danke")+'</button>'+
-      '<button class="p-btn sek p-merk'+(gemerkt?' aktivgruen':'')+'" data-id="'+esc(p.id)+'">★ '+(gemerkt?"Gemerkt ✓":"Merken")+'</button>'+
-      '<button class="p-btn sek p-teilen" data-id="'+esc(p.id)+'">↗ Teilen</button>'+
-      (p.start ? '<button class="p-btn sek p-ics" data-id="'+esc(p.id)+'">📅 Kalender</button>' : "")+
+      '<button class="p-btn sek p-merk'+(gemerkt?' aktivgruen':'')+'" data-id="'+esc(p.id)+'">★ '+(gemerkt?"Gemerkt":"Merken")+'</button>'+
+      '<span class="p-klein">'+
+        '<button class="p-ikon p-danke'+(gedankt?' aktivgruen':'')+'" data-id="'+esc(p.id)+'" '+
+          'title="Danke sagen" aria-label="Danke sagen">👍</button>'+
+        '<button class="p-ikon p-teilen" data-id="'+esc(p.id)+'" title="Teilen" aria-label="Teilen">↗</button>'+
+        (p.start ? '<button class="p-ikon p-ics" data-id="'+esc(p.id)+'" title="In den Kalender" aria-label="In den Kalender">📅</button>' : "")+
+      '</span>'+
     '</div>'+ bestaetigungsBlock(p) + tippBlock(p) + quelle;
 }
 
@@ -1956,7 +1974,8 @@ function ansichtAktualisieren(){
       zr.textContent = "📅 " + (einTag
         ? f(eigenZeitraum.von) + (eigenZeitraum.mitZeit ? " " + u(eigenZeitraum.von) + "–" + u(eigenZeitraum.bis) : "")
         : f(eigenZeitraum.von) + "–" + f(eigenZeitraum.bis));
-    } else zr.textContent = "📅 Zeitraum";
+    } else zr.textContent = "📅";
+    zr.classList.toggle("gewaehlt", zeit === "range" && !!eigenZeitraum);
   }
   const rst = $("#filter-reset");
   if(rst) rst.classList.toggle("da", filterAktiv());
@@ -2653,8 +2672,9 @@ function zeigeOnboarding(nachher){
   });
 }
 
-/* ---------- Feedback-Glühbirne (Roadmap Nr. 18) ---------- */
-$("#btn-idee").addEventListener("click", () => {
+/* ---------- Feedback: Idee einreichen (Roadmap Nr. 18) ----------
+   Nicht mehr als eigenes Symbol oben, sondern über das Profil-Fenster erreichbar. */
+function zeigeIdee(){
   modalOeffnen(
     '<h2>💡 Deine Idee für Eventlas</h2>'+
     '<p>Was fehlt? Was nervt? Kurz reinschreiben und absenden — jede Idee hilft.</p>'+
@@ -2673,7 +2693,7 @@ $("#btn-idee").addEventListener("click", () => {
   };
   $("#idee-wa").addEventListener("click", () => senden(false));
   $("#idee-mail").addEventListener("click", () => senden(true));
-});
+}
 
 /* ---------- Info + Profil (Roadmap Nr. 20, 22, V2) ---------- */
 function standText(){
@@ -2682,7 +2702,6 @@ function standText(){
   const wann = tage <= 0 ? "heute" : tage === 1 ? "gestern" : "vor " + tage + " Tagen";
   return PINS.length + " Pins · zuletzt aktualisiert " + wann;
 }
-$("#btn-info").addEventListener("click", zeigeInfo);
 function zeigeInfo(){
   const meine = profil ? (profil.tags.map(t => TAG_LABEL[t]||t).join(", ") || "—") : "noch nicht gewählt";
   const heimText = heim ? ("gesetzt · Radius " + heim.radius + " km") : "nicht gesetzt";
@@ -2794,8 +2813,13 @@ function zeigeProfil(){
     '<h3>Dein Rang</h3>'+
     '<div class="zeile"><span><b>'+karmaRang()+'</b> · '+karmaPunkte()+' Punkte</span></div>'+
     '<p class="klein">Punkte sammelst du mit 👍 Danke, Teilen, Pin-Meldungen und Ideen.</p>'+
-    '<div class="zeile"><span class="klein">Profil, Rang und Wohnort löschen</span><button class="aktion" id="profil-reset">Zurücksetzen</button></div>'
+    '<div class="zeile"><span class="klein">Profil, Rang und Wohnort löschen</span><button class="aktion" id="profil-reset">Zurücksetzen</button></div>'+
+    '<h3>Mehr</h3>'+
+    '<div class="zeile"><span>💡 Idee oder Kritik loswerden</span><button class="aktion" id="zur-idee">Schreiben</button></div>'+
+    '<div class="zeile"><span>ⓘ Über Eventlas, Datenschutz, Impressum</span><button class="aktion" id="zur-info">Öffnen</button></div>'
   );
+  $("#zur-idee").addEventListener("click", zeigeIdee);
+  $("#zur-info").addEventListener("click", zeigeInfo);
   blatt.querySelectorAll("#stil-wahl button").forEach(b =>
     b.addEventListener("click", () => stilWechseln(b.dataset.stil)));
   $("#interessen-bearbeiten").addEventListener("click", () => zeigeOnboarding(zeigeProfil));
