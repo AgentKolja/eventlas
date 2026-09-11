@@ -427,10 +427,11 @@ async function tribePins() {
         const uhr = String(e.start_date || "").slice(11, 16);
         const kategorien = (e.categories || []).map(c => String(c.name || "").toLowerCase()).join(" ");
         const tags = ["kultur"];
-        if (/konzert|musik|jazz|rock|pop|band|klassik/.test(kategorien + " " + titel.toLowerCase())) tags.unshift("musik");
-        // "party" ist KEIN erlaubtes Thema (erlaubt: musik kultur fest markt sport familie natur) —
-        // die Karte könnte danach gar nicht filtern, und der Ergebnis-Check hätte es täglich moniert.
-        if (/party|disco|dj|tanz/.test(kategorien + " " + titel.toLowerCase())) tags.unshift("musik");
+        // Erlaubte Themen sind nur musik kultur fest markt sport familie natur — "party" gehörte
+        // nie dazu: die Karte konnte danach nicht filtern und der Ergebnis-Check monierte es
+        // täglich. Party, Disco und Tanz laufen deshalb unter musik, in EINEM Ausdruck mit den
+        // Konzerten — zwei Zweige, die beide dasselbe Tag setzen, lesen sich wie zwei Regeln.
+        if (/konzert|musik|jazz|rock|pop|band|klassik|party|disco|dj|tanz/.test(kategorien + " " + titel.toLowerCase())) tags.unshift("musik");
         alle.push({
           typ: "event",
           titel: titel.slice(0, 90),
