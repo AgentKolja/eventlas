@@ -1,7 +1,7 @@
 name: Ortsdaten auffrischen (orte.json)
 
 # Anfahrt, Barrierefreiheit und Ortsbeschreibungen ändern sich über Jahre kaum — anders als
-# die Termine in pins.json, die täglich laufen. Einmal im Monat genügt völlig.
+# die Termine in pins.json, die wöchentlich laufen. Einmal im Monat genügt völlig.
 # Braucht keinen API-Schlüssel: OpenStreetMap und Wikipedia sind frei abfragbar.
 on:
   schedule:

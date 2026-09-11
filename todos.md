@@ -2,6 +2,166 @@
 
 Karte ist live: **https://eventlas.netlify.app** — alle Texte unten sind fertig zum Kopieren.
 
+## Behoben: „Ort hinzufügen ging nicht" (11.09.)
+Zwei Ursachen, beide im Plakat-Foto-Weg. Erstens blieb ein einmal ausgewähltes Foto im
+Hintergrund gemerkt, auch wenn man das Fenster nur zugemacht hat — **danach landete jede
+weitere Meldung wieder im Foto-Weg**, ohne Formular und ohne Ortauswahl, nur noch mit
+WhatsApp und Mail. Zweitens war das Fenster „Fast geschafft" eine Sackgasse: zwei Knöpfe,
+beide aus der App heraus, kein Weg zum Ort — und es behauptete trotzdem, die Koordinaten
+seien vorbereitet. Deshalb kam die Mail ohne Ort an.
+
+Jetzt: Fenster zu = abgebrochen (Foto wird verworfen), fehlt der Ort, ist „📍 Ort auf Karte
+wählen" der auffällige Knopf, und im Meldeformular steht der Ort als eigene Zeile — mit
+„ändern", ohne dass die Eingaben verloren gehen.
+
+Beim gründlichen Nachtesten des ganzen Meldewegs kamen fünf weitere Fehler ans Licht, alle
+behoben:
+- **„Absenden" ohne Titel tat scheinbar nichts.** Die Meldung „Bitte gib einen Titel an"
+  ging in den Hinweisbalken unten — der liegt hinter dem Fenster. Sie steht jetzt im
+  Formular, direkt über den Knöpfen (darunter wäre sie auf dem Handy außerhalb gewesen).
+- **Wohnort und Pin-Meldung warteten beide auf denselben Fingertipp.** Wer nach „Wohnort
+  festlegen" doch „Pin melden" drückte, setzte mit dem nächsten Tipp stumm den Wohnort.
+  Jetzt bricht der eine Modus den anderen ab.
+- **Die Standortsuche funkte nach dem Abbrechen nach.** Sie darf bis zu acht Sekunden
+  dauern; kam sie nach dem Schließen zurück, riss sie das Fenster wieder auf — mit einem
+  Foto, das gerade verworfen worden war. Und man musste die acht Sekunden vor zwei toten
+  Knöpfen absitzen; „Ort auf Karte wählen" ist jetzt sofort bedienbar.
+- **Der Zähler für gemeldete Pins lief zu früh hoch** — schon beim Anzeigen des Fensters,
+  und ein zweites Mal, wenn man den Ort nachtrug. Gezählt wird jetzt beim Absenden.
+- **Ein Dankeschön räumte nach sechs Sekunden den nächsten Hinweis mit ab**, wenn man gleich
+  weitermachte. Außerdem quittiert das Formular das Absenden jetzt überhaupt erst sichtbar.
+
+Alle 30 Wege einzeln durchgespielt (Karte, Plakat mit und ohne GPS, Abbruch an jeder Stelle,
+Zurück-Geste, Wohnort-Kollision, Handy- und Desktop-Breite) — keine Konsolenfehler.
+- [ ] Nach dem nächsten Deploy einmal auf dem Handy nachtesten: Plakat fotografieren →
+      Standort ablehnen → Ort auf der Karte wählen → Mail muss die Koordinaten enthalten
+
+## 💶 Geldplan (11.09.) — der ganze Plan steht in [geschaeftsmodell.md](geschaeftsmodell.md)
+
+Auf deine Ansage „reich werden mit minimalem Aufwand" umgerechnet (11.09., zweite Fassung):
+Kein Verkaufen, kein Klinkenputzen, keine bezahlten Einträge. Stattdessen **Fördergeld
+mitnehmen** und die Maschine so umbauen, dass **Google Besucher liefert statt du**.
+Dein Anteil daran: rund **8 Stunden insgesamt** — der Rest läuft über den Build und über mich.
+
+> Die eine Zahl, die du kennen musst: Werbung bringt 2–5 € je 1.000 Seitenaufrufe. 1.000 €
+> im Monat wären also ~300.000 Aufrufe. Aachen allein schafft im besten Fall 50.000 (≈ 150 €).
+> Reich macht das nicht — realistisch sind **500–1.200 €/Monat passiv nach 2–3 Jahren**, dazu
+> einmalig 2.000–16.400 € Fördergeld. Die ganze Rechnung steht in geschaeftsmodell.md.
+
+### 🔴 Zuerst: Die Karte lebt nicht mehr — Ursache gefunden (11.09.)
+Das tägliche Update war seit dem **18.08.** kaputt. Der Grund war weder GitHub noch der
+Schlüssel, sondern **ein unsichtbares Zeichen am Anfang von `venues.json`** (ein sogenanntes
+BOM, das Windows-Editoren beim Speichern gern anhängen). Node stolpert darüber, das Skript
+fing den Fehler still auf und lief mit einer **Notkonfiguration ohne jede Datenquelle**
+weiter: kein Kulturkalender, kein rausgegangen, kein Musikbunker, keine Vereinskalender.
+Übrig blieb allein die Claude-Recherche — und als deren Guthaben am 18.08. auslief, kam
+gar nichts mehr. Deshalb lief der Schritt „Pins recherchieren und schreiben" jeden Morgen
+**in unter einer Sekunde** durch und das rote Kreuz landete beim Ergebnis-Check, der nur
+meldete, dass die Termine alt sind.
+
+Das BOM ist entfernt, das Skript verträgt jetzt eins und bricht laut ab, statt still
+weiterzulaufen. Nachgemessen: Kulturkalender liefert aktuell 112 passende Termine, die vier
+Vereinskalender zusammen 170 — die Quellen sind also gesund. Zwei Dinge musst nur du tun:
+
+- [x] ~~**Actions**: Läuft „Update pins" noch?~~ — Ja, lief täglich und war nie pausiert (inzwischen auf mittwochs umgestellt).
+- [ ] **💳 Anthropic-Guthaben aufladen** — [console.anthropic.com → Plans & Billing](https://console.anthropic.com/settings/billing).
+      Der Schlüssel ist gültig, aber das Konto ist leer; die API antwortet wörtlich mit
+      „Your credit balance is too low". **Ohne Aufladen fehlen nur die recherchierten
+      Extra-Funde — die Karte füllt sich nach dem Push trotzdem wieder** aus den vier
+      übrigen Quellen. Also wichtig, aber kein Blocker.
+- [ ] **⬆️ Die Reparatur nach `main` pushen** — erst dann greift sie (die Action läuft auf
+      `main`, dein Branch `uebersichtlicher` ist 3 Commits voraus und 2 zurück):
+      ```
+      git add venues.json scripts/update-pins.mjs .github/workflows/update-pins.yml
+      git commit -m "Taegliches Update repariert: BOM in venues.json legte alle Quellen still"
+      git pull --rebase origin main && git push origin HEAD:main
+      ```
+      Danach unter **Actions → „Eventlas wöchentlich aktualisieren" → Run workflow** einmal von
+      Hand starten, statt bis morgen früh zu warten.
+- [ ] **app.netlify.com → eventlas → Deploys**: letzter Build grün oder rot? Bei rot: die
+      letzten Zeilen aus dem Log schicken, dann finde ich es. (Das ist ein **eigenes**
+      Problem — es hat mit dem Update-Fehler oben nichts zu tun.)
+
+> Nebenbei aufgefallen: **rausgegangen.de sperrt uns inzwischen aus** (HTTP 403, Bot-Schutz)
+> — auch von hier aus, nicht nur von GitHub. Das Skript probiert die Rubriken jetzt nicht
+> mehr alle elf durch, sondern hört nach der ersten Abweisung auf und sagt es im Lauf.
+> Die Quelle liefert bis auf Weiteres nichts; ersetzen können wir sie später.
+
+### ⏳ Mit Frist: 2.000 € Fördergeld, das nur beantragt werden muss
+**Heimat-Scheck NRW** — pauschal 2.000 € für Nachbarschaftsprojekte, Antrag komplett online,
+natürliche Personen sind antragsberechtigt (kein Verein nötig). Eventlas ist ein Musterfall.
+Das Geld ist für Projektausgaben (Druck, Material, eine Aktion im Viertel), **nicht für deine
+Arbeitszeit** — deckt also genau das Marketing ab, das du sowieso bezahlen müsstest.
+
+- [ ] **Bis 31.10.2026 beantragen** über [mhkbd.nrw → Heimat-Scheck](https://www.mhkbd.nrw/foerderprogramme/heimat-scheck)
+      (Anträge nach dem 31.10. zählen erst fürs nächste Jahr). Sag Bescheid, wenn du den
+      Antrag aufmachst — Projektbeschreibung und Ausgabenliste schreibe ich dir fertig.
+
+### 📞 Ein Anruf, der 14.400 € wert sein kann
+**Gründungsstipendium.NRW**: 1.200 €/Monat für 12 Monate. Die Jurysitzungen pausieren seit
+01.04.2026 „vorerst", eingereichte Anträge werden aber weiter bearbeitet und bewilligt — in
+die Warteschlange zu kommen kostet also nur ein Gespräch. Die Beratung der GründerRegion ist
+kostenlos und bringt dir unabhängig davon eine Einschätzung deines Geschäftsmodells.
+
+- [ ] **GründerRegion Aachen anschreiben** (Text 8 unten) — `info@gruenderregion.de`,
+      Ansprechpartner Peter Kampmeier, T 0241 4460-361. Alternative: digitalHUB Aachen,
+      `startup@hubaachen.de`.
+
+### 🎓 Oktober nicht verpassen (Semesterstart)
+Der einzige Moment im Jahr, an dem zehntausend Menschen gleichzeitig neu in Aachen sind und
+genau die Frage haben, die Eventlas beantwortet. Reichweite ist die Zahl, die später in jedem
+Verkaufsgespräch und jedem Antrag steht — dieses Jahr also kostenlos ausspielen.
+
+- [ ] **AStA RWTH und AStA FH anschreiben** (Text 9 unten), Ziel: Link in die Ersti-Kanäle
+- [ ] Falls du Flyer übrig hast: Ersti-Wochen sind der beste Verteilzeitpunkt des Jahres
+
+### 🔍 Der eigentliche Flaschenhals: Google sieht Eventlas nicht
+Gemessen an der Live-Seite: **keine schema.org-Auszeichnung, `sitemap.xml` 404, `robots.txt`
+404, eine einzige URL, und die Pins kommen erst nach dem Laden per JavaScript.** Für Google
+ist das eine leere Seite mit einer Karte darauf — es gibt schlicht nichts zu indexieren.
+
+Deshalb steckte im ersten Plan so viel Handarbeit: Ohne Suchmaschine musst du jeden Besucher
+selbst herbeitragen. Der Umbau (Einzelseiten je Termin/Ort/Stadt aus denselben Daten,
+schema.org/Event, Sitemap) ist ein Build-Schritt, keine neue Datenpflege — ich baue ihn,
+du brauchst nur eine Domain. **Rechne mit 6–18 Monaten, bis es wirkt.** Es gibt keine
+Abkürzung, die nicht abgestraft wird.
+
+- [ ] **`eventlas.de` registrieren** (~1 €/Monat). `netlify.app` ist eine geteilte Subdomain
+      und für Suchmaschinen wertlos — ohne eigene Domain lohnt der ganze Umbau nicht.
+      Die Domain antwortet aktuell nicht, ist also vermutlich noch frei.
+- [ ] **GetYourGuide-Partnerkonto anlegen** → [partner.getyourguide.com](https://partner.getyourguide.com/de-de/signup).
+      Bis 7 % Provision (≈ 2,80 € je 40-€-Tour) statt ~0,70 € bei Eventim-Tickets — Aachen ist
+      Touristenstadt (Dom, Weihnachtsmarkt, Thermen, Dreiländereck). Die Links erzeuge ich
+      danach automatisch aus den vorhandenen Ortsdaten.
+- [ ] **Projekt-Mail + Impressum** (§ 5 DDG) — steht schon weiter unten, wird mit eigener
+      Domain ohnehin fällig (`hallo@eventlas.de`).
+
+### Nicht mehr nötig (aus dem ersten Plan gestrichen)
+Läden abklappern, Einträge verkaufen, Auftragskarten aktiv anbieten, Flyer als Hauptkanal,
+Partner-Profile. Alles tauscht deine Zeit gegen Geld, statt sie zu vervielfachen. Die
+**Preisliste bleibt im Anhang von geschaeftsmodell.md** — falls jemand von allein fragt,
+nimmst du 600–2.500 € je Karte. Hinterherlaufen lohnt für dein Ziel nicht.
+
+### Eine Frage an dich (der Rest läuft ohne)
+- [ ] **Hauptberuflich denkbar?** Nur davon hängt das Gründungsstipendium ab — mit 14.400 €
+      der größte Einzelposten im ganzen Plan, mehr als die passiven Hebel in drei Jahren
+      zusammen. Wenn nein, streiche ich ihn und rechne ohne.
+
+---
+
+## Neu: Quellcode wird beim Build verschleiert (11.09.)
+`bauen.sh` jagt das JavaScript jetzt zusätzlich durch `javascript-obfuscator`, bevor es
+minifiziert wird — Variablennamen werden zu Hexcodes, Texte landen als Base64-Tabelle im Code.
+Damit lässt sich die Seite nicht mehr einfach per "Seitenquelltext anzeigen" kopieren. Fällt
+die Verschleierung aus irgendeinem Grund aus, baut die Seite trotzdem ganz normal weiter (wie
+bei der Minifizierung schon immer: lieber lesbarer Code live als eine kaputte Seite).
+
+Ich konnte das mangels Node/Python auf diesem Rechner nicht selbst durchlaufen lassen — bitte
+beim nächsten Netlify-Deploy kurz das Build-Log ansehen:
+- [ ] Steht dort „JavaScript verschleiert." (gut) oder eine WARNUNG-Zeile (dann lief die
+      Verschleierung nicht, ist aber unkritisch — einfach kurz Bescheid geben)
+- [ ] Karte danach einmal öffnen und kurz durchklicken, ob alles normal funktioniert
+
 ## ✅ Erledigt: Deploy-Kette läuft (14.08.)
 Netlify ist mit GitHub verbunden — **das Hochladen entfällt ab jetzt komplett.** Geprüft: Der
 erste verbundene Build ist sauber durchgelaufen, alle Live-Dateien sind da (auch die neuen
@@ -20,7 +180,7 @@ als Warnung oben im Action-Bericht. Beim nächsten nächtlichen Lauf solltest du
 Termine auf der Karte sehen (im Test: 284 statt 144).
 
 - [ ] Falls du nicht bis morgen früh warten willst: github.com/AgentKolja/eventlas → **Actions**
-      → „Eventlas täglich aktualisieren" → **Run workflow**. Nach ~2 Min ist die Karte aktuell.
+      → „Eventlas wöchentlich aktualisieren" → **Run workflow**. Nach ~2 Min ist die Karte aktuell.
 - [ ] Wenn im Bericht „⚠️ Recherche ausgefallen" steht: meist ist das Guthaben des API-Schlüssels
       leer oder das Modell wurde umbenannt. Beides ohne Codeänderung lösbar — Modell umstellen
       unter Settings → Secrets and variables → Actions → **Variables** → `EVENTLAS_MODELL`.
@@ -264,9 +424,53 @@ Danke für deine Pin-Meldung für Eventlas! Ich prüfe sie kurz und stelle sie m
 Betreff: Nutzung des Veranstaltungskalender-iCal-Exports für nichtkommerzielle Stadtkarte
 
 Guten Tag,
-ich betreibe die nichtkommerzielle, werbefreie Stadtkarte "Eventlas Aachen" (https://eventlas.netlify.app), die Aachener Veranstaltungen mit Quellenangabe und Link auf die Originalseite darstellt. Der Veranstaltungskalender auf aachen.de bietet einen iCal-Export (event.ics). Darf ich diesen Export automatisiert einmal täglich abrufen, um daraus Veranstaltungshinweise (Titel, Datum, Ort) mit Verlinkung auf aachen.de zu übernehmen? Falls es dafür eine bevorzugte Schnittstelle, Lizenz oder Bedingungen gibt, richte ich mich gern danach. Ein offener Veranstaltungsdatensatz auf offenedaten.aachen.de wäre übrigens ein Traum — ich wäre sofort Erstnutzer.
+ich betreibe die nichtkommerzielle, werbefreie Stadtkarte "Eventlas Aachen" (https://eventlas.netlify.app), die Aachener Veranstaltungen mit Quellenangabe und Link auf die Originalseite darstellt. Der Veranstaltungskalender auf aachen.de bietet einen iCal-Export (event.ics). Darf ich diesen Export automatisiert einmal wöchentlich abrufen, um daraus Veranstaltungshinweise (Titel, Datum, Ort) mit Verlinkung auf aachen.de zu übernehmen? Falls es dafür eine bevorzugte Schnittstelle, Lizenz oder Bedingungen gibt, richte ich mich gern danach. Ein offener Veranstaltungsdatensatz auf offenedaten.aachen.de wäre übrigens ein Traum — ich wäre sofort Erstnutzer.
 Vielen Dank und viele Grüße
 [NAME], [KONTAKT]
+
+## Text 8 — Mail an die GründerRegion Aachen (Erstgespräch Gründungsstipendium)
+Betreff: Erstgespräch zum Gründungsstipendium.NRW — hyperlokale Stadtkarte "Eventlas"
+
+Guten Tag Herr Kampmeier,
+
+ich habe in Aachen eine hyperlokale Stadtkarte gebaut und betreibe sie seit August:
+https://eventlas.netlify.app. Sie bündelt Veranstaltungen, Angebote und Nachbarschafts-
+gesuche für Aachen auf einer Karte — automatisch aus offenen Quellen aktualisiert
+(Kulturkalender der Stadt, Konzertkalender der Spielstätten, OpenStreetMap) und von Hand
+geprüft. Die Karte ist kostenlos und werbefrei.
+
+Verdienen möchte ich nicht an der Karte selbst, sondern an dem, was darunter steckt: Für
+Veranstalter, Vereine, Stadtmarketing und Wohnungsunternehmen lässt sich dieselbe Karte
+in wenigen Tagen auf deren Anlass zuschneiden; die Datenquellen und der Aufbauprozess für
+weitere Städte sind bereits dokumentiert.
+
+Ich würde das Vorhaben gern einmal mit Ihnen besprechen — insbesondere, ob es für das
+Gründungsstipendium.NRW in Frage kommt und wie der Ablauf angesichts der derzeit
+pausierenden Jurysitzungen aussieht. Über einen Termin für ein Erstgespräch würde ich
+mich freuen.
+
+Viele Grüße
+[NAME], [TELEFON]
+
+## Text 9 — Mail an AStA / Fachschaften (Ersti-Karte, Semesterstart)
+Betreff: Kostenlose Aachen-Karte für die Ersti-Wochen
+
+Hallo zusammen,
+
+ich betreibe Eventlas, eine kostenlose und werbefreie Karte für Aachen:
+https://eventlas.netlify.app. Darauf steht, was in der Stadt gerade läuft — Konzerte,
+Feste, Wochenmärkte, Flohmärkte, Fotospots, dazu Nachbarschaftliches wie Verschenken
+und Hilfe-Gesuche. Alles aus offenen Quellen, von Hand geprüft, ohne Anmeldung, ohne
+Tracking und ohne App-Installation (die Seite lässt sich aufs Handy legen wie eine App).
+
+Für Erstsemester ist das ziemlich genau die Frage, die sie in den ersten Wochen haben.
+Wenn ihr mögt, verlinkt die Karte gern in euren Ersti-Kanälen, im Ersti-Heft oder als
+QR-Code auf euren Aushängen — sie kostet nichts und wird auch nichts kosten. Wenn ihr
+eigene Ersti-Termine habt, die dort auftauchen sollen, schickt sie mir einfach, ich
+pflege sie kostenlos ein.
+
+Viele Grüße
+[NAME]
 
 ---
 

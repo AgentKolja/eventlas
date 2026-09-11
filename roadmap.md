@@ -8,6 +8,26 @@ Diese Datei bei neuen Chats mit Claude hochladen — sie ist das Projektgedächt
 Zum Live-Bestand gehören: `index.html`, `pins.json`, `orte.json`, `manifest.json`, `sw.js`,
 `flyer.html`, `og.png`, die Icons, `schriften/` und `bilder/`.
 
+## 💶 Geschäftsmodell (11.09.) → [geschaeftsmodell.md](geschaeftsmodell.md)
+Zielvorgabe des Betreibers: **maximaler Ertrag pro Stunde, nichts, was laufend Handarbeit
+kostet.** Deshalb kein aktiver Verkauf, kein Klinkenputzen, keine bezahlten Einträge — die
+Aachen-Karte bleibt kostenlos und werbefrei. Vier Hebel, in dieser Reihenfolge:
+
+1. **Fördergeld** — Heimat-Scheck 2.000 € (Frist 31.10.2026), Gründungsstipendium.NRW 14.400 €.
+   Die einzigen sicheren vierstelligen Beträge; ~500–700 € pro aufgewendeter Stunde.
+2. **SEO-Ausgabe bauen** — statische Seiten je Termin/Ort/Stadt + schema.org/Event + sitemap.xml
+   + eigene Domain. Gemessen am 11.09.: **0× schema.org, sitemap 404, robots 404, eine einzige
+   URL, Pins nur per fetch** → Google kann Eventlas nicht indexieren, also gibt es null
+   organischen Traffic. Das ist der Flaschenhals für jedes passive Einkommen.
+3. **Tourismus-Affiliate statt Ticket-Affiliate** — GetYourGuide ~7 % (≈ 2,80 € je 40-€-Tour)
+   gegen Eventim ≈ 2 % vom Ticket (≈ 0,70 €). Display-Werbung erst ab ~30.000 Aufrufen/Monat.
+4. **Städte vervielfachen** — erst wenn 2 in Aachen nachweislich wirkt; ~1 Tag je Stadt,
+   danach läuft sie im selben nächtlichen Lauf mit.
+
+Erwartung laut Datei: ~500–1.200 €/Monat passiv nach zwei bis drei Jahren, plus einmalig
+2.000–16.400 € Fördergeld. **Reich wird man damit nicht** — dafür bräuchte es rund fünfzigmal
+mehr Seitenaufrufe. Preisliste für Auftragsarbeit steht als Anhang bereit, falls jemand fragt.
+
 ## 🔧 Auftragsliste vom 14.08. (Nutzer) — Reihenfolge nach Dringlichkeit
 | # | Was | Status |
 |---|---|---|
@@ -193,7 +213,7 @@ Rothe Erde, Barbarossa, Café Vers) — beim nächsten Durchgang verifizieren un
 
 ## Deploy-Kette (geschlossen seit 14.08.)
 ```
-GitHub Action (täglich 05:30 UTC)
+GitHub Action (mittwochs 05:30 UTC)
    └─ recherchiert → schreibt pins.json → committet ins Repo
         └─ Netlify (mit dem Repo verbunden) baut und veröffentlicht automatisch
              └─ Live-Seite zeigt die neuen Termine
@@ -226,7 +246,7 @@ Codeänderung über die Repo-Variable `EVENTLAS_MODELL` (Settings → Secrets an
 Actions → Variables). Sieht ein Fehler nach Modellproblem aus, sagt das Log es ausdrücklich.
 
 ## Content-Pipeline (aktualisiert 08.08.)
-**Automatisch (GitHub Action, täglich 05:30 UTC):** scripts/update-pins.mjs
+**Automatisch (GitHub Action, mittwochs 05:30 UTC):** scripts/update-pins.mjs
 1. Feste Pins (`fest:true`) bleiben immer: Fotospots, Ernteorte, Beispiele, Wochenmärkte, Alleenfest.
 2. Kulturkalender-API `api.kulturkalender-aachen.de/events` (undokumentiert, CORS *, 7 städtische
    Häuser mit fester Koordinaten-Map) → Kultur-Pins der nächsten 45 Tage, ohne LLM.
@@ -432,7 +452,7 @@ und die Karte bleibt schnell. Nachgeführt wird per Skript, nicht von Hand.
 | | `pins.json` | `orte.json` |
 |---|---|---|
 | Inhalt | was **passiert** (Termine) | was der **Ort ist** |
-| Erzeugt von | `update-pins.mjs`, täglich | `orte-aktualisieren.mjs`, monatlich genügt |
+| Erzeugt von | `update-pins.mjs`, wöchentlich | `orte-aktualisieren.mjs`, monatlich genügt |
 | Verknüpfung | — | über **Koordinaten** (bis 150 m), nicht über Pin-IDs |
 
 Die Koordinaten-Verknüpfung ist der Kern: Sie überlebt das nächtliche Update (das `pins.json`

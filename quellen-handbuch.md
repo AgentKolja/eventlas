@@ -53,8 +53,8 @@ Bewertungen hängen fremde Rechte. Auch „nur ein paar Kommentare" ist eine Üb
 
 ### Warum fast alles eingepflegt statt live abgefragt wird
 Jede Live-Abfrage überträgt die IP des Besuchers an einen fremden Server, muss in die
-Datenschutzerklärung und macht die Seite abhängig. Termine ändern sich täglich — die holt
-deshalb das nächtliche Skript und legt sie als Datei ab. Haltestellen und Baudenkmäler ändern
+Datenschutzerklärung und macht die Seite abhängig. Termine ändern sich laufend — die holt
+deshalb das wöchentliche Skript und legt sie als Datei ab. Haltestellen und Baudenkmäler ändern
 sich über Jahre kaum — monatlich genügt. Nur das Wetter muss live sein, weil eine Vorhersage
 von gestern wertlos ist.
 
