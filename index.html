@@ -148,6 +148,14 @@
     border-radius:10px;background:var(--nacht);border:1px solid var(--linie);margin:8px 0}
   .ort-status.ok{border-color:var(--event);color:var(--event)}
   .ort-status.warn{border-color:var(--hilfe);color:var(--hilfe)}
+  /* Der Ort im Meldeformular: Zustand links, Weg zur Änderung rechts am Rand */
+  .ort-status > span{flex:1;min-width:0;line-height:1.35}
+  .ort-status .hw-btn{flex:none;color:inherit}
+  /* Rückmeldung des Formulars gehört ins Formular. Der Hinweisbalken unten liegt hinter dem
+     Fenster (z-index 20 gegen 40) — dort gezeigt, hat sie nie jemand gesehen. */
+  .mf-fehler{display:none;margin-top:10px;font:600 12px 'Inter';color:var(--hilfe);
+    border-left:3px solid var(--hilfe);padding:6px 0 6px 9px}
+  .mf-fehler.da{display:block}
   .kbtn:focus-visible,.zchip:focus-visible,.tagchip:focus-visible,.melden:focus-visible{outline:2px solid var(--papier);outline-offset:2px}
 
   /* Suchleiste */
@@ -1562,7 +1570,7 @@ function bestaetigungSenden(pinId, antwort){
   lsSet("bestaetigt", gemeldet);
   hinweisZeigen(ja ? "Danke! Deine Bestätigung ist unterwegs."
                    : "Danke für den Hinweis — wir prüfen das.");
-  setTimeout(hinweisWeg, 4000);
+  hinweisSpaeterWeg(4000);
 }
 
 function tippBlock(p){
@@ -2616,8 +2624,22 @@ window.addEventListener("popstate", () => {
 /* ---------- Modale (ein Container, wechselnder Inhalt) ---------- */
 const schleier = $("#schleier"), blatt = $("#blatt");
 let nachModal = null;
+/* Manche Vorgänge halten etwas fest, solange ihr Fenster offen ist — die Foto-Meldung zum
+   Beispiel das ausgewählte Foto. Wer das Fenster zumacht, statt abzuschicken, hat
+   abgebrochen; dieser Haken räumt dann auf. Ohne ihn blieb das Foto im Hintergrund gemerkt,
+   und jede weitere Meldung landete wieder im Foto-Weg: kein Formular, kein Ort, nur noch
+   WhatsApp und Mail. Jedes Fenster meldet seinen Haken nach dem Öffnen selbst an. */
+let beimModalZu = null;
+/* Ein neues Fenster beendet den Vorgang davor — hängt noch ein Haken, wird er dabei
+   eingelöst. Nur die Fenster desselben Vorgangs (Plakat: suchen → gefunden → absenden)
+   melden sich über modalWeiter an und behalten ihren Zustand. */
 function modalOeffnen(html){
+  if(beimModalZu){ const aufraeumen = beimModalZu; beimModalZu = null; aufraeumen(); }
+  modalWeiter(html);
+}
+function modalWeiter(html){
   const wechsel = schleier.classList.contains("offen");   // Inhalt tauschen ≠ neu öffnen
+  beimModalZu = null;
   blatt.innerHTML = html;
   blatt.scrollTop = 0;
   schleier.classList.add("offen");
@@ -2626,6 +2648,7 @@ function modalOeffnen(html){
 function modalSchliessen(vonZurueck){
   if(!schleier.classList.contains("offen")) return;
   schleier.classList.remove("offen");
+  if(beimModalZu){ const aufraeumen = beimModalZu; beimModalZu = null; aufraeumen(); }
   if(!vonZurueck) overlayAbmelden();
   if(nachModal){ const f = nachModal; nachModal = null; f(); }
 }
@@ -2870,6 +2893,10 @@ function stilWechseln(neu){
 let heimModus = false, heimMarker = null;
 function heimWaehlen(){
   modalSchliessen();
+  // Beide Modi warten auf denselben Fingertipp, und der Wohnort wird zuerst geprüft. Liefen
+  // sie gleichzeitig, landete der Tipp nach „Pin melden" stumm im Wohnort. Also: einer nach
+  // dem anderen — wer den Wohnort setzt, bricht eine begonnene Meldung ab.
+  meldenReset();
   heimModus = true;
   hinweisZeigen("Tippe auf die Karte, wo du wohnst — es wird nur auf deinem Gerät gespeichert.");
 }
@@ -3204,8 +3231,13 @@ function icsHerunterladen(p){
 let meldeModus = false, neuMarker = null, neuOrt = null;
 const meldenBtn = $("#melden");
 
-function hinweisZeigen(html){ const h = $("#hinweis"); h.innerHTML = html; h.style.display = "block"; }
-function hinweisWeg(){ $("#hinweis").style.display = "none"; }
+/* Der Balken hat nur einen Platz. Ein Dankeschön, das nach sechs Sekunden von selbst geht,
+   darf dabei nicht den Hinweis wegräumen, der inzwischen dort steht ("Tippe den Ort auf der
+   Karte an") — die Nummer sagt der Uhr, ob ihre Nachricht überhaupt noch da ist. */
+let hinweisNr = 0;
+function hinweisZeigen(html){ hinweisNr++; const h = $("#hinweis"); h.innerHTML = html; h.style.display = "block"; }
+function hinweisWeg(){ hinweisNr++; $("#hinweis").style.display = "none"; }
+function hinweisSpaeterWeg(ms){ const nr = hinweisNr; setTimeout(() => { if(nr === hinweisNr) hinweisWeg(); }, ms); }
 
 function meldeText(mitOrt){
   const ortZeile = (mitOrt && neuOrt)
@@ -3231,29 +3263,52 @@ function meldeText(mitOrt){
    einen lesbaren Text für Menschen und einen fertigen JSON-Block zum Einfügen in pins.json.
    Bei Terminen kommt ein Kalendereintrag (.ics) dazu, den ein Mail-Assistent direkt
    übernehmen kann. Das ersetzt die geplante Datenbank: kein zusätzlicher Dienst, keine
-   ungeprüften Fremdinhalte auf der Seite und damit keine Haftungsfrage nach § 10 DDG. */
+   ungeprüften Fremdinhalte auf der Seite und damit keine Haftungsfrage nach § 10 DDG.
+
+   Der Ort steht als eigene Zeile im Formular und lässt sich von dort aus nachtragen. Solange
+   die Karte dran ist, wartet das halb ausgefüllte Formular als Entwurf — sonst müsste man
+   für eine vergessene Koordinate alles neu tippen. */
+let meldeEntwurf = null;
+const typOption = (wert, text, gewaehlt) =>
+  '<option value="'+wert+'"'+(gewaehlt === wert ? " selected" : "")+'>'+text+'</option>';
+
 function sendeOptionen(mitOrt){
   if(plakatDatei){ plakatSenden(); return; }      // Foto-Meldung hat ihren eigenen Weg (Bild anhängen)
   const heute = tagKey(new Date());
+  const v = meldeEntwurf || {};                   // zurück vom Ortswählen: Eingaben stehen noch
+  meldeEntwurf = null;
+  const hatOrt = !!(mitOrt && neuOrt);
   modalOeffnen(
     '<h2>Pin melden</h2>'+
-    '<p class="klein">'+(mitOrt && neuOrt ? "Ort ist gesetzt ✓ — " : "")+
-      'Kurz ausfüllen, wir prüfen und stellen online. Nur Titel ist Pflicht.</p>'+
+    '<p class="klein">Kurz ausfüllen, wir prüfen und stellen online. Nur Titel ist Pflicht.</p>'+
     '<div class="mf-zeile"><label>Was ist es?</label>'+
       '<select id="mf-typ">'+
-        '<option value="event">Veranstaltung</option>'+
-        '<option value="angebot">Angebot / zu verschenken</option>'+
-        '<option value="hilfe">Hilfe gesucht</option>'+
+        typOption("event",   "Veranstaltung",            v.typ)+
+        typOption("angebot", "Angebot / zu verschenken", v.typ)+
+        typOption("hilfe",   "Hilfe gesucht",            v.typ)+
       '</select></div>'+
     '<div class="mf-zeile"><label>Titel *</label>'+
-      '<input id="mf-titel" type="text" maxlength="80" placeholder="z. B. Hofflohmarkt Oppenhoffallee"></div>'+
+      '<input id="mf-titel" type="text" maxlength="80" value="'+esc(v.titel || "")+'" placeholder="z. B. Hofflohmarkt Oppenhoffallee"></div>'+
     '<div class="mf-zeile mf-halb"><span><label>Datum</label>'+
-      '<input id="mf-datum" type="date" value="'+heute+'"></span>'+
-      '<span><label>Uhrzeit</label><input id="mf-zeit" type="time"></span></div>'+
+      '<input id="mf-datum" type="date" value="'+esc(v.datum != null ? v.datum : heute)+'"></span>'+
+      '<span><label>Uhrzeit</label><input id="mf-zeit" type="time" value="'+esc(v.uhr || "")+'"></span></div>'+
     '<div class="mf-zeile"><label>Was gibt es zu wissen?</label>'+
-      '<textarea id="mf-text" rows="3" maxlength="400" placeholder="Ein, zwei Sätze reichen."></textarea></div>'+
+      '<textarea id="mf-text" rows="3" maxlength="400" placeholder="Ein, zwei Sätze reichen.">'+esc(v.text || "")+'</textarea></div>'+
     '<div class="mf-zeile"><label>Link (falls es eine Seite gibt)</label>'+
-      '<input id="mf-link" type="url" placeholder="https://…"></div>'+
+      '<input id="mf-link" type="url" value="'+esc(v.link || "")+'" placeholder="https://…"></div>'+
+    /* Der Ort gehört sichtbar ins Formular. Vorher stand er nur als Halbsatz in der
+       Einleitung, und wer ohne Ort hierher kam, konnte ihn überhaupt nicht mehr nachtragen —
+       es gab nur noch „Absenden" und „Per WhatsApp". */
+    '<div class="mf-zeile">'+
+      '<div class="ort-status '+(hatOrt ? "ok" : "warn")+'">'+
+        '<span>📍 '+(hatOrt
+          ? "Ort auf der Karte gesetzt ("+neuOrt.lat.toFixed(4)+", "+neuOrt.lng.toFixed(4)+")"
+          : "Noch kein Ort gewählt — ohne Ort können wir den Pin nicht setzen")+'</span>'+
+        '<button class="hw-btn" id="mf-ort">'+(hatOrt ? "ändern" : "jetzt wählen")+'</button>'+
+      '</div></div>'+
+    // Über den Knöpfen, nicht darunter: Das Formular ist länger als der Bildschirm, und was
+    // unter „Absenden" steht, liegt beim Antippen schon außerhalb.
+    '<div class="mf-fehler" id="mf-fehler" role="alert"></div>'+
     '<div class="blatt-knoepfe">'+
       '<button class="bbtn gelb" id="senden-mail">✉ Absenden</button>'+
       '<a class="bbtn wa" target="_blank" rel="noopener" id="senden-wa" href="#">Per WhatsApp</a>'+
@@ -3262,6 +3317,7 @@ function sendeOptionen(mitOrt){
     '<p class="klein">Kein Spam, keine Werbung, keine fremden Rechte verletzen — sonst kommt der Pin nicht online. '+
     'Deine Angaben gehen nur an uns, nicht an Dritte.</p>'
   );
+  hinweisWeg();                                   // der Balken unten liegt hinter dem Fenster
   const lese = () => ({
     typ: $("#mf-typ").value,
     titel: $("#mf-titel").value.trim(),
@@ -3270,11 +3326,41 @@ function sendeOptionen(mitOrt){
     text: $("#mf-text").value.trim(),
     link: $("#mf-link").value.trim(),
   });
-  const zaehlen = () => { karma.gemeldet++; lsSet("karma", karma); meldenReset(); modalSchliessen(); };
+  /* Fehlt der Titel, muss das im Fenster stehen. Vorher ging die Meldung in den
+     Hinweisbalken hinter dem Fenster — für den Nutzer passierte auf „Absenden" schlicht
+     nichts, und er drückte noch dreimal. */
+  const fehlt = () => {
+    const f = $("#mf-fehler");
+    f.textContent = "Bitte gib wenigstens einen Titel an — ohne den wissen wir nicht, was wir eintragen sollen.";
+    f.classList.add("da");
+    f.scrollIntoView({block:"nearest"});          // das Formular ist länger als der Bildschirm
+    $("#mf-titel").focus();
+  };
+  const zaehlen = () => {
+    karma.gemeldet++; lsSet("karma", karma);
+    meldenReset(); modalSchliessen();
+    // Jetzt ist der Balken frei — und eine wortlos zugehende Maske sieht aus wie ein Fehler.
+    hinweisZeigen("Danke! Deine Meldung ist unterwegs — wir prüfen sie und stellen sie online.");
+    hinweisSpaeterWeg(6000);
+  };
+
+  /* Ort nachtragen, ohne das Ausgefüllte zu verlieren: Das Formular wird als Entwurf
+     geparkt, die Karte übernimmt — und der Tipp auf die Karte öffnet es wieder. */
+  $("#mf-ort").addEventListener("click", () => {
+    meldeEntwurf = lese();
+    modalSchliessen();
+    meldeModus = true;
+    meldenBtn.textContent = "Ort antippen …";
+    hinweisZeigen('<b>Tippe den Ort auf der Karte an.</b>'+
+      '<span class="hw-neben">Deine Eingaben bleiben stehen · '+
+      '<button class="hw-btn" id="hw-zurueck">zurück zum Formular</button></span>');
+    const zur = $("#hw-zurueck");
+    if(zur) zur.addEventListener("click", () => sendeOptionen(!!neuOrt));
+  });
 
   $("#senden-mail").addEventListener("click", () => {
     const d = lese();
-    if(!d.titel){ $("#mf-titel").focus(); hinweisZeigen("Bitte gib wenigstens einen Titel an."); return; }
+    if(!d.titel){ fehlt(); return; }
     const betreff = "Neuer Pin: " + d.titel;
     location.href = "mailto:" + KONFIG.mail + "?subject=" + encodeURIComponent(betreff) +
       "&body=" + encodeURIComponent(meldungsText(d, mitOrt));
@@ -3283,7 +3369,7 @@ function sendeOptionen(mitOrt){
   });
   $("#senden-wa").addEventListener("click", e => {
     const d = lese();
-    if(!d.titel){ e.preventDefault(); $("#mf-titel").focus(); hinweisZeigen("Bitte gib wenigstens einen Titel an."); return; }
+    if(!d.titel){ e.preventDefault(); fehlt(); return; }
     e.currentTarget.href = "https://wa.me/" + KONFIG.whatsapp + "?text=" + encodeURIComponent(meldungsText(d, mitOrt));
     zaehlen();
   });
@@ -3347,7 +3433,10 @@ function icsHerunterladen(d){
   setTimeout(() => URL.revokeObjectURL(a.href), 5000);
 }
 function meldenReset(){
-  meldeModus = false; neuOrt = null; plakatDatei = null;
+  meldeModus = false; neuOrt = null; plakatDatei = null; meldeEntwurf = null;
+  plakatLauf++;                         // eine noch laufende Ortsbestimmung ins Leere laufen lassen
+  plakatVorschauSetzen(null);
+  $("#btn-foto").classList.remove("laedt");
   if(neuMarker){ neuMarker.remove(); neuMarker = null; }
   meldenBtn.textContent = "＋ Pin melden";
   hinweisWeg();
@@ -3359,7 +3448,11 @@ function meldenReset(){
    Hinweisbalken statt in einem eigenen Schritt davor. */
 meldenBtn.addEventListener("click", () => {
   if(meldeModus && neuOrt){ sendeOptionen(true); return; }   // Weg 2: über den Knopf unten
+  // Wer mitten im Ortwählen abbricht, hat womöglich schon ein Formular ausgefüllt — dann
+  // ist der Knopf der Rückweg dorthin und nicht der Papierkorb.
+  if(meldeModus && meldeEntwurf){ sendeOptionen(false); return; }
   if(meldeModus){ meldenReset(); return; }
+  heimModus = false;                        // umgekehrt genauso: die Meldung gewinnt jetzt
   meldeModus = true;
   meldenBtn.textContent = "Ort antippen …";
   hinweisZeigen('<b>Tippe den Ort auf der Karte an.</b>'+
@@ -3444,24 +3537,32 @@ function aktuellerStandort(){
   });
 }
 
-let plakatDatei = null;
+let plakatDatei = null, plakatVorschau = null, plakatLauf = 0;
 $("#btn-foto").addEventListener("click", () => $("#plakat-datei").click());
 $("#plakat-datei").addEventListener("change", e => plakatGewaehlt(e));
 $("#plakat-galerie").addEventListener("change", e => plakatGewaehlt(e));
 
+/* Die Ortsbestimmung darf bis zu acht Sekunden dauern (Zeitlimit der Standortabfrage). In
+   dieser Zeit kann längst etwas anderes passiert sein: Fenster zugemacht, anderes Bild
+   gewählt, Ort von Hand auf der Karte gesetzt. Ein verspätetes Ergebnis darf dann nicht
+   mehr dazwischenfunken und das Fenster wieder aufreißen — es riss sonst mit einem Foto
+   auf, das gerade verworfen wurde. Jeder Durchlauf bekommt deshalb eine Nummer und steigt
+   still aus, wenn er überholt wurde. */
 async function plakatGewaehlt(e){
   const datei = e.target.files && e.target.files[0];
   e.target.value = "";
   if(!datei) return;
+  const lauf = ++plakatLauf;
   plakatDatei = datei;
   $("#btn-foto").classList.add("laedt");
 
-  const vorschau = URL.createObjectURL(datei);
-  plakatModal(vorschau, null, "suche");
+  plakatVorschauSetzen(URL.createObjectURL(datei));
+  plakatModal(plakatVorschau, null, "suche");
 
   // Ort bestimmen: erst aus dem Foto, sonst aktueller Standort
   let ort = await exifGPS(datei);
-  if(!ort) ort = await aktuellerStandort();
+  if(lauf === plakatLauf && !ort) ort = await aktuellerStandort();
+  if(lauf !== plakatLauf) return;                  // abgebrochen oder überholt
   $("#btn-foto").classList.remove("laedt");
 
   if(ort){
@@ -3469,7 +3570,13 @@ async function plakatGewaehlt(e){
     setzeNeuMarker(ort.lng, ort.lat);
     map.flyTo({center:[ort.lng, ort.lat], zoom:16.5});
   }
-  plakatModal(vorschau, ort, ort ? "gefunden" : "fehlt");
+  plakatModal(plakatVorschau, ort, ort ? "gefunden" : "fehlt");
+}
+/* Die Vorschau-URL hält das Bild im Speicher, bis sie freigegeben wird. Beim Wechsel und
+   beim Aufräumen also immer die alte einsammeln. */
+function plakatVorschauSetzen(url){
+  if(plakatVorschau) URL.revokeObjectURL(plakatVorschau);
+  plakatVorschau = url || null;
 }
 
 function setzeNeuMarker(lng, lat){
@@ -3490,51 +3597,98 @@ function plakatModal(bildUrl, ort, zustand){
         ' — auf der Karte markiert</div>' :
       '<div class="ort-status warn">📍 Kein Ort im Foto gefunden — tippe den Ort gleich auf der Karte an</div>';
 
-  modalOeffnen(
+  modalWeiter(                        // derselbe Vorgang: Foto und Ort bleiben stehen
     '<h2>📷 Plakat gefunden</h2>'+
     '<img class="foto-vorschau" src="'+bildUrl+'" alt="Vorschau des fotografierten Plakats">'+
     status +
     '<p class="klein">Titel, Datum und Ort werden vom Plakat abgelesen, sobald deine Meldung ankommt — '+
     'du musst nichts abtippen. Schick einfach ab.</p>'+
+    /* Fehlt der Ort, ist er der nächste sinnvolle Schritt — also bekommt er den auffälligen
+       Knopf. Vorher lud „Absenden" in Gelb zum Abschicken ein, und die Meldung ging ohne
+       Koordinaten raus; vom Plakat allein lässt sich der Standort selten ablesen. */
     '<div class="blatt-knoepfe">'+
-      '<button class="bbtn gelb" id="plakat-senden"'+(zustand === "suche" ? " disabled" : "")+'>Absenden</button>'+
-      '<button class="bbtn sek" id="plakat-ort">'+(zustand === "gefunden" ? "Ort korrigieren" : "Ort auf Karte wählen")+'</button>'+
+      (zustand === "gefunden"
+        ? '<button class="bbtn gelb" id="plakat-senden">Absenden</button>'+
+          '<button class="bbtn sek" id="plakat-ort">Ort korrigieren</button>'
+        // Während der Suche bleibt der Weg zur Karte offen: Acht Sekunden vor zwei toten
+        // Knöpfen zu warten, obwohl man den Ort ohnehin selbst weiß, ist kein Angebot.
+        : '<button class="bbtn gelb" id="plakat-ort">📍 Ort auf Karte wählen</button>'+
+          '<button class="bbtn sek" id="plakat-senden"'+(zustand === "suche" ? " disabled" : "")+'>Trotzdem absenden</button>')+
     '</div>'+
     (zustand !== "suche" ? '<div class="blatt-knoepfe"><button class="bbtn sek" id="plakat-galerie-btn">Anderes Bild aus der Galerie</button></div>' : '')
   );
+  beimModalZu = meldenReset;          // zugemacht statt abgeschickt = abgebrochen, Foto verwerfen
 
   const senden = $("#plakat-senden");
   if(senden) senden.addEventListener("click", plakatSenden);
   const ortBtn = $("#plakat-ort");
   if(ortBtn) ortBtn.addEventListener("click", () => {
+    plakatLauf++;                     // der Nutzer übernimmt — automatische Suche einstellen
+    $("#btn-foto").classList.remove("laedt");
+    beimModalZu = null;               // hier geht es weiter — das Foto muss bleiben
     modalSchliessen();
     meldeModus = true;
     meldenBtn.textContent = "Ort antippen …";
-    hinweisZeigen("Tippe den Ort des Plakats auf der Karte an — das Foto ist gespeichert.");
+    hinweisZeigen("<b>Tippe den Ort des Plakats auf der Karte an.</b>"+
+      '<span class="hw-neben">Das Foto ist gespeichert.</span>');
   });
   const gal = $("#plakat-galerie-btn");
   if(gal) gal.addEventListener("click", () => { nachModal = () => $("#plakat-galerie").click(); modalSchliessen(); });
 }
 
+/* Gezählt wird erst, wenn wirklich etwas rausgeht. Vorher stand der Zähler ganz oben und
+   lief schon beim bloßen Anzeigen dieses Fensters hoch — und ein zweites Mal, wenn man
+   danach den Ort nachtrug und zurückkam. */
+function meldungGezaehlt(){ karma.gemeldet++; lsSet("karma", karma); }
+
 async function plakatSenden(){
-  karma.gemeldet++; lsSet("karma", karma);
   const text = meldeText(!!neuOrt) + (neuOrt ? "" : "\n(Ort bitte vom Plakat ablesen.)");
   if(plakatDatei && navigator.canShare && navigator.canShare({files:[plakatDatei]})){
     try{
       await navigator.share({files:[plakatDatei], title:"Neuer Pin für Eventlas", text});
-      meldenReset(); modalSchliessen(); plakatDatei = null;
+      meldungGezaehlt();
+      meldenReset(); modalSchliessen();
+      hinweisZeigen("Danke! Dein Plakat ist unterwegs — wir tragen den Pin ein.");
+      hinweisSpaeterWeg(6000);
       return;
     }catch(err){ if(err && err.name === "AbortError"){ return; } }
   }
-  modalOeffnen(
+  /* Dieses Fenster war die Sackgasse: zwei Knöpfe, beide raus aus der App, und der Text
+     versprach „Koordinaten sind schon vorbereitet", obwohl ohne Ort keine drinstanden. Jetzt
+     sagt es die Wahrheit — und wenn der Ort fehlt, führt der erste Knopf zurück zur Karte. */
+  modalWeiter(                        // derselbe Vorgang: Foto und Ort bleiben stehen
     '<h2>Fast geschafft</h2>'+
     '<p>Dein Browser kann das Foto nicht direkt weitergeben. Öffne WhatsApp oder Mail und hänge das '+
-    'Foto dort an — Text und Koordinaten sind schon vorbereitet.</p>'+
+    'Foto dort an — der Text ist schon vorbereitet.</p>'+
+    '<div class="ort-status '+(neuOrt ? "ok" : "warn")+'">📍 '+(neuOrt
+      ? "Ort ist dabei ("+neuOrt.lat.toFixed(4)+", "+neuOrt.lng.toFixed(4)+")"
+      : "Kein Ort dabei — bitte erst auf der Karte wählen, sonst finden wir das Plakat nicht")+'</div>'+
+    (neuOrt ? '' :
+      '<div class="blatt-knoepfe"><button class="bbtn gelb" id="fast-ort">📍 Ort auf Karte wählen</button></div>')+
     '<div class="blatt-knoepfe">'+
-      '<a class="bbtn wa" target="_blank" rel="noopener" href="https://wa.me/'+KONFIG.whatsapp+'?text='+encodeURIComponent(text)+'">WhatsApp öffnen</a>'+
-      '<a class="bbtn sek" href="mailto:'+KONFIG.mail+'?subject='+encodeURIComponent("Plakat für Eventlas")+'&body='+encodeURIComponent(text)+'">E-Mail öffnen</a>'+
-    '</div>'
+      '<a class="bbtn wa" id="fast-wa" target="_blank" rel="noopener" href="https://wa.me/'+KONFIG.whatsapp+'?text='+encodeURIComponent(text)+'">WhatsApp öffnen</a>'+
+      '<a class="bbtn sek" id="fast-mail" href="mailto:'+KONFIG.mail+'?subject='+encodeURIComponent("Plakat für Eventlas")+'&body='+encodeURIComponent(text)+'">E-Mail öffnen</a>'+
+    '</div>'+
+    '<p class="klein">Das Fenster bleibt offen, bis du es schließt — falls die App erst noch '+
+    'aufgehen muss.</p>'
   );
+  beimModalZu = meldenReset;          // sonst klebt das Foto an der nächsten Meldung
+
+  let gezaehlt = false;
+  ["#fast-wa", "#fast-mail"].forEach(sel => {
+    const a = $(sel);
+    if(a) a.addEventListener("click", () => { if(!gezaehlt){ gezaehlt = true; meldungGezaehlt(); } });
+  });
+
+  const ortNach = $("#fast-ort");
+  if(ortNach) ortNach.addEventListener("click", () => {
+    beimModalZu = null;               // Foto behalten, wir kommen gleich zurück
+    modalSchliessen();
+    meldeModus = true;
+    meldenBtn.textContent = "Ort antippen …";
+    hinweisZeigen("<b>Tippe den Ort des Plakats auf der Karte an.</b>"+
+      '<span class="hw-neben">Das Foto ist gespeichert.</span>');
+  });
 }
 
 map.on("click", e => {
@@ -3548,6 +3702,8 @@ map.on("click", e => {
   neuOrt = {lng, lat};
   setzeNeuMarker(lng, lat);                                   // Weg 1: senden übers ＋-Icon
   meldenBtn.textContent = "✓ Ort gewählt — jetzt senden";
+  // Wer nur den Ort nachtragen wollte, will nicht noch einen Knopf suchen: Formular zurück.
+  if(meldeEntwurf){ hinweisWeg(); sendeOptionen(true); return; }
   hinweisZeigen('Ort gewählt. Tippe das <b>＋</b>-Icon oder den gelben Knopf, um zu senden — oder tippe woanders hin.');
 });
 

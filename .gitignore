@@ -12,3 +12,6 @@ _kommentartest.html
 # Wegwerf-Testdateien aus Browser-Diagnosen
 _syntaxtest.html
 _*.html
+
+# Zwischendateien der Verschleierung in bauen.sh (Netlify-Build)
+_*.js

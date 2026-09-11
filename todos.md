@@ -13,6 +13,26 @@ seien vorbereitet. Deshalb kam die Mail ohne Ort an.
 Jetzt: Fenster zu = abgebrochen (Foto wird verworfen), fehlt der Ort, ist „📍 Ort auf Karte
 wählen" der auffällige Knopf, und im Meldeformular steht der Ort als eigene Zeile — mit
 „ändern", ohne dass die Eingaben verloren gehen.
+
+Beim gründlichen Nachtesten des ganzen Meldewegs kamen fünf weitere Fehler ans Licht, alle
+behoben:
+- **„Absenden" ohne Titel tat scheinbar nichts.** Die Meldung „Bitte gib einen Titel an"
+  ging in den Hinweisbalken unten — der liegt hinter dem Fenster. Sie steht jetzt im
+  Formular, direkt über den Knöpfen (darunter wäre sie auf dem Handy außerhalb gewesen).
+- **Wohnort und Pin-Meldung warteten beide auf denselben Fingertipp.** Wer nach „Wohnort
+  festlegen" doch „Pin melden" drückte, setzte mit dem nächsten Tipp stumm den Wohnort.
+  Jetzt bricht der eine Modus den anderen ab.
+- **Die Standortsuche funkte nach dem Abbrechen nach.** Sie darf bis zu acht Sekunden
+  dauern; kam sie nach dem Schließen zurück, riss sie das Fenster wieder auf — mit einem
+  Foto, das gerade verworfen worden war. Und man musste die acht Sekunden vor zwei toten
+  Knöpfen absitzen; „Ort auf Karte wählen" ist jetzt sofort bedienbar.
+- **Der Zähler für gemeldete Pins lief zu früh hoch** — schon beim Anzeigen des Fensters,
+  und ein zweites Mal, wenn man den Ort nachtrug. Gezählt wird jetzt beim Absenden.
+- **Ein Dankeschön räumte nach sechs Sekunden den nächsten Hinweis mit ab**, wenn man gleich
+  weitermachte. Außerdem quittiert das Formular das Absenden jetzt überhaupt erst sichtbar.
+
+Alle 30 Wege einzeln durchgespielt (Karte, Plakat mit und ohne GPS, Abbruch an jeder Stelle,
+Zurück-Geste, Wohnort-Kollision, Handy- und Desktop-Breite) — keine Konsolenfehler.
 - [ ] Nach dem nächsten Deploy einmal auf dem Handy nachtesten: Plakat fotografieren →
       Standort ablehnen → Ort auf der Karte wählen → Mail muss die Koordinaten enthalten
 
