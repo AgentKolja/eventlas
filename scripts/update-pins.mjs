@@ -589,6 +589,11 @@ function normiere(p) {
     ...(p.ende ? { ende: p.ende } : {}),
     ...(p.wdh ? { wdh: p.wdh } : {}),
     ...(p.saison ? { saison: p.saison } : {}),
+    // Eroeffnungsdatum von Neuzugaengen — "2026-09-05" oder monatsgenau "2026-07", wenn der
+    // Tag nicht belegt ist. Nicht zu verwechseln mit hinzu: das ist der Tag, an dem WIR den
+    // Pin aufgenommen haben. Die Karte rechnet daraus "vor zwei Wochen"; stuende das Datum
+    // nur im Fliesstext von meta, koennte sie nicht sortieren und nichts veralten lassen.
+    ...(/^\d{4}-\d{2}(-\d{2})?$/.test(p.seit || "") ? { seit: p.seit } : {}),
     ...(p.meta ? { meta: String(p.meta).slice(0, 60) } : {}),
     ...(Array.isArray(p.tags) && p.tags.length ? { tags: p.tags.slice(0, 5) } : {}),
     ...(p.link ? { link: p.link } : {}),

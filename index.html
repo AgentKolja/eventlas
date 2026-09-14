@@ -1048,10 +1048,15 @@ document.title = KONFIG.name + " — " + STADT.name;
 $("#app-sub").textContent = STADT.name + " — Events · Angebote · Hilfe · Fotospots";
 let stilKey = lsGet("stil", "liberty");
 if(!STILE[stilKey]) stilKey = "liberty";
+/* minZoom 8: Beim Rauszoomen blieb die Karte außerhalb Aachens lange grau. Die Kacheln sind
+   nicht kaputt — sie werden nur riesig: 350 KB bei Zoom 8, 785 KB bei 4, 1,5 MB bei 2. Auf
+   dem Handy dauert das mehrere Sekunden, und solange steht da nichts. Zoom 8 zeigt die ganze
+   Euregio von Maastricht bis Köln — weiter raus braucht eine Stadtkarte nicht, und alles,
+   was man erreichen kann, lädt jetzt zügig. */
 const map = new maplibregl.Map({
   container:"map",
   style:STILE[stilKey].url,
-  center:STADT.zentrum, zoom:STADT.zoom,
+  center:STADT.zentrum, zoom:STADT.zoom, minZoom:8,
   attributionControl:{compact:true}
 });
 map.addControl(new maplibregl.NavigationControl({showCompass:false}), "top-right");
@@ -2261,13 +2266,42 @@ function entfernungText(p){
   const km = entfernungKm(p.lat, p.lng, meinStandort.lat, meinStandort.lng);
   return km < 1 ? Math.round(km * 1000) + " m" : km.toFixed(km < 10 ? 1 : 0) + " km";
 }
+/* "Seit wann neu?" in Worten. Ein Datum wie 2026-09-05 muss man beim Überfliegen erst
+   umrechnen, "vor 9 Tagen" versteht man sofort. Monatsgenaue Angaben (2026-07) bleiben beim
+   Monatsnamen — eine Tagesangabe zu erfinden, die die Quelle nicht hergibt, wäre gelogen. */
+const MONATE_LANG = ["Januar","Februar","März","April","Mai","Juni","Juli","August",
+  "September","Oktober","November","Dezember"];
+function seitTage(p){
+  if(!p.seit) return null;
+  const d = new Date((p.seit.length === 7 ? p.seit + "-15" : p.seit) + "T00:00:00Z");
+  return isNaN(d) ? null : Math.floor((Date.now() - d) / 864e5);
+}
+function seitText(p){
+  const n = seitTage(p);
+  if(n === null) return "";
+  if(p.seit.length === 7){                       // nur Monat belegt
+    const [j, m] = p.seit.split("-");
+    return MONATE_LANG[+m - 1] + (+j === new Date().getFullYear() ? "" : " " + j);
+  }
+  if(n < 0)   return "öffnet bald";
+  if(n === 0) return "seit heute";
+  if(n === 1) return "seit gestern";
+  if(n < 14)  return "vor " + n + " Tagen";
+  if(n < 60)  return "vor " + Math.round(n / 7) + " Wochen";
+  return "vor " + Math.round(n / 30) + " Monaten";
+}
+
 function listenZeile(p, datumText){
   const sym = blipSymbol(p);
   const weg = entfernungText(p);
+  // Steht die Eröffnung schon rechts als "vor 9 Tagen", wäre "· seit 5.9.2026" in derselben
+  // Zeile dieselbe Angabe zweimal. Die Adresse in meta bleibt, der Datumsteil fliegt raus —
+  // im Detail-Popup, wo es keine Relativangabe gibt, steht das genaue Datum weiterhin.
+  const meta = (p.seit && datumText) ? String(p.meta || "").replace(/\s*·\s*seit\s.*$/i, "") : p.meta;
   return '<button class="liste-zeile" data-id="'+esc(p.id)+'">'+
     '<span class="lz-sym '+esc(p.typ)+(p.hot ? " hot" : "")+'">'+(p.hot ? "🔥" : (sym || ICON[p.typ]))+'</span>'+
     '<span class="lz-mitte"><span class="lz-titel">'+esc(p.titel)+'</span>'+
-    '<span class="lz-meta">'+esc([TYPNAME[p.typ], p.meta, weg].filter(Boolean).join(" · "))+'</span></span>'+
+    '<span class="lz-meta">'+esc([TYPNAME[p.typ], meta, weg].filter(Boolean).join(" · "))+'</span></span>'+
     '<span class="lz-datum">'+esc(datumText ?? fmtDatum(p))+'</span></button>';
 }
 
@@ -2354,7 +2388,10 @@ function zeigeListe(tab){
   const saisonPins = PINS.filter(p => p.saison);
   const tabs = '<div class="liste-tabs">'+
     '<button data-tab="heute" class="'+(tab==="heute"?"an":"")+'">🔥 Aktuell</button>'+
-    '<button data-tab="ausschnitt" class="'+(tab==="ausschnitt"?"an":"")+'">📍 Auf der Karte</button>'+
+    // "Auf der Karte" hiess dieser Reiter frueher — mitten in der Liste ergab das keinen Sinn,
+    // man ist ja gerade NICHT auf der Karte. Gemeint ist der Ausschnitt, den die Karte zeigt.
+    '<button data-tab="ausschnitt" class="'+(tab==="ausschnitt"?"an":"")+'">📍 Im Ausschnitt</button>'+
+    '<button data-tab="neu" class="'+(tab==="neu"?"an":"")+'">✨ Neu</button>'+
     (saisonPins.length ? '<button data-tab="saison" class="'+(tab==="saison"?"an":"")+'">🍏 Saison</button>' : '')+
   '</div>';
 
@@ -2404,7 +2441,7 @@ function zeigeListe(tab){
     const spots = alle.filter(p => p.typ === "spot").length;
     const saisonAktiv = alle.filter(p => p.saison && saisonStatus(p).laeuft).length;
     const fuss = (spots || saisonAktiv)
-      ? '<p class="klein" style="margin-top:14px">Dauerhaft auf der Karte: '+
+      ? '<p class="klein" style="margin-top:14px">Dauerhaft dabei: '+
         [saisonAktiv ? '<span class="vorschlag" data-tab="saison">'+saisonAktiv+' Ernteorte mit laufender Saison</span>' : '',
          spots ? spots + ' Fotospots' : ''].filter(Boolean).join(" · ") + '</p>'
       : "";
@@ -2427,6 +2464,22 @@ function zeigeListe(tab){
       'Richtwerte. Es gilt die Handstraußregel: nur kleine Mengen für den Eigenbedarf.</p>';
     rumpf = block("Jetzt Saison", jetzt) + block("Bald dran", bald) +
             block("Später im Jahr", later, "spaeter");
+  } else if(tab === "neu"){
+    /* "Was ist neu in Aachen" — bewusst OHNE die aktiven Themenfilter: Wer wissen will, was
+       neu aufgemacht hat, will das vollständig sehen und nicht durch eine Auswahl, die er
+       drei Bildschirme vorher für die Karte gesetzt hat. Jüngstes zuerst; Angekündigtes ohne
+       Eröffnungsdatum steht am Ende, weil es noch gar nicht offen ist. */
+    const neuPins = PINS.filter(p => (p.tags || []).includes("neu"));
+    const offen   = neuPins.filter(p => seitTage(p) !== null).sort((a,b) => seitTage(a) - seitTage(b));
+    const geplant = neuPins.filter(p => seitTage(p) === null);
+    const block = (titel, liste) => liste.length
+      ? '<div class="saison-kopf">'+titel+'<span class="anzahl">'+liste.length+'</span></div>'+
+        liste.map(p => listenZeile(p, seitText(p))).join("")
+      : "";
+    kopf = '<h2>✨ Neu in Aachen</h2>'+
+      '<p class="klein">Neu eröffnete Orte, das Jüngste zuerst. Antippen zeigt den Ort auf der Karte.</p>';
+    rumpf = (block("Neu eröffnet", offen) + block("Angekündigt", geplant)) ||
+      '<p>Gerade ist nichts Neues eingetragen.</p>';
   } else {
     const imBild = PINS.filter(p => sichtbar(p) && imAusschnitt(p));
     const key = p => { const w = fenster(p); return w ? w.s.getTime() : 0; };

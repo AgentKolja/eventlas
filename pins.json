@@ -9,6 +9,7 @@
    "text": "US-amerikanische Burgerkette, seit 5. September 2026 in der Pontstraße — die erste Filiale in Aachen.",
    "lng": 6.0802,
    "lat": 50.7799,
+   "seit": "2026-09-05",
    "meta": "Pontstraße 111 · seit 5.9.2026",
    "tags": ["neu", "markt"],
    "quelle": "https://www.neueroeffnung.info/aachen/atawich-burger-restaurant_1",
@@ -22,6 +23,7 @@
    "text": "Konditorei am Büchel, seit Juli 2026. Schwerpunkt Zimtschnecken, dazu wechselnde Backwaren.",
    "lng": 6.0847,
    "lat": 50.7763,
+   "seit": "2026-07",
    "meta": "Büchel · seit Juli 2026",
    "tags": ["neu", "markt"],
    "quelle": "https://www.aachener-zeitung.de/kultur/klenkes/kommen-und-gehen/157285133.html",
@@ -35,6 +37,7 @@
    "text": "Südkoreanische Küche am Theaterplatz, seit Juli 2026 — mit in die Tische eingebauten Grills.",
    "lng": 6.0865,
    "lat": 50.7728,
+   "seit": "2026-07",
    "meta": "Theaterplatz · seit Juli 2026",
    "tags": ["neu", "markt"],
    "quelle": "https://www.aachener-zeitung.de/kultur/klenkes/kommen-und-gehen/157285133.html",
@@ -48,6 +51,7 @@
    "text": "Restaurant am Markt, eröffnet am 20. Februar 2026.",
    "lng": 6.0844,
    "lat": 50.7766,
+   "seit": "2026-02-20",
    "meta": "Markt 52 · seit 20.2.2026",
    "tags": ["neu", "markt"],
    "quelle": "https://www.neueroeffnung.info/aachen/t-zusje-restaurant",
@@ -76,6 +80,7 @@
    "text": "Non-Food-Discounter, seit 27. Juni 2026 in den Aachen Arkaden. Haushalt, Deko, Bastelbedarf.",
    "lng": 6.11852,
    "lat": 50.77062,
+   "seit": "2026-06-27",
    "meta": "Trierer Straße 1 · seit 27.6.2026",
    "tags": [
     "neu"
@@ -92,6 +97,7 @@
    "text": "Café mit Bagels, Kaffee und Matcha, seit 10. März 2026 an der oberen Pontstraße. Genaue Hausnummer noch offen — wer vorbeikommt, darf sie uns gern durchgeben.",
    "lng": 6.08045,
    "lat": 50.78002,
+   "seit": "2026-03-10",
    "meta": "obere Pontstraße* · seit 10.3.2026",
    "tags": [
     "neu"
@@ -107,6 +113,7 @@
    "text": "Türkischer Imbiss mit Çiğköfte, seit 17. April 2026 in der Adalbertstraße. Genaue Hausnummer noch offen.",
    "lng": 6.08943,
    "lat": 50.77489,
+   "seit": "2026-04-17",
    "meta": "Adalbertstraße* · seit 17.4.2026",
    "tags": [
     "neu"
