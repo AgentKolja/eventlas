@@ -1,5 +1,5 @@
 {
- "stand": "2026-09-11",
+ "stand": "2026-09-14",
  "hinweis": "Schema: typ event|angebot|hilfe|spot · tags[] · quelle (Beleg-URL) · link (CTA) · hot (beliebt) · hinzu (Aufnahmedatum) · saison {von,bis als MM-TT, jaehrlich wiederkehrend} · fest:true = wird vom Auto-Update nie geloescht.",
  "pins": [
   {
@@ -7068,6 +7068,641 @@
    "link": "https://raststaette.org/termine/sixturnsnine-aachen-raststaette/",
    "quelle": "https://raststaette.org/termine/sixturnsnine-aachen-raststaette/",
    "hinzu": "2026-09-11"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-kunst-am-vormittag-2026-10-27",
+   "typ": "event",
+   "titel": "Kunst am Vormittag",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-10-27",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/kunst-am-vormittag/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/kunst-am-vormittag/",
+   "hinzu": "2026-09-14"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-kunstpause-zizenhausener-totentanz-2026-10-27",
+   "typ": "event",
+   "titel": "Kunstpause: Zizenhausener Totentanz",
+   "text": "Führung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-10-27",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/totentanz/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/totentanz/",
+   "hinzu": "2026-09-14"
+  },
+  {
+   "id": "kk-couven-museum-herbst-blumenkraenze-2026-10-28",
+   "typ": "event",
+   "titel": "Herbst-Blumenkränze",
+   "text": "Führung.",
+   "lng": 6.0849,
+   "lat": 50.7761,
+   "start": "2026-10-28",
+   "meta": "Couven Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://couven-museum.de/event/herbst-blumenkraenze/",
+   "quelle": "https://couven-museum.de/event/herbst-blumenkraenze/",
+   "hinzu": "2026-09-14"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-an-die-farbe-fertig-los-2026-10-28",
+   "typ": "event",
+   "titel": "An die Farbe, fertig, los!",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-10-28",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/an-die-farbe-fertig-los-3/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/an-die-farbe-fertig-los-3/",
+   "hinzu": "2026-09-14"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-suermondt-kunst-treff-2026-10-29",
+   "typ": "event",
+   "titel": "Suermondt-Kunst-Treff",
+   "text": "Führung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-10-29",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/suermondt-kunst-treff-7/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/suermondt-kunst-treff-7/",
+   "hinzu": "2026-09-14"
+  },
+  {
+   "id": "hofkonzert-mit-agust-n-luna-2026-09-27",
+   "typ": "event",
+   "titel": "Hofkonzert mit Agustín Luna",
+   "text": "Konzert in Kirche St Paul, Beginn 16:00 Uhr.",
+   "lng": 6.0847,
+   "lat": 50.775,
+   "start": "2026-09-27",
+   "meta": "Kirche St Paul · 16:00",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/hofkonzert-mit-agustin-luna-0/",
+   "quelle": "https://rausgegangen.de/events/hofkonzert-mit-agustin-luna-0/",
+   "hinzu": "2026-09-14"
+  },
+  {
+   "id": "die-nichten-des-alls-rocken-im-schluesse-2026-10-10",
+   "typ": "event",
+   "titel": "Die Nichten des Alls rocken im Schlüsselloch",
+   "text": "Konzert in Schlüsselloch Rockkneipe Herbert Senden, Beginn 19:30 Uhr.",
+   "lng": 6.0811371,
+   "lat": 50.7685803,
+   "start": "2026-10-10",
+   "meta": "Schlüsselloch Rockkneipe Herbert Senden · 19:30",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/die-nichten-des-alls-rocken-im-schlusselloch-0/",
+   "quelle": "https://rausgegangen.de/events/die-nichten-des-alls-rocken-im-schlusselloch-0/",
+   "hinzu": "2026-09-14"
+  },
+  {
+   "id": "big-bandits-colours-of-christmas-2026-12-19",
+   "typ": "event",
+   "titel": "BIG BANDITS - COLOURS OF CHRISTMAS​",
+   "text": "Konzert in Klangbrücke, Beginn 20:00 Uhr.",
+   "lng": 6.0888792,
+   "lat": 50.7769983,
+   "start": "2026-12-19",
+   "meta": "Klangbrücke · 20:00",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/big-bandits-colours-of-christmas-0/",
+   "quelle": "https://rausgegangen.de/events/big-bandits-colours-of-christmas-0/",
+   "hinzu": "2026-09-14"
+  },
+  {
+   "id": "lagerfeuer-trio-jahresabschluss-2026-2026-12-27",
+   "typ": "event",
+   "titel": "Lagerfeuer-Trio Jahresabschluss 2026",
+   "text": "Konzert in FRANZ - Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2026-12-27",
+   "meta": "FRANZ - Aachen · 20:00",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/lagerfeuer-trio-jahresabschluss-2025-0/",
+   "quelle": "https://rausgegangen.de/events/lagerfeuer-trio-jahresabschluss-2025-0/",
+   "hinzu": "2026-09-14"
+  },
+  {
+   "id": "goetz-widmann-2027-01-08",
+   "typ": "event",
+   "titel": "Götz Widmann",
+   "text": "Konzert in FRANZ - Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2027-01-08",
+   "meta": "FRANZ - Aachen · 20:00",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/gotz-widmann-91/",
+   "quelle": "https://rausgegangen.de/events/gotz-widmann-91/",
+   "hinzu": "2026-09-14"
+  },
+  {
+   "id": "aachener-bluesnacht-2027-01-22",
+   "typ": "event",
+   "titel": "Aachener Bluesnacht",
+   "text": "Konzert in FRANZ - Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2027-01-22",
+   "meta": "FRANZ - Aachen · 20:00",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/aachener-bluesnacht-2/",
+   "quelle": "https://rausgegangen.de/events/aachener-bluesnacht-2/",
+   "hinzu": "2026-09-14"
+  },
+  {
+   "id": "salsa-sunday-2026-09-27",
+   "typ": "event",
+   "titel": "SALSA SUNDAY",
+   "text": "Party in Barbarossa Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.0925,
+   "lat": 50.7714,
+   "start": "2026-09-27",
+   "meta": "Barbarossa Aachen · 19:00",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/salsa-sunday-27/",
+   "quelle": "https://rausgegangen.de/events/salsa-sunday-27/",
+   "hinzu": "2026-09-14"
+  },
+  {
+   "id": "barbarossa-aachen-latino-gang-germanys-b-2026-10-03",
+   "typ": "event",
+   "titel": "BARBAROSSA AACHEN | LATINO GANG | GERMANYS BIGGEST LATIN / AFRO EVENT",
+   "text": "Party in Barbarossa, Beginn 23:00 Uhr.",
+   "lng": 6.0925,
+   "lat": 50.7714,
+   "start": "2026-10-03",
+   "meta": "Barbarossa · 23:00",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/barbarossa-aachen-latino-gang-germanys-biggest-latin-afro-ev-2/",
+   "quelle": "https://rausgegangen.de/events/barbarossa-aachen-latino-gang-germanys-biggest-latin-afro-ev-2/",
+   "hinzu": "2026-09-14"
+  },
+  {
+   "id": "altstadtfuehrung-2026-09-14",
+   "typ": "event",
+   "titel": "„Altstadtführung“.",
+   "text": "In Tourist Info, Elisenbrunnen. Beginn 14:00 Uhr.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "start": "2026-09-14",
+   "meta": "Tourist Info, Elisenbrunnen · 14:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-09-14/",
+   "quelle": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-09-14/",
+   "hinzu": "2026-09-14"
+  },
+  {
+   "id": "aachener-fahrradsommer-radtour-durch-den-2026-09-14",
+   "typ": "event",
+   "titel": "„Aachener Fahrradsommer“. Radtour durch den Pferdelandpark.",
+   "text": "In Tivoli. Beginn 17:00 Uhr.",
+   "lng": 6.0958,
+   "lat": 50.7928,
+   "start": "2026-09-14",
+   "meta": "Tivoli · 17:00",
+   "tags": [
+    "kultur",
+    "sport"
+   ],
+   "link": "https://aachen-kalender.de/event/aachener-fahrradsommer-radtour-durch-den-pferdelandpark/",
+   "quelle": "https://aachen-kalender.de/event/aachener-fahrradsommer-radtour-durch-den-pferdelandpark/",
+   "hinzu": "2026-09-14"
+  },
+  {
+   "id": "europaeische-stiftung-aachener-dom-prof--2026-09-14",
+   "typ": "event",
+   "titel": "Europäische Stiftung Aachener Dom. Prof. Dr. Max Kerner. „Credo – ich glaube“.",
+   "text": "In Aachener Dom. Beginn 19:00 Uhr.",
+   "lng": 6.0839,
+   "lat": 50.7746,
+   "start": "2026-09-14",
+   "meta": "Aachener Dom · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/europaeische-stiftung-aachener-dom-prof-dr-max-kerner-credo-ich-glaube/",
+   "quelle": "https://aachen-kalender.de/event/europaeische-stiftung-aachener-dom-prof-dr-max-kerner-credo-ich-glaube/",
+   "hinzu": "2026-09-14"
+  },
+  {
+   "id": "kneipensprechstunde-mit-oberbuergermeist-2026-09-14",
+   "typ": "event",
+   "titel": "Kneipensprechstunde mit Oberbürgermeister Dr. Michael Ziemons.",
+   "text": "In Café Kittel. Beginn 19:00 Uhr.",
+   "lng": 6.0821826,
+   "lat": 50.7778679,
+   "start": "2026-09-14",
+   "meta": "Café Kittel · 19:00",
+   "tags": [
+    "kultur",
+    "musik",
+    "markt"
+   ],
+   "link": "https://aachen-kalender.de/event/kneipensprechstunde-mit-oberbuergermeister-dr-michael-ziemons-4/",
+   "quelle": "https://aachen-kalender.de/event/kneipensprechstunde-mit-oberbuergermeister-dr-michael-ziemons-4/",
+   "hinzu": "2026-09-14"
+  },
+  {
+   "id": "extrawurst-komoedie-von-dietmar-jacobs-u-2026-09-14",
+   "typ": "event",
+   "titel": "„Extrawurst“. Komödie von Dietmar Jacobs und Moritz Netenjakob.",
+   "text": "In Grenzlandtheater. Beginn 20:00 Uhr.",
+   "lng": 6.0846,
+   "lat": 50.7768,
+   "start": "2026-09-14",
+   "meta": "Grenzlandtheater · 20:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/extrawurst-komoedie-von-dietmar-jacobs-und-moritz-netenjakob-5/2026-09-14/",
+   "quelle": "https://aachen-kalender.de/event/extrawurst-komoedie-von-dietmar-jacobs-und-moritz-netenjakob-5/2026-09-14/",
+   "hinzu": "2026-09-14"
+  },
+  {
+   "id": "marktorgelkonzert-mit-alexandra-s-ndules-2026-09-15",
+   "typ": "event",
+   "titel": "Marktorgelkonzert mit Alexandra Săndulescu.",
+   "text": "In De Kopermolen. Beginn 12:00 Uhr.",
+   "lng": 6.0838,
+   "lat": 50.776,
+   "start": "2026-09-15",
+   "meta": "De Kopermolen · 12:00",
+   "tags": [
+    "musik",
+    "kultur",
+    "fest"
+   ],
+   "link": "https://aachen-kalender.de/event/orgelkonzert-mit-alexandra-sandulescu/",
+   "quelle": "https://aachen-kalender.de/event/orgelkonzert-mit-alexandra-sandulescu/",
+   "hinzu": "2026-09-14"
+  },
+  {
+   "id": "altstadtfuehrung-2026-09-15",
+   "typ": "event",
+   "titel": "„Altstadtführung“.",
+   "text": "In Tourist Info, Elisenbrunnen. Beginn 14:00 Uhr.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "start": "2026-09-15",
+   "meta": "Tourist Info, Elisenbrunnen · 14:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-09-15/",
+   "quelle": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-09-15/",
+   "hinzu": "2026-09-14"
+  },
+  {
+   "id": "suermondt-museumsclub-fuer-kinder-ab-6-j-2026-09-15",
+   "typ": "event",
+   "titel": "Suermondt-Museumsclub für Kinder ab 6 Jahren.",
+   "text": "In Suermondt-Ludwig-Museum. Beginn 15:15 Uhr.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-09-15",
+   "meta": "Suermondt-Ludwig-Museum · 15:15",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/suermondt-museumsclub-fuer-kinder-ab-6-jahren/2026-09-15/",
+   "quelle": "https://aachen-kalender.de/event/suermondt-museumsclub-fuer-kinder-ab-6-jahren/2026-09-15/",
+   "hinzu": "2026-09-14"
+  },
+  {
+   "id": "maria-stuart-stueck-von-friedrich-schill-2026-09-15",
+   "typ": "event",
+   "titel": "„Maria Stuart“. Stück von Friedrich Schiller. Work in Progress.",
+   "text": "In Theater Aachen. Beginn 19:00 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2026-09-15",
+   "meta": "Theater Aachen · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/maria-stuart-stueck-von-friedrich-schiller-work-in-progress/",
+   "quelle": "https://aachen-kalender.de/event/maria-stuart-stueck-von-friedrich-schiller-work-in-progress/",
+   "hinzu": "2026-09-14"
+  },
+  {
+   "id": "kunst-croissants-und-konfituere-schoenhe-2026-09-16",
+   "typ": "event",
+   "titel": "Kunst, Croissants und Konfitüre. „Schönheitsideal I: Schöne Männer“.",
+   "text": "In Suermondt-Ludwig-Museum. Beginn 10:15 Uhr.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-09-16",
+   "meta": "Suermondt-Ludwig-Museum · 10:15",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/kunst-croissants-und-konfituere-schoenheitsideal-i-schoene-maenner/",
+   "quelle": "https://aachen-kalender.de/event/kunst-croissants-und-konfituere-schoenheitsideal-i-schoene-maenner/",
+   "hinzu": "2026-09-14"
+  },
+  {
+   "id": "gemeinsam-morgens-ins-museum-stilles-les-2026-09-16",
+   "typ": "event",
+   "titel": "Gemeinsam morgens ins Museum: Stilles Lesen – Lecture Silencieuse.",
+   "text": "In Couven Museum. Beginn 11:00 Uhr.",
+   "lng": 6.0849,
+   "lat": 50.7761,
+   "start": "2026-09-16",
+   "meta": "Couven Museum · 11:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/gemeinsam-morgens-ins-museum-stilles-lesen-lecture-silencieuse/",
+   "quelle": "https://aachen-kalender.de/event/gemeinsam-morgens-ins-museum-stilles-lesen-lecture-silencieuse/",
+   "hinzu": "2026-09-14"
+  },
+  {
+   "id": "altstadtfuehrung-2026-09-16",
+   "typ": "event",
+   "titel": "„Altstadtführung“.",
+   "text": "In Tourist Info, Elisenbrunnen. Beginn 14:00 Uhr.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "start": "2026-09-16",
+   "meta": "Tourist Info, Elisenbrunnen · 14:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-09-16/",
+   "quelle": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-09-16/",
+   "hinzu": "2026-09-14"
+  },
+  {
+   "id": "dr-daniel-kelterbaum-und-dr-thomas-meist-2026-09-16",
+   "typ": "event",
+   "titel": "Dr. Daniel Kelterbaum und Dr. Thomas Meister. „Klimaspaziergang“.",
+   "text": "In Elisenbrunnen. Beginn 16:00 Uhr.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "start": "2026-09-16",
+   "meta": "Elisenbrunnen · 16:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/dr-daniel-kelterbaum-und-dr-thomas-meister-klimaspaziergang/2026-09-16/",
+   "quelle": "https://aachen-kalender.de/event/dr-daniel-kelterbaum-und-dr-thomas-meister-klimaspaziergang/2026-09-16/",
+   "hinzu": "2026-09-14"
+  },
+  {
+   "id": "aachener-fahrradsommer-2026-auf-schleich-2026-09-16",
+   "typ": "event",
+   "titel": "Aachener Fahrradsommer 2026. „Auf Schleichwegen durch Aachen“.",
+   "text": "In Elisenbrunnen. Beginn 18:00 Uhr.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "start": "2026-09-16",
+   "meta": "Elisenbrunnen · 18:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/aachener-fahrradsommer-2026-auf-schleichwegen-durch-aachen/2026-09-16/1/",
+   "quelle": "https://aachen-kalender.de/event/aachener-fahrradsommer-2026-auf-schleichwegen-durch-aachen/2026-09-16/1/",
+   "hinzu": "2026-09-14"
+  },
+  {
+   "id": "extrawurst-komoedie-von-dietmar-jacobs-u-2026-09-16",
+   "typ": "event",
+   "titel": "„Extrawurst“. Komödie von Dietmar Jacobs und Moritz Netenjakob.",
+   "text": "In Grenzlandtheater. Beginn 20:00 Uhr.",
+   "lng": 6.0846,
+   "lat": 50.7768,
+   "start": "2026-09-16",
+   "meta": "Grenzlandtheater · 20:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/extrawurst-komoedie-von-dietmar-jacobs-und-moritz-netenjakob-5/2026-09-16/",
+   "quelle": "https://aachen-kalender.de/event/extrawurst-komoedie-von-dietmar-jacobs-und-moritz-netenjakob-5/2026-09-16/",
+   "hinzu": "2026-09-14"
+  },
+  {
+   "id": "lucy-4-6-milliarden-jahre-stueck-von-gwe-2026-09-16",
+   "typ": "event",
+   "titel": "„Lucy (4,6 Milliarden Jahre)“. Stück von Gwendoline Soublin. Work in Progress.",
+   "text": "In Theater Aachen. Beginn 20:00 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2026-09-16",
+   "meta": "Theater Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/lucy-46-milliarden-jahre-stueck-von-gwendoline-soublin-work-in-progress/",
+   "quelle": "https://aachen-kalender.de/event/lucy-46-milliarden-jahre-stueck-von-gwendoline-soublin-work-in-progress/",
+   "hinzu": "2026-09-14"
+  },
+  {
+   "id": "filmreihe-zur-emw-2026-09-16",
+   "typ": "event",
+   "titel": "Filmreihe zur EMW.",
+   "text": "In Apollo. Beginn 20:15 Uhr.",
+   "lng": 6.078955,
+   "lat": 50.7806829,
+   "start": "2026-09-16",
+   "meta": "Apollo · 20:15",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/filmreihe-zur-emw/2026-09-16/",
+   "quelle": "https://aachen-kalender.de/event/filmreihe-zur-emw/2026-09-16/",
+   "hinzu": "2026-09-14"
+  },
+  {
+   "id": "regiotram-aachen-auf-dem-wochenmarkt-2026-09-17",
+   "typ": "event",
+   "titel": "„Regiotram Aachen“ auf dem Wochenmarkt.",
+   "text": "In Elisenbrunnen & Holzgraben. Beginn 08:30 Uhr.",
+   "lng": 6.0838,
+   "lat": 50.776,
+   "start": "2026-09-17",
+   "meta": "Elisenbrunnen & Holzgraben · 08:30",
+   "tags": [
+    "kultur",
+    "musik",
+    "fest"
+   ],
+   "link": "https://aachen-kalender.de/event/regiotram-aachen-auf-dem-wochenmarkt/",
+   "quelle": "https://aachen-kalender.de/event/regiotram-aachen-auf-dem-wochenmarkt/",
+   "hinzu": "2026-09-14"
+  },
+  {
+   "id": "naveo-app-und-eezy-nrw-auf-dem-wochenmar-2026-09-17",
+   "typ": "event",
+   "titel": "Naveo-App und eezy.nrw auf dem Wochenmarkt kennenlernen.",
+   "text": "In Elisenbrunnen & Holzgraben. Beginn 08:30 Uhr.",
+   "lng": 6.0838,
+   "lat": 50.776,
+   "start": "2026-09-17",
+   "meta": "Elisenbrunnen & Holzgraben · 08:30",
+   "tags": [
+    "kultur",
+    "musik",
+    "fest"
+   ],
+   "link": "https://aachen-kalender.de/event/naveo-app-und-eezy-nrw-auf-dem-wochenmarkt-kennenlernen/",
+   "quelle": "https://aachen-kalender.de/event/naveo-app-und-eezy-nrw-auf-dem-wochenmarkt-kennenlernen/",
+   "hinzu": "2026-09-14"
+  },
+  {
+   "id": "oeffentliche-senior-innenfuehrung-dauera-2026-09-17",
+   "typ": "event",
+   "titel": "Öffentliche Senior*innenführung / Dauerausstellung. „Aachener Künstler*innen in der Sammlu",
+   "text": "In Suermondt-Ludwig-Museum. Beginn 11:00 Uhr.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-09-17",
+   "meta": "Suermondt-Ludwig-Museum · 11:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/oeffentliche-seniorinnenfuehrung-dauerausstellung-aachener-kuenstlerinnen-in-der-sammlung/",
+   "quelle": "https://aachen-kalender.de/event/oeffentliche-seniorinnenfuehrung-dauerausstellung-aachener-kuenstlerinnen-in-der-sammlung/",
+   "hinzu": "2026-09-14"
+  },
+  {
+   "id": "altstadtfuehrung-2026-09-17",
+   "typ": "event",
+   "titel": "„Altstadtführung“.",
+   "text": "In Tourist Info, Elisenbrunnen. Beginn 14:00 Uhr.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "start": "2026-09-17",
+   "meta": "Tourist Info, Elisenbrunnen · 14:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-09-17/",
+   "quelle": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-09-17/",
+   "hinzu": "2026-09-14"
+  },
+  {
+   "id": "burtscheider-after-work-markt-2026-09-17",
+   "typ": "event",
+   "titel": "Burtscheider After-Work-Markt.",
+   "text": "In Abteitor. Beginn 16:00 Uhr.",
+   "lng": 6.0838,
+   "lat": 50.776,
+   "start": "2026-09-17",
+   "meta": "Abteitor · 16:00",
+   "tags": [
+    "kultur",
+    "musik",
+    "fest"
+   ],
+   "link": "https://aachen-kalender.de/event/burtscheider-after-work-markt-7/2026-09-17/",
+   "quelle": "https://aachen-kalender.de/event/burtscheider-after-work-markt-7/2026-09-17/",
+   "hinzu": "2026-09-14"
+  },
+  {
+   "id": "dr-daniel-kelterbaum-und-dr-thomas-meist-2026-09-17",
+   "typ": "event",
+   "titel": "Dr. Daniel Kelterbaum und Dr. Thomas Meister. „Klimaspaziergang“.",
+   "text": "In Elisenbrunnen. Beginn 16:00 Uhr.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "start": "2026-09-17",
+   "meta": "Elisenbrunnen · 16:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/dr-daniel-kelterbaum-und-dr-thomas-meister-klimaspaziergang/2026-09-17/",
+   "quelle": "https://aachen-kalender.de/event/dr-daniel-kelterbaum-und-dr-thomas-meister-klimaspaziergang/2026-09-17/",
+   "hinzu": "2026-09-14"
+  },
+  {
+   "id": "museumsclub-nebenan-deine-ideen-deine-ku-2026-09-17",
+   "typ": "event",
+   "titel": "„Museumsclub – Nebenan! Deine Ideen. Deine Kunst. Dein Club“.",
+   "text": "In Ludwig Forum. Beginn 16:30 Uhr.",
+   "lng": 6.1017334,
+   "lat": 50.7811145,
+   "start": "2026-09-17",
+   "meta": "Ludwig Forum · 16:30",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/museumsclub-nebenan-deine-ideen-deine-kunst-dein-club/2026-09-17/",
+   "quelle": "https://aachen-kalender.de/event/museumsclub-nebenan-deine-ideen-deine-kunst-dein-club/2026-09-17/",
+   "hinzu": "2026-09-14"
+  },
+  {
+   "id": "filmreihe-zur-emw-2026-09-17",
+   "typ": "event",
+   "titel": "Filmreihe zur EMW.",
+   "text": "In Apollo. Beginn 18:30 Uhr.",
+   "lng": 6.078955,
+   "lat": 50.7806829,
+   "start": "2026-09-17",
+   "meta": "Apollo · 18:30",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/filmreihe-zur-emw/2026-09-17/",
+   "quelle": "https://aachen-kalender.de/event/filmreihe-zur-emw/2026-09-17/",
+   "hinzu": "2026-09-14"
   }
  ]
 }
