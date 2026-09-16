@@ -1,5 +1,5 @@
 {
- "stand": "2026-09-14",
+ "stand": "2026-09-16",
  "hinweis": "Schema: typ event|angebot|hilfe|spot · tags[] · quelle (Beleg-URL) · link (CTA) · hot (beliebt) · hinzu (Aufnahmedatum) · saison {von,bis als MM-TT, jaehrlich wiederkehrend} · fest:true = wird vom Auto-Update nie geloescht.",
  "pins": [
   {
@@ -7629,6 +7629,305 @@
    "link": "https://aachen-kalender.de/event/filmreihe-zur-emw/2026-09-17/",
    "quelle": "https://aachen-kalender.de/event/filmreihe-zur-emw/2026-09-17/",
    "hinzu": "2026-09-14"
+  },
+  {
+   "id": "kk-ludwig-forum-herbstferien-2026-10-20",
+   "typ": "event",
+   "titel": "Herbstferien",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.1017334,
+   "lat": 50.7811145,
+   "start": "2026-10-20",
+   "ende": "2026-10-31",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/herbstferien/",
+   "quelle": "https://ludwigforum.de/event/herbstferien/",
+   "hinzu": "2026-09-16"
+  },
+  {
+   "id": "kk-ludwig-forum-darf-ich-das-stop-motion-animationen-zur-2026-10-20",
+   "typ": "event",
+   "titel": "Darf ich das? – Stop-Motion-Animationen zur Demokratie",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.1017334,
+   "lat": 50.7811145,
+   "start": "2026-10-20",
+   "ende": "2026-10-24",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/darf-ich-das-stop-motion-animationen-zur-demokratie/",
+   "quelle": "https://ludwigforum.de/event/darf-ich-das-stop-motion-animationen-zur-demokratie/",
+   "hinzu": "2026-09-16"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-hanns-bolz-portrait-von-luise-strauss-er-2026-10-20",
+   "typ": "event",
+   "titel": "Hanns Bolz, Portrait von Luise Strauss Ernst",
+   "text": "Kunstpause.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-10-20",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/kunstpause_2-2-2/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/kunstpause_2-2-2/",
+   "hinzu": "2026-09-16"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-die-kunst-der-faelschung-die-faelschung--2026-10-22",
+   "typ": "event",
+   "titel": "Die Kunst der Fälschung – die Fälschung der Kunst",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-10-22",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/falsch-faelscher-faelschungen-die-kunst-der-faelschung-die-faelschung-der-kunst/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/falsch-faelscher-faelschungen-die-kunst-der-faelschung-die-faelschung-der-kunst/",
+   "hinzu": "2026-09-16"
+  },
+  {
+   "id": "kk-ludwig-forum-mein-starkes-ich-2026-10-26",
+   "typ": "event",
+   "titel": "Mein starkes Ich",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.1017334,
+   "lat": 50.7811145,
+   "start": "2026-10-26",
+   "ende": "2026-10-30",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/mein-starkes-ich/",
+   "quelle": "https://ludwigforum.de/event/mein-starkes-ich/",
+   "hinzu": "2026-09-16"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-zizenhausener-totentanz-2026-10-27",
+   "typ": "event",
+   "titel": "Zizenhausener Totentanz",
+   "text": "Kunstpause.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-10-27",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/totentanz/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/totentanz/",
+   "hinzu": "2026-09-16"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-stickwerkstatt-caf-wunderkammer-2026-10-30",
+   "typ": "event",
+   "titel": "Stickwerkstatt Café Wunderkammer",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-10-30",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/stickwerkstatt-cafe-wunderkammer-11-2-2-2-2/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/stickwerkstatt-cafe-wunderkammer-11-2-2-2-2/",
+   "hinzu": "2026-09-16"
+  },
+  {
+   "id": "kk-zeitungsmuseum-zur-debatte-forum-fuer-politische-meinun-2026-10-30",
+   "typ": "event",
+   "titel": "Zur Debatte. Forum für politische Meinung",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.0824,
+   "lat": 50.7758,
+   "start": "2026-10-30",
+   "meta": "Zeitungsmuseum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://izm.de/event/zur-debatte-forum-fuer-politische-meinung-4-2-2/",
+   "quelle": "https://izm.de/event/zur-debatte-forum-fuer-politische-meinung-4-2-2/",
+   "hinzu": "2026-09-16"
+  },
+  {
+   "id": "kk-ludwig-forum-vogue-vase-2026-10-31",
+   "typ": "event",
+   "titel": "Vogue Vase",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.1017334,
+   "lat": 50.7811145,
+   "start": "2026-10-31",
+   "ende": "2026-11-19",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/vogue-vase/",
+   "quelle": "https://ludwigforum.de/event/vogue-vase/",
+   "hinzu": "2026-09-16"
+  },
+  {
+   "id": "kk-centre-charlemagne-leben-um-800-2026-10-31",
+   "typ": "event",
+   "titel": "Leben um 800",
+   "text": "Führung.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-10-31",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/leben-um-800-15/",
+   "quelle": "https://centre-charlemagne.eu/termin/leben-um-800-15/",
+   "hinzu": "2026-09-16"
+  },
+  {
+   "id": "joscho-stephan-s-transatlantic-guitar-tr-2026-10-13",
+   "typ": "event",
+   "titel": "Joscho Stephan’s Transatlantic Guitar Trio",
+   "text": "Konzert in Musikbunker Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.1035274,
+   "lat": 50.7672224,
+   "start": "2026-10-13",
+   "meta": "Musikbunker Aachen · 20:00",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/joscho-stephans-transatlantic-guitar-trio-0/",
+   "quelle": "https://rausgegangen.de/events/joscho-stephans-transatlantic-guitar-trio-0/",
+   "hinzu": "2026-09-16"
+  },
+  {
+   "id": "bar-cantona-birthday-party-2026-09-26",
+   "typ": "event",
+   "titel": "Bar Cantona Birthday Party",
+   "text": "Party in Musikbunker Aachen, Beginn 23:00 Uhr.",
+   "lng": 6.1035274,
+   "lat": 50.7672224,
+   "start": "2026-09-26",
+   "meta": "Musikbunker Aachen · 23:00",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/bar-cantona-birthday-party-0/",
+   "quelle": "https://rausgegangen.de/events/bar-cantona-birthday-party-0/",
+   "hinzu": "2026-09-16"
+  },
+  {
+   "id": "klassikerperlen-2026-09-21",
+   "typ": "event",
+   "titel": "Klassikerperlen",
+   "text": "Film in Apollo Kino & Bar, Beginn 20:00 Uhr.",
+   "lng": 6.078955,
+   "lat": 50.7806829,
+   "start": "2026-09-21",
+   "meta": "Apollo Kino & Bar · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/klassikerperlen-37/",
+   "quelle": "https://rausgegangen.de/events/klassikerperlen-37/",
+   "hinzu": "2026-09-16"
+  },
+  {
+   "id": "extrawurst-komoedie-von-dietmar-jacobs-u-2026-09-17",
+   "typ": "event",
+   "titel": "„Extrawurst“. Komödie von Dietmar Jacobs und Moritz Netenjakob.",
+   "text": "In Grenzlandtheater. Beginn 20:00 Uhr.",
+   "lng": 6.0846,
+   "lat": 50.7768,
+   "start": "2026-09-17",
+   "meta": "Grenzlandtheater · 20:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/extrawurst-komoedie-von-dietmar-jacobs-und-moritz-netenjakob-6/2026-09-17/",
+   "quelle": "https://aachen-kalender.de/event/extrawurst-komoedie-von-dietmar-jacobs-und-moritz-netenjakob-6/2026-09-17/",
+   "hinzu": "2026-09-16"
+  },
+  {
+   "id": "naveo-app-und-eezy-nrw-auf-dem-wochenmar-2026-09-18",
+   "typ": "event",
+   "titel": "Naveo-App und eezy.nrw auf dem Wochenmarkt kennenlernen.",
+   "text": "In Burtscheid, Fußgängerzone. Beginn 08:30 Uhr.",
+   "lng": 6.0838,
+   "lat": 50.776,
+   "start": "2026-09-18",
+   "meta": "Burtscheid, Fußgängerzone · 08:30",
+   "tags": [
+    "kultur",
+    "musik",
+    "fest"
+   ],
+   "link": "https://aachen-kalender.de/event/naveo-app-und-eezy-nrw-auf-dem-wochenmarkt-kennenlernen-2/",
+   "quelle": "https://aachen-kalender.de/event/naveo-app-und-eezy-nrw-auf-dem-wochenmarkt-kennenlernen-2/",
+   "hinzu": "2026-09-16"
+  },
+  {
+   "id": "altstadtfuehrung-2026-09-18",
+   "typ": "event",
+   "titel": "„Altstadtführung“.",
+   "text": "In Tourist Info, Elisenbrunnen. Beginn 14:00 Uhr.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "start": "2026-09-18",
+   "meta": "Tourist Info, Elisenbrunnen · 14:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-09-18/",
+   "quelle": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-09-18/",
+   "hinzu": "2026-09-16"
+  },
+  {
+   "id": "27-kaiser-karl-classic-2026-auftakt-2026-09-18",
+   "typ": "event",
+   "titel": "„27. Kaiser-Karl-Classic 2026“. Auftakt.",
+   "text": "In Aachener Marktplatz. Beginn 15:00 Uhr.",
+   "lng": 6.0838,
+   "lat": 50.776,
+   "start": "2026-09-18",
+   "meta": "Aachener Marktplatz · 15:00",
+   "tags": [
+    "kultur",
+    "musik",
+    "fest"
+   ],
+   "link": "https://aachen-kalender.de/event/27-kaiser-karl-classic-2026-auftakt/",
+   "quelle": "https://aachen-kalender.de/event/27-kaiser-karl-classic-2026-auftakt/",
+   "hinzu": "2026-09-16"
+  },
+  {
+   "id": "abendbummel-2026-09-18",
+   "typ": "event",
+   "titel": "Abendbummel",
+   "text": "In Tourist Info, Elisenbrunnen. Beginn 18:00 Uhr.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "start": "2026-09-18",
+   "meta": "Tourist Info, Elisenbrunnen · 18:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/abendbummel-43/2026-09-18/",
+   "quelle": "https://aachen-kalender.de/event/abendbummel-43/2026-09-18/",
+   "hinzu": "2026-09-16"
   }
  ]
 }
