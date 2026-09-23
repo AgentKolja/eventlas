@@ -1,5 +1,5 @@
 {
- "stand": "2026-09-16",
+ "stand": "2026-09-23",
  "hinweis": "Schema: typ event|angebot|hilfe|spot · tags[] · quelle (Beleg-URL) · link (CTA) · hot (beliebt) · hinzu (Aufnahmedatum) · saison {von,bis als MM-TT, jaehrlich wiederkehrend} · fest:true = wird vom Auto-Update nie geloescht.",
  "pins": [
   {
@@ -7928,6 +7928,671 @@
    "link": "https://aachen-kalender.de/event/abendbummel-43/2026-09-18/",
    "quelle": "https://aachen-kalender.de/event/abendbummel-43/2026-09-18/",
    "hinzu": "2026-09-16"
+  },
+  {
+   "id": "kk-centre-charlemagne-2-5-km-industriegeschiche-die-juelicher--2026-09-20",
+   "typ": "event",
+   "titel": "2,5 km Industriegeschiche. Die Jülicher Straße",
+   "text": "Führung.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-09-20",
+   "ende": "2027-09-20",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/25-km-industriegeschiche-die-juelicher-strasse-3/",
+   "quelle": "https://centre-charlemagne.eu/termin/25-km-industriegeschiche-die-juelicher-strasse-3/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "kk-ludwig-forum-30-werke-fuer-100-tage-fuehrung-mit-dire-2026-10-01",
+   "typ": "event",
+   "titel": "30 Werke für 100 Tage – Führung mit Direktorin Rebekka Seubert",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.1017334,
+   "lat": 50.7811145,
+   "start": "2026-10-01",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/30-werke-fuer-100-tage-fuehrung-mit-direktorin-rebekka-seubert/",
+   "quelle": "https://ludwigforum.de/event/30-werke-fuer-100-tage-fuehrung-mit-direktorin-rebekka-seubert/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "kk-ludwig-forum-inside-museum-depotfuehrung-2026-10-06",
+   "typ": "event",
+   "titel": "Inside Museum – Depotführung",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.1017334,
+   "lat": 50.7811145,
+   "start": "2026-10-06",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/inside-museum-depotfuehrung/",
+   "quelle": "https://ludwigforum.de/event/inside-museum-depotfuehrung/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "kk-ludwig-forum-serpent-dance-journey-one-2026-10-08",
+   "typ": "event",
+   "titel": "Serpent Dance: JOURNEY ONE",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.1017334,
+   "lat": 50.7811145,
+   "start": "2026-10-08",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/serpent-dance-journey-one/",
+   "quelle": "https://ludwigforum.de/event/serpent-dance-journey-one/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "kk-ludwig-forum-serpent-dance-journey-one-2026-10-09",
+   "typ": "event",
+   "titel": "Serpent Dance: JOURNEY ONE",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.1017334,
+   "lat": 50.7811145,
+   "start": "2026-10-09",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/serpent-dance-journey-one-2/",
+   "quelle": "https://ludwigforum.de/event/serpent-dance-journey-one-2/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "kk-ludwig-forum-der-junge-chor-aachen-jubilaeumskonzert-2026-10-11",
+   "typ": "event",
+   "titel": "Der Junge Chor Aachen: Jubiläumskonzert",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.1017334,
+   "lat": 50.7811145,
+   "start": "2026-10-11",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/der-junge-chor-aachen-jubilaeumskonzert/",
+   "quelle": "https://ludwigforum.de/event/der-junge-chor-aachen-jubilaeumskonzert/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "kk-klangbruecke-im-alten-kurhaus-8222-weltklassik-einmal-anders-8211-homm-2026-11-01",
+   "typ": "event",
+   "titel": "Weltklassik einmal anders – Hommage an LUDOVICO EINAUDI: Hören.…",
+   "text": "Konzert.",
+   "lng": 6.0888792,
+   "lat": 50.7769983,
+   "start": "2026-11-01",
+   "meta": "Klangbrücke im Alten Kurhaus",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://altes-kurhaus-aachen.de/veranstaltung/weltklassik-am-klavier-ueberraschung-sturmsonate-carnaval-und-appassionata/",
+   "quelle": "https://altes-kurhaus-aachen.de/veranstaltung/weltklassik-am-klavier-ueberraschung-sturmsonate-carnaval-und-appassionata/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "kk-ludwig-forum-mit-baby-ins-museum-2026-11-04",
+   "typ": "event",
+   "titel": "Mit Baby ins Museum",
+   "text": "Führung.",
+   "lng": 6.1017334,
+   "lat": 50.7811145,
+   "start": "2026-11-04",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/mit-baby-ins-museum-2/",
+   "quelle": "https://ludwigforum.de/event/mit-baby-ins-museum-2/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "kk-ludwig-forum-lufonauten-8211-museumsclub-fuer-kinder-2026-11-04",
+   "typ": "event",
+   "titel": "Lufonauten – Museumsclub für Kinder",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.1017334,
+   "lat": 50.7811145,
+   "start": "2026-11-04",
+   "ende": "2026-12-16",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/lufonauten-museumsclub-fuer-kinder/",
+   "quelle": "https://ludwigforum.de/event/lufonauten-museumsclub-fuer-kinder/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "hinterlandgang-keine-mitlaeufer-2026-202-2027-02-26",
+   "typ": "event",
+   "titel": "HINTERLANDGANG - KEINE MITLÄUFER 2026/2027",
+   "text": "Konzert in Musikbunker Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.1035274,
+   "lat": 50.7672224,
+   "start": "2027-02-26",
+   "meta": "Musikbunker Aachen · 20:00",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/hinterlandgang-keine-mitlaufer-20262027-11/",
+   "quelle": "https://rausgegangen.de/events/hinterlandgang-keine-mitlaufer-20262027-11/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "space-oddity-80-jahre-david-bowie-die-tr-2027-02-27",
+   "typ": "event",
+   "titel": "SPACE ODDITY – 80 Jahre David Bowie: Die Tribute-Show ist zurück",
+   "text": "Konzert in FRANZ - Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2027-02-27",
+   "meta": "FRANZ - Aachen · 20:00",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/space-oddity-80-jahre-david-bowie-die-tribute-show-ist-zuruc-0/",
+   "quelle": "https://rausgegangen.de/events/space-oddity-80-jahre-david-bowie-die-tribute-show-ist-zuruc-0/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "girls-in-airports-konzert-am-7-maerz-202-2027-03-07",
+   "typ": "event",
+   "titel": "Girls In Airports Konzert am 7. März 2027",
+   "text": "Konzert in Musikbunker Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.1035274,
+   "lat": 50.7672224,
+   "start": "2027-03-07",
+   "meta": "Musikbunker Aachen · 19:00",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/girls-in-airports-konzert-am-7-marz-2027-0/",
+   "quelle": "https://rausgegangen.de/events/girls-in-airports-konzert-am-7-marz-2027-0/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "udopie-die-tribute-show-zu-udo-lindenber-2027-03-12",
+   "typ": "event",
+   "titel": "UdoPie – Die Tribute-Show zu Udo Lindenberg",
+   "text": "Konzert in FRANZ - Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2027-03-12",
+   "meta": "FRANZ - Aachen · 20:00",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/udopie-die-tribute-show-zu-udo-lindenberg-0/",
+   "quelle": "https://rausgegangen.de/events/udopie-die-tribute-show-zu-udo-lindenberg-0/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "die-sterne-konzert-am-15-maerz-2027-2027-03-15",
+   "typ": "event",
+   "titel": "Die Sterne Konzert am 15. März 2027",
+   "text": "Konzert in Musikbunker Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.1035274,
+   "lat": 50.7672224,
+   "start": "2027-03-15",
+   "meta": "Musikbunker Aachen · 20:00",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/die-sterne-konzert-am-15-marz-2027-0/",
+   "quelle": "https://rausgegangen.de/events/die-sterne-konzert-am-15-marz-2027-0/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "duo-stiehler-lucaciu-tour-2027-2027-03-21",
+   "typ": "event",
+   "titel": "Duo Stiehler/Lucaciu Tour 2027",
+   "text": "Konzert in FRANZ - Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2027-03-21",
+   "meta": "FRANZ - Aachen · 19:00",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/duo-stiehlerlucaciu-tour-2027-0/",
+   "quelle": "https://rausgegangen.de/events/duo-stiehlerlucaciu-tour-2027-0/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "karaoke-2026-09-23",
+   "typ": "event",
+   "titel": "KARAOKE",
+   "text": "Party in Barbarossa Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0925,
+   "lat": 50.7714,
+   "start": "2026-09-23",
+   "meta": "Barbarossa Aachen · 20:00",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/karaoke-3392/",
+   "quelle": "https://rausgegangen.de/events/karaoke-3392/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "klassikerperlen-2026-09-28",
+   "typ": "event",
+   "titel": "Klassikerperlen",
+   "text": "Film in Apollo Kino & Bar, Beginn 20:00 Uhr.",
+   "lng": 6.078955,
+   "lat": 50.7806829,
+   "start": "2026-09-28",
+   "meta": "Apollo Kino & Bar · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/klassikerperlen-38/",
+   "quelle": "https://rausgegangen.de/events/klassikerperlen-38/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "zeit-fuer-kunst-oeffentliche-fuehrung-fu-2026-09-23",
+   "typ": "event",
+   "titel": "Zeit für Kunst – Öffentliche Führung für Senior*innen.",
+   "text": "In Ludwig Forum. Beginn 10:30 Uhr.",
+   "lng": 6.1017334,
+   "lat": 50.7811145,
+   "start": "2026-09-23",
+   "meta": "Ludwig Forum · 10:30",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/zeit-fuer-kunst-oeffentliche-fuehrung-fuer-seniorinnen-6/",
+   "quelle": "https://aachen-kalender.de/event/zeit-fuer-kunst-oeffentliche-fuehrung-fuer-seniorinnen-6/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "kunst-am-vormittag-vom-wohnpalast-zum-ku-2026-09-23",
+   "typ": "event",
+   "titel": "Kunst am Vormittag. „Vom Wohnpalast zum Kunstpalast. Eine Architekturführung durch das Sue",
+   "text": "In Suermondt-Ludwig-Museum. Beginn 11:00 Uhr.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-09-23",
+   "meta": "Suermondt-Ludwig-Museum · 11:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/kunst-am-vormittag-vom-wohnpalast-zum-kunstpalast-eine-architekturfuehrung-durch-das-suermondt-ludwig-museum/",
+   "quelle": "https://aachen-kalender.de/event/kunst-am-vormittag-vom-wohnpalast-zum-kunstpalast-eine-architekturfuehrung-durch-das-suermondt-ludwig-museum/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "altstadtfuehrung-2026-09-23",
+   "typ": "event",
+   "titel": "„Altstadtführung“.",
+   "text": "In Tourist Info, Elisenbrunnen. Beginn 14:00 Uhr.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "start": "2026-09-23",
+   "meta": "Tourist Info, Elisenbrunnen · 14:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-09-23/",
+   "quelle": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-09-23/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "aachener-comedy-clash-2026-3-vorrunde-2026-09-23",
+   "typ": "event",
+   "titel": "Aachener Comedy Clash 2026. „3. Vorrunde“.",
+   "text": "In Grenzlandtheater. Beginn 20:00 Uhr.",
+   "lng": 6.0846,
+   "lat": 50.7768,
+   "start": "2026-09-23",
+   "meta": "Grenzlandtheater · 20:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/aachener-comedy-clash-2026-3-vorrunde/",
+   "quelle": "https://aachen-kalender.de/event/aachener-comedy-clash-2026-3-vorrunde/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "filmfest-aachen-2026-2026-09-23",
+   "typ": "event",
+   "titel": "Filmfest Aachen 2026.",
+   "text": "In Apollo. Beginn 20:00 Uhr.",
+   "lng": 6.078955,
+   "lat": 50.7806829,
+   "start": "2026-09-23",
+   "ende": "2026-09-27",
+   "meta": "Apollo · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/filmfest-aachen-2026/",
+   "quelle": "https://aachen-kalender.de/event/filmfest-aachen-2026/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "dialog-auf-dem-wochenmarkt-oberbuergerme-2026-09-24",
+   "typ": "event",
+   "titel": "Dialog auf dem Wochenmarkt: Oberbürgermeister lädt zum Austausch ein.",
+   "text": "In Elisenbrunnen. Beginn 08:00 Uhr.",
+   "lng": 6.0838,
+   "lat": 50.776,
+   "start": "2026-09-24",
+   "meta": "Elisenbrunnen · 08:00",
+   "tags": [
+    "kultur",
+    "musik",
+    "fest"
+   ],
+   "link": "https://aachen-kalender.de/event/dialog-auf-dem-wochenmarkt-oberbuergermeister-laedt-zum-austausch-ein/",
+   "quelle": "https://aachen-kalender.de/event/dialog-auf-dem-wochenmarkt-oberbuergermeister-laedt-zum-austausch-ein/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "altstadtfuehrung-2026-09-24",
+   "typ": "event",
+   "titel": "„Altstadtführung“.",
+   "text": "In Tourist Info, Elisenbrunnen. Beginn 14:00 Uhr.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "start": "2026-09-24",
+   "meta": "Tourist Info, Elisenbrunnen · 14:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-09-24/",
+   "quelle": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-09-24/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "suermondt-kunst-treff-licht-und-schatten-2026-09-24",
+   "typ": "event",
+   "titel": "Suermondt-Kunst-Treff. „Licht und Schatten“.",
+   "text": "In Suermondt-Ludwig-Museum. Beginn 14:30 Uhr.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-09-24",
+   "meta": "Suermondt-Ludwig-Museum · 14:30",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/suermondt-kunst-treff-licht-und-schatten/",
+   "quelle": "https://aachen-kalender.de/event/suermondt-kunst-treff-licht-und-schatten/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "vhs-aachen-45-aachener-nachkriegsarchite-2026-09-24",
+   "typ": "event",
+   "titel": "vhs Aachen. „45 + Aachener Nachkriegsarchitektur“.",
+   "text": "In Elisenbrunnen, Rotunde. Beginn 15:30 Uhr.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "start": "2026-09-24",
+   "meta": "Elisenbrunnen, Rotunde · 15:30",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/vhs-aachen-45-aachener-nachkriegsarchitektur/",
+   "quelle": "https://aachen-kalender.de/event/vhs-aachen-45-aachener-nachkriegsarchitektur/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "museumsclub-nebenan-deine-ideen-deine-ku-2026-09-24",
+   "typ": "event",
+   "titel": "„Museumsclub – Nebenan! Deine Ideen. Deine Kunst. Dein Club“.",
+   "text": "In Ludwig Forum. Beginn 16:30 Uhr.",
+   "lng": 6.1017334,
+   "lat": 50.7811145,
+   "start": "2026-09-24",
+   "meta": "Ludwig Forum · 16:30",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/museumsclub-nebenan-deine-ideen-deine-kunst-dein-club/2026-09-24/",
+   "quelle": "https://aachen-kalender.de/event/museumsclub-nebenan-deine-ideen-deine-kunst-dein-club/2026-09-24/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "philosophischer-salon-auf-der-burg-prof--2026-09-24",
+   "typ": "event",
+   "titel": "Philosophischer Salon auf der Burg. Prof. Dr. Alfred Hirsch. „Menschenrechte der Anderen“.",
+   "text": "In Burg Frankenberg. Beginn 19:00 Uhr.",
+   "lng": 6.1038202,
+   "lat": 50.7678212,
+   "start": "2026-09-24",
+   "meta": "Burg Frankenberg · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/philosophischer-salon-auf-der-burg-prof-dr-alfred-hirsch-menschenrechte-der-anderen/",
+   "quelle": "https://aachen-kalender.de/event/philosophischer-salon-auf-der-burg-prof-dr-alfred-hirsch-menschenrechte-der-anderen/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "jazzotic-bigband-herbstkonzert-2026-09-24",
+   "typ": "event",
+   "titel": "Jazzotic Bigband Herbstkonzert.",
+   "text": "In Saalbau Rothe Erde. Beginn 19:30 Uhr.",
+   "lng": 6.1211,
+   "lat": 50.7757,
+   "start": "2026-09-24",
+   "meta": "Saalbau Rothe Erde · 19:30",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/jazzotic-bigband-herbstkonzert/",
+   "quelle": "https://aachen-kalender.de/event/jazzotic-bigband-herbstkonzert/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "extrawurst-komoedie-von-dietmar-jacobs-u-2026-09-24",
+   "typ": "event",
+   "titel": "„Extrawurst“. Komödie von Dietmar Jacobs und Moritz Netenjakob.",
+   "text": "In Grenzlandtheater. Beginn 20:00 Uhr.",
+   "lng": 6.0846,
+   "lat": 50.7768,
+   "start": "2026-09-24",
+   "meta": "Grenzlandtheater · 20:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/extrawurst-komoedie-von-dietmar-jacobs-und-moritz-netenjakob-8/2026-09-24/",
+   "quelle": "https://aachen-kalender.de/event/extrawurst-komoedie-von-dietmar-jacobs-und-moritz-netenjakob-8/2026-09-24/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "jazzmetropole-euregio-eu-jazz-real-book--2026-09-24",
+   "typ": "event",
+   "titel": "Jazzmetropole Euregio. „EU Jazz – Real Book Live!“",
+   "text": "In Klangbrücke, Altes Kurhaus. Beginn 20:00 Uhr.",
+   "lng": 6.0888792,
+   "lat": 50.7769983,
+   "start": "2026-09-24",
+   "meta": "Klangbrücke, Altes Kurhaus · 20:00",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/jazzmetropole-euregio-eu-jazz-real-bool-live/",
+   "quelle": "https://aachen-kalender.de/event/jazzmetropole-euregio-eu-jazz-real-bool-live/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "gude-leude-gude-leude-vs-ki-2026-09-24",
+   "typ": "event",
+   "titel": "Gude Leude. „Gude Leude vs. KI“.",
+   "text": "In Talbahnhof. Beginn 20:00 Uhr.",
+   "lng": 6.0847,
+   "lat": 50.775,
+   "start": "2026-09-24",
+   "meta": "Talbahnhof · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/gude-leude-gude-leude-vs-ki/",
+   "quelle": "https://aachen-kalender.de/event/gude-leude-gude-leude-vs-ki/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "vhs-aachen-zur-debatte-forum-fuer-politi-2026-09-25",
+   "typ": "event",
+   "titel": "vhs Aachen. „Zur Debatte. Forum für politische Meinung“.",
+   "text": "In Int. Zeitungsmuseum (IZM). Beginn 10:30 Uhr.",
+   "lng": 6.0824,
+   "lat": 50.7758,
+   "start": "2026-09-25",
+   "meta": "Int. Zeitungsmuseum (IZM) · 10:30",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/vhs-aachen-zur-debatte-forum-fuer-politische-meinung/",
+   "quelle": "https://aachen-kalender.de/event/vhs-aachen-zur-debatte-forum-fuer-politische-meinung/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "altstadtfuehrung-2026-09-25",
+   "typ": "event",
+   "titel": "„Altstadtführung“.",
+   "text": "In Tourist Info, Elisenbrunnen. Beginn 14:00 Uhr.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "start": "2026-09-25",
+   "meta": "Tourist Info, Elisenbrunnen · 14:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-09-25/",
+   "quelle": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-09-25/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "deutsch-franzoesisches-keramikcaf-2026-09-25",
+   "typ": "event",
+   "titel": "Deutsch-französisches Keramikcafé.",
+   "text": "In Farbenfleck Aachen. Beginn 16:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2026-09-25",
+   "meta": "Farbenfleck Aachen · 16:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/deutsch-franzoesisches-keramikcafe/",
+   "quelle": "https://aachen-kalender.de/event/deutsch-franzoesisches-keramikcafe/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "abendbummel-2026-09-25",
+   "typ": "event",
+   "titel": "Abendbummel",
+   "text": "In Tourist Info, Elisenbrunnen. Beginn 18:00 Uhr.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "start": "2026-09-25",
+   "meta": "Tourist Info, Elisenbrunnen · 18:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/abendbummel-43/2026-09-25/",
+   "quelle": "https://aachen-kalender.de/event/abendbummel-43/2026-09-25/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "lucy-4-6-milliarden-jahre-stueck-von-gwe-2026-09-25",
+   "typ": "event",
+   "titel": "„Lucy (4,6 Milliarden Jahre)“. Stück von Gwendoline Soublin. Premiere.",
+   "text": "In Theater Aachen. Beginn 20:00 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2026-09-25",
+   "meta": "Theater Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/lucy-46-milliarden-jahre-stueck-von-gwendoline-soublin-premiere/",
+   "quelle": "https://aachen-kalender.de/event/lucy-46-milliarden-jahre-stueck-von-gwendoline-soublin-premiere/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "latcho-drom-2026-10-23",
+   "typ": "event",
+   "titel": "Latcho Drom",
+   "text": "In Raststätte. Beginn 20:00 Uhr.",
+   "lng": 6.0939733,
+   "lat": 50.77161,
+   "start": "2026-10-23",
+   "meta": "Raststätte · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://raststaette.org/termine/latcho-drom/",
+   "quelle": "https://raststaette.org/termine/latcho-drom/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "sync-synthesizer-jam-2026-11-04",
+   "typ": "event",
+   "titel": "[SYNC] Synthesizer Jam",
+   "text": "In Raststätte. Beginn 19:00 Uhr.",
+   "lng": 6.0939733,
+   "lat": 50.77161,
+   "start": "2026-11-04",
+   "meta": "Raststätte · 19:00",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
+   "link": "https://raststaette.org/termine/sync-synthesizer-jam-48-2/2026-11-04/",
+   "quelle": "https://raststaette.org/termine/sync-synthesizer-jam-48-2/2026-11-04/",
+   "hinzu": "2026-09-23"
+  },
+  {
+   "id": "satznachvorn-poetry-slam-2026-11-06",
+   "typ": "event",
+   "titel": "satznachvorn | Poetry Slam",
+   "text": "In Raststätte. Beginn 20:00 Uhr.",
+   "lng": 6.0939733,
+   "lat": 50.77161,
+   "start": "2026-11-06",
+   "meta": "Raststätte · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://raststaette.org/termine/satznachvorn-poetry-slam-4/2026-11-06/",
+   "quelle": "https://raststaette.org/termine/satznachvorn-poetry-slam-4/2026-11-06/",
+   "hinzu": "2026-09-23"
   }
  ]
 }
