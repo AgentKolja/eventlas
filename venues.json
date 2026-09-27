@@ -10,15 +10,17 @@
       "rausgegangen": [
         { "url": "https://rausgegangen.de/aachen/kategorie/konzerte-und-musik/", "tags": ["musik"], "was": "Konzert" },
         { "url": "https://rausgegangen.de/aachen/kategorie/party/", "tags": ["musik"], "was": "Party" },
-        { "url": "https://rausgegangen.de/aachen/kategorie/kunst-und-ausstellungen/", "tags": ["kultur"], "was": "Ausstellung" },
-        { "url": "https://rausgegangen.de/aachen/kategorie/theater-und-buehne/", "tags": ["kultur"], "was": "Bühne" },
-        { "url": "https://rausgegangen.de/aachen/kategorie/comedy-und-kabarett/", "tags": ["kultur"], "was": "Comedy" },
+        { "url": "https://rausgegangen.de/aachen/kategorie/ausstellung/", "tags": ["kultur"], "was": "Ausstellung" },
+        { "url": "https://rausgegangen.de/aachen/kategorie/theater/", "tags": ["kultur"], "was": "Bühne" },
+        { "url": "https://rausgegangen.de/aachen/kategorie/shows-und-performances/", "tags": ["kultur"], "was": "Show" },
+        { "url": "https://rausgegangen.de/aachen/kategorie/gesprochenes/", "tags": ["kultur"], "was": "Lesung & Comedy" },
         { "url": "https://rausgegangen.de/aachen/kategorie/film/", "tags": ["kultur"], "was": "Film" },
-        { "url": "https://rausgegangen.de/aachen/kategorie/markt-und-flohmarkt/", "tags": ["markt"], "was": "Markt" },
-        { "url": "https://rausgegangen.de/aachen/kategorie/essen-und-trinken/", "tags": ["markt"], "was": "Kulinarik" },
-        { "url": "https://rausgegangen.de/aachen/kategorie/sport-und-aktiv/", "tags": ["sport"], "was": "Sport" },
-        { "url": "https://rausgegangen.de/aachen/kategorie/fuer-kinder/", "tags": ["familie"], "was": "Für Kinder" },
-        { "url": "https://rausgegangen.de/aachen/kategorie/kennenlernen/", "tags": ["fest"], "was": "Kennenlernen" }
+        { "url": "https://rausgegangen.de/aachen/kategorie/markt/", "tags": ["markt"], "was": "Markt" },
+        { "url": "https://rausgegangen.de/aachen/kategorie/food-und-drinks/", "tags": ["markt"], "was": "Kulinarik" },
+        { "url": "https://rausgegangen.de/aachen/kategorie/sport/", "tags": ["sport"], "was": "Sport" },
+        { "url": "https://rausgegangen.de/aachen/kategorie/aktiv-und-kreativ/", "tags": ["familie"], "was": "Aktiv & Kreativ" },
+        { "url": "https://rausgegangen.de/aachen/kategorie/kinder-und-familien/", "tags": ["familie"], "was": "Für Kinder" },
+        { "url": "https://rausgegangen.de/aachen/kategorie/feste-und-festival/", "tags": ["fest"], "was": "Fest & Festival" }
       ],
       "tribeApis": [
         "https://aachen-kalender.de/wp-json/tribe/events/v1/events",
@@ -398,12 +400,76 @@
         {
           "id": "chio-soers",
           "name": "CHIO-Gelände Soers",
-          "aliase": ["Soers", "Reitstadion", "Albert-Vahle-Halle"],
+          "aliase": ["Soers", "Reitstadion", "Albert-Vahle-Halle", "CHIO Aachen-Gelände", "CHIO Aachen"],
           "lng": 6.0760, "lat": 50.7975,
           "adresse": "Albert-Servais-Allee, 52070 Aachen",
           "art": "Großveranstaltungsgelände",
           "tags": ["sport", "fest", "musik"],
           "programm": "https://www.chioaachen.de/"
+        },
+        {
+          "id": "forum-m",
+          "name": "Forum M",
+          "aliase": ["Mayersche Buchhandlung", "Mayersche", "forum M", "Buchkremerstraße 1"],
+          "lng": 6.0865, "lat": 50.7751,
+          "adresse": "Buchkremerstraße 1, 52062 Aachen",
+          "art": "Veranstaltungssaal der Mayerschen Buchhandlung",
+          "tags": ["kultur"],
+          "programm": "https://www.mayersche.de/veranstaltungen"
+        },
+        {
+          "id": "kulturwerk",
+          "name": "Kulturwerk Aachen",
+          "aliase": ["Kulturwerk", "Holzgraben 6"],
+          "lng": 6.0880, "lat": 50.7754,
+          "adresse": "Holzgraben 6-10, 52062 Aachen",
+          "art": "Soziokulturelles Zentrum",
+          "tags": ["kultur"]
+        },
+        {
+          "id": "grashaus",
+          "name": "Grashaus",
+          "aliase": ["Das Grashaus", "Fischmarkt 3"],
+          "lng": 6.0826, "lat": 50.7742,
+          "adresse": "Fischmarkt 3, 52062 Aachen",
+          "art": "Historisches Rathaus, Europäisches Klassenzimmer",
+          "tags": ["kultur"]
+        },
+        {
+          "id": "klosterplatz",
+          "name": "Klosterplatz",
+          "aliase": ["Klosterplatz Aachen"],
+          "lng": 6.0826, "lat": 50.7752,
+          "adresse": "Klosterplatz, 52062 Aachen",
+          "art": "Platz",
+          "tags": ["fest"]
+        },
+        {
+          "id": "sternwarte",
+          "name": "Sternwarte Aachen",
+          "aliase": ["Volkssternwarte Aachen", "Sternwarte", "Am Hangeweiher 23"],
+          "lng": 6.0702, "lat": 50.7587,
+          "adresse": "Am Hangeweiher 23, 52064 Aachen",
+          "art": "Volkssternwarte",
+          "tags": ["familie", "natur"]
+        },
+        {
+          "id": "hollandwiese",
+          "name": "Hollandwiese",
+          "aliase": ["Hollandwiese Aachen"],
+          "lng": 6.0522, "lat": 50.7761,
+          "adresse": "Hollandwiese, 52074 Aachen-Laurensberg",
+          "art": "Wiese, Freiluftveranstaltungen",
+          "tags": ["natur", "fest"]
+        },
+        {
+          "id": "platanenplatz",
+          "name": "Platanenplatz",
+          "aliase": ["Platanenplatz/Templergraben", "Templergraben"],
+          "lng": 6.0787, "lat": 50.7775,
+          "adresse": "Platanenplatz, 52062 Aachen",
+          "art": "Platz am RWTH-Hauptgebäude",
+          "tags": ["fest"]
         }
       ]
     }
