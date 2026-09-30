@@ -1,5 +1,5 @@
 {
- "stand": "2026-09-23",
+ "stand": "2026-09-30",
  "hinweis": "Schema: typ event|angebot|hilfe|spot · tags[] · quelle (Beleg-URL) · link (CTA) · hot (beliebt) · hinzu (Aufnahmedatum) · saison {von,bis als MM-TT, jaehrlich wiederkehrend} · fest:true = wird vom Auto-Update nie geloescht.",
  "pins": [
   {
@@ -11,7 +11,10 @@
    "lat": 50.7799,
    "seit": "2026-09-05",
    "meta": "Pontstraße 111 · seit 5.9.2026",
-   "tags": ["neu", "markt"],
+   "tags": [
+    "neu",
+    "markt"
+   ],
    "quelle": "https://www.neueroeffnung.info/aachen/atawich-burger-restaurant_1",
    "hinzu": "2026-09-12",
    "fest": true
@@ -25,7 +28,10 @@
    "lat": 50.7763,
    "seit": "2026-07",
    "meta": "Büchel · seit Juli 2026",
-   "tags": ["neu", "markt"],
+   "tags": [
+    "neu",
+    "markt"
+   ],
    "quelle": "https://www.aachener-zeitung.de/kultur/klenkes/kommen-und-gehen/157285133.html",
    "hinzu": "2026-09-12",
    "fest": true
@@ -39,7 +45,10 @@
    "lat": 50.7728,
    "seit": "2026-07",
    "meta": "Theaterplatz · seit Juli 2026",
-   "tags": ["neu", "markt"],
+   "tags": [
+    "neu",
+    "markt"
+   ],
    "quelle": "https://www.aachener-zeitung.de/kultur/klenkes/kommen-und-gehen/157285133.html",
    "hinzu": "2026-09-12",
    "fest": true
@@ -53,7 +62,10 @@
    "lat": 50.7766,
    "seit": "2026-02-20",
    "meta": "Markt 52 · seit 20.2.2026",
-   "tags": ["neu", "markt"],
+   "tags": [
+    "neu",
+    "markt"
+   ],
    "quelle": "https://www.neueroeffnung.info/aachen/t-zusje-restaurant",
    "hinzu": "2026-09-12",
    "fest": true
@@ -67,7 +79,9 @@
    "lat": 50.7714,
    "wdh": "di",
    "meta": "Cineplex, Borngasse 30 · ganztägig",
-   "tags": ["kultur"],
+   "tags": [
+    "kultur"
+   ],
    "link": "https://www.cineplex.de/aachen/cineplex-aachen/infos-und-preise/deine-tickets/02-Kinotag",
    "quelle": "https://www.cineplex.de/aachen/cineplex-aachen/infos-und-preise/deine-tickets/02-Kinotag",
    "hinzu": "2026-09-12",
@@ -8667,6 +8681,2876 @@
    "link": "https://raststaette.org/termine/satznachvorn-poetry-slam-4/2026-11-06/",
    "quelle": "https://raststaette.org/termine/satznachvorn-poetry-slam-4/2026-11-06/",
    "hinzu": "2026-09-23"
+  },
+  {
+   "id": "kk-centre-charlemagne-2-5-km-industriegeschiche-die-juelicher--2026-09-27",
+   "typ": "event",
+   "titel": "2,5 km Industriegeschiche. Die Jülicher Straße",
+   "text": "Führung.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-09-27",
+   "ende": "2027-09-27",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/25-km-industriegeschiche-die-juelicher-strasse-4/",
+   "quelle": "https://centre-charlemagne.eu/termin/25-km-industriegeschiche-die-juelicher-strasse-4/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "kk-ludwig-forum-30-werke-fuer-100-tage-fuehrung-mit-mail-2026-10-01",
+   "typ": "event",
+   "titel": "30 Werke für 100 Tage – Führung mit Mailin Haberland",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.1017334,
+   "lat": 50.7811145,
+   "start": "2026-10-01",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/30-werke-fuer-100-tage-fuehrung-mit-direktorin-rebekka-seubert/",
+   "quelle": "https://ludwigforum.de/event/30-werke-fuer-100-tage-fuehrung-mit-direktorin-rebekka-seubert/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "kk-centre-charlemagne-2-5-km-industriegeschiche-die-juelicher--2026-10-04",
+   "typ": "event",
+   "titel": "2,5 km Industriegeschiche. Die Jülicher Straße",
+   "text": "Führung.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-10-04",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/25-km-industriegeschiche-die-juelicher-strasse-5/",
+   "quelle": "https://centre-charlemagne.eu/termin/25-km-industriegeschiche-die-juelicher-strasse-5/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "kk-centre-charlemagne-2-5-km-industriegeschiche-die-juelicher--2026-10-11",
+   "typ": "event",
+   "titel": "2,5 km Industriegeschiche. Die Jülicher Straße",
+   "text": "Führung.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-10-11",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/25-km-industriegeschiche-die-juelicher-strasse-7/",
+   "quelle": "https://centre-charlemagne.eu/termin/25-km-industriegeschiche-die-juelicher-strasse-7/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "kk-klangbruecke-im-alten-kurhaus-aachener-krimitage-zweisprachige-lesung--2026-10-15",
+   "typ": "event",
+   "titel": "Bredouille – An Enemy in the Village",
+   "text": "Aachener Krimitage – zweisprachige Lesung Martin Walker.",
+   "lng": 6.0888792,
+   "lat": 50.7769983,
+   "start": "2026-10-15",
+   "meta": "Klangbrücke im Alten Kurhaus",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://altes-kurhaus-aachen.de/veranstaltung/aachener-krimitage-zweisprachige-lesung-martin-walker-bredouille-an-enemy-in-the-village/",
+   "quelle": "https://altes-kurhaus-aachen.de/veranstaltung/aachener-krimitage-zweisprachige-lesung-martin-walker-bredouille-an-enemy-in-the-village/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "kk-centre-charlemagne-2-5-km-industriegeschiche-die-juelicher--2026-10-18",
+   "typ": "event",
+   "titel": "2,5 km Industriegeschiche. Die Jülicher Straße",
+   "text": "Führung.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-10-18",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/25-km-industriegeschiche-die-juelicher-strasse-8/",
+   "quelle": "https://centre-charlemagne.eu/termin/25-km-industriegeschiche-die-juelicher-strasse-8/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "kk-couven-museum-fuehrung-durch-das-couven-museum-2026-10-25",
+   "typ": "event",
+   "titel": "Führung durch das Couven Museum",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.0849,
+   "lat": 50.7761,
+   "start": "2026-10-25",
+   "meta": "Couven Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://couven-museum.de/event/fuehrung-durch-das-couven-museum/",
+   "quelle": "https://couven-museum.de/event/fuehrung-durch-das-couven-museum/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "kk-centre-charlemagne-2-5-km-industriegeschiche-die-juelicher--2026-10-25",
+   "typ": "event",
+   "titel": "2,5 km Industriegeschiche. Die Jülicher Straße",
+   "text": "Führung.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-10-25",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/25-km-industriegeschiche-die-juelicher-strasse-9/",
+   "quelle": "https://centre-charlemagne.eu/termin/25-km-industriegeschiche-die-juelicher-strasse-9/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "kk-ludwig-forum-zeit-fuer-kunst-oeffentliche-fuehrung-fu-2026-10-28",
+   "typ": "event",
+   "titel": "Zeit für Kunst – Öffentliche Führung für Senior*innen",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.1017334,
+   "lat": 50.7811145,
+   "start": "2026-10-28",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/zeit-fuer-kunst-oeffentliche-fuehrung-fuer-seniorinnen-2/",
+   "quelle": "https://ludwigforum.de/event/zeit-fuer-kunst-oeffentliche-fuehrung-fuer-seniorinnen-2/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "kk-klangbruecke-im-alten-kurhaus-burlesque-night-n-9-halloween-8211-burle-2026-10-31",
+   "typ": "event",
+   "titel": "Burlesque Night N°9 Halloween – Burlesque-Kunst-Show",
+   "text": "Konzert.",
+   "lng": 6.0888792,
+   "lat": 50.7769983,
+   "start": "2026-10-31",
+   "meta": "Klangbrücke im Alten Kurhaus",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://altes-kurhaus-aachen.de/veranstaltung/burlesque-night-n9-halloween-burlesque-kunst-show/",
+   "quelle": "https://altes-kurhaus-aachen.de/veranstaltung/burlesque-night-n9-halloween-burlesque-kunst-show/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-die-wunderkammer-und-highlights-der-samm-2026-11-01",
+   "typ": "event",
+   "titel": "Die Wunderkammer und Highlights der Sammlung",
+   "text": "Führung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-11-01",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/die-wunderkammer-und-highlights-der-sammlung-9-2/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/die-wunderkammer-und-highlights-der-sammlung-9-2/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-das-juengste-gericht-2026-11-03",
+   "typ": "event",
+   "titel": "Das Jüngste Gericht",
+   "text": "Kunstpause.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-11-03",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/das-juengste-gericht/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/das-juengste-gericht/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-suermondt-museumsclub-2026-11-03",
+   "typ": "event",
+   "titel": "Suermondt-Museumsclub",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-11-03",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/suermondt-museumsclub-12-2-2/2026-11-03/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/suermondt-museumsclub-12-2-2/2026-11-03/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-yoga-im-museum-2026-11-04",
+   "typ": "event",
+   "titel": "Yoga im Museum",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-11-04",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/yoga-im-museum-2-2/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/yoga-im-museum-2-2/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-mediation-im-museum-2026-11-04",
+   "typ": "event",
+   "titel": "Mediation im Museum",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-11-04",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/mediation-im-museum/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/mediation-im-museum/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "kk-ludwig-forum-margit-palme-und-ulrike-mueller-fuehrung-2026-11-05",
+   "typ": "event",
+   "titel": "Margit Palme und Ulrike Müller – Führung mit Kuratorin Mailin…",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.1017334,
+   "lat": 50.7811145,
+   "start": "2026-11-05",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/margit-palme-ulrike-mueller-fuehrung-mit-kuratorin-mailin-haberland/",
+   "quelle": "https://ludwigforum.de/event/margit-palme-ulrike-mueller-fuehrung-mit-kuratorin-mailin-haberland/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-eduard-linse-und-sein-wirken-fuer-aachen-2026-11-07",
+   "typ": "event",
+   "titel": "Eduard Linse und sein Wirken für Aachen",
+   "text": "Führung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-11-07",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/eduard-linse-und-sein-wirken-fuer-aachen/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/eduard-linse-und-sein-wirken-fuer-aachen/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "kk-ludwig-forum-play-with-clay-2-2026-11-08",
+   "typ": "event",
+   "titel": "Play with Clay 2",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.1017334,
+   "lat": 50.7811145,
+   "start": "2026-11-08",
+   "ende": "2026-11-30",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/play-with-clay-2/",
+   "quelle": "https://ludwigforum.de/event/play-with-clay-2/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-frauenbilder-und-frauenrollen-in-der-kun-2026-11-08",
+   "typ": "event",
+   "titel": "Frauenbilder und Frauenrollen in der Kunst",
+   "text": "Führung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-11-08",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/frauenbilder-und-frauenrollen-in-der-kunst/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/frauenbilder-und-frauenrollen-in-der-kunst/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "kk-ludwig-forum-radierung-2026-11-08",
+   "typ": "event",
+   "titel": "Radierung",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.1017334,
+   "lat": 50.7811145,
+   "start": "2026-11-08",
+   "ende": "2026-12-13",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/radierung-3/",
+   "quelle": "https://ludwigforum.de/event/radierung-3/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "kk-ludwig-forum-sonntagsmalerei-2026-11-08",
+   "typ": "event",
+   "titel": "Sonntagsmalerei",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.1017334,
+   "lat": 50.7811145,
+   "start": "2026-11-08",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/sonntagsmalerei-2026-11-08/",
+   "quelle": "https://ludwigforum.de/event/sonntagsmalerei-2026-11-08/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-interkultureller-kunstworkshop-2026-11-10",
+   "typ": "event",
+   "titel": "Interkultureller Kunstworkshop",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-11-10",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/interkultureller-kunstworkshop-3-2/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/interkultureller-kunstworkshop-3-2/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-eug-ne-delacroix-die-einnahme-konstantin-2026-11-10",
+   "typ": "event",
+   "titel": "Eugène Delacroix, Die Einnahme Konstantinopels, um 1832",
+   "text": "Kunstpause.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-11-10",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/eugene-delacroix-die-einnahme-konstantinopels-um-1832/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/eugene-delacroix-die-einnahme-konstantinopels-um-1832/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-suermondt-museumsclub-2026-11-10",
+   "typ": "event",
+   "titel": "Suermondt-Museumsclub",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-11-10",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/suermondt-museumsclub-12-2-2/2026-11-10/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/suermondt-museumsclub-12-2-2/2026-11-10/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "true-collins-phil-collins-genesis-tribut-2026-11-06",
+   "typ": "event",
+   "titel": "True Collins - Phil Collins & Genesis Tribute Show",
+   "text": "Konzert in Eurogress Aachen, Beginn 19:30 Uhr.",
+   "lng": 6.0918663,
+   "lat": 50.7820937,
+   "start": "2026-11-06",
+   "meta": "Eurogress Aachen · 19:30",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/true-collins-phil-collins-genesis-tribute-show-7/",
+   "quelle": "https://rausgegangen.de/events/true-collins-phil-collins-genesis-tribute-show-7/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "winterkonzerte-der-blaeserphilharmonie-a-2026-12-11",
+   "typ": "event",
+   "titel": "Winterkonzerte der Bläserphilharmonie Aachen",
+   "text": "Konzert in RWTH Aula 1 (im Templergraben), Beginn 19:30 Uhr.",
+   "lng": 6.0787,
+   "lat": 50.7775,
+   "start": "2026-12-11",
+   "meta": "RWTH Aula 1 (im Templergraben) · 19:30",
+   "tags": [
+    "musik",
+    "fest"
+   ],
+   "link": "https://rausgegangen.de/events/winterkonzerte-der-blaserphilharmonie-aachen-0/",
+   "quelle": "https://rausgegangen.de/events/winterkonzerte-der-blaserphilharmonie-aachen-0/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "dittsche-2027-04-03",
+   "typ": "event",
+   "titel": "Dittsche",
+   "text": "Konzert in Eurogress Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0918663,
+   "lat": 50.7820937,
+   "start": "2027-04-03",
+   "meta": "Eurogress Aachen · 20:00",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/dittsche-68/",
+   "quelle": "https://rausgegangen.de/events/dittsche-68/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "till-broenner-swr-big-band-italia-ancora-2027-05-15",
+   "typ": "event",
+   "titel": "Till Brönner & SWR Big Band - ITALIA - Ancora!",
+   "text": "Konzert in Eurogress Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0918663,
+   "lat": 50.7820937,
+   "start": "2027-05-15",
+   "meta": "Eurogress Aachen · 20:00",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/till-bronner-swr-big-band-italia-ancora-14/",
+   "quelle": "https://rausgegangen.de/events/till-bronner-swr-big-band-italia-ancora-14/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "the-musical-box-2027-06-12",
+   "typ": "event",
+   "titel": "THE MUSICAL BOX",
+   "text": "Konzert in Eurogress Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0918663,
+   "lat": 50.7820937,
+   "start": "2027-06-12",
+   "meta": "Eurogress Aachen · 20:00",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/the-musical-box-7/",
+   "quelle": "https://rausgegangen.de/events/the-musical-box-7/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "karaoke-2026-09-30",
+   "typ": "event",
+   "titel": "KARAOKE",
+   "text": "Party in Barbarossa Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0925,
+   "lat": 50.7714,
+   "start": "2026-09-30",
+   "meta": "Barbarossa Aachen · 20:00",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/karaoke-3393/",
+   "quelle": "https://rausgegangen.de/events/karaoke-3393/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "salsa-sunday-2026-10-04",
+   "typ": "event",
+   "titel": "SALSA SUNDAY",
+   "text": "Party in Barbarossa Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.0925,
+   "lat": 50.7714,
+   "start": "2026-10-04",
+   "meta": "Barbarossa Aachen · 19:00",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/salsa-sunday-67/",
+   "quelle": "https://rausgegangen.de/events/salsa-sunday-67/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "fahrradrave-aachen-2026-10-10",
+   "typ": "event",
+   "titel": "Fahrradrave Aachen",
+   "text": "Party in Elisenbrunnen, Beginn 18:30 Uhr.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "start": "2026-10-10",
+   "meta": "Elisenbrunnen · 18:30",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/fahrradrave-aachen-0/",
+   "quelle": "https://rausgegangen.de/events/fahrradrave-aachen-0/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "architekturfuehrung-im-couven-museum-2026-09-30",
+   "typ": "event",
+   "titel": "Architekturführung im Couven Museum",
+   "text": "Ausstellung in Couven Museum, Beginn 11:00 Uhr.",
+   "lng": 6.0849,
+   "lat": 50.7761,
+   "start": "2026-09-30",
+   "meta": "Couven Museum · 11:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/architekturfuhrung-im-couven-museum-0/",
+   "quelle": "https://rausgegangen.de/events/architekturfuhrung-im-couven-museum-0/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "aachen-von-den-urspruengen-zur-freien-re-2026-10-01",
+   "typ": "event",
+   "titel": "Aachen: Von den Ursprüngen zur freien Reichsstadt",
+   "text": "Ausstellung in Centre Charlemagne, Beginn 11:00 Uhr.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-10-01",
+   "meta": "Centre Charlemagne · 11:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/aachen-von-den-ursprungen-zur-freien-reichsstadt-0/",
+   "quelle": "https://rausgegangen.de/events/aachen-von-den-ursprungen-zur-freien-reichsstadt-0/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "aachen-zur-roemerzeit-2026-10-04",
+   "typ": "event",
+   "titel": "Aachen zur Römerzeit",
+   "text": "Ausstellung in Centre Charlemagne, Beginn 12:00 Uhr.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-10-04",
+   "meta": "Centre Charlemagne · 12:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/aachen-zur-romerzeit-0/",
+   "quelle": "https://rausgegangen.de/events/aachen-zur-romerzeit-0/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "hamid-z-nati-cut-out-2026-10-16",
+   "typ": "event",
+   "titel": "Hamid Zénati. Cut Out",
+   "text": "Ausstellung in Ludwig Forum Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.1017334,
+   "lat": 50.7811145,
+   "start": "2026-10-16",
+   "meta": "Ludwig Forum Aachen · 19:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/hamid-zenati-cut-out-0/",
+   "quelle": "https://rausgegangen.de/events/hamid-zenati-cut-out-0/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "aachener-stadtbaugeschichte-im-wandel-2026-10-17",
+   "typ": "event",
+   "titel": "Aachener Stadtbaugeschichte im Wandel",
+   "text": "Ausstellung in Centre Charlemagne, Beginn 14:00 Uhr.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-10-17",
+   "meta": "Centre Charlemagne · 14:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/aachener-stadtbaugeschichte-im-wandel-0/",
+   "quelle": "https://rausgegangen.de/events/aachener-stadtbaugeschichte-im-wandel-0/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "hamid-z-nati-cut-out-2026-10-17",
+   "typ": "event",
+   "titel": "Hamid Zénati. Cut Out",
+   "text": "Ausstellung in Ludwig Forum Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.1017334,
+   "lat": 50.7811145,
+   "start": "2026-10-17",
+   "meta": "Ludwig Forum Aachen · 19:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/hamid-zenati-cut-out-1/",
+   "quelle": "https://rausgegangen.de/events/hamid-zenati-cut-out-1/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "aachen-als-stadt-der-kroenungen-2026-10-18",
+   "typ": "event",
+   "titel": "Aachen als Stadt der Krönungen",
+   "text": "Ausstellung in Centre Charlemagne, Beginn 12:00 Uhr.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-10-18",
+   "meta": "Centre Charlemagne · 12:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/aachen-als-stadt-der-kronungen-0/",
+   "quelle": "https://rausgegangen.de/events/aachen-als-stadt-der-kronungen-0/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "stein-wasser-und-metall-aachens-exportsc-2026-10-24",
+   "typ": "event",
+   "titel": "Stein, Wasser und Metall – Aachens Exportschlager",
+   "text": "Ausstellung in Centre Charlemagne, Beginn 14:00 Uhr.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-10-24",
+   "meta": "Centre Charlemagne · 14:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/stein-wasser-und-metall-aachens-exportschlager-0/",
+   "quelle": "https://rausgegangen.de/events/stein-wasser-und-metall-aachens-exportschlager-0/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "karrieretag-aachen-2026-11-26",
+   "typ": "event",
+   "titel": "Karrieretag Aachen",
+   "text": "Ausstellung in Eurogress Aachen, Beginn 10:00 Uhr.",
+   "lng": 6.0918663,
+   "lat": 50.7820937,
+   "start": "2026-11-26",
+   "meta": "Eurogress Aachen · 10:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/karrieretag-aachen-3/",
+   "quelle": "https://rausgegangen.de/events/karrieretag-aachen-3/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "extrawurst-2026-09-30",
+   "typ": "event",
+   "titel": "Extrawurst",
+   "text": "Bühne in Grenzlandtheater, Beginn 20:00 Uhr.",
+   "lng": 6.0846,
+   "lat": 50.7768,
+   "start": "2026-09-30",
+   "meta": "Grenzlandtheater · 20:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/extrawurst-550/",
+   "quelle": "https://rausgegangen.de/events/extrawurst-550/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "hausmann-mueller-ermitteln-in-der-heimat-2026-10-02",
+   "typ": "event",
+   "titel": "Hausmann & Müller ermitteln in der Heimat",
+   "text": "Bühne in Grenzlandtheater, Beginn 20:00 Uhr.",
+   "lng": 6.0846,
+   "lat": 50.7768,
+   "start": "2026-10-02",
+   "meta": "Grenzlandtheater · 20:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/hausmann-muller-ermitteln-in-der-heimat-0/",
+   "quelle": "https://rausgegangen.de/events/hausmann-muller-ermitteln-in-der-heimat-0/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "lucy-4-6-milliarden-jahre-2026-10-02",
+   "typ": "event",
+   "titel": "Lucy (4,6 Milliarden Jahre)",
+   "text": "Bühne in Theater Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2026-10-02",
+   "meta": "Theater Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/lucy-46-milliarden-jahre-1/",
+   "quelle": "https://rausgegangen.de/events/lucy-46-milliarden-jahre-1/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "maria-stuart-2026-10-04",
+   "typ": "event",
+   "titel": "Maria Stuart",
+   "text": "Bühne in Theater Aachen, Beginn 17:00 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2026-10-04",
+   "meta": "Theater Aachen · 17:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/maria-stuart-204/",
+   "quelle": "https://rausgegangen.de/events/maria-stuart-204/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "schwarze-schwaene-2026-10-09",
+   "typ": "event",
+   "titel": "Schwarze Schwäne",
+   "text": "Bühne in Grenzlandtheater, Beginn 20:00 Uhr.",
+   "lng": 6.0846,
+   "lat": 50.7768,
+   "start": "2026-10-09",
+   "meta": "Grenzlandtheater · 20:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/schwarze-schwane-24/",
+   "quelle": "https://rausgegangen.de/events/schwarze-schwane-24/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "don-carlo-2026-10-10",
+   "typ": "event",
+   "titel": "Don Carlo",
+   "text": "Bühne in Theater Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2026-10-10",
+   "meta": "Theater Aachen · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/don-carlo-121/",
+   "quelle": "https://rausgegangen.de/events/don-carlo-121/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "mutterland-tanztheatermobil-2026-10-11",
+   "typ": "event",
+   "titel": "Mutterland - TanzTheaterMobil",
+   "text": "Bühne in Suermondt-Ludwig-Museum Aachen, Beginn 17:00 Uhr.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-10-11",
+   "meta": "Suermondt-Ludwig-Museum Aachen · 17:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/mutterland-tanztheatermobil-0/",
+   "quelle": "https://rausgegangen.de/events/mutterland-tanztheatermobil-0/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "fischer-jung-maedelsabend-2026-10-11",
+   "typ": "event",
+   "titel": "FISCHER & JUNG MÄDELSABEND",
+   "text": "Bühne in FRANZ - Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2026-10-11",
+   "meta": "FRANZ - Aachen · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/fischer-jung-madelsabend-4/",
+   "quelle": "https://rausgegangen.de/events/fischer-jung-madelsabend-4/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "l-elisir-d-amore-der-liebestrank-2026-10-25",
+   "typ": "event",
+   "titel": "L’elisir d’amore - Der Liebestrank",
+   "text": "Bühne in Theater Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2026-10-25",
+   "meta": "Theater Aachen · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/lelisir-damore-der-liebestrank-13/",
+   "quelle": "https://rausgegangen.de/events/lelisir-damore-der-liebestrank-13/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "tischlein-deck-dich-2026-11-13",
+   "typ": "event",
+   "titel": "Tischlein deck dich",
+   "text": "Bühne in Theater Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2026-11-13",
+   "meta": "Theater Aachen · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/tischlein-deck-dich-18/",
+   "quelle": "https://rausgegangen.de/events/tischlein-deck-dich-18/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "am-lie-musical-basierend-auf-dem-film-di-2026-11-20",
+   "typ": "event",
+   "titel": "Amélie Musical basierend auf dem Film \"Die fabelhafte Welt der Amélie\"",
+   "text": "Bühne in Grenzlandtheater, Beginn 20:00 Uhr.",
+   "lng": 6.0846,
+   "lat": 50.7768,
+   "start": "2026-11-20",
+   "meta": "Grenzlandtheater · 20:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/amelie-musical-basierend-auf-dem-film-die-fabelhafte-welt-de-36/",
+   "quelle": "https://rausgegangen.de/events/amelie-musical-basierend-auf-dem-film-die-fabelhafte-welt-de-36/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "biedermann-und-die-brandstifter-2026-11-20",
+   "typ": "event",
+   "titel": "Biedermann und die Brandstifter",
+   "text": "Bühne in Theater Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2026-11-20",
+   "meta": "Theater Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/biedermann-und-die-brandstifter-191/",
+   "quelle": "https://rausgegangen.de/events/biedermann-und-die-brandstifter-191/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "schwanensee-2026-12-01",
+   "typ": "event",
+   "titel": "Schwanensee",
+   "text": "Bühne in Eurogress Aachen, Beginn 19:30 Uhr.",
+   "lng": 6.0918663,
+   "lat": 50.7820937,
+   "start": "2026-12-01",
+   "meta": "Eurogress Aachen · 19:30",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/schwanensee-397/",
+   "quelle": "https://rausgegangen.de/events/schwanensee-397/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "die-cs-rd-sfuerstin-2026-12-05",
+   "typ": "event",
+   "titel": "Die Csárdásfürstin",
+   "text": "Bühne in Theater Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2026-12-05",
+   "meta": "Theater Aachen · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/die-csardasfurstin-51/",
+   "quelle": "https://rausgegangen.de/events/die-csardasfurstin-51/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "der-fall-schwerte-2027-01-16",
+   "typ": "event",
+   "titel": "Der Fall Schwerte",
+   "text": "Bühne in Theater Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2027-01-16",
+   "meta": "Theater Aachen · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/der-fall-schwerte-0/",
+   "quelle": "https://rausgegangen.de/events/der-fall-schwerte-0/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "endspiel-2027-01-17",
+   "typ": "event",
+   "titel": "Endspiel",
+   "text": "Bühne in Grenzlandtheater, Beginn 18:00 Uhr.",
+   "lng": 6.0846,
+   "lat": 50.7768,
+   "start": "2027-01-17",
+   "meta": "Grenzlandtheater · 18:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/endspiel-59/",
+   "quelle": "https://rausgegangen.de/events/endspiel-59/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "parzival-2027-01-22",
+   "typ": "event",
+   "titel": "Parzival",
+   "text": "Bühne in Theater Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2027-01-22",
+   "meta": "Theater Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/parzival-20/",
+   "quelle": "https://rausgegangen.de/events/parzival-20/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "the-r-evolution-of-steve-jobs-2027-02-07",
+   "typ": "event",
+   "titel": "The (R)evolution of Steve Jobs",
+   "text": "Bühne in Theater Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2027-02-07",
+   "meta": "Theater Aachen · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/the-revolution-of-steve-jobs-0/",
+   "quelle": "https://rausgegangen.de/events/the-revolution-of-steve-jobs-0/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "yakari-freunde-fuers-leben-2027-02-20",
+   "typ": "event",
+   "titel": "Yakari - Freunde fürs Leben",
+   "text": "Bühne in Eurogress Aachen, Beginn 16:30 Uhr.",
+   "lng": 6.0918663,
+   "lat": 50.7820937,
+   "start": "2027-02-20",
+   "meta": "Eurogress Aachen · 16:30",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/yakari-freunde-furs-leben-33/",
+   "quelle": "https://rausgegangen.de/events/yakari-freunde-furs-leben-33/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "romeo-julia-2027-03-06",
+   "typ": "event",
+   "titel": "Romeo & Julia",
+   "text": "Bühne in Theater Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2027-03-06",
+   "meta": "Theater Aachen · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/romeo-julia-96/",
+   "quelle": "https://rausgegangen.de/events/romeo-julia-96/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "der-videobeweis-2027-03-11",
+   "typ": "event",
+   "titel": "Der Videobeweis",
+   "text": "Bühne in Grenzlandtheater, Beginn 20:00 Uhr.",
+   "lng": 6.0846,
+   "lat": 50.7768,
+   "start": "2027-03-11",
+   "meta": "Grenzlandtheater · 20:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/der-videobeweis-54/",
+   "quelle": "https://rausgegangen.de/events/der-videobeweis-54/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "volksfeind-faellt-ins-wasser-2027-03-12",
+   "typ": "event",
+   "titel": "Volksfeind (fällt ins Wasser)",
+   "text": "Bühne in Theater Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2027-03-12",
+   "meta": "Theater Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/volksfeind-fallt-ins-wasser-0/",
+   "quelle": "https://rausgegangen.de/events/volksfeind-fallt-ins-wasser-0/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "don-giovanni-2027-04-10",
+   "typ": "event",
+   "titel": "Don Giovanni",
+   "text": "Bühne in Theater Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2027-04-10",
+   "meta": "Theater Aachen · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/don-giovanni-174/",
+   "quelle": "https://rausgegangen.de/events/don-giovanni-174/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "die-lieben-eltern-2027-04-24",
+   "typ": "event",
+   "titel": "Die lieben Eltern",
+   "text": "Bühne in Grenzlandtheater, Beginn 20:00 Uhr.",
+   "lng": 6.0846,
+   "lat": 50.7768,
+   "start": "2027-04-24",
+   "meta": "Grenzlandtheater · 20:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/die-lieben-eltern-53/",
+   "quelle": "https://rausgegangen.de/events/die-lieben-eltern-53/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "bunbury-2027-05-08",
+   "typ": "event",
+   "titel": "Bunbury",
+   "text": "Bühne in Theater Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2027-05-08",
+   "meta": "Theater Aachen · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/bunbury-78/",
+   "quelle": "https://rausgegangen.de/events/bunbury-78/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "doktormutter-faust-2027-05-14",
+   "typ": "event",
+   "titel": "Doktormutter Faust",
+   "text": "Bühne in Theater Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2027-05-14",
+   "meta": "Theater Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/doktormutter-faust-18/",
+   "quelle": "https://rausgegangen.de/events/doktormutter-faust-18/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "der-blinde-passagier-2027-06-04",
+   "typ": "event",
+   "titel": "Der blinde Passagier",
+   "text": "Bühne in Grenzlandtheater, Beginn 20:00 Uhr.",
+   "lng": 6.0846,
+   "lat": 50.7768,
+   "start": "2027-06-04",
+   "meta": "Grenzlandtheater · 20:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/der-blinde-passagier-38/",
+   "quelle": "https://rausgegangen.de/events/der-blinde-passagier-38/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "unser-deutschlandmaerchen-2027-06-04",
+   "typ": "event",
+   "titel": "Unser Deutschlandmärchen",
+   "text": "Bühne in Theater Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2027-06-04",
+   "meta": "Theater Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/unser-deutschlandmarchen-30/",
+   "quelle": "https://rausgegangen.de/events/unser-deutschlandmarchen-30/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "furioso-2027-06-06",
+   "typ": "event",
+   "titel": "Furioso",
+   "text": "Bühne in Theater Aachen, Beginn 17:00 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2027-06-06",
+   "meta": "Theater Aachen · 17:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/furioso-0/",
+   "quelle": "https://rausgegangen.de/events/furioso-0/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "candide-2027-06-26",
+   "typ": "event",
+   "titel": "Candide",
+   "text": "Bühne in Theater Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2027-06-26",
+   "meta": "Theater Aachen · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/candide-25/",
+   "quelle": "https://rausgegangen.de/events/candide-25/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "amjad-abu-hamid-radikal-witzig-2026-10-01",
+   "typ": "event",
+   "titel": "Amjad Abu Hamid: Radikal Witzig",
+   "text": "Show in FRANZ - Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2026-10-01",
+   "meta": "FRANZ - Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/amjad-abu-hamid-radikal-witzig-0/",
+   "quelle": "https://rausgegangen.de/events/amjad-abu-hamid-radikal-witzig-0/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "journey-one-2026-10-08",
+   "typ": "event",
+   "titel": "JOURNEY ONE",
+   "text": "Show in Ludwig Forum Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.1017334,
+   "lat": 50.7811145,
+   "start": "2026-10-08",
+   "meta": "Ludwig Forum Aachen · 20:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/journey-one-0/",
+   "quelle": "https://rausgegangen.de/events/journey-one-0/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "aachener-comedy-clash-2026-10-20",
+   "typ": "event",
+   "titel": "Aachener Comedy Clash",
+   "text": "Show in Grenzlandtheater, Beginn 20:00 Uhr.",
+   "lng": 6.0846,
+   "lat": 50.7768,
+   "start": "2026-10-20",
+   "meta": "Grenzlandtheater · 20:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/aachener-comedy-clash-6/",
+   "quelle": "https://rausgegangen.de/events/aachener-comedy-clash-6/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "die-made-gedichte-geschichten-und-lieder-2026-10-28",
+   "typ": "event",
+   "titel": "\"Die Made\" - Gedichte, Geschichten und Lieder nicht nur von Heinz Erhardt",
+   "text": "Show in Grenzlandtheater, Beginn 20:00 Uhr.",
+   "lng": 6.0846,
+   "lat": 50.7768,
+   "start": "2026-10-28",
+   "meta": "Grenzlandtheater · 20:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/die-made-gedichte-geschichten-und-lieder-nicht-nur-von-heinz-0/",
+   "quelle": "https://rausgegangen.de/events/die-made-gedichte-geschichten-und-lieder-nicht-nur-von-heinz-0/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "burlesque-night-halloween-aachen-2026-10-31",
+   "typ": "event",
+   "titel": "Burlesque Night Halloween Aachen",
+   "text": "Show in Klangbrücke, Beginn 21:00 Uhr.",
+   "lng": 6.0888792,
+   "lat": 50.7769983,
+   "start": "2026-10-31",
+   "meta": "Klangbrücke · 21:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/burlesque-night-halloween-aachen-0/",
+   "quelle": "https://rausgegangen.de/events/burlesque-night-halloween-aachen-0/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "luan-comedy-show-3-0-2026-11-09",
+   "typ": "event",
+   "titel": "Luan Comedy Show 3.0",
+   "text": "Show in FRANZ - Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2026-11-09",
+   "meta": "FRANZ - Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/luan-comedy-show-30-14/",
+   "quelle": "https://rausgegangen.de/events/luan-comedy-show-30-14/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "david-kebekus-sensible-inhalte-2026-11-15",
+   "typ": "event",
+   "titel": "David Kebekus Sensible Inhalte",
+   "text": "Show in FRANZ - Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2026-11-15",
+   "meta": "FRANZ - Aachen · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/david-kebekus-sensible-inhalte-12/",
+   "quelle": "https://rausgegangen.de/events/david-kebekus-sensible-inhalte-12/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "benni-stark-2026-11-17",
+   "typ": "event",
+   "titel": "Benni Stark",
+   "text": "Show in FRANZ - Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2026-11-17",
+   "meta": "FRANZ - Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/benni-stark-38/",
+   "quelle": "https://rausgegangen.de/events/benni-stark-38/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "stand-up-comedy-mit-panagiota-petridou-2026-11-19",
+   "typ": "event",
+   "titel": "Stand-up Comedy mit Panagiota Petridou",
+   "text": "Show in FRANZ - Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2026-11-19",
+   "meta": "FRANZ - Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/stand-up-comedy-mit-panagiota-petridou-0/",
+   "quelle": "https://rausgegangen.de/events/stand-up-comedy-mit-panagiota-petridou-0/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "simon-jan-heisse-luft-2026-11-26",
+   "typ": "event",
+   "titel": "Simon & Jan: Heiße Luft",
+   "text": "Show in FRANZ - Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2026-11-26",
+   "meta": "FRANZ - Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/simon-jan-heie-luft-1/",
+   "quelle": "https://rausgegangen.de/events/simon-jan-heie-luft-1/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "green-science-slam-2026-12-03",
+   "typ": "event",
+   "titel": "Green Science Slam",
+   "text": "Show in FRANZ - Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2026-12-03",
+   "meta": "FRANZ - Aachen · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/green-science-slam-1/",
+   "quelle": "https://rausgegangen.de/events/green-science-slam-1/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "lars-ruth-reise-des-sehers-2026-12-06",
+   "typ": "event",
+   "titel": "Lars Ruth Reise des Sehers",
+   "text": "Show in FRANZ - Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2026-12-06",
+   "meta": "FRANZ - Aachen · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/lars-ruth-reise-des-sehers-0/",
+   "quelle": "https://rausgegangen.de/events/lars-ruth-reise-des-sehers-0/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "ralf-senkel-der-hat-gesessen-2026-12-09",
+   "typ": "event",
+   "titel": "Ralf Senkel – Der hat gesessen!",
+   "text": "Show in FRANZ - Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2026-12-09",
+   "meta": "FRANZ - Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/ralf-senkel-der-hat-gesessen-17/",
+   "quelle": "https://rausgegangen.de/events/ralf-senkel-der-hat-gesessen-17/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "der-herr-der-ringe-der-hobbit-2026-12-11",
+   "typ": "event",
+   "titel": "Der Herr der Ringe & Der Hobbit",
+   "text": "Show in Eurogress Aachen, Beginn 16:00 Uhr.",
+   "lng": 6.0918663,
+   "lat": 50.7820937,
+   "start": "2026-12-11",
+   "meta": "Eurogress Aachen · 16:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/der-herr-der-ringe-der-hobbit-62/",
+   "quelle": "https://rausgegangen.de/events/der-herr-der-ringe-der-hobbit-62/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "the-music-of-hans-zimmer-others-2026-12-11",
+   "typ": "event",
+   "titel": "The Music of Hans Zimmer & Others",
+   "text": "Show in Eurogress Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0918663,
+   "lat": 50.7820937,
+   "start": "2026-12-11",
+   "meta": "Eurogress Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/the-music-of-hans-zimmer-others-69/",
+   "quelle": "https://rausgegangen.de/events/the-music-of-hans-zimmer-others-69/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "gina-glinda-die-prickelnde-jahresabschlu-2026-12-27",
+   "typ": "event",
+   "titel": "Gina & Glinda - Die prickelnde Jahresabschluss-Show",
+   "text": "Show in Grenzlandtheater, Beginn 18:00 Uhr.",
+   "lng": 6.0846,
+   "lat": 50.7768,
+   "start": "2026-12-27",
+   "meta": "Grenzlandtheater · 18:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/gina-glinda-die-prickelnde-jahresabschluss-show-0/",
+   "quelle": "https://rausgegangen.de/events/gina-glinda-die-prickelnde-jahresabschluss-show-0/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "grand-classic-ballet-der-nussknacker-die-2026-12-29",
+   "typ": "event",
+   "titel": "Grand Classic Ballet - der Nussknacker - die traditionelle Wintertournee",
+   "text": "Show in Eurogress Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.0918663,
+   "lat": 50.7820937,
+   "start": "2026-12-29",
+   "meta": "Eurogress Aachen · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/grand-classic-ballet-der-nussknacker-die-traditionelle-winte-40/",
+   "quelle": "https://rausgegangen.de/events/grand-classic-ballet-der-nussknacker-die-traditionelle-winte-40/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "onkel-fisch-blickt-zurueck-der-satirisch-2026-12-30",
+   "typ": "event",
+   "titel": "Onkel Fisch blickt zurück - der satirische Jahresrückblick 2026",
+   "text": "Show in FRANZ - Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2026-12-30",
+   "meta": "FRANZ - Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/onkel-fisch-blickt-zuruck-der-satirische-jahresruckblick-202-0/",
+   "quelle": "https://rausgegangen.de/events/onkel-fisch-blickt-zuruck-der-satirische-jahresruckblick-202-0/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "der-magier-2027-01-03",
+   "typ": "event",
+   "titel": "Der Magier",
+   "text": "Show in FRANZ - Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2027-01-03",
+   "meta": "FRANZ - Aachen · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/der-magier-1/",
+   "quelle": "https://rausgegangen.de/events/der-magier-1/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "der-magier-live-christopher-koehler-2027-01-03",
+   "typ": "event",
+   "titel": "DER MAGIER live - Christopher Köhler",
+   "text": "Show in Franz Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2027-01-03",
+   "meta": "Franz Aachen · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/der-magier-live-christopher-kohler-7/",
+   "quelle": "https://rausgegangen.de/events/der-magier-live-christopher-kohler-7/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "malad-e-nachgelegt-bekenntnisse-einer-ga-2027-01-17",
+   "typ": "event",
+   "titel": "Maladée Nachgelegt! Bekenntnisse einer ganz normalen Göttin",
+   "text": "Show in FRANZ - Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2027-01-17",
+   "meta": "FRANZ - Aachen · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/maladee-nachgelegt-bekenntnisse-einer-ganz-normalen-gottin-3/",
+   "quelle": "https://rausgegangen.de/events/maladee-nachgelegt-bekenntnisse-einer-ganz-normalen-gottin-3/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "helene-bockhorst-lebefrau-2027-01-20",
+   "typ": "event",
+   "titel": "Helene Bockhorst Lebefrau",
+   "text": "Show in FRANZ - Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2027-01-20",
+   "meta": "FRANZ - Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/helene-bockhorst-lebefrau-12/",
+   "quelle": "https://rausgegangen.de/events/helene-bockhorst-lebefrau-12/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "friedemann-weise-satire-sucht-ein-zuhaus-2027-01-24",
+   "typ": "event",
+   "titel": "Friedemann Weise: Satire sucht ein Zuhause",
+   "text": "Show in FRANZ - Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2027-01-24",
+   "meta": "FRANZ - Aachen · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/friedemann-weise-satire-sucht-ein-zuhause-0/",
+   "quelle": "https://rausgegangen.de/events/friedemann-weise-satire-sucht-ein-zuhause-0/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "jan-philipp-zymny-illegale-strassenthera-2027-01-27",
+   "typ": "event",
+   "titel": "Jan Philipp Zymny: Illegale Straßentherapie",
+   "text": "Show in FRANZ - Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2027-01-27",
+   "meta": "FRANZ - Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/jan-philipp-zymny-illegale-straentherapie-13/",
+   "quelle": "https://rausgegangen.de/events/jan-philipp-zymny-illegale-straentherapie-13/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "elvis-das-musical-2027-02-26",
+   "typ": "event",
+   "titel": "ELVIS - DAS MUSICAL",
+   "text": "Show in Eurogress Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0918663,
+   "lat": 50.7820937,
+   "start": "2027-02-26",
+   "meta": "Eurogress Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/elvis-das-musical-282/",
+   "quelle": "https://rausgegangen.de/events/elvis-das-musical-282/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "helge-schneider-ellebogen-vom-tich-2027-03-14",
+   "typ": "event",
+   "titel": "Helge Schneider – Ellebogen vom Tich!",
+   "text": "Show in Eurogress Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.0918663,
+   "lat": 50.7820937,
+   "start": "2027-03-14",
+   "meta": "Eurogress Aachen · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/helge-schneider-ellebogen-vom-tich-9/",
+   "quelle": "https://rausgegangen.de/events/helge-schneider-ellebogen-vom-tich-9/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "poetry-slam-dead-or-alive-2027-03-16",
+   "typ": "event",
+   "titel": "Poetry Slam: Dead or Alive",
+   "text": "Show in Grenzlandtheater, Beginn 20:00 Uhr.",
+   "lng": 6.0846,
+   "lat": 50.7768,
+   "start": "2027-03-16",
+   "meta": "Grenzlandtheater · 20:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/poetry-slam-dead-or-alive-0/",
+   "quelle": "https://rausgegangen.de/events/poetry-slam-dead-or-alive-0/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "matilde-keizer-lasagne-im-bett-2027-03-17",
+   "typ": "event",
+   "titel": "Matilde Keizer: Lasagne im Bett",
+   "text": "Show in FRANZ - Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2027-03-17",
+   "meta": "FRANZ - Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/matilde-keizer-lasagne-im-bett-11/",
+   "quelle": "https://rausgegangen.de/events/matilde-keizer-lasagne-im-bett-11/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "stephan-bauer-vor-der-ehe-wollt-ich-ewig-2027-05-23",
+   "typ": "event",
+   "titel": "Stephan Bauer – Vor der Ehe wollt’ ich ewig leben",
+   "text": "Show in FRANZ - Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2027-05-23",
+   "meta": "FRANZ - Aachen · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/stephan-bauer-vor-der-ehe-wollt-ich-ewig-leben-2/",
+   "quelle": "https://rausgegangen.de/events/stephan-bauer-vor-der-ehe-wollt-ich-ewig-leben-2/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "the-fantastic-blues-brothers-band-eine-r-2027-06-12",
+   "typ": "event",
+   "titel": "The Fantastic Blues Brothers Band – Eine Rhythm’n’Blues-Revue",
+   "text": "Show in FRANZ - Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2027-06-12",
+   "meta": "FRANZ - Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/the-fantastic-blues-brothers-band-eine-rhythmnblues-revue-0/",
+   "quelle": "https://rausgegangen.de/events/the-fantastic-blues-brothers-band-eine-rhythmnblues-revue-0/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "sandra-spruenken-mutprobe-2026-10-03",
+   "typ": "event",
+   "titel": "Sandra Sprünken – Mutprobe!",
+   "text": "Lesung & Comedy in Grenzlandtheater, Beginn 20:00 Uhr.",
+   "lng": 6.0846,
+   "lat": 50.7768,
+   "start": "2026-10-03",
+   "meta": "Grenzlandtheater · 20:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/sandra-sprunken-5/",
+   "quelle": "https://rausgegangen.de/events/sandra-sprunken-5/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "bizzconnect-netzwerktreffen-fuer-unterne-2026-10-05",
+   "typ": "event",
+   "titel": "BizzConnect – Netzwerktreffen für Unternehmerinnen",
+   "text": "Lesung & Comedy in Restaurant Elisenbrunnen, Beginn 12:30 Uhr.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "start": "2026-10-05",
+   "meta": "Restaurant Elisenbrunnen · 12:30",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/bizzconnect-netzwerktreffen-fur-unternehmerinnen-3/",
+   "quelle": "https://rausgegangen.de/events/bizzconnect-netzwerktreffen-fur-unternehmerinnen-3/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "az-plenum-2026-10-12",
+   "typ": "event",
+   "titel": "AZ Plenum",
+   "text": "Lesung & Comedy in Autonomes Zentrum Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0928604,
+   "lat": 50.7683778,
+   "start": "2026-10-12",
+   "meta": "Autonomes Zentrum Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/az-plenum-6/",
+   "quelle": "https://rausgegangen.de/events/az-plenum-6/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "dead-or-alive-2026-10-12",
+   "typ": "event",
+   "titel": "Dead or Alive",
+   "text": "Lesung & Comedy in Grenzlandtheater, Beginn 20:00 Uhr.",
+   "lng": 6.0846,
+   "lat": 50.7768,
+   "start": "2026-10-12",
+   "meta": "Grenzlandtheater · 20:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/dead-or-alive-15/",
+   "quelle": "https://rausgegangen.de/events/dead-or-alive-15/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "ildik-von-kuerthy-alt-genug-die-show-zum-2026-10-14",
+   "typ": "event",
+   "titel": "Ildikó von Kürthy – Alt genug – Die Show zum Buch",
+   "text": "Lesung & Comedy in Kurhaus Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0888792,
+   "lat": 50.7769983,
+   "start": "2026-10-14",
+   "meta": "Kurhaus Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/ildiko-von-kurthy-alt-genug-die-show-zum-buch-0/",
+   "quelle": "https://rausgegangen.de/events/ildiko-von-kurthy-alt-genug-die-show-zum-buch-0/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "az-plenum-2026-10-26",
+   "typ": "event",
+   "titel": "AZ Plenum",
+   "text": "Lesung & Comedy in Autonomes Zentrum Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0928604,
+   "lat": 50.7683778,
+   "start": "2026-10-26",
+   "meta": "Autonomes Zentrum Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/az-plenum-8/",
+   "quelle": "https://rausgegangen.de/events/az-plenum-8/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "paul-panzer-schoene-neue-welt-welcome-to-2026-10-30",
+   "typ": "event",
+   "titel": "Paul Panzer – Schöne neue Welt … Welcome to hell",
+   "text": "Lesung & Comedy in Eurogress Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0918663,
+   "lat": 50.7820937,
+   "start": "2026-10-30",
+   "meta": "Eurogress Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/paul-panzer-schone-neue-welt-welcome-to-hell-17/",
+   "quelle": "https://rausgegangen.de/events/paul-panzer-schone-neue-welt-welcome-to-hell-17/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "der-letzte-weg-zur-krimithek-2026-11-03",
+   "typ": "event",
+   "titel": "Der letzte Weg zur Krimithek",
+   "text": "Lesung & Comedy in FRANZ - Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2026-11-03",
+   "meta": "FRANZ - Aachen · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/der-letzte-weg-zur-krimithek-0/",
+   "quelle": "https://rausgegangen.de/events/der-letzte-weg-zur-krimithek-0/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "poetry-wine-2026-11-14",
+   "typ": "event",
+   "titel": "Poetry & Wine",
+   "text": "Lesung & Comedy in Vino Weinmarkt, Beginn 19:00 Uhr.",
+   "lng": 6.0838,
+   "lat": 50.776,
+   "start": "2026-11-14",
+   "meta": "Vino Weinmarkt · 19:00",
+   "tags": [
+    "kultur",
+    "musik",
+    "fest"
+   ],
+   "link": "https://rausgegangen.de/events/poetry-wine-2/",
+   "quelle": "https://rausgegangen.de/events/poetry-wine-2/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "tahnee-ein-touch-too-much-2026-11-19",
+   "typ": "event",
+   "titel": "Tahnee – EIN TOUCH TOO MUCH",
+   "text": "Lesung & Comedy in Eurogress Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0918663,
+   "lat": 50.7820937,
+   "start": "2026-11-19",
+   "meta": "Eurogress Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/tahnee-ein-touch-too-much-10/",
+   "quelle": "https://rausgegangen.de/events/tahnee-ein-touch-too-much-10/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "gamechanger-by-bastian-bielendorfer-2026-11-20",
+   "typ": "event",
+   "titel": "GameChanger by Bastian Bielendorfer",
+   "text": "Lesung & Comedy in Eurogress Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0918663,
+   "lat": 50.7820937,
+   "start": "2026-11-20",
+   "meta": "Eurogress Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/gamechanger-by-bastian-bielendorfer-63/",
+   "quelle": "https://rausgegangen.de/events/gamechanger-by-bastian-bielendorfer-63/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "best-of-poetry-slam-2026-11-24",
+   "typ": "event",
+   "titel": "Best Of Poetry Slam",
+   "text": "Lesung & Comedy in Apollo Kino & Bar, Beginn 20:15 Uhr.",
+   "lng": 6.078955,
+   "lat": 50.7806829,
+   "start": "2026-11-24",
+   "meta": "Apollo Kino & Bar · 20:15",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/best-of-poetry-slam-212/",
+   "quelle": "https://rausgegangen.de/events/best-of-poetry-slam-212/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "open-mic-aachen-2026-11-27",
+   "typ": "event",
+   "titel": "Open Mic Aachen",
+   "text": "Lesung & Comedy in Café Vers, Beginn 19:30 Uhr.",
+   "lng": 6.0836,
+   "lat": 50.7789,
+   "start": "2026-11-27",
+   "meta": "Café Vers · 19:30",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/open-mic-aachen-2/",
+   "quelle": "https://rausgegangen.de/events/open-mic-aachen-2/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "oezcan-cosar-vip-2026-11-27",
+   "typ": "event",
+   "titel": "Özcan Cosar - VIP",
+   "text": "Lesung & Comedy in Eurogress Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0918663,
+   "lat": 50.7820937,
+   "start": "2026-11-27",
+   "meta": "Eurogress Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/ozcan-cosar-vip-52/",
+   "quelle": "https://rausgegangen.de/events/ozcan-cosar-vip-52/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "reinhold-messner-ueber-leben-2026-11-28",
+   "typ": "event",
+   "titel": "Reinhold Messner - \"Über Leben\"",
+   "text": "Lesung & Comedy in Eurogress Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0918663,
+   "lat": 50.7820937,
+   "start": "2026-11-28",
+   "meta": "Eurogress Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/reinhold-messner-uber-leben-fussen-5/",
+   "quelle": "https://rausgegangen.de/events/reinhold-messner-uber-leben-fussen-5/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "az-plenum-2026-11-30",
+   "typ": "event",
+   "titel": "AZ Plenum",
+   "text": "Lesung & Comedy in Autonomes Zentrum Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0928604,
+   "lat": 50.7683778,
+   "start": "2026-11-30",
+   "meta": "Autonomes Zentrum Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/az-plenum-9/",
+   "quelle": "https://rausgegangen.de/events/az-plenum-9/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "maddin-schneider-schoene-sonndaach-2026-12-10",
+   "typ": "event",
+   "titel": "Maddin Schneider Schöne Sonndaach",
+   "text": "Lesung & Comedy in FRANZ - Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2026-12-10",
+   "meta": "FRANZ - Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/maddin-schneider-schone-sonndaach-2/",
+   "quelle": "https://rausgegangen.de/events/maddin-schneider-schone-sonndaach-2/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "az-plenum-2026-12-14",
+   "typ": "event",
+   "titel": "AZ Plenum",
+   "text": "Lesung & Comedy in Autonomes Zentrum Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0928604,
+   "lat": 50.7683778,
+   "start": "2026-12-14",
+   "meta": "Autonomes Zentrum Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/az-plenum-10/",
+   "quelle": "https://rausgegangen.de/events/az-plenum-10/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "az-plenum-2026-12-21",
+   "typ": "event",
+   "titel": "AZ Plenum",
+   "text": "Lesung & Comedy in Autonomes Zentrum Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0928604,
+   "lat": 50.7683778,
+   "start": "2026-12-21",
+   "meta": "Autonomes Zentrum Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/az-plenum-11/",
+   "quelle": "https://rausgegangen.de/events/az-plenum-11/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "fischer-jung-innen-rau-aussen-ranzig-2027-01-10",
+   "typ": "event",
+   "titel": "FISCHER & JUNG – Innen Rau, Außen Ranzig",
+   "text": "Lesung & Comedy in FRANZ - Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2027-01-10",
+   "meta": "FRANZ - Aachen · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/fischer-jung-innen-rau-auen-ranzig-0/",
+   "quelle": "https://rausgegangen.de/events/fischer-jung-innen-rau-auen-ranzig-0/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "jan-van-weyde-immer-weyder-2027-02-25",
+   "typ": "event",
+   "titel": "Jan van Weyde – Immer Weyder…",
+   "text": "Lesung & Comedy in Grenzlandtheater, Beginn 20:00 Uhr.",
+   "lng": 6.0846,
+   "lat": 50.7768,
+   "start": "2027-02-25",
+   "meta": "Grenzlandtheater · 20:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/jan-van-weyde-immer-weyder-10/",
+   "quelle": "https://rausgegangen.de/events/jan-van-weyde-immer-weyder-10/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "cueneyt-akan-drama-king-2027-02-28",
+   "typ": "event",
+   "titel": "Cüneyt Akan – Drama King",
+   "text": "Lesung & Comedy in Grenzlandtheater, Beginn 19:00 Uhr.",
+   "lng": 6.0846,
+   "lat": 50.7768,
+   "start": "2027-02-28",
+   "meta": "Grenzlandtheater · 19:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/cuneyt-akan-drama-king-15/",
+   "quelle": "https://rausgegangen.de/events/cuneyt-akan-drama-king-15/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "onkel-fisch-aufregen-folgt-sonnenschein-2027-02-28",
+   "typ": "event",
+   "titel": "ONKeL FISCH: Aufregen folgt Sonnenschein",
+   "text": "Lesung & Comedy in FRANZ - Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2027-02-28",
+   "meta": "FRANZ - Aachen · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/onkel-fisch-aufregen-folgt-sonnenschein-0/",
+   "quelle": "https://rausgegangen.de/events/onkel-fisch-aufregen-folgt-sonnenschein-0/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "andreas-ohligschlaeger-hundherum-zufried-2027-03-07",
+   "typ": "event",
+   "titel": "ANDREAS OHLIGSCHLÄGER: Hundherum zufrieden?",
+   "text": "Lesung & Comedy in FRANZ - Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2027-03-07",
+   "meta": "FRANZ - Aachen · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/andreas-ohligschlager-hundherum-zufrieden-1/",
+   "quelle": "https://rausgegangen.de/events/andreas-ohligschlager-hundherum-zufrieden-1/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "hinnerk-koehn-noir-2027-03-14",
+   "typ": "event",
+   "titel": "HINNERK KÖHN NOIR",
+   "text": "Lesung & Comedy in FRANZ - Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2027-03-14",
+   "meta": "FRANZ - Aachen · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/hinnerk-kohn-noir-1/",
+   "quelle": "https://rausgegangen.de/events/hinnerk-kohn-noir-1/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "johannes-floeck-frueher-war-ich-juenger--2027-04-18",
+   "typ": "event",
+   "titel": "Johannes Flöck – Früher war ich jünger – Wenn Happy und Birthday ihre eigenen Wege gehen",
+   "text": "Lesung & Comedy in FRANZ - Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2027-04-18",
+   "meta": "FRANZ - Aachen · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/johannes-flock-fruher-war-ich-junger-wenn-happy-und-birthday-2/",
+   "quelle": "https://rausgegangen.de/events/johannes-flock-fruher-war-ich-junger-wenn-happy-und-birthday-2/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "till-reiners-2027-04-22",
+   "typ": "event",
+   "titel": "Till Reiners",
+   "text": "Lesung & Comedy in Eurogress Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0918663,
+   "lat": 50.7820937,
+   "start": "2027-04-22",
+   "meta": "Eurogress Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/till-reiners-64/",
+   "quelle": "https://rausgegangen.de/events/till-reiners-64/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "rebellcomedy-zeig-zaehne-2027-04-29",
+   "typ": "event",
+   "titel": "RebellComedy - ZEIG ZÄHNE",
+   "text": "Lesung & Comedy in Eurogress Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0918663,
+   "lat": 50.7820937,
+   "start": "2027-04-29",
+   "meta": "Eurogress Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/rebellcomedy-zeig-zahne-11/",
+   "quelle": "https://rausgegangen.de/events/rebellcomedy-zeig-zahne-11/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "klassikerperlen-2026-10-05",
+   "typ": "event",
+   "titel": "Klassikerperlen",
+   "text": "Film in Apollo Kino & Bar, Beginn 20:00 Uhr.",
+   "lng": 6.078955,
+   "lat": 50.7806829,
+   "start": "2026-10-05",
+   "meta": "Apollo Kino & Bar · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/klassikerperlen-39/",
+   "quelle": "https://rausgegangen.de/events/klassikerperlen-39/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "flohmarkt-porta-2026-10-11",
+   "typ": "event",
+   "titel": "Flohmarkt PORTA",
+   "text": "Markt in PORTA Möbelhaus, Beginn 11:00 Uhr.",
+   "lng": 6.0838,
+   "lat": 50.776,
+   "start": "2026-10-11",
+   "meta": "PORTA Möbelhaus · 11:00",
+   "tags": [
+    "markt",
+    "musik",
+    "fest"
+   ],
+   "link": "https://rausgegangen.de/events/flohmarkt-porta-2/",
+   "quelle": "https://rausgegangen.de/events/flohmarkt-porta-2/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "troedelmarkt-aachen-porta-2026-10-11",
+   "typ": "event",
+   "titel": "Trödelmarkt Aachen Porta",
+   "text": "Markt in Aachen Porta, Beginn 11:00 Uhr.",
+   "lng": 6.0838,
+   "lat": 50.776,
+   "start": "2026-10-11",
+   "meta": "Aachen Porta · 11:00",
+   "tags": [
+    "markt",
+    "musik",
+    "fest"
+   ],
+   "link": "https://rausgegangen.de/events/trodelmarkt-aachen-porta-1/",
+   "quelle": "https://rausgegangen.de/events/trodelmarkt-aachen-porta-1/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "altstadt-flohmarkt-2026-10-18",
+   "typ": "event",
+   "titel": "Altstadt Flohmarkt",
+   "text": "Markt in Aachen Altstadt, Beginn 11:00 Uhr.",
+   "lng": 6.0838,
+   "lat": 50.776,
+   "start": "2026-10-18",
+   "meta": "Aachen Altstadt · 11:00",
+   "tags": [
+    "markt",
+    "musik",
+    "fest"
+   ],
+   "link": "https://rausgegangen.de/events/altstadt-flohmarkt-16/",
+   "quelle": "https://rausgegangen.de/events/altstadt-flohmarkt-16/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "flohmarkt-kaufland-ehm-real-2026-10-25",
+   "typ": "event",
+   "titel": "Flohmarkt KAUFLAND ehm. REAL",
+   "text": "Markt in Breslauerstraße 35, Beginn 11:00 Uhr.",
+   "lng": 6.0838,
+   "lat": 50.776,
+   "start": "2026-10-25",
+   "meta": "Breslauerstraße 35 · 11:00",
+   "tags": [
+    "markt",
+    "musik",
+    "fest"
+   ],
+   "link": "https://rausgegangen.de/events/flohmarkt-kaufland-ehm-real-3/",
+   "quelle": "https://rausgegangen.de/events/flohmarkt-kaufland-ehm-real-3/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "troedelmarkt-aachen-kaufland-2026-10-25",
+   "typ": "event",
+   "titel": "Trödelmarkt Aachen KAUFLAND",
+   "text": "Markt in Aachen Kaufland, Beginn 11:00 Uhr.",
+   "lng": 6.0838,
+   "lat": 50.776,
+   "start": "2026-10-25",
+   "meta": "Aachen Kaufland · 11:00",
+   "tags": [
+    "markt",
+    "musik",
+    "fest"
+   ],
+   "link": "https://rausgegangen.de/events/trodelmarkt-aachen-kaufland-2/",
+   "quelle": "https://rausgegangen.de/events/trodelmarkt-aachen-kaufland-2/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "maedchenklamotte-aachen-das-liebig-2026-11-15",
+   "typ": "event",
+   "titel": "Mädchenklamotte @ Aachen Das Liebig",
+   "text": "Markt in DAS LIEBIG, Beginn 11:00 Uhr.",
+   "lng": 6.0838,
+   "lat": 50.776,
+   "start": "2026-11-15",
+   "meta": "DAS LIEBIG · 11:00",
+   "tags": [
+    "markt",
+    "musik",
+    "fest"
+   ],
+   "link": "https://rausgegangen.de/events/madchenklamotte-aachen-das-liebig-3/",
+   "quelle": "https://rausgegangen.de/events/madchenklamotte-aachen-das-liebig-3/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "aachener-schallplattenboerse-am-29-novem-2026-11-29",
+   "typ": "event",
+   "titel": "Aachener Schallplattenbörse am 29. November",
+   "text": "Markt in Park-Terrassen Aachen, Beginn 11:00 Uhr.",
+   "lng": 6.0838,
+   "lat": 50.776,
+   "start": "2026-11-29",
+   "meta": "Park-Terrassen Aachen · 11:00",
+   "tags": [
+    "markt",
+    "musik",
+    "fest"
+   ],
+   "link": "https://rausgegangen.de/events/aachener-schallplattenborse-am-29-november-0/",
+   "quelle": "https://rausgegangen.de/events/aachener-schallplattenborse-am-29-november-0/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "maedchenklamotte-aachen-das-liebig-2027-02-14",
+   "typ": "event",
+   "titel": "Mädchenklamotte @ Aachen DAS LIEBIG",
+   "text": "Markt in DAS LIEBIG, Beginn 11:00 Uhr.",
+   "lng": 6.0838,
+   "lat": 50.776,
+   "start": "2027-02-14",
+   "meta": "DAS LIEBIG · 11:00",
+   "tags": [
+    "markt",
+    "musik",
+    "fest"
+   ],
+   "link": "https://rausgegangen.de/events/madchenklamotte-aachen-das-liebig-4/",
+   "quelle": "https://rausgegangen.de/events/madchenklamotte-aachen-das-liebig-4/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "mami-und-mini-aachen-liebig-2027-04-11",
+   "typ": "event",
+   "titel": "Mami und Mini @ Aachen Liebig",
+   "text": "Markt in DAS LIEBIG, Beginn 11:00 Uhr.",
+   "lng": 6.0838,
+   "lat": 50.776,
+   "start": "2027-04-11",
+   "meta": "DAS LIEBIG · 11:00",
+   "tags": [
+    "markt",
+    "musik",
+    "fest"
+   ],
+   "link": "https://rausgegangen.de/events/mami-und-mini-aachen-liebig-0/",
+   "quelle": "https://rausgegangen.de/events/mami-und-mini-aachen-liebig-0/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "mami-und-mini-aachen-100-5-arena-2027-05-02",
+   "typ": "event",
+   "titel": "Mami und Mini @ Aachen 100,5 Arena",
+   "text": "Markt in 100,5 Arena, Beginn 11:00 Uhr.",
+   "lng": 6.0838,
+   "lat": 50.776,
+   "start": "2027-05-02",
+   "meta": "100,5 Arena · 11:00",
+   "tags": [
+    "markt",
+    "musik",
+    "fest"
+   ],
+   "link": "https://rausgegangen.de/events/mami-und-mini-aachen-1005-arena-0/",
+   "quelle": "https://rausgegangen.de/events/mami-und-mini-aachen-1005-arena-0/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "maedchenklamotte-aachen-100-5-arena-2027-06-13",
+   "typ": "event",
+   "titel": "Mädchenklamotte @ Aachen 100.5 Arena",
+   "text": "Markt in 100,5 Arena, Beginn 11:00 Uhr.",
+   "lng": 6.0838,
+   "lat": 50.776,
+   "start": "2027-06-13",
+   "meta": "100,5 Arena · 11:00",
+   "tags": [
+    "markt",
+    "musik",
+    "fest"
+   ],
+   "link": "https://rausgegangen.de/events/madchenklamotte-aachen-1005-arena-4/",
+   "quelle": "https://rausgegangen.de/events/madchenklamotte-aachen-1005-arena-4/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "fuehrungen-durch-die-sternwarte-2026-10-03",
+   "typ": "event",
+   "titel": "Führungen durch die Sternwarte",
+   "text": "Aktiv & Kreativ in Sternwarte Aachen, Beginn 21:00 Uhr.",
+   "lng": 6.0702,
+   "lat": 50.7587,
+   "start": "2026-10-03",
+   "meta": "Sternwarte Aachen · 21:00",
+   "tags": [
+    "familie",
+    "natur"
+   ],
+   "link": "https://rausgegangen.de/events/fuhrungen-durch-die-sternwarte-58/",
+   "quelle": "https://rausgegangen.de/events/fuhrungen-durch-die-sternwarte-58/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "az-plenum-2026-10-19",
+   "typ": "event",
+   "titel": "AZ Plenum",
+   "text": "Aktiv & Kreativ in Autonomes Zentrum Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0928604,
+   "lat": 50.7683778,
+   "start": "2026-10-19",
+   "meta": "Autonomes Zentrum Aachen · 20:00",
+   "tags": [
+    "familie",
+    "musik",
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/az-plenum-7/",
+   "quelle": "https://rausgegangen.de/events/az-plenum-7/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "herbstworkshop-archaeologie-2026-10-23",
+   "typ": "event",
+   "titel": "Herbstworkshop Archäologie",
+   "text": "Aktiv & Kreativ in Centre Charlemagne, Beginn 10:00 Uhr.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-10-23",
+   "meta": "Centre Charlemagne · 10:00",
+   "tags": [
+    "familie",
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/herbstworkshop-archaologie-0/",
+   "quelle": "https://rausgegangen.de/events/herbstworkshop-archaologie-0/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "music-paint-exp-dark-techno-edition-sa-2-2026-10-24",
+   "typ": "event",
+   "titel": "Music & Paint.exp • Dark Techno Edition • Sa 24.10.26 • 18-21 Uhr • Apollo Terrazza Aachen",
+   "text": "Aktiv & Kreativ in Apollo Kino & Bar, Beginn 18:00 Uhr.",
+   "lng": 6.078955,
+   "lat": 50.7806829,
+   "start": "2026-10-24",
+   "meta": "Apollo Kino & Bar · 18:00",
+   "tags": [
+    "familie",
+    "musik",
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/music-paintexp-dark-techno-edition-sa-241026-18-21-uhr-apoll-0/",
+   "quelle": "https://rausgegangen.de/events/music-paintexp-dark-techno-edition-sa-241026-18-21-uhr-apoll-0/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "schnullercaf-mit-dem-helene-weber-haus-2026-10-02",
+   "typ": "event",
+   "titel": "Schnullercafé mit dem Helene-Weber-Haus",
+   "text": "Für Kinder in Mayersche Aachen, Beginn 11:00 Uhr.",
+   "lng": 6.0865,
+   "lat": 50.7751,
+   "start": "2026-10-02",
+   "meta": "Mayersche Aachen · 11:00",
+   "tags": [
+    "familie",
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/schnullercafe-mit-dem-helene-weber-haus-64/",
+   "quelle": "https://rausgegangen.de/events/schnullercafe-mit-dem-helene-weber-haus-64/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "ohrenkino-mit-dem-helene-weber-haus-2026-10-02",
+   "typ": "event",
+   "titel": "Ohrenkino mit dem Helene-Weber-Haus",
+   "text": "Für Kinder in Mayersche Aachen, Beginn 15:00 Uhr.",
+   "lng": 6.0865,
+   "lat": 50.7751,
+   "start": "2026-10-02",
+   "meta": "Mayersche Aachen · 15:00",
+   "tags": [
+    "familie",
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/ohrenkino-mit-dem-helene-weber-haus-128/",
+   "quelle": "https://rausgegangen.de/events/ohrenkino-mit-dem-helene-weber-haus-128/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "krone-auf-mittelalter-werkstatt-2026-10-22",
+   "typ": "event",
+   "titel": "„Krone auf!“ – Mittelalter-Werkstatt",
+   "text": "Für Kinder in Centre Charlemagne, Beginn 10:00 Uhr.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-10-22",
+   "meta": "Centre Charlemagne · 10:00",
+   "tags": [
+    "familie",
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/krone-auf-mittelalter-werkstatt-0/",
+   "quelle": "https://rausgegangen.de/events/krone-auf-mittelalter-werkstatt-0/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "1-sitzkissenkonzert-2026-11-20",
+   "typ": "event",
+   "titel": "1. Sitzkissenkonzert",
+   "text": "Für Kinder in Theater Aachen, Beginn 10:00 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2026-11-20",
+   "meta": "Theater Aachen · 10:00",
+   "tags": [
+    "familie",
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/1-sitzkissenkonzert-1/",
+   "quelle": "https://rausgegangen.de/events/1-sitzkissenkonzert-1/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "das-klugscheisserchen-2026-11-29",
+   "typ": "event",
+   "titel": "Das Klugscheißerchen",
+   "text": "Für Kinder in Grenzlandtheater, Beginn 15:00 Uhr.",
+   "lng": 6.0846,
+   "lat": 50.7768,
+   "start": "2026-11-29",
+   "meta": "Grenzlandtheater · 15:00",
+   "tags": [
+    "familie",
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/das-klugscheierchen-6/",
+   "quelle": "https://rausgegangen.de/events/das-klugscheierchen-6/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "2-sitzkissenkonzert-2027-01-18",
+   "typ": "event",
+   "titel": "2. Sitzkissenkonzert",
+   "text": "Für Kinder in Theater Aachen, Beginn 11:30 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2027-01-18",
+   "meta": "Theater Aachen · 11:30",
+   "tags": [
+    "familie",
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/2-sitzkissenkonzert-36/",
+   "quelle": "https://rausgegangen.de/events/2-sitzkissenkonzert-36/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "3-sitzkissenkonzert-2027-06-03",
+   "typ": "event",
+   "titel": "3. Sitzkissenkonzert",
+   "text": "Für Kinder in Theater Aachen, Beginn 11:30 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2027-06-03",
+   "meta": "Theater Aachen · 11:30",
+   "tags": [
+    "familie",
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/3-sitzkissenkonzert-11/",
+   "quelle": "https://rausgegangen.de/events/3-sitzkissenkonzert-11/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "jamaram-meets-jahcoustix-2027-04-24",
+   "typ": "event",
+   "titel": "Jamaram Meets Jahcoustix",
+   "text": "Konzert im Musikbunker.",
+   "lng": 6.1035274,
+   "lat": 50.7672224,
+   "start": "2027-04-24",
+   "meta": "Musikbunker",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://musikbunkeraachen.bigcartel.com/product/jamaram-meets-jahcoustix-24042027",
+   "quelle": "https://musikbunkeraachen.bigcartel.com/product/jamaram-meets-jahcoustix-24042027",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "kunst-am-vormittag-alles-couven-oder-was-2026-09-30",
+   "typ": "event",
+   "titel": "Kunst am Vormittag. „Alles Couven oder was?“",
+   "text": "In Couven Museum. Beginn 11:00 Uhr.",
+   "lng": 6.0849,
+   "lat": 50.7761,
+   "start": "2026-09-30",
+   "meta": "Couven Museum · 11:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/kunst-am-vormittag-alles-couven-oder-was/",
+   "quelle": "https://aachen-kalender.de/event/kunst-am-vormittag-alles-couven-oder-was/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "altstadtfuehrung-2026-09-30",
+   "typ": "event",
+   "titel": "„Altstadtführung“.",
+   "text": "In Tourist Info, Elisenbrunnen. Beginn 14:00 Uhr.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "start": "2026-09-30",
+   "meta": "Tourist Info, Elisenbrunnen · 14:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-09-30/",
+   "quelle": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-09-30/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "entdeckerstunden-mit-denise-und-sabine-2026-09-30",
+   "typ": "event",
+   "titel": "Entdeckerstunden mit Denise und Sabine.",
+   "text": "In Mayersche Buchhandlung. Beginn 16:30 Uhr.",
+   "lng": 6.0865,
+   "lat": 50.7751,
+   "start": "2026-09-30",
+   "meta": "Mayersche Buchhandlung · 16:30",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/entdeckerstunden-mit-denise-und-sabine-28/2026-09-30/",
+   "quelle": "https://aachen-kalender.de/event/entdeckerstunden-mit-denise-und-sabine-28/2026-09-30/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "ausverkauft-dr-angela-merkel-freiheit-2026-09-30",
+   "typ": "event",
+   "titel": "AUSVERKAUFT. Dr. Angela Merkel. „Freiheit“.",
+   "text": "In Kurhaus Aachen. Beginn 19:00 Uhr.",
+   "lng": 6.0888792,
+   "lat": 50.7769983,
+   "start": "2026-09-30",
+   "meta": "Kurhaus Aachen · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/dr-angela-merkel-freiheit/",
+   "quelle": "https://aachen-kalender.de/event/dr-angela-merkel-freiheit/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "felix-koltermann-25-jahre-9-11-ein-bildg-2026-09-30",
+   "typ": "event",
+   "titel": "Felix Koltermann. „25 Jahre 9/11 – Ein bildgewaltiges Medienereignis“.",
+   "text": "In Int. Zeitungsmuseum (IZM). Beginn 19:00 Uhr.",
+   "lng": 6.0824,
+   "lat": 50.7758,
+   "start": "2026-09-30",
+   "meta": "Int. Zeitungsmuseum (IZM) · 19:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/felix-koltermann-25-jahre-9-11-ein-bildgewaltiges-medienereignis/",
+   "quelle": "https://aachen-kalender.de/event/felix-koltermann-25-jahre-9-11-ein-bildgewaltiges-medienereignis/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "extrawurst-komoedie-von-dietmar-jacobs-u-2026-09-30",
+   "typ": "event",
+   "titel": "„Extrawurst“. Komödie von Dietmar Jacobs und Moritz Netenjakob.",
+   "text": "In Grenzlandtheater. Beginn 20:00 Uhr.",
+   "lng": 6.0846,
+   "lat": 50.7768,
+   "start": "2026-09-30",
+   "meta": "Grenzlandtheater · 20:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/extrawurst-komoedie-von-dietmar-jacobs-und-moritz-netenjakob-9/2026-09-30/",
+   "quelle": "https://aachen-kalender.de/event/extrawurst-komoedie-von-dietmar-jacobs-und-moritz-netenjakob-9/2026-09-30/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "oeffentliche-fuehrung-am-vormittag-dr-gu-2026-10-01",
+   "typ": "event",
+   "titel": "Öffentliche Führung am Vormittag. Dr. Gudrun Liegl-Raditschnigg. „Aachen von den Anfängen ",
+   "text": "In Centre Charlemagne. Beginn 11:00 Uhr.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-10-01",
+   "meta": "Centre Charlemagne · 11:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/oeffentliche-fuehrung-am-vormittag-dr-gudrun-liegl-raditschnigg-aachen-von-den-anfaengen-bis-zur-freien-reichsstadt/",
+   "quelle": "https://aachen-kalender.de/event/oeffentliche-fuehrung-am-vormittag-dr-gudrun-liegl-raditschnigg-aachen-von-den-anfaengen-bis-zur-freien-reichsstadt/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "altstadtfuehrung-2026-10-01",
+   "typ": "event",
+   "titel": "„Altstadtführung“.",
+   "text": "In Tourist Info, Elisenbrunnen. Beginn 14:00 Uhr.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "start": "2026-10-01",
+   "meta": "Tourist Info, Elisenbrunnen · 14:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-10-01/",
+   "quelle": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-10-01/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "spaet-am-markt-feierabendmarkt-2026-10-01",
+   "typ": "event",
+   "titel": "„Spät am Markt“. Feierabendmarkt.",
+   "text": "In Markt. Beginn 16:00 Uhr.",
+   "lng": 6.0838,
+   "lat": 50.776,
+   "start": "2026-10-01",
+   "meta": "Markt · 16:00",
+   "tags": [
+    "kultur",
+    "musik",
+    "fest"
+   ],
+   "link": "https://aachen-kalender.de/event/spaet-am-markt-feierabendmarkt-3/2026-10-01/",
+   "quelle": "https://aachen-kalender.de/event/spaet-am-markt-feierabendmarkt-3/2026-10-01/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "entdeckerstunden-mit-denise-und-sabine-2026-10-01",
+   "typ": "event",
+   "titel": "Entdeckerstunden mit Denise und Sabine.",
+   "text": "In Mayersche Buchhandlung. Beginn 16:30 Uhr.",
+   "lng": 6.0865,
+   "lat": 50.7751,
+   "start": "2026-10-01",
+   "meta": "Mayersche Buchhandlung · 16:30",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/entdeckerstunden-mit-denise-und-sabine-30/2026-10-01/",
+   "quelle": "https://aachen-kalender.de/event/entdeckerstunden-mit-denise-und-sabine-30/2026-10-01/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "tinte-trifft-tusche-trifft-spaet-am-mark-2026-10-01",
+   "typ": "event",
+   "titel": "„‚Tinte trifft Tusche‘ trifft ‚Spät am Markt'“.",
+   "text": "In Couven Museum. Beginn 17:00 Uhr.",
+   "lng": 6.0849,
+   "lat": 50.7761,
+   "start": "2026-10-01",
+   "meta": "Couven Museum · 17:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/tinte-trifft-tusche-trifft-spaet-am-markt/",
+   "quelle": "https://aachen-kalender.de/event/tinte-trifft-tusche-trifft-spaet-am-markt/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "vhs-aachen-cinevhs-club-bugonia-film-2026-10-01",
+   "typ": "event",
+   "titel": "vhs Aachen. CINEvhs Club. „Bugonia“. Film.",
+   "text": "In Apollo. Beginn 18:00 Uhr.",
+   "lng": 6.078955,
+   "lat": 50.7806829,
+   "start": "2026-10-01",
+   "meta": "Apollo · 18:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/vhs-aachen-cinevhs-club-bugonia-film/",
+   "quelle": "https://aachen-kalender.de/event/vhs-aachen-cinevhs-club-bugonia-film/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "altstadtfuehrung-2026-10-02",
+   "typ": "event",
+   "titel": "„Altstadtführung“.",
+   "text": "In Tourist Info, Elisenbrunnen. Beginn 14:00 Uhr.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "start": "2026-10-02",
+   "meta": "Tourist Info, Elisenbrunnen · 14:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-10-02/",
+   "quelle": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-10-02/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "vhs-aachen-maximilian-knapp-45-aachener--2026-10-02",
+   "typ": "event",
+   "titel": "vhs Aachen. Maximilian Knapp. „45 + Aachener Nachkriegsarchitektur“.",
+   "text": "In Elisenbrunnen, Rotunde. Beginn 15:00 Uhr.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "start": "2026-10-02",
+   "meta": "Elisenbrunnen, Rotunde · 15:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/vhs-aachen-maximilian-knapp-45-aachener-nachkriegsarchitektur/",
+   "quelle": "https://aachen-kalender.de/event/vhs-aachen-maximilian-knapp-45-aachener-nachkriegsarchitektur/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "abendbummel-2026-10-02",
+   "typ": "event",
+   "titel": "Abendbummel",
+   "text": "In Tourist Info, Elisenbrunnen. Beginn 18:00 Uhr.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "start": "2026-10-02",
+   "meta": "Tourist Info, Elisenbrunnen · 18:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/abendbummel-43/2026-10-02/",
+   "quelle": "https://aachen-kalender.de/event/abendbummel-43/2026-10-02/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "hoeren-sprechen-ueber-neue-musik-rand-st-2026-10-02",
+   "typ": "event",
+   "titel": "Hören & Sprechen über neue Musik. „Rand Steiger“.",
+   "text": "In Music Loft Studio der Klangbrücke Aachen. Beginn 19:30 Uhr.",
+   "lng": 6.0888792,
+   "lat": 50.7769983,
+   "start": "2026-10-02",
+   "meta": "Music Loft Studio der Klangbrücke Aachen · 19:30",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/hoeren-sprechen-ueber-neue-musik-rand-steiger/",
+   "quelle": "https://aachen-kalender.de/event/hoeren-sprechen-ueber-neue-musik-rand-steiger/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "one-yard-2026-10-03",
+   "typ": "event",
+   "titel": "ONE YARD",
+   "text": "In Musikbunker Aachen. Beginn 21:00 Uhr.",
+   "lng": 6.1035274,
+   "lat": 50.7672224,
+   "start": "2026-10-03",
+   "meta": "Musikbunker Aachen · 21:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://mubu.ac/event/one-yard/",
+   "quelle": "https://mubu.ac/event/one-yard/",
+   "hinzu": "2026-09-30"
+  },
+  {
+   "id": "null-uhr-achtundfuenfzig-lesung-mit-fred-2026-11-13",
+   "typ": "event",
+   "titel": "Null Uhr achtundfünfzig — Lesung mit Frederik Tebbe",
+   "text": "In Raststätte. Beginn 19:00 Uhr.",
+   "lng": 6.0939733,
+   "lat": 50.77161,
+   "start": "2026-11-13",
+   "meta": "Raststätte · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://raststaette.org/termine/null-uhr-achtundfuenfzig-lesung-mit-frederik-tebbe/",
+   "quelle": "https://raststaette.org/termine/null-uhr-achtundfuenfzig-lesung-mit-frederik-tebbe/",
+   "hinzu": "2026-09-30"
   }
  ]
 }
