@@ -1,5 +1,5 @@
 {
- "stand": "2026-08-13",
+ "stand": "2026-10-01",
  "hinweis": "Ortsinformationen, einmal recherchiert statt bei jedem Aufruf abgefragt — so entsteht beim Betrachten der Karte keine Verbindung zu fremden Servern. Zuordnung ueber Koordinaten-Naehe (bis 150 m), gilt daher auch fuer neue Veranstaltungen am selben Ort. Erneuern: node scripts/orte-aktualisieren.mjs",
  "quellen": {
   "haltestellen_und_orte": "OpenStreetMap-Mitwirkende, ODbL 1.0 — https://www.openstreetmap.org/copyright",
@@ -7,46 +7,6 @@
  },
  "felder": "lat/lng · name · halt {name, m (Luftlinie), linien[]} · rolli (yes|limited|no) · zeiten (OSM opening_hours) · web · wiki {titel, text, url}",
  "orte": [
-  {
-   "lat": 50.776,
-   "lng": 6.092,
-   "name": "[Beispiel] Gesuch: Kurier Innenstadt → Brand",
-   "halt": {
-    "name": "Willy-Brandt-Platz",
-    "m": 33,
-    "linien": [
-     "4",
-     "44",
-     "47",
-     "73",
-     "X 25",
-     "X 73"
-    ]
-   }
-  },
-  {
-   "lat": 50.7735,
-   "lng": 6.09,
-   "name": "[Beispiel] Sofa zu verschenken",
-   "halt": {
-    "name": "Elisenbrunnen",
-    "m": 186,
-    "linien": [
-     "2",
-     "5",
-     "7",
-     "11",
-     "12",
-     "14",
-     "15",
-     "21",
-     "22",
-     "23",
-     "24",
-     "25"
-    ]
-   }
-  },
   {
    "lat": 50.77161,
    "lng": 6.09397,
@@ -58,6 +18,20 @@
      "3",
      "13",
      "36"
+    ]
+   }
+  },
+  {
+   "lat": 50.78209,
+   "lng": 6.09187,
+   "name": "1. Sinfoniekonzert — Chorkonzert",
+   "halt": {
+    "name": "Eurogress",
+    "m": 156,
+    "linien": [
+     "3",
+     "13",
+     "54"
     ]
    }
   },
@@ -81,9 +55,32 @@
    }
   },
   {
+   "lat": 50.7788,
+   "lng": 6.0805,
+   "name": "Aachener Fahrradmarkt",
+   "halt": {
+    "name": "Driescher Gässchen",
+    "m": 20,
+    "linien": [
+     "1",
+     "4",
+     "7",
+     "16",
+     "17",
+     "27",
+     "33",
+     "37",
+     "41",
+     "44",
+     "47",
+     "73"
+    ]
+   }
+  },
+  {
    "lat": 50.777,
    "lng": 6.0865,
-   "name": "Aachener Rathaus",
+   "name": "Aachener Kunstroute",
    "halt": {
     "name": "Aachen Bushof",
     "m": 161,
@@ -104,12 +101,43 @@
    },
    "rolli": "yes",
    "zeiten": "Mo-Su 10:00-18:00",
-   "web": "https://rathaus-aachen.de/en/",
-   "wiki": {
-    "titel": "Aachener Rathaus",
-    "text": "Das Aachener Rathaus ist neben dem Dom das markanteste Bauwerk im historischen Stadtkern der Aachener Altstadt.",
-    "url": "https://de.wikipedia.org/wiki/Aachener_Rathaus"
-   }
+   "web": "https://rathaus-aachen.de/en/"
+  },
+  {
+   "lat": 50.793,
+   "lng": 6.0955,
+   "name": "Alemannia – SC Verl",
+   "halt": {
+    "name": "Sportpark Soers",
+    "m": 211,
+    "linien": [
+     "30",
+     "51",
+     "N 6",
+     "N 9",
+     "X 51"
+    ]
+   },
+   "rolli": "yes",
+   "web": "https://www.alemannia-aachen.de/tivoli/"
+  },
+  {
+   "lat": 50.7925,
+   "lng": 6.0968,
+   "name": "Alemannia – SV Meppen",
+   "halt": {
+    "name": "Sportpark Soers",
+    "m": 105,
+    "linien": [
+     "30",
+     "51",
+     "N 6",
+     "N 9",
+     "X 51"
+    ]
+   },
+   "rolli": "yes",
+   "web": "https://www.alemannia-aachen.de/tivoli/"
   },
   {
    "lat": 50.7694,
@@ -152,6 +180,33 @@
    "rolli": "no"
   },
   {
+   "lat": 50.7823,
+   "lng": 6.0898,
+   "name": "Alte Bekannte — Mehr! Live",
+   "halt": {
+    "name": "Bastei",
+    "m": 49,
+    "linien": [
+     "30",
+     "54"
+    ]
+   }
+  },
+  {
+   "lat": 50.7795,
+   "lng": 6.0919,
+   "name": "arcadie quartett – Walzer, Milonga & Co.",
+   "halt": {
+    "name": "Eurogress",
+    "m": 144,
+    "linien": [
+     "3",
+     "13",
+     "54"
+    ]
+   }
+  },
+  {
    "lat": 50.78068,
    "lng": 6.07895,
    "name": "Attitude by Ice Kareem",
@@ -163,32 +218,40 @@
      "3",
      "7",
      "13",
+     "16",
      "17",
      "27",
      "30",
      "33",
      "37",
      "41",
-     "43",
      "44"
     ]
-   }
+   },
+   "rolli": "no",
+   "web": "https://www.apollo-aachen.de/"
   },
   {
-   "lat": 50.7776,
-   "lng": 6.0822,
-   "name": "Aula Carolina",
+   "lat": 50.76838,
+   "lng": 6.09286,
+   "name": "AZ Plenum",
    "halt": {
-    "name": "Kármán-Auditorium",
-    "m": 139,
+    "name": "Normaluhr",
+    "m": 91,
     "linien": [
-     "4"
+     "3",
+     "7",
+     "11",
+     "13",
+     "14",
+     "21",
+     "27",
+     "31",
+     "33",
+     "34",
+     "36",
+     "37"
     ]
-   },
-   "wiki": {
-    "titel": "Aula Carolina",
-    "text": "Die Aula Carolina ist ein unter Denkmalschutz stehendes Gebäude, das sowohl für schulische Versammlungen als auch für öffentliche Kulturveranstaltungen zur Verfügung steht.",
-    "url": "https://de.wikipedia.org/wiki/Aula_Carolina"
    }
   },
   {
@@ -199,13 +262,11 @@
     "name": "Keltenstraße",
     "m": 599,
     "linien": [
-     "25",
      "30",
      "33",
      "35",
      "55",
-     "70",
-     "N 4"
+     "70"
     ]
    }
   },
@@ -221,6 +282,43 @@
      "80",
      "X 47"
     ]
+   }
+  },
+  {
+   "lat": 50.7745,
+   "lng": 6.0835,
+   "name": "Bücherbasar der Stadtbibliothek",
+   "halt": {
+    "name": "Judengasse/Markt",
+    "m": 189,
+    "linien": [
+     "4"
+    ]
+   },
+   "rolli": "yes",
+   "web": "https://www.grashaus-aachen.eu/"
+  },
+  {
+   "lat": 50.76778,
+   "lng": 6.10389,
+   "name": "Burg Frankenberg",
+   "halt": {
+    "name": "Schlossstraße",
+    "m": 262,
+    "linien": [
+     "7",
+     "27",
+     "33",
+     "37",
+     "N 5"
+    ]
+   },
+   "rolli": "yes",
+   "web": "https://burgfrankenberg.de/",
+   "wiki": {
+    "titel": "Burg Frankenberg (Aachen)",
+    "text": "Die Burg Frankenberg, auch Frankenburg genannt, liegt im sogenannten Frankenberger Viertel, einem Stadtteil Aachens in Nordrhein-Westfalen.",
+    "url": "https://de.wikipedia.org/wiki/Burg_Frankenberg_(Aachen)"
    }
   },
   {
@@ -247,48 +345,60 @@
    }
   },
   {
-   "lat": 50.76782,
-   "lng": 6.10382,
-   "name": "Burg Frankenberg",
+   "lat": 50.766,
+   "lng": 6.0925,
+   "name": "Burtscheider Aktionstag",
    "halt": {
-    "name": "Schlossstraße",
-    "m": 255,
+    "name": "Kapitelstraße",
+    "m": 175,
     "linien": [
-     "7",
-     "27",
-     "33",
-     "37",
-     "N 5"
+     "14",
+     "34",
+     "54"
+    ]
+   },
+   "web": "https://www.aachen-tourismus.de/entdecken/sehenswuerdigkeiten/details/kurpark/"
+  },
+  {
+   "lat": 50.7756,
+   "lng": 6.0834,
+   "name": "Centre Charlemagne",
+   "halt": {
+    "name": "Judengasse/Markt",
+    "m": 149,
+    "linien": [
+     "4"
     ]
    },
    "rolli": "yes",
-   "web": "https://burgfrankenberg.de/",
+   "zeiten": "Tu-Su,PH 10:00-18:00",
+   "web": "https://centre-charlemagne.eu/",
    "wiki": {
-    "titel": "Burg Frankenberg (Aachen)",
-    "text": "Die Burg Frankenberg, auch Frankenburg genannt, liegt im sogenannten Frankenberger Viertel, einem Stadtteil Aachens in Nordrhein-Westfalen.",
-    "url": "https://de.wikipedia.org/wiki/Burg_Frankenberg_(Aachen)"
+    "titel": "Centre Charlemagne",
+    "text": "Das Centre Charlemagne – Neues Stadtmuseum Aachen ist das Heimat- und Geschichtsmuseum der Stadt Aachen.",
+    "url": "https://de.wikipedia.org/wiki/Centre_Charlemagne"
    }
   },
   {
-   "lat": 50.77572,
-   "lng": 6.08531,
+   "lat": 50.7763,
+   "lng": 6.0847,
    "name": "Couven-Museum",
    "halt": {
-    "name": "Elisenbrunnen",
-    "m": 216,
+    "name": "Minoritenstraße",
+    "m": 245,
     "linien": [
-     "2",
-     "5",
+     "1",
+     "4",
      "7",
-     "11",
-     "12",
-     "14",
-     "15",
-     "21",
-     "22",
-     "23",
-     "24",
-     "25"
+     "16",
+     "17",
+     "27",
+     "33",
+     "37",
+     "41",
+     "47",
+     "73",
+     "N 2"
     ]
    },
    "rolli": "limited",
@@ -326,6 +436,40 @@
    "web": "https://www.franz-aachen.de/"
   },
   {
+   "lat": 50.78992,
+   "lng": 6.11234,
+   "name": "Das-Da-Theater",
+   "rolli": "yes",
+   "wiki": {
+    "titel": "Das-Da-Theater",
+    "text": "Das Das-Da-Theater ist das größte professionelle Privattheater in der Städteregion Aachen.",
+    "url": "https://de.wikipedia.org/wiki/Das-Da-Theater"
+   }
+  },
+  {
+   "lat": 50.769,
+   "lng": 6.098,
+   "name": "Diver & Friends Festival – Open Birthday Bash",
+   "halt": {
+    "name": "Normaluhr",
+    "m": 136,
+    "linien": [
+     "3",
+     "7",
+     "11",
+     "13",
+     "14",
+     "21",
+     "27",
+     "31",
+     "33",
+     "34",
+     "36",
+     "37"
+    ]
+   }
+  },
+  {
    "lat": 50.7827,
    "lng": 6.0951,
    "name": "Dixie Krekkers — Jazz-Frühschoppen",
@@ -336,6 +480,24 @@
      "34",
      "N 3",
      "N 6"
+    ]
+   }
+  },
+  {
+   "lat": 50.78645,
+   "lng": 6.08049,
+   "name": "Drehturm Belvedere",
+   "halt": {
+    "name": "Bendplatz",
+    "m": 501,
+    "linien": [
+     "7",
+     "17",
+     "27",
+     "37",
+     "47",
+     "N 2",
+     "X 47"
     ]
    }
   },
@@ -352,12 +514,51 @@
    }
   },
   {
-   "lat": 50.7743,
-   "lng": 6.0865,
+   "lat": 50.798,
+   "lng": 6.146,
+   "name": "Eilendorfer Weinfest",
+   "halt": {
+    "name": "Gut-Knapp-Straße",
+    "m": 511,
+    "linien": [
+     "1",
+     "7",
+     "31",
+     "52",
+     "N 3"
+    ]
+   }
+  },
+  {
+   "lat": 50.7776,
+   "lng": 6.0908,
+   "name": "Elena Uhlig & Fritz Karl – Die Ehe",
+   "halt": {
+    "name": "Aachen Bushof",
+    "m": 3,
+    "linien": [
+     "1",
+     "2",
+     "4",
+     "5",
+     "7",
+     "11",
+     "12",
+     "14",
+     "15",
+     "16",
+     "17",
+     "21"
+    ]
+   }
+  },
+  {
+   "lat": 50.7747,
+   "lng": 6.0871,
    "name": "Elisenbrunnen",
    "halt": {
     "name": "Elisenbrunnen",
-    "m": 67,
+    "m": 50,
     "linien": [
      "2",
      "5",
@@ -373,7 +574,8 @@
      "25"
     ]
    },
-   "rolli": "yes",
+   "rolli": "no",
+   "web": "https://kulturwerk-aachen.de/",
    "wiki": {
     "titel": "Elisenbrunnen",
     "text": "Der Elisenbrunnen am Friedrich-Wilhelm-Platz in Aachen ist ein klassizistischer Bau der Architekten Johann Peter Cremer und Karl Friedrich Schinkel.",
@@ -381,12 +583,12 @@
    }
   },
   {
-   "lat": 50.7745,
-   "lng": 6.0873,
+   "lat": 50.7742,
+   "lng": 6.0869,
    "name": "Elisenbrunnen",
    "halt": {
     "name": "Elisenbrunnen",
-    "m": 23,
+    "m": 41,
     "linien": [
      "2",
      "5",
@@ -444,7 +646,7 @@
    "name": "Erdbeeren pflücken: Bio-Hof Maria Haus",
    "halt": {
     "name": "Kronenberg",
-    "m": 285,
+    "m": 286,
     "linien": [
      "4",
      "30",
@@ -527,6 +729,21 @@
      "N 7"
     ]
    }
+  },
+  {
+   "lat": 50.76427,
+   "lng": 6.09243,
+   "name": "Ernte: Feigenbaum Burtscheid",
+   "halt": {
+    "name": "Burtscheid Hauptstraße",
+    "m": 246,
+    "linien": [
+     "14",
+     "34",
+     "54"
+    ]
+   },
+   "web": "https://www.aachen-tourismus.de/entdecken/sehenswuerdigkeiten/details/kurpark/"
   },
   {
    "lat": 50.75199,
@@ -631,50 +848,83 @@
    }
   },
   {
-   "lat": 50.7823,
-   "lng": 6.0898,
-   "name": "Eurogress Aachen",
+   "lat": 50.7794,
+   "lng": 6.0779,
+   "name": "Filmfest Aachen",
    "halt": {
-    "name": "Bastei",
-    "m": 49,
+    "name": "Ponttor",
+    "m": 88,
     "linien": [
+     "1",
+     "3",
+     "7",
+     "13",
+     "16",
+     "17",
+     "27",
      "30",
-     "54"
+     "33",
+     "37",
+     "41",
+     "44"
     ]
    },
-   "rolli": "yes",
-   "web": "https://www.eurogress-aachen.de/",
-   "wiki": {
-    "titel": "Eurogress Aachen",
-    "text": "Das Eurogress Aachen ist ein Kongress- und Veranstaltungszentrum sowie ein Unternehmen der Stadt Aachen.",
-    "url": "https://de.wikipedia.org/wiki/Eurogress_Aachen"
+   "rolli": "no",
+   "web": "https://www.apollo-aachen.de/"
+  },
+  {
+   "lat": 50.7669,
+   "lng": 6.1215,
+   "name": "Forced To Mode – Depeche-Mode-Tribute",
+   "halt": {
+    "name": "Zeppelinstraße",
+    "m": 114,
+    "linien": [
+     "5",
+     "15",
+     "16",
+     "25",
+     "27",
+     "35",
+     "37",
+     "45",
+     "46",
+     "55",
+     "65",
+     "66"
+    ]
    }
   },
   {
-   "lat": 50.78209,
-   "lng": 6.09187,
-   "name": "Eurogress Aachen",
+   "lat": 50.7587,
+   "lng": 6.0702,
+   "name": "Führungen durch die Sternwarte",
    "halt": {
-    "name": "Eurogress",
-    "m": 156,
+    "name": "Yorckstraße",
+    "m": 295,
     "linien": [
-     "3",
-     "13",
-     "54"
+     "2"
     ]
-   },
-   "rolli": "yes",
-   "web": "https://www.eurogress-aachen.de/",
-   "wiki": {
-    "titel": "Eurogress Aachen",
-    "text": "Das Eurogress Aachen ist ein Kongress- und Veranstaltungszentrum sowie ein Unternehmen der Stadt Aachen.",
-    "url": "https://de.wikipedia.org/wiki/Eurogress_Aachen"
+   }
+  },
+  {
+   "lat": 50.7757,
+   "lng": 6.1211,
+   "name": "FUN - plays the Beatles Songbook",
+   "halt": {
+    "name": "Geschwister-Scholl-Gymnasium",
+    "m": 107,
+    "linien": [
+     "2",
+     "12",
+     "22"
+    ]
    }
   },
   {
    "lat": 50.7789,
    "lng": 6.0466,
-   "name": "Gut Melaten",
+   "name": "Gut-Melaten-Allee",
    "halt": {
     "name": "Rabentalweg (Mensa Vita)",
     "m": 157,
@@ -684,11 +934,18 @@
      "22",
      "41"
     ]
-   },
-   "wiki": {
-    "titel": "Gut Melaten",
-    "text": "Das Gut Melaten ist ein ehemaliger Gutshof in Aachen. Der Hof geht auf ein mittelalterliches Leprosorium zurück, welches an der nach Maastricht führenden Via Regia gegründet wurde.",
-    "url": "https://de.wikipedia.org/wiki/Gut_Melaten"
+   }
+  },
+  {
+   "lat": 50.7768,
+   "lng": 6.079,
+   "name": "H2O (Punkrock-Festival)",
+   "halt": {
+    "name": "Kármán-Auditorium",
+    "m": 86,
+    "linien": [
+     "4"
+    ]
    }
   },
   {
@@ -704,12 +961,12 @@
    }
   },
   {
-   "lat": 50.7756,
-   "lng": 6.0834,
+   "lat": 50.7758,
+   "lng": 6.0824,
    "name": "Internationales Zeitungsmuseum",
    "halt": {
     "name": "Judengasse/Markt",
-    "m": 149,
+    "m": 84,
     "linien": [
      "4"
     ]
@@ -757,67 +1014,103 @@
    }
   },
   {
-   "lat": 50.7762,
-   "lng": 6.0838,
-   "name": "Katschhof",
+   "lat": 50.765,
+   "lng": 6.1,
+   "name": "Jesus Lives in Vegas – Konzert",
    "halt": {
-    "name": "Judengasse/Markt",
-    "m": 192,
+    "name": "Gillesbachtal",
+    "m": 77,
     "linien": [
-     "4"
+     "11",
+     "21",
+     "31",
+     "36",
+     "51",
+     "N 1",
+     "N 5"
     ]
-   },
-   "rolli": "yes",
-   "wiki": {
-    "titel": "Katschhof",
-    "text": "Der Katschhof ist ein zentral gelegener, öffentlicher Platz in der Aachener Altstadt. Der Name leitet sich von Kaxhoff, später Kackshoff oder laut Oppenhoff von Katzhoff ab und bezeichnet damit den Ort des ehemaligen Prangers.",
-    "url": "https://de.wikipedia.org/wiki/Katschhof"
    }
   },
   {
-   "lat": 50.766,
-   "lng": 6.0925,
-   "name": "Kurpark Burtscheid",
+   "lat": 50.755,
+   "lng": 6.135,
+   "name": "Kindersachenflohmarkt Bleiberger Fabrik",
    "halt": {
-    "name": "Kapitelstraße",
-    "m": 175,
+    "name": "Neuhaus",
+    "m": 228,
     "linien": [
-     "14",
-     "34",
-     "54"
+     "10",
+     "16",
+     "46"
     ]
-   },
-   "web": "https://www.aachen-tourismus.de/entdecken/sehenswuerdigkeiten/details/kurpark/",
-   "wiki": {
-    "titel": "Kurpark Burtscheid",
-    "text": "Der Kurpark Burtscheid ist eine Ende des 18. Jahrhunderts angelegte Grünanlage im Aachener Stadtteil Burtscheid.",
-    "url": "https://de.wikipedia.org/wiki/Kurpark_Burtscheid"
    }
   },
   {
-   "lat": 50.76427,
-   "lng": 6.09243,
-   "name": "Kurpark Burtscheid",
+   "lat": 50.87,
+   "lng": 6.083,
+   "name": "Kindersachenflohmarkt Kita Rappelkiste",
    "halt": {
-    "name": "Burtscheid Hauptstraße",
-    "m": 246,
+    "name": "Rolduc",
+    "m": 565,
     "linien": [
-     "14",
+     "27"
+    ]
+   }
+  },
+  {
+   "lat": 50.7714,
+   "lng": 6.0871,
+   "name": "Kinotag: dienstags 7,90 € statt 11,90 €",
+   "halt": {
+    "name": "Theater",
+    "m": 53,
+    "linien": [
+     "1",
+     "2",
+     "4",
+     "7",
+     "8",
+     "10",
+     "27",
+     "33",
      "34",
-     "54"
+     "37",
+     "43",
+     "44"
+    ]
+   }
+  },
+  {
+   "lat": 50.696,
+   "lng": 6.169,
+   "name": "KuKuK-Flohmarkt",
+   "halt": {
+    "name": "Schmithof Ardennenstraße",
+    "m": 352,
+    "linien": [
+     "16"
+    ]
+   }
+  },
+  {
+   "lat": 50.76703,
+   "lng": 6.08179,
+   "name": "Live-Jam & Billard: Reggae-Abend",
+   "halt": {
+    "name": "Reumontstraße",
+    "m": 115,
+    "linien": [
+     "2",
+     "43",
+     "53"
     ]
    },
-   "web": "https://www.aachen-tourismus.de/entdecken/sehenswuerdigkeiten/details/kurpark/",
-   "wiki": {
-    "titel": "Kurpark Burtscheid",
-    "text": "Der Kurpark Burtscheid ist eine Ende des 18. Jahrhunderts angelegte Grünanlage im Aachener Stadtteil Burtscheid.",
-    "url": "https://de.wikipedia.org/wiki/Kurpark_Burtscheid"
-   }
+   "web": "http://www.suedoase.de"
   },
   {
    "lat": 50.7869,
    "lng": 6.0792,
-   "name": "Lousberg",
+   "name": "Lousberg (Obelisk & Panorama)",
    "halt": {
     "name": "Bendplatz",
     "m": 449,
@@ -830,17 +1123,30 @@
      "N 2",
      "X 47"
     ]
-   },
-   "wiki": {
-    "titel": "Lousberg",
-    "text": "Der Lousberg ist mit 264 Metern Höhe eine markante Erhebung am Nordrand des historischen Zentrums der Stadt Aachen, die zu Beginn des 19.",
-    "url": "https://de.wikipedia.org/wiki/Lousberg"
    }
   },
   {
    "lat": 50.78111,
    "lng": 6.10173,
    "name": "Ludwig Forum für Internationale Kunst",
+   "halt": {
+    "name": "Blücherplatz",
+    "m": 86,
+    "linien": [
+     "1",
+     "11",
+     "16",
+     "21",
+     "31",
+     "41",
+     "46",
+     "51",
+     "52",
+     "220",
+     "N 3",
+     "N 6"
+    ]
+   },
    "rolli": "yes",
    "zeiten": "Tu-We 12:00-18:00; Th 12:00-22:00; Fr 12:00-18:00; Sa, Su, PH 11:00-18:00",
    "web": "https://www.ludwigforum.de/",
@@ -848,6 +1154,31 @@
     "titel": "Ludwig Forum für Internationale Kunst",
     "text": "Das Ludwig Forum für Internationale Kunst ist ein Museum für moderne Kunst in Aachen. Es gründet auf die Sammlung Ludwig, die das Aachener Sammlerehepaar Irene und Peter Ludwig Mitte des 20.",
     "url": "https://de.wikipedia.org/wiki/Ludwig_Forum_f%C3%BCr_Internationale_Kunst"
+   }
+  },
+  {
+   "lat": 50.791,
+   "lng": 6.043,
+   "name": "Mädchen Klamotte – Second-Hand-Flohmarkt",
+   "halt": {
+    "name": "Laurensberg Seffent",
+    "m": 270,
+    "linien": []
+   }
+  },
+  {
+   "lat": 50.7315,
+   "lng": 6.1655,
+   "name": "Maik Krahl – Konzert",
+   "halt": {
+    "name": "Niederforstbach Bau",
+    "m": 302,
+    "linien": [
+     "35",
+     "55",
+     "65",
+     "N 5"
+    ]
    }
   },
   {
@@ -872,12 +1203,7 @@
      "N 60"
     ]
    },
-   "rolli": "no",
-   "wiki": {
-    "titel": "Marschiertor",
-    "text": "Das Marschiertor, bis ins 17. Jahrhundert auch Mies(ch)ierspforte oder später auch Berseter Tor oder Burtscheider Tor genannt, war das Südtor der äußeren Aachener Stadtmauer.",
-    "url": "https://de.wikipedia.org/wiki/Marschiertor"
-   }
+   "rolli": "no"
   },
   {
    "lat": 50.7735,
@@ -916,7 +1242,7 @@
   {
    "lat": 50.78165,
    "lng": 6.09303,
-   "name": "Neues Kurhaus Aachen",
+   "name": "Michael Hatzius — Echsklusiv",
    "halt": {
     "name": "Eurogress",
     "m": 160,
@@ -925,12 +1251,115 @@
      "13",
      "54"
     ]
-   },
-   "web": "https://www.aachen-event.com/kurhaus",
-   "wiki": {
-    "titel": "Neues Kurhaus Aachen",
-    "text": "Das Neue Kurhaus in Aachen, erbaut in den Jahren 1914 bis 1916, ist ein neoklassizistisches Gebäude in Aachen.",
-    "url": "https://de.wikipedia.org/wiki/Neues_Kurhaus"
+   }
+  },
+  {
+   "lat": 50.77062,
+   "lng": 6.11852,
+   "name": "Neu: Action (Aachen Arkaden)",
+   "halt": {
+    "name": "Bahnhof Rothe Erde",
+    "m": 75,
+    "linien": [
+     "5",
+     "7",
+     "15",
+     "16",
+     "25",
+     "27",
+     "35",
+     "37",
+     "45",
+     "46",
+     "55",
+     "65"
+    ]
+   }
+  },
+  {
+   "lat": 50.7799,
+   "lng": 6.0802,
+   "name": "Neu: Atawich (Burger)",
+   "halt": {
+    "name": "Driescher Gässchen",
+    "m": 118,
+    "linien": [
+     "1",
+     "4",
+     "7",
+     "16",
+     "17",
+     "27",
+     "33",
+     "37",
+     "41",
+     "44",
+     "47",
+     "73"
+    ]
+   }
+  },
+  {
+   "lat": 50.77489,
+   "lng": 6.08943,
+   "name": "Neu: Çiğköftem",
+   "halt": {
+    "name": "Elisenbrunnen",
+    "m": 90,
+    "linien": [
+     "2",
+     "5",
+     "7",
+     "11",
+     "12",
+     "14",
+     "15",
+     "21",
+     "22",
+     "23",
+     "24",
+     "25"
+    ]
+   }
+  },
+  {
+   "lat": 50.7766,
+   "lng": 6.0844,
+   "name": "Neu: Zusje (Marktplatz)",
+   "halt": {
+    "name": "Minoritenstraße",
+    "m": 217,
+    "linien": [
+     "1",
+     "4",
+     "7",
+     "16",
+     "17",
+     "27",
+     "33",
+     "37",
+     "41",
+     "47",
+     "73",
+     "N 2"
+    ]
+   }
+  },
+  {
+   "lat": 50.807,
+   "lng": 6.061,
+   "name": "Nils Kercher Trio mit Barou Kouyaté & Kira Kaipainen",
+   "halt": {
+    "name": "Berensberger Straße",
+    "m": 186,
+    "linien": [
+     "7",
+     "17",
+     "47",
+     "70",
+     "80",
+     "N 2"
+    ]
    }
   },
   {
@@ -957,27 +1386,45 @@
    "name": "Ponttor",
    "halt": {
     "name": "Ponttor",
-    "m": 34,
+    "m": 36,
     "linien": [
      "1",
      "3",
      "7",
      "13",
+     "16",
      "17",
      "27",
      "30",
      "33",
      "37",
      "41",
-     "43",
      "44"
     ]
    },
-   "rolli": "yes",
-   "wiki": {
-    "titel": "Ponttor",
-    "text": "Das Ponttor in Aachen, zeitweise auch Brückenpforte oder -thor genannt, ist das westliche der beiden Nordtore der ehemaligen äußeren Aachener Stadtmauer.",
-    "url": "https://de.wikipedia.org/wiki/Ponttor"
+   "rolli": "yes"
+  },
+  {
+   "lat": 50.7789,
+   "lng": 6.0836,
+   "name": "Queer Stories & Live Music",
+   "halt": {
+    "name": "Minoritenstraße",
+    "m": 125,
+    "linien": [
+     "1",
+     "4",
+     "7",
+     "16",
+     "17",
+     "27",
+     "33",
+     "37",
+     "41",
+     "47",
+     "73",
+     "N 2"
+    ]
    }
   },
   {
@@ -992,8 +1439,7 @@
      "43",
      "53"
     ]
-   },
-   "web": "http://www.suedoase.de"
+   }
   },
   {
    "lat": 50.7972,
@@ -1046,7 +1492,8 @@
      "24",
      "25"
     ]
-   }
+   },
+   "web": "http://www.wgdv.de/wege/gemeindehaus"
   },
   {
    "lat": 50.783,
@@ -1054,12 +1501,52 @@
    "name": "Ricarda Schumann Barockensemble",
    "halt": {
     "name": "Bastei",
-    "m": 267,
+    "m": 265,
     "linien": [
      "30",
      "54"
     ]
    }
+  },
+  {
+   "lat": 50.777,
+   "lng": 6.077,
+   "name": "satznachvorn Poetry Slam",
+   "halt": {
+    "name": "Technische Hochschule",
+    "m": 51,
+    "linien": [
+     "13",
+     "N 2",
+     "N 4"
+    ]
+   }
+  },
+  {
+   "lat": 50.7768,
+   "lng": 6.0846,
+   "name": "Sing mit Tanja!",
+   "halt": {
+    "name": "Minoritenstraße",
+    "m": 192,
+    "linien": [
+     "1",
+     "4",
+     "7",
+     "16",
+     "17",
+     "27",
+     "33",
+     "37",
+     "41",
+     "47",
+     "73",
+     "N 2"
+    ]
+   },
+   "rolli": "yes",
+   "zeiten": "Mo-Su 10:00-18:00",
+   "web": "https://rathaus-aachen.de/en/"
   },
   {
    "lat": 50.76722,
@@ -1092,7 +1579,7 @@
   {
    "lat": 50.783,
    "lng": 6.0971,
-   "name": "Stadtgarten Aachen",
+   "name": "Stadtgarten / Kurpark",
    "halt": {
     "name": "Carolus Thermen",
     "m": 133,
@@ -1101,11 +1588,36 @@
      "N 6"
     ]
    },
-   "web": "https://www.aachen-tourismus.de/entdecken/sehenswuerdigkeiten/details/aachener-stadtpark/",
-   "wiki": {
-    "titel": "Stadtgarten Aachen",
-    "text": "Der Stadtgarten Aachen, auch als Stadtpark Aachen bezeichnet, mit dem zentralen und 193 m ü.",
-    "url": "https://de.wikipedia.org/wiki/Stadtgarten_Aachen"
+   "web": "https://www.aachen-tourismus.de/entdecken/sehenswuerdigkeiten/details/aachener-stadtpark/"
+  },
+  {
+   "lat": 50.762,
+   "lng": 6.114,
+   "name": "Stunk Unplugged – Tour 2026",
+   "halt": {
+    "name": "Zwanzigmorgen",
+    "m": 246,
+    "linien": [
+     "33"
+    ]
+   }
+  },
+  {
+   "lat": 50.7712,
+   "lng": 6.0905,
+   "name": "Tag des offenen Denkmals",
+   "halt": {
+    "name": "Wallstraße",
+    "m": 34,
+    "linien": [
+     "7",
+     "27",
+     "33",
+     "34",
+     "37",
+     "54",
+     "N 1"
+    ]
    }
   },
   {
@@ -1122,6 +1634,36 @@
      "37",
      "N 5"
     ]
+   }
+  },
+  {
+   "lat": 50.7728,
+   "lng": 6.0865,
+   "name": "Theater Aachen",
+   "halt": {
+    "name": "Alter Posthof",
+    "m": 66,
+    "linien": [
+     "2",
+     "5",
+     "7",
+     "11",
+     "12",
+     "14",
+     "21",
+     "22",
+     "24",
+     "25",
+     "27",
+     "31"
+    ]
+   },
+   "rolli": "yes",
+   "web": "https://www.theater-aachen.de/",
+   "wiki": {
+    "titel": "Theater Aachen",
+    "text": "Das Theater Aachen ist eine im Jahr 1825 eröffnete Kultureinrichtung für Schauspiel und Musiktheater der Stadt Aachen.",
+    "url": "https://de.wikipedia.org/wiki/Theater_Aachen"
    }
   },
   {
@@ -1152,82 +1694,6 @@
     "titel": "Theater Aachen",
     "text": "Das Theater Aachen ist eine im Jahr 1825 eröffnete Kultureinrichtung für Schauspiel und Musiktheater der Stadt Aachen.",
     "url": "https://de.wikipedia.org/wiki/Theater_Aachen"
-   }
-  },
-  {
-   "lat": 50.77254,
-   "lng": 6.08715,
-   "name": "Theater Aachen",
-   "halt": {
-    "name": "Alter Posthof",
-    "m": 91,
-    "linien": [
-     "2",
-     "5",
-     "7",
-     "11",
-     "12",
-     "14",
-     "21",
-     "22",
-     "24",
-     "25",
-     "27",
-     "31"
-    ]
-   },
-   "rolli": "yes",
-   "web": "https://www.theater-aachen.de/",
-   "wiki": {
-    "titel": "Theater Aachen",
-    "text": "Das Theater Aachen ist eine im Jahr 1825 eröffnete Kultureinrichtung für Schauspiel und Musiktheater der Stadt Aachen.",
-    "url": "https://de.wikipedia.org/wiki/Theater_Aachen"
-   }
-  },
-  {
-   "lat": 50.793,
-   "lng": 6.0955,
-   "name": "Tivoli",
-   "halt": {
-    "name": "Sportpark Soers",
-    "m": 211,
-    "linien": [
-     "30",
-     "51",
-     "N 6",
-     "N 9",
-     "X 51"
-    ]
-   },
-   "rolli": "yes",
-   "web": "https://www.alemannia-aachen.de/tivoli/",
-   "wiki": {
-    "titel": "Tivoli (Aachen)",
-    "text": "Der Tivoli ist ein Fußballstadion im Sportpark Soers im nordrhein-westfälischen Aachen auf dem ehemaligen Gut Tivoli.",
-    "url": "https://de.wikipedia.org/wiki/Tivoli_(Aachen)"
-   }
-  },
-  {
-   "lat": 50.7925,
-   "lng": 6.0968,
-   "name": "Tivoli",
-   "halt": {
-    "name": "Sportpark Soers",
-    "m": 105,
-    "linien": [
-     "30",
-     "51",
-     "N 6",
-     "N 9",
-     "X 51"
-    ]
-   },
-   "rolli": "yes",
-   "web": "https://www.alemannia-aachen.de/tivoli/",
-   "wiki": {
-    "titel": "Tivoli (Aachen)",
-    "text": "Der Tivoli ist ein Fußballstadion im Sportpark Soers im nordrhein-westfälischen Aachen auf dem ehemaligen Gut Tivoli.",
-    "url": "https://de.wikipedia.org/wiki/Tivoli_(Aachen)"
    }
   },
   {
@@ -1266,27 +1732,109 @@
    }
   },
   {
-   "lat": 50.78645,
-   "lng": 6.08049,
-   "name": "Wasserturm Belvedere",
+   "lat": 50.7776,
+   "lng": 6.0822,
+   "name": "Verleihung Aachener Friedenspreis",
    "halt": {
-    "name": "Bendplatz",
-    "m": 501,
+    "name": "Kármán-Auditorium",
+    "m": 139,
     "linien": [
-     "7",
-     "17",
-     "27",
-     "37",
-     "47",
-     "N 2",
-     "X 47"
+     "4"
     ]
    },
    "rolli": "yes",
-   "wiki": {
-    "titel": "Wasserturm Belvedere",
-    "text": "Der Wasserturm Belvedere, auch Drehturm Aachen und Drehturm Belvedere genannt, ist ein ehemaliger, 35 m hoher Wasserturm in Stahlbetonbauweise auf dem Aachener Lousberg, der nach den Plänen des damaligen Aachener Stadtbaurats und Architekten Wilhelm K.",
-    "url": "https://de.wikipedia.org/wiki/Wasserturm_Belvedere_(Aachen)"
+   "zeiten": "Mo-Su 10:00-18:00",
+   "web": "https://rathaus-aachen.de/en/"
+  },
+  {
+   "lat": 50.7714,
+   "lng": 6.0925,
+   "name": "Wilde Herzen • Die Indie Pop Party mit deutschen Texten • Barbarossa Aachen",
+   "halt": {
+    "name": "Wallstraße",
+    "m": 106,
+    "linien": [
+     "7",
+     "27",
+     "33",
+     "34",
+     "37",
+     "54",
+     "N 1"
+    ]
+   }
+  },
+  {
+   "lat": 50.78,
+   "lng": 6.078,
+   "name": "William Wahl – wahlweise",
+   "halt": {
+    "name": "Ponttor",
+    "m": 74,
+    "linien": [
+     "1",
+     "3",
+     "7",
+     "13",
+     "16",
+     "17",
+     "27",
+     "30",
+     "33",
+     "37",
+     "41",
+     "44"
+    ]
+   }
+  },
+  {
+   "lat": 50.7775,
+   "lng": 6.0787,
+   "name": "Winterkonzerte der Bläserphilharmonie Aachen",
+   "halt": {
+    "name": "Technische Hochschule",
+    "m": 58,
+    "linien": [
+     "13",
+     "N 2",
+     "N 4"
+    ]
+   }
+  },
+  {
+   "lat": 50.7762,
+   "lng": 6.0838,
+   "name": "Wochenmarkt am Markt",
+   "halt": {
+    "name": "Judengasse/Markt",
+    "m": 192,
+    "linien": [
+     "4"
+    ]
+   },
+   "rolli": "yes",
+   "zeiten": "Mo-Su 10:00-18:00",
+   "web": "https://rathaus-aachen.de/en/"
+  },
+  {
+   "lat": 50.7554,
+   "lng": 6.1372,
+   "name": "Wochenmarkt Brand",
+   "halt": {
+    "name": "Sittarder Straße",
+    "m": 200,
+    "linien": [
+     "5",
+     "45",
+     "410",
+     "434",
+     "435",
+     "437",
+     "490",
+     "491",
+     "GK 1",
+     "SB 3"
+    ]
    }
   },
   {
