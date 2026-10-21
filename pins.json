@@ -1,5 +1,5 @@
 {
- "stand": "2026-10-14",
+ "stand": "2026-10-21",
  "hinweis": "Schema: typ event|angebot|hilfe|spot · tags[] · quelle (Beleg-URL) · link (CTA) · hot (beliebt) · hinzu (Aufnahmedatum) · saison {von,bis als MM-TT, jaehrlich wiederkehrend} · fest:true = wird vom Auto-Update nie geloescht.",
  "pins": [
   {
@@ -13627,6 +13627,860 @@
    "link": "https://raststaette.org/termine/3stunddreckig-15-jaehriges-jubilaeum-und-rapstammtisch/",
    "quelle": "https://raststaette.org/termine/3stunddreckig-15-jaehriges-jubilaeum-und-rapstammtisch/",
    "hinzu": "2026-10-14"
+  },
+  {
+   "id": "kk-ludwig-forum-eroeffnung-2026-11-27",
+   "typ": "event",
+   "titel": "Eröffnung",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.1017334,
+   "lat": 50.7811145,
+   "start": "2026-11-27",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/eroeffnung-2/",
+   "quelle": "https://ludwigforum.de/event/eroeffnung-2/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-finderlohn-schmuck-skulptur-raum-2026-11-29",
+   "typ": "event",
+   "titel": "Finderlohn. Schmuck. Skulptur. Raum",
+   "text": "Eröffnung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-11-29",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/finderlohn-schmuck-skulptur-raum-2/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/finderlohn-schmuck-skulptur-raum-2/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-ars-longa-vita-brevis-2026-11-29",
+   "typ": "event",
+   "titel": "Ars longa vita brevis",
+   "text": "Führung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-11-29",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/ars-longa-vita-brevis/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/ars-longa-vita-brevis/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-vorweihnachtszeit-fuer-familien-2026-11-29",
+   "typ": "event",
+   "titel": "Vorweihnachtszeit für Familien",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-11-29",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/vorweihnachtszeit-fuer-familien-2/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/vorweihnachtszeit-fuer-familien-2/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "kk-centre-charlemagne-2-5-km-industriegeschiche-die-juelicher--2026-11-29",
+   "typ": "event",
+   "titel": "2,5 km Industriegeschiche. Die Jülicher Straße",
+   "text": "Führung.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-11-29",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/25-km-industriegeschiche-die-juelicher-strasse-6/2026-11-29/",
+   "quelle": "https://centre-charlemagne.eu/termin/25-km-industriegeschiche-die-juelicher-strasse-6/2026-11-29/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "kk-couven-museum-tinte-trifft-tusche-tintenfaesser-und-tu-2026-11-29",
+   "typ": "event",
+   "titel": "Tinte trifft Tusche. Tintenfässer und Tuschezeichnungen",
+   "text": "Führung.",
+   "lng": 6.0849,
+   "lat": 50.7761,
+   "start": "2026-11-29",
+   "meta": "Couven Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://couven-museum.de/event/tinte-trifft-tusche-tintenfaesser-und-tuschezeichnungen-5/",
+   "quelle": "https://couven-museum.de/event/tinte-trifft-tusche-tintenfaesser-und-tuschezeichnungen-5/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-suermondt-museumsclub-2026-12-01",
+   "typ": "event",
+   "titel": "Suermondt-Museumsclub",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-12-01",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/suermondt-museumsclub-12-2-2/2026-12-01/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/suermondt-museumsclub-12-2-2/2026-12-01/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-die-kunst-der-faelschung-die-faelschung--2026-12-03",
+   "typ": "event",
+   "titel": "Die Kunst der Fälschung – die Fälschung der Kunst",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-12-03",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/falsch-faelscher-faelschungen-die-kunst-der-faelschung-die-faelschung-der-kunst/2026-12-03/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/falsch-faelscher-faelschungen-die-kunst-der-faelschung-die-faelschung-der-kunst/2026-12-03/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "best-of-oasis-beim-weihnachtsdorf-2026-11-28",
+   "typ": "event",
+   "titel": "Best of Oasis beim Weihnachtsdorf",
+   "text": "Konzert in Elisengarten Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.0857,
+   "lat": 50.7752,
+   "start": "2026-11-28",
+   "meta": "Elisengarten Aachen · 19:00",
+   "tags": [
+    "musik",
+    "familie"
+   ],
+   "link": "https://rausgegangen.de/events/acquiesce-grand-beim-weihnachtsdorf-0/",
+   "quelle": "https://rausgegangen.de/events/acquiesce-grand-beim-weihnachtsdorf-0/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "karaoke-2026-10-21",
+   "typ": "event",
+   "titel": "KARAOKE",
+   "text": "Party in Barbarossa Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0925,
+   "lat": 50.7714,
+   "start": "2026-10-21",
+   "meta": "Barbarossa Aachen · 20:00",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/karaoke-3396/",
+   "quelle": "https://rausgegangen.de/events/karaoke-3396/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "salsa-sunday-2026-10-25",
+   "typ": "event",
+   "titel": "SALSA SUNDAY",
+   "text": "Party in Barbarossa Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.0925,
+   "lat": 50.7714,
+   "start": "2026-10-25",
+   "meta": "Barbarossa Aachen · 19:00",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/salsa-sunday-31/",
+   "quelle": "https://rausgegangen.de/events/salsa-sunday-31/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "die-groesste-halloween-party-aachen-barb-2026-10-30",
+   "typ": "event",
+   "titel": "Die größte Halloween Party Aachen - Barbarossa | Fr, 30.10.",
+   "text": "Party in Barbarossa, Beginn 22:00 Uhr.",
+   "lng": 6.0925,
+   "lat": 50.7714,
+   "start": "2026-10-30",
+   "meta": "Barbarossa · 22:00",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/die-grote-halloween-party-aachen-barbarossa-fr-3010-0/",
+   "quelle": "https://rausgegangen.de/events/die-grote-halloween-party-aachen-barbarossa-fr-3010-0/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "schwarze-schwaene-2026-10-21",
+   "typ": "event",
+   "titel": "Schwarze Schwäne",
+   "text": "Bühne in Grenzlandtheater, Beginn 20:00 Uhr.",
+   "lng": 6.0846,
+   "lat": 50.7768,
+   "start": "2026-10-21",
+   "meta": "Grenzlandtheater · 20:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/schwarze-schwane-35/",
+   "quelle": "https://rausgegangen.de/events/schwarze-schwane-35/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "lucy-4-6-milliarden-jahre-2026-10-23",
+   "typ": "event",
+   "titel": "Lucy (4,6 Milliarden Jahre)",
+   "text": "Bühne in Theater Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2026-10-23",
+   "meta": "Theater Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/lucy-46-milliarden-jahre-4/",
+   "quelle": "https://rausgegangen.de/events/lucy-46-milliarden-jahre-4/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "maria-stuart-2026-10-24",
+   "typ": "event",
+   "titel": "Maria Stuart",
+   "text": "Bühne in Theater Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2026-10-24",
+   "meta": "Theater Aachen · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/maria-stuart-207/",
+   "quelle": "https://rausgegangen.de/events/maria-stuart-207/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "don-carlo-2026-10-30",
+   "typ": "event",
+   "titel": "Don Carlo",
+   "text": "Bühne in Theater Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2026-10-30",
+   "meta": "Theater Aachen · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/don-carlo-123/",
+   "quelle": "https://rausgegangen.de/events/don-carlo-123/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "klassikerperlen-2026-10-26",
+   "typ": "event",
+   "titel": "Klassikerperlen",
+   "text": "Film in Apollo Kino & Bar, Beginn 20:00 Uhr.",
+   "lng": 6.078955,
+   "lat": 50.7806829,
+   "start": "2026-10-26",
+   "meta": "Apollo Kino & Bar · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/klassikerperlen-42/",
+   "quelle": "https://rausgegangen.de/events/klassikerperlen-42/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "fuehrungen-durch-die-sternwarte-2026-10-24",
+   "typ": "event",
+   "titel": "Führungen durch die Sternwarte",
+   "text": "Aktiv & Kreativ in Sternwarte Aachen, Beginn 21:00 Uhr.",
+   "lng": 6.0702,
+   "lat": 50.7587,
+   "start": "2026-10-24",
+   "meta": "Sternwarte Aachen · 21:00",
+   "tags": [
+    "familie",
+    "natur"
+   ],
+   "link": "https://rausgegangen.de/events/fuhrungen-durch-die-sternwarte-61/",
+   "quelle": "https://rausgegangen.de/events/fuhrungen-durch-die-sternwarte-61/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "schnullercaf-mit-dem-helene-weber-haus-2026-10-23",
+   "typ": "event",
+   "titel": "Schnullercafé mit dem Helene-Weber-Haus",
+   "text": "Für Kinder in Mayersche Aachen, Beginn 11:00 Uhr.",
+   "lng": 6.0865,
+   "lat": 50.7751,
+   "start": "2026-10-23",
+   "meta": "Mayersche Aachen · 11:00",
+   "tags": [
+    "familie",
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/schnullercafe-mit-dem-helene-weber-haus-67/",
+   "quelle": "https://rausgegangen.de/events/schnullercafe-mit-dem-helene-weber-haus-67/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "ohrenkino-mit-dem-helene-weber-haus-2026-10-23",
+   "typ": "event",
+   "titel": "Ohrenkino mit dem Helene-Weber-Haus",
+   "text": "Für Kinder in Mayersche Aachen, Beginn 15:00 Uhr.",
+   "lng": 6.0865,
+   "lat": 50.7751,
+   "start": "2026-10-23",
+   "meta": "Mayersche Aachen · 15:00",
+   "tags": [
+    "familie",
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/ohrenkino-mit-dem-helene-weber-haus-134/",
+   "quelle": "https://rausgegangen.de/events/ohrenkino-mit-dem-helene-weber-haus-134/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "erobique-2027-04-29",
+   "typ": "event",
+   "titel": "EROBIQUE",
+   "text": "Konzert im Musikbunker.",
+   "lng": 6.1035274,
+   "lat": 50.7672224,
+   "start": "2027-04-29",
+   "meta": "Musikbunker",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://musikbunkeraachen.bigcartel.com/product/erobique-29042027",
+   "quelle": "https://musikbunkeraachen.bigcartel.com/product/erobique-29042027",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "nick-june-2027-03-12",
+   "typ": "event",
+   "titel": "Nick & June",
+   "text": "Konzert im Musikbunker.",
+   "lng": 6.1035274,
+   "lat": 50.7672224,
+   "start": "2027-03-12",
+   "meta": "Musikbunker",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://musikbunkeraachen.bigcartel.com/product/nick-june-12032027",
+   "quelle": "https://musikbunkeraachen.bigcartel.com/product/nick-june-12032027",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "kunst-croissants-und-konfituere-schoenhe-2026-10-21",
+   "typ": "event",
+   "titel": "Kunst, Croissants und Konfitüre. „Schönheitsideal II: Schöne Frauen“.",
+   "text": "In Suermondt-Ludwig-Museum. Beginn 10:15 Uhr.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-10-21",
+   "meta": "Suermondt-Ludwig-Museum · 10:15",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/kunst-croissants-und-konfituere-schoenheitsideal-ii-schoene-frauen/",
+   "quelle": "https://aachen-kalender.de/event/kunst-croissants-und-konfituere-schoenheitsideal-ii-schoene-frauen/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "altstadtfuehrung-2026-10-21",
+   "typ": "event",
+   "titel": "„Altstadtführung“.",
+   "text": "In Tourist Info, Elisenbrunnen. Beginn 14:00 Uhr.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "start": "2026-10-21",
+   "meta": "Tourist Info, Elisenbrunnen · 14:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-10-21/",
+   "quelle": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-10-21/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "entdeckerstunden-mit-denise-und-sabine-2026-10-21",
+   "typ": "event",
+   "titel": "Entdeckerstunden mit Denise und Sabine.",
+   "text": "In Mayersche Buchhandlung. Beginn 16:30 Uhr.",
+   "lng": 6.0865,
+   "lat": 50.7751,
+   "start": "2026-10-21",
+   "meta": "Mayersche Buchhandlung · 16:30",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/entdeckerstunden-mit-denise-und-sabine-29/2026-10-21/",
+   "quelle": "https://aachen-kalender.de/event/entdeckerstunden-mit-denise-und-sabine-29/2026-10-21/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "schwarze-schwaene-schauspiel-von-christi-2026-10-21",
+   "typ": "event",
+   "titel": "„Schwarze Schwäne“. Schauspiel von Christina Kettering.",
+   "text": "In Grenzlandtheater. Beginn 20:00 Uhr.",
+   "lng": 6.0846,
+   "lat": 50.7768,
+   "start": "2026-10-21",
+   "meta": "Grenzlandtheater · 20:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/schwarze-schwaene-schauspiel-von-christina-kettering-4/2026-10-21/",
+   "quelle": "https://aachen-kalender.de/event/schwarze-schwaene-schauspiel-von-christina-kettering-4/2026-10-21/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "herbstferienangebot-krone-auf-mittelalte-2026-10-22",
+   "typ": "event",
+   "titel": "Herbstferienangebot. „‚Krone auf!‘ – Mittelalter-Werkstatt“. Kids ab 7 Jahren.",
+   "text": "In Centre Charlemagne. Beginn 10:00 Uhr.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-10-22",
+   "meta": "Centre Charlemagne · 10:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/herbstferienangebote-krone-auf-mittelalter-werkstatt-kids-ab-7-jahren/",
+   "quelle": "https://aachen-kalender.de/event/herbstferienangebote-krone-auf-mittelalter-werkstatt-kids-ab-7-jahren/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "altstadtfuehrung-2026-10-22",
+   "typ": "event",
+   "titel": "„Altstadtführung“.",
+   "text": "In Tourist Info, Elisenbrunnen. Beginn 14:00 Uhr.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "start": "2026-10-22",
+   "meta": "Tourist Info, Elisenbrunnen · 14:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-10-22/",
+   "quelle": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-10-22/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "entdeckerstunden-mit-denise-und-sabine-2026-10-22",
+   "typ": "event",
+   "titel": "Entdeckerstunden mit Denise und Sabine.",
+   "text": "In Mayersche Buchhandlung. Beginn 16:30 Uhr.",
+   "lng": 6.0865,
+   "lat": 50.7751,
+   "start": "2026-10-22",
+   "meta": "Mayersche Buchhandlung · 16:30",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/entdeckerstunden-mit-denise-und-sabine-30/2026-10-22/",
+   "quelle": "https://aachen-kalender.de/event/entdeckerstunden-mit-denise-und-sabine-30/2026-10-22/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "vhs-aachen-cinevhs-club-the-farewell-fil-2026-10-22",
+   "typ": "event",
+   "titel": "vhs Aachen. CINEvhs Club. „The Farewell“. Film.",
+   "text": "In Apollo. Beginn 18:00 Uhr.",
+   "lng": 6.078955,
+   "lat": 50.7806829,
+   "start": "2026-10-22",
+   "meta": "Apollo · 18:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/vhs-aachen-cinevhs-club-the-farewell-film/",
+   "quelle": "https://aachen-kalender.de/event/vhs-aachen-cinevhs-club-the-farewell-film/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "von-paradiesvoegeln-und-dommaeusen-die-t-2026-10-22",
+   "typ": "event",
+   "titel": "„Von Paradiesvögeln und Dommäusen – die Tierwelt in den Umgangsmosaiken des Aachener Doms“",
+   "text": "In Haus Löwenstein. Beginn 19:00 Uhr.",
+   "lng": 6.0839,
+   "lat": 50.7746,
+   "start": "2026-10-22",
+   "meta": "Haus Löwenstein · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/von-paradiesvoegeln-und-dommaeusen-die-tierwelt-in-den-umgangsmosaiken-des-aachener-doms/",
+   "quelle": "https://aachen-kalender.de/event/von-paradiesvoegeln-und-dommaeusen-die-tierwelt-in-den-umgangsmosaiken-des-aachener-doms/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "philosophischer-salon-von-angst-mut-und--2026-10-22",
+   "typ": "event",
+   "titel": "Philosophischer Salon. „Von Angst, Mut und Zivilcourage: Über die bleibende Bedeutung der ",
+   "text": "In Burg Frankenberg. Beginn 19:00 Uhr.",
+   "lng": 6.1038202,
+   "lat": 50.7678212,
+   "start": "2026-10-22",
+   "meta": "Burg Frankenberg · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/philosophischer-salon-von-angst-mut-und-zivilcourage-ueber-die-bleibende-bedeutung-der-tapferkeit/",
+   "quelle": "https://aachen-kalender.de/event/philosophischer-salon-von-angst-mut-und-zivilcourage-ueber-die-bleibende-bedeutung-der-tapferkeit/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "die-kaenguru-chroniken-szenische-lesung-2026-10-22",
+   "typ": "event",
+   "titel": "„Die Känguru-Chroniken“. Szenische Lesung.",
+   "text": "In forum M, Mayersche Buchhandlung. Beginn 20:00 Uhr.",
+   "lng": 6.0865,
+   "lat": 50.7751,
+   "start": "2026-10-22",
+   "meta": "forum M, Mayersche Buchhandlung · 20:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/die-kaenguru-chroniken-szenische-lesung-6/2026-10-22/",
+   "quelle": "https://aachen-kalender.de/event/die-kaenguru-chroniken-szenische-lesung-6/2026-10-22/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "schwarze-schwaene-schauspiel-von-christi-2026-10-22",
+   "typ": "event",
+   "titel": "„Schwarze Schwäne“. Schauspiel von Christina Kettering.",
+   "text": "In Grenzlandtheater. Beginn 20:00 Uhr.",
+   "lng": 6.0846,
+   "lat": 50.7768,
+   "start": "2026-10-22",
+   "meta": "Grenzlandtheater · 20:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/schwarze-schwaene-schauspiel-von-christina-kettering-4/2026-10-22/",
+   "quelle": "https://aachen-kalender.de/event/schwarze-schwaene-schauspiel-von-christina-kettering-4/2026-10-22/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "sense-and-sensibility-von-kate-hamill-2026-10-22",
+   "typ": "event",
+   "titel": "„Sense and Sensibility von Kate Hamill“.",
+   "text": "In Space, Ludwig Forum. Beginn 20:00 Uhr.",
+   "lng": 6.1017334,
+   "lat": 50.7811145,
+   "start": "2026-10-22",
+   "meta": "Space, Ludwig Forum · 20:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/sense-and-sensibility-von-kate-hamill/2026-10-22/",
+   "quelle": "https://aachen-kalender.de/event/sense-and-sensibility-von-kate-hamill/2026-10-22/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "herbstferienangebot-geheimnisse-aus-dem--2026-10-23",
+   "typ": "event",
+   "titel": "Herbstferienangebot. „Geheimnisse aus dem Boden – Abenteuer Archäologie“. Kids ab 7 Jahren",
+   "text": "In Centre Charlemagne. Beginn 10:00 Uhr.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-10-23",
+   "meta": "Centre Charlemagne · 10:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/herbstferienangebot-geheimnisse-aus-dem-boden-abenteuer-archaeologie-kids-ab-7-jahren/",
+   "quelle": "https://aachen-kalender.de/event/herbstferienangebot-geheimnisse-aus-dem-boden-abenteuer-archaeologie-kids-ab-7-jahren/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "izm-zur-debatte-forum-fuer-politische-me-2026-10-23",
+   "typ": "event",
+   "titel": "IZM. „Zur Debatte“. Forum für politische Meinung.",
+   "text": "In Int. Zeitungsmuseum (IZM). Beginn 10:30 Uhr.",
+   "lng": 6.0824,
+   "lat": 50.7758,
+   "start": "2026-10-23",
+   "meta": "Int. Zeitungsmuseum (IZM) · 10:30",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/izm-zur-debatte-forum-fuer-politische-meinung/2026-10-23/",
+   "quelle": "https://aachen-kalender.de/event/izm-zur-debatte-forum-fuer-politische-meinung/2026-10-23/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "altstadtfuehrung-2026-10-23",
+   "typ": "event",
+   "titel": "„Altstadtführung“.",
+   "text": "In Tourist Info, Elisenbrunnen. Beginn 14:00 Uhr.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "start": "2026-10-23",
+   "meta": "Tourist Info, Elisenbrunnen · 14:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-10-23/",
+   "quelle": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-10-23/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "abendbummel-2026-10-23",
+   "typ": "event",
+   "titel": "Abendbummel",
+   "text": "In Tourist Info, Elisenbrunnen. Beginn 18:00 Uhr.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "start": "2026-10-23",
+   "meta": "Tourist Info, Elisenbrunnen · 18:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/abendbummel-43/2026-10-23/",
+   "quelle": "https://aachen-kalender.de/event/abendbummel-43/2026-10-23/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "lucy-4-6-milliarden-jahre-stueck-von-gwe-2026-10-23",
+   "typ": "event",
+   "titel": "„Lucy (4,6 Milliarden Jahre)“. Stück von Gwendoline Soublin.",
+   "text": "In Theater Aachen. Beginn 20:00 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2026-10-23",
+   "meta": "Theater Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/lucy-46-milliarden-jahre-stueck-von-gwendoline-soublin/2026-10-23/",
+   "quelle": "https://aachen-kalender.de/event/lucy-46-milliarden-jahre-stueck-von-gwendoline-soublin/2026-10-23/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "schwarze-schwaene-schauspiel-von-christi-2026-10-23",
+   "typ": "event",
+   "titel": "„Schwarze Schwäne“. Schauspiel von Christina Kettering.",
+   "text": "In Grenzlandtheater. Beginn 20:00 Uhr.",
+   "lng": 6.0846,
+   "lat": 50.7768,
+   "start": "2026-10-23",
+   "meta": "Grenzlandtheater · 20:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/schwarze-schwaene-schauspiel-von-christina-kettering-4/2026-10-23/",
+   "quelle": "https://aachen-kalender.de/event/schwarze-schwaene-schauspiel-von-christina-kettering-4/2026-10-23/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "sense-and-sensibility-von-kate-hamill-2026-10-23",
+   "typ": "event",
+   "titel": "„Sense and Sensibility von Kate Hamill“.",
+   "text": "In Space, Ludwig Forum. Beginn 20:00 Uhr.",
+   "lng": 6.1017334,
+   "lat": 50.7811145,
+   "start": "2026-10-23",
+   "meta": "Space, Ludwig Forum · 20:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/sense-and-sensibility-von-kate-hamill/2026-10-23/",
+   "quelle": "https://aachen-kalender.de/event/sense-and-sensibility-von-kate-hamill/2026-10-23/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "altstadtfuehrung-2026-10-24",
+   "typ": "event",
+   "titel": "Altstadtführung",
+   "text": "In Tourist Info, Elisenbrunnen. Beginn 11:00 Uhr.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "start": "2026-10-24",
+   "meta": "Tourist Info, Elisenbrunnen · 11:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/altstadtfuehrung-320-2/2026-10-24/",
+   "quelle": "https://aachen-kalender.de/event/altstadtfuehrung-320-2/2026-10-24/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "kreativworkshop-farbschnitte-selbst-gest-2026-10-24",
+   "typ": "event",
+   "titel": "Kreativworkshop: Farbschnitte selbst gestalten.",
+   "text": "In Mayersche Buchhandlung. Beginn 11:00 Uhr.",
+   "lng": 6.0865,
+   "lat": 50.7751,
+   "start": "2026-10-24",
+   "meta": "Mayersche Buchhandlung · 11:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/kreativworkshop-farbschnitte-selbst-gestalten-4/",
+   "quelle": "https://aachen-kalender.de/event/kreativworkshop-farbschnitte-selbst-gestalten-4/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "ohrenkino-mit-dem-helene-weber-haus-2026-10-24",
+   "typ": "event",
+   "titel": "„Ohrenkino mit dem Helene-Weber-Haus“.",
+   "text": "In Mayersche Buchhandlung. Beginn 11:00 Uhr.",
+   "lng": 6.0865,
+   "lat": 50.7751,
+   "start": "2026-10-24",
+   "meta": "Mayersche Buchhandlung · 11:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/ohrenkino-mit-dem-helene-weber-haus-9/2026-10-24/1/",
+   "quelle": "https://aachen-kalender.de/event/ohrenkino-mit-dem-helene-weber-haus-9/2026-10-24/1/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "kunst-am-vormittag-oeffentliche-fuehrung-2026-10-24",
+   "typ": "event",
+   "titel": "Kunst am Vormittag – Öffentliche Führung.",
+   "text": "In Suermondt-Ludwig-Museum. Beginn 11:00 Uhr.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-10-24",
+   "meta": "Suermondt-Ludwig-Museum · 11:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/kunst-am-vormittag-oeffentliche-fuehrung/",
+   "quelle": "https://aachen-kalender.de/event/kunst-am-vormittag-oeffentliche-fuehrung/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "fuehrung-durch-das-theater-mit-lukas-pop-2026-10-24",
+   "typ": "event",
+   "titel": "Führung durch das Theater mit Lukas Popovic.",
+   "text": "In Theater Aachen. Beginn 14:00 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2026-10-24",
+   "meta": "Theater Aachen · 14:00",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/fuehrung-durch-das-theater-mit-lukas-popovic/",
+   "quelle": "https://aachen-kalender.de/event/fuehrung-durch-das-theater-mit-lukas-popovic/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "julia-samp-stein-wasser-und-metall-expor-2026-10-24",
+   "typ": "event",
+   "titel": "Julia Samp. „Stein, Wasser und Metall – Exportschlager aus Aachen“.",
+   "text": "In Centre Charlemagne. Beginn 14:00 Uhr.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-10-24",
+   "meta": "Centre Charlemagne · 14:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/julia-samp-stein-wasser-und-metall-exportschlager-aus-aachen-2/",
+   "quelle": "https://aachen-kalender.de/event/julia-samp-stein-wasser-und-metall-exportschlager-aus-aachen-2/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "streichelt-support-liyo-2026-12-01",
+   "typ": "event",
+   "titel": "Streichelt // Support: LIYO",
+   "text": "In Musikbunker Aachen. Beginn 20:00 Uhr.",
+   "lng": 6.1035274,
+   "lat": 50.7672224,
+   "start": "2026-12-01",
+   "meta": "Musikbunker Aachen · 20:00",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
+   "link": "https://mubu.ac/event/streichelt/",
+   "quelle": "https://mubu.ac/event/streichelt/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "let-s-celebrate-20-jahre-artikel-5-2026-10-30",
+   "typ": "event",
+   "titel": "LET’S CELEBRATE! 20 Jahre Artikel 5",
+   "text": "In Raststätte. Beginn 18:00 Uhr.",
+   "lng": 6.0939733,
+   "lat": 50.77161,
+   "start": "2026-10-30",
+   "meta": "Raststätte · 18:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://raststaette.org/termine/lets-celebrate-20-jahre-artikel-5/",
+   "quelle": "https://raststaette.org/termine/lets-celebrate-20-jahre-artikel-5/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "sync-synthesizer-jam-2026-12-02",
+   "typ": "event",
+   "titel": "[SYNC] Synthesizer Jam",
+   "text": "In Raststätte. Beginn 19:00 Uhr.",
+   "lng": 6.0939733,
+   "lat": 50.77161,
+   "start": "2026-12-02",
+   "meta": "Raststätte · 19:00",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
+   "link": "https://raststaette.org/termine/sync-synthesizer-jam-48-2/2026-12-02/",
+   "quelle": "https://raststaette.org/termine/sync-synthesizer-jam-48-2/2026-12-02/",
+   "hinzu": "2026-10-21"
+  },
+  {
+   "id": "satznachvorn-poetry-slam-2026-12-04",
+   "typ": "event",
+   "titel": "satznachvorn | Poetry Slam",
+   "text": "In Raststätte. Beginn 20:00 Uhr.",
+   "lng": 6.0939733,
+   "lat": 50.77161,
+   "start": "2026-12-04",
+   "meta": "Raststätte · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://raststaette.org/termine/satznachvorn-poetry-slam-4/2026-12-04/",
+   "quelle": "https://raststaette.org/termine/satznachvorn-poetry-slam-4/2026-12-04/",
+   "hinzu": "2026-10-21"
   }
  ]
 }
