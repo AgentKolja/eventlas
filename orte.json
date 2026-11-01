@@ -1,5 +1,5 @@
 {
- "stand": "2026-10-01",
+ "stand": "2026-11-01",
  "hinweis": "Ortsinformationen, einmal recherchiert statt bei jedem Aufruf abgefragt — so entsteht beim Betrachten der Karte keine Verbindung zu fremden Servern. Zuordnung ueber Koordinaten-Naehe (bis 150 m), gilt daher auch fuer neue Veranstaltungen am selben Ort. Erneuern: node scripts/orte-aktualisieren.mjs",
  "quellen": {
   "haltestellen_und_orte": "OpenStreetMap-Mitwirkende, ODbL 1.0 — https://www.openstreetmap.org/copyright",
@@ -19,39 +19,6 @@
      "13",
      "36"
     ]
-   }
-  },
-  {
-   "lat": 50.78209,
-   "lng": 6.09187,
-   "name": "1. Sinfoniekonzert — Chorkonzert",
-   "halt": {
-    "name": "Eurogress",
-    "m": 156,
-    "linien": [
-     "3",
-     "13",
-     "54"
-    ]
-   }
-  },
-  {
-   "lat": 50.7745,
-   "lng": 6.0838,
-   "name": "Aachener Dom",
-   "halt": {
-    "name": "Judengasse/Markt",
-    "m": 209,
-    "linien": [
-     "4"
-    ]
-   },
-   "rolli": "limited",
-   "web": "https://www.aachendom.de/",
-   "wiki": {
-    "titel": "Aachener Dom",
-    "text": "Der Dom St. Marien zu Aachen, kurz der Aachener Dom, ist die Bischofskirche des Bistums Aachen und das bedeutendste Wahrzeichen der Stadt Aachen.",
-    "url": "https://de.wikipedia.org/wiki/Aachener_Dom"
    }
   },
   {
@@ -180,33 +147,6 @@
    "rolli": "no"
   },
   {
-   "lat": 50.7823,
-   "lng": 6.0898,
-   "name": "Alte Bekannte — Mehr! Live",
-   "halt": {
-    "name": "Bastei",
-    "m": 49,
-    "linien": [
-     "30",
-     "54"
-    ]
-   }
-  },
-  {
-   "lat": 50.7795,
-   "lng": 6.0919,
-   "name": "arcadie quartett – Walzer, Milonga & Co.",
-   "halt": {
-    "name": "Eurogress",
-    "m": 144,
-    "linien": [
-     "3",
-     "13",
-     "54"
-    ]
-   }
-  },
-  {
    "lat": 50.78068,
    "lng": 6.07895,
    "name": "Attitude by Ice Kareem",
@@ -294,9 +234,7 @@
     "linien": [
      "4"
     ]
-   },
-   "rolli": "yes",
-   "web": "https://www.grashaus-aachen.eu/"
+   }
   },
   {
    "lat": 50.76778,
@@ -351,11 +289,7 @@
    "halt": {
     "name": "Kapitelstraße",
     "m": 175,
-    "linien": [
-     "14",
-     "34",
-     "54"
-    ]
+    "linien": []
    },
    "web": "https://www.aachen-tourismus.de/entdecken/sehenswuerdigkeiten/details/kurpark/"
   },
@@ -439,6 +373,24 @@
    "lat": 50.78992,
    "lng": 6.11234,
    "name": "Das-Da-Theater",
+   "halt": {
+    "name": "Liebigstraße",
+    "m": 224,
+    "linien": [
+     "1",
+     "11",
+     "21",
+     "31",
+     "41",
+     "52",
+     "70",
+     "220",
+     "N 3",
+     "N 6",
+     "N 9",
+     "SB 20"
+    ]
+   },
    "rolli": "yes",
    "wiki": {
     "titel": "Das-Da-Theater",
@@ -499,7 +451,8 @@
      "N 2",
      "X 47"
     ]
-   }
+   },
+   "rolli": "yes"
   },
   {
    "lat": 50.7547,
@@ -553,36 +506,6 @@
    }
   },
   {
-   "lat": 50.7747,
-   "lng": 6.0871,
-   "name": "Elisenbrunnen",
-   "halt": {
-    "name": "Elisenbrunnen",
-    "m": 50,
-    "linien": [
-     "2",
-     "5",
-     "7",
-     "11",
-     "12",
-     "14",
-     "15",
-     "21",
-     "22",
-     "23",
-     "24",
-     "25"
-    ]
-   },
-   "rolli": "no",
-   "web": "https://kulturwerk-aachen.de/",
-   "wiki": {
-    "titel": "Elisenbrunnen",
-    "text": "Der Elisenbrunnen am Friedrich-Wilhelm-Platz in Aachen ist ein klassizistischer Bau der Architekten Johann Peter Cremer und Karl Friedrich Schinkel.",
-    "url": "https://de.wikipedia.org/wiki/Elisenbrunnen"
-   }
-  },
-  {
    "lat": 50.7742,
    "lng": 6.0869,
    "name": "Elisenbrunnen",
@@ -604,12 +527,7 @@
      "25"
     ]
    },
-   "rolli": "yes",
-   "wiki": {
-    "titel": "Elisenbrunnen",
-    "text": "Der Elisenbrunnen am Friedrich-Wilhelm-Platz in Aachen ist ein klassizistischer Bau der Architekten Johann Peter Cremer und Karl Friedrich Schinkel.",
-    "url": "https://de.wikipedia.org/wiki/Elisenbrunnen"
-   }
+   "rolli": "yes"
   },
   {
    "lat": 50.7752,
@@ -634,6 +552,8 @@
     ]
    },
    "rolli": "limited",
+   "zeiten": "Su-Th 10:00-02:00, Fr,Sa 10:00-03:00",
+   "web": "https://www.domkeller.de/",
    "wiki": {
     "titel": "Elisengarten",
     "text": "Der Elisengarten ist eine kleine Parkanlage in der Innenstadt von Aachen an der rückwärtigen Seite des Elisenbrunnens.",
@@ -737,11 +657,7 @@
    "halt": {
     "name": "Burtscheid Hauptstraße",
     "m": 246,
-    "linien": [
-     "14",
-     "34",
-     "54"
-    ]
+    "linien": []
    },
    "web": "https://www.aachen-tourismus.de/entdecken/sehenswuerdigkeiten/details/kurpark/"
   },
@@ -848,6 +764,61 @@
    }
   },
   {
+   "lat": 50.7823,
+   "lng": 6.0898,
+   "name": "Eurogress Aachen",
+   "halt": {
+    "name": "Bastei",
+    "m": 49,
+    "linien": [
+     "30",
+     "54"
+    ]
+   },
+   "rolli": "yes",
+   "web": "https://www.eurogress-aachen.de/",
+   "wiki": {
+    "titel": "Eurogress Aachen",
+    "text": "Das Eurogress Aachen ist ein Kongress- und Veranstaltungszentrum sowie ein Unternehmen der Stadt Aachen.",
+    "url": "https://de.wikipedia.org/wiki/Eurogress_Aachen"
+   }
+  },
+  {
+   "lat": 50.78209,
+   "lng": 6.09187,
+   "name": "Eurogress Aachen",
+   "halt": {
+    "name": "Eurogress",
+    "m": 156,
+    "linien": [
+     "3",
+     "13",
+     "54"
+    ]
+   },
+   "rolli": "yes",
+   "web": "https://www.eurogress-aachen.de/",
+   "wiki": {
+    "titel": "Eurogress Aachen",
+    "text": "Das Eurogress Aachen ist ein Kongress- und Veranstaltungszentrum sowie ein Unternehmen der Stadt Aachen.",
+    "url": "https://de.wikipedia.org/wiki/Eurogress_Aachen"
+   }
+  },
+  {
+   "lat": 50.7742,
+   "lng": 6.0826,
+   "name": "Fake News und KI: Herausforderungen für den Journalismus",
+   "halt": {
+    "name": "Judengasse/Markt",
+    "m": 151,
+    "linien": [
+     "4"
+    ]
+   },
+   "rolli": "yes",
+   "web": "https://www.grashaus-aachen.eu/"
+  },
+  {
    "lat": 50.7794,
    "lng": 6.0779,
    "name": "Filmfest Aachen",
@@ -905,7 +876,9 @@
     "linien": [
      "2"
     ]
-   }
+   },
+   "rolli": "no",
+   "web": "https://www.sternwarte-aachen.de/"
   },
   {
    "lat": 50.7757,
@@ -1081,6 +1054,20 @@
    }
   },
   {
+   "lat": 50.7745,
+   "lng": 6.0838,
+   "name": "Kommt: CinemaxX Aachen",
+   "halt": {
+    "name": "Judengasse/Markt",
+    "m": 209,
+    "linien": [
+     "4"
+    ]
+   },
+   "rolli": "limited",
+   "web": "https://www.aachendom.de/"
+  },
+  {
    "lat": 50.696,
    "lng": 6.169,
    "name": "KuKuK-Flohmarkt",
@@ -1240,20 +1227,6 @@
    }
   },
   {
-   "lat": 50.78165,
-   "lng": 6.09303,
-   "name": "Michael Hatzius — Echsklusiv",
-   "halt": {
-    "name": "Eurogress",
-    "m": 160,
-    "linien": [
-     "3",
-     "13",
-     "54"
-    ]
-   }
-  },
-  {
    "lat": 50.77062,
    "lng": 6.11852,
    "name": "Neu: Action (Aachen Arkaden)",
@@ -1343,6 +1316,46 @@
      "73",
      "N 2"
     ]
+   }
+  },
+  {
+   "lat": 50.78165,
+   "lng": 6.09303,
+   "name": "Neues Kurhaus Aachen",
+   "halt": {
+    "name": "Eurogress",
+    "m": 160,
+    "linien": [
+     "3",
+     "13",
+     "54"
+    ]
+   },
+   "web": "https://www.aachen-event.com/kurhaus",
+   "wiki": {
+    "titel": "Neues Kurhaus Aachen",
+    "text": "Das Neue Kurhaus in Aachen, erbaut in den Jahren 1914 bis 1916, ist ein neoklassizistisches Gebäude in Aachen.",
+    "url": "https://de.wikipedia.org/wiki/Neues_Kurhaus"
+   }
+  },
+  {
+   "lat": 50.7795,
+   "lng": 6.0919,
+   "name": "Neues Kurhaus Aachen",
+   "halt": {
+    "name": "Eurogress",
+    "m": 144,
+    "linien": [
+     "3",
+     "13",
+     "54"
+    ]
+   },
+   "web": "https://www.aachen-event.com/kurhaus",
+   "wiki": {
+    "titel": "Neues Kurhaus Aachen",
+    "text": "Das Neue Kurhaus in Aachen, erbaut in den Jahren 1914 bis 1916, ist ein neoklassizistisches Gebäude in Aachen.",
+    "url": "https://de.wikipedia.org/wiki/Neues_Kurhaus"
    }
   },
   {
@@ -1493,7 +1506,8 @@
      "25"
     ]
    },
-   "web": "http://www.wgdv.de/wege/gemeindehaus"
+   "rolli": "limited",
+   "web": "https://www.aachendom.de/"
   },
   {
    "lat": 50.783,
@@ -1697,6 +1711,32 @@
    }
   },
   {
+   "lat": 50.7747,
+   "lng": 6.0871,
+   "name": "Thermalwasser am Elisenbrunnen",
+   "halt": {
+    "name": "Elisenbrunnen",
+    "m": 50,
+    "linien": [
+     "2",
+     "5",
+     "7",
+     "11",
+     "12",
+     "14",
+     "15",
+     "21",
+     "22",
+     "23",
+     "24",
+     "25"
+    ]
+   },
+   "rolli": "yes",
+   "zeiten": "We-Sa 15:00-18:00",
+   "web": "https://kulturwerk-aachen.de"
+  },
+  {
    "lat": 50.76858,
    "lng": 6.08114,
    "name": "Tres Hombres R&B",
@@ -1741,10 +1781,7 @@
     "linien": [
      "4"
     ]
-   },
-   "rolli": "yes",
-   "zeiten": "Mo-Su 10:00-18:00",
-   "web": "https://rathaus-aachen.de/en/"
+   }
   },
   {
    "lat": 50.7714,
