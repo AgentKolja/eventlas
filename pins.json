@@ -1,5 +1,5 @@
 {
- "stand": "2026-10-28",
+ "stand": "2026-11-04",
  "hinweis": "Schema: typ event|angebot|hilfe|spot · tags[] · quelle (Beleg-URL) · link (CTA) · hot (beliebt) · hinzu (Aufnahmedatum) · saison {von,bis als MM-TT, jaehrlich wiederkehrend} · fest:true = wird vom Auto-Update nie geloescht.",
  "pins": [
   {
@@ -15214,6 +15214,586 @@
    "link": "https://mubu.ac/event/acid-invaderz-iii/",
    "quelle": "https://mubu.ac/event/acid-invaderz-iii/",
    "hinzu": "2026-10-28"
+  },
+  {
+   "id": "kk-klangbruecke-im-alten-kurhaus-federico-milone-quartet-2026-11-27",
+   "typ": "event",
+   "titel": "Federico Milone Quartet",
+   "text": "Konzert.",
+   "lng": 6.0888792,
+   "lat": 50.7769983,
+   "start": "2026-11-27",
+   "meta": "Klangbrücke im Alten Kurhaus",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://altes-kurhaus-aachen.de/veranstaltung/filippo-bianchini-quartet/",
+   "quelle": "https://altes-kurhaus-aachen.de/veranstaltung/filippo-bianchini-quartet/",
+   "hinzu": "2026-11-04"
+  },
+  {
+   "id": "kk-ludwig-forum-sonntagsmalerei-2026-12-13",
+   "typ": "event",
+   "titel": "Sonntagsmalerei",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.1017334,
+   "lat": 50.7811145,
+   "start": "2026-12-13",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/sonntagsmalerei-2026-12-13/",
+   "quelle": "https://ludwigforum.de/event/sonntagsmalerei-2026-12-13/",
+   "hinzu": "2026-11-04"
+  },
+  {
+   "id": "jamaram-meets-jahcoustix-live-musikbunke-2027-04-24",
+   "typ": "event",
+   "titel": "JAMARAM meets JAHCOUSTIX live @ Musikbunker Aachen",
+   "text": "Konzert in Musikbunker Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.1035274,
+   "lat": 50.7672224,
+   "start": "2027-04-24",
+   "meta": "Musikbunker Aachen · 20:00",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/jamaram-meets-jahcoustix-live-musikbunker-aachen-1/",
+   "quelle": "https://rausgegangen.de/events/jamaram-meets-jahcoustix-live-musikbunker-aachen-1/",
+   "hinzu": "2026-11-04"
+  },
+  {
+   "id": "bjoern-heuser-dennis-kleimann-levve-lieb-2026-10-28",
+   "typ": "event",
+   "titel": "Björn Heuser & Dennis Kleimann – Levve & Liebe Tournee 2027",
+   "text": "Konzert in FRANZ - Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2026-10-28",
+   "meta": "FRANZ - Aachen · 20:00",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/bjorn-heuser-dennis-kleimann-levve-liebe-tournee-2027-0/",
+   "quelle": "https://rausgegangen.de/events/bjorn-heuser-dennis-kleimann-levve-liebe-tournee-2027-0/",
+   "hinzu": "2026-11-04"
+  },
+  {
+   "id": "herman-van-veen-2026-10-29",
+   "typ": "event",
+   "titel": "Herman van Veen",
+   "text": "Konzert in Eurogress Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0918663,
+   "lat": 50.7820937,
+   "start": "2026-10-29",
+   "meta": "Eurogress Aachen · 20:00",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/herman-van-veen-108/",
+   "quelle": "https://rausgegangen.de/events/herman-van-veen-108/",
+   "hinzu": "2026-11-04"
+  },
+  {
+   "id": "karaoke-2026-11-04",
+   "typ": "event",
+   "titel": "KARAOKE",
+   "text": "Party in Barbarossa Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0925,
+   "lat": 50.7714,
+   "start": "2026-11-04",
+   "meta": "Barbarossa Aachen · 20:00",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/karaoke-3398/",
+   "quelle": "https://rausgegangen.de/events/karaoke-3398/",
+   "hinzu": "2026-11-04"
+  },
+  {
+   "id": "all-time-hits-2026-11-06",
+   "typ": "event",
+   "titel": "ALL TIME HITS",
+   "text": "Party in Barbarossa Aachen, Beginn 23:00 Uhr.",
+   "lng": 6.0925,
+   "lat": 50.7714,
+   "start": "2026-11-06",
+   "meta": "Barbarossa Aachen · 23:00",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/all-time-hits-4/",
+   "quelle": "https://rausgegangen.de/events/all-time-hits-4/",
+   "hinzu": "2026-11-04"
+  },
+  {
+   "id": "turkish-clubbing-2026-11-07",
+   "typ": "event",
+   "titel": "TURKISH CLUBBING",
+   "text": "Party in Barbarossa Aachen, Beginn 23:00 Uhr.",
+   "lng": 6.0925,
+   "lat": 50.7714,
+   "start": "2026-11-07",
+   "meta": "Barbarossa Aachen · 23:00",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/turkish-clubbing-2/",
+   "quelle": "https://rausgegangen.de/events/turkish-clubbing-2/",
+   "hinzu": "2026-11-04"
+  },
+  {
+   "id": "salsa-sunday-2026-11-08",
+   "typ": "event",
+   "titel": "SALSA SUNDAY",
+   "text": "Party in Barbarossa Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.0925,
+   "lat": 50.7714,
+   "start": "2026-11-08",
+   "meta": "Barbarossa Aachen · 19:00",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/salsa-sunday-33/",
+   "quelle": "https://rausgegangen.de/events/salsa-sunday-33/",
+   "hinzu": "2026-11-04"
+  },
+  {
+   "id": "rockers-headbangers-2026-11-13",
+   "typ": "event",
+   "titel": "ROCKERS & HEADBANGERS",
+   "text": "Party in Barbarossa Aachen, Beginn 22:00 Uhr.",
+   "lng": 6.0925,
+   "lat": 50.7714,
+   "start": "2026-11-13",
+   "meta": "Barbarossa Aachen · 22:00",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/rockers-headbangers-0/",
+   "quelle": "https://rausgegangen.de/events/rockers-headbangers-0/",
+   "hinzu": "2026-11-04"
+  },
+  {
+   "id": "schwarze-schwaene-2026-11-04",
+   "typ": "event",
+   "titel": "Schwarze Schwäne",
+   "text": "Bühne in Grenzlandtheater, Beginn 20:00 Uhr.",
+   "lng": 6.0846,
+   "lat": 50.7768,
+   "start": "2026-11-04",
+   "meta": "Grenzlandtheater · 20:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/schwarze-schwane-49/",
+   "quelle": "https://rausgegangen.de/events/schwarze-schwane-49/",
+   "hinzu": "2026-11-04"
+  },
+  {
+   "id": "don-carlo-2026-11-07",
+   "typ": "event",
+   "titel": "Don Carlo",
+   "text": "Bühne in Theater Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2026-11-07",
+   "meta": "Theater Aachen · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/don-carlo-124/",
+   "quelle": "https://rausgegangen.de/events/don-carlo-124/",
+   "hinzu": "2026-11-04"
+  },
+  {
+   "id": "lucy-4-6-milliarden-jahre-2026-11-07",
+   "typ": "event",
+   "titel": "Lucy (4,6 Milliarden Jahre)",
+   "text": "Bühne in Theater Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2026-11-07",
+   "meta": "Theater Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/lucy-46-milliarden-jahre-6/",
+   "quelle": "https://rausgegangen.de/events/lucy-46-milliarden-jahre-6/",
+   "hinzu": "2026-11-04"
+  },
+  {
+   "id": "maria-stuart-2026-11-28",
+   "typ": "event",
+   "titel": "Maria Stuart",
+   "text": "Bühne in Theater Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2026-11-28",
+   "meta": "Theater Aachen · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/maria-stuart-209/",
+   "quelle": "https://rausgegangen.de/events/maria-stuart-209/",
+   "hinzu": "2026-11-04"
+  },
+  {
+   "id": "buerger-innenveranstaltung-wilhelmstrass-2026-11-10",
+   "typ": "event",
+   "titel": "Bürger*innenveranstaltung Wilhelmstraße",
+   "text": "Lesung & Comedy in Suermondt-Ludwig-Museum Aachen, Beginn 18:00 Uhr.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-11-10",
+   "meta": "Suermondt-Ludwig-Museum Aachen · 18:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/burgerinnenveranstaltung-wilhelmstrae-0/",
+   "quelle": "https://rausgegangen.de/events/burgerinnenveranstaltung-wilhelmstrae-0/",
+   "hinzu": "2026-11-04"
+  },
+  {
+   "id": "herr-schroeder-der-rest-ist-hausaufgabe-2027-10-01",
+   "typ": "event",
+   "titel": "Herr Schröder – Der Rest ist Hausaufgabe",
+   "text": "Lesung & Comedy in Eurogress Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0918663,
+   "lat": 50.7820937,
+   "start": "2027-10-01",
+   "meta": "Eurogress Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/herr-schroder-der-rest-ist-hausaufgabe-28/",
+   "quelle": "https://rausgegangen.de/events/herr-schroder-der-rest-ist-hausaufgabe-28/",
+   "hinzu": "2026-11-04"
+  },
+  {
+   "id": "roland-jankowsky-2026-10-16",
+   "typ": "event",
+   "titel": "Roland Jankowsky",
+   "text": "Lesung & Comedy in Neues Kurhaus, Beginn 19:30 Uhr.",
+   "lng": 6.0930307,
+   "lat": 50.7816451,
+   "start": "2026-10-16",
+   "meta": "Neues Kurhaus · 19:30",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/roland-jankowsky-98/",
+   "quelle": "https://rausgegangen.de/events/roland-jankowsky-98/",
+   "hinzu": "2026-11-04"
+  },
+  {
+   "id": "klassikerperlen-2026-11-09",
+   "typ": "event",
+   "titel": "Klassikerperlen",
+   "text": "Film in Apollo Kino & Bar, Beginn 20:00 Uhr.",
+   "lng": 6.078955,
+   "lat": 50.7806829,
+   "start": "2026-11-09",
+   "meta": "Apollo Kino & Bar · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/klassikerperlen-44/",
+   "quelle": "https://rausgegangen.de/events/klassikerperlen-44/",
+   "hinzu": "2026-11-04"
+  },
+  {
+   "id": "fuehrungen-durch-die-sternwarte-2026-11-07",
+   "typ": "event",
+   "titel": "Führungen durch die Sternwarte",
+   "text": "Aktiv & Kreativ in Sternwarte Aachen, Beginn 21:00 Uhr.",
+   "lng": 6.0702,
+   "lat": 50.7587,
+   "start": "2026-11-07",
+   "meta": "Sternwarte Aachen · 21:00",
+   "tags": [
+    "familie",
+    "natur"
+   ],
+   "link": "https://rausgegangen.de/events/fuhrungen-durch-die-sternwarte-63/",
+   "quelle": "https://rausgegangen.de/events/fuhrungen-durch-die-sternwarte-63/",
+   "hinzu": "2026-11-04"
+  },
+  {
+   "id": "schnullercaf-mit-dem-helene-weber-haus-2026-11-06",
+   "typ": "event",
+   "titel": "Schnullercafé mit dem Helene-Weber-Haus",
+   "text": "Für Kinder in Mayersche Aachen, Beginn 11:00 Uhr.",
+   "lng": 6.0865,
+   "lat": 50.7751,
+   "start": "2026-11-06",
+   "meta": "Mayersche Aachen · 11:00",
+   "tags": [
+    "familie",
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/schnullercafe-mit-dem-helene-weber-haus-69/",
+   "quelle": "https://rausgegangen.de/events/schnullercafe-mit-dem-helene-weber-haus-69/",
+   "hinzu": "2026-11-04"
+  },
+  {
+   "id": "ohrenkino-mit-dem-helene-weber-haus-2026-11-06",
+   "typ": "event",
+   "titel": "Ohrenkino mit dem Helene-Weber-Haus",
+   "text": "Für Kinder in Mayersche Aachen, Beginn 15:00 Uhr.",
+   "lng": 6.0865,
+   "lat": 50.7751,
+   "start": "2026-11-06",
+   "meta": "Mayersche Aachen · 15:00",
+   "tags": [
+    "familie",
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/ohrenkino-mit-dem-helene-weber-haus-138/",
+   "quelle": "https://rausgegangen.de/events/ohrenkino-mit-dem-helene-weber-haus-138/",
+   "hinzu": "2026-11-04"
+  },
+  {
+   "id": "futurematch-2026-2026-11-04",
+   "typ": "event",
+   "titel": "FutureMatch 2026.",
+   "text": "In Eurogress Aachen. Beginn 10:00 Uhr.",
+   "lng": 6.0918663,
+   "lat": 50.7820937,
+   "start": "2026-11-04",
+   "meta": "Eurogress Aachen · 10:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/futurematch-2026/",
+   "quelle": "https://aachen-kalender.de/event/futurematch-2026/",
+   "hinzu": "2026-11-04"
+  },
+  {
+   "id": "mit-baby-ins-museum-nam-june-paik-earth--2026-11-04",
+   "typ": "event",
+   "titel": "Mit Baby ins Museum. „Nam June Paik. Earth, Moon, Sun und die Geschichte des Hauses“.",
+   "text": "In Ludwig Forum. Beginn 11:00 Uhr.",
+   "lng": 6.1017334,
+   "lat": 50.7811145,
+   "start": "2026-11-04",
+   "meta": "Ludwig Forum · 11:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/mit-baby-ins-museum-nam-june-paik-earth-moon-sun-und-die-geschichte-des-hauses/",
+   "quelle": "https://aachen-kalender.de/event/mit-baby-ins-museum-nam-june-paik-earth-moon-sun-und-die-geschichte-des-hauses/",
+   "hinzu": "2026-11-04"
+  },
+  {
+   "id": "meditation-im-museum-ein-besonderes-erle-2026-11-04",
+   "typ": "event",
+   "titel": "Meditation im Museum – ein besonderes Erlebnis.",
+   "text": "In Suermondt-Ludwig-Museum. Beginn 12:00 Uhr.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-11-04",
+   "meta": "Suermondt-Ludwig-Museum · 12:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/meditation-im-museum-ein-besonderes-erlebnis/2026-11-04/",
+   "quelle": "https://aachen-kalender.de/event/meditation-im-museum-ein-besonderes-erlebnis/2026-11-04/",
+   "hinzu": "2026-11-04"
+  },
+  {
+   "id": "altstadtfuehrung-2026-11-04",
+   "typ": "event",
+   "titel": "„Altstadtführung“.",
+   "text": "In Tourist Info, Elisenbrunnen. Beginn 14:00 Uhr.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "start": "2026-11-04",
+   "meta": "Tourist Info, Elisenbrunnen · 14:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-11-04/",
+   "quelle": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-11-04/",
+   "hinzu": "2026-11-04"
+  },
+  {
+   "id": "entdeckerstunden-mit-denise-und-sabine-2026-11-04",
+   "typ": "event",
+   "titel": "Entdeckerstunden mit Denise und Sabine.",
+   "text": "In Mayersche Buchhandlung. Beginn 16:30 Uhr.",
+   "lng": 6.0865,
+   "lat": 50.7751,
+   "start": "2026-11-04",
+   "meta": "Mayersche Buchhandlung · 16:30",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/entdeckerstunden-mit-denise-und-sabine-34/2026-11-04/",
+   "quelle": "https://aachen-kalender.de/event/entdeckerstunden-mit-denise-und-sabine-34/2026-11-04/",
+   "hinzu": "2026-11-04"
+  },
+  {
+   "id": "oeffentliche-fuehrung-durch-die-sonderau-2026-11-05",
+   "typ": "event",
+   "titel": "Öffentliche Führung durch die Sonderausstellung am Vormittag. „2,5 km Industriegeschichte.",
+   "text": "In Centre Charlemagne. Beginn 11:00 Uhr.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-11-05",
+   "meta": "Centre Charlemagne · 11:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/oeffentliche-fuehrung-durch-die-sonderausstellung-am-vormittag-25-km-industriegeschichte-die-juelicher-strasse/",
+   "quelle": "https://aachen-kalender.de/event/oeffentliche-fuehrung-durch-die-sonderausstellung-am-vormittag-25-km-industriegeschichte-die-juelicher-strasse/",
+   "hinzu": "2026-11-04"
+  },
+  {
+   "id": "altstadtfuehrung-2026-11-05",
+   "typ": "event",
+   "titel": "„Altstadtführung“.",
+   "text": "In Tourist Info, Elisenbrunnen. Beginn 14:00 Uhr.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "start": "2026-11-05",
+   "meta": "Tourist Info, Elisenbrunnen · 14:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-11-05/",
+   "quelle": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-11-05/",
+   "hinzu": "2026-11-04"
+  },
+  {
+   "id": "entdeckerstunden-mit-denise-und-sabine-2026-11-05",
+   "typ": "event",
+   "titel": "Entdeckerstunden mit Denise und Sabine.",
+   "text": "In Mayersche Buchhandlung. Beginn 16:30 Uhr.",
+   "lng": 6.0865,
+   "lat": 50.7751,
+   "start": "2026-11-05",
+   "meta": "Mayersche Buchhandlung · 16:30",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/entdeckerstunden-mit-denise-und-sabine-33/2026-11-05/",
+   "quelle": "https://aachen-kalender.de/event/entdeckerstunden-mit-denise-und-sabine-33/2026-11-05/",
+   "hinzu": "2026-11-04"
+  },
+  {
+   "id": "kuratorinnenfuehrung-margit-palme-und-ul-2026-11-05",
+   "typ": "event",
+   "titel": "Kuratorinnenführung. „Margit Palme und Ulrike Müller“.",
+   "text": "In Ludwig Forum. Beginn 18:00 Uhr.",
+   "lng": 6.1017334,
+   "lat": 50.7811145,
+   "start": "2026-11-05",
+   "meta": "Ludwig Forum · 18:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/kuratorinnenfuehrung-margit-palme-und-ulrike-mueller/",
+   "quelle": "https://aachen-kalender.de/event/kuratorinnenfuehrung-margit-palme-und-ulrike-mueller/",
+   "hinzu": "2026-11-04"
+  },
+  {
+   "id": "zum-quizzen-auf-s-dach-die-film-und-musi-2026-11-05",
+   "typ": "event",
+   "titel": "„Zum Quizzen auf’s Dach – Die Film- und Musik-Challenge“.",
+   "text": "In forum M, Mayersche Buchhandlung. Beginn 19:00 Uhr.",
+   "lng": 6.0865,
+   "lat": 50.7751,
+   "start": "2026-11-05",
+   "meta": "forum M, Mayersche Buchhandlung · 19:00",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/zum-quizzen-aufs-dach-die-film-und-musik-challenge/",
+   "quelle": "https://aachen-kalender.de/event/zum-quizzen-aufs-dach-die-film-und-musik-challenge/",
+   "hinzu": "2026-11-04"
+  },
+  {
+   "id": "soeren-thies-kein-kinderlied-2026-11-05",
+   "typ": "event",
+   "titel": "Soeren Thies. „Kein Kinderlied“.",
+   "text": "In Burg Frankenberg. Beginn 20:00 Uhr.",
+   "lng": 6.1038202,
+   "lat": 50.7678212,
+   "start": "2026-11-05",
+   "meta": "Burg Frankenberg · 20:00",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/soeren-thies-kein-kinderlied/",
+   "quelle": "https://aachen-kalender.de/event/soeren-thies-kein-kinderlied/",
+   "hinzu": "2026-11-04"
+  },
+  {
+   "id": "altstadtfuehrung-2026-11-06",
+   "typ": "event",
+   "titel": "„Altstadtführung“.",
+   "text": "In Tourist Info, Elisenbrunnen. Beginn 14:00 Uhr.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "start": "2026-11-06",
+   "meta": "Tourist Info, Elisenbrunnen · 14:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-11-06/",
+   "quelle": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-11-06/",
+   "hinzu": "2026-11-04"
+  },
+  {
+   "id": "abendbummel-2026-11-06",
+   "typ": "event",
+   "titel": "Abendbummel",
+   "text": "In Tourist Info, Elisenbrunnen. Beginn 18:00 Uhr.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "start": "2026-11-06",
+   "meta": "Tourist Info, Elisenbrunnen · 18:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/abendbummel-43/2026-11-06/",
+   "quelle": "https://aachen-kalender.de/event/abendbummel-43/2026-11-06/",
+   "hinzu": "2026-11-04"
+  },
+  {
+   "id": "kinky-cancer-heilung-zwischen-chemo-lust-2026-12-12",
+   "typ": "event",
+   "titel": "„Kinky Cancer – Heilung zwischen Chemo, Lust und Selbstbefreiung“ Autorinnenlesung mit Sil",
+   "text": "In Raststätte. Beginn 17:00 Uhr.",
+   "lng": 6.0939733,
+   "lat": 50.77161,
+   "start": "2026-12-12",
+   "meta": "Raststätte · 17:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://raststaette.org/termine/kinky-cancer-heilung-zwischen-chemo-lust-und-selbstbefreiung-autorinnenlesung-mit-silke-klein/",
+   "quelle": "https://raststaette.org/termine/kinky-cancer-heilung-zwischen-chemo-lust-und-selbstbefreiung-autorinnenlesung-mit-silke-klein/",
+   "hinzu": "2026-11-04"
   }
  ]
 }
