@@ -1,5 +1,5 @@
 {
- "stand": "2026-11-04",
+ "stand": "2026-11-11",
  "hinweis": "Schema: typ event|angebot|hilfe|spot · tags[] · quelle (Beleg-URL) · link (CTA) · hot (beliebt) · hinzu (Aufnahmedatum) · saison {von,bis als MM-TT, jaehrlich wiederkehrend} · fest:true = wird vom Auto-Update nie geloescht.",
  "pins": [
   {
@@ -936,22 +936,6 @@
    "hinzu": "2026-08-07"
   },
   {
-   "id": "alemannia-verl",
-   "typ": "event",
-   "titel": "Alemannia – SC Verl",
-   "text": "Saisonauftakt am Tivoli, Anstoß 19:30 Uhr. Vorher Fanmarsch: Treffen ab 13 Uhr auf dem Markt, Abmarsch 15:30 Uhr.",
-   "lng": 6.0955,
-   "lat": 50.793,
-   "start": "2026-08-09",
-   "meta": "19:30 · Tivoli",
-   "tags": [
-    "sport"
-   ],
-   "link": "https://www.alemannia-aachen.de",
-   "quelle": "https://www.alemannia-aachen.de",
-   "hinzu": "2026-08-07"
-  },
-  {
    "id": "dreadnoughts",
    "typ": "event",
    "titel": "The Dreadnoughts (Konzert)",
@@ -966,35 +950,6 @@
    "link": "https://musikbunkeraachen.bigcartel.com/product/the-dreadnoughts-14082026",
    "quelle": "https://musikbunkeraachen.bigcartel.com/product/the-dreadnoughts-14082026",
    "hinzu": "2026-08-08"
-  },
-  {
-   "id": "antikmarkt-elisen",
-   "typ": "event",
-   "titel": "Antik- & Kunstmarkt am Elisenbrunnen",
-   "text": "Antiquitäten und Kunst auf dem Friedrich-Wilhelm-Platz. Monatliche Reihe — nächster Termin: 13.9.",
-   "lng": 6.0873,
-   "lat": 50.7745,
-   "start": "2026-08-09",
-   "meta": "Elisenbrunnen",
-   "tags": [
-    "markt",
-    "kultur"
-   ],
-   "hinzu": "2026-08-07"
-  },
-  {
-   "id": "melan-porta",
-   "typ": "event",
-   "titel": "Melan Trödelmarkt (Porta)*",
-   "text": "Sonntagströdel am Gut Wolf 2 (Aachen-Nord).",
-   "lng": 6.127,
-   "lat": 50.7965,
-   "start": "2026-08-09",
-   "meta": "Am Gut Wolf",
-   "tags": [
-    "markt"
-   ],
-   "hinzu": "2026-08-07"
   },
   {
    "id": "alemannia-meppen",
@@ -1268,54 +1223,6 @@
    "hinzu": "2026-08-08"
   },
   {
-   "id": "schluessel-tres-hombres",
-   "typ": "event",
-   "titel": "Tres Hombres R&B",
-   "text": "Rhythm-&-Blues-Livekonzert in der Rockkneipe am Boxgraben. Beginn 20 Uhr.",
-   "lng": 6.0811371,
-   "lat": 50.7685803,
-   "start": "2026-08-08",
-   "meta": "Schlüsselloch · 20 Uhr",
-   "tags": [
-    "musik"
-   ],
-   "link": "https://aachen-kalender.de/event/tres-hombres-r-b-4/",
-   "quelle": "https://aachen-kalender.de/event/tres-hombres-r-b-4/",
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "europa-queerbeats",
-   "typ": "event",
-   "titel": "Queerbeats — dancing on rainbows",
-   "text": "Queere Partyreihe mit DJ-Sets im Clubkeller. Ab 21 Uhr.",
-   "lng": 6.0810781,
-   "lat": 50.7665207,
-   "start": "2026-08-08",
-   "meta": "Dein Hotel Europa · 21 Uhr",
-   "tags": [
-    "musik"
-   ],
-   "link": "https://www.deinhoteleuropa.de/programm/",
-   "quelle": "https://www.deinhoteleuropa.de/programm/",
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "apollo-attitude",
-   "typ": "event",
-   "titel": "Attitude by Ice Kareem",
-   "text": "Clubnacht mit DJ Ice Kareem im Apollo. Einlass ab 23 Uhr.",
-   "lng": 6.078955,
-   "lat": 50.7806829,
-   "start": "2026-08-08",
-   "meta": "Apollo · 23 Uhr",
-   "tags": [
-    "musik"
-   ],
-   "link": "https://apollo-aachen.de/club/events/",
-   "quelle": "https://apollo-aachen.de/club/events/",
-   "hinzu": "2026-08-08"
-  },
-  {
    "id": "klangbruecke-alles-anders",
    "typ": "event",
    "titel": "Alles Anders — Das Musical",
@@ -1331,86 +1238,6 @@
    ],
    "link": "https://altes-kurhaus-aachen.de/spielplan/",
    "quelle": "https://altes-kurhaus-aachen.de/spielplan/",
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "parkterrassen-dixie",
-   "typ": "event",
-   "titel": "Dixie Krekkers — Jazz-Frühschoppen",
-   "text": "Dixieland-Frühschoppen auf den Park-Terrassen. Ab 11 Uhr.",
-   "lng": 6.0951,
-   "lat": 50.7827,
-   "start": "2026-08-09",
-   "meta": "Park-Terrassen · 11 Uhr",
-   "tags": [
-    "musik"
-   ],
-   "link": "https://aachen-kalender.de/event/dixie-krekkers/",
-   "quelle": "https://aachen-kalender.de/event/dixie-krekkers/",
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "wm-markt-sonos-cliq",
-   "typ": "event",
-   "titel": "Sonos Cliq (WM-Bühne Markt)",
-   "text": "Auftakt der Gratis-Konzertreihe zur Reit-WM auf dem Marktplatz. Eintritt frei.",
-   "lng": 6.0838,
-   "lat": 50.776,
-   "start": "2026-08-11",
-   "meta": "Markt · 20:30 · frei",
-   "tags": [
-    "musik"
-   ],
-   "link": "https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/",
-   "quelle": "https://aachen-kalender.de/event/aachen-wm-special-sonos-cliq/",
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "wm-markt-il-civetto",
-   "typ": "event",
-   "titel": "Il Civetto (WM-Bühne Markt)",
-   "text": "Berliner Band zwischen Folk und Gypsy-Pop auf dem Marktplatz. Eintritt frei.",
-   "lng": 6.0838,
-   "lat": 50.776,
-   "start": "2026-08-12",
-   "meta": "Markt · 20:30 · frei",
-   "tags": [
-    "musik"
-   ],
-   "link": "https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/",
-   "quelle": "https://aachen-kalender.de/event/aachen-wm-special-il-civetto/",
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "elisen-roda-samba",
-   "typ": "event",
-   "titel": "Roda de Samba mit den Pagodinhos",
-   "text": "Brasilianische Samba-Runde in der Rotunde am Elisenbrunnen. Ab 17:30 Uhr.",
-   "lng": 6.0871,
-   "lat": 50.7747,
-   "start": "2026-08-12",
-   "meta": "Elisenbrunnen · 17:30",
-   "tags": [
-    "musik"
-   ],
-   "link": "https://aachen-kalender.de/event/roda-de-sambamit-den-pagodinhos-aus-aachen/",
-   "quelle": "https://aachen-kalender.de/event/roda-de-sambamit-den-pagodinhos-aus-aachen/",
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "apollo-salsa-1208",
-   "typ": "event",
-   "titel": "Salsa Afterwork",
-   "text": "Salsa-Abend im Apollo, wöchentlich mittwochs. Ab 19 Uhr.",
-   "lng": 6.078955,
-   "lat": 50.7806829,
-   "start": "2026-08-12",
-   "meta": "Apollo · 19 Uhr",
-   "tags": [
-    "musik"
-   ],
-   "link": "https://apollo-aachen.de/club/events/",
-   "quelle": "https://apollo-aachen.de/club/events/",
    "hinzu": "2026-08-08"
   },
   {
@@ -15794,6 +15621,1209 @@
    "link": "https://raststaette.org/termine/kinky-cancer-heilung-zwischen-chemo-lust-und-selbstbefreiung-autorinnenlesung-mit-silke-klein/",
    "quelle": "https://raststaette.org/termine/kinky-cancer-heilung-zwischen-chemo-lust-und-selbstbefreiung-autorinnenlesung-mit-silke-klein/",
    "hinzu": "2026-11-04"
+  },
+  {
+   "id": "kk-centre-charlemagne-mehr-als-ein-biedermann-der-maler-johann-2026-11-20",
+   "typ": "event",
+   "titel": "Mehr als ein Biedermann – Der Maler Johann Baptist Bastiné (1783…",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-11-20",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/mehr-als-ein-biedermann-der-maler-johann-baptist-bastine-1783-1844/",
+   "quelle": "https://centre-charlemagne.eu/termin/mehr-als-ein-biedermann-der-maler-johann-baptist-bastine-1783-1844/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-david-teniers-d-ae-anbetung-der-drei-koe-2026-12-01",
+   "typ": "event",
+   "titel": "David Teniers d. Ä., Anbetung der Drei Könige",
+   "text": "Kunstpause.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-12-01",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/david-teniers-d-ae-anbetung-der-drei-koenige/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/david-teniers-d-ae-anbetung-der-drei-koenige/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-couven-museum-mit-baby-ins-museum-2026-12-02",
+   "typ": "event",
+   "titel": "Mit Baby ins Museum",
+   "text": "Führung.",
+   "lng": 6.0849,
+   "lat": 50.7761,
+   "start": "2026-12-02",
+   "meta": "Couven Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://couven-museum.de/event/mit-baby-ins-museum-4/",
+   "quelle": "https://couven-museum.de/event/mit-baby-ins-museum-4/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-centre-charlemagne-monarchen-macht-moneten-kroenungen-in-aa-2026-12-03",
+   "typ": "event",
+   "titel": "Monarchen, Macht, Moneten – Krönungen in Aachen",
+   "text": "Führung.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-12-03",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/monarchen-macht-moneten-kroenungen-in-aachen-10/",
+   "quelle": "https://centre-charlemagne.eu/termin/monarchen-macht-moneten-kroenungen-in-aachen-10/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-centre-charlemagne-ein-halbes-dutzend-karls-auf-der-suche-n-2026-12-05",
+   "typ": "event",
+   "titel": "Ein halbes Dutzend Karls. Auf der Suche nach der Wirklichkeit",
+   "text": "Führung.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-12-05",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/ein-halbes-dutzend-karls-auf-der-suche-nach-der-wirklichkeit/",
+   "quelle": "https://centre-charlemagne.eu/termin/ein-halbes-dutzend-karls-auf-der-suche-nach-der-wirklichkeit/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-couven-museum-workshop-zur-sonderausstellung-kalligrap-2026-12-05",
+   "typ": "event",
+   "titel": "Workshop zur Sonderausstellung – Kalligraphie",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.0849,
+   "lat": 50.7761,
+   "start": "2026-12-05",
+   "meta": "Couven Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://couven-museum.de/event/workshop-zur-sonderausstellung-kalligraphie/",
+   "quelle": "https://couven-museum.de/event/workshop-zur-sonderausstellung-kalligraphie/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-centre-charlemagne-stabpuppen-werkstatt-rahmenprogramm-weih-2026-12-05",
+   "typ": "event",
+   "titel": "Stabpuppen-Werkstatt – Rahmenprogramm Weihnachtsmarkt",
+   "text": "Workshop.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-12-05",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/stabpuppen-werkstatt-rahmenprogramm-weihnachtsmarkt/",
+   "quelle": "https://centre-charlemagne.eu/termin/stabpuppen-werkstatt-rahmenprogramm-weihnachtsmarkt/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-centre-charlemagne-das-grashaus-im-wandel-der-zeiten-2026-12-05",
+   "typ": "event",
+   "titel": "Das Grashaus – Im Wandel der Zeiten",
+   "text": "Führung.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-12-05",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/das-grashaus-im-wandel-der-zeiten-17/",
+   "quelle": "https://centre-charlemagne.eu/termin/das-grashaus-im-wandel-der-zeiten-17/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-kunst-croissants-und-konfituere-2026-12-06",
+   "typ": "event",
+   "titel": "Kunst, Croissants und Konfitüre",
+   "text": "Führung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-12-06",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/kunst-croissants-und-konfituere-5-2-2/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/kunst-croissants-und-konfituere-5-2-2/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-centre-charlemagne-fuehrung-zollmuseum-2026-12-06",
+   "typ": "event",
+   "titel": "Führung Zollmuseum",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-12-06",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/fuehrung-zollmuseum-15/2026-12-06/",
+   "quelle": "https://centre-charlemagne.eu/termin/fuehrung-zollmuseum-15/2026-12-06/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-barthold-suermondt-und-peter-ludwig-8211-2026-12-06",
+   "typ": "event",
+   "titel": "Barthold Suermondt und Peter Ludwig – Förderer der Kunst",
+   "text": "Führung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-12-06",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/barthold-suermondt-und-peter-ludwig-foerderer-der-kunst/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/barthold-suermondt-und-peter-ludwig-foerderer-der-kunst/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-centre-charlemagne-von-koenigen-pilger-innen-und-anderen-ga-2026-12-06",
+   "typ": "event",
+   "titel": "Von Königen, Pilger*innen und anderen Gästen – die Welt zu Besuch…",
+   "text": "Führung.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-12-06",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/von-koenigen-pilgerinnen-und-anderen-gaesten-die-welt-zu-besuch-in-aachen-3/",
+   "quelle": "https://centre-charlemagne.eu/termin/von-koenigen-pilgerinnen-und-anderen-gaesten-die-welt-zu-besuch-in-aachen-3/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-vorweihnachtszeit-fuer-familie-baumschmu-2026-12-06",
+   "typ": "event",
+   "titel": "Vorweihnachtszeit für Familie: Baumschmuck",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-12-06",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/vorweihnachtszeit-fuer-familie-baumschmuck/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/vorweihnachtszeit-fuer-familie-baumschmuck/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-aus-der-biografie-von-albert-sous-2026-12-06",
+   "typ": "event",
+   "titel": "Aus der Biografie von Albert Sous",
+   "text": "Lesung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-12-06",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/aus-der-biografie-von-albert-sous/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/aus-der-biografie-von-albert-sous/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-centre-charlemagne-2-5-km-industriegeschiche-die-juelicher--2026-12-06",
+   "typ": "event",
+   "titel": "2,5 km Industriegeschiche. Die Jülicher Straße",
+   "text": "Führung.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-12-06",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/25-km-industriegeschiche-die-juelicher-strasse-11/2026-12-06/",
+   "quelle": "https://centre-charlemagne.eu/termin/25-km-industriegeschiche-die-juelicher-strasse-11/2026-12-06/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-interkultureller-kunstworkshop-2026-12-08",
+   "typ": "event",
+   "titel": "Interkultureller Kunstworkshop",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-12-08",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/interkultureller-kunstworkshop-3-2-2/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/interkultureller-kunstworkshop-3-2-2/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-albert-sous-collier-mit-smaragden-und-pe-2026-12-08",
+   "typ": "event",
+   "titel": "Albert Sous, Collier mit Smaragden und Perlen, 1968",
+   "text": "Kunstpause.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-12-08",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/albert-sous-collier-mit-smaragden-und-perlen-1968/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/albert-sous-collier-mit-smaragden-und-perlen-1968/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-centre-charlemagne-die-kunstsammlung-erster-regionaler-work-2026-12-09",
+   "typ": "event",
+   "titel": "Die Kunstsammlung – Erster regionaler Workshop zum Thema:…",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-12-09",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/die-kunstsammlung-erster-regionaler-workshop-zum-thema-sammlungen-erforschen/",
+   "quelle": "https://centre-charlemagne.eu/termin/die-kunstsammlung-erster-regionaler-workshop-zum-thema-sammlungen-erforschen/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-centre-charlemagne-museale-konstruktionen-von-heimat-en-deu-2026-12-10",
+   "typ": "event",
+   "titel": "Museale Konstruktionen von Heimat(en):…",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-12-10",
+   "ende": "2026-12-11",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/museale-konstruktionen-von-heimaten-deutsch-franzoesisch-belgische-perspektiven/",
+   "quelle": "https://centre-charlemagne.eu/termin/museale-konstruktionen-von-heimaten-deutsch-franzoesisch-belgische-perspektiven/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-couven-museum-fernoestliche-motive-in-der-wohnkultur-d-2026-12-10",
+   "typ": "event",
+   "titel": "Fernöstliche Motive in der Wohnkultur des 18. und 19. Jahrhunderts",
+   "text": "Führung.",
+   "lng": 6.0849,
+   "lat": 50.7761,
+   "start": "2026-12-10",
+   "meta": "Couven Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://couven-museum.de/event/fernoestliche-motive-in-der-wohnkultur-des-18-und-19-jahrhunderts-6/",
+   "quelle": "https://couven-museum.de/event/fernoestliche-motive-in-der-wohnkultur-des-18-und-19-jahrhunderts-6/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-zeitungsmuseum-erzaehlcaf-fuer-senior-innen-zucker-8220-2026-12-11",
+   "typ": "event",
+   "titel": "Zucker",
+   "text": "Erzählcafé für Senior*innen.",
+   "lng": 6.0824,
+   "lat": 50.7758,
+   "start": "2026-12-11",
+   "meta": "Zeitungsmuseum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://izm.de/event/erzaehlcafe-fuer-seniorinnen-zucker/",
+   "quelle": "https://izm.de/event/erzaehlcafe-fuer-seniorinnen-zucker/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-centre-charlemagne-von-aquae-granni-bis-roma-secunda-2026-12-12",
+   "typ": "event",
+   "titel": "Von Aquae Granni bis Roma Secunda",
+   "text": "Führung.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-12-12",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/von-aquae-granni-bis-roma-secunda-6/",
+   "quelle": "https://centre-charlemagne.eu/termin/von-aquae-granni-bis-roma-secunda-6/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-centre-charlemagne-schatzkisten-werkstatt-rahmenprogramm-we-2026-12-12",
+   "typ": "event",
+   "titel": "Schatzkisten-Werkstatt – Rahmenprogramm Weihnachtsmarkt",
+   "text": "Workshop.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-12-12",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/schatzkisten-werkstatt-rahmenprogramm-weihnachtsmarkt-2/",
+   "quelle": "https://centre-charlemagne.eu/termin/schatzkisten-werkstatt-rahmenprogramm-weihnachtsmarkt-2/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-couven-museum-alles-couven-oder-was-2026-12-12",
+   "typ": "event",
+   "titel": "Alles Couven oder was?",
+   "text": "Führung.",
+   "lng": 6.0849,
+   "lat": 50.7761,
+   "start": "2026-12-12",
+   "meta": "Couven Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://couven-museum.de/event/alles-couven-oder-was-19/",
+   "quelle": "https://couven-museum.de/event/alles-couven-oder-was-19/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-albert-sous-die-kunst-und-die-oeffentlic-2026-12-13",
+   "typ": "event",
+   "titel": "Albert Sous, die Kunst und die Öffentlichkeit",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-12-13",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/albert-sous-die-kunst-und-die-oeffentlichkeit/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/albert-sous-die-kunst-und-die-oeffentlichkeit/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-centre-charlemagne-highlights-der-stadtgeschichte-2026-12-13",
+   "typ": "event",
+   "titel": "Highlights der Stadtgeschichte",
+   "text": "Führung.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-12-13",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/highlights-der-stadtgeschichte-25/",
+   "quelle": "https://centre-charlemagne.eu/termin/highlights-der-stadtgeschichte-25/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-couven-museum-tinte-trifft-tusche-tintenfaesser-und-tu-2026-12-13",
+   "typ": "event",
+   "titel": "Tinte trifft Tusche. Tintenfässer und Tuschezeichnungen",
+   "text": "Führung.",
+   "lng": 6.0849,
+   "lat": 50.7761,
+   "start": "2026-12-13",
+   "meta": "Couven Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://couven-museum.de/event/tinte-trifft-tusche-tintenfaesser-und-tuschezeichnungen-6/",
+   "quelle": "https://couven-museum.de/event/tinte-trifft-tusche-tintenfaesser-und-tuschezeichnungen-6/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-zeitungsmuseum-wer-liest-denn-noch-zeitung-2026-12-13",
+   "typ": "event",
+   "titel": "Wer liest denn noch Zeitung?",
+   "text": "Führung.",
+   "lng": 6.0824,
+   "lat": 50.7758,
+   "start": "2026-12-13",
+   "meta": "Zeitungsmuseum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://izm.de/event/nachrichten-gestern-heute-morgen-2-2-3-2/",
+   "quelle": "https://izm.de/event/nachrichten-gestern-heute-morgen-2-2-3-2/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-vorweihnachtszeit-fuer-familie-weihnacht-2026-12-13",
+   "typ": "event",
+   "titel": "Vorweihnachtszeit für Familie: Weihnachtskarten und Geschenkanhänger",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-12-13",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/vorweihnachtszeit-fuer-familie-weihnachtskarten-und-geschenkanhaenger/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/vorweihnachtszeit-fuer-familie-weihnachtskarten-und-geschenkanhaenger/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-centre-charlemagne-2-5-km-industriegeschiche-die-juelicher--2026-12-13",
+   "typ": "event",
+   "titel": "2,5 km Industriegeschiche. Die Jülicher Straße",
+   "text": "Führung.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-12-13",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/25-km-industriegeschiche-die-juelicher-strasse-11/2026-12-13/",
+   "quelle": "https://centre-charlemagne.eu/termin/25-km-industriegeschiche-die-juelicher-strasse-11/2026-12-13/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-couven-museum-kunstplausch-mit-fruehstueck-2026-12-15",
+   "typ": "event",
+   "titel": "Kunstplausch mit Frühstück",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.0849,
+   "lat": 50.7761,
+   "start": "2026-12-15",
+   "meta": "Couven Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://couven-museum.de/event/kunstplausch-mit-fruehstueck-4/",
+   "quelle": "https://couven-museum.de/event/kunstplausch-mit-fruehstueck-4/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-albert-sous-monstranz-1966-2026-12-15",
+   "typ": "event",
+   "titel": "Albert Sous, Monstranz, 1966",
+   "text": "Kunstpause.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-12-15",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/albert-sous-monstranz-1966/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/albert-sous-monstranz-1966/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-zauberhaft-und-einleuchtend-farbe-und-li-2026-12-17",
+   "typ": "event",
+   "titel": "Zauberhaft und einleuchtend – Farbe und Licht in der…",
+   "text": "Führung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-12-17",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/zauberhaft-und-einleuchtend-farbe-und-licht-in-der-niederlaendischen-kunst-des-17-jahrhunderts-2/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/zauberhaft-und-einleuchtend-farbe-und-licht-in-der-niederlaendischen-kunst-des-17-jahrhunderts-2/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-fuehrung-mit-petits-fours-2026-12-18",
+   "typ": "event",
+   "titel": "Führung mit Petits Fours",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-12-18",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/fuehrung-mit-petits-fours-6-2-2-2-2-2/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/fuehrung-mit-petits-fours-6-2-2-2-2-2/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-centre-charlemagne-architektur-und-kunst-im-zeichen-karolin-2026-12-19",
+   "typ": "event",
+   "titel": "Architektur und Kunst im Zeichen karolingischer Macht",
+   "text": "Führung.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-12-19",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/architektur-und-kunst-im-zeichen-karolingischer-macht-3/",
+   "quelle": "https://centre-charlemagne.eu/termin/architektur-und-kunst-im-zeichen-karolingischer-macht-3/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-centre-charlemagne-archaeologie-werkstatt-2026-12-19",
+   "typ": "event",
+   "titel": "Archäologie-Werkstatt",
+   "text": "Workshop.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-12-19",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/archaeologie-werkstatt-2/",
+   "quelle": "https://centre-charlemagne.eu/termin/archaeologie-werkstatt-2/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-traditionelle-weihnachtsbotschaften-in-m-2026-12-20",
+   "typ": "event",
+   "titel": "Traditionelle Weihnachtsbotschaften in Malerei und Plastik",
+   "text": "Führung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-12-20",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/traditionelle-weihnachtsbotschaften-in-malerei-und-plastik/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/traditionelle-weihnachtsbotschaften-in-malerei-und-plastik/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-centre-charlemagne-karl-der-grosse-2026-12-20",
+   "typ": "event",
+   "titel": "Karl der Große",
+   "text": "Führung.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-12-20",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/karl-der-grosse-4/",
+   "quelle": "https://centre-charlemagne.eu/termin/karl-der-grosse-4/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-vorweihnachtszeit-fuer-familie-farbige-p-2026-12-20",
+   "typ": "event",
+   "titel": "Vorweihnachtszeit für Familie: Farbige Prägefolienkunst",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-12-20",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/vorweihnachtszeit-fuer-familie-weihnachtskarten-und-geschenkanhaenger-2/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/vorweihnachtszeit-fuer-familie-weihnachtskarten-und-geschenkanhaenger-2/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-centre-charlemagne-fuehrung-zollmuseum-2026-12-20",
+   "typ": "event",
+   "titel": "Führung Zollmuseum",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-12-20",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/fuehrung-zollmuseum-15/2026-12-20/",
+   "quelle": "https://centre-charlemagne.eu/termin/fuehrung-zollmuseum-15/2026-12-20/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-centre-charlemagne-2-5-km-industriegeschiche-die-juelicher--2026-12-20",
+   "typ": "event",
+   "titel": "2,5 km Industriegeschiche. Die Jülicher Straße",
+   "text": "Führung.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-12-20",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/25-km-industriegeschiche-die-juelicher-strasse-11/2026-12-20/",
+   "quelle": "https://centre-charlemagne.eu/termin/25-km-industriegeschiche-die-juelicher-strasse-11/2026-12-20/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "karaoke-2026-11-11",
+   "typ": "event",
+   "titel": "KARAOKE",
+   "text": "Party in Barbarossa Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0925,
+   "lat": 50.7714,
+   "start": "2026-11-11",
+   "meta": "Barbarossa Aachen · 20:00",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/karaoke-3399/",
+   "quelle": "https://rausgegangen.de/events/karaoke-3399/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "salsa-sunday-2026-11-15",
+   "typ": "event",
+   "titel": "SALSA SUNDAY",
+   "text": "Party in Barbarossa Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.0925,
+   "lat": 50.7714,
+   "start": "2026-11-15",
+   "meta": "Barbarossa Aachen · 19:00",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/salsa-sunday-25/",
+   "quelle": "https://rausgegangen.de/events/salsa-sunday-25/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "teen-party-2026-11-28",
+   "typ": "event",
+   "titel": "TEEN PARTY",
+   "text": "Party in Barbarossa Aachen, Beginn 15:30 Uhr.",
+   "lng": 6.0925,
+   "lat": 50.7714,
+   "start": "2026-11-28",
+   "meta": "Barbarossa Aachen · 15:30",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/teen-party-0/",
+   "quelle": "https://rausgegangen.de/events/teen-party-0/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "do-you-remember-2026-12-04",
+   "typ": "event",
+   "titel": "DO YOU REMEMBER",
+   "text": "Party in Barbarossa Aachen, Beginn 23:00 Uhr.",
+   "lng": 6.0925,
+   "lat": 50.7714,
+   "start": "2026-12-04",
+   "meta": "Barbarossa Aachen · 23:00",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/do-you-remember-19/",
+   "quelle": "https://rausgegangen.de/events/do-you-remember-19/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kennt-ihr-schon-afterparty-2026-12-11",
+   "typ": "event",
+   "titel": "Kennt ihr schon...? + Afterparty",
+   "text": "Party in Barbarossa, Beginn 20:00 Uhr.",
+   "lng": 6.0925,
+   "lat": 50.7714,
+   "start": "2026-12-11",
+   "meta": "Barbarossa · 20:00",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/kennt-ihr-schon-afterparty-1/",
+   "quelle": "https://rausgegangen.de/events/kennt-ihr-schon-afterparty-1/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "schwarze-schwaene-2026-11-11",
+   "typ": "event",
+   "titel": "Schwarze Schwäne",
+   "text": "Bühne in Grenzlandtheater, Beginn 20:00 Uhr.",
+   "lng": 6.0846,
+   "lat": 50.7768,
+   "start": "2026-11-11",
+   "meta": "Grenzlandtheater · 20:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/schwarze-schwane-55/",
+   "quelle": "https://rausgegangen.de/events/schwarze-schwane-55/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "don-carlo-2026-11-22",
+   "typ": "event",
+   "titel": "Don Carlo",
+   "text": "Bühne in Theater Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2026-11-22",
+   "meta": "Theater Aachen · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/don-carlo-125/",
+   "quelle": "https://rausgegangen.de/events/don-carlo-125/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "lucy-4-6-milliarden-jahre-2026-11-26",
+   "typ": "event",
+   "titel": "Lucy (4,6 Milliarden Jahre)",
+   "text": "Bühne in Theater Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2026-11-26",
+   "meta": "Theater Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/lucy-46-milliarden-jahre-7/",
+   "quelle": "https://rausgegangen.de/events/lucy-46-milliarden-jahre-7/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "l-elisir-d-amore-der-liebestrank-2026-11-29",
+   "typ": "event",
+   "titel": "L’elisir d’amore - Der Liebestrank",
+   "text": "Bühne in Theater Aachen, Beginn 17:00 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2026-11-29",
+   "meta": "Theater Aachen · 17:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/lelisir-damore-der-liebestrank-15/",
+   "quelle": "https://rausgegangen.de/events/lelisir-damore-der-liebestrank-15/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "klassikerperlen-2026-11-16",
+   "typ": "event",
+   "titel": "Klassikerperlen",
+   "text": "Film in Apollo Kino & Bar, Beginn 20:00 Uhr.",
+   "lng": 6.078955,
+   "lat": 50.7806829,
+   "start": "2026-11-16",
+   "meta": "Apollo Kino & Bar · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/klassikerperlen-45/",
+   "quelle": "https://rausgegangen.de/events/klassikerperlen-45/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kollektiv-hermannstrasse-presents-beats--2026-11-28",
+   "typ": "event",
+   "titel": "Kollektiv Hermannstraße presents BEATS BEYOND BORDERS",
+   "text": "Konzert im Musikbunker.",
+   "lng": 6.1035274,
+   "lat": 50.7672224,
+   "start": "2026-11-28",
+   "meta": "Musikbunker",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://musikbunkeraachen.bigcartel.com/product/kollektiv-hermannstra%C3%9Fe-presents-beats-beyond-borders-28112026",
+   "quelle": "https://musikbunkeraachen.bigcartel.com/product/kollektiv-hermannstra%C3%9Fe-presents-beats-beyond-borders-28112026",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "com-die-fran-aise-in-kooperation-mit-dem-2026-11-11",
+   "typ": "event",
+   "titel": "Comédie Française in Kooperation mit dem Institut Français Aachen. „Le Petit-Maître corrig",
+   "text": "In Couven Museum. Beginn 10:00 Uhr.",
+   "lng": 6.0849,
+   "lat": 50.7761,
+   "start": "2026-11-11",
+   "meta": "Couven Museum · 10:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/comedie-francaise-in-kooperation-mit-dem-institut-francais-aachen-le-petit-maitre-corrige/",
+   "quelle": "https://aachen-kalender.de/event/comedie-francaise-in-kooperation-mit-dem-institut-francais-aachen-le-petit-maitre-corrige/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "altstadtfuehrung-2026-11-11",
+   "typ": "event",
+   "titel": "„Altstadtführung“.",
+   "text": "In Tourist Info, Elisenbrunnen. Beginn 14:00 Uhr.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "start": "2026-11-11",
+   "meta": "Tourist Info, Elisenbrunnen · 14:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-11-11/",
+   "quelle": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-11-11/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "entdeckerstunden-mit-denise-und-sabine-2026-11-11",
+   "typ": "event",
+   "titel": "Entdeckerstunden mit Denise und Sabine.",
+   "text": "In Mayersche Buchhandlung. Beginn 16:30 Uhr.",
+   "lng": 6.0865,
+   "lat": 50.7751,
+   "start": "2026-11-11",
+   "meta": "Mayersche Buchhandlung · 16:30",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/entdeckerstunden-mit-denise-und-sabine-34/2026-11-11/",
+   "quelle": "https://aachen-kalender.de/event/entdeckerstunden-mit-denise-und-sabine-34/2026-11-11/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "aachener-karnevalsverein-maxi-mal-fiere-2026-11-11",
+   "typ": "event",
+   "titel": "Aachener Karnevalsverein. „MAXI.MAL FIERE“.",
+   "text": "In Franz. Beginn 18:30 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2026-11-11",
+   "meta": "Franz · 18:30",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/aachener-karnevalsverein-gegr-1859-e-v-prinzenparty/",
+   "quelle": "https://aachen-kalender.de/event/aachener-karnevalsverein-gegr-1859-e-v-prinzenparty/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "schwarze-schwaene-schauspiel-von-christi-2026-11-11",
+   "typ": "event",
+   "titel": "„Schwarze Schwäne“. Schauspiel von Christina Kettering.",
+   "text": "In Grenzlandtheater. Beginn 20:00 Uhr.",
+   "lng": 6.0846,
+   "lat": 50.7768,
+   "start": "2026-11-11",
+   "meta": "Grenzlandtheater · 20:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/schwarze-schwaene-schauspiel-von-christina-kettering-9/2026-11-11/",
+   "quelle": "https://aachen-kalender.de/event/schwarze-schwaene-schauspiel-von-christina-kettering-9/2026-11-11/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "oeffentliche-senior-innenfuehrung-durch--2026-11-12",
+   "typ": "event",
+   "titel": "Öffentliche Senior*innenführung durch die Dauerausstellung. „Küche und Haushalt im 18. und",
+   "text": "In Couven Museum. Beginn 11:00 Uhr.",
+   "lng": 6.0849,
+   "lat": 50.7761,
+   "start": "2026-11-12",
+   "meta": "Couven Museum · 11:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/oeffentliche-seniorinnenfuehrung-durch-die-dauerausstellung-kueche-und-haushalt-im-18-und-19-jh-2/",
+   "quelle": "https://aachen-kalender.de/event/oeffentliche-seniorinnenfuehrung-durch-die-dauerausstellung-kueche-und-haushalt-im-18-und-19-jh-2/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "altstadtfuehrung-2026-11-12",
+   "typ": "event",
+   "titel": "„Altstadtführung“.",
+   "text": "In Tourist Info, Elisenbrunnen. Beginn 14:00 Uhr.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "start": "2026-11-12",
+   "meta": "Tourist Info, Elisenbrunnen · 14:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-11-12/",
+   "quelle": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-11-12/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "entdeckerstunden-mit-denise-und-sabine-2026-11-12",
+   "typ": "event",
+   "titel": "Entdeckerstunden mit Denise und Sabine.",
+   "text": "In Mayersche Buchhandlung. Beginn 16:30 Uhr.",
+   "lng": 6.0865,
+   "lat": 50.7751,
+   "start": "2026-11-12",
+   "meta": "Mayersche Buchhandlung · 16:30",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/entdeckerstunden-mit-denise-und-sabine-33/2026-11-12/",
+   "quelle": "https://aachen-kalender.de/event/entdeckerstunden-mit-denise-und-sabine-33/2026-11-12/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "herz-aus-dem-takt-vorhofflimmern-erkenne-2026-11-12",
+   "typ": "event",
+   "titel": "„Herz aus dem Takt – Vorhofflimmern erkennen und handeln“. SAH Infoveranstaltung.",
+   "text": "In St. Antonius Hospital. Beginn 16:30 Uhr.",
+   "lng": 6.0847,
+   "lat": 50.775,
+   "start": "2026-11-12",
+   "meta": "St. Antonius Hospital · 16:30",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/sah-infoveranstaltung-herz-aus-dem-takt-vorhofflimmern-erkennen-und-handeln/",
+   "quelle": "https://aachen-kalender.de/event/sah-infoveranstaltung-herz-aus-dem-takt-vorhofflimmern-erkennen-und-handeln/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "die-welt-im-feed-wie-bilder-unser-reisen-2026-11-12",
+   "typ": "event",
+   "titel": "„Die Welt im Feed – Wie Bilder unser Reisen verändern“. Literaturabend des Dutch Mountain ",
+   "text": "In Café Vers. Beginn 19:00 Uhr.",
+   "lng": 6.0836,
+   "lat": 50.7789,
+   "start": "2026-11-12",
+   "meta": "Café Vers · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/die-welt-im-feed-wie-bilder-unser-reisen-veraendern-literaturabend-des-dutch-mountain-film-festivals/",
+   "quelle": "https://aachen-kalender.de/event/die-welt-im-feed-wie-bilder-unser-reisen-veraendern-literaturabend-des-dutch-mountain-film-festivals/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "14-aachener-krimitage-oliver-bottini-die-2026-11-12",
+   "typ": "event",
+   "titel": "14. Aachener Krimitage. Oliver Bottini. „Die Summe aller Dinge“.",
+   "text": "In Couven Museum. Beginn 19:30 Uhr.",
+   "lng": 6.0849,
+   "lat": 50.7761,
+   "start": "2026-11-12",
+   "meta": "Couven Museum · 19:30",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/14-aachener-krimitage-oliver-bottini-die-summe-aller-dinge/",
+   "quelle": "https://aachen-kalender.de/event/14-aachener-krimitage-oliver-bottini-die-summe-aller-dinge/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "nils-wuelker-quartett-zuversicht-2026-11-12",
+   "typ": "event",
+   "titel": "Nils Wülker Quartett. „Zuversicht“.",
+   "text": "In Kurhaus Aachen. Beginn 20:00 Uhr.",
+   "lng": 6.0888792,
+   "lat": 50.7769983,
+   "start": "2026-11-12",
+   "meta": "Kurhaus Aachen · 20:00",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/nils-wuelker-quartett-zuversicht/",
+   "quelle": "https://aachen-kalender.de/event/nils-wuelker-quartett-zuversicht/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "katastrophenschutz-erzaehlcaf-fuer-senio-2026-11-13",
+   "typ": "event",
+   "titel": "„Katastrophenschutz“. Erzählcafé für Senior*innen im IZM.",
+   "text": "In Int. Zeitungsmuseum (IZM). Beginn 10:30 Uhr.",
+   "lng": 6.0824,
+   "lat": 50.7758,
+   "start": "2026-11-13",
+   "meta": "Int. Zeitungsmuseum (IZM) · 10:30",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/katastrophenschutz-erzaehlcafe-fuer-seniorinnen-im-izm/",
+   "quelle": "https://aachen-kalender.de/event/katastrophenschutz-erzaehlcafe-fuer-seniorinnen-im-izm/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "altstadtfuehrung-2026-11-13",
+   "typ": "event",
+   "titel": "„Altstadtführung“.",
+   "text": "In Tourist Info, Elisenbrunnen. Beginn 14:00 Uhr.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "start": "2026-11-13",
+   "meta": "Tourist Info, Elisenbrunnen · 14:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-11-13/",
+   "quelle": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-11-13/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "ohrenkino-mit-dem-helene-weber-haus-2026-11-13",
+   "typ": "event",
+   "titel": "„Ohrenkino mit dem Helene-Weber-Haus“.",
+   "text": "In Mayersche Buchhandlung. Beginn 15:00 Uhr.",
+   "lng": 6.0865,
+   "lat": 50.7751,
+   "start": "2026-11-13",
+   "meta": "Mayersche Buchhandlung · 15:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/ohrenkino-mit-dem-helene-weber-haus-11/2026-11-13/1/",
+   "quelle": "https://aachen-kalender.de/event/ohrenkino-mit-dem-helene-weber-haus-11/2026-11-13/1/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "abendbummel-2026-11-13",
+   "typ": "event",
+   "titel": "Abendbummel",
+   "text": "In Tourist Info, Elisenbrunnen. Beginn 18:00 Uhr.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "start": "2026-11-13",
+   "meta": "Tourist Info, Elisenbrunnen · 18:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/abendbummel-43/2026-11-13/",
+   "quelle": "https://aachen-kalender.de/event/abendbummel-43/2026-11-13/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "tischlein-deck-dich-ein-familienstueck-v-2026-11-13",
+   "typ": "event",
+   "titel": "„Tischlein deck dich!“ Ein Familienstück von Daniel Cremer nach den Märchen der Brüder Gri",
+   "text": "In Theater Aachen. Beginn 19:00 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2026-11-13",
+   "meta": "Theater Aachen · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/tischlein-deck-dich-ein-familienstueck-von-daniel-cremer-nach-den-maerchen-der-brueder-grimm-premiere/",
+   "quelle": "https://aachen-kalender.de/event/tischlein-deck-dich-ein-familienstueck-von-daniel-cremer-nach-den-maerchen-der-brueder-grimm-premiere/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "prinzengarde-brander-stiere-gegr-1928-e--2026-11-13",
+   "typ": "event",
+   "titel": "Prinzengarde Brander Stiere gegr. 1928 e.V. „Dämmerschoppen“.",
+   "text": "In Vereinsheim am Brander Bahnhof. Beginn 19:30 Uhr.",
+   "lng": 6.0847,
+   "lat": 50.775,
+   "start": "2026-11-13",
+   "meta": "Vereinsheim am Brander Bahnhof · 19:30",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/prinzengarde-brander-stiere-gegr-1928-e-v-daemmerschoppen/2026-11-13/",
+   "quelle": "https://aachen-kalender.de/event/prinzengarde-brander-stiere-gegr-1928-e-v-daemmerschoppen/2026-11-13/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "theater-und-kunstrundgang-ich-bin-eurydi-2026-11-13",
+   "typ": "event",
+   "titel": "Theater- und Kunstrundgang: Ich bin Eurydike.",
+   "text": "In Zinkhütter Hof. Beginn 19:30 Uhr.",
+   "lng": 6.0847,
+   "lat": 50.775,
+   "start": "2026-11-13",
+   "meta": "Zinkhütter Hof · 19:30",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/theater-und-kunstrundgang-ich-bin-eurydike/2026-11-13/",
+   "quelle": "https://aachen-kalender.de/event/theater-und-kunstrundgang-ich-bin-eurydike/2026-11-13/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "water-damage-pitaya-pulse-2026-11-12",
+   "typ": "event",
+   "titel": "Water Damage + Pitaya Pulse",
+   "text": "In Musikbunker Aachen. Beginn 19:00 Uhr.",
+   "lng": 6.1035274,
+   "lat": 50.7672224,
+   "start": "2026-11-12",
+   "meta": "Musikbunker Aachen · 19:00",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
+   "link": "https://mubu.ac/event/water-damage/",
+   "quelle": "https://mubu.ac/event/water-damage/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "menschroboter-performs-kraftwerk-2026-11-28",
+   "typ": "event",
+   "titel": "MenschRoboter performs Kraftwerk",
+   "text": "In Raststätte. Beginn 19:00 Uhr.",
+   "lng": 6.0939733,
+   "lat": 50.77161,
+   "start": "2026-11-28",
+   "meta": "Raststätte · 19:00",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
+   "link": "https://raststaette.org/termine/menschroboter-performs-kraftwerk/",
+   "quelle": "https://raststaette.org/termine/menschroboter-performs-kraftwerk/",
+   "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kaleidoskop-film-folgt-2026-12-11",
+   "typ": "event",
+   "titel": "Kaleidoskop: Film folgt",
+   "text": "In Raststätte. Beginn 20:00 Uhr.",
+   "lng": 6.0939733,
+   "lat": 50.77161,
+   "start": "2026-12-11",
+   "meta": "Raststätte · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://raststaette.org/termine/kaleidoskop-2026-12-11/",
+   "quelle": "https://raststaette.org/termine/kaleidoskop-2026-12-11/",
+   "hinzu": "2026-11-11"
   }
  ]
 }
