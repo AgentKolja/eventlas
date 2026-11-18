@@ -1,5 +1,5 @@
 {
- "stand": "2026-11-11",
+ "stand": "2026-11-18",
  "hinweis": "Schema: typ event|angebot|hilfe|spot · tags[] · quelle (Beleg-URL) · link (CTA) · hot (beliebt) · hinzu (Aufnahmedatum) · saison {von,bis als MM-TT, jaehrlich wiederkehrend} · fest:true = wird vom Auto-Update nie geloescht.",
  "pins": [
   {
@@ -848,25 +848,6 @@
    "fest": true
   },
   {
-   "id": "sommerbend",
-   "typ": "event",
-   "titel": "Öcher Sommerbend",
-   "text": "Kirmes auf dem Bendplatz, täglich ab 14 Uhr. Mo 10.8. reizarme Kirmes 14–17 Uhr, Di 11.8. Kindertag, Mi 12.8. Familientag mit 50 % Rabatt, Abschlussfeuerwerk 17.8. gegen 22 Uhr.",
-   "lng": 6.07,
-   "lat": 50.7822,
-   "start": "2026-08-07",
-   "ende": "2026-08-17",
-   "meta": "Bendplatz",
-   "tags": [
-    "fest",
-    "familie"
-   ],
-   "link": "https://www.bend-aachen.de",
-   "quelle": "https://www.bend-aachen.de",
-   "hot": true,
-   "hinzu": "2026-08-07"
-  },
-  {
    "id": "reitwm",
    "typ": "event",
    "titel": "Reit-WM: FEI World Championships",
@@ -882,22 +863,6 @@
    "link": "https://www.aachen2026.com",
    "quelle": "https://www.aachen2026.com",
    "hot": true,
-   "hinzu": "2026-08-07"
-  },
-  {
-   "id": "reitwm-tot",
-   "typ": "event",
-   "titel": "Reit-WM: Tag der offenen Tür",
-   "text": "Kostenloses Showprogramm im Hauptstadion, 12–15 Uhr — WM-Luft schnuppern ohne Ticket.",
-   "lng": 6.0942,
-   "lat": 50.7963,
-   "start": "2026-08-17",
-   "meta": "12–15 Uhr · frei",
-   "tags": [
-    "sport"
-   ],
-   "link": "https://www.aachen2026.com",
-   "quelle": "https://www.aachen2026.com",
    "hinzu": "2026-08-07"
   },
   {
@@ -934,22 +899,6 @@
    ],
    "quelle": "https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/",
    "hinzu": "2026-08-07"
-  },
-  {
-   "id": "dreadnoughts",
-   "typ": "event",
-   "titel": "The Dreadnoughts (Konzert)",
-   "text": "Celtic-Polka-Punk aus Vancouver im Musikbunker, Support: Muirsheen Durkin & Friends. Tickets 25 €.",
-   "lng": 6.103,
-   "lat": 50.7695,
-   "start": "2026-08-14",
-   "meta": "Musikbunker · 20 Uhr",
-   "tags": [
-    "musik"
-   ],
-   "link": "https://musikbunkeraachen.bigcartel.com/product/the-dreadnoughts-14082026",
-   "quelle": "https://musikbunkeraachen.bigcartel.com/product/the-dreadnoughts-14082026",
-   "hinzu": "2026-08-08"
   },
   {
    "id": "alemannia-meppen",
@@ -1223,222 +1172,6 @@
    "hinzu": "2026-08-08"
   },
   {
-   "id": "klangbruecke-alles-anders",
-   "typ": "event",
-   "titel": "Alles Anders — Das Musical",
-   "text": "Eigene Musicalproduktion mit fünf Vorstellungen in der Klangbrücke. Fr/Sa 19 Uhr, So 18 Uhr.",
-   "lng": 6.0888792,
-   "lat": 50.7769983,
-   "start": "2026-08-08",
-   "ende": "2026-08-16",
-   "meta": "Klangbrücke",
-   "tags": [
-    "musik",
-    "kultur"
-   ],
-   "link": "https://altes-kurhaus-aachen.de/spielplan/",
-   "quelle": "https://altes-kurhaus-aachen.de/spielplan/",
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "wm-markt-maestro",
-   "typ": "event",
-   "titel": "The Maestro & The European Pop Orchestra",
-   "text": "Großes Pop-Orchester auf der WM-Bühne am Markt. Eintritt frei.",
-   "lng": 6.0838,
-   "lat": 50.776,
-   "start": "2026-08-13",
-   "meta": "Markt · 20:30 · frei",
-   "tags": [
-    "musik"
-   ],
-   "link": "https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/",
-   "quelle": "https://aachen-kalender.de/event/aachen-wm-special-the-maestro-the-european-pop-orchestra/",
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "hof-renaud-marquart",
-   "typ": "event",
-   "titel": "Renaud Marquart Trio — Chansons",
-   "text": "Französische Chansons auf dem Hof, im Rahmenprogramm der Reit-WM. Ab 18 Uhr.",
-   "lng": 6.0847,
-   "lat": 50.775,
-   "start": "2026-08-13",
-   "meta": "Hof · 18 Uhr · frei",
-   "tags": [
-    "musik"
-   ],
-   "link": "https://aachen-kalender.de/event/renaud-marquart-trio-franzoesische-chansons/",
-   "quelle": "https://aachen-kalender.de/event/renaud-marquart-trio-franzoesische-chansons/",
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "wm-markt-querbeat",
-   "typ": "event",
-   "titel": "Querbeat (WM-Bühne Markt)",
-   "text": "Brass-Pop aus Bonn auf dem Marktplatz. Eintritt frei.",
-   "lng": 6.0838,
-   "lat": 50.776,
-   "start": "2026-08-14",
-   "meta": "Markt · 20:30 · frei",
-   "tags": [
-    "musik"
-   ],
-   "link": "https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/",
-   "quelle": "https://aachen-kalender.de/event/aachen-wm-special-querbeat/",
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "anna-orgel-hellemans",
-   "typ": "event",
-   "titel": "SommerOrgelKonzert: Nils Hellemans",
-   "text": "Orgelkonzert in der Annakirche. Beginn 19:30 Uhr.",
-   "lng": 6.082,
-   "lat": 50.7768,
-   "start": "2026-08-14",
-   "meta": "Annakirche · 19:30",
-   "tags": [
-    "musik",
-    "kultur"
-   ],
-   "link": "https://aachen-kalender.de/event/sommerorgelkonzerte-nils-hellemans/",
-   "quelle": "https://aachen-kalender.de/event/sommerorgelkonzerte-nils-hellemans/",
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "wm-markt-alvaro-soler",
-   "typ": "event",
-   "titel": "Álvaro Soler (WM-Bühne Markt)",
-   "text": "Latin-Pop auf dem Marktplatz — der Publikumsmagnet der WM-Woche. Eintritt frei.",
-   "lng": 6.0838,
-   "lat": 50.776,
-   "start": "2026-08-15",
-   "meta": "Markt · 20:30 · frei",
-   "tags": [
-    "musik"
-   ],
-   "link": "https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/",
-   "quelle": "https://aachen-kalender.de/event/aachen-wm-special-alvaro-soler/",
-   "hot": true,
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "elisengarten-klangkarre-1508",
-   "typ": "event",
-   "titel": "Klangkarre im Elisengarten",
-   "text": "Mobiles Straßenmusikformat für alle Altersgruppen. Ab 17 Uhr.",
-   "lng": 6.0857,
-   "lat": 50.7752,
-   "start": "2026-08-15",
-   "meta": "Elisengarten · 17 Uhr · frei",
-   "tags": [
-    "musik",
-    "familie"
-   ],
-   "link": "https://aachen-kalender.de/event/reit-wm-2026-rahmenprogramm-klangkarre/",
-   "quelle": "https://aachen-kalender.de/event/reit-wm-2026-rahmenprogramm-klangkarre/",
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "wm-markt-mia",
-   "typ": "event",
-   "titel": "MiA (WM-Bühne Markt)",
-   "text": "Deutschsprachiger Elektropop auf dem Marktplatz. Eintritt frei.",
-   "lng": 6.0838,
-   "lat": 50.776,
-   "start": "2026-08-16",
-   "meta": "Markt · 20:30 · frei",
-   "tags": [
-    "musik"
-   ],
-   "link": "https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/",
-   "quelle": "https://aachen-kalender.de/event/aachen-wm-special-mia/",
-   "hot": true,
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "kurpark-barockensemble",
-   "typ": "event",
-   "titel": "Ricarda Schumann Barockensemble",
-   "text": "Barockmusik an der Musikmuschel im Kurpark. Ab 13 Uhr.",
-   "lng": 6.093,
-   "lat": 50.783,
-   "start": "2026-08-16",
-   "meta": "Kurpark · 13 Uhr",
-   "tags": [
-    "musik",
-    "kultur"
-   ],
-   "link": "https://aachen-kalender.de/event/ricarda-schumann-barockensemble/",
-   "quelle": "https://aachen-kalender.de/event/ricarda-schumann-barockensemble/",
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "wm-markt-marleys-ghost",
-   "typ": "event",
-   "titel": "Marley's Ghost (WM-Bühne Markt)",
-   "text": "Reggae auf dem Marktplatz. Eintritt frei.",
-   "lng": 6.0838,
-   "lat": 50.776,
-   "start": "2026-08-17",
-   "meta": "Markt · 20:30 · frei",
-   "tags": [
-    "musik"
-   ],
-   "link": "https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/",
-   "quelle": "https://aachen-kalender.de/event/aachen-wm-special-marleys-ghost/",
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "wm-markt-ringo",
-   "typ": "event",
-   "titel": "RINGO (WM-Bühne Markt)",
-   "text": "Livemusik auf dem Marktplatz im WM-Rahmenprogramm. Eintritt frei.",
-   "lng": 6.0838,
-   "lat": 50.776,
-   "start": "2026-08-18",
-   "meta": "Markt · 20:30 · frei",
-   "tags": [
-    "musik"
-   ],
-   "link": "https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/",
-   "quelle": "https://aachen-kalender.de/event/aachen-wm-special-ringo/",
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "wm-markt-shantel",
-   "typ": "event",
-   "titel": "Shantel (WM-Bühne Markt)",
-   "text": "Balkan-Beats zum Tanzen auf dem Marktplatz. Eintritt frei.",
-   "lng": 6.0838,
-   "lat": 50.776,
-   "start": "2026-08-19",
-   "meta": "Markt · 20:30 · frei",
-   "tags": [
-    "musik"
-   ],
-   "link": "https://www.aachen.de/aachen-entdecken/typisch-aachen/aachen-wm-special/",
-   "quelle": "https://aachen-kalender.de/event/aachen-wm-special-shantel/",
-   "hot": true,
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "apollo-salsa-1908",
-   "typ": "event",
-   "titel": "Salsa Afterwork (19.8.)",
-   "text": "Salsa-Abend im Apollo. Ab 19 Uhr.",
-   "lng": 6.078955,
-   "lat": 50.7806829,
-   "start": "2026-08-19",
-   "meta": "Apollo · 19 Uhr",
-   "tags": [
-    "musik"
-   ],
-   "link": "https://apollo-aachen.de/club/events/",
-   "quelle": "https://apollo-aachen.de/club/events/",
-   "hinzu": "2026-08-08"
-  },
-  {
    "id": "wm-markt-knallblech",
    "typ": "event",
    "titel": "Knallblech (WM-Bühne Markt)",
@@ -1682,70 +1415,6 @@
    ],
    "link": "https://www.deinhoteleuropa.de/programm/",
    "quelle": "https://www.deinhoteleuropa.de/programm/",
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "mubu-soen",
-   "typ": "event",
-   "titel": "Soen",
-   "text": "Die schwedische Progressive-Metal-Band Soen spielt im Musikbunker. Beginn 20 Uhr.",
-   "lng": 6.1035274,
-   "lat": 50.7672224,
-   "start": "2026-08-13",
-   "meta": "Musikbunker · 20 Uhr",
-   "tags": [
-    "musik"
-   ],
-   "link": "https://mubu.ac/",
-   "quelle": "https://mubu.ac/",
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "apollo-2000er",
-   "typ": "event",
-   "titel": "2000er Party",
-   "text": "Partynacht mit Hits der 2000er im Apollo. Einlass ab 23 Uhr.",
-   "lng": 6.078955,
-   "lat": 50.7806829,
-   "start": "2026-08-14",
-   "meta": "Apollo · 23 Uhr",
-   "tags": [
-    "musik"
-   ],
-   "link": "https://apollo-aachen.de/club/events/",
-   "quelle": "https://apollo-aachen.de/club/events/",
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "europa-kollektiv",
-   "typ": "event",
-   "titel": "Kollektiv Herrmannstraße — Beats Beyond Borders",
-   "text": "Clubnacht im Kellergewölbe von Dein Hotel Europa. Start 22 Uhr.",
-   "lng": 6.0810781,
-   "lat": 50.7665207,
-   "start": "2026-08-15",
-   "meta": "Dein Hotel Europa · 22 Uhr",
-   "tags": [
-    "musik"
-   ],
-   "link": "https://www.deinhoteleuropa.de/programm/",
-   "quelle": "https://www.deinhoteleuropa.de/programm/",
-   "hinzu": "2026-08-08"
-  },
-  {
-   "id": "apollo-shutup",
-   "typ": "event",
-   "titel": "Shut Up & Dance",
-   "text": "Clubnacht im Apollo mit Einlass ab 23 Uhr.",
-   "lng": 6.078955,
-   "lat": 50.7806829,
-   "start": "2026-08-15",
-   "meta": "Apollo · 23 Uhr",
-   "tags": [
-    "musik"
-   ],
-   "link": "https://apollo-aachen.de/club/events/",
-   "quelle": "https://apollo-aachen.de/club/events/",
    "hinzu": "2026-08-08"
   },
   {
@@ -16824,6 +16493,883 @@
    "link": "https://raststaette.org/termine/kaleidoskop-2026-12-11/",
    "quelle": "https://raststaette.org/termine/kaleidoskop-2026-12-11/",
    "hinzu": "2026-11-11"
+  },
+  {
+   "id": "kk-ludwig-forum-demo-workshop-2026-12-20",
+   "typ": "event",
+   "titel": "DEMO-Workshop",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.1017334,
+   "lat": 50.7811145,
+   "start": "2026-12-20",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/demo-workshops-2/",
+   "quelle": "https://ludwigforum.de/event/demo-workshops-2/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "kk-couven-museum-fuehrung-durch-das-couven-museum-2026-12-27",
+   "typ": "event",
+   "titel": "Führung durch das Couven Museum",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.0849,
+   "lat": 50.7761,
+   "start": "2026-12-27",
+   "meta": "Couven Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://couven-museum.de/event/fuehrung-durch-das-couven-museum-3/",
+   "quelle": "https://couven-museum.de/event/fuehrung-durch-das-couven-museum-3/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-malerei-der-niederlande-2026-12-27",
+   "typ": "event",
+   "titel": "Malerei der Niederlande",
+   "text": "Führung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-12-27",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/malerei-der-niederlande/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/malerei-der-niederlande/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "kk-centre-charlemagne-aachens-vergangenheit-gegenwart-zukunft-2026-12-27",
+   "typ": "event",
+   "titel": "Aachens Vergangenheit – Gegenwart – Zukunft",
+   "text": "Führung.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-12-27",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/aachens-vergangenheit-gegenwart-zukunft-3/",
+   "quelle": "https://centre-charlemagne.eu/termin/aachens-vergangenheit-gegenwart-zukunft-3/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-abenteuer-wunderkammer-2026-12-27",
+   "typ": "event",
+   "titel": "Abenteuer Wunderkammer",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-12-27",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/abenteuer-wunderkammer-2/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/abenteuer-wunderkammer-2/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "kk-centre-charlemagne-2-5-km-industriegeschiche-die-juelicher--2026-12-27",
+   "typ": "event",
+   "titel": "2,5 km Industriegeschiche. Die Jülicher Straße",
+   "text": "Führung.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-12-27",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/25-km-industriegeschiche-die-juelicher-strasse-11/2026-12-27/",
+   "quelle": "https://centre-charlemagne.eu/termin/25-km-industriegeschiche-die-juelicher-strasse-11/2026-12-27/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "kk-centre-charlemagne-geschichten-von-grenze-und-zoll-2026-12-28",
+   "typ": "event",
+   "titel": "Geschichten von Grenze und Zoll",
+   "text": "Führung.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-12-28",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/geschichten-von-grenze-und-zoll/",
+   "quelle": "https://centre-charlemagne.eu/termin/geschichten-von-grenze-und-zoll/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "kk-ludwig-forum-weihnachtsferien-2026-12-29",
+   "typ": "event",
+   "titel": "Weihnachtsferien",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.1017334,
+   "lat": 50.7811145,
+   "start": "2026-12-29",
+   "ende": "2027-01-06",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/weihnachtsferien/",
+   "quelle": "https://ludwigforum.de/event/weihnachtsferien/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "kk-ludwig-forum-ich-bin-du-du-bist-ich-2026-12-29",
+   "typ": "event",
+   "titel": "Ich bin Du, Du bist Ich",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.1017334,
+   "lat": 50.7811145,
+   "start": "2026-12-29",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/ich-bin-du-du-bist-ich/",
+   "quelle": "https://ludwigforum.de/event/ich-bin-du-du-bist-ich/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "kk-couven-museum-zwischen-oeffentlichkeit-und-privatheit--2026-12-29",
+   "typ": "event",
+   "titel": "Zwischen Öffentlichkeit und Privatheit: Portraits im Couven-Museum",
+   "text": "Führung.",
+   "lng": 6.0849,
+   "lat": 50.7761,
+   "start": "2026-12-29",
+   "meta": "Couven Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://couven-museum.de/event/zwischen-oeffentlichkeit-und-privatheit-portraits-im-couven-museum/",
+   "quelle": "https://couven-museum.de/event/zwischen-oeffentlichkeit-und-privatheit-portraits-im-couven-museum/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "kk-couven-museum-tinte-trifft-tusche-tintenfaesser-und-tu-2026-12-29",
+   "typ": "event",
+   "titel": "Tinte trifft Tusche. Tintenfässer und Tuschezeichnungen",
+   "text": "Führung.",
+   "lng": 6.0849,
+   "lat": 50.7761,
+   "start": "2026-12-29",
+   "meta": "Couven Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://couven-museum.de/event/tinte-trifft-tusche-tintenfaesser-und-tuschezeichnungen-7/",
+   "quelle": "https://couven-museum.de/event/tinte-trifft-tusche-tintenfaesser-und-tuschezeichnungen-7/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "kk-centre-charlemagne-mittelalter-zeitreise-im-schaukasten-2026-12-30",
+   "typ": "event",
+   "titel": "Mittelalter-Zeitreise im Schaukasten",
+   "text": "Workshop.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-12-30",
+   "meta": "Centre Charlemagne",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://centre-charlemagne.eu/termin/mittelalter-zeitreise-im-schaukasten/",
+   "quelle": "https://centre-charlemagne.eu/termin/mittelalter-zeitreise-im-schaukasten/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "kk-suermondt-ludwig-museum-kunst-am-vormittag-2026-12-30",
+   "typ": "event",
+   "titel": "Kunst am Vormittag",
+   "text": "Führung.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-12-30",
+   "meta": "Suermondt-Ludwig-Museum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://suermondt-ludwig-museum.de/event/kunst-am-vormittag-2-2/",
+   "quelle": "https://suermondt-ludwig-museum.de/event/kunst-am-vormittag-2-2/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "kk-ludwig-forum-art-n-schutz-orchester-neujahrskonzert-2-2027-01-01",
+   "typ": "event",
+   "titel": "Art’n Schutz Orchester – Neujahrskonzert 2027",
+   "text": "Aus dem Kulturkalender der Stadt Aachen.",
+   "lng": 6.1017334,
+   "lat": 50.7811145,
+   "start": "2027-01-01",
+   "meta": "Ludwig Forum",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://ludwigforum.de/event/artn-schutz-orchester-neujahrskonzert-2027/",
+   "quelle": "https://ludwigforum.de/event/artn-schutz-orchester-neujahrskonzert-2027/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "stationen-vii-neue-musik-aus-nrw-mit-zun-2026-11-20",
+   "typ": "event",
+   "titel": "STATIONEN VII – Neue Musik aus NRW MIT ZUNGEN BALGEN – AKKORDEON IM QUARTETT",
+   "text": "Konzert in Klangbrücke, Beginn 19:00 Uhr.",
+   "lng": 6.0888792,
+   "lat": 50.7769983,
+   "start": "2026-11-20",
+   "meta": "Klangbrücke · 19:00",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/stationen-vii-neue-musik-aus-nrw-mit-zungen-balgen-akkordeon-0/",
+   "quelle": "https://rausgegangen.de/events/stationen-vii-neue-musik-aus-nrw-mit-zungen-balgen-akkordeon-0/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "jean-michel-jarre-2027-07-13",
+   "typ": "event",
+   "titel": "JEAN-MICHEL JARRE",
+   "text": "Konzert in Kurpark Classix, Beginn 20:00 Uhr.",
+   "lng": 6.093,
+   "lat": 50.783,
+   "start": "2027-07-13",
+   "meta": "Kurpark Classix · 20:00",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/jean-michel-jarre-0/",
+   "quelle": "https://rausgegangen.de/events/jean-michel-jarre-0/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "karaoke-2026-11-18",
+   "typ": "event",
+   "titel": "KARAOKE",
+   "text": "Party in Barbarossa Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0925,
+   "lat": 50.7714,
+   "start": "2026-11-18",
+   "meta": "Barbarossa Aachen · 20:00",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/karaoke-3400/",
+   "quelle": "https://rausgegangen.de/events/karaoke-3400/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "discodisco-2026-11-21",
+   "typ": "event",
+   "titel": "DiscoDisco",
+   "text": "Party in FRANZ - Aachen, Beginn 21:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2026-11-21",
+   "meta": "FRANZ - Aachen · 21:00",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/discodisco-6/",
+   "quelle": "https://rausgegangen.de/events/discodisco-6/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "salsa-sunday-2026-11-22",
+   "typ": "event",
+   "titel": "SALSA SUNDAY",
+   "text": "Party in Barbarossa Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.0925,
+   "lat": 50.7714,
+   "start": "2026-11-22",
+   "meta": "Barbarossa Aachen · 19:00",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/salsa-sunday-26/",
+   "quelle": "https://rausgegangen.de/events/salsa-sunday-26/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "tischlein-deck-dich-2026-11-20",
+   "typ": "event",
+   "titel": "Tischlein deck dich",
+   "text": "Bühne in Theater Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2026-11-20",
+   "meta": "Theater Aachen · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/tischlein-deck-dich-20/",
+   "quelle": "https://rausgegangen.de/events/tischlein-deck-dich-20/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "tanztheatermobil-mutterland-14-2027-01-21",
+   "typ": "event",
+   "titel": "TanztheaterMobil - Mutterland 14+",
+   "text": "Bühne in Suermondt-Ludwig-Museum Aachen, Beginn 19:00 Uhr.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2027-01-21",
+   "meta": "Suermondt-Ludwig-Museum Aachen · 19:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://rausgegangen.de/events/tanztheatermobil-mutterland-14-3/",
+   "quelle": "https://rausgegangen.de/events/tanztheatermobil-mutterland-14-3/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "maria-clara-groppler-ehefrau-tour-2027-a-2026-11-14",
+   "typ": "event",
+   "titel": "Maria Clara Groppler - EHEFRAU Tour 2027 Aachen",
+   "text": "Show in FRANZ - Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2026-11-14",
+   "meta": "FRANZ - Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/maria-clara-groppler-ehefrau-tour-2027-aachen-0/",
+   "quelle": "https://rausgegangen.de/events/maria-clara-groppler-ehefrau-tour-2027-aachen-0/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "aachener-comedy-clash-finale-2026-12-03",
+   "typ": "event",
+   "titel": "Aachener Comedy Clash - FINALE",
+   "text": "Lesung & Comedy in Kurhaus Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0888792,
+   "lat": 50.7769983,
+   "start": "2026-12-03",
+   "meta": "Kurhaus Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/aachener-comedy-clash-finale-0/",
+   "quelle": "https://rausgegangen.de/events/aachener-comedy-clash-finale-0/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "wort-trifft-musik-sebastian-knauer-marti-2027-02-21",
+   "typ": "event",
+   "titel": "Wort trifft Musik: Sebastian Knauer & Martina Gedeck „BEETHOVEN DER GROSSE ZAUBERER“",
+   "text": "Lesung & Comedy in Altes Kurhaus Aachen, Beginn 16:00 Uhr.",
+   "lng": 6.0888792,
+   "lat": 50.7769983,
+   "start": "2027-02-21",
+   "meta": "Altes Kurhaus Aachen · 16:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/wort-trifft-musik-sebastian-knauer-martina-gedeck-beethoven--0/",
+   "quelle": "https://rausgegangen.de/events/wort-trifft-musik-sebastian-knauer-martina-gedeck-beethoven--0/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "ralf-schmitz-schmitzmaen-2027-10-13",
+   "typ": "event",
+   "titel": "Ralf Schmitz – SCHMITZMÄN",
+   "text": "Lesung & Comedy in Eurogress Aachen, Beginn 20:00 Uhr.",
+   "lng": 6.0918663,
+   "lat": 50.7820937,
+   "start": "2027-10-13",
+   "meta": "Eurogress Aachen · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/ralf-schmitz-schmitzman-17/",
+   "quelle": "https://rausgegangen.de/events/ralf-schmitz-schmitzman-17/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "roland-jankowsky-2027-10-16",
+   "typ": "event",
+   "titel": "Roland Jankowsky",
+   "text": "Lesung & Comedy in Kurpark Classix, Beginn 19:30 Uhr.",
+   "lng": 6.093,
+   "lat": 50.783,
+   "start": "2027-10-16",
+   "meta": "Kurpark Classix · 19:30",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/roland-jankowsky-98/",
+   "quelle": "https://rausgegangen.de/events/roland-jankowsky-98/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "klassikerperlen-2026-11-23",
+   "typ": "event",
+   "titel": "Klassikerperlen",
+   "text": "Film in Apollo Kino & Bar, Beginn 20:00 Uhr.",
+   "lng": 6.078955,
+   "lat": 50.7806829,
+   "start": "2026-11-23",
+   "meta": "Apollo Kino & Bar · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/klassikerperlen-46/",
+   "quelle": "https://rausgegangen.de/events/klassikerperlen-46/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "european-outdoor-film-tour-26-27-eoft-2026-12-02",
+   "typ": "event",
+   "titel": "European Outdoor Film Tour 26/27 - EOFT",
+   "text": "Film in Eurogress Aachen, Beginn 19:30 Uhr.",
+   "lng": 6.0918663,
+   "lat": 50.7820937,
+   "start": "2026-12-02",
+   "meta": "Eurogress Aachen · 19:30",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://rausgegangen.de/events/european-outdoor-film-tour-2026-eoft-113/",
+   "quelle": "https://rausgegangen.de/events/european-outdoor-film-tour-2026-eoft-113/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "flohmarkt-porta-2026-12-13",
+   "typ": "event",
+   "titel": "Flohmarkt PORTA",
+   "text": "Markt in PORTA Möbelhaus, Beginn 11:00 Uhr.",
+   "lng": 6.0838,
+   "lat": 50.776,
+   "start": "2026-12-13",
+   "meta": "PORTA Möbelhaus · 11:00",
+   "tags": [
+    "markt",
+    "musik",
+    "fest"
+   ],
+   "link": "https://rausgegangen.de/events/flohmarkt-porta-4/",
+   "quelle": "https://rausgegangen.de/events/flohmarkt-porta-4/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "overdrive-local-chaos-2026-11-27",
+   "typ": "event",
+   "titel": "OVERDRIVE LOCAL CHAOS",
+   "text": "Konzert im Musikbunker.",
+   "lng": 6.1035274,
+   "lat": 50.7672224,
+   "start": "2026-11-27",
+   "meta": "Musikbunker",
+   "tags": [
+    "musik"
+   ],
+   "link": "https://musikbunkeraachen.bigcartel.com/product/overdrive-local-chaos-07082026",
+   "quelle": "https://musikbunkeraachen.bigcartel.com/product/overdrive-local-chaos-07082026",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "kunst-croissants-und-konfituere-der-teuf-2026-11-18",
+   "typ": "event",
+   "titel": "Kunst, Croissants und Konfitüre. „Der Teufel steckt im Detail …“",
+   "text": "In Suermondt-Ludwig-Museum. Beginn 10:15 Uhr.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-11-18",
+   "meta": "Suermondt-Ludwig-Museum · 10:15",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/kunst-croissants-und-konfituere-der-teufel-steckt-im-detail/",
+   "quelle": "https://aachen-kalender.de/event/kunst-croissants-und-konfituere-der-teufel-steckt-im-detail/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "altstadtfuehrung-2026-11-18",
+   "typ": "event",
+   "titel": "„Altstadtführung“.",
+   "text": "In Tourist Info, Elisenbrunnen. Beginn 14:00 Uhr.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "start": "2026-11-18",
+   "meta": "Tourist Info, Elisenbrunnen · 14:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-11-18/",
+   "quelle": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-11-18/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "herzwochen-im-forum-m-vorhofflimmern-erk-2026-11-18",
+   "typ": "event",
+   "titel": "Herzwochen im forum M: Vorhofflimmern erkennen und behandeln.",
+   "text": "In forum M, Mayersche Buchhandlung. Beginn 15:00 Uhr.",
+   "lng": 6.0847,
+   "lat": 50.775,
+   "start": "2026-11-18",
+   "meta": "forum M, Mayersche Buchhandlung · 15:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/herzwochen-im-forum-m-vorhofflimmern-erkennen-und-behandeln/",
+   "quelle": "https://aachen-kalender.de/event/herzwochen-im-forum-m-vorhofflimmern-erkennen-und-behandeln/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "entdeckerstunden-mit-denise-und-sabine-2026-11-18",
+   "typ": "event",
+   "titel": "Entdeckerstunden mit Denise und Sabine.",
+   "text": "In Mayersche Buchhandlung. Beginn 16:30 Uhr.",
+   "lng": 6.0865,
+   "lat": 50.7751,
+   "start": "2026-11-18",
+   "meta": "Mayersche Buchhandlung · 16:30",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/entdeckerstunden-mit-denise-und-sabine-34/2026-11-18/",
+   "quelle": "https://aachen-kalender.de/event/entdeckerstunden-mit-denise-und-sabine-34/2026-11-18/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "dipl-geol-paul-kirch-alles-beginnt-mit-d-2026-11-18",
+   "typ": "event",
+   "titel": "Dipl. Geol. Paul Kirch. „Alles beginnt mit der Geologie“",
+   "text": "In Kupferhof-Rosental. Beginn 19:00 Uhr.",
+   "lng": 6.0847,
+   "lat": 50.775,
+   "start": "2026-11-18",
+   "meta": "Kupferhof-Rosental · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/dipl-geol-paul-kirch-alles-beginnt-mit-der-geologie/",
+   "quelle": "https://aachen-kalender.de/event/dipl-geol-paul-kirch-alles-beginnt-mit-der-geologie/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "oeffentliche-senior-innenfuehrung-dauera-2026-11-19",
+   "typ": "event",
+   "titel": "Öffentliche Senior*innenführung / Dauerausstellung. „Engelschöre und Höllenkrach – Musik i",
+   "text": "In Suermondt-Ludwig-Museum. Beginn 11:00 Uhr.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-11-19",
+   "meta": "Suermondt-Ludwig-Museum · 11:00",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/oeffentliche-seniorinnenfuehrung-dauerausstellung-engelschoere-und-hoellenkrach-musik-in-der-malerei/",
+   "quelle": "https://aachen-kalender.de/event/oeffentliche-seniorinnenfuehrung-dauerausstellung-engelschoere-und-hoellenkrach-musik-in-der-malerei/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "altstadtfuehrung-2026-11-19",
+   "typ": "event",
+   "titel": "„Altstadtführung“.",
+   "text": "In Tourist Info, Elisenbrunnen. Beginn 14:00 Uhr.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "start": "2026-11-19",
+   "meta": "Tourist Info, Elisenbrunnen · 14:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-11-19/",
+   "quelle": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-11-19/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "entdeckerstunden-mit-denise-und-sabine-2026-11-19",
+   "typ": "event",
+   "titel": "Entdeckerstunden mit Denise und Sabine.",
+   "text": "In Mayersche Buchhandlung. Beginn 16:30 Uhr.",
+   "lng": 6.0865,
+   "lat": 50.7751,
+   "start": "2026-11-19",
+   "meta": "Mayersche Buchhandlung · 16:30",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/entdeckerstunden-mit-denise-und-sabine-33/2026-11-19/",
+   "quelle": "https://aachen-kalender.de/event/entdeckerstunden-mit-denise-und-sabine-33/2026-11-19/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "in-front-festival-emma-rawicz-new-quarte-2026-11-19",
+   "typ": "event",
+   "titel": "In Front Festival. „Emma Rawicz – New Quartet“.",
+   "text": "In Altes Kurhaus, Klangbrücke. Beginn 19:00 Uhr.",
+   "lng": 6.0888792,
+   "lat": 50.7769983,
+   "start": "2026-11-19",
+   "meta": "Altes Kurhaus, Klangbrücke · 19:00",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/emma-rawicz-new-quartett/",
+   "quelle": "https://aachen-kalender.de/event/emma-rawicz-new-quartett/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "rolf-dieter-moenning-die-kehrseite-2026-11-19",
+   "typ": "event",
+   "titel": "Rolf-Dieter Mönning. „Die Kehrseite“.",
+   "text": "In forum M, Mayersche Buchhandlung. Beginn 19:00 Uhr.",
+   "lng": 6.0865,
+   "lat": 50.7751,
+   "start": "2026-11-19",
+   "meta": "forum M, Mayersche Buchhandlung · 19:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/rolf-dieter-moenning-die-kehrseite/",
+   "quelle": "https://aachen-kalender.de/event/rolf-dieter-moenning-die-kehrseite/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "philosophischer-salon-philosophische-wur-2026-11-19",
+   "typ": "event",
+   "titel": "Philosophischer Salon. „Philosophische Wurzeln der Menschenfreundlichkeit“.",
+   "text": "In Burg Frankenberg. Beginn 19:00 Uhr.",
+   "lng": 6.1038202,
+   "lat": 50.7678212,
+   "start": "2026-11-19",
+   "meta": "Burg Frankenberg · 19:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/philosophischer-salon-philosophische-wurzeln-der-menschenfreundlichkeit/",
+   "quelle": "https://aachen-kalender.de/event/philosophischer-salon-philosophische-wurzeln-der-menschenfreundlichkeit/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "14-aachener-krimitage-peter-friedrich-ka-2026-11-19",
+   "typ": "event",
+   "titel": "14. Aachener Krimitage. Peter Friedrich. „Kafkarabesken oder Die Ermittlungen“.",
+   "text": "In Couven Museum. Beginn 19:30 Uhr.",
+   "lng": 6.0849,
+   "lat": 50.7761,
+   "start": "2026-11-19",
+   "meta": "Couven Museum · 19:30",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/14-aachener-krimitage-peter-friedrich-kafkarabesken-oder-die-ermittlungen/",
+   "quelle": "https://aachen-kalender.de/event/14-aachener-krimitage-peter-friedrich-kafkarabesken-oder-die-ermittlungen/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "vhs-aachen-online-reiner-stach-franz-kaf-2026-11-19",
+   "typ": "event",
+   "titel": "vhs aachen online. Reiner Stach. „Franz Kafka und Prag“.",
+   "text": "In Online. Beginn 19:30 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2026-11-19",
+   "meta": "Online · 19:30",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/vhs-aachen-online-reiner-stach-franz-kafka-und-prag/",
+   "quelle": "https://aachen-kalender.de/event/vhs-aachen-online-reiner-stach-franz-kafka-und-prag/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "oecher-comedy-night-nr-15-2026-11-19",
+   "typ": "event",
+   "titel": "Öcher Comedy Night Nr. 15.",
+   "text": "In Saalbau Rothe Erde. Beginn 20:00 Uhr.",
+   "lng": 6.1211,
+   "lat": 50.7757,
+   "start": "2026-11-19",
+   "meta": "Saalbau Rothe Erde · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/oecher-comedy-night-nr-15/",
+   "quelle": "https://aachen-kalender.de/event/oecher-comedy-night-nr-15/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "panagiota-petridou-was-letzte-preis-2026-11-19",
+   "typ": "event",
+   "titel": "Panagiota Petridou. „Was letzte Preis?“.",
+   "text": "In Franz. Beginn 20:00 Uhr.",
+   "lng": 6.0864597,
+   "lat": 50.7685241,
+   "start": "2026-11-19",
+   "meta": "Franz · 20:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/panagiota-petridou-was-letzte-preis/",
+   "quelle": "https://aachen-kalender.de/event/panagiota-petridou-was-letzte-preis/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "1-sitzkissenkonzert-elmar-ein-elefant-be-2026-11-20",
+   "typ": "event",
+   "titel": "1. Sitzkissenkonzert. „Elmar – Ein Elefant bekennt Farbe“. Premiere.",
+   "text": "In Theater Aachen. Beginn 10:00 Uhr.",
+   "lng": 6.087146,
+   "lat": 50.7725403,
+   "start": "2026-11-20",
+   "meta": "Theater Aachen · 10:00",
+   "tags": [
+    "musik",
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/1-sitzkissenkonzert-elmar-ein-elefant-bekennt-farbe-premiere/",
+   "quelle": "https://aachen-kalender.de/event/1-sitzkissenkonzert-elmar-ein-elefant-bekennt-farbe-premiere/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "johann-baptist-bastin-maler-in-aachen-ta-2026-11-20",
+   "typ": "event",
+   "titel": "„Johann Baptist Bastiné, Maler in Aachen“. Tagung.",
+   "text": "In Centre Charlemagne. Beginn 10:00 Uhr.",
+   "lng": 6.0836,
+   "lat": 50.7757,
+   "start": "2026-11-20",
+   "meta": "Centre Charlemagne · 10:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/johann-baptist-bastine-maler-in-aachen-tagung/",
+   "quelle": "https://aachen-kalender.de/event/johann-baptist-bastine-maler-in-aachen-tagung/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "53-aachener-weihnachtsmarkt-auftakt-2026-11-20",
+   "typ": "event",
+   "titel": "„53. Aachener Weihnachtsmarkt“. Auftakt.",
+   "text": "In Aachen Innenstadt. Beginn 11:00 Uhr.",
+   "lng": 6.0838,
+   "lat": 50.776,
+   "start": "2026-11-20",
+   "meta": "Aachen Innenstadt · 11:00",
+   "tags": [
+    "kultur",
+    "musik",
+    "fest"
+   ],
+   "link": "https://aachen-kalender.de/event/53-aachener-weihnachtsmarkt-auftakt/",
+   "quelle": "https://aachen-kalender.de/event/53-aachener-weihnachtsmarkt-auftakt/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "altstadtfuehrung-2026-11-20",
+   "typ": "event",
+   "titel": "„Altstadtführung“.",
+   "text": "In Tourist Info, Elisenbrunnen. Beginn 14:00 Uhr.",
+   "lng": 6.0871,
+   "lat": 50.7747,
+   "start": "2026-11-20",
+   "meta": "Tourist Info, Elisenbrunnen · 14:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-11-20/",
+   "quelle": "https://aachen-kalender.de/event/altstadtfuehrung-322/2026-11-20/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "von-hexen-tieren-und-magischen-wesen-les-2026-11-20",
+   "typ": "event",
+   "titel": "„Von Hexen, Tieren und magischen Wesen – Lesestunden in der Museumsbibliothek“. Bundesweit",
+   "text": "In Suermondt-Ludwig-Museum. Beginn 14:00 Uhr.",
+   "lng": 6.0905,
+   "lat": 50.7712,
+   "start": "2026-11-20",
+   "meta": "Suermondt-Ludwig-Museum · 14:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/von-hexen-tieren-und-magischen-wesen-lesestunden-in-der-museumsbibliothek-vorlesetag-im-slm/2026-11-20/1/",
+   "quelle": "https://aachen-kalender.de/event/von-hexen-tieren-und-magischen-wesen-lesestunden-in-der-museumsbibliothek-vorlesetag-im-slm/2026-11-20/1/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "ohrenkino-mit-dem-helene-weber-haus-2026-11-20",
+   "typ": "event",
+   "titel": "„Ohrenkino mit dem Helene-Weber-Haus“.",
+   "text": "In Mayersche Buchhandlung. Beginn 15:00 Uhr.",
+   "lng": 6.0865,
+   "lat": 50.7751,
+   "start": "2026-11-20",
+   "meta": "Mayersche Buchhandlung · 15:00",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/ohrenkino-mit-dem-helene-weber-haus-11/2026-11-20/1/",
+   "quelle": "https://aachen-kalender.de/event/ohrenkino-mit-dem-helene-weber-haus-11/2026-11-20/1/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "geschichten-im-museum-tintenfass-und-flo-2026-11-20",
+   "typ": "event",
+   "titel": "Geschichten im Museum. „Tintenfass und Flohfalle – vom Zauber der Dinge“.",
+   "text": "In Couven Museum. Beginn 15:30 Uhr.",
+   "lng": 6.0849,
+   "lat": 50.7761,
+   "start": "2026-11-20",
+   "meta": "Couven Museum · 15:30",
+   "tags": [
+    "kultur"
+   ],
+   "link": "https://aachen-kalender.de/event/geschichten-im-museum-tintenfass-und-flohfalle-vom-zauber-der-dinge/",
+   "quelle": "https://aachen-kalender.de/event/geschichten-im-museum-tintenfass-und-flohfalle-vom-zauber-der-dinge/",
+   "hinzu": "2026-11-18"
+  },
+  {
+   "id": "beats-beyond-borders-2026-11-28",
+   "typ": "event",
+   "titel": "Beats Beyond Borders",
+   "text": "In Musikbunker Aachen. Beginn 23:00 Uhr.",
+   "lng": 6.1035274,
+   "lat": 50.7672224,
+   "start": "2026-11-28",
+   "ende": "2026-12-29",
+   "meta": "Musikbunker Aachen · 23:00",
+   "tags": [
+    "kultur",
+    "musik"
+   ],
+   "link": "https://mubu.ac/event/beats-beyond-borders/",
+   "quelle": "https://mubu.ac/event/beats-beyond-borders/",
+   "hinzu": "2026-11-18"
   }
  ]
 }
